@@ -1,0 +1,108 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Adamdegoat · AI projects</title>
+<meta name="description" content="AI projects built in the open — autonomous trading systems, self-improving research, and daily AI-written fiction. All running live.">
+<meta property="og:title" content="Adamdegoat · AI projects built in the open">
+<meta property="og:description" content="Autonomous trading systems, self-improving research, and daily AI-written fiction. All running live, all public.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://adamdegoat.github.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+:root{--bg:#070b16;--ink:#e8eef7;--muted:#8a99b5;--dim:#5d6b86;--line:rgba(148,163,184,.13)}
+html,body{height:100%}
+body{margin:0;background:#070b16;color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh;
+  background-image:radial-gradient(900px 500px at 20% -5%,rgba(56,189,248,.10),transparent 60%),radial-gradient(800px 480px at 82% 5%,rgba(168,85,247,.11),transparent 60%),radial-gradient(600px 500px at 50% 110%,rgba(34,197,94,.07),transparent 60%),linear-gradient(rgba(148,163,184,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.03) 1px,transparent 1px);
+  background-size:auto,auto,auto,46px 46px,46px 46px;background-attachment:fixed}
+.wrap{max-width:860px;margin:0 auto;padding:80px 20px 80px;display:flex;flex-direction:column;align-items:center;min-height:100vh}
+
+/* header */
+.brand{display:inline-flex;align-items:center;gap:14px;justify-content:center}
+.mark{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,#2b4079,#0e1a35);border:1px solid rgba(148,163,184,.2);box-shadow:0 8px 24px rgba(0,0,0,.55);display:grid;place-items:center;font-size:26px;flex:none}
+.wordmark{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:38px;letter-spacing:-1px;color:#fff;line-height:1;margin:0}
+.tagline{margin:20px 0 0;color:var(--muted);font-size:15px;line-height:1.65;text-align:center;max-width:480px}
+.tagline b{color:#cdd8ec;font-weight:600}
+.divider{width:40px;height:2px;background:linear-gradient(90deg,#38bdf8,#a855f7);border-radius:2px;margin:32px 0}
+
+/* project grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;width:100%;margin-top:0}
+.card{position:relative;display:flex;flex-direction:column;text-decoration:none;color:inherit;
+  background:linear-gradient(180deg,rgba(22,32,53,.62),rgba(15,23,42,.56));
+  border:1px solid var(--line);border-radius:20px;padding:28px 26px 24px;overflow:hidden;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  box-shadow:0 12px 36px rgba(0,0,0,.36);transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.card:before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--accent);opacity:.9}
+.card:after{content:"";position:absolute;inset:0;background:radial-gradient(420px 200px at 50% -20%,var(--glow),transparent 70%);opacity:0;transition:opacity .22s ease;pointer-events:none}
+.card:hover{transform:translateY(-7px);border-color:var(--accent);box-shadow:0 24px 56px rgba(0,0,0,.5),0 0 0 1px var(--accent)}
+.card:hover:after{opacity:.5}
+.card-ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:26px;background:var(--chip);border:1px solid var(--accent);margin-bottom:18px;flex:none}
+.card-tag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:700}
+.card-name{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:#fff;margin:6px 0 0;letter-spacing:-.4px}
+.card-desc{color:var(--muted);font-size:13.5px;line-height:1.65;margin:12px 0 0;flex:1}
+.card-desc b{color:#cdd8ec;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.chip{font-size:10.5px;font-weight:600;color:#cdd8ec;background:rgba(148,163,184,.07);border:1px solid var(--line);border-radius:7px;padding:3px 9px}
+.enter{display:inline-flex;align-items:center;gap:7px;margin-top:22px;font-weight:700;font-size:13.5px;color:var(--accent);letter-spacing:.3px}
+.enter .arr{transition:transform .22s ease}
+.card:hover .enter .arr{transform:translateX(5px)}
+
+/* section label */
+.section-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dim);font-weight:700;margin:0 0 16px;align-self:flex-start}
+
+/* footer */
+.foot{margin-top:auto;padding-top:56px;text-align:center;color:var(--dim);font-size:11.5px;line-height:1.9}
+.foot a{color:var(--muted);text-decoration:none}.foot a:hover{color:#38bdf8}
+.sep{color:#2a3550;margin:0 8px}
+
+@media(max-width:640px){.grid{grid-template-columns:1fr}.wordmark{font-size:30px}.wrap{padding:56px 16px 64px}}
+</style></head>
+<body><div class="wrap">
+
+  <div class="brand">
+    <div class="mark">🤖</div>
+    <h1 class="wordmark">Adamdegoat</h1>
+  </div>
+  <p class="tagline"><b>AI projects built in the open.</b> Autonomous systems that research, trade, write, and get smarter over time — all running live, all public.</p>
+
+  <div class="divider"></div>
+
+  <div class="section-label">Projects</div>
+  <div class="grid">
+
+    <a class="card" href="https://adamdegoat.github.io/jarvis/" style="--accent:#38bdf8;--chip:rgba(56,189,248,.10);--glow:rgba(56,189,248,.20)">
+      <div class="card-ic">⚡</div>
+      <div class="card-tag">Trading & research · 6 systems</div>
+      <h2 class="card-name">Jarvis</h2>
+      <p class="card-desc">A fleet of <b>6 autonomous AI systems</b> that trade stocks, crypto and forex, invent their own strategies, and self-improve with every trade. Four systems now at <b>L5</b> — the level where the brain learns which <em>families</em> of approaches keep producing winners.</p>
+      <div class="chips">
+        <span class="chip">L5 intelligence</span>
+        <span class="chip">6 live systems</span>
+        <span class="chip">Self-improving</span>
+        <span class="chip">Paper-traded</span>
+      </div>
+      <span class="enter">Enter Jarvis <span class="arr">→</span></span>
+    </a>
+
+    <a class="card" href="https://adamdegoat.github.io/the-breakfast-times/" style="--accent:#f59e0b;--chip:rgba(245,158,11,.10);--glow:rgba(245,158,11,.18)">
+      <div class="card-ic">☕</div>
+      <div class="card-tag">Fiction · Daily stories</div>
+      <h2 class="card-name">The Breakfast Times</h2>
+      <p class="card-desc">A <b>self-improving AI storyteller</b> that publishes a new short story every morning. It studies what makes fiction resonate, grades itself on craft, and gets better at the job with every story it writes.</p>
+      <div class="chips">
+        <span class="chip">Daily stories</span>
+        <span class="chip">Self-improving</span>
+        <span class="chip">Romance & drama</span>
+        <span class="chip">Free to read</span>
+      </div>
+      <span class="enter">Read today's story <span class="arr">→</span></span>
+    </a>
+
+  </div>
+
+  <div class="foot">
+    Built by Adamdegoat <span class="sep">·</span> powered by <a href="https://anthropic.com">Claude</a> <span class="sep">·</span> all systems running live
+  </div>
+
+</div></body></html>
