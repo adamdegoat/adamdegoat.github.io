@@ -224,6 +224,70 @@ body{
 }
 .desc-research b{color:#e879f9!important}
 
+/* ════════════════════════════════════════════════════════
+   CARD THEMES — each card's visual reflects its concept
+════════════════════════════════════════════════════════ */
+
+/* ── JARVIS: Trading terminal ───────────────────────────── */
+.card-jarvis{
+  background:
+    linear-gradient(160deg,rgba(4,14,10,.93),rgba(3,10,7,.89)),
+    repeating-linear-gradient(0deg,transparent,transparent 27px,rgba(34,197,94,.03) 27px,rgba(34,197,94,.03) 28px),
+    repeating-linear-gradient(90deg,transparent,transparent 27px,rgba(34,197,94,.02) 27px,rgba(34,197,94,.02) 28px)
+}
+.card-jarvis::before{background:linear-gradient(90deg,#166534,#22c55e,#38bdf8,#22c55e,#166534)}
+.term-header{
+  display:flex;align-items:center;gap:9px;
+  margin-bottom:16px;padding-bottom:11px;
+  border-bottom:1px solid rgba(34,197,94,.1)
+}
+.term-dots{display:flex;gap:5px;flex:none}
+.td{width:9px;height:9px;border-radius:50%}
+.td-r{background:#f43f5e;opacity:.7}
+.td-y{background:#f59e0b;opacity:.7}
+.td-g{background:#22c55e;opacity:.85}
+.term-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:rgba(34,197,94,.4);text-transform:uppercase}
+.card-jarvis .enter::before{content:'› ';opacity:.5}
+
+/* ── BREAKFAST TIMES: Newspaper editorial ───────────────── */
+.card-bt{background:linear-gradient(170deg,rgba(40,22,4,.9),rgba(22,12,2,.86))}
+.card-bt::before{background:linear-gradient(90deg,#78350f,#d97706,#f59e0b,#d97706,#78350f);height:2px}
+.bt-dateline{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:8px;letter-spacing:2.5px;text-transform:uppercase;
+  color:rgba(245,158,11,.32);text-align:center;
+  padding:5px 0 8px;margin-bottom:12px;
+  border-bottom:1px solid rgba(245,158,11,.1)
+}
+.card-bt .card-name{font-family:'Lora',Georgia,serif;font-weight:700;font-size:20px;letter-spacing:.3px;line-height:1.15}
+.bt-rule{width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(245,158,11,.22),transparent);margin:10px 0 0}
+.card-bt .enter{font-family:'Lora',Georgia,serif;font-style:italic;font-weight:600;font-size:13.5px}
+
+/* ── CHILLSWITHIYLS: Expedition / adventure brand ───────── */
+.card-chill{background:linear-gradient(170deg,rgba(6,16,8,.92),rgba(4,12,6,.88))}
+.card-chill::before{background:linear-gradient(90deg,#1a3d10,#4a7a38,#7a9c5e,#a3be8c,#7a9c5e,#4a7a38,#1a3d10);height:4px}
+.card-chill .card-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:30px;letter-spacing:.5px;text-transform:uppercase;line-height:1}
+.card-chill .card-tag{letter-spacing:2.5px}
+.card-chill .enter{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14.5px;letter-spacing:1.5px;text-transform:uppercase}
+.chill-terrain{position:absolute;right:-6px;bottom:-6px;width:130px;height:82px;opacity:.11;pointer-events:none;user-select:none}
+
+/* ── PETER: Intelligence research brief ─────────────────── */
+.card-peter{background:linear-gradient(170deg,rgba(18,6,28,.92),rgba(12,4,20,.88))}
+.card-peter::before{background:linear-gradient(90deg,#6b21a8,#c026d3,#e879f9,#c026d3,#6b21a8)}
+.peter-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(232,121,249,.1)}
+.peter-ref{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:rgba(232,121,249,.35);text-transform:uppercase}
+.peter-badge{
+  font-family:'IBM Plex Mono',monospace;font-size:7.5px;letter-spacing:1.5px;text-transform:uppercase;
+  color:rgba(232,121,249,.6);background:rgba(232,121,249,.08);
+  border:1px solid rgba(232,121,249,.2);border-radius:4px;padding:2px 7px
+}
+.card-peter .card-name{font-size:27px;letter-spacing:.4px}
+
+@media(max-width:480px){
+  .card-chill .card-name{font-size:25px}
+  .card-bt .card-name{font-size:18px}
+}
+
 /* ── FOOTER ─────────────────────────────────────────────── */
 .foot{margin-top:auto;padding-top:64px;text-align:center;color:var(--dim);font-size:11.5px;line-height:2}
 .foot a{color:var(--muted);text-decoration:none}
@@ -337,7 +401,11 @@ body{
 
   <div class="section-label">⚡ Autonomous trading fleet</div>
 
-  <a class="card card-featured" href="https://adamdegoat.github.io/jarvis/" style="--accent:#38bdf8;--chip:rgba(56,189,248,.10);--glow:rgba(56,189,248,.22)">
+  <a class="card card-featured card-jarvis" href="https://adamdegoat.github.io/jarvis/" style="--accent:#38bdf8;--chip:rgba(56,189,248,.10);--glow:rgba(56,189,248,.22)">
+    <div class="term-header">
+      <div class="term-dots"><span class="td td-r"></span><span class="td td-y"></span><span class="td td-g"></span></div>
+      <span class="term-label">JARVIS · TRADING SYSTEM · ACTIVE</span>
+    </div>
     <div class="card-ic">⚡</div>
     <div class="card-tag">Trading &amp; research · 6 systems · L5 intelligence</div>
     <div class="feat-inner">
@@ -371,10 +439,12 @@ body{
   <div class="section-label" style="margin-top:52px">📖 Creative &amp; research systems</div>
   <div class="grid">
 
-    <a class="card" href="https://adamdegoat.github.io/the-breakfast-times/" style="--accent:#f59e0b;--chip:rgba(245,158,11,.10);--glow:rgba(245,158,11,.20)">
+    <a class="card card-bt" href="https://adamdegoat.github.io/the-breakfast-times/" style="--accent:#f59e0b;--chip:rgba(245,158,11,.10);--glow:rgba(245,158,11,.20)">
+      <div class="bt-dateline">Est. 2025 &nbsp;·&nbsp; Singapore &nbsp;·&nbsp; Daily Edition</div>
       <div class="card-ic">☕</div>
       <div class="card-tag">Fiction · Daily stories</div>
       <h2 class="card-name">The Breakfast Times</h2>
+      <div class="bt-rule"></div>
       <div class="card-desc desc-serif">A <b>self-improving AI storyteller</b> that publishes a new short story every morning. It studies what makes fiction resonate, grades itself on craft, and gets better at the job with every story it writes.</div>
       <div class="chips">
         <span class="chip">Daily stories</span>
@@ -385,7 +455,11 @@ body{
       <span class="enter">Read today's story <span class="arr">→</span></span>
     </a>
 
-    <a class="card" href="https://adamdegoat.github.io/chillswithiyls/" style="--accent:#7a9c5e;--chip:rgba(122,156,94,.10);--glow:rgba(122,156,94,.20)">
+    <a class="card card-chill" href="https://adamdegoat.github.io/chillswithiyls/" style="--accent:#7a9c5e;--chip:rgba(122,156,94,.10);--glow:rgba(122,156,94,.20)">
+      <svg class="chill-terrain" viewBox="0 0 130 82" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M-5 82 L20 46 L38 61 L58 24 L76 43 L95 9 L112 33 L128 20 L145 48 L145 82Z" fill="#7a9c5e"/>
+        <path d="M-5 82 L-5 70 L25 62 L52 68 L80 59 L106 65 L130 57 L145 62 L145 82Z" fill="#4a7a38"/>
+      </svg>
       <div class="card-ic">🧭</div>
       <div class="card-tag">4x4 Overlanding · Off-Grid Living · Daily</div>
       <h2 class="card-name">Chillswithiyls</h2>
@@ -399,7 +473,11 @@ body{
       <span class="enter">Live Slow. Go Wild. <span class="arr">→</span></span>
     </a>
 
-    <a class="card" href="https://adamdegoat.github.io/peter/" style="--accent:#e879f9;--chip:rgba(232,121,249,.10);--glow:rgba(232,121,249,.18)">
+    <a class="card card-peter" href="https://adamdegoat.github.io/peter/" style="--accent:#e879f9;--chip:rgba(232,121,249,.10);--glow:rgba(232,121,249,.18)">
+      <div class="peter-header">
+        <span class="peter-ref">Intelligence Brief · SGP</span>
+        <span class="peter-badge">Active</span>
+      </div>
       <div class="card-ic">💡</div>
       <div class="card-tag">Singapore · AI Opportunity Research · L5</div>
       <h2 class="card-name">Peter</h2>
