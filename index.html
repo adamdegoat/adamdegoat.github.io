@@ -1,101 +1,316 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Adamdegoat · AI projects</title>
-<meta name="description" content="AI projects built in the open — autonomous trading systems, self-improving research, and daily AI-written fiction. All running live.">
-<meta property="og:title" content="Adamdegoat · AI projects built in the open">
-<meta property="og:description" content="Autonomous trading systems, self-improving research, and daily AI-written fiction. All running live, all public.">
+<title>Adamdegoat · AI built in the open</title>
+<meta name="description" content="Six autonomous AI systems that trade, research, write, and self-improve — all running live, all public. Built by Adamdegoat.">
+<meta name="theme-color" content="#070b16">
+<meta property="og:title" content="Adamdegoat · AI built in the open">
+<meta property="og:description" content="Autonomous systems that trade, research, write, and self-improve. All live. All public.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://adamdegoat.github.io/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;700&family=Space+Grotesk:wght@600;700&family=Lora:ital,wght@0,400;1,400&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700;800&family=Lora:ital,wght@0,400;1,400&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box}
-:root{--bg:#070b16;--ink:#e8eef7;--muted:#8a99b5;--dim:#5d6b86;--line:rgba(148,163,184,.13)}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#070b16;--ink:#e8eef7;--muted:#8a99b5;--dim:#5d6b86;--line:rgba(148,163,184,.13);--blue:#38bdf8;--purple:#a855f7;--green:#22c55e}
 html,body{height:100%}
-body{margin:0;background:#070b16;color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh;
-  background-image:radial-gradient(900px 500px at 20% -5%,rgba(56,189,248,.10),transparent 60%),radial-gradient(800px 480px at 82% 5%,rgba(168,85,247,.11),transparent 60%),radial-gradient(600px 500px at 50% 110%,rgba(34,197,94,.07),transparent 60%),linear-gradient(rgba(148,163,184,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.03) 1px,transparent 1px);
-  background-size:auto,auto,auto,46px 46px,46px 46px;background-attachment:fixed}
-.wrap{max-width:860px;margin:0 auto;padding:80px 20px 80px;display:flex;flex-direction:column;align-items:center;min-height:100vh}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:'Inter',system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;min-height:100vh;
+  background-image:
+    radial-gradient(ellipse 1000px 560px at 12% -10%,rgba(56,189,248,.13),transparent 65%),
+    radial-gradient(ellipse 900px 520px at 88% 2%,rgba(168,85,247,.15),transparent 65%),
+    radial-gradient(ellipse 700px 600px at 50% 115%,rgba(34,197,94,.08),transparent 60%),
+    linear-gradient(rgba(148,163,184,.028) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(148,163,184,.028) 1px,transparent 1px);
+  background-size:auto,auto,auto,44px 44px,44px 44px;
+  background-attachment:fixed
+}
+.wrap{max-width:920px;margin:0 auto;padding:80px 20px 80px;display:flex;flex-direction:column;align-items:center;min-height:100vh}
 
-/* header */
-.brand{display:inline-flex;align-items:center;gap:14px;justify-content:center}
-.mark{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,#2b4079,#0e1a35);border:1px solid rgba(148,163,184,.2);box-shadow:0 8px 24px rgba(0,0,0,.55);display:grid;place-items:center;font-size:26px;flex:none}
-.wordmark{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:38px;letter-spacing:-1px;color:#fff;line-height:1;margin:0}
-.tagline{margin:20px 0 0;color:var(--muted);font-size:15px;line-height:1.65;text-align:center;max-width:480px}
-.tagline b{color:#cdd8ec;font-weight:600}
-.divider{width:40px;height:2px;background:linear-gradient(90deg,#38bdf8,#a855f7);border-radius:2px;margin:32px 0}
+/* ── HERO ───────────────────────────────────────────────── */
+.hero{display:flex;flex-direction:column;align-items:center;text-align:center;width:100%}
+.brand{display:inline-flex;align-items:center;gap:15px;justify-content:center}
+.mark{
+  width:60px;height:60px;border-radius:17px;
+  background:linear-gradient(145deg,#1e3163 0%,#0c1528 100%);
+  border:1px solid rgba(56,189,248,.22);
+  box-shadow:0 0 0 4px rgba(56,189,248,.06),0 14px 32px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.07);
+  display:grid;place-items:center;font-size:28px;flex:none;
+  position:relative;transition:transform .3s ease,box-shadow .3s ease
+}
+.mark:hover{transform:scale(1.06);box-shadow:0 0 0 6px rgba(56,189,248,.1),0 18px 40px rgba(0,0,0,.7)}
+.wordmark{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:38px;letter-spacing:-.9px;color:#dde8f8;line-height:1}
+.hero-tagline{
+  font-family:'Space Grotesk',sans-serif;font-weight:800;
+  font-size:clamp(42px,7.8vw,76px);
+  line-height:1.07;letter-spacing:-2.8px;
+  margin:30px 0 0;
+  background:linear-gradient(118deg,#dde8f8 0%,#38bdf8 32%,#a855f7 66%,#ec4899 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text
+}
+.hero-sub{max-width:530px;color:var(--muted);font-size:16px;line-height:1.7;margin:20px 0 0}
+.hero-sub b{color:#c5d5ee;font-weight:600}
 
-/* project grid */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;width:100%;margin-top:0}
-.card{position:relative;display:flex;flex-direction:column;text-decoration:none;color:inherit;
-  background:linear-gradient(180deg,rgba(22,32,53,.62),rgba(15,23,42,.56));
-  border:1px solid var(--line);border-radius:20px;padding:28px 26px 24px;overflow:hidden;
+/* stats strip */
+.stats-strip{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:30px}
+.stat-pill{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
+  color:var(--muted);background:rgba(148,163,184,.055);
+  border:1px solid var(--line);border-radius:20px;padding:6px 14px;white-space:nowrap
+}
+.stat-pill.live{color:var(--green);background:rgba(34,197,94,.07);border-color:rgba(34,197,94,.22)}
+.stat-dot{
+  width:6px;height:6px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 0 0 rgba(34,197,94,.7);
+  animation:pulse 2s infinite
+}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}70%{box-shadow:0 0 0 9px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+
+/* ── DIVIDER ────────────────────────────────────────────── */
+.divider{width:54px;height:2px;background:linear-gradient(90deg,#38bdf8,#a855f7);border-radius:2px;margin:48px 0 0}
+
+/* ── PHILOSOPHY PANEL ───────────────────────────────────── */
+.philosophy{
+  width:100%;margin-top:38px;
+  background:linear-gradient(145deg,rgba(24,34,58,.58),rgba(13,19,40,.65));
+  border:1px solid rgba(56,189,248,.14);
+  border-radius:22px;padding:38px 44px 34px;
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  box-shadow:0 0 0 1px rgba(168,85,247,.07),0 20px 56px rgba(0,0,0,.44),inset 0 1px 0 rgba(255,255,255,.04);
+  position:relative;overflow:hidden
+}
+.philosophy::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(700px 360px at -5% 50%,rgba(56,189,248,.07),transparent 65%),
+             radial-gradient(500px 400px at 105% 0%,rgba(168,85,247,.08),transparent 65%)
+}
+.phi-mark{
+  font-family:Georgia,serif;font-size:110px;line-height:.75;
+  color:rgba(56,189,248,.18);
+  position:absolute;top:20px;left:32px;
+  user-select:none;pointer-events:none
+}
+.phi-text{
+  font-family:'Lora',Georgia,serif;font-style:italic;
+  font-size:20px;line-height:1.72;color:#cad8ee;
+  padding-left:52px;position:relative
+}
+.phi-attr{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10.5px;letter-spacing:1.8px;color:var(--dim);
+  margin-top:18px;padding-left:52px;text-transform:uppercase
+}
+
+/* ── SECTION LABEL ──────────────────────────────────────── */
+.section-label{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--dim);font-weight:700;
+  margin:52px 0 18px;align-self:flex-start;width:100%
+}
+
+/* ── CARD BASE ──────────────────────────────────────────── */
+.card{
+  position:relative;display:flex;flex-direction:column;
+  text-decoration:none;color:inherit;
+  background:linear-gradient(160deg,rgba(22,32,54,.68),rgba(13,19,38,.60));
+  border:1px solid var(--line);border-radius:22px;
+  padding:30px 28px 26px;overflow:hidden;
   backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  box-shadow:0 12px 36px rgba(0,0,0,.36);transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
-.card:before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--accent);opacity:.9}
-.card:after{content:"";position:absolute;inset:0;background:radial-gradient(420px 200px at 50% -20%,var(--glow),transparent 70%);opacity:0;transition:opacity .22s ease;pointer-events:none}
-.card:hover{transform:translateY(-7px);border-color:var(--accent);box-shadow:0 24px 56px rgba(0,0,0,.5),0 0 0 1px var(--accent)}
-.card:hover:after{opacity:.5}
-.card-ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:26px;background:var(--chip);border:1px solid var(--accent);margin-bottom:18px;flex:none}
-.card-tag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:700}
+  box-shadow:0 14px 42px rgba(0,0,0,.38);
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease
+}
+.card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--accent,var(--blue));opacity:.88}
+.card::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(500px 260px at 50% -18%,var(--glow,rgba(56,189,248,.22)),transparent 72%);
+  opacity:0;transition:opacity .25s ease;pointer-events:none
+}
+.card:hover{transform:translateY(-7px);border-color:var(--accent,var(--blue));box-shadow:0 28px 64px rgba(0,0,0,.54),0 0 0 1px var(--accent,var(--blue))}
+.card:hover::after{opacity:.5}
+.card-ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:25px;background:var(--chip,rgba(56,189,248,.10));border:1px solid var(--accent,var(--blue));margin-bottom:17px;flex:none}
+.card-tag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent,var(--blue));font-weight:700}
 .card-name{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:#fff;margin:6px 0 0;letter-spacing:-.4px}
 .card-desc{color:var(--muted);font-size:13.5px;line-height:1.65;margin:12px 0 0;flex:1}
 .card-desc b{color:#cdd8ec;font-weight:600}
-.card-desc--jarvis{font-family:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;line-height:1.78;margin-top:14px;padding:10px 12px 10px 14px;background:rgba(4,14,30,.6);border-left:2px solid rgba(56,189,248,.5);border-radius:0 7px 7px 0;letter-spacing:-.1px}
-.card-desc--jarvis b{color:#38bdf8!important}
-.card-desc--bt{font-family:'Lora','Georgia',serif;font-style:italic;font-size:14px;line-height:1.72;margin-top:14px;padding:10px 15px;background:rgba(245,158,11,.07);border-left:2px solid rgba(234,164,46,.55);border-radius:0 7px 7px 0}
-.card-desc--bt b{color:#fbbf24!important;font-style:normal}
-.card-desc--bts{font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-weight:600;font-size:14px;line-height:1.55;margin-top:14px;padding:10px 13px;background:rgba(239,68,68,.06);border-left:2px solid rgba(239,68,68,.5);border-radius:0 7px 7px 0;letter-spacing:.01em}
-.card-desc--bts b{color:#f87171!important}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:17px}
 .chip{font-size:10.5px;font-weight:600;color:#cdd8ec;background:rgba(148,163,184,.07);border:1px solid var(--line);border-radius:7px;padding:3px 9px}
-.enter{display:inline-flex;align-items:center;gap:7px;margin-top:22px;font-weight:700;font-size:13.5px;color:var(--accent);letter-spacing:.3px}
-.enter .arr{transition:transform .22s ease}
-.card:hover .enter .arr{transform:translateX(5px)}
+.enter{display:inline-flex;align-items:center;gap:7px;margin-top:22px;font-weight:700;font-size:13.5px;color:var(--accent,var(--blue));letter-spacing:.3px}
+.arr{transition:transform .22s ease}
+.card:hover .arr{transform:translateX(5px)}
 
-/* section label */
-.section-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dim);font-weight:700;margin:0 0 16px;align-self:flex-start}
+/* ── FEATURED CARD (JARVIS) ─────────────────────────────── */
+.card-featured{width:100%}
+.feat-inner{display:grid;grid-template-columns:1fr 210px;gap:30px;align-items:start}
+.feat-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fstat{
+  background:rgba(56,189,248,.06);
+  border:1px solid rgba(56,189,248,.16);
+  border-radius:12px;padding:13px 14px
+}
+.fstat-l{font-size:9px;letter-spacing:1.5px;color:var(--dim);text-transform:uppercase;font-weight:700}
+.fstat-v{font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:700;color:#38bdf8;margin-top:4px;letter-spacing:-.5px}
+.feat-note{
+  margin-top:14px;padding:11px 14px;
+  background:rgba(56,189,248,.05);border:1px solid rgba(56,189,248,.13);
+  border-radius:10px;font-size:11px;line-height:1.55;color:var(--dim)
+}
+.feat-note b{color:#38bdf8;font-weight:600}
 
-/* footer */
-.foot{margin-top:auto;padding-top:56px;text-align:center;color:var(--dim);font-size:11.5px;line-height:1.9}
-.foot a{color:var(--muted);text-decoration:none}.foot a:hover{color:#38bdf8}
+/* ── PROJECTS GRID ──────────────────────────────────────── */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;width:100%}
+
+/* ── DESCRIPTION VARIANTS ───────────────────────────────── */
+.desc-mono{
+  font-family:'IBM Plex Mono',ui-monospace,monospace;
+  font-size:11.5px;line-height:1.78;
+  margin-top:14px;padding:10px 12px 10px 14px;
+  background:rgba(4,14,30,.6);
+  border-left:2px solid rgba(56,189,248,.45);
+  border-radius:0 8px 8px 0;letter-spacing:-.1px
+}
+.desc-mono b{color:#38bdf8!important}
+.desc-serif{
+  font-family:'Lora',Georgia,serif;
+  font-style:italic;font-size:13.5px;line-height:1.72;
+  margin-top:14px;padding:10px 14px;
+  background:rgba(245,158,11,.06);
+  border-left:2px solid rgba(245,158,11,.45);
+  border-radius:0 8px 8px 0
+}
+.desc-serif b{color:#fbbf24!important;font-style:normal}
+.desc-condensed{
+  font-family:'Barlow Condensed','Arial Narrow',sans-serif;
+  font-weight:600;font-size:14px;line-height:1.55;
+  margin-top:14px;padding:10px 13px;
+  background:rgba(122,156,94,.06);
+  border-left:2px solid rgba(122,156,94,.45);
+  border-radius:0 8px 8px 0;letter-spacing:.01em
+}
+.desc-condensed b{color:#8fb876!important}
+.desc-research{
+  font-family:'IBM Plex Mono',ui-monospace,monospace;
+  font-size:11.5px;line-height:1.78;
+  margin-top:14px;padding:10px 12px 10px 14px;
+  background:rgba(232,121,249,.05);
+  border-left:2px solid rgba(232,121,249,.38);
+  border-radius:0 8px 8px 0;letter-spacing:-.1px
+}
+.desc-research b{color:#e879f9!important}
+
+/* ── FOOTER ─────────────────────────────────────────────── */
+.foot{margin-top:auto;padding-top:64px;text-align:center;color:var(--dim);font-size:11.5px;line-height:2}
+.foot a{color:var(--muted);text-decoration:none}
+.foot a:hover{color:#38bdf8}
 .sep{color:#2a3550;margin:0 8px}
 
-@media(max-width:640px){.grid{grid-template-columns:1fr}.wordmark{font-size:30px}.wrap{padding:56px 16px 64px}}
+/* ── RESPONSIVE ─────────────────────────────────────────── */
+@media(max-width:760px){
+  .grid{grid-template-columns:1fr}
+  .feat-inner{grid-template-columns:1fr}
+  .feat-stats{display:flex;flex-wrap:wrap}
+  .fstat{flex:1;min-width:80px}
+  .feat-note{display:none}
+  .philosophy{padding:28px 24px 26px}
+  .phi-text{padding-left:34px;font-size:17px}
+  .phi-attr{padding-left:34px}
+  .phi-mark{font-size:72px;left:16px;top:18px}
+  .wrap{padding:56px 16px 64px}
+  .wordmark{font-size:30px}
+  .hero-tagline{letter-spacing:-1.8px}
+}
+@media(max-width:480px){
+  .stats-strip{gap:6px}
+  .stat-pill{font-size:9px;padding:5px 11px;letter-spacing:1.3px}
+  .grid{gap:12px}
+}
 </style></head>
 <body><div class="wrap">
 
-  <div class="brand">
-    <div class="mark">🤖</div>
-    <h1 class="wordmark">Adamdegoat</h1>
-  </div>
-  <p class="tagline"><b>AI projects built in the open.</b> Autonomous systems that research, trade, write, and get smarter over time — all running live, all public.</p>
+  <!-- ── HERO ── -->
+  <header class="hero">
+    <div class="brand">
+      <div class="mark">🤖</div>
+      <span class="wordmark">Adamdegoat</span>
+    </div>
+    <h1 class="hero-tagline">Building AI that<br>thinks for itself.</h1>
+    <p class="hero-sub">Autonomous systems that <b>trade</b>, <b>research</b>, <b>write</b>, and <b>self-improve</b> — all running live, all public.</p>
+    <div class="stats-strip">
+      <div class="stat-pill live"><span class="stat-dot"></span>6 SYSTEMS LIVE</div>
+      <div class="stat-pill">4 AT L5</div>
+      <div class="stat-pill">24 / 7 ACTIVE</div>
+      <div class="stat-pill">PAPER TRADED</div>
+      <div class="stat-pill">ALL PUBLIC</div>
+    </div>
+  </header>
 
   <div class="divider"></div>
 
-  <div class="section-label">Projects</div>
+  <!-- ── PHILOSOPHY ── -->
+  <div class="philosophy">
+    <div class="phi-mark">"</div>
+    <blockquote class="phi-text">Most AI follows instructions. Mine grades its own work, throws out what fails, and doubles down on what wins — every single day.</blockquote>
+    <p class="phi-attr">— Adamdegoat · Singapore</p>
+  </div>
+
+  <!-- ── TRADING FLEET ── -->
+  <div class="section-label">⚡ Autonomous trading fleet</div>
+
+  <a class="card card-featured" href="https://adamdegoat.github.io/jarvis/" style="--accent:#38bdf8;--chip:rgba(56,189,248,.10);--glow:rgba(56,189,248,.22)">
+    <div class="card-ic">⚡</div>
+    <div class="card-tag">Trading &amp; research · 6 systems · L5 intelligence</div>
+    <div class="feat-inner">
+      <div>
+        <h2 class="card-name">Jarvis</h2>
+        <div class="card-desc desc-mono">A fleet of <b>6 autonomous AI systems</b> — stocks, crypto, scalper, forex, carry, and a research lab. Four are now at <b>L5</b>: the level where the brain learns which <em>families</em> of approaches keep producing winners, then steers its own invention engine toward them. They invent signals, grade every trade, and get sharper with each cycle.</div>
+        <div class="chips">
+          <span class="chip">L5 intelligence</span>
+          <span class="chip">Self-improving</span>
+          <span class="chip">Invents own signals</span>
+          <span class="chip">24/7 active</span>
+          <span class="chip">6 desks</span>
+        </div>
+        <span class="enter">Enter Jarvis <span class="arr">→</span></span>
+      </div>
+      <div>
+        <div class="feat-stats">
+          <div class="fstat"><div class="fstat-l">Desks</div><div class="fstat-v">6</div></div>
+          <div class="fstat"><div class="fstat-l">At L5</div><div class="fstat-v">4</div></div>
+          <div class="fstat"><div class="fstat-l">Paper $</div><div class="fstat-v">$60k</div></div>
+          <div class="fstat"><div class="fstat-l">Uptime</div><div class="fstat-v">24/7</div></div>
+        </div>
+        <div class="feat-note">L5 = learns which <b>types</b> of strategy keep winning, not just which individual strategies win. The highest level in the fleet.</div>
+      </div>
+    </div>
+  </a>
+
+  <!-- ── CREATIVE & RESEARCH ── -->
+  <div class="section-label" style="margin-top:52px">📖 Creative &amp; research systems</div>
   <div class="grid">
 
-    <a class="card" href="https://adamdegoat.github.io/jarvis/" style="--accent:#38bdf8;--chip:rgba(56,189,248,.10);--glow:rgba(56,189,248,.20)">
-      <div class="card-ic">⚡</div>
-      <div class="card-tag">Trading & research · 6 systems</div>
-      <h2 class="card-name">Jarvis</h2>
-      <p class="card-desc card-desc--jarvis">A fleet of <b>6 autonomous AI systems</b> that trade stocks, crypto and forex, invent their own strategies, and self-improve with every trade. Four systems now at <b>L5</b> — the level where the brain learns which <em>families</em> of approaches keep producing winners.</p>
+    <a class="card" href="https://adamdegoat.github.io/the-breakfast-times/" style="--accent:#f59e0b;--chip:rgba(245,158,11,.10);--glow:rgba(245,158,11,.20)">
+      <div class="card-ic">☕</div>
+      <div class="card-tag">Fiction · Daily stories</div>
+      <h2 class="card-name">The Breakfast Times</h2>
+      <div class="card-desc desc-serif">A <b>self-improving AI storyteller</b> that publishes a new short story every morning. It studies what makes fiction resonate, grades itself on craft, and gets better at the job with every story it writes.</div>
       <div class="chips">
-        <span class="chip">L5 intelligence</span>
-        <span class="chip">6 live systems</span>
+        <span class="chip">Daily stories</span>
         <span class="chip">Self-improving</span>
-        <span class="chip">Paper-traded</span>
+        <span class="chip">Romance &amp; drama</span>
+        <span class="chip">Free to read</span>
       </div>
-      <span class="enter">Enter Jarvis <span class="arr">→</span></span>
+      <span class="enter">Read today's story <span class="arr">→</span></span>
     </a>
 
-    <a class="card" href="https://adamdegoat.github.io/chillswithiyls/" style="--accent:#7a9c5e;--chip:rgba(122,156,94,.10);--glow:rgba(122,156,94,.18)">
+    <a class="card" href="https://adamdegoat.github.io/chillswithiyls/" style="--accent:#7a9c5e;--chip:rgba(122,156,94,.10);--glow:rgba(122,156,94,.20)">
       <div class="card-ic">🧭</div>
       <div class="card-tag">4x4 Overlanding · Off-Grid Living · Daily</div>
       <h2 class="card-name">Chillswithiyls</h2>
-      <p class="card-desc card-desc--bts" style="background:rgba(122,156,94,.06);border-left-color:rgba(122,156,94,.5)">A <b>self-improving AI editorial brand</b> covering 4x4 overlanding and off-grid self-sufficient living. Original long-form features and field guides published every morning — the system learns what resonates and gets sharper over time.</p>
+      <div class="card-desc desc-condensed">A <b>self-improving AI editorial brand</b> covering 4x4 overlanding and off-grid self-sufficient living. Original long-form features and field guides published every morning — the system learns what resonates and gets sharper over time.</div>
       <div class="chips">
         <span class="chip">Daily features</span>
         <span class="chip">Off-grid guides</span>
@@ -105,38 +320,25 @@ body{margin:0;background:#070b16;color:var(--ink);font-family:'Inter',system-ui,
       <span class="enter">Live Slow. Go Wild. <span class="arr">→</span></span>
     </a>
 
-    <a class="card" href="https://adamdegoat.github.io/the-breakfast-times/" style="--accent:#f59e0b;--chip:rgba(245,158,11,.10);--glow:rgba(245,158,11,.18)">
-      <div class="card-ic">☕</div>
-      <div class="card-tag">Fiction · Daily stories</div>
-      <h2 class="card-name">The Breakfast Times</h2>
-      <p class="card-desc card-desc--bt">A <b>self-improving AI storyteller</b> that publishes a new short story every morning. It studies what makes fiction resonate, grades itself on craft, and gets better at the job with every story it writes.</p>
-      <div class="chips">
-        <span class="chip">Daily stories</span>
-        <span class="chip">Self-improving</span>
-        <span class="chip">Romance & drama</span>
-        <span class="chip">Free to read</span>
-      </div>
-      <span class="enter">Read today's story <span class="arr">→</span></span>
-    </a>
-
-    <a class="card" href="https://adamdegoat.github.io/peter/" style="--accent:#f59e0b;--chip:rgba(245,158,11,.10);--glow:rgba(245,158,11,.18)">
+    <a class="card" href="https://adamdegoat.github.io/peter/" style="--accent:#e879f9;--chip:rgba(232,121,249,.10);--glow:rgba(232,121,249,.18)">
       <div class="card-ic">💡</div>
       <div class="card-tag">Singapore · AI Opportunity Research · L5</div>
       <h2 class="card-name">Peter</h2>
-      <p class="card-desc" style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;line-height:1.78;margin-top:14px;padding:10px 12px 10px 14px;background:rgba(4,14,30,.6);border-left:2px solid rgba(245,158,11,.5);border-radius:0 7px 7px 0">An <b style="color:#f59e0b">L5 self-improving research engine</b> that discovers monetizable AI product opportunities in Singapore and SE Asia. Researches the market daily, scores ideas across 5 dimensions, and <b style="color:#f59e0b">learns which idea families produce the best opportunities</b> — steering future research toward proven categories.</p>
+      <div class="card-desc desc-research">An <b>L5 research engine</b> that discovers monetizable AI opportunities in Singapore and SE Asia. Scores every idea across 5 dimensions and <b>learns which idea families consistently win</b> — steering future research toward proven categories.</div>
       <div class="chips">
         <span class="chip">Singapore focus</span>
-        <span class="chip">Daily research</span>
         <span class="chip">L5 intelligence</span>
+        <span class="chip">Daily research</span>
         <span class="chip">Monetization scoring</span>
       </div>
-      <span class="enter">Enter Peter <span class="arr">→</span></span>
+      <span class="enter">Explore Peter <span class="arr">→</span></span>
     </a>
 
   </div>
 
-  <div class="foot">
+  <!-- ── FOOTER ── -->
+  <footer class="foot">
     Built by Adamdegoat <span class="sep">·</span> powered by <a href="https://anthropic.com">Claude</a> <span class="sep">·</span> all systems running live
-  </div>
+  </footer>
 
 </div></body></html>
