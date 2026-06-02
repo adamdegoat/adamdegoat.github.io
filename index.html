@@ -1,9 +1,9 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Adamdegoat · AI built in the open</title>
-<meta name="description" content="Six autonomous AI systems that trade, research, write, and self-improve — all running live, all public. Built by Adamdegoat.">
+<title>Adam the Good · AI built in the open</title>
+<meta name="description" content="Six autonomous AI systems that trade, research, write, and self-improve — all running live, all public. Built by Adam the Good.">
 <meta name="theme-color" content="#070b16">
-<meta property="og:title" content="Adamdegoat · AI built in the open">
+<meta property="og:title" content="Adam the Good · AI built in the open">
 <meta property="og:description" content="Autonomous systems that trade, research, write, and self-improve. All live. All public.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://adamdegoat.github.io/">
@@ -31,17 +31,42 @@ body{
 
 /* ── HERO ───────────────────────────────────────────────── */
 .hero{display:flex;flex-direction:column;align-items:center;text-align:center;width:100%}
-.brand{display:inline-flex;align-items:center;gap:15px;justify-content:center}
+.brand{display:inline-flex;align-items:center;gap:16px;justify-content:center}
+
+/* Logo mark */
 .mark{
-  width:60px;height:60px;border-radius:17px;
-  background:linear-gradient(145deg,#1e3163 0%,#0c1528 100%);
-  border:1px solid rgba(56,189,248,.22);
-  box-shadow:0 0 0 4px rgba(56,189,248,.06),0 14px 32px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.07);
-  display:grid;place-items:center;font-size:28px;flex:none;
-  position:relative;transition:transform .3s ease,box-shadow .3s ease
+  width:62px;height:62px;border-radius:18px;
+  background:linear-gradient(145deg,#112244 0%,#1a0a38 100%);
+  border:1px solid rgba(168,85,247,.32);
+  box-shadow:0 0 0 4px rgba(168,85,247,.08),0 14px 36px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.06);
+  display:grid;place-items:center;flex:none;
+  position:relative;transition:transform .3s ease,box-shadow .3s ease;
+  overflow:hidden
 }
-.mark:hover{transform:scale(1.06);box-shadow:0 0 0 6px rgba(56,189,248,.1),0 18px 40px rgba(0,0,0,.7)}
-.wordmark{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:38px;letter-spacing:-.9px;color:#dde8f8;line-height:1}
+.mark::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 50% at 30% 20%,rgba(56,189,248,.14),transparent 70%);
+  pointer-events:none
+}
+.mark:hover{transform:scale(1.07);box-shadow:0 0 0 6px rgba(168,85,247,.14),0 20px 44px rgba(0,0,0,.75)}
+
+/* Wordmark */
+.wordmark{
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:700;font-size:34px;
+  letter-spacing:-.8px;line-height:1;
+  color:#dde8f8
+}
+.wth{
+  font-weight:400;font-size:.73em;
+  color:var(--muted);letter-spacing:-.1px
+}
+.wgd{
+  background:linear-gradient(120deg,#38bdf8 0%,#a855f7 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text
+}
+
 .hero-tagline{
   font-family:'Space Grotesk',sans-serif;font-weight:800;
   font-size:clamp(42px,7.8vw,76px);
@@ -71,38 +96,26 @@ body{
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}70%{box-shadow:0 0 0 9px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
 
 /* ── DIVIDER ────────────────────────────────────────────── */
-.divider{width:54px;height:2px;background:linear-gradient(90deg,#38bdf8,#a855f7);border-radius:2px;margin:48px 0 0}
+.divider{width:54px;height:2px;background:linear-gradient(90deg,#38bdf8,#a855f7);border-radius:2px;margin:44px 0 0}
 
-/* ── PHILOSOPHY PANEL ───────────────────────────────────── */
+/* ── PHILOSOPHY — compact quote strip ───────────────────── */
 .philosophy{
-  width:100%;margin-top:38px;
-  background:linear-gradient(145deg,rgba(24,34,58,.58),rgba(13,19,40,.65));
-  border:1px solid rgba(56,189,248,.14);
-  border-radius:22px;padding:38px 44px 34px;
-  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  box-shadow:0 0 0 1px rgba(168,85,247,.07),0 20px 56px rgba(0,0,0,.44),inset 0 1px 0 rgba(255,255,255,.04);
-  position:relative;overflow:hidden
-}
-.philosophy::before{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(700px 360px at -5% 50%,rgba(56,189,248,.07),transparent 65%),
-             radial-gradient(500px 400px at 105% 0%,rgba(168,85,247,.08),transparent 65%)
-}
-.phi-mark{
-  font-family:Georgia,serif;font-size:110px;line-height:.75;
-  color:rgba(56,189,248,.18);
-  position:absolute;top:20px;left:32px;
-  user-select:none;pointer-events:none
+  width:100%;margin-top:22px;
+  padding:15px 22px 13px 20px;
+  background:rgba(20,30,54,.46);
+  border:1px solid rgba(148,163,184,.09);
+  border-left:3px solid rgba(56,189,248,.45);
+  border-radius:0 12px 12px 0;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)
 }
 .phi-text{
   font-family:'Lora',Georgia,serif;font-style:italic;
-  font-size:20px;line-height:1.72;color:#cad8ee;
-  padding-left:52px;position:relative
+  font-size:14.5px;line-height:1.62;color:#b2c8e0
 }
 .phi-attr{
   font-family:'IBM Plex Mono',monospace;
-  font-size:10.5px;letter-spacing:1.8px;color:var(--dim);
-  margin-top:18px;padding-left:52px;text-transform:uppercase
+  font-size:9.5px;letter-spacing:1.6px;color:var(--dim);
+  margin-top:7px;display:block;text-transform:uppercase
 }
 
 /* ── SECTION LABEL ──────────────────────────────────────── */
@@ -215,12 +228,8 @@ body{
   .feat-stats{display:flex;flex-wrap:wrap}
   .fstat{flex:1;min-width:80px}
   .feat-note{display:none}
-  .philosophy{padding:28px 24px 26px}
-  .phi-text{padding-left:34px;font-size:17px}
-  .phi-attr{padding-left:34px}
-  .phi-mark{font-size:72px;left:16px;top:18px}
   .wrap{padding:56px 16px 64px}
-  .wordmark{font-size:30px}
+  .wordmark{font-size:28px}
   .hero-tagline{letter-spacing:-1.8px}
 }
 @media(max-width:480px){
@@ -234,8 +243,21 @@ body{
   <!-- ── HERO ── -->
   <header class="hero">
     <div class="brand">
-      <div class="mark">🤖</div>
-      <span class="wordmark">Adamdegoat</span>
+      <div class="mark">
+        <svg width="36" height="36" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="aG" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#38bdf8"/>
+              <stop offset="1" stop-color="#a855f7"/>
+            </linearGradient>
+          </defs>
+          <!-- Stylised A: two legs + crossbar -->
+          <path d="M30 11 L12 49" stroke="url(#aG)" stroke-width="5" stroke-linecap="round" fill="none"/>
+          <path d="M30 11 L48 49" stroke="url(#aG)" stroke-width="5" stroke-linecap="round" fill="none"/>
+          <line x1="19" y1="33" x2="41" y2="33" stroke="url(#aG)" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span class="wordmark">Adam <span class="wth">the</span> <span class="wgd">Good</span></span>
     </div>
     <h1 class="hero-tagline">Building AI that<br>thinks for itself.</h1>
     <p class="hero-sub">Autonomous systems that <b>trade</b>, <b>research</b>, <b>write</b>, and <b>self-improve</b> — all running live, all public.</p>
@@ -250,11 +272,10 @@ body{
 
   <div class="divider"></div>
 
-  <!-- ── PHILOSOPHY ── -->
+  <!-- ── PHILOSOPHY — compact quote strip ── -->
   <div class="philosophy">
-    <div class="phi-mark">"</div>
-    <blockquote class="phi-text">Most AI follows instructions. Mine grades its own work, throws out what fails, and doubles down on what wins — every single day.</blockquote>
-    <p class="phi-attr">— Adamdegoat · Singapore</p>
+    <p class="phi-text">&#8220;Most AI follows instructions. Mine grades its own work, throws out what fails, and doubles down on what wins — every single day.&#8221;</p>
+    <span class="phi-attr">— Adam the Good · Singapore</span>
   </div>
 
   <!-- ── TRADING FLEET ── -->
@@ -338,7 +359,7 @@ body{
 
   <!-- ── FOOTER ── -->
   <footer class="foot">
-    Built by Adamdegoat <span class="sep">·</span> powered by <a href="https://anthropic.com">Claude</a> <span class="sep">·</span> all systems running live
+    © Adam the Good <span class="sep">·</span> powered by <a href="https://anthropic.com">Claude</a> <span class="sep">·</span> all systems running live
   </footer>
 
 </div></body></html>
