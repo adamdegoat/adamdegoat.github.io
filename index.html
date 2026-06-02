@@ -98,25 +98,34 @@ body{
 /* ── DIVIDER ────────────────────────────────────────────── */
 .divider{width:54px;height:2px;background:linear-gradient(90deg,#38bdf8,#a855f7);border-radius:2px;margin:44px 0 0}
 
-/* ── PHILOSOPHY — compact quote strip ───────────────────── */
+/* ── PHILOSOPHY — ambient quote ─────────────────────────── */
 .philosophy{
-  width:100%;margin-top:22px;
-  padding:15px 22px 13px 20px;
-  background:rgba(20,30,54,.46);
-  border:1px solid rgba(148,163,184,.09);
-  border-left:3px solid rgba(56,189,248,.45);
-  border-radius:0 12px 12px 0;
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)
+  width:100%;margin-top:18px;
+  padding:2px 24px;
+  text-align:center;background:transparent;border:none
 }
 .phi-text{
   font-family:'Lora',Georgia,serif;font-style:italic;
-  font-size:14.5px;line-height:1.62;color:#b2c8e0
+  font-size:14px;line-height:1.55;color:var(--dim)
 }
-.phi-attr{
+.phi-attr{display:none}
+
+/* ── FLEET SECTION + VISITOR NOTES ─────────────────────── */
+.fleet-section{position:relative;width:100%}
+.visitor-note{
+  position:absolute;top:62px;
   font-family:'IBM Plex Mono',monospace;
-  font-size:9.5px;letter-spacing:1.6px;color:var(--dim);
-  margin-top:7px;display:block;text-transform:uppercase
+  font-size:9.5px;color:var(--dim);
+  line-height:1.85;text-align:center;
+  max-width:104px;
+  display:flex;flex-direction:column;align-items:center;gap:1px
 }
+.visitor-note--left{left:-128px}
+.visitor-note--right{right:-128px}
+.vn-div{width:28px;height:1px;background:rgba(148,163,184,.18);margin:5px 0}
+.vn-star{font-size:13px;color:rgba(148,163,184,.28);line-height:1;margin-bottom:2px}
+.vn-arrow{font-size:15px;color:rgba(148,163,184,.22);margin-top:5px;line-height:1}
+@media(max-width:1140px){.visitor-note{display:none}}
 
 /* ── SECTION LABEL ──────────────────────────────────────── */
 .section-label{
@@ -272,13 +281,27 @@ body{
 
   <div class="divider"></div>
 
-  <!-- ── PHILOSOPHY — compact quote strip ── -->
+  <!-- ── PHILOSOPHY — ambient quote ── -->
   <div class="philosophy">
-    <p class="phi-text">&#8220;Most AI follows instructions. Mine grades its own work, throws out what fails, and doubles down on what wins — every single day.&#8221;</p>
-    <span class="phi-attr">— Adamdegoat · Singapore</span>
+    <p class="phi-text">&#8220;I don&#8217;t write the rules &mdash; I build systems that discover them.&#8221;</p>
   </div>
 
   <!-- ── TRADING FLEET ── -->
+  <div class="fleet-section">
+    <aside class="visitor-note visitor-note--left">
+      <span>New here?</span>
+      <div class="vn-div"></div>
+      <span>Click any card<br>to go inside.</span>
+      <span>Everything is<br>live &amp; free.</span>
+      <span class="vn-arrow">↓</span>
+    </aside>
+    <aside class="visitor-note visitor-note--right">
+      <span class="vn-star">✦</span>
+      <span>Nothing here<br>is demo-ware.</span>
+      <div class="vn-div"></div>
+      <span>Every system<br>runs daily and<br>grades itself.</span>
+    </aside>
+
   <div class="section-label">⚡ Autonomous trading fleet</div>
 
   <a class="card card-featured" href="https://adamdegoat.github.io/jarvis/" style="--accent:#38bdf8;--chip:rgba(56,189,248,.10);--glow:rgba(56,189,248,.22)">
@@ -308,6 +331,8 @@ body{
       </div>
     </div>
   </a>
+
+  </div><!-- /fleet-section -->
 
   <!-- ── CREATIVE & RESEARCH ── -->
   <div class="section-label" style="margin-top:52px">📖 Creative &amp; research systems</div>
