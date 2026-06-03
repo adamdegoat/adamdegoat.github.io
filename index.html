@@ -27,21 +27,19 @@ body{
   background-size:auto,auto,auto,44px 44px,44px 44px;
   background-attachment:fixed
 }
-.wrap{max-width:920px;margin:0 auto;padding:80px 20px 80px;display:flex;flex-direction:column;align-items:center;min-height:100vh}
+.wrap{max-width:960px;margin:0 auto;padding:80px 20px 80px;display:flex;flex-direction:column;align-items:center;min-height:100vh}
 
 /* ── HERO ───────────────────────────────────────────────── */
 .hero{display:flex;flex-direction:column;align-items:center;text-align:center;width:100%}
 .brand{display:inline-flex;align-items:center;gap:16px;justify-content:center}
 
-/* Logo mark */
 .mark{
   width:62px;height:62px;border-radius:18px;
   background:linear-gradient(145deg,#112244 0%,#1a0a38 100%);
   border:1px solid rgba(168,85,247,.32);
   box-shadow:0 0 0 4px rgba(168,85,247,.08),0 14px 36px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.06);
   display:grid;place-items:center;flex:none;
-  position:relative;transition:transform .3s ease,box-shadow .3s ease;
-  overflow:hidden
+  position:relative;transition:transform .3s ease,box-shadow .3s ease;overflow:hidden
 }
 .mark::before{
   content:"";position:absolute;inset:0;
@@ -50,74 +48,41 @@ body{
 }
 .mark:hover{transform:scale(1.07);box-shadow:0 0 0 6px rgba(168,85,247,.14),0 20px 44px rgba(0,0,0,.75)}
 
-/* Wordmark */
-.wordmark{
-  font-family:'Space Grotesk',sans-serif;
-  font-weight:700;font-size:34px;
-  letter-spacing:-.8px;line-height:1;
-  color:#dde8f8
-}
-.wth{
-  font-weight:400;font-size:.73em;
-  color:var(--muted);letter-spacing:-.1px
-}
-.wgd{
-  background:linear-gradient(120deg,#38bdf8 0%,#a855f7 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text
-}
+.wordmark{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:34px;letter-spacing:-.8px;line-height:1;color:#dde8f8}
+.wth{font-weight:400;font-size:.73em;color:var(--muted);letter-spacing:-.1px}
+.wgd{background:linear-gradient(120deg,#38bdf8 0%,#a855f7 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
 .hero-tagline{
   font-family:'Space Grotesk',sans-serif;font-weight:800;
-  font-size:clamp(42px,7.8vw,76px);
-  line-height:1.07;letter-spacing:-2.8px;
-  margin:30px 0 0;
+  font-size:clamp(42px,7.8vw,76px);line-height:1.07;letter-spacing:-2.8px;margin:30px 0 0;
   background:linear-gradient(118deg,#dde8f8 0%,#38bdf8 32%,#a855f7 66%,#ec4899 100%);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text
 }
 .hero-sub{max-width:530px;color:var(--muted);font-size:16px;line-height:1.7;margin:20px 0 0}
 .hero-sub b{color:#c5d5ee;font-weight:600}
 
-/* stats strip */
 .stats-strip{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:30px}
 .stat-pill{
   display:inline-flex;align-items:center;gap:7px;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
-  color:var(--muted);background:rgba(148,163,184,.055);
-  border:1px solid var(--line);border-radius:20px;padding:6px 14px;white-space:nowrap
+  font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
+  color:var(--muted);background:rgba(148,163,184,.055);border:1px solid var(--line);border-radius:20px;padding:6px 14px;white-space:nowrap
 }
 .stat-pill.live{color:var(--green);background:rgba(34,197,94,.07);border-color:rgba(34,197,94,.22)}
-.stat-dot{
-  width:6px;height:6px;border-radius:50%;background:var(--green);
-  box-shadow:0 0 0 0 rgba(34,197,94,.7);
-  animation:pulse 2s infinite
-}
+.stat-dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(34,197,94,.7);animation:pulse 2s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}70%{box-shadow:0 0 0 9px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
 
 /* ── DIVIDER ────────────────────────────────────────────── */
 .divider{width:54px;height:2px;background:linear-gradient(90deg,#38bdf8,#a855f7);border-radius:2px;margin:44px 0 0}
 
-/* ── PHILOSOPHY — ambient quote ─────────────────────────── */
-.philosophy{
-  width:100%;margin-top:18px;
-  padding:2px 24px;
-  text-align:center;background:transparent;border:none
-}
-.phi-text{
-  font-family:'Lora',Georgia,serif;font-style:italic;
-  font-size:14px;line-height:1.55;color:var(--dim)
-}
-.phi-attr{display:none}
+/* ── PHILOSOPHY ─────────────────────────────────────────── */
+.philosophy{width:100%;margin-top:18px;padding:2px 24px;text-align:center;background:transparent;border:none}
+.phi-text{font-family:'Lora',Georgia,serif;font-style:italic;font-size:14px;line-height:1.55;color:var(--dim)}
 
-/* ── FLEET SECTION + VISITOR NOTES ─────────────────────── */
-.fleet-section{position:relative;width:100%}
+/* ── VISITOR NOTES ──────────────────────────────────────── */
+.sections-wrap{position:relative;width:100%}
 .visitor-note{
-  position:absolute;top:62px;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:9.5px;color:var(--dim);
-  line-height:1.85;text-align:center;
-  max-width:104px;
+  position:absolute;top:62px;font-family:'IBM Plex Mono',monospace;
+  font-size:9.5px;color:var(--dim);line-height:1.85;text-align:center;max-width:104px;
   display:flex;flex-direction:column;align-items:center;gap:1px
 }
 .visitor-note--left{left:-128px}
@@ -125,14 +90,12 @@ body{
 .vn-div{width:28px;height:1px;background:rgba(148,163,184,.18);margin:5px 0}
 .vn-star{font-size:13px;color:rgba(148,163,184,.28);line-height:1;margin-bottom:2px}
 .vn-arrow{font-size:15px;color:rgba(148,163,184,.22);margin-top:5px;line-height:1}
-@media(max-width:1140px){.visitor-note{display:none}}
+@media(max-width:1180px){.visitor-note{display:none}}
 
 /* ── SECTION LABEL ──────────────────────────────────────── */
 .section-label{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px;letter-spacing:3px;text-transform:uppercase;
-  color:var(--dim);font-weight:700;
-  margin:52px 0 18px;align-self:flex-start;width:100%
+  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--dim);font-weight:700;margin:52px 0 18px;align-self:flex-start;width:100%
 }
 
 /* ── CARD BASE ──────────────────────────────────────────── */
@@ -140,8 +103,7 @@ body{
   position:relative;display:flex;flex-direction:column;
   text-decoration:none;color:inherit;
   background:linear-gradient(160deg,rgba(22,32,54,.68),rgba(13,19,38,.60));
-  border:1px solid var(--line);border-radius:22px;
-  padding:30px 28px 26px;overflow:hidden;
+  border:1px solid var(--line);border-radius:22px;padding:30px 28px 26px;overflow:hidden;
   backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
   box-shadow:0 14px 42px rgba(0,0,0,.38);
   transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease
@@ -165,70 +127,41 @@ body{
 .arr{transition:transform .22s ease}
 .card:hover .arr{transform:translateX(5px)}
 
-/* ── FEATURED CARD (JARVIS) ─────────────────────────────── */
-.card-featured{width:100%}
-.feat-inner{display:grid;grid-template-columns:1fr 210px;gap:30px;align-items:start}
-.feat-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.fstat{
-  background:rgba(56,189,248,.06);
-  border:1px solid rgba(56,189,248,.16);
-  border-radius:12px;padding:13px 14px
-}
-.fstat-l{font-size:9px;letter-spacing:1.5px;color:var(--dim);text-transform:uppercase;font-weight:700}
-.fstat-v{font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:700;color:#38bdf8;margin-top:4px;letter-spacing:-.5px}
-.feat-note{
-  margin-top:14px;padding:11px 14px;
-  background:rgba(56,189,248,.05);border:1px solid rgba(56,189,248,.13);
-  border-radius:10px;font-size:11px;line-height:1.55;color:var(--dim)
-}
-.feat-note b{color:#38bdf8;font-weight:600}
-
-/* ── PROJECTS GRID ──────────────────────────────────────── */
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;width:100%}
+/* ── GRIDS ──────────────────────────────────────────────── */
+.grid  {display:grid;grid-template-columns:repeat(3,1fr);gap:16px;width:100%}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;width:100%}
 
 /* ── DESCRIPTION VARIANTS ───────────────────────────────── */
 .desc-mono{
-  font-family:'IBM Plex Mono',ui-monospace,monospace;
-  font-size:11.5px;line-height:1.78;
-  margin-top:14px;padding:10px 12px 10px 14px;
-  background:rgba(4,14,30,.6);
-  border-left:2px solid rgba(56,189,248,.45);
-  border-radius:0 8px 8px 0;letter-spacing:-.1px
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11.5px;line-height:1.78;
+  margin-top:14px;padding:10px 12px 10px 14px;background:rgba(4,14,30,.6);
+  border-left:2px solid rgba(56,189,248,.45);border-radius:0 8px 8px 0;letter-spacing:-.1px
 }
 .desc-mono b{color:#38bdf8!important}
 .desc-serif{
-  font-family:'Lora',Georgia,serif;
-  font-style:italic;font-size:13.5px;line-height:1.72;
-  margin-top:14px;padding:10px 14px;
-  background:rgba(245,158,11,.06);
-  border-left:2px solid rgba(245,158,11,.45);
-  border-radius:0 8px 8px 0
+  font-family:'Lora',Georgia,serif;font-style:italic;font-size:13.5px;line-height:1.72;
+  margin-top:14px;padding:10px 14px;background:rgba(245,158,11,.06);
+  border-left:2px solid rgba(245,158,11,.45);border-radius:0 8px 8px 0
 }
 .desc-serif b{color:#fbbf24!important;font-style:normal}
 .desc-condensed{
-  font-family:'Barlow Condensed','Arial Narrow',sans-serif;
-  font-weight:600;font-size:14px;line-height:1.55;
-  margin-top:14px;padding:10px 13px;
-  background:rgba(122,156,94,.06);
-  border-left:2px solid rgba(122,156,94,.45);
-  border-radius:0 8px 8px 0;letter-spacing:.01em
+  font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-weight:600;font-size:14px;line-height:1.55;
+  margin-top:14px;padding:10px 13px;background:rgba(122,156,94,.06);
+  border-left:2px solid rgba(122,156,94,.45);border-radius:0 8px 8px 0;letter-spacing:.01em
 }
 .desc-condensed b{color:#8fb876!important}
 .desc-research{
-  font-family:'IBM Plex Mono',ui-monospace,monospace;
-  font-size:11.5px;line-height:1.78;
-  margin-top:14px;padding:10px 12px 10px 14px;
-  background:rgba(232,121,249,.05);
-  border-left:2px solid rgba(232,121,249,.38);
-  border-radius:0 8px 8px 0;letter-spacing:-.1px
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11.5px;line-height:1.78;
+  margin-top:14px;padding:10px 12px 10px 14px;background:rgba(232,121,249,.05);
+  border-left:2px solid rgba(232,121,249,.38);border-radius:0 8px 8px 0;letter-spacing:-.1px
 }
 .desc-research b{color:#e879f9!important}
 
 /* ════════════════════════════════════════════════════════
-   CARD THEMES — each card's visual reflects its concept
+   CARD THEMES
 ════════════════════════════════════════════════════════ */
 
-/* ── JARVIS: Trading terminal ───────────────────────────── */
+/* ── JARVIS SCOUT: Trading terminal ─────────────────────── */
 .card-jarvis{
   background:
     linear-gradient(160deg,rgba(4,14,10,.93),rgba(3,10,7,.89)),
@@ -237,8 +170,7 @@ body{
 }
 .card-jarvis::before{background:linear-gradient(90deg,#166534,#22c55e,#38bdf8,#22c55e,#166534)}
 .term-header{
-  display:flex;align-items:center;gap:9px;
-  margin-bottom:16px;padding-bottom:11px;
+  display:flex;align-items:center;gap:9px;margin-bottom:16px;padding-bottom:11px;
   border-bottom:1px solid rgba(34,197,94,.1)
 }
 .term-dots{display:flex;gap:5px;flex:none}
@@ -253,17 +185,15 @@ body{
 .card-bt{background:linear-gradient(170deg,rgba(40,22,4,.9),rgba(22,12,2,.86))}
 .card-bt::before{background:linear-gradient(90deg,#78350f,#d97706,#f59e0b,#d97706,#78350f);height:2px}
 .bt-dateline{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:8px;letter-spacing:2.5px;text-transform:uppercase;
-  color:rgba(245,158,11,.32);text-align:center;
-  padding:5px 0 8px;margin-bottom:12px;
+  font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2.5px;text-transform:uppercase;
+  color:rgba(245,158,11,.32);text-align:center;padding:5px 0 8px;margin-bottom:12px;
   border-bottom:1px solid rgba(245,158,11,.1)
 }
 .card-bt .card-name{font-family:'Lora',Georgia,serif;font-weight:700;font-size:20px;letter-spacing:.3px;line-height:1.15}
 .bt-rule{width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(245,158,11,.22),transparent);margin:10px 0 0}
 .card-bt .enter{font-family:'Lora',Georgia,serif;font-style:italic;font-weight:600;font-size:13.5px}
 
-/* ── CHILLSWITHIYLS: Expedition / adventure brand ───────── */
+/* ── CHILLSWITHIYLS: Expedition brand ───────────────────── */
 .card-chill{background:linear-gradient(170deg,rgba(6,16,8,.92),rgba(4,12,6,.88))}
 .card-chill::before{background:linear-gradient(90deg,#1a3d10,#4a7a38,#7a9c5e,#a3be8c,#7a9c5e,#4a7a38,#1a3d10);height:4px}
 .card-chill .card-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:30px;letter-spacing:.5px;text-transform:uppercase;line-height:1}
@@ -271,25 +201,25 @@ body{
 .card-chill .enter{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14.5px;letter-spacing:1.5px;text-transform:uppercase}
 .chill-terrain{position:absolute;right:-6px;bottom:-6px;width:130px;height:82px;opacity:.11;pointer-events:none;user-select:none}
 
-/* ── PETER: Intelligence research brief ─────────────────── */
+/* ── PETER: Intelligence research ───────────────────────── */
 .card-peter{background:linear-gradient(170deg,rgba(18,6,28,.92),rgba(12,4,20,.88))}
-.card-fm{background:linear-gradient(170deg,rgba(2,18,28,.92),rgba(1,12,20,.88))}
-.card-fm::before{background:linear-gradient(90deg,#0e7490,#06b6d4,#67e8f9,#06b6d4,#0e7490)}
-.card-bcm{background:linear-gradient(170deg,rgba(28,6,8,.92),rgba(18,3,5,.88))}
 .card-peter::before{background:linear-gradient(90deg,#6b21a8,#c026d3,#e879f9,#c026d3,#6b21a8)}
 .peter-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(232,121,249,.1)}
 .peter-ref{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:rgba(232,121,249,.35);text-transform:uppercase}
-.peter-badge{
-  font-family:'IBM Plex Mono',monospace;font-size:7.5px;letter-spacing:1.5px;text-transform:uppercase;
-  color:rgba(232,121,249,.6);background:rgba(232,121,249,.08);
-  border:1px solid rgba(232,121,249,.2);border-radius:4px;padding:2px 7px
-}
+.peter-badge{font-family:'IBM Plex Mono',monospace;font-size:7.5px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(232,121,249,.6);background:rgba(232,121,249,.08);border:1px solid rgba(232,121,249,.2);border-radius:4px;padding:2px 7px}
 .card-peter .card-name{font-size:27px;letter-spacing:.4px}
 
-@media(max-width:480px){
-  .card-chill .card-name{font-size:25px}
-  .card-bt .card-name{font-size:18px}
-}
+/* ── FUND MANAGER ───────────────────────────────────────── */
+.card-fm{background:linear-gradient(170deg,rgba(2,18,28,.92),rgba(1,12,20,.88))}
+.card-fm::before{background:linear-gradient(90deg,#0e7490,#06b6d4,#67e8f9,#06b6d4,#0e7490)}
+
+/* ── EQUITY MANAGER ─────────────────────────────────────── */
+.card-em{background:linear-gradient(170deg,rgba(2,14,8,.92),rgba(1,10,5,.88))}
+.card-em::before{background:linear-gradient(90deg,#166534,#22c55e,#4ade80,#22c55e,#166534)}
+
+/* ── BEYONDCARMART ──────────────────────────────────────── */
+.card-bcm{background:linear-gradient(170deg,rgba(28,6,8,.92),rgba(18,3,5,.88))}
+.card-bcm::before{background:linear-gradient(90deg,#9f1239,#e11d48,#fb7185,#e11d48,#9f1239)}
 
 /* ── FOOTER ─────────────────────────────────────────────── */
 .foot{margin-top:auto;padding-top:64px;text-align:center;color:var(--dim);font-size:11.5px;line-height:2}
@@ -297,20 +227,14 @@ body{
 .foot a:hover{color:#38bdf8}
 .sep{color:#2a3550;margin:0 8px}
 
-/* ── iOS Safari: fixed bg causes visual jank on scroll ───── */
 @media(max-width:1024px){body{background-attachment:scroll}}
-
-/* ── Touch: remove grey tap flash on iOS ─────────────────── */
 .card,.enter{-webkit-tap-highlight-color:transparent}
 
 /* ── RESPONSIVE ─────────────────────────────────────────── */
-
-/* Tablet (≤820px) */
 @media(max-width:820px){
   .section-label{margin-top:40px}
+  .grid{grid-template-columns:repeat(2,1fr)}
 }
-
-/* Mobile (≤760px) */
 @media(max-width:760px){
   .wrap{padding:48px 16px 56px}
   .brand{gap:12px}
@@ -321,16 +245,10 @@ body{
   .divider{margin-top:36px}
   .section-label{margin:36px 0 14px}
   .grid{grid-template-columns:1fr;gap:12px}
-  .feat-inner{grid-template-columns:1fr}
-  .feat-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .fstat{padding:10px 12px}
-  .fstat-v{font-size:17px}
-  .feat-note{display:none}
+  .grid-2{grid-template-columns:1fr;gap:12px}
   .card{padding:22px 18px 20px;border-radius:18px}
   .card-name{font-size:22px}
 }
-
-/* Small phones (≤480px) */
 @media(max-width:480px){
   .wrap{padding:36px 14px 48px}
   .brand{gap:10px}
@@ -341,10 +259,11 @@ body{
   .stats-strip{gap:5px;margin-top:22px}
   .stat-pill{font-size:9px;padding:5px 10px;letter-spacing:1px}
   .divider{margin-top:30px}
-  .grid{gap:10px}
   .card{padding:20px 16px 18px;border-radius:16px}
   .card-name{font-size:20px}
   .card-ic{width:44px;height:44px;font-size:22px;border-radius:12px;margin-bottom:14px}
+  .card-chill .card-name{font-size:25px}
+  .card-bt .card-name{font-size:18px}
 }
 </style></head>
 <body><div class="wrap">
@@ -360,7 +279,6 @@ body{
               <stop offset="1" stop-color="#a855f7"/>
             </linearGradient>
           </defs>
-          <!-- Stylised A: two legs + crossbar -->
           <path d="M30 11 L12 49" stroke="url(#aG)" stroke-width="5" stroke-linecap="round" fill="none"/>
           <path d="M30 11 L48 49" stroke="url(#aG)" stroke-width="5" stroke-linecap="round" fill="none"/>
           <line x1="19" y1="33" x2="41" y2="33" stroke="url(#aG)" stroke-width="4" stroke-linecap="round"/>
@@ -371,7 +289,7 @@ body{
     <h1 class="hero-tagline">Building the future.</h1>
     <p class="hero-sub">I build AI systems that <b>grade their own performance</b>, discard what fails, and get measurably smarter with every cycle — entirely on their own. A growing fleet of live autonomous systems, each evolving without human intervention, all built to keep <b>improving at their own jobs indefinitely</b>.</p>
     <div class="stats-strip">
-      <div class="stat-pill live"><span class="stat-dot"></span>5 SYSTEMS LIVE</div>
+      <div class="stat-pill live"><span class="stat-dot"></span>7 PROJECTS LIVE</div>
       <div class="stat-pill">L9 ACTIVE</div>
       <div class="stat-pill">24 / 7 ACTIVE</div>
       <div class="stat-pill">PAPER TRADED</div>
@@ -381,13 +299,13 @@ body{
 
   <div class="divider"></div>
 
-  <!-- ── PHILOSOPHY — ambient quote ── -->
   <div class="philosophy">
     <p class="phi-text">&#8220;I don&#8217;t write the rules &mdash; I build systems that discover them.&#8221;</p>
   </div>
 
-  <!-- ── TRADING FLEET ── -->
-  <div class="fleet-section">
+  <!-- ── ALL SECTIONS ── -->
+  <div class="sections-wrap">
+
     <aside class="visitor-note visitor-note--left">
       <span>New here?</span>
       <div class="vn-div"></div>
@@ -402,19 +320,19 @@ body{
       <span>Every system<br>runs daily and<br>grades itself.</span>
     </aside>
 
-  <div class="section-label">⚡ Autonomous trading system</div>
+    <!-- ══ FINANCIAL & TRADING ══════════════════════════════ -->
+    <div class="section-label">💹 Financial &amp; trading</div>
+    <div class="grid">
 
-  <a class="card card-featured card-jarvis" href="https://adamdegoat.github.io/jarvisscout/" style="--accent:#38bdf8;--chip:rgba(56,189,248,.10);--glow:rgba(56,189,248,.22)">
-    <div class="term-header">
-      <div class="term-dots"><span class="td td-r"></span><span class="td td-y"></span><span class="td td-g"></span></div>
-      <span class="term-label">JARVIS SCOUT · L9 · STRATEGY FACTORY · ACTIVE</span>
-    </div>
-    <div class="card-ic">⚡</div>
-    <div class="card-tag">Autonomous trading · L9 strategy factory · OKX + Futu/Moomoo</div>
-    <div class="feat-inner">
-      <div>
+      <a class="card card-jarvis" href="https://adamdegoat.github.io/jarvisscout/" style="--accent:#38bdf8;--chip:rgba(56,189,248,.10);--glow:rgba(56,189,248,.22)">
+        <div class="term-header">
+          <div class="term-dots"><span class="td td-r"></span><span class="td td-y"></span><span class="td td-g"></span></div>
+          <span class="term-label">L9 · STRATEGY FACTORY · ACTIVE</span>
+        </div>
+        <div class="card-ic">⚡</div>
+        <div class="card-tag">Autonomous trading · L9 strategy factory</div>
         <h2 class="card-name">Jarvis Scout</h2>
-        <div class="card-desc desc-mono">An <b>L9 autonomous strategy factory</b> — discovers trading edges, validates them through a 7-gate gauntlet, auto-generates complete paper trading bots, incubates them on live market data, monitors for decay daily, and retires dead edges with full autopsies. Every failure feeds back into the discovery model, making future hypotheses smarter. The only human touchpoint: reviewing and approving a generated bot before it goes live. Everything else — invention, validation, deployment, monitoring, retirement, learning — runs without input.</div>
+        <div class="card-desc desc-mono">An <b>L9 autonomous strategy factory</b> — discovers trading edges, validates through a 7-gate gauntlet, auto-generates complete paper bots, incubates on live market data, monitors for decay daily, and retires dead edges with full autopsies. Every failure feeds back into discovery. <b>Self-writing. Self-retiring. Fully autonomous.</b> The only human touchpoint is reviewing a generated bot before incubation begins.</div>
         <div class="chips">
           <span class="chip">L9 autonomous</span>
           <span class="chip">7-gate gauntlet</span>
@@ -424,130 +342,121 @@ body{
           <span class="chip">24/7 active</span>
         </div>
         <span class="enter">Open Jarvis Scout <span class="arr">→</span></span>
-      </div>
-      <div>
-        <div class="feat-stats">
-          <div class="fstat"><div class="fstat-l">Level</div><div class="fstat-v">L9</div></div>
-          <div class="fstat"><div class="fstat-l">Gauntlet</div><div class="fstat-v">7-gate</div></div>
-          <div class="fstat"><div class="fstat-l">Paper $</div><div class="fstat-v">$10k</div></div>
-          <div class="fstat"><div class="fstat-l">Runs</div><div class="fstat-v">24/7</div></div>
+      </a>
+
+      <a class="card card-fm" href="https://adamdegoat.github.io/fund-manager/" style="--accent:#06b6d4;--chip:rgba(6,182,212,.10);--glow:rgba(6,182,212,.20)">
+        <div class="card-ic">◈</div>
+        <div class="card-tag">Bitcoin &amp; Ethereum · Market Intelligence · Live</div>
+        <h2 class="card-name">Fund Manager</h2>
+        <div class="card-desc">A live <b>Bitcoin &amp; Ethereum intelligence dashboard</b> — multi-timeframe technical analysis, on-chain health, market sentiment, and derivatives data synthesised into a single actionable verdict. Updated every 15 minutes, 24/7. An autonomous L9 strategy engine invents and validates trading strategies in the background, running a paper portfolio. Built for investors who want to know what to do, not just what happened.</div>
+        <div class="chips">
+          <span class="chip">BTC + ETH</span>
+          <span class="chip">15-min updates</span>
+          <span class="chip">Actionable verdicts</span>
+          <span class="chip">L9 strategy engine</span>
+          <span class="chip">Paper portfolio</span>
+          <span class="chip">IBIT · ETHA</span>
         </div>
-        <div class="feat-note">Discovery weekly · Desk scheduler every 10 min · Decay monitor daily. The system <b>writes, tests, deploys, and retires its own bots</b> — you only review the generated code before incubation starts.</div>
-      </div>
+        <span class="enter">Open Fund Manager <span class="arr">→</span></span>
+      </a>
+
+      <a class="card card-em" href="https://adamdegoat.github.io/equity-manager/" style="--accent:#22c55e;--chip:rgba(34,197,94,.10);--glow:rgba(34,197,94,.20)">
+        <div class="card-ic">▲</div>
+        <div class="card-tag">US Stocks · Market Intelligence · Live</div>
+        <h2 class="card-name">Equity Manager</h2>
+        <div class="card-desc">A live <b>US stock intelligence dashboard</b> — SPY/QQQ regime detection, VIX fear gauge, fixed watchlist of 10 core stocks, and an A+ scanner covering 150+ names. Every stock gets a scored verdict (ACCUMULATE / HOLD / REDUCE / AVOID) with EMA stack, RSI, MACD, relative strength vs SPY, and earnings risk. Updated every 15 minutes. An autonomous L9 strategy engine invents, validates, and paper-trades strategies in the background.</div>
+        <div class="chips">
+          <span class="chip">SPY + QQQ regime</span>
+          <span class="chip">15-min updates</span>
+          <span class="chip">Actionable verdicts</span>
+          <span class="chip">150+ stock scanner</span>
+          <span class="chip">L9 strategy engine</span>
+          <span class="chip">Paper portfolio</span>
+        </div>
+        <span class="enter">Open Equity Manager <span class="arr">→</span></span>
+      </a>
+
     </div>
-  </a>
 
-  </div><!-- /fleet-section -->
+    <!-- ══ LIFESTYLE & CREATIVE ══════════════════════════════ -->
+    <div class="section-label" style="margin-top:52px">✦ Lifestyle &amp; creative</div>
+    <div class="grid-2">
 
-  <!-- ── CREATIVE & RESEARCH ── -->
-  <div class="section-label" style="margin-top:52px">📖 Creative &amp; research systems</div>
-  <div class="grid">
+      <a class="card card-bt" href="https://adamdegoat.github.io/the-breakfast-times/" style="--accent:#f59e0b;--chip:rgba(245,158,11,.10);--glow:rgba(245,158,11,.20)">
+        <div class="bt-dateline">Est. 2025 &nbsp;·&nbsp; Singapore &nbsp;·&nbsp; Daily Edition</div>
+        <div class="card-ic">☕</div>
+        <div class="card-tag">Fiction · Daily stories</div>
+        <h2 class="card-name">The Breakfast Times</h2>
+        <div class="bt-rule"></div>
+        <div class="card-desc desc-serif">A <b>self-improving AI storyteller</b> that publishes a new short story every morning. It studies what makes fiction resonate, grades itself on craft, and gets better at the job with every story it writes.</div>
+        <div class="chips">
+          <span class="chip">Daily stories</span>
+          <span class="chip">Self-improving</span>
+          <span class="chip">Romance &amp; drama</span>
+          <span class="chip">Free to read</span>
+        </div>
+        <span class="enter">Read today's story <span class="arr">→</span></span>
+      </a>
 
-    <a class="card card-bt" href="https://adamdegoat.github.io/the-breakfast-times/" style="--accent:#f59e0b;--chip:rgba(245,158,11,.10);--glow:rgba(245,158,11,.20)">
-      <div class="bt-dateline">Est. 2025 &nbsp;·&nbsp; Singapore &nbsp;·&nbsp; Daily Edition</div>
-      <div class="card-ic">☕</div>
-      <div class="card-tag">Fiction · Daily stories</div>
-      <h2 class="card-name">The Breakfast Times</h2>
-      <div class="bt-rule"></div>
-      <div class="card-desc desc-serif">A <b>self-improving AI storyteller</b> that publishes a new short story every morning. It studies what makes fiction resonate, grades itself on craft, and gets better at the job with every story it writes.</div>
-      <div class="chips">
-        <span class="chip">Daily stories</span>
-        <span class="chip">Self-improving</span>
-        <span class="chip">Romance &amp; drama</span>
-        <span class="chip">Free to read</span>
-      </div>
-      <span class="enter">Read today's story <span class="arr">→</span></span>
-    </a>
+      <a class="card card-chill" href="https://adamdegoat.github.io/chillswithiyls/" style="--accent:#7a9c5e;--chip:rgba(122,156,94,.10);--glow:rgba(122,156,94,.20)">
+        <svg class="chill-terrain" viewBox="0 0 130 82" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M-5 82 L20 46 L38 61 L58 24 L76 43 L95 9 L112 33 L128 20 L145 48 L145 82Z" fill="#7a9c5e"/>
+          <path d="M-5 82 L-5 70 L25 62 L52 68 L80 59 L106 65 L130 57 L145 62 L145 82Z" fill="#4a7a38"/>
+        </svg>
+        <div class="card-ic">🧭</div>
+        <div class="card-tag">4x4 Overlanding · Off-Grid Living · Daily</div>
+        <h2 class="card-name">Chillswithiyls</h2>
+        <div class="card-desc desc-condensed">A <b>self-improving AI editorial brand</b> covering 4x4 overlanding and off-grid self-sufficient living. Original long-form features and field guides published every morning — the system learns what resonates and gets sharper over time.</div>
+        <div class="chips">
+          <span class="chip">Daily features</span>
+          <span class="chip">Off-grid guides</span>
+          <span class="chip">Self-improving</span>
+          <span class="chip">Free to read</span>
+        </div>
+        <span class="enter">Live Slow. Go Wild. <span class="arr">→</span></span>
+      </a>
 
-    <a class="card card-chill" href="https://adamdegoat.github.io/chillswithiyls/" style="--accent:#7a9c5e;--chip:rgba(122,156,94,.10);--glow:rgba(122,156,94,.20)">
-      <svg class="chill-terrain" viewBox="0 0 130 82" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M-5 82 L20 46 L38 61 L58 24 L76 43 L95 9 L112 33 L128 20 L145 48 L145 82Z" fill="#7a9c5e"/>
-        <path d="M-5 82 L-5 70 L25 62 L52 68 L80 59 L106 65 L130 57 L145 62 L145 82Z" fill="#4a7a38"/>
-      </svg>
-      <div class="card-ic">🧭</div>
-      <div class="card-tag">4x4 Overlanding · Off-Grid Living · Daily</div>
-      <h2 class="card-name">Chillswithiyls</h2>
-      <div class="card-desc desc-condensed">A <b>self-improving AI editorial brand</b> covering 4x4 overlanding and off-grid self-sufficient living. Original long-form features and field guides published every morning — the system learns what resonates and gets sharper over time.</div>
-      <div class="chips">
-        <span class="chip">Daily features</span>
-        <span class="chip">Off-grid guides</span>
-        <span class="chip">Self-improving</span>
-        <span class="chip">Free to read</span>
-      </div>
-      <span class="enter">Live Slow. Go Wild. <span class="arr">→</span></span>
-    </a>
+    </div>
 
-    <a class="card card-peter" href="https://adamdegoat.github.io/peter/" style="--accent:#e879f9;--chip:rgba(232,121,249,.10);--glow:rgba(232,121,249,.18)">
-      <div class="peter-header">
-        <span class="peter-ref">Intelligence Brief · SGP</span>
-        <span class="peter-badge">Active</span>
-      </div>
-      <div class="card-ic">💡</div>
-      <div class="card-tag">Singapore · AI Opportunity Research · L5</div>
-      <h2 class="card-name">Peter</h2>
-      <div class="card-desc desc-research">An <b>L5 research engine</b> that discovers monetizable AI opportunities in Singapore and SE Asia. Scores every idea across 5 dimensions and <b>learns which idea families consistently win</b> — steering future research toward proven categories.</div>
-      <div class="chips">
-        <span class="chip">Singapore focus</span>
-        <span class="chip">L5 intelligence</span>
-        <span class="chip">Daily research</span>
-        <span class="chip">Monetization scoring</span>
-      </div>
-      <span class="enter">Explore Peter <span class="arr">→</span></span>
-    </a>
+    <!-- ══ RESEARCH & TOOLS ══════════════════════════════════ -->
+    <div class="section-label" style="margin-top:52px">🔬 Research &amp; tools</div>
+    <div class="grid-2">
 
-  </div>
+      <a class="card card-peter" href="https://adamdegoat.github.io/peter/" style="--accent:#e879f9;--chip:rgba(232,121,249,.10);--glow:rgba(232,121,249,.18)">
+        <div class="peter-header">
+          <span class="peter-ref">Intelligence Brief · SGP</span>
+          <span class="peter-badge">Active</span>
+        </div>
+        <div class="card-ic">💡</div>
+        <div class="card-tag">Singapore · AI Opportunity Research · L5</div>
+        <h2 class="card-name">Peter</h2>
+        <div class="card-desc desc-research">An <b>L5 research engine</b> that discovers monetizable AI opportunities in Singapore and SE Asia. Scores every idea across 5 dimensions and <b>learns which idea families consistently win</b> — steering future research toward proven categories.</div>
+        <div class="chips">
+          <span class="chip">Singapore focus</span>
+          <span class="chip">L5 intelligence</span>
+          <span class="chip">Daily research</span>
+          <span class="chip">Monetization scoring</span>
+        </div>
+        <span class="enter">Explore Peter <span class="arr">→</span></span>
+      </a>
 
-  <!-- ── TOOLS SECTION ── -->
-  <div class="section-label" style="margin-top:52px">FREE TOOLS</div>
-  <div style="width:100%;margin-bottom:16px">
-    <a class="card card-fm" href="https://adamdegoat.github.io/fund-manager/" style="--accent:#06b6d4;--chip:rgba(6,182,212,.10);--glow:rgba(6,182,212,.20)">
-      <div class="card-ic">◈</div>
-      <div class="card-tag">Bitcoin &amp; Ethereum · Market Intelligence · Live</div>
-      <h2 class="card-name">Fund Manager</h2>
-      <div class="card-desc">A live <b>Bitcoin &amp; Ethereum intelligence dashboard</b> — multi-timeframe technical analysis, on-chain health, market sentiment, and derivatives data synthesised into a single actionable verdict. Updated every 15 minutes, 24/7. An autonomous L9 strategy engine invents and validates trading strategies in the background, running a paper portfolio. Built for investors who want to know what to do, not just what happened.</div>
-      <div class="chips">
-        <span class="chip">BTC + ETH</span>
-        <span class="chip">15-min updates</span>
-        <span class="chip">Actionable verdicts</span>
-        <span class="chip">L9 strategy engine</span>
-        <span class="chip">Paper portfolio</span>
-        <span class="chip">IBIT · ETHA</span>
-      </div>
-      <span class="enter">Open Fund Manager <span class="arr">→</span></span>
-    </a>
-  </div>
-  <div style="width:100%;margin-bottom:16px">
-    <a class="card card-em" href="https://adamdegoat.github.io/equity-manager/" style="--accent:#22c55e;--chip:rgba(34,197,94,.10);--glow:rgba(34,197,94,.20)">
-      <div class="card-ic">▲</div>
-      <div class="card-tag">US Stocks · Market Intelligence · Live</div>
-      <h2 class="card-name">Equity Manager</h2>
-      <div class="card-desc">A live <b>US stock intelligence dashboard</b> — SPY/QQQ regime detection, VIX fear gauge, fixed watchlist of 10 core stocks, and an A+ scanner covering 150+ names. Every stock gets a scored verdict (ACCUMULATE / HOLD / REDUCE / AVOID) with EMA stack, RSI, MACD, relative strength vs SPY, and earnings risk. Updated every 15 minutes. An autonomous L9 strategy engine invents, validates, and paper-trades strategies in the background.</div>
-      <div class="chips">
-        <span class="chip">SPY + QQQ regime</span>
-        <span class="chip">15-min updates</span>
-        <span class="chip">Actionable verdicts</span>
-        <span class="chip">150+ stock scanner</span>
-        <span class="chip">L9 strategy engine</span>
-        <span class="chip">Paper portfolio</span>
-      </div>
-      <span class="enter">Open Equity Manager <span class="arr">→</span></span>
-    </a>
-  </div>
-  <div style="width:100%">
-    <a class="card card-bcm" href="https://adamdegoat.github.io/beyondcarmart/" style="--accent:#e63946;--chip:rgba(230,57,70,0.10);--glow:rgba(230,57,70,0.18)">
-      <div class="card-ic">🚗</div>
-      <div class="card-tag">Singapore · Car Buying · Free · Self-Improving</div>
-      <h2 class="card-name">BeyondCarMart</h2>
-      <div class="card-desc">Paste any <b>sgCarMart listing URL</b> and get a plain-English buyer's report — depreciation, COE explained simply, price vs market, and red flags. <b>Self-improving</b>: price comparisons get sharper with every listing analysed. Free, always.</div>
-      <div class="chips">
-        <span class="chip">Depreciation calc</span>
-        <span class="chip">COE analysis</span>
-        <span class="chip">Market price check</span>
-        <span class="chip">No jargon</span>
-      </div>
-      <span class="enter">Try BeyondCarMart <span class="arr">→</span></span>
-    </a>
-  </div>
+      <a class="card card-bcm" href="https://adamdegoat.github.io/beyondcarmart/" style="--accent:#e63946;--chip:rgba(230,57,70,0.10);--glow:rgba(230,57,70,0.18)">
+        <div class="card-ic">🚗</div>
+        <div class="card-tag">Singapore · Car Buying · Free · Self-Improving</div>
+        <h2 class="card-name">BeyondCarMart</h2>
+        <div class="card-desc">Paste any <b>sgCarMart listing URL</b> and get a plain-English buyer's report — depreciation, COE explained simply, price vs market, and red flags. <b>Self-improving</b>: price comparisons get sharper with every listing analysed. Free, always.</div>
+        <div class="chips">
+          <span class="chip">Depreciation calc</span>
+          <span class="chip">COE analysis</span>
+          <span class="chip">Market price check</span>
+          <span class="chip">No jargon</span>
+        </div>
+        <span class="enter">Try BeyondCarMart <span class="arr">→</span></span>
+      </a>
+
+    </div>
+
+  </div><!-- /sections-wrap -->
 
   <!-- ── FOOTER ── -->
   <footer class="foot">
