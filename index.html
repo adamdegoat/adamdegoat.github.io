@@ -203,10 +203,39 @@ body{
 .card-bcm{background:linear-gradient(160deg,rgba(28,6,8,.92),rgba(18,3,5,.88))}
 .card-bcm::before{background:linear-gradient(90deg,#9f1239,#e11d48,#fb7185,#e11d48,#9f1239)}
 
-/* Love Island — tropical pink/teal */
-.card-li{background:linear-gradient(160deg,rgba(20,4,16,.93),rgba(4,16,22,.89))}
-.card-li::before{background:linear-gradient(90deg,#9d174d,#ec4899,#f472b6,#38bdf8,#0ea5e9,#38bdf8,#f472b6,#ec4899,#9d174d);height:2px}
-.li-badge{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:2px;text-transform:uppercase;color:rgba(244,114,182,.6);background:rgba(244,114,182,.08);border:1px solid rgba(244,114,182,.2);border-radius:3px;padding:1px 5px;margin-bottom:3px;display:inline-block;width:fit-content}
+/* The Never Ending Story Project — living worlds */
+.card-nesp{background:linear-gradient(160deg,rgba(6,4,22,.97),rgba(2,4,16,.95));grid-column:span 2}
+.card-nesp::before{
+  background:linear-gradient(90deg,#4c1d95,#7c3aed,#a855f7,#ec4899,#f472b6,#38bdf8,#0ea5e9,#38bdf8,#f472b6,#ec4899,#a855f7,#4c1d95);
+  height:2px;background-size:200% auto;animation:nesp-aurora 9s linear infinite
+}
+@keyframes nesp-aurora{0%{background-position:0% center}100%{background-position:200% center}}
+.nesp-badge{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(168,85,247,.65);background:rgba(168,85,247,.09);border:1px solid rgba(168,85,247,.22);
+  border-radius:3px;padding:1px 5px;margin-bottom:6px;display:inline-block}
+.nesp-title{font-family:'Lora',Georgia,serif!important;font-size:13px!important;font-style:italic;
+  line-height:1.35!important;letter-spacing:.1px!important;color:#ddd5f0!important}
+.nesp-sub{font-family:'IBM Plex Mono',monospace;font-size:7.5px;letter-spacing:1.8px;text-transform:uppercase;
+  color:rgba(168,85,247,.4);margin-top:5px;line-height:1.4}
+/* World list */
+.nesp-worlds{display:flex;flex-direction:column;gap:4px;margin-top:9px}
+.nesp-world{display:flex;align-items:center;gap:8px;padding:5px 9px;border-radius:8px;
+  border:1px solid transparent;transition:all .15s}
+.nesp-world.active{background:rgba(244,114,182,.07);border-color:rgba(244,114,182,.18)}
+.nesp-world.soon{opacity:.32}
+.nesp-dot{width:6px;height:6px;border-radius:50%;flex:none}
+.nesp-dot.active{background:#f472b6;box-shadow:0 0 0 2px rgba(244,114,182,.22);animation:pulse 2s infinite}
+.nesp-dot.soon{background:#334155}
+.nesp-world-icon{font-size:13px;flex:none;line-height:1}
+.nesp-world-info{flex:1;min-width:0}
+.nesp-world-name{font-family:'Space Grotesk',sans-serif;font-size:11.5px;font-weight:700;
+  color:#e2e8f0;display:block;line-height:1.2}
+.nesp-world.active .nesp-world-name{color:#fbcfe8}
+.nesp-world-sub{font-family:'IBM Plex Mono',monospace;font-size:7.5px;letter-spacing:.6px;
+  color:#475569;display:block;margin-top:1px}
+.nesp-world-enter{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;
+  color:rgba(244,114,182,.65);flex:none;transition:transform .2s}
+.card-nesp:hover .nesp-world-enter{transform:translateX(3px)}
 
 /* ── FEATURED STRIP ─────────────────────────────────────── */
 .feature-strip{
@@ -296,6 +325,10 @@ body{
   .ch-mid{padding:10px 12px}
   .ch-enter{width:52px}
   .card{min-height:100px}
+  /* NESP: stack left/mid vertically on small screens */
+  .card-nesp{flex-direction:column}
+  .card-nesp .ch-left{width:100%!important;border-right:none;border-bottom:1px solid rgba(168,85,247,.12);padding:12px 14px 10px}
+  .card-nesp .ch-enter{width:100%;border-left:none;border-top:1px solid rgba(168,85,247,.1);flex-direction:row;justify-content:flex-end;padding:8px 14px;min-height:36px}
 }
 </style></head>
 <body><div class="wrap">
@@ -557,20 +590,43 @@ body{
       <span class="ch-enter" style="font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;text-transform:uppercase;font-size:10px">Read<span class="arr">→</span></span>
     </a>
 
-    <a class="card card-li" href="https://adamdegoat.github.io/loveisland/" style="--accent:#f472b6;--chip:rgba(244,114,182,.10);--glow:rgba(244,114,182,.22)">
-      <div class="ch-left">
-        <div class="li-badge">Live · 6× Daily</div>
-        <div class="ch-icon" style="background:rgba(244,114,182,.10);border-color:rgba(244,114,182,.3)">🏝️</div>
-        <div class="ch-name" style="font-family:'Playfair Display',Georgia,serif;font-size:15px;letter-spacing:.2px">Tropicana</div>
-        <div class="ch-tag">Social Sim · Singlish · SG</div>
+    <a class="card card-nesp" href="https://adamdegoat.github.io/loveisland/" style="--accent:#a855f7;--chip:rgba(168,85,247,.10);--glow:rgba(168,85,247,.2)">
+      <div class="ch-left" style="width:192px">
+        <div class="nesp-badge">Living Worlds · AI</div>
+        <div class="ch-name nesp-title">The Never Ending Story Project</div>
+        <div class="nesp-sub">Worlds that live forever</div>
       </div>
       <div class="ch-mid">
-        <div class="ch-desc">Three Singaporeans stranded on a deserted island — <b>Marcus, Ryan, and Jade</b> — living, drifting, and tangling. An AI-driven social simulation updating 6× daily with real dialogue, slow-burn drama, and a fate Oracle that seals each day's destiny at midnight.</div>
-        <div class="chips">
-          <span class="chip">Live 6×/day</span><span class="chip">Singlish</span><span class="chip">Relationship dynamics</span><span class="chip">Island Oracle</span><span class="chip">Slow burn</span>
+        <div class="ch-desc">Each world is its own living simulation — characters with memory, relationships, fate, and drama unfolding daily. Tropicana is World 01. <b>More worlds are being built.</b></div>
+        <div class="nesp-worlds">
+          <div class="nesp-world active">
+            <span class="nesp-dot active"></span>
+            <span class="nesp-world-icon">🏝️</span>
+            <div class="nesp-world-info">
+              <span class="nesp-world-name">Tropicana</span>
+              <span class="nesp-world-sub">Three Singaporeans · deserted island · 6× daily</span>
+            </div>
+            <span class="nesp-world-enter">Enter →</span>
+          </div>
+          <div class="nesp-world soon">
+            <span class="nesp-dot soon"></span>
+            <span class="nesp-world-icon">🌆</span>
+            <div class="nesp-world-info">
+              <span class="nesp-world-name">World 02</span>
+              <span class="nesp-world-sub">Coming soon</span>
+            </div>
+          </div>
+          <div class="nesp-world soon">
+            <span class="nesp-dot soon"></span>
+            <span class="nesp-world-icon">🌌</span>
+            <div class="nesp-world-info">
+              <span class="nesp-world-name">World 03</span>
+              <span class="nesp-world-sub">Coming soon</span>
+            </div>
+          </div>
         </div>
       </div>
-      <span class="ch-enter" style="font-family:'Playfair Display',serif;font-style:italic">Watch<span class="arr">→</span></span>
+      <span class="ch-enter" style="font-size:10px;letter-spacing:.3px">Enter<span class="arr">→</span></span>
     </a>
 
   </div>
