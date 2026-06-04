@@ -249,6 +249,10 @@ body{
 .feature-strip-teal .feature-cta-label{color:rgba(103,232,249,.45)}
 .feature-strip-teal .feature-cta-btn{color:#67e8f9}
 
+/* ── FEATURED PAIR (side-by-side) ───────────────────────── */
+.feat-pair{display:flex;gap:16px;margin:36px 0 4px;align-items:stretch}
+.feat-pair .feature-strip{flex:1;margin:0;min-width:0}
+
 /* ── COLLAB BAR ─────────────────────────────────────────── */
 .collab-bar{
   display:inline-flex;align-items:center;gap:12px;margin-top:18px;
@@ -269,7 +273,7 @@ body{
 
 /* ── RESPONSIVE ─────────────────────────────────────────── */
 @media(max-width:1024px){body{background-attachment:scroll}}
-@media(max-width:900px){.grid-h{grid-template-columns:1fr}}
+@media(max-width:900px){.grid-h{grid-template-columns:1fr}.feat-pair{flex-direction:column}}
 @media(max-width:760px){
   .wrap{padding:40px 16px 48px}
   .hero-tagline{font-size:clamp(28px,9vw,42px);letter-spacing:-1.5px}
@@ -337,6 +341,7 @@ body{
   </div>
 
   <!-- ══ FEATURED SPOTLIGHT ════════════════════════════════ -->
+  <div class="feat-pair">
   <a class="feature-strip" href="https://adamdegoat.github.io/beyondcarmart/">
     <div class="feat-header">
       <span class="feat-header-star">★</span>
@@ -412,6 +417,7 @@ body{
       </div>
     </div>
   </a>
+  </div>
 
   <!-- ══ FINANCIAL & TRADING ════════════════════════════════ -->
   <div class="section-label">💹 Financial &amp; trading</div>
