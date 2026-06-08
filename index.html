@@ -275,6 +275,19 @@ body{
 .feature-strip-teal .feature-cta{border-left-color:rgba(6,182,212,.12);background:rgba(6,182,212,.05)}
 .feature-strip-teal .feature-cta-label{color:rgba(103,232,249,.45)}
 .feature-strip-teal .feature-cta-btn{color:#67e8f9}
+/* Flagship variant — the Never Ending Story Project (purple) */
+.feature-strip-nesp{border-color:rgba(168,85,247,.42);box-shadow:0 0 0 1px rgba(168,85,247,.12),0 12px 36px rgba(0,0,0,.5);background:linear-gradient(160deg,rgba(12,4,26,.97) 0%,rgba(5,2,16,.95) 100%)}
+.feature-strip-nesp:hover{border-color:rgba(168,85,247,.66);box-shadow:0 0 0 1px rgba(168,85,247,.26),0 18px 50px rgba(0,0,0,.62)}
+.feature-strip-nesp .feat-header{background:linear-gradient(90deg,#581c87 0%,#9333ea 45%,#7e22ce 100%)}
+.feature-strip-nesp .feat-mark{background:linear-gradient(145deg,#0c0418,#050210);border-color:rgba(168,85,247,.5);box-shadow:0 0 16px rgba(168,85,247,.3)}
+.feature-strip-nesp .feat-sub{color:rgba(192,132,252,.85)}
+.feature-strip-nesp .feat-body{border-left-color:rgba(168,85,247,.12)}
+.feature-strip-nesp .feat-tagline{color:#cbb6e6}
+.feature-strip-nesp .feat-tagline b{color:#d8b4fe;font-style:normal;font-weight:600}
+.feature-strip-nesp .feat-pill{color:rgba(216,180,254,.85);background:rgba(168,85,247,.1);border-color:rgba(168,85,247,.24)}
+.feature-strip-nesp .feature-cta{border-left-color:rgba(168,85,247,.12);background:rgba(168,85,247,.05)}
+.feature-strip-nesp .feature-cta-label{color:rgba(216,180,254,.5)}
+.feature-strip-nesp .feature-cta-btn{color:#d8b4fe}
 
 /* ── FEATURED PAIR (side-by-side) ───────────────────────── */
 .feat-pair{display:flex;gap:14px;margin:24px 0 4px;align-items:stretch}
@@ -372,6 +385,46 @@ body{
   </div>
 
   <!-- ══ FEATURED SPOTLIGHT ════════════════════════════════ -->
+  <!-- Flagship: The Never Ending Story Project -->
+  <a class="feature-strip feature-strip-nesp" href="https://adamdegoat.github.io/neverendingworld/">
+    <div class="feat-header">
+      <span class="feat-header-star">★</span>
+      <span class="feat-header-label">Flagship Project</span>
+      <div class="feat-header-rule"></div>
+      <span class="feat-header-tag">Living Worlds · AI</span>
+    </div>
+    <div class="feat-row">
+      <div class="feat-logo-col">
+        <div class="feat-mark">
+          <svg width="24" height="24" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="18" r="15" stroke="#a855f7" stroke-width="1.2" fill="rgba(168,85,247,.08)"/>
+            <path d="M7 23 Q18 19 29 23" stroke="#c084fc" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+            <ellipse cx="18" cy="25.5" rx="7.5" ry="2.4" fill="#a855f7" opacity=".55"/>
+            <path d="M18 25 L18 14 M18 16 Q14.5 12.5 11.5 11.5 M18 16 Q21.5 12.5 24.5 11.5" stroke="#d8b4fe" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+            <circle cx="26" cy="10.5" r="1.8" fill="#fbbf24"/>
+          </svg>
+        </div>
+        <div>
+          <div class="feat-name">The Never Ending Story Project</div>
+          <div class="feat-sub">Worlds that live forever</div>
+        </div>
+      </div>
+      <div class="feat-body">
+        <div class="feat-tagline">A living archipelago of <b>self-running story worlds</b>. AI characters with memory, relationships and fate — they live, struggle, fall in love and surprise you <b>four times a day, with no script</b>. Hand-crafted worlds that keep evolving entirely on their own.</div>
+        <div class="feat-pills">
+          <span class="feat-pill">Living Simulation</span>
+          <span class="feat-pill">AI Characters</span>
+          <span class="feat-pill">4× Daily</span>
+          <span class="feat-pill">Always Running</span>
+        </div>
+      </div>
+      <div class="feature-cta">
+        <span class="feature-cta-label">Explore</span>
+        <span class="feature-cta-btn">Enter the worlds <span class="feature-arr">→</span></span>
+      </div>
+    </div>
+  </a>
+
   <div class="feat-pair">
   <a class="feature-strip" href="https://adamdegoat.github.io/beyondcarmart/">
     <div class="feat-header">
@@ -535,37 +588,6 @@ body{
         </div>
       </div>
       <span class="ch-enter" style="font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;text-transform:uppercase;font-size:10px">Read<span class="arr">→</span></span>
-    </a>
-
-    <a class="card card-nesp" href="https://adamdegoat.github.io/neverendingworld/" style="--accent:#a855f7;--chip:rgba(168,85,247,.10);--glow:rgba(168,85,247,.2)">
-      <div class="ch-left" style="width:192px">
-        <div class="nesp-badge">Living Worlds · AI</div>
-        <div class="ch-name nesp-title">The Never Ending Story Project</div>
-        <div class="nesp-sub">Worlds that live forever</div>
-      </div>
-      <div class="ch-mid">
-        <div class="ch-desc">Each world is its own living simulation — characters with memory, relationships, fate, and drama unfolding daily. <b>Tropicana is now live</b>, with more worlds being built.</div>
-        <div class="nesp-worlds">
-          <div class="nesp-world active">
-            <span class="nesp-dot active"></span>
-            <span class="nesp-world-icon">🏝️</span>
-            <div class="nesp-world-info">
-              <span class="nesp-world-name">Tropicana</span>
-              <span class="nesp-world-sub">Four Singaporeans · deserted island · 4× daily</span>
-            </div>
-            <span class="nesp-world-enter">Enter →</span>
-          </div>
-          <div class="nesp-world soon">
-            <span class="nesp-dot soon"></span>
-            <span class="nesp-world-icon">🌌</span>
-            <div class="nesp-world-info">
-              <span class="nesp-world-name">World 03</span>
-              <span class="nesp-world-sub">Coming soon</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <span class="ch-enter" style="font-size:10px;letter-spacing:.3px">Enter<span class="arr">→</span></span>
     </a>
 
   </div>
