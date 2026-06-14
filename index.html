@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta name="description" content="Adam Phang — Singapore. A small collection of things I build: living story-worlds, a child-enrichment finder, and property intelligence for agents.">
+<meta name="description" content="Adam Phang — Singapore. I design and build software end-to-end: research systems and operations tools for businesses, plus my own data products and living simulations.">
 <title>Adam Phang · Selected Work</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23121821' stroke-width='1.5'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%23c2703d'/%3E%3C/svg%3E">
 <meta name="theme-color" content="#f6f4ef">
@@ -16,7 +16,7 @@
   --ink:#15181d;--ink-2:#444c57;--ink-3:#79818d;--line:#e4ded3;--paper:#f6f4ef;--card:#fffefb;
   --terra:#c2703d;--rose:#cf6a86;--green:#0f9d76;
   --sans:'Libre Franklin',system-ui,-apple-system,sans-serif;--serif:'Spectral',Georgia,serif;
-  --maxw:1080px;
+  --maxw:1100px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -24,48 +24,48 @@ body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);l
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;letter-spacing:-.005em;overflow-x:hidden;
   background-image:
     radial-gradient(640px 460px at 88% -4%,rgba(194,112,61,.13),transparent 62%),
-    radial-gradient(560px 460px at -6% 18%,rgba(207,106,134,.12),transparent 60%),
-    radial-gradient(680px 520px at 60% 108%,rgba(15,157,118,.12),transparent 62%);
+    radial-gradient(560px 460px at -6% 16%,rgba(207,106,134,.12),transparent 60%),
+    radial-gradient(700px 560px at 65% 122%,rgba(15,157,118,.11),transparent 62%);
   background-attachment:fixed;
 }
 h1,h2,h3{margin:0;font-weight:400;letter-spacing:-.02em;line-height:1.08}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 30px}
-.serif{font-family:var(--serif)}
 .it{font-family:var(--serif);font-style:italic;font-weight:500}
 @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 .r{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
 
 /* top */
 .top{display:flex;justify-content:space-between;align-items:center;padding:26px 30px;max-width:var(--maxw);margin:0 auto}
-.mark{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;letter-spacing:.01em}
+.mark{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px}
 .mark .dot{width:13px;height:13px;border:1.5px solid var(--ink);border-radius:50%;position:relative}
 .mark .dot::after{content:"";position:absolute;inset:3.5px;border-radius:50%;background:var(--terra)}
 .top .place{font-size:12.5px;color:var(--ink-3);font-weight:600;text-transform:uppercase;letter-spacing:.16em}
 
 /* hero */
-.hero{padding:64px 0 28px}
-.hero .ey{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.2em;color:var(--ink-3);margin-bottom:30px}
-.hero h1{font-family:var(--serif);font-size:clamp(40px,7vw,78px);font-weight:400;max-width:15ch}
-.hero h1 .it{color:var(--ink)}
-.hero .lede{font-size:18px;color:var(--ink-2);max-width:54ch;margin:28px 0 0}
-.hero .scroll{display:inline-flex;align-items:center;gap:9px;margin-top:40px;font-size:13px;font-weight:600;color:var(--ink-3);letter-spacing:.04em}
+.hero{padding:60px 0 24px}
+.hero .ey{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.2em;color:var(--ink-3);margin-bottom:28px}
+.hero h1{font-family:var(--serif);font-size:clamp(38px,6.6vw,74px);font-weight:400;max-width:15ch}
+.hero .lede{font-size:18px;color:var(--ink-2);max-width:56ch;margin:26px 0 0}
+.hero .cred{font-size:15px;color:var(--ink-2);max-width:58ch;margin:18px 0 0}
+.hero .cred b{font-weight:600;color:var(--ink)}
+.hero .scroll{display:inline-flex;align-items:center;gap:9px;margin-top:36px;font-size:13px;font-weight:600;color:var(--ink-3);letter-spacing:.04em}
 .hero .scroll .ln{width:46px;height:1px;background:var(--ink-3);position:relative;overflow:hidden}
 .hero .scroll .ln::after{content:"";position:absolute;inset:0;background:var(--ink);transform:translateX(-100%);animation:sweep 2.4s ease-in-out infinite}
 @keyframes sweep{0%{transform:translateX(-100%)}55%,100%{transform:translateX(100%)}}
 
-/* index of work */
-.work{padding:34px 0 30px}
-.work-head{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:8px}
-.work-head .t{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:var(--ink-2)}
-.work-head .c{font-size:13px;color:var(--ink-3);font-weight:600}
+/* section heads */
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:14px;margin:34px 0 4px}
+.sec-head .t{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:var(--ink-2)}
+.sec-head .c{font-size:13px;color:var(--ink-3);font-weight:600}
 
-.proj{display:grid;grid-template-columns:96px 1fr auto;gap:30px;align-items:start;
-  padding:40px 0;border-bottom:1px solid var(--line);position:relative;transition:.4s}
+/* FEATURED — editorial rows */
+.proj{display:grid;grid-template-columns:92px 1fr auto;gap:30px;align-items:start;
+  padding:38px 0;border-bottom:1px solid var(--line);position:relative;transition:.4s}
 .proj:hover{padding-left:10px}
-.proj .num{font-family:var(--serif);font-size:34px;color:var(--accent);font-weight:500;line-height:1}
+.proj .num{font-family:var(--serif);font-size:32px;color:var(--accent);font-weight:500;line-height:1}
 .proj .body{max-width:60ch}
-.proj h2{font-family:var(--serif);font-size:clamp(28px,4vw,40px);font-weight:500;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.proj h2{font-family:var(--serif);font-size:clamp(26px,3.6vw,38px);font-weight:500;display:flex;align-items:center;gap:13px;flex-wrap:wrap}
 .proj h2 .badge{font-family:var(--sans);font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
   color:var(--accent);border:1px solid var(--accent);border-radius:30px;padding:3px 10px;transform:translateY(-3px)}
 .proj .essence{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--accent);margin:8px 0 14px}
@@ -80,23 +80,36 @@ a{color:inherit;text-decoration:none}
 .proj::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--accent);transform:scaleY(0);transform-origin:top;transition:.4s}
 .proj:hover::before{transform:scaleY(1)}
 
+/* MORE WORK — card grid */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+.mcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 22px 20px;
+  display:flex;flex-direction:column;transition:.2s;position:relative;overflow:hidden}
+.mcard:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(20,18,14,.09);border-color:#d8d0c2}
+.mcard .mc-top{display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.mcard .mc-dot{width:9px;height:9px;border-radius:50%;background:var(--accent);flex:none}
+.mcard .mc-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3)}
+.mcard h3{font-family:var(--serif);font-size:23px;font-weight:500;margin-bottom:8px}
+.mcard p{font-size:13.5px;color:var(--ink-2);line-height:1.55;flex:1}
+.mcard .go{margin-top:16px;font-size:13px;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:7px}
+.mcard .go .arr{transition:transform .2s}
+.mcard:hover .go .arr{transform:translateX(4px)}
+
 /* note */
-.note{padding:60px 0 0;max-width:60ch}
+.note{padding:58px 0 0;max-width:60ch}
 .note .q{font-family:var(--serif);font-size:24px;line-height:1.45;color:var(--ink)}
 .note .q .it{color:var(--terra)}
 
-/* footer */
-footer{padding:70px 0 60px;margin-top:30px;border-top:1px solid var(--line)}
+footer{padding:64px 0 60px;margin-top:30px;border-top:1px solid var(--line)}
 .foot{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:14px}
 .foot .nm{font-family:var(--serif);font-size:20px}
 .foot .meta{font-size:13px;color:var(--ink-3)}
 
+@media(max-width:880px){.grid{grid-template-columns:1fr 1fr}}
 @media(max-width:760px){
-  .proj{grid-template-columns:1fr;gap:14px;padding:32px 0}
-  .proj .num{font-size:26px}
-  .proj .visit{align-self:start;margin-top:6px}
-  .hero{padding:48px 0 20px}
-  .top{padding:20px}
+  .proj{grid-template-columns:1fr;gap:14px;padding:30px 0}
+  .proj .num{font-size:24px}.proj .visit{align-self:start;margin-top:6px}
+  .grid{grid-template-columns:1fr}
+  .hero{padding:44px 0 16px}.top{padding:20px}
 }
 </style>
 </head>
@@ -110,21 +123,21 @@ footer{padding:70px 0 60px;margin-top:30px;border-top:1px solid var(--line)}
 <header class="hero wrap">
   <div class="ey r" style="animation-delay:.05s">Selected work · 2026</div>
   <h1 class="r" style="animation-delay:.12s">I build things that are <span class="it">useful</span> — and a few that are <span class="it">alive</span>.</h1>
-  <p class="lede r" style="animation-delay:.22s">A small, hand-built collection: living story-worlds that write their own chapters, a finder that helps parents place their kids, and property intelligence for agents — all running on real, official data.</p>
-  <a href="#work" class="scroll r" style="animation-delay:.32s"><span class="ln"></span> The work</a>
+  <p class="lede r" style="animation-delay:.22s">I design and ship software end-to-end — from the data layer to the interface.</p>
+  <p class="cred r" style="animation-delay:.30s">For businesses I've built <b>research &amp; intelligence systems</b>, an internal <b>operations &amp; CRM portal</b>, lead-generation tools and trading engines. Everything below is my own — real, running, and built on real data.</p>
+  <a href="#featured" class="scroll r" style="animation-delay:.40s"><span class="ln"></span> The work</a>
 </header>
 
-<main class="work wrap" id="work">
-  <div class="work-head">
-    <span class="t">Index</span><span class="c">Three projects · all live</span>
-  </div>
+<main class="wrap">
+  <!-- FEATURED -->
+  <div class="sec-head" id="featured"><span class="t">Featured</span><span class="c">Three flagships · all live</span></div>
 
   <a class="proj" href="https://adamdegoat.github.io/neverendingworld/" style="--accent:var(--terra)">
     <div class="num">01</div>
     <div class="body">
       <h2>The Never Ending Story <span class="badge">Live</span></h2>
-      <div class="essence">Living worlds that write themselves.</div>
-      <p class="desc">A collection of simulated worlds — a tropical island, a jungle survival, a zombie-city rooftop, an Alaskan homestead — where a small cast lives out a fresh chapter several times a day. Hand-drawn, self-running, and no two days the same.</p>
+      <div class="essence">Worlds that live forever.</div>
+      <p class="desc">A living archipelago of self-running story-worlds — a tropical island, a jungle survival, a zombie-city rooftop, an Alaskan homestead. A small cast with memory, relationships and fate lives out a fresh chapter several times a day. Hand-illustrated, and no two days the same.</p>
       <div class="tags"><span class="tag">Living simulation</span><span class="tag">Daily cycle</span><span class="tag">Hand-illustrated</span><span class="tag">Self-running</span></div>
     </div>
     <span class="visit">Enter the worlds <span class="arr">→</span></span>
@@ -151,6 +164,75 @@ footer{padding:70px 0 60px;margin-top:30px;border-top:1px solid var(--line)}
     </div>
     <span class="visit">Open Groundwork <span class="arr">→</span></span>
   </a>
+
+  <!-- MORE WORK -->
+  <div class="sec-head"><span class="t">More work</span><span class="c">Products, systems &amp; tools</span></div>
+  <div class="grid">
+
+    <a class="mcard" href="https://adamdegoat.github.io/macropilot-site/" style="--accent:#3b82f6">
+      <div class="mc-top"><span class="mc-dot"></span><span class="mc-tag">Macro intelligence</span></div>
+      <h3>MacroPilot</h3>
+      <p>An autonomous macro-intelligence system — reads 12 global signals, classifies the market regime and runs a self-adjusting portfolio, challenging every call with an adversarial review.</p>
+      <span class="go">Open <span class="arr">→</span></span>
+    </a>
+
+    <a class="mcard" href="https://adamdegoat.github.io/riptide/" style="--accent:#16a394">
+      <div class="mc-top"><span class="mc-dot"></span><span class="mc-tag">Trading engine</span></div>
+      <h3>Riptide</h3>
+      <p>A systematic long/short trend engine on BTC &amp; ETH — backtested ~3 years, beating buy-and-hold every year. Deterministic, volatility-sized, and self-retuning weekly.</p>
+      <span class="go">Open <span class="arr">→</span></span>
+    </a>
+
+    <a class="mcard" href="https://adamdegoat.github.io/peter/" style="--accent:#b06fd0">
+      <div class="mc-top"><span class="mc-dot"></span><span class="mc-tag">Research engine</span></div>
+      <h3>Peter</h3>
+      <p>A self-improving research engine surfacing monetizable opportunities across Singapore &amp; South-East Asia — scoring every idea on five dimensions and learning what works.</p>
+      <span class="go">Open <span class="arr">→</span></span>
+    </a>
+
+    <a class="mcard" href="https://adamdegoat.github.io/beyondcarmart/" style="--accent:#d77a2e">
+      <div class="mc-top"><span class="mc-dot"></span><span class="mc-tag">SG · live tool</span></div>
+      <h3>BeyondCarMart</h3>
+      <p>Paste any sgCarMart listing and get a plain-English breakdown in 20 seconds — market value, red flags, hidden costs and a buy verdict, with live COE prices. No account needed.</p>
+      <span class="go">Try it <span class="arr">→</span></span>
+    </a>
+
+    <a class="mcard" href="https://adamdegoat.github.io/renoradar/" style="--accent:#c2914a">
+      <div class="mc-top"><span class="mc-dot"></span><span class="mc-tag">SG · price index</span></div>
+      <h3>RenoRadar</h3>
+      <p>Singapore's renovation price index — what 57 items really cost across budget, mid-range and premium tiers, with research-backed overcharge patterns and the exact questions to ask your contractor.</p>
+      <span class="go">Open <span class="arr">→</span></span>
+    </a>
+
+    <a class="mcard" href="https://adamdegoat.github.io/evergrow-electrical/" style="--accent:#e09419">
+      <div class="mc-top"><span class="mc-dot"></span><span class="mc-tag">Business · CRM</span></div>
+      <h3>EverGrow Electrical</h3>
+      <p>A private operations portal built for a real electrical business — invoices, quotations, licensing, work permits, road tax and insurance in one bilingual (EN/中文) place.</p>
+      <span class="go">View <span class="arr">→</span></span>
+    </a>
+
+    <a class="mcard" href="https://adamdegoat.github.io/sg-electrical-guide/" style="--accent:#caa023">
+      <div class="mc-top"><span class="mc-dot"></span><span class="mc-tag">SG · public resource</span></div>
+      <h3>SG Electrical Guide</h3>
+      <p>A public Singapore electrical resource — costs, safety rules and when you legally need a Licensed Electrical Worker — with interactive cost and LEW-checker tools.</p>
+      <span class="go">Open <span class="arr">→</span></span>
+    </a>
+
+    <a class="mcard" href="https://adamdegoat.github.io/the-breakfast-times/" style="--accent:#e0961a">
+      <div class="mc-top"><span class="mc-dot"></span><span class="mc-tag">Fiction · weekly</span></div>
+      <h3>The Breakfast Times</h3>
+      <p>A self-improving storyteller publishing one original short story every Monday — studying what makes fiction land, grading its own craft, and getting measurably better each week.</p>
+      <span class="go">Read <span class="arr">→</span></span>
+    </a>
+
+    <a class="mcard" href="https://adamdegoat.github.io/chillswithiyls/" style="--accent:#7a9c5e">
+      <div class="mc-top"><span class="mc-dot"></span><span class="mc-tag">Editorial · weekly</span></div>
+      <h3>Chillswithiyls</h3>
+      <p>A self-improving editorial brand on 4x4 overlanding and off-grid living — long-form features and field guides published every Sunday, learning what resonates.</p>
+      <span class="go">Read <span class="arr">→</span></span>
+    </a>
+
+  </div>
 
   <div class="note">
     <p class="q">Fewer things, made <span class="it">properly</span> — each one real, each one useful, each one still running.</p>
