@@ -1,675 +1,168 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Adamdegoat · Systems built in the open</title>
-<meta name="description" content="Autonomous systems that trade, research, write, and improve themselves — all running live, all public. Built by Adamdegoat.">
-<meta name="theme-color" content="#070b16">
-<meta property="og:title" content="Adamdegoat · Systems built in the open">
-<meta property="og:description" content="Autonomous systems that trade, research, write, and improve themselves. All live. All public.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://adamdegoat.github.io/">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta name="description" content="Adam Phang — Singapore. A small collection of things I build: living story-worlds, a child-enrichment finder, and property intelligence for agents.">
+<title>Adam Phang · Selected Work</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23121821' stroke-width='1.5'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%23c2703d'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#f6f4ef">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700;800&family=Lora:ital,wght@0,400;1,400&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#070b16;--ink:#e8eef7;--muted:#8a99b5;--dim:#5d6b86;--line:rgba(148,163,184,.13);--blue:#38bdf8;--purple:#a855f7;--green:#22c55e}
-html,body{height:100%}
-body{
-  background:var(--bg);color:var(--ink);
-  font-family:'Inter',system-ui,sans-serif;
-  -webkit-font-smoothing:antialiased;min-height:100vh;
+:root{
+  --ink:#15181d;--ink-2:#444c57;--ink-3:#79818d;--line:#e4ded3;--paper:#f6f4ef;--card:#fffefb;
+  --terra:#c2703d;--rose:#cf6a86;--green:#0f9d76;
+  --sans:'Libre Franklin',system-ui,-apple-system,sans-serif;--serif:'Spectral',Georgia,serif;
+  --maxw:1080px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.6;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;letter-spacing:-.005em;overflow-x:hidden;
   background-image:
-    radial-gradient(ellipse 1000px 560px at 12% -10%,rgba(56,189,248,.13),transparent 65%),
-    radial-gradient(ellipse 900px 520px at 88% 2%,rgba(168,85,247,.15),transparent 65%),
-    radial-gradient(ellipse 700px 600px at 50% 115%,rgba(34,197,94,.08),transparent 60%),
-    linear-gradient(rgba(148,163,184,.028) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(148,163,184,.028) 1px,transparent 1px);
-  background-size:auto,auto,auto,44px 44px,44px 44px;
-  background-attachment:fixed
+    radial-gradient(640px 460px at 88% -4%,rgba(194,112,61,.13),transparent 62%),
+    radial-gradient(560px 460px at -6% 18%,rgba(207,106,134,.12),transparent 60%),
+    radial-gradient(680px 520px at 60% 108%,rgba(15,157,118,.12),transparent 62%);
+  background-attachment:fixed;
 }
-.wrap{max-width:1200px;margin:0 auto;padding:64px 24px 80px;display:flex;flex-direction:column;align-items:center;min-height:100vh}
+h1,h2,h3{margin:0;font-weight:400;letter-spacing:-.02em;line-height:1.08}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 30px}
+.serif{font-family:var(--serif)}
+.it{font-family:var(--serif);font-style:italic;font-weight:500}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.r{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
 
-/* ── HERO ───────────────────────────────────────────────── */
-.hero{display:flex;flex-direction:column;align-items:center;text-align:center;width:100%}
-.brand{display:inline-flex;align-items:center;gap:16px;justify-content:center}
-.mark{
-  width:56px;height:56px;border-radius:16px;
-  background:linear-gradient(145deg,#112244 0%,#1a0a38 100%);
-  border:1px solid rgba(168,85,247,.32);
-  box-shadow:0 0 0 4px rgba(168,85,247,.08),0 14px 36px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.06);
-  display:grid;place-items:center;flex:none;
-  position:relative;transition:transform .3s ease,box-shadow .3s ease;overflow:hidden
-}
-.mark::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 30% 20%,rgba(56,189,248,.14),transparent 70%);pointer-events:none}
-.mark:hover{transform:scale(1.07);box-shadow:0 0 0 6px rgba(168,85,247,.14),0 20px 44px rgba(0,0,0,.75)}
-.wordmark{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:32px;letter-spacing:-.8px;line-height:1;color:#dde8f8}
-.wth{font-weight:400;font-size:.73em;color:var(--muted);letter-spacing:-.1px}
-.wgd{background:linear-gradient(120deg,#38bdf8 0%,#a855f7 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+/* top */
+.top{display:flex;justify-content:space-between;align-items:center;padding:26px 30px;max-width:var(--maxw);margin:0 auto}
+.mark{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;letter-spacing:.01em}
+.mark .dot{width:13px;height:13px;border:1.5px solid var(--ink);border-radius:50%;position:relative}
+.mark .dot::after{content:"";position:absolute;inset:3.5px;border-radius:50%;background:var(--terra)}
+.top .place{font-size:12.5px;color:var(--ink-3);font-weight:600;text-transform:uppercase;letter-spacing:.16em}
 
-/* ── INSTAGRAM HANDLE ───────────────────────────────────── */
-.ig-link{
-  display:inline-flex;align-items:center;gap:7px;margin-top:14px;
-  font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;
-  color:var(--dim);text-decoration:none;
-  padding:5px 14px;border:1px solid rgba(148,163,184,.14);border-radius:20px;
-  background:rgba(148,163,184,.04);
-  transition:color .2s,border-color .2s,background .2s
-}
-.ig-link:hover{color:#e2e8f0;border-color:rgba(228,64,95,.45);background:rgba(228,64,95,.07)}
-.ig-link svg{opacity:.6;transition:opacity .2s}
-.ig-link:hover svg{opacity:1}
+/* hero */
+.hero{padding:64px 0 28px}
+.hero .ey{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.2em;color:var(--ink-3);margin-bottom:30px}
+.hero h1{font-family:var(--serif);font-size:clamp(40px,7vw,78px);font-weight:400;max-width:15ch}
+.hero h1 .it{color:var(--ink)}
+.hero .lede{font-size:18px;color:var(--ink-2);max-width:54ch;margin:28px 0 0}
+.hero .scroll{display:inline-flex;align-items:center;gap:9px;margin-top:40px;font-size:13px;font-weight:600;color:var(--ink-3);letter-spacing:.04em}
+.hero .scroll .ln{width:46px;height:1px;background:var(--ink-3);position:relative;overflow:hidden}
+.hero .scroll .ln::after{content:"";position:absolute;inset:0;background:var(--ink);transform:translateX(-100%);animation:sweep 2.4s ease-in-out infinite}
+@keyframes sweep{0%{transform:translateX(-100%)}55%,100%{transform:translateX(100%)}}
 
-.hero-tagline{
-  font-family:'Space Grotesk',sans-serif;font-weight:800;
-  font-size:clamp(38px,6.5vw,68px);line-height:1.07;letter-spacing:-2.5px;margin:22px 0 0;
-  background:linear-gradient(118deg,#dde8f8 0%,#38bdf8 32%,#a855f7 66%,#ec4899 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text
-}
-.hero-sub{max-width:520px;color:var(--muted);font-size:15px;line-height:1.7;margin:16px 0 0}
-.hero-sub b{color:#c5d5ee;font-weight:600}
-.stats-strip{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-top:22px}
-.stat-pill{
-  display:inline-flex;align-items:center;gap:7px;
-  font-family:'IBM Plex Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;
-  color:var(--muted);background:rgba(148,163,184,.055);border:1px solid var(--line);border-radius:20px;padding:5px 13px;white-space:nowrap
-}
-.stat-pill.live{color:var(--green);background:rgba(34,197,94,.07);border-color:rgba(34,197,94,.22)}
-.stat-dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(34,197,94,.7);animation:pulse 2s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}70%{box-shadow:0 0 0 9px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+/* index of work */
+.work{padding:34px 0 30px}
+.work-head{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:8px}
+.work-head .t{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:var(--ink-2)}
+.work-head .c{font-size:13px;color:var(--ink-3);font-weight:600}
 
-/* ── DIVIDER ────────────────────────────────────────────── */
-.divider{width:48px;height:2px;background:linear-gradient(90deg,#38bdf8,#a855f7);border-radius:2px;margin:36px 0 0}
+.proj{display:grid;grid-template-columns:96px 1fr auto;gap:30px;align-items:start;
+  padding:40px 0;border-bottom:1px solid var(--line);position:relative;transition:.4s}
+.proj:hover{padding-left:10px}
+.proj .num{font-family:var(--serif);font-size:34px;color:var(--accent);font-weight:500;line-height:1}
+.proj .body{max-width:60ch}
+.proj h2{font-family:var(--serif);font-size:clamp(28px,4vw,40px);font-weight:500;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.proj h2 .badge{font-family:var(--sans);font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--accent);border:1px solid var(--accent);border-radius:30px;padding:3px 10px;transform:translateY(-3px)}
+.proj .essence{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--accent);margin:8px 0 14px}
+.proj .desc{font-size:15.5px;color:var(--ink-2)}
+.proj .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.proj .tag{font-size:12px;font-weight:600;color:var(--ink-3);background:var(--card);border:1px solid var(--line);border-radius:30px;padding:5px 12px}
+.proj .visit{align-self:center;display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:14.5px;color:var(--ink);
+  white-space:nowrap;border:1px solid var(--line);border-radius:30px;padding:11px 20px;background:var(--card);transition:.18s}
+.proj .visit .arr{transition:transform .2s}
+.proj:hover .visit{border-color:var(--accent);color:var(--accent)}
+.proj:hover .visit .arr{transform:translateX(4px)}
+.proj::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--accent);transform:scaleY(0);transform-origin:top;transition:.4s}
+.proj:hover::before{transform:scaleY(1)}
 
-/* ── PHILOSOPHY ─────────────────────────────────────────── */
-.philosophy{width:100%;margin-top:18px;padding:10px 24px;text-align:center}
-.phi-text{font-family:'Lora',Georgia,serif;font-style:italic;font-size:13.5px;line-height:1.55;color:var(--dim)}
+/* note */
+.note{padding:60px 0 0;max-width:60ch}
+.note .q{font-family:var(--serif);font-size:24px;line-height:1.45;color:var(--ink)}
+.note .q .it{color:var(--terra)}
 
-/* ── SECTION LABEL ──────────────────────────────────────── */
-.section-label{
-  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;
-  color:var(--dim);font-weight:700;margin:40px 0 14px;align-self:flex-start;width:100%
-}
+/* footer */
+footer{padding:70px 0 60px;margin-top:30px;border-top:1px solid var(--line)}
+.foot{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:14px}
+.foot .nm{font-family:var(--serif);font-size:20px}
+.foot .meta{font-size:13px;color:var(--ink-3)}
 
-/* ── HORIZONTAL CARD GRID ───────────────────────────────── */
-.grid-h{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;width:100%}
-
-/* ── HORIZONTAL CARD BASE ───────────────────────────────── */
-.card{
-  position:relative;display:flex;flex-direction:row;align-items:stretch;
-  text-decoration:none;color:inherit;
-  background:linear-gradient(160deg,rgba(22,32,54,.68),rgba(13,19,38,.60));
-  border:1px solid var(--line);border-radius:16px;overflow:hidden;
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  box-shadow:0 8px 28px rgba(0,0,0,.32);
-  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
-  min-height:110px;
-}
-.card::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--accent,var(--blue));opacity:.9;z-index:1}
-.card::after{
-  content:"";position:absolute;inset:0;
-  background:radial-gradient(600px 200px at 50% -10%,var(--glow,rgba(56,189,248,.18)),transparent 70%);
-  opacity:0;transition:opacity .22s ease;pointer-events:none
-}
-.card:hover{transform:translateY(-4px);border-color:var(--accent,var(--blue));box-shadow:0 18px 48px rgba(0,0,0,.48),0 0 0 1px var(--accent,var(--blue))}
-.card:hover::after{opacity:.45}
-
-/* Left identity panel */
-.ch-left{
-  flex:none;width:172px;padding:14px 16px;
-  display:flex;flex-direction:column;justify-content:center;gap:5px;
-  border-right:1px solid var(--line);position:relative;z-index:1
-}
-.ch-icon{
-  width:34px;height:34px;border-radius:9px;display:grid;place-items:center;font-size:17px;
-  background:var(--chip,rgba(56,189,248,.10));border:1px solid rgba(255,255,255,.08);flex:none
-}
-.ch-name{
-  font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:#fff;
-  letter-spacing:-.3px;line-height:1.15;margin-top:2px
-}
-.ch-tag{
-  font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1.4px;text-transform:uppercase;
-  color:var(--accent,var(--blue));font-weight:700;line-height:1.4
-}
-
-/* Middle content panel */
-.ch-mid{
-  flex:1;padding:12px 16px;display:flex;flex-direction:column;justify-content:center;
-  gap:7px;min-width:0;position:relative;z-index:1
-}
-.ch-desc{
-  font-size:12.5px;color:var(--muted);line-height:1.6;
-}
-.ch-desc b{color:#cdd8ec;font-weight:600}
-.chips{display:flex;flex-wrap:wrap;gap:5px}
-.chip{font-size:9.5px;font-weight:600;color:#cdd8ec;background:rgba(148,163,184,.07);border:1px solid var(--line);border-radius:5px;padding:2px 7px}
-
-/* Right CTA panel */
-.ch-enter{
-  flex:none;width:66px;padding:0 12px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  border-left:1px solid var(--line);
-  font-weight:700;font-size:11px;color:var(--accent,var(--blue));
-  letter-spacing:.2px;gap:3px;background:rgba(255,255,255,.015);
-  transition:background .2s;position:relative;z-index:1
-}
-.card:hover .ch-enter{background:rgba(255,255,255,.03)}
-.arr{display:inline-block;transition:transform .22s ease;font-size:14px}
-.card:hover .arr{transform:translateX(3px)}
-
-/* ════════════════════════════════════════════════════════
-   CARD THEMES
-════════════════════════════════════════════════════════ */
-
-.term-dots{display:flex;gap:4px;margin-bottom:4px}
-.td{width:7px;height:7px;border-radius:50%}
-.td-r{background:#f43f5e;opacity:.7}.td-y{background:#f59e0b;opacity:.7}.td-g{background:#22c55e;opacity:.85}
-
-/* Breakfast Times — newspaper amber */
-.card-bt{background:linear-gradient(160deg,rgba(40,22,4,.9),rgba(22,12,2,.86))}
-.card-bt::before{background:linear-gradient(90deg,#78350f,#d97706,#f59e0b,#d97706,#78350f);height:2px}
-.card-bt .ch-name{font-family:'Lora',Georgia,serif;font-size:14px;letter-spacing:.2px}
-.bt-dateline{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,158,11,.35);margin-bottom:2px}
-
-/* Chillswithiyls — expedition green */
-.card-chill{background:linear-gradient(160deg,rgba(6,16,8,.92),rgba(4,12,6,.88))}
-.card-chill::before{background:linear-gradient(90deg,#1a3d10,#4a7a38,#7a9c5e,#a3be8c,#7a9c5e,#4a7a38,#1a3d10);height:3px}
-.card-chill .ch-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:17px;letter-spacing:.5px;text-transform:uppercase}
-
-/* Peter — intelligence purple */
-.card-peter{background:linear-gradient(160deg,rgba(18,6,28,.92),rgba(12,4,20,.88))}
-.card-peter::before{background:linear-gradient(90deg,#6b21a8,#c026d3,#e879f9,#c026d3,#6b21a8)}
-.peter-badge{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(232,121,249,.6);background:rgba(232,121,249,.08);border:1px solid rgba(232,121,249,.2);border-radius:3px;padding:1px 5px;margin-bottom:3px;display:inline-block;width:fit-content}
-
-/* Oracle — orange */
-.card-oracle{background:linear-gradient(160deg,rgba(20,8,2,.92),rgba(14,5,1,.88))}
-.card-oracle::before{background:linear-gradient(90deg,#7c2d12,#ea580c,#f97316,#ea580c,#7c2d12)}
-
-/* BeyondCarMart — red */
-.card-bcm{background:linear-gradient(160deg,rgba(28,6,8,.92),rgba(18,3,5,.88))}
-.card-bcm::before{background:linear-gradient(90deg,#9f1239,#e11d48,#fb7185,#e11d48,#9f1239)}
-
-/* EverGrow Electrical — amber/yellow */
-.card-eg{background:linear-gradient(160deg,rgba(24,16,2,.93),rgba(16,10,1,.89))}
-.card-eg::before{background:linear-gradient(90deg,#78350f,#d97706,#fbbf24,#d97706,#78350f)}
-
-/* The Never Ending Story Project — living worlds */
-.card-nesp{background:linear-gradient(160deg,rgba(6,4,22,.97),rgba(2,4,16,.95));grid-column:span 2}
-.card-nesp::before{
-  background:linear-gradient(90deg,#4c1d95,#7c3aed,#a855f7,#ec4899,#f472b6,#38bdf8,#0ea5e9,#38bdf8,#f472b6,#ec4899,#a855f7,#4c1d95);
-  height:2px;background-size:200% auto;animation:nesp-aurora 9s linear infinite
-}
-@keyframes nesp-aurora{0%{background-position:0% center}100%{background-position:200% center}}
-.nesp-badge{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:2px;text-transform:uppercase;
-  color:rgba(168,85,247,.65);background:rgba(168,85,247,.09);border:1px solid rgba(168,85,247,.22);
-  border-radius:3px;padding:1px 5px;margin-bottom:6px;display:inline-block}
-.nesp-title{font-family:'Lora',Georgia,serif!important;font-size:13px!important;font-style:italic;
-  line-height:1.35!important;letter-spacing:.1px!important;color:#ddd5f0!important}
-.nesp-sub{font-family:'IBM Plex Mono',monospace;font-size:7.5px;letter-spacing:1.8px;text-transform:uppercase;
-  color:rgba(168,85,247,.4);margin-top:5px;line-height:1.4}
-/* World list */
-.nesp-worlds{display:flex;flex-direction:column;gap:4px;margin-top:9px}
-.nesp-world{display:flex;align-items:center;gap:8px;padding:5px 9px;border-radius:8px;
-  border:1px solid transparent;transition:all .15s}
-.nesp-world.active{background:rgba(244,114,182,.07);border-color:rgba(244,114,182,.18)}
-.nesp-world.soon{opacity:.32}
-.nesp-dot{width:6px;height:6px;border-radius:50%;flex:none}
-.nesp-dot.active{background:#f472b6;box-shadow:0 0 0 2px rgba(244,114,182,.22);animation:pulse 2s infinite}
-.nesp-dot.soon{background:#334155}
-.nesp-world-icon{font-size:13px;flex:none;line-height:1}
-.nesp-world-info{flex:1;min-width:0}
-.nesp-world-name{font-family:'Space Grotesk',sans-serif;font-size:11.5px;font-weight:700;
-  color:#e2e8f0;display:block;line-height:1.2}
-.nesp-world.active .nesp-world-name{color:#fbcfe8}
-.nesp-world-sub{font-family:'IBM Plex Mono',monospace;font-size:7.5px;letter-spacing:.6px;
-  color:#475569;display:block;margin-top:1px}
-.nesp-world-enter{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;
-  color:rgba(244,114,182,.65);flex:none;transition:transform .2s}
-.card-nesp:hover .nesp-world-enter{transform:translateX(3px)}
-
-/* ── FEATURED STRIP ─────────────────────────────────────── */
-.feature-strip{
-  display:flex;flex-direction:column;width:100%;
-  margin:36px 0 4px;border-radius:14px;overflow:hidden;
-  border:1px solid rgba(230,57,70,.35);
-  box-shadow:0 0 0 1px rgba(230,57,70,.1),0 10px 32px rgba(0,0,0,.45);
-  background:linear-gradient(160deg,rgba(28,4,8,.97) 0%,rgba(16,2,5,.95) 100%);
-  text-decoration:none;color:inherit;
-  transition:border-color .22s,box-shadow .22s,transform .22s;
-}
-.feature-strip:hover{border-color:rgba(230,57,70,.6);box-shadow:0 0 0 1px rgba(230,57,70,.22),0 16px 44px rgba(0,0,0,.6);transform:translateY(-3px)}
-.feature-strip:hover .feature-arr{transform:translateX(6px)}
-.feat-header{display:flex;align-items:center;gap:10px;padding:5px 14px;background:linear-gradient(90deg,#9f1239 0%,#e11d48 40%,#be123c 100%);border-bottom:1px solid rgba(255,255,255,.08)}
-.feat-header-star{font-size:12px;line-height:1;flex:none}
-.feat-header-label{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:#fff;line-height:1}
-.feat-header-rule{flex:1;height:1px;background:rgba(255,255,255,.2)}
-.feat-header-tag{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:600;flex:none}
-.feat-row{display:flex;align-items:center;gap:0}
-.feat-logo-col{padding:10px 14px;flex:none;display:flex;align-items:center;gap:10px}
-.feat-mark{width:34px;height:34px;border-radius:9px;flex:none;background:linear-gradient(145deg,#1a0408,#0d0204);border:1px solid rgba(230,57,70,.45);display:grid;place-items:center;box-shadow:0 0 10px rgba(230,57,70,.22)}
-.feat-name{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:#fff;letter-spacing:-.3px;white-space:nowrap}
-.feat-sub{font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(230,57,70,.8);margin-top:2px;font-family:'IBM Plex Mono',monospace}
-.feat-body{flex:1;padding:10px 14px;border-left:1px solid rgba(230,57,70,.1)}
-.feat-tagline{font-family:'Lora',Georgia,serif;font-style:italic;font-size:12px;line-height:1.5;color:#c8a8ad}
-.feat-tagline b{color:#fda4af;font-style:normal;font-weight:600}
-.feat-pills{display:flex;gap:5px;margin-top:5px;flex-wrap:wrap}
-.feat-pill{font-size:9px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:rgba(251,113,133,.8);background:rgba(230,57,70,.09);border:1px solid rgba(230,57,70,.22);border-radius:4px;padding:2px 7px;font-family:'IBM Plex Mono',monospace}
-.feature-cta{flex:none;padding:0 14px;align-self:stretch;display:flex;flex-direction:column;align-items:center;justify-content:center;border-left:1px solid rgba(230,57,70,.12);gap:3px;background:rgba(230,57,70,.05)}
-.feature-cta-label{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(251,113,133,.45);font-weight:600}
-.feature-cta-btn{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;color:#fb7185;white-space:nowrap}
-.feature-arr{display:inline-block;transition:transform .22s ease}
-
-/* ── FEATURE STRIP TEAL VARIANT ─────────────────────────── */
-.feature-strip-teal{border-color:rgba(6,182,212,.35);box-shadow:0 0 0 1px rgba(6,182,212,.10),0 10px 32px rgba(0,0,0,.45);background:linear-gradient(160deg,rgba(1,18,28,.97) 0%,rgba(1,12,20,.95) 100%)}
-.feature-strip-teal:hover{border-color:rgba(6,182,212,.6);box-shadow:0 0 0 1px rgba(6,182,212,.22),0 16px 44px rgba(0,0,0,.6)}
-.feature-strip-teal .feat-header{background:linear-gradient(90deg,#164e63 0%,#0891b2 40%,#0e7490 100%)}
-.feature-strip-teal .feat-mark{background:linear-gradient(145deg,#011018,#020c14);border-color:rgba(6,182,212,.45);box-shadow:0 0 14px rgba(6,182,212,.22)}
-.feature-strip-teal .feat-sub{color:rgba(6,182,212,.8)}
-.feature-strip-teal .feat-body{border-left-color:rgba(6,182,212,.1)}
-.feature-strip-teal .feat-tagline{color:#a5d8e6}
-.feature-strip-teal .feat-tagline b{color:#67e8f9;font-style:normal;font-weight:600}
-.feature-strip-teal .feat-pill{color:rgba(103,232,249,.8);background:rgba(6,182,212,.09);border-color:rgba(6,182,212,.22)}
-.feature-strip-teal .feature-cta{border-left-color:rgba(6,182,212,.12);background:rgba(6,182,212,.05)}
-.feature-strip-teal .feature-cta-label{color:rgba(103,232,249,.45)}
-.feature-strip-teal .feature-cta-btn{color:#67e8f9}
-/* Flagship variant — the Never Ending Story Project (purple) */
-.feature-strip-nesp{border-color:rgba(168,85,247,.42);box-shadow:0 0 0 1px rgba(168,85,247,.12),0 12px 36px rgba(0,0,0,.5);background:linear-gradient(160deg,rgba(12,4,26,.97) 0%,rgba(5,2,16,.95) 100%)}
-.feature-strip-nesp:hover{border-color:rgba(168,85,247,.66);box-shadow:0 0 0 1px rgba(168,85,247,.26),0 18px 50px rgba(0,0,0,.62)}
-.feature-strip-nesp .feat-header{background:linear-gradient(90deg,#581c87 0%,#9333ea 45%,#7e22ce 100%)}
-.feature-strip-nesp .feat-mark{background:linear-gradient(145deg,#0c0418,#050210);border-color:rgba(168,85,247,.5);box-shadow:0 0 16px rgba(168,85,247,.3)}
-.feature-strip-nesp .feat-sub{color:rgba(192,132,252,.85)}
-.feature-strip-nesp .feat-body{border-left-color:rgba(168,85,247,.12)}
-.feature-strip-nesp .feat-tagline{color:#cbb6e6}
-.feature-strip-nesp .feat-tagline b{color:#d8b4fe;font-style:normal;font-weight:600}
-.feature-strip-nesp .feat-pill{color:rgba(216,180,254,.85);background:rgba(168,85,247,.1);border-color:rgba(168,85,247,.24)}
-.feature-strip-nesp .feature-cta{border-left-color:rgba(168,85,247,.12);background:rgba(168,85,247,.05)}
-.feature-strip-nesp .feature-cta-label{color:rgba(216,180,254,.5)}
-.feature-strip-nesp .feature-cta-btn{color:#d8b4fe}
-
-/* ── FEATURED PAIR (side-by-side) ───────────────────────── */
-.feat-pair{display:flex;gap:14px;margin:24px 0 4px;align-items:stretch}
-.feat-pair .feature-strip{flex:1;margin:0;min-width:0}
-
-/* ── COLLAB BAR ─────────────────────────────────────────── */
-.collab-bar{
-  display:inline-flex;align-items:center;gap:12px;margin-top:18px;
-  font-size:12.5px;color:var(--muted);
-  padding:10px 22px;border:1px solid rgba(56,189,248,.2);border-radius:28px;
-  background:rgba(56,189,248,.045);
-}
-.collab-dot{width:7px;height:7px;border-radius:50%;background:#38bdf8;flex:none;box-shadow:0 0 0 3px rgba(56,189,248,.18);animation:pulse 2.5s infinite}
-.collab-divider{width:1px;height:14px;background:rgba(56,189,248,.2);flex:none}
-.collab-link{color:var(--blue);text-decoration:none;font-weight:600;white-space:nowrap}
-.collab-link:hover{color:#7dd3fc}
-
-/* ── FOOTER ─────────────────────────────────────────────── */
-.foot{margin-top:auto;padding-top:52px;text-align:center;color:var(--dim);font-size:11px;line-height:2}
-.foot a{color:var(--muted);text-decoration:none}
-.foot a:hover{color:#38bdf8}
-.sep{color:#2a3550;margin:0 8px}
-
-/* ── RESPONSIVE ─────────────────────────────────────────── */
-@media(max-width:1024px){body{background-attachment:scroll}}
-@media(max-width:900px){.grid-h{grid-template-columns:1fr}.card-nesp{grid-column:auto}.feat-pair{flex-direction:column}}
 @media(max-width:760px){
-  .wrap{padding:40px 16px 48px}
-  .hero-tagline{font-size:clamp(28px,9vw,42px);letter-spacing:-1.5px}
-  .ch-left{width:148px}
-  .feat-row{flex-direction:column;align-items:stretch}
-  .feat-logo-col{padding:10px 12px 8px}
-  .feat-body{border-left:none;border-top:1px solid rgba(230,57,70,.1);padding:8px 12px}
-  .feature-cta{flex-direction:row;justify-content:flex-end;padding:8px 12px;border-left:none;border-top:1px solid rgba(230,57,70,.1)}
-  .feature-strip-teal .feat-body{border-top-color:rgba(6,182,212,.1)}
-  .feature-strip-teal .feature-cta{border-top-color:rgba(6,182,212,.1)}
-  .feature-cta-label{display:none}
+  .proj{grid-template-columns:1fr;gap:14px;padding:32px 0}
+  .proj .num{font-size:26px}
+  .proj .visit{align-self:start;margin-top:6px}
+  .hero{padding:48px 0 20px}
+  .top{padding:20px}
 }
-@media(max-width:540px){
-  .ch-left{width:130px;padding:12px}
-  .ch-mid{padding:10px 12px}
-  .ch-enter{width:52px}
-  .card{min-height:100px}
-  /* NESP: stack left/mid vertically on small screens */
-  .card-nesp{flex-direction:column}
-  .card-nesp .ch-left{width:100%!important;border-right:none;border-bottom:1px solid rgba(168,85,247,.12);padding:12px 14px 10px}
-  .card-nesp .ch-enter{width:100%;border-left:none;border-top:1px solid rgba(168,85,247,.1);flex-direction:row;justify-content:flex-end;padding:8px 14px;min-height:36px}
-}
-</style></head>
-<body><div class="wrap">
+</style>
+</head>
+<body>
 
-  <!-- ── HERO ── -->
-  <header class="hero">
-    <div class="brand">
-      <div class="mark">
-        <svg width="32" height="32" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="aG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#a855f7"/></linearGradient></defs>
-          <path d="M30 11 L12 49" stroke="url(#aG)" stroke-width="5" stroke-linecap="round" fill="none"/>
-          <path d="M30 11 L48 49" stroke="url(#aG)" stroke-width="5" stroke-linecap="round" fill="none"/>
-          <line x1="19" y1="33" x2="41" y2="33" stroke="url(#aG)" stroke-width="4" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <span class="wordmark"><span class="wth">adam</span><span class="wgd">degoat</span></span>
-    </div>
+<div class="top r">
+  <a class="mark" href="#"><span class="dot"></span> Adam Phang</a>
+  <span class="place">Singapore</span>
+</div>
 
-    <a class="ig-link" href="https://instagram.com/adamdegoat" target="_blank" rel="noopener">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-      </svg>
-      @adamdegoat
-    </a>
+<header class="hero wrap">
+  <div class="ey r" style="animation-delay:.05s">Selected work · 2026</div>
+  <h1 class="r" style="animation-delay:.12s">I build things that are <span class="it">useful</span> — and a few that are <span class="it">alive</span>.</h1>
+  <p class="lede r" style="animation-delay:.22s">A small, hand-built collection: living story-worlds that write their own chapters, a finder that helps parents place their kids, and property intelligence for agents — all running on real, official data.</p>
+  <a href="#work" class="scroll r" style="animation-delay:.32s"><span class="ln"></span> The work</a>
+</header>
 
-    <h1 class="hero-tagline">Intelligence that learns itself.</h1>
-    <p class="hero-sub">I'm <b>Zhiyong</b> — I build systems that <b>grade their own performance</b>, discard what fails, and get measurably smarter with every cycle — entirely on their own.</p>
-    <div class="stats-strip">
-      <div class="stat-pill live"><span class="stat-dot"></span>9 PROJECTS LIVE</div>
-      <div class="stat-pill">SELF-IMPROVING</div>
-      <div class="stat-pill">24 / 7 ACTIVE</div>
-      <div class="stat-pill">WRITES OWN CODE</div>
-      <div class="stat-pill">ALL PUBLIC</div>
-    </div>
-    <div class="collab-bar">
-      <span class="collab-dot"></span>
-      Open to collaborations &amp; designing custom solutions for businesses
-      <span class="collab-divider"></span>
-      <a href="https://instagram.com/adamdegoat" target="_blank" rel="noopener" class="collab-link">Get in touch →</a>
-    </div>
-  </header>
-
-  <div class="divider"></div>
-  <div class="philosophy">
-    <p class="phi-text">&#8220;I don&#8217;t write the rules &mdash; I build systems that discover them.&#8221;</p>
+<main class="work wrap" id="work">
+  <div class="work-head">
+    <span class="t">Index</span><span class="c">Three projects · all live</span>
   </div>
 
-  <!-- ══ FEATURED SPOTLIGHT ════════════════════════════════ -->
-  <!-- Flagship: The Never Ending Story Project -->
-  <a class="feature-strip feature-strip-nesp" href="https://adamdegoat.github.io/neverendingworld/">
-    <div class="feat-header">
-      <span class="feat-header-star">★</span>
-      <span class="feat-header-label">Flagship Project</span>
-      <div class="feat-header-rule"></div>
-      <span class="feat-header-tag">Living Worlds · AI</span>
+  <a class="proj" href="https://adamdegoat.github.io/neverendingworld/" style="--accent:var(--terra)">
+    <div class="num">01</div>
+    <div class="body">
+      <h2>The Never Ending Story <span class="badge">Live</span></h2>
+      <div class="essence">Living worlds that write themselves.</div>
+      <p class="desc">A collection of simulated worlds — a tropical island, a jungle survival, a zombie-city rooftop, an Alaskan homestead — where a small cast lives out a fresh chapter several times a day. Hand-drawn, self-running, and no two days the same.</p>
+      <div class="tags"><span class="tag">Living simulation</span><span class="tag">Daily cycle</span><span class="tag">Hand-illustrated</span><span class="tag">Self-running</span></div>
     </div>
-    <div class="feat-row">
-      <div class="feat-logo-col">
-        <div class="feat-mark">
-          <svg width="24" height="24" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="18" cy="18" r="15" stroke="#a855f7" stroke-width="1.2" fill="rgba(168,85,247,.08)"/>
-            <path d="M7 23 Q18 19 29 23" stroke="#c084fc" stroke-width="1.3" fill="none" stroke-linecap="round"/>
-            <ellipse cx="18" cy="25.5" rx="7.5" ry="2.4" fill="#a855f7" opacity=".55"/>
-            <path d="M18 25 L18 14 M18 16 Q14.5 12.5 11.5 11.5 M18 16 Q21.5 12.5 24.5 11.5" stroke="#d8b4fe" stroke-width="1.3" stroke-linecap="round" fill="none"/>
-            <circle cx="26" cy="10.5" r="1.8" fill="#fbbf24"/>
-          </svg>
-        </div>
-        <div>
-          <div class="feat-name">The Never Ending Story Project</div>
-          <div class="feat-sub">Worlds that live forever</div>
-        </div>
-      </div>
-      <div class="feat-body">
-        <div class="feat-tagline">A living archipelago of <b>self-running story worlds</b>. AI characters with memory, relationships and fate — they live, struggle, fall in love and surprise you <b>five times a day, with no script</b>. Hand-crafted worlds that keep evolving entirely on their own.</div>
-        <div class="feat-pills">
-          <span class="feat-pill">Living Simulation</span>
-          <span class="feat-pill">AI Characters</span>
-          <span class="feat-pill">4× Daily</span>
-          <span class="feat-pill">Always Running</span>
-        </div>
-      </div>
-      <div class="feature-cta">
-        <span class="feature-cta-label">Explore</span>
-        <span class="feature-cta-btn">Enter the worlds <span class="feature-arr">→</span></span>
-      </div>
-    </div>
+    <span class="visit">Enter the worlds <span class="arr">→</span></span>
   </a>
 
-  <div class="feat-pair">
-  <a class="feature-strip" href="https://adamdegoat.github.io/beyondcarmart/">
-    <div class="feat-header">
-      <span class="feat-header-star">★</span>
-      <span class="feat-header-label">Featured Project</span>
-      <div class="feat-header-rule"></div>
-      <span class="feat-header-tag">Singapore · Live Tool</span>
+  <a class="proj" href="https://adamdegoat.github.io/bloom-enrichment/" style="--accent:var(--rose)">
+    <div class="num">02</div>
+    <div class="body">
+      <h2>Bloom <span class="badge">Live</span></h2>
+      <div class="essence">The right enrichment, matched to your child.</div>
+      <p class="desc">Describe your child — age, area, interests, budget — and Bloom ranks the best-fit classes from real Singapore centres, with honest reviews and a plain reason each one fits. Free for parents; built to cut the guesswork.</p>
+      <div class="tags"><span class="tag">For SG parents</span><span class="tag">Real centres</span><span class="tag">Best-fit ranking</span><span class="tag">Honest reviews</span></div>
     </div>
-    <div class="feat-row">
-      <div class="feat-logo-col">
-        <div class="feat-mark">
-          <svg width="24" height="24" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="18" cy="18" r="17" stroke="#e11d48" stroke-width="1.2" fill="rgba(230,57,70,.07)"/>
-            <path d="M7 24 A13 13 0 0 1 29 24" stroke="#e11d48" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-            <line x1="18" y1="24" x2="11" y2="13" stroke="#fb7185" stroke-width="1.5" stroke-linecap="round"/>
-            <circle cx="18" cy="24" r="2" fill="#e11d48"/>
-          </svg>
-        </div>
-        <div>
-          <div class="feat-name">BeyondCarMart</div>
-          <div class="feat-sub">Smart Analysis · Singapore</div>
-        </div>
-      </div>
-      <div class="feat-body">
-        <div class="feat-tagline">Paste any <b>sgCarMart URL</b> and get a plain-English breakdown in 20 seconds — market value, red flags, hidden costs, and a buy verdict. <b>No account needed.</b></div>
-        <div class="feat-pills">
-          <span class="feat-pill">Live COE Prices</span>
-          <span class="feat-pill">Instant Analysis</span>
-          <span class="feat-pill">Free</span>
-          <span class="feat-pill">🇸🇬 Built for SG</span>
-        </div>
-      </div>
-      <div class="feature-cta">
-        <span class="feature-cta-label">Try it now</span>
-        <span class="feature-cta-btn">Open <span class="feature-arr">→</span></span>
-      </div>
-    </div>
+    <span class="visit">Find a class <span class="arr">→</span></span>
   </a>
 
-  <a class="feature-strip feature-strip-teal" href="https://adamdegoat.github.io/renoradar/">
-    <div class="feat-header">
-      <span class="feat-header-star">★</span>
-      <span class="feat-header-label">Featured Project</span>
-      <div class="feat-header-rule"></div>
-      <span class="feat-header-tag">Singapore · Live Tool</span>
+  <a class="proj" href="https://adamdegoat.github.io/realestate/" style="--accent:var(--green)">
+    <div class="num">03</div>
+    <div class="body">
+      <h2>Groundwork <span class="badge">Live</span></h2>
+      <div class="essence">Property intelligence for Singapore agents.</div>
+      <p class="desc">A six-tool co-pilot led by <b>Caveat</b> — instant valuations with maps and rental yield, a live market terminal, smart search, affordability and stamp duty, an upgrade planner and prospecting. Built on 137k URA caveats, HDB resale and OneMap — official data, explainable numbers.</p>
+      <div class="tags"><span class="tag">For SG agents</span><span class="tag">Official data</span><span class="tag">Valuations + yield</span><span class="tag">Market terminal</span><span class="tag">Installable app</span></div>
     </div>
-    <div class="feat-row">
-      <div class="feat-logo-col">
-        <div class="feat-mark">
-          <svg width="24" height="24" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="22" cy="22" r="18" stroke="#06b6d4" stroke-width="1.5" opacity="0.5"/>
-            <circle cx="22" cy="22" r="10" stroke="#06b6d4" stroke-width="1.5" opacity="0.8"/>
-            <circle cx="22" cy="22" r="2" fill="#06b6d4"/>
-            <line x1="22" y1="22" x2="35" y2="11" stroke="#06b6d4" stroke-width="1.8" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div>
-          <div class="feat-name">RenoRadar</div>
-          <div class="feat-sub">Singapore · Price Index</div>
-        </div>
-      </div>
-      <div class="feat-body">
-        <div class="feat-tagline">The <b>Singapore renovation price index</b> — see what 57 items actually cost across budget, mid-range, and premium tiers. <b>Research-backed overcharge patterns</b> with exact questions to ask your contractor.</div>
-        <div class="feat-pills">
-          <span class="feat-pill">57 Items Tracked</span>
-          <span class="feat-pill">Weekly Research</span>
-          <span class="feat-pill">Free</span>
-          <span class="feat-pill">🇸🇬 Built for SG</span>
-        </div>
-      </div>
-      <div class="feature-cta">
-        <span class="feature-cta-label">Check prices</span>
-        <span class="feature-cta-btn">Open <span class="feature-arr">→</span></span>
-      </div>
-    </div>
+    <span class="visit">Open Groundwork <span class="arr">→</span></span>
   </a>
+
+  <div class="note">
+    <p class="q">Fewer things, made <span class="it">properly</span> — each one real, each one useful, each one still running.</p>
   </div>
+</main>
 
-  <!-- ══ REAL ESTATE ════════════════════════════════════════ -->
-  <div class="section-label">🏠 Real estate</div>
-  <div class="grid-h">
-
-    <a class="card" href="https://adamdegoat.github.io/realestate/" style="--accent:#0f9d76;--chip:rgba(15,157,118,.10);--glow:rgba(15,157,118,.22);background:linear-gradient(160deg,rgba(4,20,15,.93),rgba(2,12,9,.9))">
-      <div class="ch-left" style="border-right-color:rgba(15,157,118,.12)">
-        <div class="ch-icon" style="background:rgba(15,157,118,.10);border-color:rgba(15,157,118,.3)">◆</div>
-        <div class="ch-name">Groundwork</div>
-        <div class="ch-tag" style="color:#0f9d76">SG Property Intelligence</div>
-      </div>
-      <div class="ch-mid">
-        <div class="ch-desc">A <b>data-driven suite for Singapore property</b>, led by <b>Caveat</b> — a five-tool agent co-pilot: <b>valuations</b> (with interactive maps &amp; rental yield), a live <b>market terminal</b>, <b>smart search</b> by budget &amp; yield, <b>affordability &amp; stamp duty</b> (every rate verified), and <b>prospecting</b>. Built on <b>137k URA caveats + 38k HDB resale + 106k rentals + OneMap</b> — official data, explainable numbers, no scraping. <b>Live, installable app.</b></div>
-        <div class="chips">
-          <span class="chip">Valuation + map</span><span class="chip">Market terminal</span><span class="chip">Rental yield</span><span class="chip">Find by yield</span><span class="chip">ABSD / stamp duty</span><span class="chip">Installable app</span>
-        </div>
-      </div>
-      <span class="ch-enter" style="color:#0f9d76">Open<span class="arr">→</span></span>
-    </a>
-
+<footer>
+  <div class="wrap foot">
+    <span class="nm">Adam Phang</span>
+    <span class="meta">Designed &amp; built in Singapore · 2026</span>
   </div>
+</footer>
 
-  <!-- ══ FINANCIAL & TRADING ════════════════════════════════ -->
-  <div class="section-label">💹 Financial &amp; trading</div>
-  <div class="grid-h">
-
-    <a class="card" href="https://adamdegoat.github.io/macropilot-site/" style="--accent:#3b82f6;--chip:rgba(59,130,246,.10);--glow:rgba(59,130,246,.22);background:linear-gradient(160deg,rgba(2,10,24,.93),rgba(1,6,18,.89))">
-      <div class="ch-left" style="border-right-color:rgba(59,130,246,.12)">
-        <div class="ch-icon" style="background:rgba(59,130,246,.10);border-color:rgba(59,130,246,.3)">🌐</div>
-        <div class="ch-name">MacroPilot</div>
-        <div class="ch-tag" style="color:#3b82f6">L7 · Macro Intelligence</div>
-      </div>
-      <div class="ch-mid">
-        <div class="ch-desc">An <b>L7 autonomous macro intelligence system</b> — reads 12 global signals, classifies the macro regime, manages a self-adjusting $100k portfolio, then challenges every call with an adversarial process before committing. <b>Self-improving. Fully transparent. Live track record.</b></div>
-        <div class="chips">
-          <span class="chip">12 macro signals</span><span class="chip">Adversarial review</span><span class="chip">Live portfolio</span><span class="chip">Self-improving</span><span class="chip">24/7 active</span>
-        </div>
-      </div>
-      <span class="ch-enter" style="color:#3b82f6">Open<span class="arr">→</span></span>
-    </a>
-
-    <a class="card" href="https://adamdegoat.github.io/riptide/" style="--accent:#2ad6c5;--chip:rgba(42,214,197,.10);--glow:rgba(42,214,197,.22);background:linear-gradient(160deg,rgba(3,16,22,.93),rgba(1,9,14,.9))">
-      <div class="ch-left" style="border-right-color:rgba(42,214,197,.12)">
-        <div class="ch-icon" style="background:rgba(42,214,197,.10);border-color:rgba(42,214,197,.3)">🌊</div>
-        <div class="ch-name">Riptide</div>
-        <div class="ch-tag" style="color:#2ad6c5">Adaptive Trend Engine</div>
-      </div>
-      <div class="ch-mid">
-        <div class="ch-desc">A <b>systematic long/short trend engine on BTC &amp; ETH</b> — daily trend gate, 4h Donchian breakout entries, an ATR trailing-stop exit and volatility-sized positions. Validated over <b>~3 years</b> (beat buy-and-hold by ~90 pts, Sharpe 1.7, profitable every year) and walk-forward self-retunes weekly. Paper-traded $10k per asset, with a built-in plain-English explainer. <b>Deterministic, zero LLM, self-improving.</b></div>
-        <div class="chips">
-          <span class="chip">BTC + ETH</span><span class="chip">Trend-following</span><span class="chip">Trailing-stop exits</span><span class="chip">3yr backtested</span><span class="chip">vs Buy&amp;Hold</span>
-        </div>
-      </div>
-      <span class="ch-enter" style="color:#2ad6c5">Open<span class="arr">→</span></span>
-    </a>
-
-  </div>
-
-  <!-- ══ LIFESTYLE & CREATIVE ══════════════════════════════ -->
-  <div class="section-label">✦ Lifestyle &amp; creative</div>
-  <div class="grid-h">
-
-    <a class="card card-bt" href="https://adamdegoat.github.io/the-breakfast-times/" style="--accent:#f59e0b;--chip:rgba(245,158,11,.10);--glow:rgba(245,158,11,.20)">
-      <div class="ch-left">
-        <div class="bt-dateline">Est. 2025 · Weekly Edition</div>
-        <div class="ch-icon" style="background:rgba(245,158,11,.10);border-color:rgba(245,158,11,.3)">☕</div>
-        <div class="ch-name" style="font-family:'Lora',Georgia,serif;font-size:14px">The Breakfast Times</div>
-        <div class="ch-tag">Fiction · Every Monday</div>
-      </div>
-      <div class="ch-mid">
-        <div class="ch-desc">A <b>self-improving storyteller</b> publishing one original short story every Monday. Studies what makes fiction resonate, grades itself on craft, and gets measurably better with every story it writes.</div>
-        <div class="chips">
-          <span class="chip">Weekly Monday</span><span class="chip">Self-improving</span><span class="chip">Romance &amp; drama</span><span class="chip">Free to read</span>
-        </div>
-      </div>
-      <span class="ch-enter" style="font-family:'Lora',serif;font-style:italic">Read<span class="arr">→</span></span>
-    </a>
-
-    <a class="card card-chill" href="https://adamdegoat.github.io/chillswithiyls/" style="--accent:#7a9c5e;--chip:rgba(122,156,94,.10);--glow:rgba(122,156,94,.20)">
-      <div class="ch-left">
-        <div class="ch-icon" style="background:rgba(122,156,94,.10);border-color:rgba(122,156,94,.3)">🧭</div>
-        <div class="ch-name" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:17px;text-transform:uppercase;letter-spacing:.5px">Chillswithiyls</div>
-        <div class="ch-tag">4x4 · Off-Grid · Weekly</div>
-      </div>
-      <div class="ch-mid">
-        <div class="ch-desc">A <b>self-improving editorial brand</b> covering 4x4 overlanding and off-grid self-sufficient living. Long-form features and field guides published every Sunday — the system learns what resonates and gets sharper.</div>
-        <div class="chips">
-          <span class="chip">Weekly Sunday</span><span class="chip">Off-grid guides</span><span class="chip">Self-improving</span><span class="chip">Free to read</span>
-        </div>
-      </div>
-      <span class="ch-enter" style="font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;text-transform:uppercase;font-size:10px">Read<span class="arr">→</span></span>
-    </a>
-
-  </div>
-
-  <!-- ══ RESEARCH & TOOLS ════════════════════════════════ -->
-  <div class="section-label">🔬 Research &amp; tools</div>
-  <div class="grid-h">
-
-    <a class="card card-peter" href="https://adamdegoat.github.io/peter/" style="--accent:#e879f9;--chip:rgba(232,121,249,.10);--glow:rgba(232,121,249,.18)">
-      <div class="ch-left">
-        <div class="peter-badge">Intelligence · SGP</div>
-        <div class="ch-icon" style="background:rgba(232,121,249,.10);border-color:rgba(232,121,249,.25)">💡</div>
-        <div class="ch-name">Peter</div>
-        <div class="ch-tag">Opportunity Research</div>
-      </div>
-      <div class="ch-mid">
-        <div class="ch-desc">A <b>self-improving research engine</b> discovering monetizable opportunities in Singapore and SE Asia. Scores every idea across 5 dimensions and <b>learns which idea families consistently win</b> — steering future research toward proven categories.</div>
-        <div class="chips">
-          <span class="chip">Singapore focus</span><span class="chip">Research engine</span><span class="chip">Weekly research</span><span class="chip">Monetization scoring</span>
-        </div>
-      </div>
-      <span class="ch-enter">Open<span class="arr">→</span></span>
-    </a>
-
-    <a class="card" href="https://adamdegoat.github.io/bloom-enrichment/" style="--accent:#7c6df0;--chip:rgba(124,109,240,.10);--glow:rgba(124,109,240,.2);background:linear-gradient(160deg,rgba(20,14,40,.55),rgba(12,8,26,.5))">
-      <div class="ch-left" style="border-right-color:rgba(124,109,240,.14)">
-        <div class="ch-icon" style="background:rgba(124,109,240,.12);border-color:rgba(124,109,240,.3)">🌸</div>
-        <div class="ch-name">Bloom</div>
-        <div class="ch-tag" style="color:#a78bfa">Enrichment Finder · SGP</div>
-      </div>
-      <div class="ch-mid">
-        <div class="ch-desc">A <b>parent-facing enrichment finder</b> for Singapore (ages 4–8). Describe your child — age, region, focus, budget — and Bloom returns <b>ranked best-fit classes</b> with "why it fits" reasoning, honest review summaries and <b>NEL developmental-coverage</b>. Matches against real SG centres; parents free, centres pay for leads.</div>
-        <div class="chips">
-          <span class="chip">Smart matching</span><span class="chip">NEL-aware</span><span class="chip">Real SG centres</span><span class="chip">Coverage map</span>
-        </div>
-      </div>
-      <span class="ch-enter" style="color:#a78bfa">Open<span class="arr">→</span></span>
-    </a>
-
-  </div>
-
-  <!-- ══ BUSINESS & OPERATIONS ════════════════════════════ -->
-  <div class="section-label">⚙️ Business &amp; operations</div>
-  <div class="grid-h">
-
-    <a class="card card-eg" href="https://adamdegoat.github.io/evergrow-electrical/" style="--accent:#f59e0b;--chip:rgba(245,158,11,.10);--glow:rgba(245,158,11,.20)">
-      <div class="ch-left">
-        <div class="ch-icon" style="background:rgba(245,158,11,.10);border-color:rgba(245,158,11,.3)">⚡</div>
-        <div class="ch-name">EverGrow Electrical</div>
-        <div class="ch-tag">Business Manager</div>
-      </div>
-      <div class="ch-mid">
-        <div class="ch-desc">A <b>private business operations portal</b> for EverGrow Electrical — manage invoices, quotations, licensing, work permits, vehicle road tax, and insurance in one bilingual (EN/ZH) dashboard. Backed by Supabase.</div>
-        <div class="chips">
-          <span class="chip">Invoices &amp; Quotations</span><span class="chip">Licensing</span><span class="chip">Work Permits</span><span class="chip">Bilingual EN/ZH</span>
-        </div>
-      </div>
-      <span class="ch-enter">Open<span class="arr">→</span></span>
-    </a>
-
-    <a class="card card-eg" href="https://adamdegoat.github.io/sg-electrical-guide/" style="--accent:#e6960a;--chip:rgba(230,150,10,.10);--glow:rgba(230,150,10,.2)">
-      <div class="ch-left">
-        <div class="ch-icon" style="background:rgba(230,150,10,.10);border-color:rgba(230,150,10,.3)">📘</div>
-        <div class="ch-name">SG Electrical Guide</div>
-        <div class="ch-tag">Public Authority + Lead Funnel</div>
-      </div>
-      <div class="ch-mid">
-        <div class="ch-desc">A <b>public Singapore electrical resource</b> — costs, safety rules, and when you legally need a Licensed Electrical Worker — with interactive cost &amp; LEW-checker tools, a 2026 price guide and FAQ. Builds authority and funnels quote requests to EverGrow. <b>Light editorial design.</b></div>
-        <div class="chips">
-          <span class="chip">Cost estimator</span><span class="chip">2026 price guide</span><span class="chip">EMA / ELISE</span><span class="chip">Lead funnel</span>
-        </div>
-      </div>
-      <span class="ch-enter">Open<span class="arr">→</span></span>
-    </a>
-
-  </div>
-
-  <!-- ── FOOTER ── -->
-  <footer class="foot">
-    Built by Zhiyong <span class="sep">·</span> <a href="https://instagram.com/adamdegoat" target="_blank" rel="noopener">@adamdegoat</a>
-  </footer>
-
-</div></body></html>
+</body>
+</html>
