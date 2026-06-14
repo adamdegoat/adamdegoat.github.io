@@ -93,3 +93,6 @@ const App = (() => {
   return { init, getProfile, openSettings, shade, initials, route };
 })();
 document.addEventListener('DOMContentLoaded', App.init);
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+}

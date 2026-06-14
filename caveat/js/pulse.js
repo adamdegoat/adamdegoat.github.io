@@ -1,7 +1,9 @@
-/* Caveat — Market Pulse dashboard. Renders the pre-computed pulse.json. */
+/* Caveat — Market Pulse dashboard. Renders pre-computed pulse.json with full
+   context: every figure states its period, basis and date range. */
 const Pulse = (() => {
   const C = Caveat;
   let DATA = null, sortKey = 'txns', sortDir = -1;
+  const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
   async function init() {
     try { DATA = await C.getJSON('pulse.json'); render(); }
@@ -11,8 +13,19 @@ const Pulse = (() => {
   function render() {
     const d = DATA;
     document.getElementById('pulseBody').innerHTML =
-      statCards(d) + trendRow(d) + segmentRow(d) + townsBlock(d) + flatRow(d) + hotBlock(d) + foot(d);
+      periodBar(d) + statCards(d) + trendRow(d) + segmentRow(d) + townsBlock(d) + flatRow(d) + hotBlock(d) + foot(d);
     wireSort();
+  }
+
+  // ---- context bar: what window are we looking at ----
+  function periodBar(d) {
+    const h = d.overall.hdb.months, p = d.overall.private.months;
+    return `<div class="pulse-period">
+      <span><b>HDB resale</b> ${range(h)} · ${d.overall.hdb.txns.toLocaleString()} sales</span>
+      <span class="pp-sep"></span>
+      <span><b>Private resale</b> ${range(p)} · ${d.overall.private.txns.toLocaleString()} sales</span>
+      <span class="pp-note">All figures are medians of official transactions (resale &amp; sub-sale).</span>
+    </div>`;
   }
 
   // ---- stat cards ----
@@ -20,54 +33,60 @@ const Pulse = (() => {
     const h = d.overall.hdb, p = d.overall.private;
     const card = (k, v, s) => `<div class="pstat"><div class="ps-k">${k}</div><div class="ps-v">${v}</div><div class="ps-s">${s}</div></div>`;
     return `<div class="pulse-stats">
-      ${card('HDB median resale', C.fmtK(h.median_price), `≈ $${h.median_psf} psf`)}
-      ${card('Private median resale', '$' + (p.median_price / 1e6).toFixed(2) + 'm', `≈ $${p.median_psf} psf`)}
-      ${card('HDB transactions', h.txns.toLocaleString(), `last ${d.window.hdb_months} months`)}
-      ${card('Private transactions', p.txns.toLocaleString(), `last ${d.window.private_months} months`)}
+      ${card('HDB median resale price', C.fmtK(h.median_price), `≈ $${h.median_psf} psf · ${d.window.hdb_months}-mo median`)}
+      ${card('Private median resale price', '$' + (p.median_price / 1e6).toFixed(2) + 'm', `≈ $${p.median_psf} psf · ${d.window.private_months}-mo median`)}
+      ${card('HDB resale volume', h.txns.toLocaleString(), `transactions, last ${d.window.hdb_months} months`)}
+      ${card('Private resale volume', p.txns.toLocaleString(), `transactions, last ${d.window.private_months} months`)}
     </div>`;
   }
 
   // ---- twin PSF trend sparklines ----
   function trendRow(d) {
-    return `<div class="pulse-row two">
-      ${trendCard('HDB median PSF', d.overall.hdb.months, '#0f9d76')}
-      ${trendCard('Private median PSF', d.overall.private.months, '#b88a2e')}
+    return `<h3 class="pulse-h">Median price-per-sqft trend</h3>
+      <div class="pulse-row two">
+      ${trendCard('HDB resale', d.overall.hdb.months, '#0f9d76', d.window.hdb_months)}
+      ${trendCard('Private resale', d.overall.private.months, '#b88a2e', d.window.private_months)}
     </div>`;
   }
-  function trendCard(title, months, color) {
+  function trendCard(title, months, color, win) {
     const m = months.filter(x => x.psf);
-    const first = m[0] ? m[0].psf : 0, last = m[m.length - 1] ? m[m.length - 1].psf : 0;
+    const first = m[0].psf, last = m[m.length - 1].psf;
     const chg = first ? ((last - first) / first * 100) : 0;
     return `<div class="pcard">
-      <div class="pc-head"><h4>${title}</h4>${trendBadge(+chg.toFixed(1))}</div>
-      <div class="pc-big">$${last} <span class="pc-unit">psf</span></div>
-      ${sparkline(m.map(x => x.psf), m.map(x => x.m), color)}
+      <div class="pc-head"><h4>${title}</h4>
+        <span class="pc-now">$${last}<span> psf now</span></span></div>
+      <div class="pc-trend">${trendBadge(+chg.toFixed(1))}
+        <span class="pc-trend-lbl">over the period (${MON[mm(m[0].m)]} ’${yy(m[0].m)} → ${MON[mm(m[m.length - 1].m)]} ’${yy(m[m.length - 1].m)})</span></div>
+      ${sparkline(m.map(x => x.psf), color)}
+      <div class="pc-range"><span>${MON[mm(m[0].m)]} ’${yy(m[0].m)}</span><span>${win}-month median PSF</span><span>${MON[mm(m[m.length - 1].m)]} ’${yy(m[m.length - 1].m)}</span></div>
     </div>`;
   }
 
   // ---- market segments ----
   function segmentRow(d) {
-    return `<h3 class="pulse-h">Private market by region</h3>
+    return `<h3 class="pulse-h">Private market by region <span class="pulse-hint">median resale PSF · last ${d.window.private_months} months</span></h3>
       <div class="pulse-row three">${d.private_segments.map(s => `
-      <div class="pcard seg">
-        <div class="pc-head"><h4>${s.label}</h4>${trendBadge(s.trend)}</div>
-        <div class="pc-big">$${s.median_psf} <span class="pc-unit">psf</span></div>
-        <div class="seg-sub">Median ${C.fmtK(s.median_price)} · ${s.txns.toLocaleString()} sales</div>
+      <div class="pcard pseg">
+        <div class="pc-head"><h4>${s.label}</h4></div>
+        <div class="pc-big">$${s.median_psf} <span class="pc-unit">psf median</span></div>
+        <div class="pc-trend">${trendBadge(s.trend)} <span class="pc-trend-lbl">3-month momentum</span></div>
+        <div class="seg-sub">Median price ${C.fmtK(s.median_price)} · ${s.txns.toLocaleString()} sales</div>
       </div>`).join('')}</div>`;
   }
 
-  // ---- HDB towns table (sortable) ----
+  // ---- HDB towns table ----
   function townsBlock(d) {
-    return `<h3 class="pulse-h">HDB resale by town <span class="pulse-hint">tap a heading to sort</span></h3>
+    return `<h3 class="pulse-h">HDB resale by town <span class="pulse-hint">last ${d.window.hdb_months} months · tap a heading to sort</span></h3>
       <div class="ptable-wrap"><table class="ptable" id="townsTbl">
         <thead><tr>
           <th data-k="town">Town</th>
           <th data-k="median_price" class="num">Median price</th>
-          <th data-k="median_psf" class="num hide-sm">PSF</th>
+          <th data-k="median_psf" class="num hide-sm">Median PSF</th>
           <th data-k="txns" class="num">Sales</th>
-          <th data-k="trend" class="num">3-mo</th>
+          <th data-k="trend" class="num">3-mo PSF Δ</th>
         </tr></thead><tbody id="townsBody">${townRows(d.hdb_towns)}</tbody>
-      </table></div>`;
+      </table></div>
+      <p class="ptable-legend">“3-mo PSF Δ” = the town’s median PSF over the latest 3 months versus the 3 months before it — a momentum read, not the headline price change.</p>`;
   }
   function townRows(towns) {
     return towns.map(t => `<tr>
@@ -92,38 +111,42 @@ const Pulse = (() => {
 
   // ---- HDB flat-type medians ----
   function flatRow(d) {
-    return `<h3 class="pulse-h">HDB median price by flat type</h3>
+    return `<h3 class="pulse-h">HDB median resale price by flat type <span class="pulse-hint">last ${d.window.hdb_months} months</span></h3>
       <div class="flat-row">${d.hdb_flat_types.map(f => `
         <div class="flat-cell"><div class="ft-t">${ftLabel(f.type)}</div>
         <div class="ft-p">${C.fmtK(f.median_price)}</div>
-        <div class="ft-s">${f.txns.toLocaleString()} sales</div></div>`).join('')}</div>`;
+        <div class="ft-s">$${f.median_psf} psf · ${f.txns.toLocaleString()} sales</div></div>`).join('')}</div>`;
   }
 
   // ---- hottest projects ----
   function hotBlock(d) {
-    return `<h3 class="pulse-h">Most-transacted condos</h3>
+    return `<h3 class="pulse-h">Most-transacted condos <span class="pulse-hint">by resale volume · last ${d.window.private_months} months</span></h3>
       <div class="hot-list">${d.hot_projects.map((p, i) => `
       <div class="hot"><span class="hot-rank">${i + 1}</span>
         <div class="hot-main"><div class="hot-n">${p.project}</div>
-        <div class="hot-s">D${p.district} · ${p.seg} · median ${C.fmtK(p.median_price)}</div></div>
+        <div class="hot-s">District ${p.district} · ${p.seg} · median ${C.fmtK(p.median_price)}</div></div>
         <div class="hot-r"><div class="hot-psf">$${p.median_psf}<span> psf</span></div>
         <div class="hot-c">${p.txns} sales</div></div></div>`).join('')}</div>`;
   }
 
   function foot(d) {
-    return `<p class="pulse-foot">Medians from official URA caveats &amp; HDB resale registrations (resale &amp; sub-sale only). HDB last ${d.window.hdb_months} months, private last ${d.window.private_months}. 3-mo = latest 3 months' median PSF vs the prior 3. Updated ${d.built}.</p>`;
+    return `<p class="pulse-foot">Source: official URA private caveats &amp; HDB resale registrations (resale &amp; sub-sale only; private excludes landed). “Median” is the middle transacted value over the stated window — half sold above, half below. “Median PSF” trend spans the full ${d.window.private_months}/${d.window.hdb_months}-month window; “3-month momentum” compares the latest 3 months’ median PSF with the prior 3. Data current as of ${d.built}; refreshes weekly.</p>`;
   }
 
   // ---- helpers ----
+  const mm = m => m.includes('-') ? +m.split('-')[1] - 1 : +m.slice(2) - 1;
+  const yy = m => m.includes('-') ? m.slice(2, 4) : m.slice(0, 2);
+  const range = months => { const m = months.filter(x => x.psf); return m.length ? `${MON[mm(m[0].m)]} ’${yy(m[0].m)} – ${MON[mm(m[m.length - 1].m)]} ’${yy(m[m.length - 1].m)}` : ''; };
+
   function trendBadge(t) {
-    if (t == null) return `<span class="tr flat">–</span>`;
+    if (t == null) return `<span class="tr flat" title="not enough data">–</span>`;
     if (t > 0.5) return `<span class="tr up">▲ ${t}%</span>`;
     if (t < -0.5) return `<span class="tr down">▼ ${Math.abs(t)}%</span>`;
-    return `<span class="tr flat">≈ ${t}%</span>`;
+    return `<span class="tr flat">≈ flat (${t}%)</span>`;
   }
-  function sparkline(vals, labels, color) {
+  function sparkline(vals, color) {
     if (vals.length < 2) return '';
-    const W = 320, H = 80, pad = 6;
+    const W = 320, H = 70, pad = 6;
     const lo = Math.min(...vals), hi = Math.max(...vals), span = (hi - lo) || 1;
     const xs = vals.map((_, i) => pad + i * (W - 2 * pad) / (vals.length - 1));
     const yOf = v => H - pad - (v - lo) / span * (H - 2 * pad);
@@ -137,7 +160,7 @@ const Pulse = (() => {
       <circle cx="${xs[xs.length - 1]}" cy="${yOf(vals[vals.length - 1]).toFixed(1)}" r="3" fill="#fff" stroke="${color}" stroke-width="2"/>
     </svg>`;
   }
-  const ftLabel = t => ({ 'EXECUTIVE': 'Exec', 'MULTI-GENERATION': 'Multi-Gen' }[t] || t.replace(' ROOM', '-rm'));
+  const ftLabel = t => ({ 'EXECUTIVE': 'Executive', 'MULTI-GENERATION': 'Multi-Gen' }[t] || t.replace(' ROOM', '-room'));
 
   return { init };
 })();
