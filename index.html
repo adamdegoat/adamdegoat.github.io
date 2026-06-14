@@ -23,9 +23,9 @@ html{scroll-behavior:smooth}
 body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.6;
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;letter-spacing:-.005em;overflow-x:hidden;
   background-image:
-    radial-gradient(680px 480px at 90% -6%,rgba(194,112,61,.14),transparent 60%),
-    radial-gradient(560px 460px at -8% 14%,rgba(207,106,134,.12),transparent 58%),
-    radial-gradient(760px 600px at 70% 128%,rgba(15,157,118,.12),transparent 60%);
+    radial-gradient(720px 520px at 86% -8%,rgba(194,112,61,.20),transparent 60%),
+    radial-gradient(640px 520px at 12% -6%,rgba(207,106,134,.17),transparent 58%),
+    radial-gradient(820px 640px at 70% 126%,rgba(15,157,118,.15),transparent 60%);
   background-attachment:fixed;
 }
 /* premium paper grain — fixed, very subtle */
@@ -46,24 +46,37 @@ a{color:inherit;text-decoration:none}
 .mark .dot::after{content:"";position:absolute;inset:3.5px;border-radius:50%;background:var(--terra)}
 .top .place{font-size:12.5px;color:var(--ink-3);font-weight:600;text-transform:uppercase;letter-spacing:.16em}
 
-.hero{padding:54px 0 30px}
-.hero .ey{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.2em;color:var(--ink-3);margin-bottom:26px}
-.hero h1{font-family:var(--serif);font-size:clamp(38px,6.4vw,72px);font-weight:400;max-width:15ch}
-.hero .lede{font-size:18px;color:var(--ink-2);max-width:56ch;margin:24px 0 0}
-.hero .cred{font-size:15px;color:var(--ink-2);max-width:60ch;margin:16px 0 0}
+/* hero — centered, with logo emblem + orbit motif */
+.hero{padding:30px 0 48px;text-align:center;position:relative}
+.hero-bg{position:absolute;left:50%;top:-30px;transform:translateX(-50%);width:min(880px,118vw);z-index:0;
+  pointer-events:none;color:var(--terra);opacity:.13}
+.hero::after{content:"";position:absolute;left:50%;top:-10px;transform:translateX(-50%);width:660px;max-width:108vw;height:480px;z-index:0;
+  pointer-events:none;background:radial-gradient(closest-side,rgba(255,255,255,.72),transparent 72%)}
+.hero .emblem,.hero .ey,.hero h1,.hero .lede,.hero .cred,.hero .stats{position:relative;z-index:1}
+.emblem{width:86px;height:86px;margin:0 auto 24px}
+.emblem svg{width:100%;height:100%;display:block;overflow:visible}
+.emblem .orbit{transform-origin:40px 40px;animation:spin 18s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero .ey{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.28em;color:var(--ink-3);margin-bottom:20px}
+.hero h1{font-family:var(--serif);font-size:clamp(40px,6.2vw,74px);font-weight:400;max-width:17ch;margin:0 auto;letter-spacing:-.022em}
+.hero .lede{font-size:19px;color:var(--ink-2);max-width:50ch;margin:26px auto 0}
+.hero .cred{font-size:15px;color:var(--ink-2);max-width:62ch;margin:15px auto 0}
 .hero .cred b{font-weight:600;color:var(--ink)}
-.stats{display:flex;flex-wrap:wrap;align-items:center;gap:18px 26px;margin:30px 0 4px}
-.stats .st{display:flex;flex-direction:column;gap:2px}
-.stats .st b{font-family:var(--serif);font-size:25px;font-weight:500;line-height:1;color:var(--ink);letter-spacing:-.01em}
-.stats .st small{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.13em;color:var(--ink-3)}
-.stats .sep{width:1px;height:34px;background:var(--line)}
+.stats{display:inline-flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 30px;margin:36px auto 0;
+  padding:18px 30px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.5);backdrop-filter:blur(4px)}
+.stats .st{display:flex;flex-direction:column;gap:3px;align-items:center}
+.stats .st b{font-family:var(--serif);font-size:26px;font-weight:500;line-height:1;color:var(--ink);letter-spacing:-.01em}
+.stats .st small{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.13em;color:var(--ink-3)}
+.stats .sep{width:1px;height:36px;background:var(--line)}
 
-.sec-head{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:13px;margin:42px 0 0}
-.sec-head .t{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:var(--ink-2)}
-.sec-head .c{font-size:13px;color:var(--ink-3);font-weight:600}
+.sec-head{text-align:center;margin:64px 0 0}
+.sec-head .t{display:inline-flex;align-items:center;gap:13px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.24em;color:var(--accent,#c2703d)}
+.sec-head .t::before,.sec-head .t::after{content:"";width:34px;height:1px;background:currentColor;opacity:.45}
+.sec-head .h{font-family:var(--serif);font-size:clamp(26px,3.4vw,33px);font-weight:400;color:var(--ink);margin-top:11px;letter-spacing:-.012em}
+.sec-head .c{display:block;font-size:13.5px;color:var(--ink-3);font-weight:500;margin-top:7px}
 
 /* FEATURED cards */
-.featured{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px}
+.featured{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px}
 .feat{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;
   display:flex;flex-direction:column;box-shadow:0 2px 5px rgba(20,18,14,.05);transition:.24s;position:relative}
 .feat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);z-index:3}
@@ -71,14 +84,16 @@ a{color:inherit;text-decoration:none}
   background:radial-gradient(120% 70% at 50% -8%,var(--wash),transparent 60%)}
 .feat:hover::after{opacity:1}
 .feat:hover{transform:translateY(-6px);box-shadow:0 26px 54px rgba(20,18,14,.14);border-color:#d6cdbe}
-.feat-no{position:absolute;right:18px;bottom:6px;z-index:0;font-family:var(--serif);font-size:78px;
-  font-weight:500;line-height:1;color:var(--accent);opacity:.09;pointer-events:none;letter-spacing:-.02em}
+.feat-no{position:absolute;right:16px;top:84px;z-index:0;font-family:var(--serif);font-size:108px;
+  font-weight:500;line-height:.8;color:var(--accent);opacity:.1;pointer-events:none;letter-spacing:-.03em}
 .feat-top,.feat-body,.feat-cta{position:relative;z-index:2}
-.feat-top{padding:24px 24px 0;display:flex;justify-content:space-between;align-items:center;
-  background:linear-gradient(var(--wash),transparent)}
-.feat-ic{width:50px;height:50px;border-radius:15px;display:grid;place-items:center;font-size:25px;
-  background:var(--card);border:1px solid var(--line);box-shadow:0 5px 14px rgba(20,18,14,.09)}
-.feat-live{font-size:10.5px;font-weight:700;color:var(--accent);display:inline-flex;align-items:center;gap:6px;text-transform:uppercase;letter-spacing:.1em}
+.feat-top{padding:26px 26px 18px;display:flex;justify-content:space-between;align-items:flex-start;
+  background:linear-gradient(165deg,var(--wash),transparent 85%);border-bottom:1px solid var(--line-2)}
+.feat-ic{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-size:27px;
+  background:linear-gradient(150deg,#fff,var(--wash));border:1px solid color-mix(in srgb,var(--accent) 42%,var(--line));
+  box-shadow:0 8px 20px var(--wash),0 2px 6px rgba(20,18,14,.06)}
+.feat-live{font-size:10.5px;font-weight:700;color:var(--accent);display:inline-flex;align-items:center;gap:6px;text-transform:uppercase;letter-spacing:.1em;
+  background:var(--card);border:1px solid color-mix(in srgb,var(--accent) 30%,var(--line));border-radius:20px;padding:5px 11px 5px 9px}
 .feat-live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 var(--accent);animation:pulse 2.2s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 50%,transparent)}70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
 .feat-body{padding:18px 24px 8px;flex:1}
@@ -134,7 +149,19 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
 </div>
 
 <header class="hero wrap">
-  <div class="ey r" style="animation-delay:.05s">Selected work · 2026</div>
+  <svg class="hero-bg" viewBox="0 0 880 560" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+    <circle cx="440" cy="150" r="78"/><circle cx="440" cy="150" r="138"/><circle cx="440" cy="150" r="208"/>
+    <circle cx="440" cy="150" r="290"/><circle cx="440" cy="150" r="384"/>
+  </svg>
+  <div class="emblem r" style="animation-delay:.02s" aria-hidden="true">
+    <svg viewBox="0 0 80 80">
+      <circle cx="40" cy="40" r="30" fill="none" stroke="var(--ink)" stroke-width="1.5"/>
+      <circle cx="40" cy="40" r="20.5" fill="none" stroke="var(--line)" stroke-width="1.5"/>
+      <circle cx="40" cy="40" r="6.5" fill="var(--terra)"/>
+      <g class="orbit"><circle cx="40" cy="10" r="4" fill="var(--rose)"/></g>
+    </svg>
+  </div>
+  <div class="ey r" style="animation-delay:.08s">Adam Phang · Selected work 2026</div>
   <h1 class="r" style="animation-delay:.12s">I build things that are <span class="it">useful</span> — and a few that are <span class="it">alive</span>.</h1>
   <p class="lede r" style="animation-delay:.22s">I design and ship software end-to-end — from the data layer to the interface.</p>
   <p class="cred r" style="animation-delay:.30s">For businesses I've built <b>research &amp; intelligence systems</b>, an internal <b>operations &amp; CRM portal</b>, lead-generation tools and trading engines. Everything below is my own — real, running, and built on real data.</p>
@@ -149,7 +176,11 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
 
 <main class="wrap">
   <!-- FEATURED -->
-  <div class="sec-head" id="featured"><span class="t">Featured</span><span class="c">Three flagships · all live</span></div>
+  <div class="sec-head" id="featured" style="--accent:var(--terra)">
+    <span class="t">Featured</span>
+    <div class="h">Three flagships, built to be used daily</div>
+    <span class="c">All live · running on real, official data</span>
+  </div>
   <div class="featured">
 
     <a class="feat r" href="https://adamdegoat.github.io/neverendingworld/" style="--accent:var(--terra);--wash:rgba(194,112,61,.1)">
@@ -191,7 +222,11 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
   </div>
 
   <!-- MORE WORK -->
-  <div class="sec-head"><span class="t">More work</span><span class="c">Products, systems &amp; tools</span></div>
+  <div class="sec-head" style="--accent:var(--rose)">
+    <span class="t">More work</span>
+    <div class="h">Products, systems &amp; tools</div>
+    <span class="c">Trading engines, research systems, local tools &amp; more</span>
+  </div>
   <div class="grid">
 
     <a class="mcard" href="https://adamdegoat.github.io/macropilot-site/" style="--accent:#3b82f6;--wash:rgba(59,130,246,.1)">
