@@ -55,6 +55,16 @@ const App = (() => {
     document.getElementById('settingsModal').addEventListener('click', e => {
       if (e.target.id === 'settingsModal') closeSettings();
     });
+    // help / how-to-use
+    const helpModal = document.getElementById('helpModal');
+    const openHelp = () => { helpModal.hidden = false; };
+    const closeHelp = () => { helpModal.hidden = true; localStorage.setItem('caveat_seen_help', '1'); };
+    document.getElementById('helpBtn').addEventListener('click', openHelp);
+    document.getElementById('helpClose').addEventListener('click', closeHelp);
+    document.getElementById('helpGotit').addEventListener('click', closeHelp);
+    helpModal.addEventListener('click', e => { if (e.target.id === 'helpModal') closeHelp(); });
+    if (!localStorage.getItem('caveat_seen_help')) setTimeout(openHelp, 700); // first-visit tour
+
     document.getElementById('settingsForm').addEventListener('submit', e => {
       e.preventDefault(); const f = e.target;
       saveProfile({ name: f.name.value.trim(), cea: f.cea.value.trim().toUpperCase(),

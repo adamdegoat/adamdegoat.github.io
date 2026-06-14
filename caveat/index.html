@@ -10,8 +10,8 @@
 <meta name="theme-color" content="#101a2b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/app.css?v=1">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Spectral:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/app.css?v=2">
 </head>
 <body>
 <header class="appbar">
@@ -25,6 +25,7 @@
     <button data-route="eligibility">Affordability</button>
     <button data-route="prospecting">Prospecting</button>
   </nav>
+  <button class="help-btn" id="helpBtn" title="How to use Caveat">How to use</button>
   <button class="profile-btn" id="settingsBtn" title="Your agent profile">
     <span class="avatar" id="profileAvatar">—</span>
     <span class="profile-name" id="profileNameTop">Set up profile</span>
@@ -87,9 +88,47 @@
 <footer class="site-foot">
   <div class="foot-inner">
     <span id="freshness">Loading data…</span>
-    <span class="foot-disc">Indicative only — AI drafts, agent verifies. Not a bank valuation or financial advice. Data: URA, HDB &amp; data.gov.sg (Singapore Open Data Licence), OneMap © SLA.</span>
+    <span class="foot-disc">Covers HDB &amp; private resale (not landed or new launches). Indicative only — AI drafts, agent verifies; not a bank valuation or financial advice. Data: URA, HDB &amp; data.gov.sg (Singapore Open Data Licence), OneMap © SLA.</span>
   </div>
 </footer>
+
+<!-- How-to-use guide modal -->
+<div class="modal-backdrop" id="helpModal" hidden>
+  <div class="modal modal-wide" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
+    <div class="modal-head"><h2 id="helpTitle">How to use Caveat</h2><button class="x" id="helpClose">×</button></div>
+    <p class="modal-note">Three tools, one source of truth — official Singapore transaction data. Here's the quick tour.</p>
+
+    <ol class="howto">
+      <li>
+        <span class="ht-num">1</span>
+        <div><b>Valuation</b> — price a home in seconds.
+          <p>Pick <b>HDB</b> or <b>Private</b>, fill in the unit (town/flat-type or project, size, floor, lease) and hit <i>Generate</i>. You'll get an estimate range, the comparable sales it used, a price trend, nearby amenities and a written summary — ready to print or share. Add the street to include amenities.</p></div>
+      </li>
+      <li>
+        <span class="ht-num">2</span>
+        <div><b>Affordability</b> — qualify a buyer.
+          <p>Enter the buyer's profile, price and income. Caveat works out ABSD, stamp duty, cash needed upfront, the maximum loan and whether it passes the TDSR/MSR loan limits — the conversation you'd normally need a banker for.</p></div>
+      </li>
+      <li>
+        <span class="ht-num">3</span>
+        <div><b>Prospecting</b> — find leads in your farm area.
+          <p>Choose a town or district to see what just sold there, then tap <i>Draft outreach</i> on any unit for a ready-to-send message you can copy into WhatsApp.</p></div>
+      </li>
+    </ol>
+
+    <div class="scope-box">
+      <h3>What Caveat covers — and what it doesn't</h3>
+      <ul>
+        <li><span class="ok">✓</span> HDB resale flats &amp; private condo/apartment resale (the bulk of the market)</li>
+        <li><span class="no">✕</span> Landed homes &amp; brand-new launches — these price differently and aren't covered yet</li>
+        <li><span class="no">✕</span> It's an <b>indicative estimate from recent comparables, not a bank or official valuation</b></li>
+        <li><span class="ok">✓</span> Data is official (URA, HDB, OneMap) and refreshed regularly — current as shown in the footer</li>
+      </ul>
+      <p class="scope-foot">Always your call as the agent — Caveat drafts, you verify. Set your name &amp; CEA number under <b>“Set up profile”</b> so it appears on every deck.</p>
+    </div>
+    <button class="btn-primary" id="helpGotit">Got it — let's go</button>
+  </div>
+</div>
 
 <!-- Settings / agent profile modal -->
 <div class="modal-backdrop" id="settingsModal" hidden>
@@ -112,12 +151,12 @@
   </div>
 </div>
 
-<script src="js/core.js?v=1"></script>
-<script src="js/engines.js?v=1"></script>
-<script src="js/narrative.js?v=1"></script>
-<script src="js/cma.js?v=1"></script>
-<script src="js/eligibility-ui.js?v=1"></script>
-<script src="js/prospect.js?v=1"></script>
-<script src="js/app.js?v=1"></script>
+<script src="js/core.js?v=2"></script>
+<script src="js/engines.js?v=2"></script>
+<script src="js/narrative.js?v=2"></script>
+<script src="js/cma.js?v=2"></script>
+<script src="js/eligibility-ui.js?v=2"></script>
+<script src="js/prospect.js?v=2"></script>
+<script src="js/app.js?v=2"></script>
 </body>
 </html>
