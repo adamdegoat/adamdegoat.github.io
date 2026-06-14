@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta name="description" content="Groundwork — a growing suite of data-driven tools for Singapore property, built on official URA, HDB and OneMap data.">
+<title>Groundwork · Singapore Property Intelligence</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230f9d76'/%3E%3Cstop offset='1' stop-color='%23b88a2e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='8' y='8' width='16' height='16' rx='4' transform='rotate(45 16 16)' fill='url(%23g)'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#101a2b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#10151f;--ink-2:#384256;--ink-3:#6b7587;--line:#e7e4dd;--line-2:#efece6;
+  --paper:#f7f5f1;--paper-2:#fbfaf7;--card:#fff;
+  --brand:#0f9d76;--brand-d:#0b7d5e;--brand-wash:#e8f5ef;--gold:#b88a2e;--gold-wash:#f7efdc;
+  --navy:#101a2b;--navy-2:#1a2740;--amber:#c98a16;--amber-wash:#fbf0d8;--slate-wash:#eef0f3;
+  --shadow:0 4px 14px rgba(16,21,31,.07),0 2px 4px rgba(16,21,31,.04);
+  --shadow-lg:0 24px 60px rgba(16,21,31,.16),0 8px 20px rgba(16,21,31,.07);
+  --r:16px;--r-lg:24px;--sans:'Plus Jakarta Sans',system-ui,sans-serif;--serif:'Fraunces',Georgia,serif;--mono:'JetBrains Mono',monospace;--maxw:1080px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{margin:0;letter-spacing:-.025em;line-height:1.1;font-weight:600}
+p{margin:0}a{text-decoration:none;color:inherit}
+.serif{font-family:var(--serif);font-weight:500;font-style:italic}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:14px;padding:15px 24px;
+  background:rgba(251,250,247,.8);backdrop-filter:blur(14px) saturate(1.3);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px}
+.dia{width:15px;height:15px;border-radius:4px;background:linear-gradient(135deg,var(--brand),var(--gold));transform:rotate(45deg);box-shadow:0 2px 9px rgba(15,157,118,.4)}
+.bm{font-family:var(--serif);font-weight:600;font-size:22px}
+.bsub{font-size:11px;color:var(--ink-3);font-weight:700;text-transform:uppercase;letter-spacing:.13em}
+.nav .cta{margin-left:auto}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:30px;font-weight:700;font-size:14px;padding:11px 20px;transition:.18s;border:0;cursor:pointer}
+.btn-p{background:linear-gradient(135deg,var(--brand),var(--brand-d));color:#fff;box-shadow:0 6px 18px rgba(15,157,118,.32)}
+.btn-p:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(15,157,118,.42)}
+.btn-g{background:var(--card);border:1px solid var(--line);color:var(--ink-2)}
+.btn-g:hover{border-color:var(--brand);color:var(--ink)}
+
+/* hero */
+.hero{position:relative;padding:78px 0 60px;text-align:center;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 460px at 50% -8%,var(--brand-wash) 0,transparent 60%),
+            radial-gradient(700px 420px at 88% 12%,var(--gold-wash) 0,transparent 55%)}
+.kick{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);
+  border-radius:30px;padding:7px 16px;font-size:12.5px;font-weight:700;color:var(--ink-2);box-shadow:var(--shadow);margin-bottom:26px}
+.kick .dot{width:7px;height:7px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px var(--brand-wash)}
+.hero h1{font-size:58px;letter-spacing:-.035em;max-width:14ch;margin:0 auto 20px}
+.hero h1 em{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--brand-d)}
+.hero .sub{font-size:18px;color:var(--ink-2);max-width:60ch;margin:0 auto 32px}
+.hero .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.hero .btn{padding:14px 26px;font-size:15px}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;max-width:880px;margin:46px auto 0;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow);overflow:hidden}
+.stat{padding:22px 18px;text-align:center;border-right:1px solid var(--line-2)}
+.stat:last-child{border-right:0}
+.stat .n{font-family:var(--serif);font-size:30px;font-weight:600;color:var(--ink)}
+.stat .l{font-size:12px;color:var(--ink-3);font-weight:600;margin-top:3px}
+
+/* section */
+section.block{padding:64px 0}
+.eyebrow{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:var(--brand-d);margin-bottom:12px;text-align:center}
+.h2{font-size:38px;text-align:center;margin-bottom:10px}
+.lead{text-align:center;color:var(--ink-3);font-size:16px;max-width:54ch;margin:0 auto 44px}
+
+/* flagship */
+.flag{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-lg);overflow:hidden;
+  display:grid;grid-template-columns:1.05fr .95fr}
+.flag .ft-media{background:linear-gradient(150deg,var(--navy),var(--navy-2));padding:34px 30px 0;position:relative;overflow:hidden}
+.flag .ft-media::after{content:"";position:absolute;inset:0;background:radial-gradient(380px 200px at 80% 0,rgba(15,157,118,.4),transparent 70%);pointer-events:none}
+.browser{border-radius:12px 12px 0 0;overflow:hidden;box-shadow:0 -10px 40px rgba(0,0,0,.3);border:1px solid #2a3960;border-bottom:0}
+.browser .bar{background:#1b2740;height:30px;display:flex;align-items:center;gap:6px;padding:0 12px}
+.browser .bar i{width:9px;height:9px;border-radius:50%;background:#39476a}
+.browser .bar .u{margin-left:10px;font-size:11px;color:#8ea0bd;font-family:var(--mono)}
+.browser img{display:block;width:100%}
+.flag .ft-body{padding:38px 34px}
+.badge-live{display:inline-flex;align-items:center;gap:7px;background:var(--brand-wash);color:var(--brand-d);font-weight:800;font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;padding:6px 13px;border-radius:30px}
+.badge-live .pulse{width:8px;height:8px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 0 rgba(15,157,118,.6);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(15,157,118,.5)}70%{box-shadow:0 0 0 9px rgba(15,157,118,0)}100%{box-shadow:0 0 0 0 rgba(15,157,118,0)}}
+.flag h3{font-size:30px;font-family:var(--serif);font-weight:600;margin:16px 0 6px}
+.flag .desc{color:var(--ink-2);font-size:15.5px;margin-bottom:22px}
+.feat{list-style:none;padding:0;margin:0 0 26px;display:grid;gap:13px}
+.feat li{display:flex;gap:12px;font-size:14.5px;color:var(--ink-2)}
+.feat .ic{flex:none;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:var(--brand-wash);font-size:15px}
+.feat b{color:var(--ink);font-weight:700}
+
+/* roadmap */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px;box-shadow:var(--shadow);transition:.18s;position:relative}
+.rc:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:#dcd8cf}
+.rc .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:20px;background:linear-gradient(135deg,var(--brand-wash),var(--gold-wash));margin-bottom:14px}
+.rc h4{font-size:18px;margin-bottom:6px}
+.rc p{font-size:13.5px;color:var(--ink-3)}
+.rc .soon{position:absolute;top:18px;right:18px;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--amber);background:var(--amber-wash);padding:4px 9px;border-radius:20px}
+
+/* approach */
+.approach{background:var(--navy);color:#fff;border-radius:var(--r-lg);padding:50px 44px;margin-top:8px;position:relative;overflow:hidden}
+.approach::after{content:"";position:absolute;inset:0;background:radial-gradient(500px 280px at 90% 0,rgba(15,157,118,.28),transparent 65%);pointer-events:none}
+.approach .eyebrow{color:#7fd9bd;text-align:left}
+.approach h2{font-size:30px;max-width:20ch;margin-bottom:34px}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;position:relative;z-index:1}
+.pillar .pn{font-family:var(--mono);font-size:13px;color:var(--gold);font-weight:500}
+.pillar h4{font-size:17px;margin:8px 0 7px}
+.pillar p{font-size:13.5px;color:#aab8c9;line-height:1.6}
+
+/* footer */
+footer{padding:46px 0 60px;text-align:center;color:var(--ink-3)}
+footer .fbrand{display:inline-flex;align-items:center;gap:9px;margin-bottom:14px}
+footer .disc{font-size:12px;max-width:70ch;margin:14px auto 0;line-height:1.6}
+.back{display:inline-block;margin-top:18px;font-size:13px;font-weight:600;color:var(--ink-3)}
+.back:hover{color:var(--brand-d)}
+
+@media(max-width:880px){
+  .hero h1{font-size:42px}.hero .sub{font-size:16px}
+  .flag{grid-template-columns:1fr}.flag .ft-media{padding:28px 24px 0}
+  .grid3{grid-template-columns:1fr}.pillars{grid-template-columns:1fr;gap:22px}
+  .stats{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:0}.stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line-2)}
+  .approach{padding:36px 24px}.h2{font-size:30px}
+}
+@media(max-width:520px){.hero h1{font-size:34px}.bsub{display:none}.nav{padding:13px 16px}.wrap{padding:0 16px}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="brand" href="#top"><span class="dia"></span><span class="bm">Groundwork</span><span class="bsub">Property Intelligence</span></a>
+  <a class="btn btn-p cta" href="https://adamdegoat.github.io/caveat/">Open Caveat →</a>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="kick"><span class="dot"></span>Built on official URA · HDB · OneMap data</div>
+    <h1>Smarter tools for <em>Singapore</em> property</h1>
+    <p class="sub">A growing suite of data-driven tools I'm building to value homes, qualify buyers and find leads —
+      powered by the same official transaction data the authorities publish, not guesswork.</p>
+    <div class="row">
+      <a class="btn btn-p" href="https://adamdegoat.github.io/caveat/">Try the live tool</a>
+      <a class="btn btn-g" href="#tools">See what's inside</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="n">137,766</div><div class="l">private caveats</div></div>
+      <div class="stat"><div class="n">38,334</div><div class="l">HDB resale records</div></div>
+      <div class="stat"><div class="n">1,125</div><div class="l">amenities mapped</div></div>
+      <div class="stat"><div class="n">100%</div><div class="l">official data</div></div>
+    </div>
+  </div>
+</header>
+
+<section class="block" id="tools">
+  <div class="wrap">
+    <div class="eyebrow">The flagship</div>
+    <h2 class="h2">Caveat</h2>
+    <p class="lead">An agent's co-pilot: instant valuations, affordability breakdowns and prospecting — all from one address.</p>
+    <div class="flag">
+      <div class="ft-media">
+        <div class="browser">
+          <div class="bar"><i></i><i></i><i></i><span class="u">adamdegoat.github.io/caveat</span></div>
+          <img src="assets/caveat-preview.jpeg" alt="Caveat valuation deck" loading="lazy">
+        </div>
+      </div>
+      <div class="ft-body">
+        <span class="badge-live"><span class="pulse"></span>Live now</span>
+        <h3>Value any home in seconds</h3>
+        <p class="desc">Type in an HDB flat or condo and Caveat builds a client-ready valuation deck from real, recent comparable sales — with the full working shown, so you can defend the number to a seller.</p>
+        <ul class="feat">
+          <li><span class="ic">📊</span><span><b>Valuation deck</b> — comparable-based price band, PSF trend, amenities and a written summary, on your branding.</span></li>
+          <li><span class="ic">🧮</span><span><b>Affordability &amp; stamp duty</b> — ABSD, BSD, loan headroom and cash upfront, shareable with your buyer.</span></li>
+          <li><span class="ic">📍</span><span><b>Prospecting radar</b> — what just sold in your farm area, with a warm outreach message drafted for each.</span></li>
+        </ul>
+        <a class="btn btn-p" href="https://adamdegoat.github.io/caveat/">Open Caveat →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow">The roadmap</div>
+    <h2 class="h2">More tools in the pipeline</h2>
+    <p class="lead">The same data engine behind Caveat opens up a whole shelf of agent tools. Next up:</p>
+    <div class="grid3">
+      <div class="rc"><span class="soon">In dev</span><div class="ic">🎬</div><h4>Listing Studio</h4><p>Auto-write polished, CEA-compliant listing copy and social posts from a unit's facts.</p></div>
+      <div class="rc"><span class="soon">In dev</span><div class="ic">📈</div><h4>Rental Yield Radar</h4><p>Live gross-yield and rental-trend analysis for any project, from URA rental contracts.</p></div>
+      <div class="rc"><span class="soon">Planned</span><div class="ic">🏢</div><h4>New-Launch Stack Explorer</h4><p>Compare facing, floor premium and cross-launch PSF to guide buyers on the best stack.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:8px">
+  <div class="wrap">
+    <div class="approach">
+      <div class="eyebrow">Why it's different</div>
+      <h2>Real data. Honest numbers. Built for Singapore.</h2>
+      <div class="pillars">
+        <div class="pillar"><div class="pn">01</div><h4>Official sources only</h4><p>Every figure traces to URA caveats, HDB resale data and OneMap — free, licensed for commercial use, never scraped.</p></div>
+        <div class="pillar"><div class="pn">02</div><h4>Explainable, not a black box</h4><p>Each valuation shows the exact comparables and adjustments used, so it stands up to scrutiny from a seller or a boss.</p></div>
+        <div class="pillar"><div class="pn">03</div><h4>Made for our market</h4><p>HDB lease decay, ABSD, MOP, MRT proximity — the things that actually move Singapore prices are built in.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fbrand"><span class="dia"></span><span class="bm">Groundwork</span></div>
+    <p style="font-size:14px;color:var(--ink-2);font-weight:600">A personal initiative to work smarter as a Singapore property agent.</p>
+    <p class="disc">Indicative tools only — AI drafts, the agent verifies. Not a bank valuation or financial advice.
+      Data: URA, HDB &amp; data.gov.sg under the Singapore Open Data Licence; OneMap © Singapore Land Authority.</p>
+    <a class="back" href="https://adamdegoat.github.io/">← Back to all projects</a>
+  </div>
+</footer>
+</body>
+</html>
