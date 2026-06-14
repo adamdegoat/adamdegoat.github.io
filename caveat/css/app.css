@@ -16,7 +16,7 @@
   --r:14px; --r-sm:10px; --r-lg:22px;
   --sans:'Libre Franklin',system-ui,-apple-system,sans-serif;
   --serif:'Spectral',Georgia,'Times New Roman',serif;
-  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --mono:'Libre Franklin',system-ui,-apple-system,sans-serif;
   --maxw:1160px;
 }
 *{box-sizing:border-box}
@@ -34,6 +34,11 @@ button{font-family:inherit;cursor:pointer;letter-spacing:-.005em}
 a{color:var(--brand-d)}
 .serif-accent{font-family:var(--serif);font-weight:500;font-style:italic;letter-spacing:0}
 .tnum,.est-figure,.eh-cell .ehv,.tx-price,.deck-addr{font-variant-numeric:tabular-nums}
+/* numbers use the pro sans with tabular (column-aligned) figures — no monospace */
+.comps td.num,.ptable td.num,.ref-tbl td.num,.brow .bv,.tx-psf,.pc-range,.tr,.ra-rule,
+.up-r span:last-child,.school-chip span,.fc-price,.hot-c,.ehs,.stat .n,.rb-cell .rb-v{
+  font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+.comps td.num,.ptable td.num,.ref-tbl td.num{font-weight:600;letter-spacing:-.01em}
 
 /* ---------- App bar ---------- */
 .appbar{
