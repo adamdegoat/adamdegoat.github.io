@@ -2,7 +2,7 @@
 const Caveat = (() => {
   const DATA = 'data/';
   const cache = {};
-  let INDEX = null, AMENITIES = null, RATES = null;
+  let INDEX = null, AMENITIES = null, RATES = null, RENTALS = null;
 
   async function getJSON(path) {
     if (cache[path]) return cache[path];
@@ -24,6 +24,7 @@ const Caveat = (() => {
   }
 
   async function index() { return INDEX || (INDEX = await getJSON('index.json')); }
+  async function rentals() { return RENTALS || (RENTALS = await getJSON('rentals.json')); }
   async function rates() { return RATES || (RATES = await getJSON('rates.json')); }
   async function amenities() {
     if (AMENITIES) return AMENITIES;
@@ -73,7 +74,7 @@ const Caveat = (() => {
   const median = arr => { const s = [...arr].sort((a, b) => a - b); const m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
   const leaseYears = m => m ? (m / 12).toFixed(1).replace(/\.0$/, '') : null;
 
-  return { getJSON, expand, index, rates, amenities, hdbTown, condoDistrict,
+  return { getJSON, expand, index, rates, rentals, amenities, hdbTown, condoDistrict,
     geocode, nearby, fmtMoney, fmtK, fmtPsf, SQM_SQF, yymmNow, yymmIdx,
     monthsBetween, median, leaseYears };
 })();

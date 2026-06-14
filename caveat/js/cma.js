@@ -124,6 +124,15 @@ const CMA = (() => {
       area_sqm: area, floor_mid: floor };
     const r = Engines.condoEstimate(rows, subj);
     if (!r.ok) throw new Error(r.reason);
+    // rental + gross yield (if the project has enough recent leases)
+    try {
+      const rd = (await C.rentals())[p[0]];  // [median_rent_psf, median_rent, n_leases]
+      if (rd) {
+        const estRent = Math.round(rd[0] * area * C.SQM_SQF);
+        r.rental = { est_rent: estRent, proj_rent: rd[1], n: rd[2],
+          yield: +(estRent * 12 / r.estimate_price * 100).toFixed(1) };
+      }
+    } catch (e) {}
     // amenities + subject location from any same-project caveat's coords
     let amen = null, sloc = null;
     const pr = rows.find(x => x.project === p[0] && x.x);
@@ -171,6 +180,7 @@ const CMA = (() => {
           <div class="fact"><span class="k">Comparables used</span><span class="v">${r.n_comps}</span></div>
           <div class="fact"><span class="k">Price agreement</span><span class="v">${cvWord(r.cv)}</span></div>
           ${r.scope ? `<div class="fact"><span class="k">Comp basis</span><span class="v" style="font-size:12px">${r.scope}</span></div>` : ''}
+          ${r.rental ? `<div class="fact"><span class="k">Est. gross yield</span><span class="v" style="color:var(--brand-d)">~${r.rental.yield}%</span></div>` : ''}
         </div>
       </div>
 
@@ -185,6 +195,14 @@ const CMA = (() => {
       </div>
 
       ${amen ? `<div class="deck-section"><h4>Location &amp; amenities</h4>${amenRow(amen)}</div>` : ''}
+
+      ${r.rental ? `<div class="deck-section"><h4>Rental snapshot</h4>
+        <div class="rental-snap">
+          <div class="rs-cell"><div class="rs-v">${C.fmtMoney(r.rental.est_rent)}<span>/mo</span></div><div class="rs-k">Est. rent · this size</div></div>
+          <div class="rs-cell hl"><div class="rs-v">~${r.rental.yield}%</div><div class="rs-k">Gross rental yield</div></div>
+          <div class="rs-cell"><div class="rs-v">${C.fmtMoney(r.rental.proj_rent)}<span>/mo</span></div><div class="rs-k">Project median rent</div></div>
+        </div>
+        <p class="hint" style="margin-top:11px">From ${r.rental.n.toLocaleString()} recent leases in this project (URA, last 5 quarters). Gross yield = estimated annual rent ÷ estimated price, before costs &amp; vacancy.</p></div>` : ''}
 
       ${subj.lat ? `<div class="deck-section"><h4>On the map</h4><div id="deckMap" class="deck-map"></div></div>` : ''}
 

@@ -13,7 +13,7 @@ const Pulse = (() => {
   function render() {
     const d = DATA;
     document.getElementById('pulseBody').innerHTML =
-      periodBar(d) + statCards(d) + trendRow(d) + segmentRow(d) + townsBlock(d) + flatRow(d) + hotBlock(d) + foot(d);
+      periodBar(d) + statCards(d) + trendRow(d) + rentalBand(d) + segmentRow(d) + townsBlock(d) + flatRow(d) + hotBlock(d) + foot(d);
     wireSort();
   }
 
@@ -60,6 +60,19 @@ const Pulse = (() => {
       ${sparkline(m.map(x => x.psf), color)}
       <div class="pc-range"><span>${MON[mm(m[0].m)]} ’${yy(m[0].m)}</span><span>${win}-month median PSF</span><span>${MON[mm(m[m.length - 1].m)]} ’${yy(m[m.length - 1].m)}</span></div>
     </div>`;
+  }
+
+  // ---- private rental + implied yield ----
+  function rentalBand(d) {
+    const r = d.rental; if (!r || !r.median_rent) return '';
+    const cell = (v, k) => `<div class="rb-cell"><div class="rb-v">${v}</div><div class="rb-k">${k}</div></div>`;
+    return `<h3 class="pulse-h">Private rental market <span class="pulse-hint">non-landed · last 5 quarters · ${r.leases.toLocaleString()} leases</span></h3>
+      <div class="rental-band">
+        ${cell(C.fmtMoney(r.median_rent) + '<span>/mo</span>', 'Median monthly rent')}
+        ${cell('$' + r.median_rent_psf + '<span> psf</span>', 'Median rent PSF')}
+        ${cell('~' + r.implied_gross_yield + '%', 'Implied gross yield')}
+      </div>
+      <p class="ptable-legend">Implied gross yield = median rent PSF × 12 ÷ median resale PSF — a market-wide indication before costs &amp; vacancy. Yields for a specific project appear on its valuation.</p>`;
   }
 
   // ---- market segments ----
