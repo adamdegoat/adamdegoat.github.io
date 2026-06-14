@@ -1,6 +1,6 @@
 /* Caveat — Affordability & stamp-duty tool. */
 const Eligibility = (() => {
-  const C = Caveat; let RATES = null;
+  const C = Caveat; let RATES = null; let emode = 'costs';
 
   async function init() {
     RATES = await C.rates(); window.__rates = RATES;
@@ -94,7 +94,9 @@ const Eligibility = (() => {
 
   function renderForm() {
     const el = document.getElementById('eligForm');
+    if (emode === 'mortgage') return renderMortgage();
     el.innerHTML = `
+      <div class="seg" id="eSeg"><button data-m="costs" class="on">Costs &amp; duties</button><button data-m="mortgage">Mortgage</button></div>
       <h3 class="panel-title">Buyer & purchase</h3>
       <div class="field"><label>Purchase price</label>
         <input id="e_price" type="number" inputmode="numeric" placeholder="1500000"><span class="suffix">SGD</span></div>
@@ -129,6 +131,56 @@ const Eligibility = (() => {
     prof.onchange = () => { ftaWrap.style.display = prof.value === 'Foreigner' ? 'block' : 'none'; };
     document.getElementById('e_go').onclick = calc;
     document.getElementById('ratesRefBtn').onclick = openRates;
+    wireSeg();
+  }
+
+  function wireSeg() {
+    document.querySelectorAll('#eSeg button').forEach(b => b.onclick = () => { emode = b.dataset.m; renderForm(); });
+  }
+
+  function renderMortgage() {
+    document.getElementById('eligForm').innerHTML = `
+      <div class="seg" id="eSeg"><button data-m="costs">Costs &amp; duties</button><button data-m="mortgage" class="on">Mortgage</button></div>
+      <h3 class="panel-title">Loan repayment</h3>
+      <div class="field"><label>Loan amount</label><input id="m_loan" type="number" inputmode="numeric" placeholder="1200000"><span class="suffix">SGD</span></div>
+      <div class="field two">
+        <div><label>Interest rate</label><input id="m_rate" type="number" step="0.1" inputmode="decimal" placeholder="3.5"><span class="suffix">%</span></div>
+        <div><label>Tenure</label><input id="m_tenure" type="number" inputmode="numeric" placeholder="25"><span class="suffix">yrs</span></div></div>
+      <button class="btn-primary" id="m_go">Calculate repayment</button>
+      <p class="err" id="m_err" style="display:none;margin-top:12px"></p>`;
+    wireSeg();
+    document.getElementById('m_go').onclick = mortCalc;
+  }
+
+  function mortCalc() {
+    const loan = +v('m_loan'), rate = +v('m_rate') || 3.5, tenure = +v('m_tenure') || 25;
+    const e = document.getElementById('m_err');
+    if (!loan) { e.textContent = 'Enter a loan amount.'; e.style.display = 'block'; return; }
+    e.style.display = 'none';
+    const r = rate / 100 / 12, n = tenure * 12;
+    const monthly = r ? loan * r / (1 - Math.pow(1 + r, -n)) : loan / n;
+    let bal = loan, y1int = 0;
+    for (let i = 0; i < 12; i++) { const ii = bal * r; y1int += ii; bal -= monthly - ii; }
+    const totalPaid = monthly * n;
+    const out = document.getElementById('eligResult');
+    out.innerHTML = `<div class="elig-card">
+      <div class="elig-hero">
+        <div class="deck-kicker" style="color:#9fb0c4">Mortgage repayment</div>
+        <div class="deck-addr">${C.fmtMoney(loan)} loan · ${rate}% · ${tenure} yrs</div>
+        <div class="eh-grid">
+          <div class="eh-cell"><div class="ehk">Monthly instalment</div><div class="ehv">${C.fmtMoney(monthly)}</div></div>
+          <div class="eh-cell"><div class="ehk">Total interest</div><div class="ehv">${C.fmtK(totalPaid - loan)}</div><div class="ehs">over ${tenure} years</div></div>
+          <div class="eh-cell"><div class="ehk">Total repayable</div><div class="ehv">${C.fmtK(totalPaid)}</div></div>
+        </div></div>
+      <div class="breakdown">
+        ${brow('Loan principal', 'what you borrow', C.fmtMoney(loan))}
+        ${brow('Total interest', `at ${rate}% over ${tenure} years`, C.fmtMoney(Math.round(totalPaid - loan)))}
+        ${brow('Interest in year 1', 'interest is front-loaded — most is paid early', C.fmtMoney(Math.round(y1int)))}
+        <div class="brow total"><div class="bk">Total repayable</div><div class="bv">${C.fmtMoney(Math.round(totalPaid))}</div></div>
+      </div>
+      <div class="deck-disc">Indicative — assumes a constant interest rate for the full tenure. Actual repayments move with rate changes and your bank's terms.</div>
+    </div>`;
+    out.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   function calc() {

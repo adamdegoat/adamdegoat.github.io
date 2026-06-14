@@ -45,8 +45,20 @@ const App = (() => {
   }
   function closeSettings() { document.getElementById('settingsModal').hidden = true; }
 
+  function applyTheme(dark) {
+    document.body.classList.toggle('dark', dark);
+    const b = document.getElementById('themeBtn'); if (b) b.textContent = dark ? '☀' : '◐';
+    document.querySelector('meta[name=theme-color]').setAttribute('content', dark ? '#0d1218' : '#101a2b');
+  }
+
   async function init() {
     renderProfileChip();
+    applyTheme(localStorage.getItem('caveat_theme') === 'dark');
+    document.getElementById('themeBtn').addEventListener('click', () => {
+      const dark = !document.body.classList.contains('dark');
+      localStorage.setItem('caveat_theme', dark ? 'dark' : 'light');
+      applyTheme(dark);
+    });
     // nav
     document.querySelectorAll('[data-route]').forEach(el =>
       el.addEventListener('click', () => route(el.dataset.route)));
@@ -84,7 +96,7 @@ const App = (() => {
       const counts = `${fr.hdb_txns.toLocaleString()} HDB resale + ${fr.condo_txns.toLocaleString()} private caveats + ${fr.amenities.toLocaleString()} amenities`;
       document.getElementById('freshness').innerHTML =
         `<span class="live-dot"></span> Data refreshed <b>${rel}</b> (${fr.built}) · auto-updates weekly · ${counts}`;
-      CMA.init(idx); Eligibility.init(); Prospect.init(idx); Pulse.init(); Search.init(idx);
+      CMA.init(idx); Eligibility.init(); Prospect.init(idx); Pulse.init(); Search.init(idx); Upgrade.init();
     } catch (err) {
       document.getElementById('freshness').textContent = 'Data failed to load — ' + err.message;
     }

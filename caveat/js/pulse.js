@@ -2,18 +2,18 @@
    context: every figure states its period, basis and date range. */
 const Pulse = (() => {
   const C = Caveat;
-  let DATA = null, sortKey = 'txns', sortDir = -1;
+  let DATA = null, EB = null, sortKey = 'txns', sortDir = -1;
   const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
   async function init() {
-    try { DATA = await C.getJSON('pulse.json'); window.__pulse = DATA; render(); }
+    try { DATA = await C.getJSON('pulse.json'); window.__pulse = DATA; try { EB = await C.getJSON('en_bloc.json'); } catch (e) {} render(); }
     catch (e) { document.getElementById('pulseBody').innerHTML = `<div class="empty-state"><p class="err">${e.message}</p></div>`; }
   }
 
   function render() {
     const d = DATA;
     document.getElementById('pulseBody').innerHTML =
-      periodBar(d) + statCards(d) + trendRow(d) + rentalBand(d) + segmentRow(d) + townsBlock(d) + flatRow(d) + hotBlock(d) + foot(d);
+      periodBar(d) + statCards(d) + trendRow(d) + rentalBand(d) + segmentRow(d) + townsBlock(d) + flatRow(d) + hotBlock(d) + enblocBlock() + foot(d);
     wireSort();
   }
 
@@ -140,6 +140,22 @@ const Pulse = (() => {
         <div class="hot-s">District ${p.district} · ${p.seg} · median ${C.fmtK(p.median_price)}</div></div>
         <div class="hot-r"><div class="hot-psf">$${p.median_psf}<span> psf</span></div>
         <div class="hot-c">${p.txns} sales</div></div></div>`).join('')}</div>`;
+  }
+
+  function enblocBlock() {
+    if (!EB || !EB.rows.length) return '';
+    const big = p => p >= 1e9 ? '$' + (p / 1e9).toFixed(2) + 'b' : '$' + Math.round(p / 1e6) + 'm';
+    const when = m => `${MON[+m.slice(2) - 1]} ’${m.slice(0, 2)}`;
+    return `<h3 class="pulse-h">Recent collective sales <span class="pulse-hint">en-bloc &amp; land deals · last 5 years</span></h3>
+      <div class="ptable-wrap"><table class="ptable">
+        <thead><tr><th>Development</th><th class="hide-sm">District</th><th class="hide-sm">Type</th>
+          <th style="text-align:right">Land area</th><th style="text-align:right">Price</th><th style="text-align:right" class="hide-sm">When</th></tr></thead>
+        <tbody>${EB.rows.slice(0, 20).map(r => `<tr>
+          <td>${r[0]}</td><td class="hide-sm">D${r[1]}</td><td class="hide-sm">${r[3]}</td>
+          <td class="num">${Math.round(r[4] * 10.7639 / 1000).toLocaleString()}k sf</td>
+          <td class="num">${big(r[5])}</td><td class="num hide-sm">${when(r[6])}</td></tr>`).join('')}</tbody>
+      </table></div>
+      <p class="ptable-legend">Whole-development sales (excluded from unit comparables). Context only — an en-bloc resets local supply and can lift nearby prices.</p>`;
   }
 
   function foot(d) {

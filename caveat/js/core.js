@@ -25,6 +25,19 @@ const Caveat = (() => {
 
   async function index() { return INDEX || (INDEX = await getJSON('index.json')); }
   async function rentals() { return RENTALS || (RENTALS = await getJSON('rentals.json')); }
+  let HDBRENT = null, STREETS = null;
+  async function hdbRent() { return HDBRENT || (HDBRENT = await getJSON('hdb_rent.json')); }
+  async function hdbStreets() { return STREETS || (STREETS = expand(await getJSON('hdb_streets.json'))); }
+
+  // nearest amenities by distance band (e.g. schools within 1km / 1-2km)
+  async function nearbyBand(x, y, kind, bands) {
+    const am = (await amenities()).filter(a => a.kind === kind);
+    const withD = am.map(a => ({ name: a.name, level: a.level, dist: Math.round(Math.hypot(a.x - x, a.y - y)) }))
+      .sort((p, q) => p.dist - q.dist);
+    const out = {};
+    for (const b of bands) out[b] = withD.filter(a => a.dist <= b * 1000 && a.dist > (bands[bands.indexOf(b) - 1] || 0) * 1000);
+    return out;
+  }
   async function rates() { return RATES || (RATES = await getJSON('rates.json')); }
   async function amenities() {
     if (AMENITIES) return AMENITIES;
@@ -74,7 +87,7 @@ const Caveat = (() => {
   const median = arr => { const s = [...arr].sort((a, b) => a - b); const m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
   const leaseYears = m => m ? (m / 12).toFixed(1).replace(/\.0$/, '') : null;
 
-  return { getJSON, expand, index, rates, rentals, amenities, hdbTown, condoDistrict,
-    geocode, nearby, fmtMoney, fmtK, fmtPsf, SQM_SQF, yymmNow, yymmIdx,
+  return { getJSON, expand, index, rates, rentals, hdbRent, hdbStreets, amenities, hdbTown, condoDistrict,
+    geocode, nearby, nearbyBand, fmtMoney, fmtK, fmtPsf, SQM_SQF, yymmNow, yymmIdx,
     monthsBetween, median, leaseYears };
 })();

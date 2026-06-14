@@ -39,14 +39,33 @@ const CMA = (() => {
         <div><label>Lease left</label><input id="f_lease" type="number" inputmode="numeric" placeholder="92"><span class="suffix">yrs</span></div>
         <div><label>Block</label><input id="f_block" placeholder="406"></div>
       </div>
-      <div class="field"><label>Street <span style="font-weight:500;color:var(--ink-3)">· for amenities</span></label>
-        <input id="f_street" placeholder="e.g. Ang Mo Kio Ave 10 (optional)"></div>`;
+      <div class="field ac-wrap"><label>Street / estate <span style="font-weight:500;color:var(--ink-3)">· sets town &amp; sharpens comps</span></label>
+        <input id="f_street" autocomplete="off" placeholder="e.g. Potong Pasir, or Ang Mo Kio Ave 10">
+        <div class="ac-list" id="f_streetac" style="display:none"></div></div>`;
   }
-  function wireHdb() {
+  async function wireHdb() {
     const town = document.getElementById('f_town'), ft = document.getElementById('f_ftype');
-    const fill = () => { ft.innerHTML = (IDX.hdb_towns[town.value] || [])
-      .map(t => `<option>${t}</option>`).join(''); };
+    const fill = () => { ft.innerHTML = (IDX.hdb_towns[town.value] || []).map(t => `<option>${t}</option>`).join(''); };
     town.onchange = fill; fill();
+    // street/estate search → resolves the HDB town (e.g. Potong Pasir → Toa Payoh)
+    const inp = document.getElementById('f_street'), ac = document.getElementById('f_streetac');
+    let STREETS = null;
+    inp.oninput = async () => {
+      const q = inp.value.trim().toUpperCase();
+      if (q.length < 3) { ac.style.display = 'none'; return; }
+      if (!STREETS) STREETS = await C.hdbStreets();
+      const hits = STREETS.filter(s => s.street.includes(q)).slice(0, 8);
+      if (!hits.length) { ac.style.display = 'none'; return; }
+      ac.innerHTML = hits.map(s => `<div data-st="${escAttr(s.street)}" data-tn="${escAttr(s.town)}">
+        ${Narrative.titleCase(s.street)} <span class="ac-meta">· ${Narrative.titleCase(s.town)}</span></div>`).join('');
+      ac.style.display = 'block';
+      ac.querySelectorAll('div').forEach(d => d.onclick = () => {
+        inp.value = Narrative.titleCase(d.dataset.st);
+        if ([...town.options].some(o => o.value === d.dataset.tn)) { town.value = d.dataset.tn; fill(); }
+        ac.style.display = 'none';
+      });
+    };
+    document.addEventListener('click', e => { if (!ac.contains(e.target) && e.target !== inp) ac.style.display = 'none'; });
   }
 
   function condoFields() {
@@ -204,15 +223,23 @@ const CMA = (() => {
       rem_lease_mths: leaseY ? Math.round(leaseY * 12) : null, street: street ? street.toUpperCase() : null, town };
     const r = Engines.hdbEstimate(rows, subj);
     if (!r.ok) throw new Error(r.reason);
-    // amenities (geocode block+street or street)
-    let amen = null, addr = `${Narrative.titleCase(ft)} · ${Narrative.titleCase(town)}`, sloc = null;
+    // HDB gross yield (median rent for this flat type in this town)
+    try {
+      const rd = ((await C.hdbRent())[town] || {})[ft];  // [median_rent, n, trend]
+      if (rd) r.rental = { est_rent: rd[0], n: rd[1], trend: rd[2],
+        yield: +(rd[0] * 12 / r.estimate_price * 100).toFixed(1),
+        basis: `${Narrative.titleCase(ft)} flats in ${Narrative.titleCase(town)}` };
+    } catch (e) {}
+    // amenities + coords (geocode block+street or street)
+    let amen = null, addr = `${Narrative.titleCase(ft)} · ${Narrative.titleCase(town)}`, sloc = null, svy = null;
     if (street) {
       try {
         const g = await C.geocode(`${block} ${street}`.trim());
-        if (g && g.svy_x) { amen = await C.nearby(g.svy_x, g.svy_y, { maxEach: 1 }); addr = g.address ? shortAddr(g.address) : addr; sloc = { lat: g.lat, lng: g.lng }; }
+        if (g && g.svy_x) { amen = await C.nearby(g.svy_x, g.svy_y, { maxEach: 1 }); addr = g.address ? shortAddr(g.address) : addr; sloc = { lat: g.lat, lng: g.lng }; svy = { x: g.svy_x, y: g.svy_y };
+          try { r.schools = await C.nearbyBand(g.svy_x, g.svy_y, 'school', [1, 2]); } catch (e) {} }
       } catch (e) {}
     }
-    renderDeck(res, 'hdb', { ...subj, town, locationName: addr, lat: sloc && sloc.lat, lng: sloc && sloc.lng }, r, amen);
+    renderDeck(res, 'hdb', { ...subj, town, locationName: addr, lat: sloc && sloc.lat, lng: sloc && sloc.lng, svy_x: svy && svy.x, svy_y: svy && svy.y }, r, amen);
   }
 
   async function genCondo(res) {
@@ -226,18 +253,19 @@ const CMA = (() => {
     if (!r.ok) throw new Error(r.reason);
     // rental + gross yield (if the project has enough recent leases)
     try {
-      const rd = (await C.rentals())[p[0]];  // [median_rent_psf, median_rent, n_leases]
+      const rd = (await C.rentals())[p[0]];  // [median_rent_psf, median_rent, n_leases, trend]
       if (rd) {
         const estRent = Math.round(rd[0] * area * C.SQM_SQF);
-        r.rental = { est_rent: estRent, proj_rent: rd[1], n: rd[2],
-          yield: +(estRent * 12 / r.estimate_price * 100).toFixed(1) };
+        r.rental = { est_rent: estRent, n: rd[2], trend: rd[3],
+          yield: +(estRent * 12 / r.estimate_price * 100).toFixed(1),
+          basis: `recent leases in ${Narrative.titleCase(p[0])}` };
       }
     } catch (e) {}
     // amenities + subject location from any same-project caveat's coords
     let amen = null, sloc = null;
     const pr = rows.find(x => x.project === p[0] && x.x);
-    if (pr) { try { amen = await C.nearby(pr.x, pr.y, { maxEach: 1 }); } catch (e) {} sloc = SVY21.toLatLng(pr.x, pr.y); }
-    renderDeck(res, 'condo', { ...subj, locationName: Narrative.titleCase(p[0]), lat: sloc && sloc[0], lng: sloc && sloc[1] }, r, amen);
+    if (pr) { try { amen = await C.nearby(pr.x, pr.y, { maxEach: 1 }); r.schools = await C.nearbyBand(pr.x, pr.y, 'school', [1, 2]); } catch (e) {} sloc = SVY21.toLatLng(pr.x, pr.y); }
+    renderDeck(res, 'condo', { ...subj, locationName: Narrative.titleCase(p[0]), lat: sloc && sloc[0], lng: sloc && sloc[1], svy_x: pr && pr.x, svy_y: pr && pr.y }, r, amen);
   }
 
   // ---------- render deck ----------
@@ -251,6 +279,10 @@ const CMA = (() => {
     const paras = Narrative.cma(kind, subj, r, amen);
 
     res.innerHTML = `<div class="deck" id="deck">
+      <div class="print-cover">
+        <div><div class="pc-brand">◆ Caveat</div><div class="pc-sub">Singapore Property Intelligence</div></div>
+        <div class="pc-agent">Prepared by <b>${pr.name || '—'}</b>${pr.cea ? ' · ' + pr.cea : ''}${pr.agency ? '<br>' + pr.agency : ''}${pr.phone ? ' · ' + pr.phone : ''}${window.__freshness ? '<br><span style="color:#888">Data current ' + window.__freshness.built + '</span>' : ''}</div>
+      </div>
       <div class="deck-top">
         <div class="dt-row">
           <div>
@@ -298,11 +330,13 @@ const CMA = (() => {
 
       ${r.rental ? `<div class="deck-section"><h4>Rental snapshot</h4>
         <div class="rental-snap">
-          <div class="rs-cell"><div class="rs-v">${C.fmtMoney(r.rental.est_rent)}<span>/mo</span></div><div class="rs-k">Est. rent · this size</div></div>
+          <div class="rs-cell"><div class="rs-v">${C.fmtMoney(r.rental.est_rent)}<span>/mo</span></div><div class="rs-k">Est. monthly rent</div></div>
           <div class="rs-cell hl"><div class="rs-v">~${r.rental.yield}%</div><div class="rs-k">Gross rental yield</div></div>
-          <div class="rs-cell"><div class="rs-v">${C.fmtMoney(r.rental.proj_rent)}<span>/mo</span></div><div class="rs-k">Project median rent</div></div>
+          <div class="rs-cell"><div class="rs-v" style="font-size:18px">${trendArrow(r.rental.trend)}</div><div class="rs-k">Rent trend · 6mo</div></div>
         </div>
-        <p class="hint" style="margin-top:11px">From ${r.rental.n.toLocaleString()} recent leases in this project (URA, last 5 quarters). Gross yield = estimated annual rent ÷ estimated price, before costs &amp; vacancy.</p></div>` : ''}
+        <p class="hint" style="margin-top:11px">From ${r.rental.n.toLocaleString()} ${r.rental.basis} (last ~5 quarters). Gross yield = estimated annual rent ÷ estimated price, before costs &amp; vacancy.</p></div>` : ''}
+
+      ${schoolSection(r.schools)}
 
       ${subj.lat ? `<div class="deck-section"><h4>On the map</h4><div id="deckMap" class="deck-map"></div></div>` : ''}
 
@@ -418,6 +452,25 @@ const CMA = (() => {
       return `<div class="amen"><span class="ai">${amenIcon[k]}</span>
         <span><b>${a.name.replace(/\s*\(.*?\)/, '')}</b><br><span class="ad">${amenLabel[k]} · ${a.dist}m</span></span></div>`;
     }).join('')}</div>`;
+  }
+
+  function trendArrow(t) {
+    if (t == null) return '<span style="color:var(--ink-3)">— flat</span>';
+    if (t > 0.5) return `<span style="color:var(--brand-d)">▲ ${t}%</span>`;
+    if (t < -0.5) return `<span style="color:var(--rose)">▼ ${Math.abs(t)}%</span>`;
+    return `<span style="color:var(--slate)">≈ flat</span>`;
+  }
+  function schoolSection(s) {
+    if (!s) return '';
+    const prim = b => (s[b] || []).filter(x => x.level === 'PRIMARY');
+    const w1 = prim(1), w2 = prim(2);
+    if (!w1.length && !w2.length) return '';
+    const chips = arr => arr.slice(0, 8).map(x =>
+      `<span class="school-chip">${Narrative.titleCase(x.name).replace(/ Primary School/i, ' Pri')}<span> ${x.dist}m</span></span>`).join('');
+    return `<div class="deck-section"><h4>Primary schools · P1 priority</h4>
+      ${w1.length ? `<div class="school-band"><span class="sb-label">Within 1km</span><div class="school-chips">${chips(w1)}</div></div>` : ''}
+      ${w2.length ? `<div class="school-band"><span class="sb-label">1–2 km</span><div class="school-chips">${chips(w2)}</div></div>` : ''}
+      <p class="hint" style="margin-top:9px">Home-to-school distance sets Primary 1 registration priority (within 1km, then 1–2km).</p></div>`;
   }
 
   const val = id => (document.getElementById(id) || {}).value || '';
