@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Spectral:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-<link rel="stylesheet" href="css/app.css?v=8">
+<link rel="stylesheet" href="css/app.css?v=9">
 </head>
 <body>
 <header class="appbar">
@@ -23,6 +23,7 @@
   </div>
   <nav class="tabs" id="tabs">
     <button data-route="valuation" class="active">Valuation</button>
+    <button data-route="market">Market</button>
     <button data-route="eligibility">Affordability</button>
     <button data-route="prospecting">Prospecting</button>
   </nav>
@@ -49,6 +50,15 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- ===================== MARKET PULSE ===================== -->
+  <section id="market" class="route">
+    <div class="route-head">
+      <h1>Market <span class="serif-accent">pulse</span></h1>
+      <p class="lede">A live read of the Singapore resale market — prices, momentum and hotspots, straight from official transactions.</p>
+    </div>
+    <div id="pulseBody"><div class="empty-state"><div class="spinner"></div><p>Loading market data…</p></div></div>
   </section>
 
   <!-- ===================== ELIGIBILITY ===================== -->
@@ -161,14 +171,15 @@
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="js/core.js?v=8"></script>
-<script src="js/svy21.js?v=8"></script>
-<script src="js/engines.js?v=8"></script>
-<script src="js/narrative.js?v=8"></script>
-<script src="js/map.js?v=8"></script>
-<script src="js/cma.js?v=8"></script>
-<script src="js/eligibility-ui.js?v=8"></script>
-<script src="js/prospect.js?v=8"></script>
-<script src="js/app.js?v=8"></script>
+<script src="js/core.js?v=9"></script>
+<script src="js/svy21.js?v=9"></script>
+<script src="js/engines.js?v=9"></script>
+<script src="js/narrative.js?v=9"></script>
+<script src="js/map.js?v=9"></script>
+<script src="js/cma.js?v=9"></script>
+<script src="js/pulse.js?v=9"></script>
+<script src="js/eligibility-ui.js?v=9"></script>
+<script src="js/prospect.js?v=9"></script>
+<script src="js/app.js?v=9"></script>
 </body>
 </html>
