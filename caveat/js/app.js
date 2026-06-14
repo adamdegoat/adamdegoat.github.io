@@ -77,8 +77,13 @@ const App = (() => {
     try {
       const idx = await Caveat.index();
       const fr = idx.freshness;
-      document.getElementById('freshness').textContent =
-        `Live data · ${fr.hdb_txns.toLocaleString()} HDB resale + ${fr.condo_txns.toLocaleString()} private caveats + ${fr.amenities.toLocaleString()} amenities · refreshed ${fr.built}`;
+      window.__freshness = fr;
+      const built = new Date(fr.built + 'T00:00:00');
+      const days = Math.max(0, Math.floor((Date.now() - built.getTime()) / 86400000));
+      const rel = days === 0 ? 'today' : days === 1 ? 'yesterday' : `${days} days ago`;
+      const counts = `${fr.hdb_txns.toLocaleString()} HDB resale + ${fr.condo_txns.toLocaleString()} private caveats + ${fr.amenities.toLocaleString()} amenities`;
+      document.getElementById('freshness').innerHTML =
+        `<span class="live-dot"></span> Data refreshed <b>${rel}</b> (${fr.built}) · auto-updates weekly · ${counts}`;
       CMA.init(idx); Eligibility.init(); Prospect.init(idx);
     } catch (err) {
       document.getElementById('freshness').textContent = 'Data failed to load — ' + err.message;
