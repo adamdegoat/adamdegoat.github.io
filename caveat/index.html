@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta name="description" content="Caveat — instant resale valuation, affordability and prospecting for Singapore property agents. Built on official URA, HDB and OneMap data.">
+<title>Caveat · SG Property Intelligence</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230f9d76'/%3E%3Cstop offset='1' stop-color='%23b88a2e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='8' y='8' width='16' height='16' rx='4' transform='rotate(45 16 16)' fill='url(%23g)'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#101a2b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/app.css?v=1">
+</head>
+<body>
+<header class="appbar">
+  <div class="brand" data-route="valuation">
+    <span class="logo" aria-hidden="true"></span>
+    <span class="wordmark">Caveat</span>
+    <span class="brand-sub">SG Property Intelligence</span>
+  </div>
+  <nav class="tabs" id="tabs">
+    <button data-route="valuation" class="active">Valuation</button>
+    <button data-route="eligibility">Affordability</button>
+    <button data-route="prospecting">Prospecting</button>
+  </nav>
+  <button class="profile-btn" id="settingsBtn" title="Your agent profile">
+    <span class="avatar" id="profileAvatar">—</span>
+    <span class="profile-name" id="profileNameTop">Set up profile</span>
+  </button>
+</header>
+
+<main id="main">
+  <!-- ===================== VALUATION ===================== -->
+  <section id="valuation" class="route active">
+    <div class="route-head">
+      <h1>Valuation <span class="serif-accent">deck</span></h1>
+      <p class="lede">Generate a client-ready comparable market analysis in seconds — HDB or private, straight from official caveats.</p>
+    </div>
+    <div class="cma-grid">
+      <aside class="panel input-panel" id="cmaForm"><!-- built by cma.js --></aside>
+      <div class="result-wrap" id="cmaResult">
+        <div class="empty-state">
+          <div class="empty-mark"></div>
+          <p>Fill in a property on the left to generate its valuation deck.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ELIGIBILITY ===================== -->
+  <section id="eligibility" class="route">
+    <div class="route-head">
+      <h1>Affordability <span class="serif-accent">&amp; stamp duty</span></h1>
+      <p class="lede">One clear breakdown of duties, downpayment and loan headroom — shareable with your buyer.</p>
+    </div>
+    <div class="cma-grid">
+      <aside class="panel input-panel" id="eligForm"><!-- built by eligibility-ui.js --></aside>
+      <div class="result-wrap" id="eligResult">
+        <div class="empty-state">
+          <div class="empty-mark"></div>
+          <p>Enter a buyer profile and price to see the full cost breakdown.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROSPECTING ===================== -->
+  <section id="prospecting" class="route">
+    <div class="route-head">
+      <h1>Prospecting <span class="serif-accent">radar</span></h1>
+      <p class="lede">See what just sold in your farm area, and turn each transaction into a warm outreach message.</p>
+    </div>
+    <div class="cma-grid">
+      <aside class="panel input-panel" id="prospectForm"><!-- built by prospect.js --></aside>
+      <div class="result-wrap" id="prospectResult">
+        <div class="empty-state">
+          <div class="empty-mark"></div>
+          <p>Pick an area to surface its most recent transactions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="foot-inner">
+    <span id="freshness">Loading data…</span>
+    <span class="foot-disc">Indicative only — AI drafts, agent verifies. Not a bank valuation or financial advice. Data: URA, HDB &amp; data.gov.sg (Singapore Open Data Licence), OneMap © SLA.</span>
+  </div>
+</footer>
+
+<!-- Settings / agent profile modal -->
+<div class="modal-backdrop" id="settingsModal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+    <div class="modal-head"><h2 id="settingsTitle">Your agent profile</h2><button class="x" id="settingsClose">×</button></div>
+    <p class="modal-note">Appears on every deck you generate. Required by CEA on marketing materials.</p>
+    <form id="settingsForm" class="stack">
+      <label>Name<input name="name" placeholder="e.g. Jamie Tan" required></label>
+      <label>CEA registration no.<input name="cea" placeholder="e.g. R012345A" pattern="[Rr][0-9]{6}[A-Za-z]"></label>
+      <label>Agency<input name="agency" placeholder="e.g. PropNex Realty"></label>
+      <label>Mobile<input name="phone" placeholder="e.g. 9123 4567"></label>
+      <label>Brand colour
+        <span class="color-row">
+          <input type="color" name="color" value="#0f9d76">
+          <span class="color-hint">Used on your decks</span>
+        </span>
+      </label>
+      <button type="submit" class="btn-primary">Save profile</button>
+    </form>
+  </div>
+</div>
+
+<script src="js/core.js?v=1"></script>
+<script src="js/engines.js?v=1"></script>
+<script src="js/narrative.js?v=1"></script>
+<script src="js/cma.js?v=1"></script>
+<script src="js/eligibility-ui.js?v=1"></script>
+<script src="js/prospect.js?v=1"></script>
+<script src="js/app.js?v=1"></script>
+</body>
+</html>

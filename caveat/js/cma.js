@@ -1,0 +1,277 @@
+/* Caveat — CMA deck tool. */
+const CMA = (() => {
+  const C = Caveat; let IDX = null; let mode = 'hdb';
+
+  function init(idx) { IDX = idx; renderForm(); }
+
+  const townOpts = () => Object.keys(IDX.hdb_towns).sort()
+    .map(t => `<option value="${t}">${Narrative.titleCase(t)}</option>`).join('');
+
+  function renderForm() {
+    const el = document.getElementById('cmaForm');
+    el.innerHTML = `
+      <div class="seg" id="cmaSeg">
+        <button data-m="hdb" class="${mode === 'hdb' ? 'on' : ''}">HDB resale</button>
+        <button data-m="condo" class="${mode === 'condo' ? 'on' : ''}">Private</button>
+      </div>
+      <div id="cmaFields">${mode === 'hdb' ? hdbFields() : condoFields()}</div>
+      <button class="btn-primary" id="cmaGo">Generate valuation</button>
+      <p class="field-err err" id="cmaErr" style="display:none;margin-top:12px"></p>`;
+    el.querySelectorAll('#cmaSeg button').forEach(b => b.onclick = () => {
+      mode = b.dataset.m; renderForm();
+    });
+    if (mode === 'hdb') wireHdb(); else wireCondo();
+    document.getElementById('cmaGo').onclick = generate;
+  }
+
+  function hdbFields() {
+    return `
+      <div class="field"><label>Town</label><select id="f_town">${townOpts()}</select></div>
+      <div class="field"><label>Flat type</label><select id="f_ftype"></select></div>
+      <div class="field two">
+        <div><label>Floor area</label><input id="f_area" type="number" inputmode="decimal" placeholder="93"><span class="suffix">sqm</span></div>
+        <div><label>Storey</label><input id="f_storey" type="number" inputmode="numeric" placeholder="8"></div>
+      </div>
+      <div class="field two">
+        <div><label>Lease left</label><input id="f_lease" type="number" inputmode="numeric" placeholder="92"><span class="suffix">yrs</span></div>
+        <div><label>Block</label><input id="f_block" placeholder="406"></div>
+      </div>
+      <div class="field"><label>Street <span style="font-weight:500;color:var(--ink-3)">· for amenities</span></label>
+        <input id="f_street" placeholder="e.g. Ang Mo Kio Ave 10 (optional)"></div>`;
+  }
+  function wireHdb() {
+    const town = document.getElementById('f_town'), ft = document.getElementById('f_ftype');
+    const fill = () => { ft.innerHTML = (IDX.hdb_towns[town.value] || [])
+      .map(t => `<option>${t}</option>`).join(''); };
+    town.onchange = fill; fill();
+  }
+
+  function condoFields() {
+    return `
+      <div class="field ac-wrap"><label>Project</label>
+        <input id="f_project" autocomplete="off" placeholder="Start typing a condo name…">
+        <input type="hidden" id="f_projmeta">
+        <div class="ac-list" id="f_ac" style="display:none"></div>
+      </div>
+      <div class="field two">
+        <div><label>Floor area</label><input id="f_area" type="number" inputmode="decimal" placeholder="90"><span class="suffix">sqm</span></div>
+        <div><label>Floor level</label><input id="f_floor" type="number" inputmode="numeric" placeholder="12"></div>
+      </div>
+      <div class="field"><div id="f_projinfo" class="hint"></div></div>`;
+  }
+  function wireCondo() {
+    const inp = document.getElementById('f_project'), ac = document.getElementById('f_ac');
+    const meta = document.getElementById('f_projmeta'), info = document.getElementById('f_projinfo');
+    inp.oninput = () => {
+      const q = inp.value.trim().toUpperCase(); meta.value = ''; info.textContent = '';
+      if (q.length < 2) { ac.style.display = 'none'; return; }
+      const hits = IDX.condo_projects.filter(p => p[0].includes(q)).slice(0, 8);
+      if (!hits.length) { ac.style.display = 'none'; return; }
+      ac.innerHTML = hits.map(p => `<div data-p='${escAttr(JSON.stringify(p))}'>
+        ${Narrative.titleCase(p[0])} <span class="ac-meta">· D${p[1]} ${p[2]} ${p[4] ? 'Freehold' : ''}</span></div>`).join('');
+      ac.style.display = 'block';
+      ac.querySelectorAll('div').forEach(d => d.onclick = () => {
+        const p = JSON.parse(d.getAttribute('data-p'));
+        inp.value = Narrative.titleCase(p[0]); meta.value = JSON.stringify(p); ac.style.display = 'none';
+        info.textContent = `District ${p[1]} · ${p[2]} · ${p[3]} · ${p[4] ? 'Freehold' : 'Leasehold'}`;
+      });
+    };
+    document.addEventListener('click', e => { if (!ac.contains(e.target) && e.target !== inp) ac.style.display = 'none'; });
+  }
+
+  function err(msg) { const e = document.getElementById('cmaErr'); e.textContent = msg; e.style.display = 'block'; }
+  function clearErr() { document.getElementById('cmaErr').style.display = 'none'; }
+
+  async function generate() {
+    clearErr();
+    const btn = document.getElementById('cmaGo'); btn.disabled = true; btn.textContent = 'Crunching caveats…';
+    const res = document.getElementById('cmaResult');
+    res.innerHTML = `<div class="empty-state"><div class="spinner"></div><p>Pulling comparables…</p></div>`;
+    try {
+      if (mode === 'hdb') await genHdb(res); else await genCondo(res);
+    } catch (e) {
+      res.innerHTML = `<div class="empty-state"><p class="err">${e.message}</p></div>`;
+    }
+    btn.disabled = false; btn.textContent = 'Generate valuation';
+  }
+
+  async function genHdb(res) {
+    const town = val('f_town'), ft = val('f_ftype'), area = +val('f_area'),
+      storey = +val('f_storey'), leaseY = +val('f_lease'), block = val('f_block'), street = val('f_street');
+    if (!area || !storey) throw new Error('Enter at least floor area and storey.');
+    const rows = await C.hdbTown(town);
+    const subj = { flat_type: ft, area_sqm: area, storey_mid: storey,
+      rem_lease_mths: leaseY ? Math.round(leaseY * 12) : null, street: street ? street.toUpperCase() : null, town };
+    const r = Engines.hdbEstimate(rows, subj);
+    if (!r.ok) throw new Error(r.reason);
+    // amenities (geocode block+street or street)
+    let amen = null, addr = `${Narrative.titleCase(ft)} · ${Narrative.titleCase(town)}`;
+    if (street) {
+      try {
+        const g = await C.geocode(`${block} ${street}`.trim());
+        if (g && g.svy_x) { amen = await C.nearby(g.svy_x, g.svy_y, { maxEach: 1 }); addr = g.address ? shortAddr(g.address) : addr; }
+      } catch (e) {}
+    }
+    renderDeck(res, 'hdb', { ...subj, town, locationName: addr }, r, amen);
+  }
+
+  async function genCondo(res) {
+    const meta = val('f_projmeta'); if (!meta) throw new Error('Pick a project from the list.');
+    const p = JSON.parse(meta); const area = +val('f_area'), floor = +val('f_floor');
+    if (!area || !floor) throw new Error('Enter floor area and floor level.');
+    const rows = await C.condoDistrict(p[1]);
+    const subj = { project: p[0], district: p[1], seg: p[2], ptype: p[3], tenure_fh: p[4],
+      area_sqm: area, floor_mid: floor };
+    const r = Engines.condoEstimate(rows, subj);
+    if (!r.ok) throw new Error(r.reason);
+    // amenities from any same-project caveat's coords
+    let amen = null;
+    const pr = rows.find(x => x.project === p[0] && x.x);
+    if (pr) { try { amen = await C.nearby(pr.x, pr.y, { maxEach: 1 }); } catch (e) {} }
+    renderDeck(res, 'condo', { ...subj, locationName: Narrative.titleCase(p[0]) }, r, amen, area * C.SQM_SQF);
+  }
+
+  // ---------- render deck ----------
+  function renderDeck(res, kind, subj, r, amen) {
+    const pr = App.getProfile() || {};
+    const color = pr.color || getCss('--brand');
+    const sub = kind === 'hdb'
+      ? `${Narrative.titleCase(subj.flat_type)} · ${r.area_sqf} sqft · ${C.leaseYears(subj.rem_lease_mths) || '—'} yrs lease`
+      : `${subj.seg} · D${subj.district} · ${r.area_sqf} sqft · ${subj.tenure_fh ? 'Freehold' : 'Leasehold'}`;
+    const cc = r.confidence.toLowerCase();
+    const paras = Narrative.cma(kind, subj, r, amen);
+
+    res.innerHTML = `<div class="deck" id="deck">
+      <div class="deck-top">
+        <div class="dt-row">
+          <div>
+            <div class="deck-kicker">Comparable Market Analysis</div>
+            <div class="deck-addr">${subj.locationName}</div>
+            <div class="deck-sub">${sub}</div>
+          </div>
+          <div class="chip ${cc}"><span class="chip-dot"></span>${r.confidence} confidence</div>
+        </div>
+      </div>
+
+      <div class="estimate">
+        <div class="est-main">
+          <div class="est-label">Estimated value</div>
+          <div class="est-figure" style="color:${getCss('--ink')}">${C.fmtMoney(r.estimate_price)}</div>
+          <div class="est-psf">≈ ${C.fmtPsf(r.estimate_psf)} · based on ${r.n_comps} comparables</div>
+          <div class="band">
+            <div class="band-track">
+              <div class="band-fill" style="left:14%;right:14%;background:linear-gradient(90deg,${color},${App.shade(color, -18)})"></div>
+              <div class="band-mid" style="left:50%"></div>
+            </div>
+            <div class="band-ends"><span>${C.fmtMoney(r.low)}</span><span>${C.fmtMoney(r.high)}</span></div>
+          </div>
+        </div>
+        <div class="est-side">
+          <div class="fact"><span class="k">Indicative range</span><span class="v">±${r.band_pct}%</span></div>
+          <div class="fact"><span class="k">Comparables used</span><span class="v">${r.n_comps}</span></div>
+          <div class="fact"><span class="k">Price agreement</span><span class="v">${cvWord(r.cv)}</span></div>
+          ${r.scope ? `<div class="fact"><span class="k">Comp basis</span><span class="v" style="font-size:12px">${r.scope}</span></div>` : ''}
+        </div>
+      </div>
+
+      <div class="deck-section">
+        <h4>Per-sqft price trend</h4>
+        ${chartSVG(r.trend, color)}
+      </div>
+
+      <div class="deck-section">
+        <h4>Comparable transactions</h4>
+        ${compsTable(kind, r.comps)}
+      </div>
+
+      ${amen ? `<div class="deck-section"><h4>Location &amp; amenities</h4>${amenRow(amen)}</div>` : ''}
+
+      <div class="deck-section narrative">
+        <h4>Summary</h4>${paras.map(p => `<p>${p}</p>`).join('')}
+      </div>
+
+      <div class="deck-foot">
+        <div class="agent-card">
+          <div class="ac-av" style="background:linear-gradient(135deg,${color},${App.shade(color, -20)})">${App.initials(pr.name)}</div>
+          <div><div class="acn">${pr.name || 'Your name'}</div>
+          <div class="acm">${[pr.agency, pr.cea, pr.phone].filter(Boolean).join(' · ') || 'Set up your profile →'}</div></div>
+        </div>
+        <button class="btn-ghost" onclick="window.print()">Export PDF</button>
+        <button class="btn-primary" style="width:auto;margin:0;padding:11px 18px" onclick="CMA.regen()">New valuation</button>
+      </div>
+      <div class="deck-disc">${(window.__rates && window.__rates.disclaimer) || 'Indicative estimate from recent comparable transactions. Not a bank valuation or a guarantee of sale price. Generated by Caveat for the named agent, who is responsible for verifying it.'}</div>
+    </div>`;
+    res.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function regen() { document.getElementById('cmaResult').innerHTML =
+    `<div class="empty-state"><div class="empty-mark"></div><p>Fill in a property on the left to generate its valuation deck.</p></div>`;
+    window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+  // ---------- bits ----------
+  function chartSVG(trend, color) {
+    if (trend.length < 2) return `<p class="hint">Not enough monthly data to chart.</p>`;
+    const W = 640, H = 150, pad = { l: 6, r: 6, t: 14, b: 22 };
+    const xs = trend.map((_, i) => pad.l + i * (W - pad.l - pad.r) / (trend.length - 1));
+    const lo = Math.min(...trend.map(t => t.psf)), hi = Math.max(...trend.map(t => t.psf));
+    const span = (hi - lo) || 1;
+    const yOf = v => H - pad.b - (v - lo) / span * (H - pad.t - pad.b);
+    const pts = trend.map((t, i) => `${xs[i].toFixed(1)},${yOf(t.psf).toFixed(1)}`);
+    const area = `M${xs[0]},${H - pad.b} L${pts.join(' L')} L${xs[xs.length - 1]},${H - pad.b} Z`;
+    const labelEvery = Math.ceil(trend.length / 6);
+    return `<svg class="chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
+      <defs><linearGradient id="cvg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="${color}" stop-opacity=".28"/><stop offset="1" stop-color="${color}" stop-opacity="0"/>
+      </linearGradient></defs>
+      <path class="area" d="${area}" fill="url(#cvg)"/>
+      <polyline class="line" points="${pts.join(' ')}" stroke="${color}"/>
+      ${trend.map((t, i) => i % labelEvery === 0 || i === trend.length - 1
+        ? `<circle class="dot" cx="${xs[i].toFixed(1)}" cy="${yOf(t.psf).toFixed(1)}" r="3" stroke="${color}"/>
+           <text x="${xs[i].toFixed(1)}" y="${H - 6}" text-anchor="middle">${mLabel(t.yymm)}</text>` : '').join('')}
+      <text x="2" y="11">$${hi}</text><text x="2" y="${H - pad.b}">$${lo}</text>
+    </svg>`;
+  }
+  const mLabel = yymm => ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+yymm.slice(2) - 1] + " '" + yymm.slice(0, 2);
+
+  function compsTable(kind, comps) {
+    const rows = comps.slice(0, 8).map(c => kind === 'hdb' ? `<tr>
+      <td>Blk ${c.block} <span class="hide-sm">${Narrative.titleCase(c.street).replace(/Ave /,'Ave ')}</span></td>
+      <td class="hide-sm">${mLabel(c.yymm)}</td>
+      <td class="num">${c.area_sqm}m²</td>
+      <td class="num hide-sm">$${Math.round(c.psf)}</td>
+      <td class="num adj">$${Math.round(c.adj_psf)}</td>
+      <td class="num">${C.fmtK(c.price)}</td></tr>`
+      : `<tr>
+      <td>${Narrative.titleCase(c.project)} <span class="hide-sm" style="color:var(--ink-3)">· #${String(c.floor_mid||'').padStart(2,'0')}</span></td>
+      <td class="hide-sm">${mLabel(c.yymm)}</td>
+      <td class="num">${c.area_sqm}m²</td>
+      <td class="num hide-sm">$${Math.round(c.psf)}</td>
+      <td class="num adj">$${Math.round(c.adj_psf)}</td>
+      <td class="num">${C.fmtK(c.price)}</td></tr>`).join('');
+    return `<table class="comps"><thead><tr>
+      <th>${kind === 'hdb' ? 'Block' : 'Project'}</th><th class="hide-sm">Month</th>
+      <th style="text-align:right">Size</th><th style="text-align:right" class="hide-sm">Raw psf</th>
+      <th style="text-align:right">Adj psf</th><th style="text-align:right">Price</th>
+      </tr></thead><tbody>${rows}</tbody></table>
+      <p class="hint" style="margin-top:10px">“Adj psf” normalises each comparable to the subject for time, ${kind === 'hdb' ? 'storey &amp; lease' : 'floor &amp; tenure'}.</p>`;
+  }
+
+  const amenIcon = { mrt: '🚇', lrt: '🚈', school: '🎓', hawker: '🍜', park: '🌳' };
+  const amenLabel = { mrt: 'MRT', lrt: 'LRT', school: 'School', hawker: 'Hawker', park: 'Park' };
+  function amenRow(amen) {
+    const order = ['mrt', 'lrt', 'school', 'hawker', 'park'];
+    return `<div class="amen-row">${order.filter(k => amen[k]).map(k => {
+      const a = amen[k][0];
+      return `<div class="amen"><span class="ai">${amenIcon[k]}</span>
+        <span><b>${a.name.replace(/\s*\(.*?\)/, '')}</b><br><span class="ad">${amenLabel[k]} · ${a.dist}m</span></span></div>`;
+    }).join('')}</div>`;
+  }
+
+  const val = id => (document.getElementById(id) || {}).value || '';
+  const getCss = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  const cvWord = cv => cv < 0.05 ? 'Very tight' : cv < 0.08 ? 'Tight' : cv < 0.11 ? 'Moderate' : 'Wide';
+  const escAttr = s => s.replace(/'/g, '&#39;');
+  const shortAddr = a => Narrative.titleCase(a.replace(/ SINGAPORE \d+$/, ''));
+
+  return { init, regen };
+})();

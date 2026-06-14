@@ -1,0 +1,58 @@
+{
+  "as_of": "2026-06-14",
+  "disclaimer": "Indicative only. AI drafts, agent verifies. Not financial advice; final duties and eligibility are determined by IRAS, MAS, HDB and the buyer's bank.",
+  "absd": {
+    "note": "Effective 27 Apr 2023. Rate applies to the higher of price or market value.",
+    "SC":         {"1": 0,  "2": 20, "3": 30},
+    "SPR":        {"1": 5,  "2": 30, "3": 35},
+    "Foreigner":  {"1": 60, "2": 60, "3": 60},
+    "Entity":     {"1": 65, "2": 65, "3": 65},
+    "Trustee":    {"1": 65, "2": 65, "3": 65},
+    "fta_as_sc": ["United States", "Iceland", "Liechtenstein", "Norway", "Switzerland"],
+    "married_refund_note": "First-timer SC married couples may claim full ABSD refund on a 2nd property if the first is sold within 6 months of purchase (completed property) — no extension."
+  },
+  "bsd": {
+    "note": "Buyer's Stamp Duty, residential, effective 15 Feb 2023.",
+    "tiers": [
+      {"upto": 180000,  "rate": 1},
+      {"upto": 360000,  "rate": 2},
+      {"upto": 1000000, "rate": 3},
+      {"upto": 1500000, "rate": 4},
+      {"upto": 3000000, "rate": 5},
+      {"upto": null,    "rate": 6}
+    ]
+  },
+  "ssd": {
+    "note": "Seller's Stamp Duty, residential, holding period extended to 4 years effective 4 Jul 2025.",
+    "tiers": [
+      {"held_years_upto": 1, "rate": 16},
+      {"held_years_upto": 2, "rate": 12},
+      {"held_years_upto": 3, "rate": 8},
+      {"held_years_upto": 4, "rate": 4},
+      {"held_years_upto": null, "rate": 0}
+    ]
+  },
+  "financing": {
+    "tdsr_pct": 55,
+    "msr_pct": 30,
+    "stress_rate_pct": 4.0,
+    "variable_income_haircut_pct": 30,
+    "ltv": {
+      "bank": {"1": 75, "2": 45, "3": 35},
+      "bank_reduced": {"1": 55, "2": 25, "3": 15},
+      "hdb_loan": 75,
+      "reduced_note": "Reduced LTV applies if loan tenure > 30yr (HDB) / 35yr (private) OR loan tenure + borrower age extends beyond age 65."
+    },
+    "min_cash_pct": {"ltv75": 5, "ltv55": 10, "second_plus": 25}
+  },
+  "hdb": {
+    "income_ceiling": {"family": 14000, "extended": 21000, "single": 7000, "ec": 16000},
+    "mop_years": {"standard": 5, "plus": 10, "prime": 10},
+    "grants_note": "Enhanced CPF Housing Grant up to $120k (families) / $60k (singles); resale Family Grant $80k/$50k; Proximity Housing Grant $30k/$20k. Subject to eligibility.",
+    "eip_note": "Ethnic Integration Policy + SPR quotas apply at block and neighbourhood level — verify live on HDB's EIP/SPR e-Service before committing."
+  },
+  "process": {
+    "hdb_resale": ["Intent to Sell (>=7 days before OTP)", "Buyer HFE letter", "Resale Checklist (both sides)", "Grant OTP (HDB form, option fee $1-$1,000)", "Request for Value ($120, next working day)", "Exercise within 21 days (deposit <= $5,000)", "Submit Resale Application within 7 days", "HDB acceptance ~28 working days", "Completion ~8 weeks after acceptance"],
+    "private_resale": ["OTP (1% option fee, ~14-day option)", "Engage conveyancing lawyer + loan/valuation", "Exercise (~4% more, ~5% total)", "BSD + ABSD within 14 days of execution", "Completion typically 8-12 weeks"]
+  }
+}
