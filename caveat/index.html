@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Spectral:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-<link rel="stylesheet" href="css/app.css?v=20">
+<link rel="stylesheet" href="css/app.css?v=21">
 </head>
 <body>
 <header class="appbar">
@@ -198,7 +198,7 @@
 <div class="modal-backdrop" id="settingsModal" hidden>
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
     <div class="modal-head"><h2 id="settingsTitle">Your agent profile</h2><button class="x" id="settingsClose">×</button></div>
-    <p class="modal-note">Appears on every deck you generate. Required by CEA on marketing materials.</p>
+    <p class="modal-note">Optional — only used to brand your decks. Edit it anytime; the CEA number is only needed once you're a licensed agent sharing decks with clients.</p>
     <form id="settingsForm" class="stack">
       <label>Name<input name="name" placeholder="e.g. Jamie Tan" required></label>
       <label>CEA registration no.<input name="cea" placeholder="e.g. R012345A" pattern="[Rr][0-9]{6}[A-Za-z]"></label>
@@ -211,6 +211,7 @@
         </span>
       </label>
       <button type="submit" class="btn-primary">Save profile</button>
+      <button type="button" class="rates-link" id="clearProfile">Remove profile</button>
     </form>
   </div>
 </div>
@@ -224,17 +225,17 @@
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="js/core.js?v=20"></script>
-<script src="js/svy21.js?v=20"></script>
-<script src="js/engines.js?v=20"></script>
-<script src="js/narrative.js?v=20"></script>
-<script src="js/map.js?v=20"></script>
-<script src="js/cma.js?v=20"></script>
-<script src="js/pulse.js?v=20"></script>
-<script src="js/search.js?v=20"></script>
-<script src="js/upgrade.js?v=20"></script>
-<script src="js/eligibility-ui.js?v=20"></script>
-<script src="js/prospect.js?v=20"></script>
-<script src="js/app.js?v=20"></script>
+<script src="js/core.js?v=21"></script>
+<script src="js/svy21.js?v=21"></script>
+<script src="js/engines.js?v=21"></script>
+<script src="js/narrative.js?v=21"></script>
+<script src="js/map.js?v=21"></script>
+<script src="js/cma.js?v=21"></script>
+<script src="js/pulse.js?v=21"></script>
+<script src="js/search.js?v=21"></script>
+<script src="js/upgrade.js?v=21"></script>
+<script src="js/eligibility-ui.js?v=21"></script>
+<script src="js/prospect.js?v=21"></script>
+<script src="js/app.js?v=21"></script>
 </body>
 </html>

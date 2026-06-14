@@ -83,6 +83,11 @@ const App = (() => {
         agency: f.agency.value.trim(), phone: f.phone.value.trim(), color: f.color.value });
       closeSettings();
     });
+    document.getElementById('clearProfile').addEventListener('click', () => {
+      localStorage.removeItem('caveat_profile'); profile = null; renderProfileChip();
+      const f = document.getElementById('settingsForm'); f.reset(); f.color.value = '#0f9d76';
+      closeSettings();
+    });
     if (location.hash) { const h = location.hash.slice(1); if (document.getElementById(h)) route(h); }
 
     // load index + freshness, then boot the tools

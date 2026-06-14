@@ -28,6 +28,11 @@ body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);l
     radial-gradient(760px 600px at 70% 128%,rgba(15,157,118,.12),transparent 60%);
   background-attachment:fixed;
 }
+/* premium paper grain — fixed, very subtle */
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  mix-blend-mode:multiply}
+.top,header,main,footer{position:relative;z-index:1}
 h1,h2,h3{margin:0;font-weight:400;letter-spacing:-.02em;line-height:1.1}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 30px}
@@ -47,6 +52,11 @@ a{color:inherit;text-decoration:none}
 .hero .lede{font-size:18px;color:var(--ink-2);max-width:56ch;margin:24px 0 0}
 .hero .cred{font-size:15px;color:var(--ink-2);max-width:60ch;margin:16px 0 0}
 .hero .cred b{font-weight:600;color:var(--ink)}
+.stats{display:flex;flex-wrap:wrap;align-items:center;gap:18px 26px;margin:30px 0 4px}
+.stats .st{display:flex;flex-direction:column;gap:2px}
+.stats .st b{font-family:var(--serif);font-size:25px;font-weight:500;line-height:1;color:var(--ink);letter-spacing:-.01em}
+.stats .st small{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.13em;color:var(--ink-3)}
+.stats .sep{width:1px;height:34px;background:var(--line)}
 
 .sec-head{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:13px;margin:42px 0 0}
 .sec-head .t{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:var(--ink-2)}
@@ -56,8 +66,14 @@ a{color:inherit;text-decoration:none}
 .featured{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px}
 .feat{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;
   display:flex;flex-direction:column;box-shadow:0 2px 5px rgba(20,18,14,.05);transition:.24s;position:relative}
-.feat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);z-index:1}
+.feat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);z-index:3}
+.feat::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(120% 70% at 50% -8%,var(--wash),transparent 60%)}
+.feat:hover::after{opacity:1}
 .feat:hover{transform:translateY(-6px);box-shadow:0 26px 54px rgba(20,18,14,.14);border-color:#d6cdbe}
+.feat-no{position:absolute;right:18px;bottom:6px;z-index:0;font-family:var(--serif);font-size:78px;
+  font-weight:500;line-height:1;color:var(--accent);opacity:.09;pointer-events:none;letter-spacing:-.02em}
+.feat-top,.feat-body,.feat-cta{position:relative;z-index:2}
 .feat-top{padding:24px 24px 0;display:flex;justify-content:space-between;align-items:center;
   background:linear-gradient(var(--wash),transparent)}
 .feat-ic{width:50px;height:50px;border-radius:15px;display:grid;place-items:center;font-size:25px;
@@ -79,7 +95,12 @@ a{color:inherit;text-decoration:none}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
 .mcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;
   display:flex;flex-direction:column;transition:.2s;position:relative;overflow:hidden}
+.mcard::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:3px;border-radius:0 3px 3px 0;
+  background:var(--accent);transform:scaleY(0);transform-origin:center;transition:transform .26s cubic-bezier(.2,.7,.2,1)}
+.mcard:hover::before{transform:scaleY(1)}
 .mcard:hover{transform:translateY(-4px);box-shadow:0 20px 42px rgba(20,18,14,.1);border-color:#d6cdbe}
+.mcard:hover .mc-ic{transform:scale(1.06) rotate(-3deg)}
+.mc-ic{transition:transform .26s cubic-bezier(.2,.7,.2,1)}
 .mc-head{display:flex;align-items:center;gap:12px;margin-bottom:13px}
 .mc-ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-size:20px;flex:none;
   background:var(--wash);border:1px solid var(--line-2)}
@@ -90,8 +111,10 @@ a{color:inherit;text-decoration:none}
 .mcard .go .arr{transition:transform .2s}
 .mcard:hover .go .arr{transform:translateX(4px)}
 
-.note{padding:56px 0 0;max-width:60ch}
-.note .q{font-family:var(--serif);font-size:24px;line-height:1.45;color:var(--ink)}
+.note{padding:70px 0 8px;text-align:center}
+.note .orn{display:inline-flex;align-items:center;gap:14px;color:var(--ink-3);font-size:13px;margin-bottom:20px}
+.note .orn::before,.note .orn::after{content:"";width:46px;height:1px;background:var(--line)}
+.note .q{font-family:var(--serif);font-size:27px;line-height:1.42;color:var(--ink);max-width:24ch;margin:0 auto;font-weight:400}
 .note .q .it{color:var(--terra)}
 
 footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
@@ -115,6 +138,13 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
   <h1 class="r" style="animation-delay:.12s">I build things that are <span class="it">useful</span> — and a few that are <span class="it">alive</span>.</h1>
   <p class="lede r" style="animation-delay:.22s">I design and ship software end-to-end — from the data layer to the interface.</p>
   <p class="cred r" style="animation-delay:.30s">For businesses I've built <b>research &amp; intelligence systems</b>, an internal <b>operations &amp; CRM portal</b>, lead-generation tools and trading engines. Everything below is my own — real, running, and built on real data.</p>
+  <div class="stats r" style="animation-delay:.40s">
+    <span class="st"><b>11</b><small>Live projects</small></span>
+    <span class="sep"></span>
+    <span class="st"><b>Official</b><small>Real &amp; live data</small></span>
+    <span class="sep"></span>
+    <span class="st"><b>End&#8209;to&#8209;end</b><small>Designed + built solo</small></span>
+  </div>
 </header>
 
 <main class="wrap">
@@ -123,6 +153,7 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
   <div class="featured">
 
     <a class="feat r" href="https://adamdegoat.github.io/neverendingworld/" style="--accent:var(--terra);--wash:rgba(194,112,61,.1)">
+      <span class="feat-no">01</span>
       <div class="feat-top"><span class="feat-ic">🌏</span><span class="feat-live">Live</span></div>
       <div class="feat-body">
         <h2>The Never Ending Story</h2>
@@ -134,6 +165,7 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
     </a>
 
     <a class="feat r" href="https://adamdegoat.github.io/bloom-enrichment/" style="--accent:var(--rose);--wash:rgba(207,106,134,.1)">
+      <span class="feat-no">02</span>
       <div class="feat-top"><span class="feat-ic">🌸</span><span class="feat-live">Live</span></div>
       <div class="feat-body">
         <h2>Bloom</h2>
@@ -145,6 +177,7 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
     </a>
 
     <a class="feat r" href="https://adamdegoat.github.io/realestate/" style="--accent:var(--green);--wash:rgba(15,157,118,.1)">
+      <span class="feat-no">03</span>
       <div class="feat-top"><span class="feat-ic">🏙️</span><span class="feat-live">Live</span></div>
       <div class="feat-body">
         <h2>Groundwork</h2>
@@ -210,13 +243,6 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
       <span class="go">Open <span class="arr">→</span></span>
     </a>
 
-    <a class="mcard" href="https://adamdegoat.github.io/the-breakfast-times/" style="--accent:#e0961a;--wash:rgba(224,150,26,.12)">
-      <div class="mc-head"><span class="mc-ic">☕</span><span class="mc-tag">Fiction · weekly</span></div>
-      <h3>The Breakfast Times</h3>
-      <p>A self-improving storyteller publishing one original short story every Monday — studying what makes fiction land, grading its own craft, and getting measurably better each week.</p>
-      <span class="go">Read <span class="arr">→</span></span>
-    </a>
-
     <a class="mcard" href="https://adamdegoat.github.io/chillswithiyls/" style="--accent:#7a9c5e;--wash:rgba(122,156,94,.12)">
       <div class="mc-head"><span class="mc-ic">🏔️</span><span class="mc-tag">Editorial · weekly</span></div>
       <h3>Chillswithiyls</h3>
@@ -227,6 +253,7 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
   </div>
 
   <div class="note">
+    <span class="orn">✦</span>
     <p class="q">Fewer things, made <span class="it">properly</span> — each one real, each one useful, each one still running.</p>
   </div>
 </main>
