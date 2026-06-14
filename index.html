@@ -75,6 +75,8 @@ a{color:inherit;text-decoration:none}
 .sec-head .t::before,.sec-head .t::after{content:"";width:34px;height:1px;background:currentColor;opacity:.45}
 .sec-head .h{font-family:var(--serif);font-size:clamp(26px,3.4vw,33px);font-weight:400;color:var(--ink);margin-top:11px;letter-spacing:-.012em}
 .sec-head .c{display:block;font-size:13.5px;color:var(--ink-3);font-weight:500;margin-top:7px}
+.about-lede{text-align:center;font-size:17px;color:var(--ink-2);max-width:58ch;margin:20px auto 0;line-height:1.64}
+.about-lede b{font-weight:600;color:var(--ink)}
 
 /* FEATURED cards */
 .featured{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px}
@@ -85,19 +87,26 @@ a{color:inherit;text-decoration:none}
   background:radial-gradient(120% 70% at 50% -8%,var(--wash),transparent 60%)}
 .feat:hover::after{opacity:1}
 .feat:hover{transform:translateY(-6px);box-shadow:0 26px 54px rgba(20,18,14,.14);border-color:#d6cdbe}
-.feat-no{position:absolute;right:16px;top:84px;z-index:0;font-family:var(--serif);font-size:108px;
-  font-weight:500;line-height:.8;color:var(--accent);opacity:.1;pointer-events:none;letter-spacing:-.03em}
+.feat-shot{position:relative;height:154px;overflow:hidden;background:var(--wash)}
+.feat-shot img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.feat:hover .feat-shot img{transform:scale(1.05)}
+.feat-shot::after{content:"";position:absolute;left:0;right:0;bottom:0;height:60px;background:linear-gradient(to top,var(--card),transparent)}
+.feat-shot .feat-live{position:absolute;top:12px;right:12px;z-index:3}
+.feat-no{position:absolute;right:14px;bottom:4px;z-index:0;font-family:var(--serif);font-size:92px;
+  font-weight:500;line-height:.8;color:var(--accent);opacity:.09;pointer-events:none;letter-spacing:-.03em}
 .feat-top,.feat-body,.feat-cta{position:relative;z-index:2}
-.feat-top{padding:26px 26px 18px;display:flex;justify-content:space-between;align-items:flex-start;
-  background:linear-gradient(165deg,var(--wash),transparent 85%);border-bottom:1px solid var(--line-2)}
-.feat-ic{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-size:27px;
+.feat-top{padding:0 24px;margin-top:-26px;display:flex;justify-content:space-between;align-items:flex-end}
+.feat-ic{width:54px;height:54px;border-radius:15px;display:grid;place-items:center;font-size:26px;
   background:linear-gradient(150deg,#fff,var(--wash));border:1px solid color-mix(in srgb,var(--accent) 42%,var(--line));
-  box-shadow:0 8px 20px var(--wash),0 2px 6px rgba(20,18,14,.06)}
+  box-shadow:0 10px 22px rgba(20,18,14,.16)}
+.feat-metric{font-size:11.5px;font-weight:700;color:var(--accent);background:var(--card);
+  border:1px solid color-mix(in srgb,var(--accent) 28%,var(--line));border-radius:20px;padding:6px 12px;
+  letter-spacing:.01em;box-shadow:0 4px 12px rgba(20,18,14,.07)}
 .feat-live{font-size:10.5px;font-weight:700;color:var(--accent);display:inline-flex;align-items:center;gap:6px;text-transform:uppercase;letter-spacing:.1em;
-  background:var(--card);border:1px solid color-mix(in srgb,var(--accent) 30%,var(--line));border-radius:20px;padding:5px 11px 5px 9px}
+  background:var(--card);border:1px solid color-mix(in srgb,var(--accent) 30%,var(--line));border-radius:20px;padding:5px 11px 5px 9px;box-shadow:0 4px 12px rgba(20,18,14,.1)}
 .feat-live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 var(--accent);animation:pulse 2.2s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 50%,transparent)}70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
-.feat-body{padding:18px 24px 8px;flex:1}
+.feat-body{padding:14px 24px 8px;flex:1}
 .feat-body h2{font-family:var(--serif);font-size:27px;font-weight:500;margin-bottom:5px}
 .feat-body .essence{font-family:var(--serif);font-style:italic;color:var(--accent);font-size:16px;margin-bottom:12px}
 .feat-body p{font-size:13.8px;color:var(--ink-2);line-height:1.55}
@@ -200,8 +209,9 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
   <div class="featured">
 
     <a class="feat r" href="https://adamdegoat.github.io/neverendingworld/" style="--accent:var(--terra);--wash:rgba(194,112,61,.1)">
+      <div class="feat-shot"><img src="assets/feat/world.jpg?v=1" alt="The Never Ending World — a living archipelago of self-running story-worlds" loading="lazy" width="820" height="519"><span class="feat-live">Live</span></div>
       <span class="feat-no">01</span>
-      <div class="feat-top"><span class="feat-ic">🌏</span><span class="feat-live">Live</span></div>
+      <div class="feat-top"><span class="feat-ic">🌏</span><span class="feat-metric">4 living worlds</span></div>
       <div class="feat-body">
         <h2>The Never Ending Story</h2>
         <div class="essence">Worlds that live forever.</div>
@@ -212,8 +222,9 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
     </a>
 
     <a class="feat r" href="https://adamdegoat.github.io/bloom-enrichment/" style="--accent:var(--rose);--wash:rgba(207,106,134,.1)">
+      <div class="feat-shot"><img src="assets/feat/bloom.jpg?v=1" alt="Bloom — find the right enrichment class for your child in Singapore" loading="lazy" width="820" height="519"><span class="feat-live">Live</span></div>
       <span class="feat-no">02</span>
-      <div class="feat-top"><span class="feat-ic">🌸</span><span class="feat-live">Live</span></div>
+      <div class="feat-top"><span class="feat-ic">🌸</span><span class="feat-metric">121 real SG centres</span></div>
       <div class="feat-body">
         <h2>Bloom</h2>
         <div class="essence">The right enrichment for your child.</div>
@@ -224,8 +235,9 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
     </a>
 
     <a class="feat r" href="https://adamdegoat.github.io/realestate/" style="--accent:var(--green);--wash:rgba(15,157,118,.1)">
+      <div class="feat-shot"><img src="assets/feat/groundwork.jpg?v=1" alt="Groundwork — smarter tools for Singapore property, built on official data" loading="lazy" width="820" height="519"><span class="feat-live">Live</span></div>
       <span class="feat-no">03</span>
-      <div class="feat-top"><span class="feat-ic">🏙️</span><span class="feat-live">Live</span></div>
+      <div class="feat-top"><span class="feat-ic">🏙️</span><span class="feat-metric">137k+ URA caveats</span></div>
       <div class="feat-body">
         <h2>Groundwork</h2>
         <div class="essence">Property intelligence for SG agents.</div>
@@ -302,6 +314,12 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
     </a>
 
   </div>
+
+  <div class="sec-head" id="about" style="--accent:var(--green)">
+    <span class="t">How I work</span>
+    <div class="h">A one-person studio, end to end</div>
+  </div>
+  <p class="about-lede">I take an idea from the raw <b>data layer</b> to a finished, polished interface — research, design, build, ship, and keep it running. No team to coordinate and no fluff: <b>real, official data</b>, fast iteration, and products that stay live long after launch — not demos.</p>
 
   <section class="cta" id="contact">
     <span class="orn">✦</span>
