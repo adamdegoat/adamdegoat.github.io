@@ -55,7 +55,7 @@ const Caveat = (() => {
     const byKind = {};
     for (const a of am) {
       const d = Math.hypot(a.x - x, a.y - y);
-      if (d <= radius) (byKind[a.kind] = byKind[a.kind] || []).push({ name: a.name, level: a.level, dist: Math.round(d) });
+      if (d <= radius) (byKind[a.kind] = byKind[a.kind] || []).push({ name: a.name, level: a.level, dist: Math.round(d), x: a.x, y: a.y });
     }
     const out = {};
     for (const k in byKind) { byKind[k].sort((p, q) => p.dist - q.dist); out[k] = byKind[k].slice(0, maxEach); }

@@ -24,7 +24,7 @@ const Narrative = (() => {
     const loc = subj.locationName || (kind === 'hdb' ? subj.town : `District ${subj.district}`);
     const sub = kind === 'hdb'
       ? `this ${subj.flat_type.toLowerCase()} flat in ${titleCase(subj.town)}`
-      : `this ${Math.round(subj.area_sqf)} sqft unit at ${titleCase(subj.project)}`;
+      : `this ${res.area_sqf} sqft unit at ${titleCase(subj.project)}`;
 
     let p1 = `Based on ${res.n_comps} comparable ${kind === 'hdb' ? 'resale transactions' : 'caveats'} ` +
       `(${res.scope ? res.scope.replace(/·/g, '·') + ', ' : ''}drawn from the last ${kind === 'hdb' ? 15 : 18} months), ` +

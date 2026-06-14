@@ -191,6 +191,16 @@ main{max-width:var(--maxw);margin:0 auto;padding:34px 26px 60px}
 .amen .ai{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:13px;background:var(--brand-wash)}
 .amen b{font-weight:700}.amen .ad{color:var(--ink-3);font-weight:600;font-size:12px}
 
+/* map */
+.deck-map{height:330px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--line-2)}
+.deck-map .leaflet-container{font-family:var(--sans)}
+.cm-sub span{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;color:#fff;
+  font-size:15px;border:2.5px solid #fff;box-shadow:0 3px 10px rgba(16,21,31,.4)}
+.cm-amen span{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#fff;
+  font-size:14px;border:1px solid var(--line);box-shadow:0 2px 6px rgba(16,21,31,.25)}
+.leaflet-popup-content{font-size:13px;line-height:1.4}
+.leaflet-popup-content b{font-weight:700}
+
 /* narrative */
 .narrative p{margin-bottom:11px;color:var(--ink-2);font-size:14.5px;line-height:1.62}
 .narrative p:last-child{margin-bottom:0}
