@@ -172,20 +172,24 @@ const CMA = (() => {
       <p class="hint">New launches are <b>developer-priced</b>. Caveat shows the <b>recent new-sale benchmark</b> — actual transacted prices — not a market valuation.</p>`;
   }
   async function wireNewLaunch() {
-    if (!NL) NL = C.expand(await C.getJSON('new_launch.json'));
+    if (!NL) NL = C.expand(await C.getJSON('new_launch.json'));  // already sorted recency→volume
     const inp = document.getElementById('nl_project'), ac = document.getElementById('nl_ac'), meta = document.getElementById('nl_meta');
     if (!inp) return;
-    inp.oninput = () => {
-      const q = inp.value.trim().toUpperCase(); meta.value = '';
-      if (q.length < 2) { ac.style.display = 'none'; return; }
-      const hits = NL.filter(p => p.project.toUpperCase().includes(q)).slice(0, 8);
-      if (!hits.length) { ac.style.display = 'none'; return; }
-      ac.innerHTML = hits.map(p => `<div data-p='${escAttr(JSON.stringify(p))}'>${p.project} <span class="ac-meta">· D${p.district} ${p.seg}</span></div>`).join('');
+    const show = list => {
+      if (!list.length) { ac.style.display = 'none'; return; }
+      ac.innerHTML = list.map(p => `<div data-p='${escAttr(JSON.stringify(p))}'>${p.project}
+        <span class="ac-meta">· D${p.district} ${p.seg} · $${p.median_psf} psf</span></div>`).join('');
       ac.style.display = 'block';
       ac.querySelectorAll('div').forEach(dv => dv.onclick = () => {
         const p = JSON.parse(dv.getAttribute('data-p')); inp.value = p.project; meta.value = JSON.stringify(p); ac.style.display = 'none';
       });
     };
+    const update = () => {
+      const q = inp.value.trim().toUpperCase(); meta.value = '';
+      show(q.length === 0 ? NL.slice(0, 14) : NL.filter(p => p.project.toUpperCase().includes(q)).slice(0, 12));
+    };
+    inp.onfocus = update;   // click the box → recent launches appear
+    inp.oninput = update;
     document.addEventListener('click', e => { if (!ac.contains(e.target) && e.target !== inp) ac.style.display = 'none'; });
   }
   async function genNewLaunch(res) {
