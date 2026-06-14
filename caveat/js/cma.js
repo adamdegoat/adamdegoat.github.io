@@ -7,20 +7,23 @@ const CMA = (() => {
   const townOpts = () => Object.keys(IDX.hdb_towns).sort()
     .map(t => `<option value="${t}">${Narrative.titleCase(t)}</option>`).join('');
 
+  const MODES = [['hdb', 'HDB'], ['condo', 'Condo'], ['landed', 'Landed'], ['newlaunch', 'New launch']];
+  const fieldsFor = { hdb: hdbFields, condo: condoFields, landed: landedFields, newlaunch: newLaunchFields };
+  const wireFor = { hdb: wireHdb, condo: wireCondo, landed: () => {}, newlaunch: wireNewLaunch };
+  const goLabel = { hdb: 'Generate valuation', condo: 'Generate valuation',
+    landed: 'Show landed reference', newlaunch: 'Show launch benchmark' };
+
   function renderForm() {
     const el = document.getElementById('cmaForm');
     el.innerHTML = `
-      <div class="seg" id="cmaSeg">
-        <button data-m="hdb" class="${mode === 'hdb' ? 'on' : ''}">HDB resale</button>
-        <button data-m="condo" class="${mode === 'condo' ? 'on' : ''}">Private</button>
+      <div class="seg seg-wrap" id="cmaSeg">
+        ${MODES.map(([m, l]) => `<button data-m="${m}" class="${mode === m ? 'on' : ''}">${l}</button>`).join('')}
       </div>
-      <div id="cmaFields">${mode === 'hdb' ? hdbFields() : condoFields()}</div>
-      <button class="btn-primary" id="cmaGo">Generate valuation</button>
+      <div id="cmaFields">${fieldsFor[mode]()}</div>
+      <button class="btn-primary" id="cmaGo">${goLabel[mode]}</button>
       <p class="field-err err" id="cmaErr" style="display:none;margin-top:12px"></p>`;
-    el.querySelectorAll('#cmaSeg button').forEach(b => b.onclick = () => {
-      mode = b.dataset.m; renderForm();
-    });
-    if (mode === 'hdb') wireHdb(); else wireCondo();
+    el.querySelectorAll('#cmaSeg button').forEach(b => b.onclick = () => { mode = b.dataset.m; renderForm(); });
+    (wireFor[mode] || (() => {}))();
     document.getElementById('cmaGo').onclick = generate;
   }
 
@@ -84,15 +87,112 @@ const CMA = (() => {
 
   async function generate() {
     clearErr();
-    const btn = document.getElementById('cmaGo'); btn.disabled = true; btn.textContent = 'Crunching caveats…';
+    const btn = document.getElementById('cmaGo'); btn.disabled = true; btn.textContent = 'Working…';
     const res = document.getElementById('cmaResult');
-    res.innerHTML = `<div class="empty-state"><div class="spinner"></div><p>Pulling comparables…</p></div>`;
+    res.innerHTML = `<div class="empty-state"><div class="spinner"></div><p>Pulling data…</p></div>`;
     try {
-      if (mode === 'hdb') await genHdb(res); else await genCondo(res);
+      if (mode === 'hdb') await genHdb(res);
+      else if (mode === 'condo') await genCondo(res);
+      else if (mode === 'landed') await genLanded(res);
+      else await genNewLaunch(res);
     } catch (e) {
       res.innerHTML = `<div class="empty-state"><p class="err">${e.message}</p></div>`;
     }
-    btn.disabled = false; btn.textContent = 'Generate valuation';
+    btn.disabled = false; btn.textContent = goLabel[mode];
+  }
+
+  // ===================== LANDED (reference only) =====================
+  const LANDED_TYPES = ['Terrace', 'Semi-detached', 'Detached', 'Strata Terrace', 'Strata Semi-detached', 'Strata Detached'];
+  function landedFields() {
+    const ds = [...new Set(IDX.condo_projects.map(p => p[1]))].sort();
+    return `
+      <div class="field"><label>District</label><select id="l_district">
+        ${ds.map(d => `<option value="${d}">District ${d}</option>`).join('')}</select></div>
+      <div class="field"><label>Landed type</label><select id="l_type">
+        <option value="">All landed</option><option>Terrace</option><option>Semi-detached</option><option>Detached</option></select></div>
+      <p class="hint">Landed prices swing widely with land area, tenure &amp; plot — so Caveat shows <b>recent transactions for reference</b>, not a single estimate.</p>`;
+  }
+  async function genLanded(res) {
+    const d = val('l_district'), type = val('l_type');
+    let rows = (await C.condoDistrict(d)).filter(r => LANDED_TYPES.includes(r.ptype));
+    if (type) rows = rows.filter(r => r.ptype === type || r.ptype === 'Strata ' + type);
+    if (rows.length < 1) throw new Error('No landed transactions found for that district/type in the last 18 months.');
+    rows.sort((a, b) => b.yymm.localeCompare(a.yymm));
+    const psfs = rows.map(r => r.psf), prices = rows.map(r => r.price);
+    res.innerHTML = `<div class="deck" id="deck">
+      <div class="deck-top"><div class="dt-row"><div>
+        <div class="deck-kicker">Landed reference · District ${d}</div>
+        <div class="deck-addr">${type || 'All landed'} transactions</div>
+        <div class="deck-sub">${rows.length} sales · last 18 months</div></div>
+        <div class="chip lower"><span class="chip-dot"></span>Reference only</div></div></div>
+      <div class="ref-banner">⚠ Landed homes vary enormously by land size, tenure and plot — there is no reliable single price-per-sqft. These are <b>actual recent transactions</b> to anchor your own judgement, not a valuation.</div>
+      <div class="estimate" style="grid-template-columns:1fr 1fr 1fr">
+        <div><div class="est-label">Median price</div><div class="est-figure" style="font-size:30px">${C.fmtMoney(C.median(prices))}</div></div>
+        <div><div class="est-label">Median land PSF</div><div class="est-figure" style="font-size:30px">$${Math.round(C.median(psfs))}</div></div>
+        <div><div class="est-label">Price range</div><div class="est-figure" style="font-size:22px">${C.fmtK(Math.min(...prices))}–${C.fmtK(Math.max(...prices))}</div></div>
+      </div>
+      <div class="deck-section"><h4>Recent landed transactions</h4>
+        <table class="comps"><thead><tr><th>Street</th><th class="hide-sm">Type</th><th class="hide-sm">Month</th>
+          <th style="text-align:right">Land area</th><th style="text-align:right">PSF</th><th style="text-align:right">Price</th></tr></thead>
+        <tbody>${rows.slice(0, 14).map(r => `<tr>
+          <td>${Narrative.titleCase(r.street)}</td><td class="hide-sm">${r.ptype}</td><td class="hide-sm">${mLabel(r.yymm)}</td>
+          <td class="num">${Math.round(r.area_sqm * C.SQM_SQF)} sf</td><td class="num">$${Math.round(r.psf)}</td><td class="num">${C.fmtK(r.price)}</td></tr>`).join('')}</tbody></table>
+        <p class="hint" style="margin-top:10px">PSF is on strata/land area as filed with URA. Showing ${Math.min(rows.length, 14)} most recent of ${rows.length}.</p></div>
+      <div class="deck-disc">${window.__freshness ? `Transactions current as of ${window.__freshness.built}. ` : ''}Reference transactions from URA caveats — not a valuation or guarantee of price.</div>
+    </div>`;
+    res.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // ===================== NEW LAUNCH (benchmark only) =====================
+  let NL = null;
+  function newLaunchFields() {
+    return `
+      <div class="field ac-wrap"><label>New-launch project</label>
+        <input id="nl_project" autocomplete="off" placeholder="Start typing a launch…">
+        <input type="hidden" id="nl_meta"><div class="ac-list" id="nl_ac" style="display:none"></div></div>
+      <p class="hint">New launches are <b>developer-priced</b>. Caveat shows the <b>recent new-sale benchmark</b> — actual transacted prices — not a market valuation.</p>`;
+  }
+  async function wireNewLaunch() {
+    if (!NL) NL = C.expand(await C.getJSON('new_launch.json'));
+    const inp = document.getElementById('nl_project'), ac = document.getElementById('nl_ac'), meta = document.getElementById('nl_meta');
+    if (!inp) return;
+    inp.oninput = () => {
+      const q = inp.value.trim().toUpperCase(); meta.value = '';
+      if (q.length < 2) { ac.style.display = 'none'; return; }
+      const hits = NL.filter(p => p.project.toUpperCase().includes(q)).slice(0, 8);
+      if (!hits.length) { ac.style.display = 'none'; return; }
+      ac.innerHTML = hits.map(p => `<div data-p='${escAttr(JSON.stringify(p))}'>${p.project} <span class="ac-meta">· D${p.district} ${p.seg}</span></div>`).join('');
+      ac.style.display = 'block';
+      ac.querySelectorAll('div').forEach(dv => dv.onclick = () => {
+        const p = JSON.parse(dv.getAttribute('data-p')); inp.value = p.project; meta.value = JSON.stringify(p); ac.style.display = 'none';
+      });
+    };
+    document.addEventListener('click', e => { if (!ac.contains(e.target) && e.target !== inp) ac.style.display = 'none'; });
+  }
+  async function genNewLaunch(res) {
+    const meta = val('nl_meta'); if (!meta) throw new Error('Pick a launch from the list.');
+    const p = JSON.parse(meta);
+    const seg = (window.__pulse ? window.__pulse.private_segments : []).find(s => s.seg === p.seg);
+    const vs = seg ? Math.round((p.median_psf - seg.median_psf) / seg.median_psf * 100) : null;
+    res.innerHTML = `<div class="deck" id="deck">
+      <div class="deck-top"><div class="dt-row"><div>
+        <div class="deck-kicker">New-launch benchmark</div>
+        <div class="deck-addr">${p.project}</div>
+        <div class="deck-sub">District ${p.district} · ${p.seg} · last sale ${mLabel(p.last)}</div></div>
+        <div class="chip medium"><span class="chip-dot"></span>Benchmark</div></div></div>
+      <div class="ref-banner">New launches are priced by the developer, not the resale market. This is the <b>benchmark of actual new-sale transactions</b> at this project — useful context for pricing, not an independent valuation.</div>
+      <div class="estimate" style="grid-template-columns:1fr 1fr 1fr">
+        <div><div class="est-label">Median new-sale PSF</div><div class="est-figure" style="font-size:32px">$${p.median_psf}</div></div>
+        <div><div class="est-label">Median price</div><div class="est-figure" style="font-size:26px">${C.fmtK(p.median_price)}</div></div>
+        <div><div class="est-label">Units transacted</div><div class="est-figure" style="font-size:32px">${p.txns}</div></div>
+      </div>
+      ${seg ? `<div class="deck-section"><h4>Versus the ${p.seg} resale market</h4>
+        <p style="font-size:14.5px;color:var(--ink-2);line-height:1.6">At <b>$${p.median_psf} psf</b>, ${p.project} is benchmarking
+        <b style="color:${vs >= 0 ? 'var(--rose)' : 'var(--brand-d)'}">${vs >= 0 ? vs + '% above' : Math.abs(vs) + '% below'}</b>
+        the ${seg.label} resale median of $${seg.median_psf} psf — typical of the new-launch premium over comparable resale stock.</p></div>` : ''}
+      <div class="deck-disc">${window.__freshness ? `Current as of ${window.__freshness.built}. ` : ''}New-sale transactions from URA over the last 30 months — developer-priced benchmark, not a valuation.</div>
+    </div>`;
+    res.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   async function genHdb(res) {
