@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Spectral:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/app.css?v=2">
+<link rel="stylesheet" href="css/app.css?v=3">
 </head>
 <body>
 <header class="appbar">
@@ -88,7 +88,7 @@
 <footer class="site-foot">
   <div class="foot-inner">
     <span id="freshness">Loading data…</span>
-    <span class="foot-disc">Covers HDB &amp; private resale (not landed or new launches). Indicative only — AI drafts, agent verifies; not a bank valuation or financial advice. Data: URA, HDB &amp; data.gov.sg (Singapore Open Data Licence), OneMap © SLA.</span>
+    <span class="foot-disc">Covers HDB &amp; private resale (not landed or new launches). Indicative only — AI drafts, agent verifies; not a bank valuation or financial advice. <a href="#" id="footRatesLink">Rates &amp; rules ↗</a> verified against IRAS, MAS &amp; HDB · 14 Jun 2026. Data: URA, HDB &amp; data.gov.sg (Singapore Open Data Licence), OneMap © SLA.</span>
   </div>
 </footer>
 
@@ -151,12 +151,20 @@
   </div>
 </div>
 
-<script src="js/core.js?v=2"></script>
-<script src="js/engines.js?v=2"></script>
-<script src="js/narrative.js?v=2"></script>
-<script src="js/cma.js?v=2"></script>
-<script src="js/eligibility-ui.js?v=2"></script>
-<script src="js/prospect.js?v=2"></script>
-<script src="js/app.js?v=2"></script>
+<!-- Rates & rules reference modal (filled by eligibility-ui.js from rates.json) -->
+<div class="modal-backdrop" id="ratesModal" hidden>
+  <div class="modal modal-wide" role="dialog" aria-modal="true" aria-labelledby="ratesTitle">
+    <div class="modal-head"><h2 id="ratesTitle">Rates &amp; rules</h2><button class="x" id="ratesClose">×</button></div>
+    <div id="ratesBody"><!-- built from rates.json --></div>
+  </div>
+</div>
+
+<script src="js/core.js?v=3"></script>
+<script src="js/engines.js?v=3"></script>
+<script src="js/narrative.js?v=3"></script>
+<script src="js/cma.js?v=3"></script>
+<script src="js/eligibility-ui.js?v=3"></script>
+<script src="js/prospect.js?v=3"></script>
+<script src="js/app.js?v=3"></script>
 </body>
 </html>

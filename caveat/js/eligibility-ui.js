@@ -5,6 +5,91 @@ const Eligibility = (() => {
   async function init() {
     RATES = await C.rates(); window.__rates = RATES;
     renderForm();
+    const modal = document.getElementById('ratesModal');
+    document.getElementById('ratesClose').onclick = closeRates;
+    modal.addEventListener('click', e => { if (e.target.id === 'ratesModal') closeRates(); });
+    const fl = document.getElementById('footRatesLink');
+    if (fl) fl.onclick = e => { e.preventDefault(); openRates(); };
+  }
+
+  // ---------- full rates & rules reference (built live from rates.json) ----------
+  function openRates() {
+    document.getElementById('ratesBody').innerHTML = referenceHTML();
+    document.getElementById('ratesModal').hidden = false;
+  }
+  function closeRates() { document.getElementById('ratesModal').hidden = true; }
+
+  function referenceHTML() {
+    const a = RATES.absd, f = RATES.financing, h = RATES.hdb;
+    const absdRow = (label, o) => `<tr><td>${label}</td><td class="num">${o['1']}%</td><td class="num">${o['2']}%</td><td class="num">${o['3']}%</td></tr>`;
+    const bsd = RATES.bsd.tiers.map((t, i) => {
+      const lo = i === 0 ? 0 : RATES.bsd.tiers[i - 1].upto;
+      const band = t.upto == null ? `Above $${(lo / 1e6)}m` : `$${(lo / 1000)}k – $${(t.upto / 1000)}k`;
+      return `<tr><td>${band}</td><td class="num">${t.rate}%</td></tr>`;
+    }).join('');
+    const ssd = RATES.ssd.tiers.filter(t => t.held_years_upto).map(t =>
+      `<tr><td>Year ${t.held_years_upto}</td><td class="num">${t.rate}%</td></tr>`).join('');
+    return `
+      <p class="ref-badge">✓ ${RATES.verified}</p>
+      <div class="ref-sec"><h3>Additional Buyer's Stamp Duty (ABSD)</h3>
+        <p class="ref-note">${a.note}</p>
+        <table class="ref-tbl"><thead><tr><th>Buyer</th><th>1st</th><th>2nd</th><th>3rd+</th></tr></thead><tbody>
+          ${absdRow('Singapore Citizen', a.SC)}${absdRow('Singapore PR', a.SPR)}
+          ${absdRow('Foreigner', a.Foreigner)}${absdRow('Entity / Trustee', a.Entity)}
+        </tbody></table>
+        <p class="ref-note">${a.fta_note}</p>
+        <p class="ref-note">${a.married_refund_note}</p>
+      </div>
+      <div class="ref-sec"><h3>Buyer's Stamp Duty (BSD)</h3>
+        <p class="ref-note">${RATES.bsd.note} Progressive — each band taxed at its own rate.</p>
+        <table class="ref-tbl"><thead><tr><th>Price band</th><th>Rate</th></tr></thead><tbody>${bsd}</tbody></table>
+      </div>
+      <div class="ref-sec"><h3>Seller's Stamp Duty (SSD)</h3>
+        <p class="ref-note">${RATES.ssd.note}</p>
+        <table class="ref-tbl"><thead><tr><th>Sold within</th><th>Rate</th></tr></thead><tbody>${ssd}<tr><td>After 4 years</td><td class="num">0%</td></tr></tbody></table>
+        <p class="ref-note">${RATES.ssd.grandfathered_pre_2025_07_04.note} Then: Yr1 12%, Yr2 8%, Yr3 4%, after 3yr 0%.</p>
+      </div>
+      <div class="ref-sec"><h3>Financing limits</h3>
+        <ul class="ref-list">
+          <li><b>TDSR ${f.tdsr_pct}%</b> — total monthly debt repayments can't exceed ${f.tdsr_pct}% of gross income.</li>
+          <li><b>MSR ${f.msr_pct}%</b> — for HDB/EC, the home loan alone can't exceed ${f.msr_pct}% of gross income.</li>
+          <li><b>Stress rate ${f.stress_rate_pct}%</b> — eligibility is tested at a ${f.stress_rate_pct}% notional interest rate (or higher).</li>
+          <li><b>Variable-income haircut ${f.variable_income_haircut_pct}%</b> — only ${100 - f.variable_income_haircut_pct}% of bonuses/commissions/rental counts.</li>
+        </ul>
+        <table class="ref-tbl"><thead><tr><th>Loan-to-Value (bank)</th><th>1st</th><th>2nd</th><th>3rd+</th></tr></thead><tbody>
+          <tr><td>Standard</td><td class="num">${f.ltv.bank['1']}%</td><td class="num">${f.ltv.bank['2']}%</td><td class="num">${f.ltv.bank['3']}%</td></tr>
+          <tr><td>Reduced*</td><td class="num">${f.ltv.bank_reduced['1']}%</td><td class="num">${f.ltv.bank_reduced['2']}%</td><td class="num">${f.ltv.bank_reduced['3']}%</td></tr>
+        </tbody></table>
+        <p class="ref-note">*${f.ltv.reduced_note} HDB concessionary loan: ${f.ltv.hdb_loan}% LTV. Minimum cash: ${f.min_cash_pct.ltv75}% (75% LTV) / ${f.min_cash_pct.ltv55}% (55% LTV) / ${f.min_cash_pct.second_plus}% (2nd+ property).</p>
+      </div>
+      <div class="ref-sec"><h3>HDB eligibility</h3>
+        <ul class="ref-list">
+          <li><b>Income ceilings</b> — Family $${h.income_ceiling.family.toLocaleString()} · Extended $${h.income_ceiling.extended.toLocaleString()} · Singles $${h.income_ceiling.single.toLocaleString()} · EC $${h.income_ceiling.ec.toLocaleString()} /month.</li>
+          <li class="ref-sub">${h.income_ceiling_note}</li>
+          <li><b>MOP</b> — Standard ${h.mop_years.standard} yrs · Plus/Prime ${h.mop_years.plus} yrs.</li>
+          <li><b>Grants</b> — ${h.grants_note}</li>
+          <li><b>EIP</b> — ${h.eip_note}</li>
+        </ul>
+      </div>
+      <p class="ref-disc">${RATES.disclaimer}</p>`;
+  }
+
+  function rulesApplied(r, ctx) {
+    const nth = ['1st', '2nd', '3rd+'][ctx.count - 1];
+    const profLabel = ctx.profile === 'Foreigner' && ctx.fta ? `${ctx.fta} national (taxed as Citizen)`
+      : { SC: 'Citizen', SPR: 'PR', Foreigner: 'Foreigner', Entity: 'Entity' }[ctx.profile];
+    const li = (rule, why) => `<li><span class="ra-rule">${rule}</span><span class="ra-why">${why}</span></li>`;
+    return `<div class="rules-applied">
+      <h4>How this was worked out</h4>
+      <ul>
+        ${li(`ABSD ${r.absd_pct}%`, `${profLabel}, ${nth} property`)}
+        ${li('BSD progressive 1–6%', 'standard residential stamp-duty bands')}
+        ${li(`LTV ${r.ltvPct}%`, `${nth} housing loan${ctx.isHDB ? ' (HDB)' : ''} → max loan ${C.fmtMoney(r.loan)}`)}
+        ${li(`Min. cash ${r.minCashPct}%`, 'minimum cash downpayment')}
+        ${li(`TDSR ${RATES.financing.tdsr_pct}%${ctx.isHDB ? ` + MSR ${RATES.financing.msr_pct}%` : ''}`, `tested at ${RATES.financing.stress_rate_pct}% over 25 yrs`)}
+      </ul>
+      <button class="rates-link" type="button" onclick="Eligibility.openRates()">📋 See full rates &amp; rules →</button>
+    </div>`;
   }
 
   function renderForm() {
@@ -36,12 +121,14 @@ const Eligibility = (() => {
       <label style="display:flex;gap:9px;align-items:center;margin:4px 0 16px;font-size:13.5px;font-weight:600;color:var(--ink-2)">
         <input type="checkbox" id="e_hdb" style="width:auto"> HDB flat (applies MSR 30%)</label>
       <button class="btn-primary" id="e_go">Calculate</button>
+      <button class="rates-link" id="ratesRefBtn" type="button">📋 View all rates &amp; rules</button>
       <p class="err" id="e_err" style="display:none;margin-top:12px"></p>`;
     const prof = document.getElementById('e_profile'), ftaWrap = document.getElementById('e_ftaWrap'),
       fta = document.getElementById('e_fta');
     fta.innerHTML += RATES.absd.fta_as_sc.map(n => `<option>${n}</option>`).join('');
     prof.onchange = () => { ftaWrap.style.display = prof.value === 'Foreigner' ? 'block' : 'none'; };
     document.getElementById('e_go').onclick = calc;
+    document.getElementById('ratesRefBtn').onclick = openRates;
   }
 
   function calc() {
@@ -88,6 +175,7 @@ const Eligibility = (() => {
           : '⚠ Instalment exceeds the ' + (ctx.isHDB ? 'MSR/TDSR' : 'TDSR') + ' cap — loan amount or tenure may need adjusting'}</div>`
           : `<div class="hint">Add monthly income to test loan eligibility.</div>`}
       </div>
+      ${rulesApplied(r, ctx)}
       <div class="deck-foot">
         <div class="agent-card">${agentMini()}</div>
         <button class="btn-ghost" onclick="window.print()">Export PDF</button>
@@ -111,5 +199,5 @@ const Eligibility = (() => {
   }
   const v = id => (document.getElementById(id) || {}).value || '';
 
-  return { init };
+  return { init, openRates };
 })();
