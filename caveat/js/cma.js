@@ -246,6 +246,17 @@ const CMA = (() => {
       comps, amenities, color });
   }
 
+  // deep-link from Find: prefill the condo valuation form with a project
+  function loadCondo(meta) {
+    mode = 'condo'; renderForm();
+    const inp = document.getElementById('f_project'); if (!inp) return;
+    inp.value = Narrative.titleCase(meta[0]);
+    document.getElementById('f_projmeta').value = JSON.stringify(meta);
+    document.getElementById('f_projinfo').textContent =
+      `District ${meta[1]} · ${meta[2]} · ${meta[3]} · ${meta[4] ? 'Freehold' : 'Leasehold'}`;
+    document.getElementById('f_area').focus();
+  }
+
   function regen() { document.getElementById('cmaResult').innerHTML =
     `<div class="empty-state"><div class="empty-mark"></div><p>Fill in a property on the left to generate its valuation deck.</p></div>`;
     window.scrollTo({ top: 0, behavior: 'smooth' }); }
@@ -315,5 +326,5 @@ const CMA = (() => {
   const escAttr = s => s.replace(/'/g, '&#39;');
   const shortAddr = a => Narrative.titleCase(a.replace(/ SINGAPORE \d+$/, ''));
 
-  return { init, regen };
+  return { init, regen, loadCondo };
 })();

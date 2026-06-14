@@ -84,7 +84,7 @@ const App = (() => {
       const counts = `${fr.hdb_txns.toLocaleString()} HDB resale + ${fr.condo_txns.toLocaleString()} private caveats + ${fr.amenities.toLocaleString()} amenities`;
       document.getElementById('freshness').innerHTML =
         `<span class="live-dot"></span> Data refreshed <b>${rel}</b> (${fr.built}) · auto-updates weekly · ${counts}`;
-      CMA.init(idx); Eligibility.init(); Prospect.init(idx); Pulse.init();
+      CMA.init(idx); Eligibility.init(); Prospect.init(idx); Pulse.init(); Search.init(idx);
     } catch (err) {
       document.getElementById('freshness').textContent = 'Data failed to load — ' + err.message;
     }

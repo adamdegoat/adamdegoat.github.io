@@ -6,7 +6,7 @@ const Pulse = (() => {
   const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
   async function init() {
-    try { DATA = await C.getJSON('pulse.json'); render(); }
+    try { DATA = await C.getJSON('pulse.json'); window.__pulse = DATA; render(); }
     catch (e) { document.getElementById('pulseBody').innerHTML = `<div class="empty-state"><p class="err">${e.message}</p></div>`; }
   }
 

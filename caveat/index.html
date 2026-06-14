@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Spectral:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-<link rel="stylesheet" href="css/app.css?v=12">
+<link rel="stylesheet" href="css/app.css?v=14">
 </head>
 <body>
 <header class="appbar">
@@ -30,6 +30,7 @@
   <nav class="tabs" id="tabs">
     <button data-route="valuation" class="active">Valuation</button>
     <button data-route="market">Market</button>
+    <button data-route="find">Find</button>
     <button data-route="eligibility">Affordability</button>
     <button data-route="prospecting">Prospecting</button>
   </nav>
@@ -65,6 +66,20 @@
       <p class="lede">A live read of the Singapore resale market — prices, momentum and hotspots, straight from official transactions.</p>
     </div>
     <div id="pulseBody"><div class="empty-state"><div class="spinner"></div><p>Loading market data…</p></div></div>
+  </section>
+
+  <!-- ===================== FIND ===================== -->
+  <section id="find" class="route">
+    <div class="route-head">
+      <h1>Find <span class="serif-accent">a match</span></h1>
+      <p class="lede">Search the market by budget, region and rental yield — surface the projects and towns that fit, ranked.</p>
+    </div>
+    <div class="cma-grid">
+      <aside class="panel input-panel" id="findForm"><!-- built by search.js --></aside>
+      <div class="result-wrap" id="findResult">
+        <div class="empty-state"><div class="empty-mark"></div><p>Set your criteria on the left to find matching properties.</p></div>
+      </div>
+    </div>
   </section>
 
   <!-- ===================== ELIGIBILITY ===================== -->
@@ -113,21 +128,31 @@
 <div class="modal-backdrop" id="helpModal" hidden>
   <div class="modal modal-wide" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
     <div class="modal-head"><h2 id="helpTitle">How to use Caveat</h2><button class="x" id="helpClose">×</button></div>
-    <p class="modal-note">Three tools, one source of truth — official Singapore transaction data. Here's the quick tour.</p>
+    <p class="modal-note">Five tools, one source of truth — official Singapore transaction data. Here's the quick tour.</p>
 
     <ol class="howto">
       <li>
         <span class="ht-num">1</span>
         <div><b>Valuation</b> — price a home in seconds.
-          <p>Pick <b>HDB</b> or <b>Private</b>, fill in the unit (town/flat-type or project, size, floor, lease) and hit <i>Generate</i>. You'll get an estimate range, the comparable sales it used, a price trend, nearby amenities and a written summary — ready to print or share. Add the street to include amenities.</p></div>
+          <p>Pick <b>HDB</b> or <b>Private</b>, fill in the unit (town/flat-type or project, size, floor, lease) and hit <i>Generate</i>. You'll get an estimate range, the comparable sales, a price trend, a map, nearby amenities, rental yield (condos) and a written summary — ready to print or share.</p></div>
       </li>
       <li>
         <span class="ht-num">2</span>
-        <div><b>Affordability</b> — qualify a buyer.
-          <p>Enter the buyer's profile, price and income. Caveat works out ABSD, stamp duty, cash needed upfront, the maximum loan and whether it passes the TDSR/MSR loan limits — the conversation you'd normally need a banker for.</p></div>
+        <div><b>Market</b> — read the whole market.
+          <p>A live dashboard of median prices, price-per-sqft momentum, the rental market and gross yields, plus a sortable breakdown by town and the most-active condos.</p></div>
       </li>
       <li>
         <span class="ht-num">3</span>
+        <div><b>Find</b> — search by budget &amp; yield.
+          <p>Tell it a region, max budget and minimum rental yield; it ranks the condos (or towns) that fit. Tap <i>Value this</i> to jump straight into a full valuation.</p></div>
+      </li>
+      <li>
+        <span class="ht-num">4</span>
+        <div><b>Affordability</b> — qualify a buyer.
+          <p>Enter the buyer's profile, price and income. Caveat works out ABSD, stamp duty, cash upfront, the maximum loan and whether it passes the TDSR/MSR limits — and shows exactly which rules it applied.</p></div>
+      </li>
+      <li>
+        <span class="ht-num">5</span>
         <div><b>Prospecting</b> — find leads in your farm area.
           <p>Choose a town or district to see what just sold there, then tap <i>Draft outreach</i> on any unit for a ready-to-send message you can copy into WhatsApp.</p></div>
       </li>
@@ -177,15 +202,16 @@
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="js/core.js?v=12"></script>
-<script src="js/svy21.js?v=12"></script>
-<script src="js/engines.js?v=12"></script>
-<script src="js/narrative.js?v=12"></script>
-<script src="js/map.js?v=12"></script>
-<script src="js/cma.js?v=12"></script>
-<script src="js/pulse.js?v=12"></script>
-<script src="js/eligibility-ui.js?v=12"></script>
-<script src="js/prospect.js?v=12"></script>
-<script src="js/app.js?v=12"></script>
+<script src="js/core.js?v=14"></script>
+<script src="js/svy21.js?v=14"></script>
+<script src="js/engines.js?v=14"></script>
+<script src="js/narrative.js?v=14"></script>
+<script src="js/map.js?v=14"></script>
+<script src="js/cma.js?v=14"></script>
+<script src="js/pulse.js?v=14"></script>
+<script src="js/search.js?v=14"></script>
+<script src="js/eligibility-ui.js?v=14"></script>
+<script src="js/prospect.js?v=14"></script>
+<script src="js/app.js?v=14"></script>
 </body>
 </html>
