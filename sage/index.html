@@ -139,7 +139,7 @@ footer b{color:var(--ink2)}
   <div id="app"><div class="loading">Loading Sage's latest move…</div></div>
 
   <footer>
-    <b>Sage is an experiment — a paper portfolio driven by an AI's own discretion. Not investment advice, no proven edge, no real money.</b> The point is transparency: watching how an AI reasons about markets, honestly benchmarked against SPY. It may well not beat the market. Built &amp; run in Singapore · part of <a href="../" style="color:var(--sage)">Adam Phang's</a> work.
+    <b>Sage is an experiment — a paper portfolio driven by an AI's own discretion. Not investment advice, no proven edge, no real money.</b> The point is transparency: watching how an AI reasons about markets. It may well lose money — that is the nature of the experiment. Built &amp; run in Singapore · part of <a href="../" style="color:var(--sage)">Adam Phang's</a> work.
   </footer>
 </main>
 <div class="toast" id="toast">Copied ✓</div>
@@ -153,13 +153,12 @@ const cash=(t)=>t.replace(/(\$[A-Z]{1,5})/g,'<span class="ct">$1</span>');
 function chart(hist){
   const W=960,H=260,pl=46,pr=12,pt=14,pb=22;
   if(!hist||hist.length<2){return '<div style="color:var(--ink3);font-size:13px;text-align:center;padding:40px 0">📈 The curve starts building from day one — check back as Sage trades.</div>';}
-  const sg=hist.map(h=>h.equity), sp=hist.map(h=>h.spy);
-  let lo=Math.min(...sg,...sp),hi=Math.max(...sg,...sp); const pad=(hi-lo)*0.12||hi*0.02; lo-=pad;hi+=pad;
+  const sg=hist.map(h=>h.equity);
+  let lo=Math.min(...sg),hi=Math.max(...sg); const pad=(hi-lo)*0.12||hi*0.02; lo-=pad;hi+=pad;
   const n=hist.length, X=i=>pl+(W-pl-pr)*(i/(n-1)), Y=v=>pt+(H-pt-pb)*(1-(v-lo)/(hi-lo));
   const path=a=>a.map((v,i)=>`${i?'L':'M'}${X(i).toFixed(1)} ${Y(v).toFixed(1)}`).join(' ');
   let grid='';for(let k=0;k<=3;k++){const v=lo+(hi-lo)*k/3;grid+=`<line x1="${pl}" y1="${Y(v).toFixed(1)}" x2="${W-pr}" y2="${Y(v).toFixed(1)}" stroke="#1a1a2c"/><text class="axlab" x="${pl-6}" y="${(Y(v)+3).toFixed(1)}" text-anchor="end">${fmt$(v)}</text>`;}
   return `<div class="chartwrap"><svg class="chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">${grid}
-    <path d="${path(sp)}" fill="none" stroke="#5a5a7a" stroke-width="1.6"/>
     <path d="${path(sg)}" fill="none" stroke="#6ee7b7" stroke-width="2.6"/></svg></div>`;
 }
 
@@ -176,7 +175,7 @@ function render(d){
   <div class="cards">
     <div class="card"><div class="k">Portfolio</div><div class="v">${fmt$(d.equity)}</div><div class="s">from $${(d.start_equity/1000)}k · since ${d.inception}</div></div>
     <div class="card"><div class="k">Return</div><div class="v ${sgn(d.ret)}">${d.ret>=0?'+':''}${d.ret}%</div><div class="s">live paper · forward only</div></div>
-    <div class="card"><div class="k">vs SPY</div><div class="v ${sgn(d.ret-d.spy_ret)}">${(d.ret-d.spy_ret)>=0?'+':''}${(d.ret-d.spy_ret).toFixed(2)}%</div><div class="s">SPY ${d.spy_ret>=0?'+':''}${d.spy_ret}%</div></div>
+    <div class="card"><div class="k">Cash</div><div class="v">${Math.round(d.cash/d.equity*100)}%</div><div class="s">$${Math.round(d.cash).toLocaleString()} idle</div></div>
     <div class="card"><div class="k">Positions</div><div class="v">${d.n_positions}</div><div class="s">${Math.round(d.cash/d.equity*100)}% cash</div></div>
   </div>
 
@@ -226,8 +225,8 @@ function render(d){
   </div>
 
   <div class="panel">
-    <h2>📈 Equity curve <span class="pill">Sage vs SPY · from $${(d.start_equity/1000)}k</span></h2>
-    <div class="legend"><span><i style="background:#6ee7b7"></i>Sage</span><span><i style="background:#5a5a7a"></i>SPY buy &amp; hold</span></div>
+    <h2>📈 Equity curve <span class="pill">paper book · from $${(d.start_equity/1000)}k</span></h2>
+    <div class="legend"><span><i style="background:#6ee7b7"></i>Sage paper portfolio</span></div>
     ${chart(d.history)}
   </div>
 

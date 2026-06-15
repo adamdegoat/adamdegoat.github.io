@@ -98,11 +98,11 @@ footer{margin-top:28px;padding-top:20px;border-top:1px solid var(--line);color:v
 <main class="wrap">
   <section class="hero">
     <h1>An AI is trading <span class="g">$10,000</span> of crypto<br>— in the open.</h1>
-    <p>Every few hours, Claude scans the whole liquid OKX market, reads the news, makes its own calls, and shows its full reasoning. Any coin, 24/7, no rules I wrote — just its judgment, benchmarked against holding Bitcoin. Follow along.</p>
+    <p>Every few hours, Claude scans the whole liquid OKX market, reads the news, makes its own calls, and shows its full reasoning. Any coin, 24/7, no rules I wrote — just its judgment. Follow along.</p>
   </section>
   <div id="app"><div class="loading">Loading Cipher's latest move…</div></div>
   <footer>
-    <b>Cipher is an experiment — a paper crypto portfolio driven by an AI's own discretion. Not financial advice, no proven edge, no real money. Crypto is extremely volatile.</b> The point is transparency: watching how an AI reasons about crypto, honestly benchmarked vs Bitcoin. It may well not beat just holding BTC. Built &amp; run in Singapore · part of <a href="../" style="color:var(--amber)">Adam Phang's</a> work.
+    <b>Cipher is an experiment — a paper crypto portfolio driven by an AI's own discretion. Not financial advice, no proven edge, no real money. Crypto is extremely volatile.</b> The point is transparency: watching how an AI reasons about crypto. It may well lose money — that is the nature of the experiment. Built &amp; run in Singapore · part of <a href="../" style="color:var(--amber)">Adam Phang's</a> work.
   </footer>
 </main>
 <div class="toast" id="toast">Copied ✓</div>
@@ -112,12 +112,12 @@ const cash=t=>t.replace(/(\$[A-Za-z]{1,6})/g,'<span class="ct">$1</span>');
 function chart(hist){
   const W=960,H=260,pl=46,pr=12,pt=14,pb=22;
   if(!hist||hist.length<2)return '<div style="color:var(--ink3);font-size:13px;text-align:center;padding:40px 0">📈 The curve builds from the first cycle — check back as Cipher trades.</div>';
-  const cg=hist.map(h=>h.equity),bt=hist.map(h=>h.btc);
-  let lo=Math.min(...cg,...bt),hi=Math.max(...cg,...bt);const pad=(hi-lo)*0.12||hi*0.02;lo-=pad;hi+=pad;
+  const cg=hist.map(h=>h.equity);
+  let lo=Math.min(...cg),hi=Math.max(...cg);const pad=(hi-lo)*0.12||hi*0.02;lo-=pad;hi+=pad;
   const n=hist.length,X=i=>pl+(W-pl-pr)*(i/(n-1)),Y=v=>pt+(H-pt-pb)*(1-(v-lo)/(hi-lo));
   const path=a=>a.map((v,i)=>`${i?'L':'M'}${X(i).toFixed(1)} ${Y(v).toFixed(1)}`).join(' ');
   let grid='';for(let k=0;k<=3;k++){const v=lo+(hi-lo)*k/3;grid+=`<line x1="${pl}" y1="${Y(v).toFixed(1)}" x2="${W-pr}" y2="${Y(v).toFixed(1)}" stroke="#1f1a27"/><text class="axlab" x="${pl-6}" y="${(Y(v)+3).toFixed(1)}" text-anchor="end">${fmt$(v)}</text>`;}
-  return `<div class="chartwrap"><svg class="chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">${grid}<path d="${path(bt)}" fill="none" stroke="#6e6483" stroke-width="1.6"/><path d="${path(cg)}" fill="none" stroke="#f7931a" stroke-width="2.6"/></svg></div>`;
+  return `<div class="chartwrap"><svg class="chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">${grid}<path d="${path(cg)}" fill="none" stroke="#f7931a" stroke-width="2.6"/></svg></div>`;
 }
 function nextGridSGT(stepH){const now=Date.now();const s=new Date(now+8*3600000);const nh=(Math.floor(s.getUTCHours()/stepH)+1)*stepH;let t=Date.UTC(s.getUTCFullYear(),s.getUTCMonth(),s.getUTCDate(),nh,0)-8*3600000;while(t<=now)t+=stepH*3600000;return t;}
 function fmtIn(ms){if(ms<=0)return 'scanning now…';const h=Math.floor(ms/3600000),m=Math.floor(ms%3600000/60000);return (h?h+'h ':'')+m+'m';}
@@ -132,7 +132,7 @@ function render(d){
   <div class="cards">
     <div class="card"><div class="k">Portfolio</div><div class="v">${fmt$(d.equity)}</div><div class="s">from $${(d.start_equity/1000)}k · since ${d.inception}</div></div>
     <div class="card"><div class="k">Return</div><div class="v ${sgn(d.ret)}">${d.ret>=0?'+':''}${d.ret}%</div><div class="s">live paper · 24/7</div></div>
-    <div class="card"><div class="k">vs Bitcoin</div><div class="v ${sgn(d.ret-d.btc_ret)}">${(d.ret-d.btc_ret)>=0?'+':''}${(d.ret-d.btc_ret).toFixed(2)}%</div><div class="s">BTC ${d.btc_ret>=0?'+':''}${d.btc_ret}%</div></div>
+    <div class="card"><div class="k">Cash</div><div class="v">${Math.round(d.cash/d.equity*100)}%</div><div class="s">$${Math.round(d.cash).toLocaleString()} USDT idle</div></div>
     <div class="card"><div class="k">Positions</div><div class="v">${d.n_positions}</div><div class="s">${Math.round(d.cash/d.equity*100)}% cash</div></div>
   </div>
   <div class="panel">
@@ -150,7 +150,7 @@ function render(d){
   <div class="panel"><h2>🧾 Actions taken <span class="pill">every buy / sell / trim · timestamped</span></h2>${d.trades&&d.trades.length?`<div class="feed">${d.trades.map(t=>`<div class="fitem"><div class="fdate">${t.ts||t.date}</div><div class="fnote"><span class="mono" style="font-weight:700;color:${(t.action==='BUY'||t.action==='ADD')?'var(--green)':'var(--red)'}">${t.action}</span> <span class="mono">$${Math.round(t.usd)} ${t.ticker||t.coin} @ $${t.price}</span></div>${t.reason?`<div class="rsn" style="margin-top:3px">${t.reason}</div>`:''}</div>`).join('')}</div>`:'<div style="color:var(--ink3);font-size:13px">No actions yet — every buy, sell or trim will show here with its timestamp.</div>'}</div>
   <div class="panel"><h2>📊 Track record <span class="pill">closed trades · the real test</span></h2>${d.scoreboard&&d.scoreboard.n>0?`<div class="cards" style="margin-top:2px;grid-template-columns:repeat(4,1fr)"><div class="card"><div class="k">Win rate</div><div class="v">${d.scoreboard.win_rate}%</div><div class="s">${d.scoreboard.n} closed · avg hold ${d.scoreboard.avg_hold}d</div></div><div class="card"><div class="k">Avg win / loss</div><div class="v" style="font-size:18px"><span class="pos">+${d.scoreboard.avg_win}%</span> <span style="color:var(--ink3)">/</span> <span class="neg">${d.scoreboard.avg_loss}%</span></div><div class="s">profit factor ${d.scoreboard.profit_factor||'—'}</div></div><div class="card"><div class="k">Realized P&amp;L</div><div class="v ${sgn(d.scoreboard.total_pnl)}">${d.scoreboard.total_pnl>=0?'+':''}$${Math.round(d.scoreboard.total_pnl)}</div><div class="s">on closed trades</div></div><div class="card"><div class="k">Best / worst</div><div class="v" style="font-size:16px"><span class="pos">+${d.scoreboard.best.pnl_pct}%</span> <span style="color:var(--ink3)">/</span> <span class="neg">${d.scoreboard.worst.pnl_pct}%</span></div><div class="s">${d.scoreboard.best.sym} / ${d.scoreboard.worst.sym}</div></div></div>${d.closed&&d.closed.length?`<table style="margin-top:14px"><thead><tr><th>Closed</th><th class="r">In → Out</th><th class="r">P&amp;L</th><th class="r">Held</th></tr></thead><tbody>${d.closed.map(c=>`<tr><td class="tk">${c.sym}</td><td class="r mono">$${c.entry} → $${c.exit}</td><td class="r mono ${sgn(c.pnl_pct)}">${c.pnl_pct>=0?'+':''}${c.pnl_pct}%</td><td class="r mono">${c.hold_days}d</td></tr>`).join('')}</tbody></table>`:''}`:'<div style="color:var(--ink3);font-size:13px;padding:6px 0">No closed trades yet — this builds as positions are sold. It is the honest test of whether the system works (win rate, avg win vs loss, profit factor). Empty now is expected — it just started.</div>'}</div>
   <div class="panel"><h2>💭 Current thesis</h2><div class="thesis">${d.thesis||'—'}</div>${d.outlook?`<h2 style="margin-top:16px">👀 Watching next</h2><div class="outlook">${d.outlook}</div>`:''}</div>
-  <div class="panel"><h2>📈 Equity curve <span class="pill">Cipher vs holding BTC · from $${(d.start_equity/1000)}k</span></h2><div class="legend"><span><i style="background:#f7931a"></i>Cipher</span><span><i style="background:#6e6483"></i>Hold BTC</span></div>${chart(d.history)}</div>
+  <div class="panel"><h2>📈 Equity curve <span class="pill">paper book · from $${(d.start_equity/1000)}k</span></h2><div class="legend"><span><i style="background:#f7931a"></i>Cipher paper portfolio</span></div>${chart(d.history)}</div>
   <div class="panel"><h2>📜 Cipher's journal <span class="pill">its thinking, cycle by cycle</span></h2><div class="feed">${d.journal.map(j=>`<div class="fitem"><div class="fdate">${j.ts}</div><div class="fnote">${j.daily_note||j.thesis||'—'}</div>${(j.trades&&j.trades.length)?`<div class="ftrades">${j.trades.map(t=>`<span>${t.action} ${t.coin} $${Math.round(t.usd)}</span>`).join('')}</div>`:''}</div>`).join('')}</div></div>
   <div class="panel"><h2>𝕏 Post to X <span class="pill">your tool · personal</span></h2><div class="tweetcard"><div class="tweethead"><span class="av">C</span><div><div class="h">Cipher</div><div class="u">@your_handle</div></div></div><div class="tweettext" id="tw">${cash((tw||'').replace(/</g,'&lt;'))||'<span style="color:var(--ink3)">No post this cycle.</span>'}</div><div class="tweetbar"><a class="btn btn-x" href="${xurl}" target="_blank" rel="noopener">𝕏 Post to X</a><button class="btn btn-copy" onclick="copyTweet()">⧉ Copy</button><span class="cc">${tw.length}/280</span></div></div></div>`;
   window.__tweet=d.tweet||'';
