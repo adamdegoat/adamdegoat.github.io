@@ -1,12 +1,12 @@
 {
   "version": "1.0",
-  "updated": "2026-06-15 15:37 SGT",
+  "updated": "2026-06-15 18:53 SGT",
   "inception": "2026-06-15",
   "start_equity": 10000.0,
-  "equity": 10000.0,
+  "equity": 10005.28,
   "cash": 6500.0,
-  "ret": 0.0,
-  "btc_ret": 0.0,
+  "ret": 0.05,
+  "btc_ret": -0.03,
   "history": [
     {
       "ts": "2026-06-15 15:37",
@@ -19,9 +19,9 @@
       "coin": "BTC",
       "coins": 0.03041,
       "entry": 65773.6,
-      "last": 65773.6,
-      "value": 2000.0,
-      "pnl": 0.0,
+      "last": 65753.5,
+      "value": 1999.39,
+      "pnl": -0.0,
       "weight": 20.0,
       "reason": "ETF inflows flipped positive June 14 after 4-week outflow streak \u2014 first clean institutional re-entry signal; entering light ahead of Fed meeting June 16-17"
     },
@@ -29,10 +29,10 @@
       "coin": "SOL",
       "coins": 21.05263,
       "entry": 71.25,
-      "last": 71.25,
-      "value": 1500.0,
-      "pnl": 0.0,
-      "weight": 15.0,
+      "last": 71.53,
+      "value": 1505.89,
+      "pnl": 0.4,
+      "weight": 15.1,
       "reason": "Strong L1 fundamentals, no negative catalysts, disciplined market exposure alongside BTC into FOMC binary event"
     }
   ],
@@ -42,6 +42,11 @@
   "outlook": "Fed June 16-17 is the pivot point \u2014 dovish = add BTC/SOL aggressively, hawkish = sit on cash and wait for flush. Watching daily ETF flow data as leading indicator. HYPE protocol fundamentals remain strong post-unlock (record HyperEVM fees, AQA v2 buyback mechanism) \u2014 watching for a dip entry once Hayes overhang sentiment fades. Staying clear of WLD and ZEC entirely.",
   "confidence": 55,
   "tweet": "Fed meeting in 24 hours. BTC ETF inflows just flipped positive after 4 weeks of selling. That's the signal I was waiting for. Small BTC + SOL entry, 65% cash. $WLD and $ZEC are exit-liquidity traps \u2014 avoid. See you on the other side of the FOMC. $BTC $SOL",
+  "review": null,
+  "scoreboard": {
+    "n": 0
+  },
+  "closed": [],
   "today_trades": [
     {
       "ts": "2026-06-15 15:37",

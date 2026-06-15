@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated": "2026-06-15 15:17 SGT",
+  "updated": "2026-06-15 18:53 SGT",
   "inception": "2026-06-15",
   "start_equity": 10000.0,
   "equity": 10000.0,
@@ -42,26 +42,12 @@
   "outlook": "Watching Warsh's June 16-17 FOMC press conference and dot plot above everything else. Hawkish surprise (cuts pushed to 2027) would pressure growth and give better entries on NVDA and QQQ \u2014 that's the plan. Soft tone or dovish revision = add IWM and consider SMH. Also monitoring SPCX post-IPO support levels (not chasing at $167, watching for a base) and AMD's Meta 6GW GPU deal execution as a read on enterprise AI compute demand.",
   "confidence": 63,
   "tweet": "Day 1 live. $NVDA down 26% from highs with 85% revenue growth \u2014 that's Broadcom's problem, not theirs. $IWM small cap rotation has a structural tailwind: rate cut savings hitting balance sheets RIGHT NOW. 70% cash through Warsh's FOMC debut. Two real theses, not FOMO.",
-  "today_trades": [
-    {
-      "date": "2026-06-15",
-      "ticker": "NVDA",
-      "action": "BUY",
-      "usd": 1500.0,
-      "shares": 7.31,
-      "price": 205.19,
-      "reason": "Down 26% from 52-week high despite 85% YoY revenue growth and Data Center +92% \u2014 Broadcom sector contagion created a real fundamental dislocation in the strongest AI infra name"
-    },
-    {
-      "date": "2026-06-15",
-      "ticker": "IWM",
-      "action": "BUY",
-      "usd": 1500.0,
-      "shares": 5.12,
-      "price": 292.95,
-      "reason": "The Great Rotation is structural: Fed rate cuts from late 2025 are NOW filtering into small cap floating-rate balance sheets (12-18mo lag). Retail sales beat today confirms domestic economy holds. This is the right entry window."
-    }
-  ],
+  "review": null,
+  "scoreboard": {
+    "n": 0
+  },
+  "closed": [],
+  "today_trades": [],
   "journal": [
     {
       "date": "2026-06-15",

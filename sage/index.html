@@ -202,6 +202,19 @@ function render(d){
   </div>
 
   <div class="panel">
+    <h2>📊 Track record <span class="pill">closed trades · the real test</span></h2>
+    ${d.scoreboard&&d.scoreboard.n>0?`
+    <div class="cards" style="margin-top:2px;grid-template-columns:repeat(4,1fr)">
+      <div class="card"><div class="k">Win rate</div><div class="v">${d.scoreboard.win_rate}%</div><div class="s">${d.scoreboard.n} closed · avg hold ${d.scoreboard.avg_hold}d</div></div>
+      <div class="card"><div class="k">Avg win / loss</div><div class="v" style="font-size:18px"><span class="pos">+${d.scoreboard.avg_win}%</span> <span style="color:var(--ink3)">/</span> <span class="neg">${d.scoreboard.avg_loss}%</span></div><div class="s">profit factor ${d.scoreboard.profit_factor||'—'}</div></div>
+      <div class="card"><div class="k">Realized P&amp;L</div><div class="v ${sgn(d.scoreboard.total_pnl)}">${d.scoreboard.total_pnl>=0?'+':''}$${Math.round(d.scoreboard.total_pnl)}</div><div class="s">on closed trades</div></div>
+      <div class="card"><div class="k">Best / worst</div><div class="v" style="font-size:16px"><span class="pos">+${d.scoreboard.best.pnl_pct}%</span> <span style="color:var(--ink3)">/</span> <span class="neg">${d.scoreboard.worst.pnl_pct}%</span></div><div class="s">${d.scoreboard.best.sym} / ${d.scoreboard.worst.sym}</div></div>
+    </div>
+    ${d.closed&&d.closed.length?`<table style="margin-top:14px"><thead><tr><th>Closed</th><th class="r">In → Out</th><th class="r">P&amp;L</th><th class="r">Held</th></tr></thead><tbody>${d.closed.map(c=>`<tr><td class="tk">${c.sym}</td><td class="r mono">$${c.entry} → $${c.exit}</td><td class="r mono ${sgn(c.pnl_pct)}">${c.pnl_pct>=0?'+':''}${c.pnl_pct}%</td><td class="r mono">${c.hold_days}d</td></tr>`).join('')}</tbody></table>`:''}
+    `:'<div style="color:var(--ink3);font-size:13px;padding:6px 0">No closed trades yet — this builds as positions are sold. It is the honest test of whether the system works (win rate, avg win vs loss, profit factor). Empty now is expected — it just started.</div>'}
+  </div>
+
+  <div class="panel">
     <h2>💭 Current thesis</h2>
     <div class="thesis">${d.thesis||'—'}</div>
     ${d.outlook?`<h2 style="margin-top:16px">👀 Watching next</h2><div class="outlook">${d.outlook}</div>`:''}
