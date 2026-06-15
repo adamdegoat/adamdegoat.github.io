@@ -90,6 +90,10 @@ th{text-align:left;font-size:10px;letter-spacing:1px;text-transform:uppercase;co
 td{padding:11px 9px;border-bottom:1px solid var(--line-soft);vertical-align:top}
 td.r,th.r{text-align:right}.tk{font-weight:700;font-family:'JetBrains Mono'}
 .rsn{font-size:12px;color:var(--ink2);line-height:1.45}
+.hcard{padding:13px 0;border-bottom:1px solid var(--line-soft)}.hcard:last-child{border-bottom:0}
+.hhead{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.hhead .tk{font-weight:700;font-family:'JetBrains Mono';font-size:15px}.hhead .sp{flex:1}.hhead .w{font-family:'JetBrains Mono';font-size:13px;color:var(--ink2);font-weight:600}.hhead .pl{font-family:'JetBrains Mono';font-size:13px;font-weight:700}
+.hsub{font-family:'JetBrains Mono';font-size:12px;color:var(--ink3);margin-top:5px}.hsub b{color:var(--ink2);font-weight:600}
+.hrsn{font-size:12.5px;color:var(--ink2);line-height:1.45;margin-top:6px}
 
 .feed{display:flex;flex-direction:column;gap:0}
 .fitem{padding:14px 0;border-bottom:1px solid var(--line-soft)}
@@ -159,8 +163,13 @@ function chart(hist){
     <path d="${path(sg)}" fill="none" stroke="#6ee7b7" stroke-width="2.6"/></svg></div>`;
 }
 
+function nextDailySGT(h,m){const now=new Date();const s=new Date(now.getTime()+8*3600000+now.getTimezoneOffset()*60000);let t=Date.UTC(s.getUTCFullYear(),s.getUTCMonth(),s.getUTCDate(),h,m)-8*3600000;if(t<=now.getTime())t+=86400000;return t;}
+function fmtIn(ms){if(ms<=0)return 'scanning now…';const h=Math.floor(ms/3600000),m=Math.floor(ms%3600000/60000);return (h?h+'h ':'')+m+'m';}
+let __next=0;function tick(){const el=document.getElementById('cd');if(el)el.innerHTML='next scan in <b style="color:var(--ink2)">'+fmtIn(__next-Date.now())+'</b>';}
+setInterval(tick,30000);
 function render(d){
-  $('#upd').innerHTML=`<span class="dot"></span>Updated ${d.updated}`;
+  $('#upd').innerHTML=`<span class="dot"></span>Updated ${d.updated} · <span id="cd"></span>`;
+  __next=nextDailySGT(6,30); tick();
   const tw=d.tweet||'', xurl='https://twitter.com/intent/tweet?text='+encodeURIComponent(tw);
   const trades=(d.today_trades||[]).filter(t=>t.action);
   const html=`
@@ -179,9 +188,11 @@ function render(d){
 
   <div class="panel">
     <h2>💼 Holdings <span class="pill">what it owns · entry → now</span></h2>
-    ${d.holdings.length?`<table><thead><tr><th>Ticker</th><th class="r">Weight</th><th class="r">Entry → Now</th><th class="r">P&amp;L</th><th>Why Sage owns it</th></tr></thead><tbody>
-    ${d.holdings.map(h=>`<tr><td><span class="tk">${h.ticker}</span><div class="mono" style="font-size:11px;color:var(--ink3)">$${h.value.toLocaleString()}</div></td><td class="r mono">${h.weight}%</td><td class="r mono" style="white-space:nowrap">$${h.entry} <span style="color:var(--ink3)">→</span> $${h.last}</td><td class="r mono ${sgn(h.pnl)}">${h.pnl>=0?'+':''}${h.pnl}%</td><td class="rsn">${h.reason||'—'}</td></tr>`).join('')}
-    </tbody></table>`:'<div style="color:var(--ink3);font-size:13px">All cash right now.</div>'}
+    ${d.holdings.length?d.holdings.map(h=>`<div class="hcard">
+      <div class="hhead"><span class="tk">${h.ticker}</span><span class="w">${h.weight}%</span><span class="sp"></span><span class="pl ${sgn(h.pnl)}">${h.pnl>=0?'+':''}${h.pnl}%</span></div>
+      <div class="hsub">$${h.value.toLocaleString()} · entry <b>$${h.entry}</b> → now <b>$${h.last}</b></div>
+      <div class="hrsn">${h.reason||'—'}</div>
+    </div>`).join(''):'<div style="color:var(--ink3);font-size:13px">All cash right now.</div>'}
   </div>
 
   <div class="panel">
