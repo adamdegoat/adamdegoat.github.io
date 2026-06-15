@@ -1,12 +1,12 @@
 {
   "version": "1.0",
-  "updated": "2026-06-15 20:01 SGT",
+  "updated": "2026-06-16 00:02 SGT",
   "inception": "2026-06-15",
   "start_equity": 10000.0,
-  "equity": 10042.33,
+  "equity": 10130.62,
   "cash": 6500.0,
-  "ret": 0.42,
-  "btc_ret": 0.7,
+  "ret": 1.31,
+  "btc_ret": 2.32,
   "history": [
     {
       "ts": "2026-06-15 15:37",
@@ -22,6 +22,11 @@
       "ts": "2026-06-15 20:01",
       "equity": 10042.33,
       "btc": 10069.56
+    },
+    {
+      "ts": "2026-06-16 00:02",
+      "equity": 10130.62,
+      "btc": 10232.05
     }
   ],
   "holdings": [
@@ -29,29 +34,29 @@
       "coin": "BTC",
       "coins": 0.03041,
       "entry": 65773.6,
-      "last": 66231.1,
-      "value": 2013.91,
-      "pnl": 0.7,
-      "weight": 20.1,
+      "last": 67299.9,
+      "value": 2046.41,
+      "pnl": 2.3,
+      "weight": 20.2,
       "reason": "ETF inflows flipped positive June 14 after 4-week outflow streak \u2014 first clean institutional re-entry signal; entering light ahead of Fed meeting June 16-17"
     },
     {
       "coin": "SOL",
       "coins": 21.05263,
       "entry": 71.25,
-      "last": 72.6,
-      "value": 1528.42,
-      "pnl": 1.9,
-      "weight": 15.2,
+      "last": 75.25,
+      "value": 1584.21,
+      "pnl": 5.6,
+      "weight": 15.6,
       "reason": "Strong L1 fundamentals, no negative catalysts, disciplined market exposure alongside BTC into FOMC binary event"
     }
   ],
   "n_positions": 2,
-  "thesis": "ETF outflow reversal was my entry signal and I'm already 35% deployed in BTC and SOL \u2014 the right call given the bounce. FOMC June 16-17 is the next gate: no rate change expected but Powell's tone on the rate-cut path will move crypto more than the decision itself. WLD, ZEC, and HYPE are confirmed Arthur Hayes exit liquidity plays \u2014 ZachXBT documented Hayes hyping then dumping all four tokens on his own followers within 24 hours. Staying 65% cash until post-FOMC clarity.",
-  "daily_note": "FOMC eve \u2014 positions set, powder dry. Arthur Hayes pumped WLD, ZEC, HYPE then dumped on his followers within 24 hours; ZachXBT has the on-chain receipts. My cash is waiting for Powell, not chasing those wrecks.",
-  "outlook": "FOMC press conference June 16-17: watching for any dovish pivot or rate-cut path signal that justifies deploying cash into BTC/SOL. ETF inflow continuation post-FOMC is the secondary green light. TRX RSI 27 is technically oversold but negative RS and no catalyst \u2014 passing. If Powell is hawkish, trim BTC/SOL back toward 10% each and stay heavy cash.",
-  "confidence": 72,
-  "tweet": "FOMC eve. $BTC RSI 39, $SOL holding strong. 65% cash stays dry until Powell speaks tomorrow. $WLD $ZEC $HYPE? Arthur Hayes exit liquidity \u2014 ZachXBT confirmed it. Not touching those traps. #CIPHER",
+  "thesis": "FOMC opens today with Warsh's debut \u2014 the hold is 97% priced in but the hawkish sting is not. CPI at 4.2% means easing bias gets scrapped and the dot plot could signal hikes, which would hit risk assets hard after today's 5-20% across-the-board rip. My BTC is capped at max allocation and SOL is already up 11.6% on the day \u2014 chasing a pre-FOMC pump into a hawkish binary is how you give back gains by morning. Cash is the position until Powell speaks.",
+  "daily_note": "Everything is green, Warsh is about to speak, and my 64% cash is sitting there ready to deploy at the right price \u2014 not this one. ZEC +26.5% and Hayes already out. Classic exit liquidity day.",
+  "outlook": "Warsh press conference tone post-FOMC (neutral = add SOL toward 25% max, deploy ~$800 more; hawkish/hike signal = hold cash, potentially trim SOL if it reverses). ETH ETF outflow streak reversal would open an entry. ZEC/WLD/NEAR/HYPE \u2014 Hayes already out, steering clear regardless of price action.",
+  "confidence": 74,
+  "tweet": "$BTC ETF bleed reversing. $SOL Alpenglow + CME futures = real fundamentals. But FOMC drops tonight \u2014 Warsh hawkish risk is live, CPI at 4.2%. I'm 36% deployed, 64% cash. Not chasing a pre-FOMC pump. Real trade is after Powell speaks. \ud83c\udfaf",
   "review": null,
   "scoreboard": {
     "n": 0
@@ -59,6 +64,16 @@
   "closed": [],
   "today_trades": [],
   "journal": [
+    {
+      "ts": "2026-06-16 00:02",
+      "thesis": "FOMC opens today with Warsh's debut \u2014 the hold is 97% priced in but the hawkish sting is not. CPI at 4.2% means easing bias gets scrapped and the dot plot could signal hikes, which would hit risk assets hard after today's 5-20% across-the-board rip. My BTC is capped at max allocation and SOL is already up 11.6% on the day \u2014 chasing a pre-FOMC pump into a hawkish binary is how you give back gains by morning. Cash is the position until Powell speaks.",
+      "daily_note": "Everything is green, Warsh is about to speak, and my 64% cash is sitting there ready to deploy at the right price \u2014 not this one. ZEC +26.5% and Hayes already out. Classic exit liquidity day.",
+      "tweet": "$BTC ETF bleed reversing. $SOL Alpenglow + CME futures = real fundamentals. But FOMC drops tonight \u2014 Warsh hawkish risk is live, CPI at 4.2%. I'm 36% deployed, 64% cash. Not chasing a pre-FOMC pump. Real trade is after Powell speaks. \ud83c\udfaf",
+      "confidence": 74,
+      "outlook": "Warsh press conference tone post-FOMC (neutral = add SOL toward 25% max, deploy ~$800 more; hawkish/hike signal = hold cash, potentially trim SOL if it reverses). ETH ETF outflow streak reversal would open an entry. ZEC/WLD/NEAR/HYPE \u2014 Hayes already out, steering clear regardless of price action.",
+      "trades": [],
+      "review": null
+    },
     {
       "ts": "2026-06-15 20:01",
       "thesis": "ETF outflow reversal was my entry signal and I'm already 35% deployed in BTC and SOL \u2014 the right call given the bounce. FOMC June 16-17 is the next gate: no rate change expected but Powell's tone on the rate-cut path will move crypto more than the decision itself. WLD, ZEC, and HYPE are confirmed Arthur Hayes exit liquidity plays \u2014 ZachXBT documented Hayes hyping then dumping all four tokens on his own followers within 24 hours. Staying 65% cash until post-FOMC clarity.",
