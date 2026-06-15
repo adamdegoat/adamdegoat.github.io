@@ -120,7 +120,7 @@ footer b{color:var(--ink2)}
 <main class="wrap">
   <section class="hero">
     <h1>A systematic engine that trades <span class="thin">the strong, sizes by risk, and steps aside in storms.</span></h1>
-    <p>Helm runs a vol-targeted, regime-gated portfolio over a liquid basket of US mega-caps, index and sector ETFs. It's built on published evidence — momentum + trend, inverse-volatility sizing, a regime gate — and validated honestly. Tracked as a $100k paper book until it earns a live deployment.</p>
+    <p>Helm blends two evidence-based sleeves — a <b>trend</b> sleeve and a <b>mean-reversion</b> sleeve — over a liquid basket of US mega-caps, index and sector ETFs, sized inverse to volatility and scaled to a vol target. Every component is validated out-of-sample and only kept if it adds value. Tracked as a $100k paper book until it earns a live deployment.</p>
   </section>
 
   <div id="app"><div class="loading">Loading the latest cycle…</div></div>
@@ -170,13 +170,13 @@ function chart(helm, bench, paperStart){
 function render(d){
   $('#upd').innerHTML = `<span class="dot"></span>Updated ${d.updated} · data ${d.last_data}`;
   const m=d.metrics_full, s=d.metrics_spy, eqNow=d.current_equity;
-  const grossPct = d.holdings.reduce((a,h)=>a+h.weight,0);
+  const gross = (d.diag&&d.diag.gross!=null)?d.diag.gross:d.holdings.reduce((a,h)=>a+Math.abs(h.weight),0);
   const html = `
   <div class="grid cards">
     <div class="card"><div class="k">Paper equity</div><div class="v">${fmt$(eqNow)}</div><div class="s">from $${(d.start_equity/1000)}k · ${m.yrs}y replay</div></div>
     <div class="card"><div class="k">Sharpe</div><div class="v">${m.sharpe.toFixed(2)}</div><div class="s">SPY ${s.sharpe.toFixed(2)} · higher is better</div></div>
     <div class="card"><div class="k">Max drawdown</div><div class="v ${sgn(m.maxdd)}">${pct(m.maxdd)}</div><div class="s">SPY ${pct(s.maxdd)} · less pain</div></div>
-    <div class="card"><div class="k">Invested now</div><div class="v">${pct(grossPct,0)}</div><div class="s">${d.holdings.length} positions · rest cash</div></div>
+    <div class="card"><div class="k">Invested now</div><div class="v">${pct(gross,0)}</div><div class="s">${d.holdings.length} positions${gross<0.95?' · rest cash':''}</div></div>
   </div>
 
   <div class="panel">
@@ -188,14 +188,13 @@ function render(d){
 
   <div class="two">
     <div class="panel">
-      <h2>Current portfolio <span class="pill">rebalanced monthly</span></h2>
-      <table><thead><tr><th>Ticker</th><th>Kind</th><th class="r">Weight</th><th>Allocation</th><th class="r">12-mo mom.</th></tr></thead><tbody>
+      <h2>Current portfolio <span class="pill">net positions</span></h2>
+      <table><thead><tr><th>Ticker</th><th>Sleeve</th><th class="r">Weight</th><th>Allocation</th><th class="r">12-mo mom.</th></tr></thead><tbody>
       ${d.holdings.map(h=>{
-        const kind = d.universe.megacap.includes(h.ticker)?'Mega-cap':d.universe.index.includes(h.ticker)?'Index':d.universe.ballast.includes(h.ticker)?'Ballast':'Sector';
-        return `<tr><td class="tk">${h.ticker}</td><td><span class="kind">${kind}</span></td><td class="r mono">${pct(h.weight)}</td><td><div class="wbar"><i style="width:${Math.min(100,h.weight/0.2*100)}%"></i></div></td><td class="r mono ${sgn(h.mom)}">${pct(h.mom,0)}</td></tr>`;
+        return `<tr><td class="tk">${h.ticker} <span style="color:var(--ink3);font-weight:400;font-size:11px">${h.kind}</span></td><td><span class="kind">${h.sleeve}</span></td><td class="r mono ${sgn(h.weight)}">${pct(h.weight)}</td><td><div class="wbar"><i style="width:${Math.min(100,Math.abs(h.weight)/0.12*100)}%"></i></div></td><td class="r mono ${sgn(h.mom)}">${pct(h.mom,0)}</td></tr>`;
       }).join('')}
       </tbody></table>
-      <div class="note">Names pass a trend gate (above the 200-day &amp; positive 12-month momentum), are ranked by 3/6/12-month strength, and sized <b>inverse to volatility</b> then scaled to a ~${pct(d.params.target_vol,0)} portfolio vol target. When too few qualify, the book sits in cash or ballast.</div>
+      <div class="note">Net of two sleeves. <b>Trend</b> holds names past a 200-day / 12-month gate, ranked by 3/6/12-month strength. <b>Mean-reversion</b> buys short-term oversold dips in uptrends. The blend is sized inverse to volatility and scaled to a ~${pct(d.params.target_vol,0)} vol target (modest leverage allowed). Idle when neither sleeve has a strong signal.</div>
     </div>
 
     <div class="panel">
@@ -212,21 +211,36 @@ function render(d){
     </div>
   </div>
 
+  <div class="panel">
+    <h2>Sleeve attribution <span class="pill">what runs · what was cut</span></h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px">
+      ${d.sleeves.map(s=>`<div style="border:1px solid var(--line);border-radius:12px;padding:14px">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span style="font-family:'Sora';font-weight:700">${s.name}</span>
+          <span class="mono" style="color:var(--teal);font-weight:700">${pct(s.alloc,0)}</span>
+        </div>
+        <div style="height:6px;border-radius:4px;background:var(--line);margin:10px 0;overflow:hidden"><i style="display:block;height:100%;width:${s.alloc*100}%;background:linear-gradient(90deg,var(--teal-d),var(--teal))"></i></div>
+        <div class="mono" style="font-size:12px;color:var(--ink2)">standalone Sharpe ${s.sharpe.toFixed(2)} · MaxDD ${pct(s.maxdd)}</div>
+      </div>`).join('')}
+    </div>
+    <div class="note"><b>Built, tested, and cut</b> — these were coded and measured but didn't add value out-of-sample after costs, so they're not shipped: ${d.rejected.join(' · ')}. Including them <i>lowered</i> the Sharpe. The discipline is to keep only what proves additive.</div>
+  </div>
+
   <div class="panel how">
     <h2>How Helm works <span class="pill">evidence-based · few parameters</span></h2>
     <ol class="steps">
-      <li><span class="n">01</span><span><b>Trend gate.</b> A name is eligible only above its 200-day average with positive 12-month momentum — the durable drawdown-killer (Faber; Moskowitz-Ooi-Pedersen).</span></li>
-      <li><span class="n">02</span><span><b>Momentum rank.</b> Eligible names ranked by the mean of 3/6/12-month returns (skipping the last month); hold the top ${d.params.holdings_K}. ETFs supply the dispersion mega-caps lack.</span></li>
-      <li><span class="n">03</span><span><b>Inverse-vol sizing → vol target.</b> Each position sized inverse to its volatility, the book scaled to ~${pct(d.params.target_vol,0)} annualised — the engineering, not the signal, is where the Sharpe lift lives (Harvey et al.).</span></li>
-      <li><span class="n">04</span><span><b>Ballast &amp; cash.</b> When too few equities pass the gate, capital sits in cash or bonds/gold — this is how it sidesteps the big drops.</span></li>
+      <li><span class="n">01</span><span><b>Trend sleeve.</b> Names above their 200-day with positive 12-month momentum, ranked by 3/6/12-month strength; hold the top ${d.params.trend_K||6}. The durable drawdown-killer (Faber; Moskowitz-Ooi-Pedersen).</span></li>
+      <li><span class="n">02</span><span><b>Mean-reversion sleeve.</b> Buys short-term oversold dips (RSI-2) in names that are still in uptrends — a different clock from trend, so it diversifies (Connors; Lou-Polk-Skouras).</span></li>
+      <li><span class="n">03</span><span><b>Inverse-vol sizing → vol target.</b> Sized inverse to volatility, the blend scaled to ~${pct(d.params.target_vol,0)} annualised with modest leverage — the engineering, not the signal, is where the Sharpe lives (Harvey et al.).</span></li>
+      <li><span class="n">04</span><span><b>Ensemble + honest validation.</b> The two sleeves are blended equally; every candidate sleeve must beat the existing mix out-of-sample or it's cut. Cash/ballast when neither fires.</span></li>
     </ol>
-    <p class="note"><b>Honest expectations:</b> a believable net Sharpe near 0.9–1.1 with drawdowns roughly half of buy-and-hold — not a fantasy. Mean-reversion, long/short and an intraday overlay are next, and each must prove it <i>adds</i> value out-of-sample before it ships. Self-improvement here means staying calibrated and shedding decaying edges — bounded and audited, not magic.</p>
+    <p class="note"><b>Honest expectations:</b> a believable net Sharpe near 1.1 with drawdowns roughly a third of buy-and-hold — not a fantasy. The intraday "close-trade" overlay is the next candidate, but it can't be honestly backtested on free data, so it'll run forward-only and clearly flagged. Self-improvement here means staying calibrated and shedding decaying edges — bounded and audited, not magic.</p>
   </div>
 
   <div class="panel">
-    <h2>Recent rebalances</h2>
-    <table><thead><tr><th>Date</th><th>Top holdings</th><th class="r">Turnover</th></tr></thead><tbody>
-    ${d.rebalances.slice(0,8).map(r=>`<tr><td class="mono">${r.date}</td><td style="color:var(--ink2)">${r.holdings.slice(0,6).map(h=>h.ticker).join(' · ')}</td><td class="r mono">${pct(r.turnover,0)}</td></tr>`).join('')}
+    <h2>Recent monthly snapshots</h2>
+    <table><thead><tr><th>Date</th><th>Top net holdings</th><th class="r">Gross</th></tr></thead><tbody>
+    ${d.rebalances.slice(0,8).map(r=>`<tr><td class="mono">${r.date}</td><td style="color:var(--ink2)">${r.holdings.slice(0,6).join(' · ')||'—'}</td><td class="r mono">${pct(r.gross,0)}</td></tr>`).join('')}
     </tbody></table>
   </div>
   `;
