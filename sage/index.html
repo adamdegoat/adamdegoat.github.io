@@ -204,8 +204,8 @@ function render(d){
 
   <div class="panel">
     <h2>💼 Holdings</h2>
-    ${d.holdings.length?`<table><thead><tr><th>Ticker</th><th class="r">Weight</th><th class="r">P&amp;L</th><th>Why Sage owns it</th></tr></thead><tbody>
-    ${d.holdings.map(h=>`<tr><td><span class="tk">${h.ticker}</span><div class="mono" style="font-size:11px;color:var(--ink3)">$${h.value.toLocaleString()}</div></td><td class="r mono">${h.weight}%</td><td class="r mono ${sgn(h.pnl)}">${h.pnl>=0?'+':''}${h.pnl}%</td><td class="rsn">${h.reason||'—'}</td></tr>`).join('')}
+    ${d.holdings.length?`<table><thead><tr><th>Ticker</th><th class="r">Weight</th><th class="r">Entry → Now</th><th class="r">P&amp;L</th><th>Why Sage owns it</th></tr></thead><tbody>
+    ${d.holdings.map(h=>`<tr><td><span class="tk">${h.ticker}</span><div class="mono" style="font-size:11px;color:var(--ink3)">$${h.value.toLocaleString()}</div></td><td class="r mono">${h.weight}%</td><td class="r mono" style="white-space:nowrap">$${h.entry} <span style="color:var(--ink3)">→</span> $${h.last}</td><td class="r mono ${sgn(h.pnl)}">${h.pnl>=0?'+':''}${h.pnl}%</td><td class="rsn">${h.reason||'—'}</td></tr>`).join('')}
     </tbody></table>`:'<div style="color:var(--ink3);font-size:13px">All cash right now.</div>'}
   </div>
 
