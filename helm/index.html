@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta name="description" content="Helm — a systematic, vol-targeted, regime-gated paper portfolio over liquid US equities & ETFs. Evidence-based, honestly validated.">
+<title>HELM · Systematic Equity Engine</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%232ad6c5' stroke-width='2'/%3E%3Cpath d='M16 6v20M6 16h20' stroke='%232ad6c5' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%23ffb547'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070b12;--bg2:#0b111c;--panel:#0e1622;--panel2:#111b2b;
+  --line:#1a2533;--line-soft:#141d29;
+  --ink:#e8eef7;--ink2:#9fb0c4;--ink3:#62758c;
+  --teal:#2ad6c5;--teal-d:#11a596;--grn:#34e2a0;--red:#ff5c72;
+  --amber:#ffb547;--blue:#5aa9ff;--violet:#9b8cff;
+  --shadow:0 18px 50px -20px rgba(0,0,0,.75);--r:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);line-height:1.55;min-height:100vh;
+  -webkit-font-smoothing:antialiased;padding:0 0 80px;overflow-x:hidden;
+  background:radial-gradient(1100px 600px at 82% -8%,rgba(42,214,197,.10),transparent 60%),
+    radial-gradient(900px 520px at 8% 6%,rgba(91,169,255,.08),transparent 55%),var(--bg);}
+.mono{font-family:'JetBrains Mono',monospace;font-variant-numeric:tabular-nums}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+a{color:inherit;text-decoration:none}
+.pos{color:var(--grn)}.neg{color:var(--red)}
+
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+  background:linear-gradient(180deg,rgba(7,11,18,.92),rgba(7,11,18,.7));border-bottom:1px solid var(--line-soft)}
+.topbar{display:flex;align-items:center;gap:16px;padding:13px 22px;max-width:1180px;margin:0 auto;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .logo{width:34px;height:34px}
+.brand .nm{font-family:'Sora';font-weight:800;font-size:20px;letter-spacing:1px}
+.brand .tag{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);font-weight:600;margin-top:-2px}
+.badge{font-size:10.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:5px 11px;border-radius:999px;
+  border:1px solid var(--amber);color:var(--amber);background:rgba(255,181,71,.07)}
+.spacer{flex:1}
+.back{font-size:12.5px;color:var(--ink2);border:1px solid var(--line);border-radius:999px;padding:7px 14px;transition:.15s}
+.back:hover{border-color:var(--teal);color:var(--teal)}
+.upd{font-size:11.5px;color:var(--ink3)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--grn);display:inline-block;margin-right:5px;box-shadow:0 0 8px var(--grn)}
+
+.hero{padding:38px 0 8px}
+.hero h1{font-family:'Sora';font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-.5px;line-height:1.1}
+.hero h1 .thin{color:var(--ink2);font-weight:600}
+.hero p{color:var(--ink2);max-width:62ch;margin-top:12px;font-size:15px}
+
+.grid{display:grid;gap:16px;margin-top:26px}
+.cards{grid-template-columns:repeat(4,1fr)}
+.card{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:var(--r);padding:18px 18px 16px;box-shadow:var(--shadow)}
+.card .k{font-size:11px;letter-spacing:1.3px;text-transform:uppercase;color:var(--ink3);font-weight:600}
+.card .v{font-family:'Sora';font-size:27px;font-weight:800;margin-top:7px;letter-spacing:-.5px}
+.card .s{font-size:12px;color:var(--ink2);margin-top:3px}
+
+.panel{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:var(--r);padding:22px;box-shadow:var(--shadow);margin-top:18px}
+.panel h2{font-family:'Sora';font-size:15px;font-weight:700;letter-spacing:.4px;display:flex;align-items:center;gap:9px}
+.panel h2 .pill{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink3);border:1px solid var(--line);border-radius:999px;padding:3px 9px}
+.legend{display:flex;gap:18px;margin:6px 0 14px;font-size:12px;color:var(--ink2);flex-wrap:wrap}
+.legend i{width:18px;height:3px;border-radius:2px;display:inline-block;margin-right:7px;vertical-align:middle}
+.chartwrap{position:relative;width:100%;overflow:hidden}
+svg.chart{display:block;width:100%;height:340px}
+.axlab{fill:var(--ink3);font-size:10px;font-family:'JetBrains Mono'}
+
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--ink3);font-weight:600;padding:0 10px 10px;border-bottom:1px solid var(--line)}
+td{padding:11px 10px;border-bottom:1px solid var(--line-soft)}
+td.r,th.r{text-align:right}
+.tk{font-weight:700;font-family:'JetBrains Mono'}
+.wbar{height:7px;border-radius:4px;background:var(--line);position:relative;overflow:hidden;min-width:60px}
+.wbar i{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--teal-d),var(--teal));border-radius:4px}
+.kind{font-size:10px;letter-spacing:.5px;text-transform:uppercase;color:var(--ink3);border:1px solid var(--line);border-radius:6px;padding:2px 7px}
+
+.two{display:grid;grid-template-columns:1.3fr 1fr;gap:18px;margin-top:18px}
+.how p{color:var(--ink2);font-size:13.5px;margin:9px 0}
+.how b{color:var(--ink)}
+.steps{list-style:none;margin-top:6px}
+.steps li{padding:10px 0;border-bottom:1px solid var(--line-soft);font-size:13px;color:var(--ink2);display:flex;gap:11px}
+.steps li b{color:var(--ink);font-family:'Sora'}
+.steps .n{color:var(--teal);font-family:'JetBrains Mono';font-weight:700;flex:none}
+.note{font-size:12px;color:var(--ink3);margin-top:12px;line-height:1.6}
+.cmp{display:grid;grid-template-columns:1fr auto auto;gap:8px 16px;font-size:13px;align-items:center}
+.cmp .h{font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--ink3);font-weight:600}
+.cmp .me{font-family:'JetBrains Mono';font-weight:700;text-align:right}
+.cmp .sp{font-family:'JetBrains Mono';color:var(--ink2);text-align:right}
+
+footer{margin-top:30px;padding-top:22px;border-top:1px solid var(--line);color:var(--ink3);font-size:12px;line-height:1.7}
+footer b{color:var(--ink2)}
+.loading{text-align:center;color:var(--ink3);padding:70px 0;font-size:14px}
+@media(max-width:880px){.cards{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}}
+@media(max-width:520px){.cards{grid-template-columns:1fr 1fr}.hero{padding:26px 0 4px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="topbar">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="15" stroke="#2ad6c5" stroke-width="2.5"/>
+        <path d="M24 6v36M6 24h36" stroke="#2ad6c5" stroke-width="2.5"/>
+        <path d="M24 24l9-5M24 24l-9 5" stroke="#5aa9ff" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="24" cy="24" r="4" fill="#ffb547"/>
+      </svg>
+      <div>
+        <div class="nm">HELM</div>
+        <div class="tag">Systematic Equity Engine</div>
+      </div>
+    </div>
+    <span class="badge">Paper</span>
+    <span class="spacer"></span>
+    <span class="upd" id="upd"></span>
+    <a class="back" href="../">‹ Back to hub</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>A systematic engine that trades <span class="thin">the strong, sizes by risk, and steps aside in storms.</span></h1>
+    <p>Helm runs a vol-targeted, regime-gated portfolio over a liquid basket of US mega-caps, index and sector ETFs. It's built on published evidence — momentum + trend, inverse-volatility sizing, a regime gate — and validated honestly. Tracked as a $100k paper book until it earns a live deployment.</p>
+  </section>
+
+  <div id="app"><div class="loading">Loading the latest cycle…</div></div>
+
+  <footer>
+    <b>Helm is a paper-traded research system — not investment advice, not a solicitation.</b> Hypothetical/backtested results have inherent limitations and do not guarantee future returns; the basket is chosen with hindsight, so live forward results are the real test. Built &amp; run in Singapore · part of <a href="../" style="color:var(--teal2,#2ad6c5)">Adam Phang's</a> work.
+  </footer>
+</main>
+
+<script>
+const $ = s => document.querySelector(s);
+const fmt$ = v => '$' + Math.round(v).toLocaleString();
+const pct = (v,d=1) => (v*100).toFixed(d) + '%';
+const sgn = v => v>=0 ? 'pos' : 'neg';
+
+function chart(helm, bench, paperStart){
+  const W=1000, H=340, padL=52, padR=14, padT=16, padB=26;
+  const all = helm.concat(bench);
+  let lo=Infinity, hi=-Infinity;
+  all.forEach(p=>{lo=Math.min(lo,p[1]);hi=Math.max(hi,p[1]);});
+  const ylog = v => Math.log10(v);
+  const y0=ylog(lo), y1=ylog(hi);
+  const n = helm.length;
+  const X = i => padL + (W-padL-padR) * (i/(n-1));
+  const Y = v => padT + (H-padT-padB) * (1 - (ylog(v)-y0)/(y1-y0));
+  const line = arr => arr.map((p,i)=>`${i?'L':'M'}${X(i).toFixed(1)} ${Y(p[1]).toFixed(1)}`).join(' ');
+  // gridlines at nice $ values (log)
+  const ticks=[]; const decs=[1e5,2e5,5e5,1e6,2e6];
+  decs.forEach(v=>{ if(v>=lo*0.9 && v<=hi*1.1) ticks.push(v); });
+  if(!ticks.length){ticks.push(lo,hi);}
+  const grid = ticks.map(v=>`<line x1="${padL}" y1="${Y(v).toFixed(1)}" x2="${W-padR}" y2="${Y(v).toFixed(1)}" stroke="#1a2533" stroke-width="1"/><text class="axlab" x="${padL-7}" y="${(Y(v)+3).toFixed(1)}" text-anchor="end">${v>=1e6?(v/1e6)+'M':(v/1e3)+'k'}</text>`).join('');
+  // paper-start marker
+  let pmark='';
+  const ps = helm.findIndex(p=>p[0]>=paperStart);
+  if(ps>0){ const x=X(ps).toFixed(1); pmark=`<line x1="${x}" y1="${padT}" x2="${x}" y2="${H-padB}" stroke="#ffb547" stroke-width="1" stroke-dasharray="3 3" opacity=".6"/><text class="axlab" x="${x}" y="${padT+10}" fill="#ffb547" text-anchor="middle">paper start</text>`; }
+  // x date labels (year)
+  let xl='';
+  for(let i=0;i<n;i+=Math.floor(n/6)){ xl+=`<text class="axlab" x="${X(i).toFixed(1)}" y="${H-8}" text-anchor="middle">${helm[i][0].slice(0,4)}</text>`; }
+  return `<div class="chartwrap"><svg class="chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
+    ${grid}${pmark}
+    <path d="${line(bench)}" fill="none" stroke="#5a6b82" stroke-width="1.6" opacity=".85"/>
+    <path d="${line(helm)}" fill="none" stroke="#2ad6c5" stroke-width="2.4"/>
+    ${xl}
+  </svg></div>`;
+}
+
+function render(d){
+  $('#upd').innerHTML = `<span class="dot"></span>Updated ${d.updated} · data ${d.last_data}`;
+  const m=d.metrics_full, s=d.metrics_spy, eqNow=d.current_equity;
+  const grossPct = d.holdings.reduce((a,h)=>a+h.weight,0);
+  const html = `
+  <div class="grid cards">
+    <div class="card"><div class="k">Paper equity</div><div class="v">${fmt$(eqNow)}</div><div class="s">from $${(d.start_equity/1000)}k · ${m.yrs}y replay</div></div>
+    <div class="card"><div class="k">Sharpe</div><div class="v">${m.sharpe.toFixed(2)}</div><div class="s">SPY ${s.sharpe.toFixed(2)} · higher is better</div></div>
+    <div class="card"><div class="k">Max drawdown</div><div class="v ${sgn(m.maxdd)}">${pct(m.maxdd)}</div><div class="s">SPY ${pct(s.maxdd)} · less pain</div></div>
+    <div class="card"><div class="k">Invested now</div><div class="v">${pct(grossPct,0)}</div><div class="s">${d.holdings.length} positions · rest cash</div></div>
+  </div>
+
+  <div class="panel">
+    <h2>Equity curve <span class="pill">Helm vs SPY · log scale</span></h2>
+    <div class="legend"><span><i style="background:#2ad6c5"></i>Helm (paper, after costs)</span><span><i style="background:#5a6b82"></i>SPY buy &amp; hold</span><span><i style="background:#ffb547"></i>live paper begins</span></div>
+    ${chart(d.equity, d.bench, d.paper_start)}
+    <div class="note">Full deterministic replay of the validated rules from ${m.start}. The dashed line marks where the <b>forward paper record</b> begins (${d.paper_start}) — everything right of it is the honest, out-of-sample test that has to hold up before any live deployment.</div>
+  </div>
+
+  <div class="two">
+    <div class="panel">
+      <h2>Current portfolio <span class="pill">rebalanced monthly</span></h2>
+      <table><thead><tr><th>Ticker</th><th>Kind</th><th class="r">Weight</th><th>Allocation</th><th class="r">12-mo mom.</th></tr></thead><tbody>
+      ${d.holdings.map(h=>{
+        const kind = d.universe.megacap.includes(h.ticker)?'Mega-cap':d.universe.index.includes(h.ticker)?'Index':d.universe.ballast.includes(h.ticker)?'Ballast':'Sector';
+        return `<tr><td class="tk">${h.ticker}</td><td><span class="kind">${kind}</span></td><td class="r mono">${pct(h.weight)}</td><td><div class="wbar"><i style="width:${Math.min(100,h.weight/0.2*100)}%"></i></div></td><td class="r mono ${sgn(h.mom)}">${pct(h.mom,0)}</td></tr>`;
+      }).join('')}
+      </tbody></table>
+      <div class="note">Names pass a trend gate (above the 200-day &amp; positive 12-month momentum), are ranked by 3/6/12-month strength, and sized <b>inverse to volatility</b> then scaled to a ~${pct(d.params.target_vol,0)} portfolio vol target. When too few qualify, the book sits in cash or ballast.</div>
+    </div>
+
+    <div class="panel">
+      <h2>Helm vs SPY <span class="pill">${m.yrs} years</span></h2>
+      <div class="cmp">
+        <span class="h">Metric</span><span class="h" style="text-align:right">Helm</span><span class="h" style="text-align:right">SPY</span>
+        <span>CAGR</span><span class="me">${pct(m.cagr)}</span><span class="sp">${pct(s.cagr)}</span>
+        <span>Volatility</span><span class="me">${pct(m.vol)}</span><span class="sp">${pct(s.vol)}</span>
+        <span>Sharpe</span><span class="me">${m.sharpe.toFixed(2)}</span><span class="sp">${s.sharpe.toFixed(2)}</span>
+        <span>Max drawdown</span><span class="me ${sgn(m.maxdd)}">${pct(m.maxdd)}</span><span class="sp">${pct(s.maxdd)}</span>
+        <span>Total return</span><span class="me">${pct(m.total,0)}</span><span class="sp">${pct(s.total,0)}</span>
+      </div>
+      <div class="note">The goal isn't to beat SPY's raw number — it's a <b>smoother ride with far smaller drawdowns</b> (the Sharpe and Max-DD rows). Robustness-checked across parameters, out-of-sample, and 3× costs.</div>
+    </div>
+  </div>
+
+  <div class="panel how">
+    <h2>How Helm works <span class="pill">evidence-based · few parameters</span></h2>
+    <ol class="steps">
+      <li><span class="n">01</span><span><b>Trend gate.</b> A name is eligible only above its 200-day average with positive 12-month momentum — the durable drawdown-killer (Faber; Moskowitz-Ooi-Pedersen).</span></li>
+      <li><span class="n">02</span><span><b>Momentum rank.</b> Eligible names ranked by the mean of 3/6/12-month returns (skipping the last month); hold the top ${d.params.holdings_K}. ETFs supply the dispersion mega-caps lack.</span></li>
+      <li><span class="n">03</span><span><b>Inverse-vol sizing → vol target.</b> Each position sized inverse to its volatility, the book scaled to ~${pct(d.params.target_vol,0)} annualised — the engineering, not the signal, is where the Sharpe lift lives (Harvey et al.).</span></li>
+      <li><span class="n">04</span><span><b>Ballast &amp; cash.</b> When too few equities pass the gate, capital sits in cash or bonds/gold — this is how it sidesteps the big drops.</span></li>
+    </ol>
+    <p class="note"><b>Honest expectations:</b> a believable net Sharpe near 0.9–1.1 with drawdowns roughly half of buy-and-hold — not a fantasy. Mean-reversion, long/short and an intraday overlay are next, and each must prove it <i>adds</i> value out-of-sample before it ships. Self-improvement here means staying calibrated and shedding decaying edges — bounded and audited, not magic.</p>
+  </div>
+
+  <div class="panel">
+    <h2>Recent rebalances</h2>
+    <table><thead><tr><th>Date</th><th>Top holdings</th><th class="r">Turnover</th></tr></thead><tbody>
+    ${d.rebalances.slice(0,8).map(r=>`<tr><td class="mono">${r.date}</td><td style="color:var(--ink2)">${r.holdings.slice(0,6).map(h=>h.ticker).join(' · ')}</td><td class="r mono">${pct(r.turnover,0)}</td></tr>`).join('')}
+    </tbody></table>
+  </div>
+  `;
+  $('#app').innerHTML = html;
+}
+
+fetch('data/helm.json?cb='+Date.now()).then(r=>r.json()).then(render).catch(e=>{
+  $('#app').innerHTML='<div class="loading">Could not load the latest cycle. '+e+'</div>';
+});
+</script>
+</body>
+</html>
