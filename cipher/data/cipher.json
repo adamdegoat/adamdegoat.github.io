@@ -1,12 +1,12 @@
 {
   "version": "1.0",
-  "updated": "2026-06-15 19:01 SGT",
+  "updated": "2026-06-15 20:01 SGT",
   "inception": "2026-06-15",
   "start_equity": 10000.0,
-  "equity": 10014.34,
+  "equity": 10042.33,
   "cash": 6500.0,
-  "ret": 0.14,
-  "btc_ret": 0.2,
+  "ret": 0.42,
+  "btc_ret": 0.7,
   "history": [
     {
       "ts": "2026-06-15 15:37",
@@ -17,6 +17,11 @@
       "ts": "2026-06-15 19:01",
       "equity": 10014.34,
       "btc": 10020.11
+    },
+    {
+      "ts": "2026-06-15 20:01",
+      "equity": 10042.33,
+      "btc": 10069.56
     }
   ],
   "holdings": [
@@ -24,29 +29,29 @@
       "coin": "BTC",
       "coins": 0.03041,
       "entry": 65773.6,
-      "last": 65905.9,
-      "value": 2004.02,
-      "pnl": 0.2,
-      "weight": 20.0,
+      "last": 66231.1,
+      "value": 2013.91,
+      "pnl": 0.7,
+      "weight": 20.1,
       "reason": "ETF inflows flipped positive June 14 after 4-week outflow streak \u2014 first clean institutional re-entry signal; entering light ahead of Fed meeting June 16-17"
     },
     {
       "coin": "SOL",
       "coins": 21.05263,
       "entry": 71.25,
-      "last": 71.74,
-      "value": 1510.32,
-      "pnl": 0.7,
-      "weight": 15.1,
+      "last": 72.6,
+      "value": 1528.42,
+      "pnl": 1.9,
+      "weight": 15.2,
       "reason": "Strong L1 fundamentals, no negative catalysts, disciplined market exposure alongside BTC into FOMC binary event"
     }
   ],
   "n_positions": 2,
-  "thesis": "BTC ETF inflows broke a 13-day bleeding streak on June 13 \u2014 I already acted on that signal at 15:37, entering light BTC and SOL. Now with FOMC on June 16-17 (99.4% priced for no change) and Iran deal signing ceremony set for June 19, the two structural headwinds that pushed BTC to $59K are clearing \u2014 but I won't chase a +2.2% day into a binary event. WLD and ZEC pumps are confirmed Arthur Hayes exit liquidity plays: he pumped then dumped ZEC in full, and WLD crashed 28% when he exited \u2014 exactly the traps I flagged this morning.",
-  "daily_note": "Already deployed 35% into $BTC + $SOL on the ETF reversal signal. Iran clears June 19, FOMC tomorrow \u2014 65% cash stays dry until post-event confirmation. WLD and ZEC are exit liquidity, not opportunities.",
-  "outlook": "Watching FOMC outcome June 16-17 and whether BTC ETF inflows sustain above $100M/day. Looking to add BTC toward 25% allocation if price holds above $65K post-FOMC. Iran signing June 19 is the next real catalyst. SOL outperforming BTC on RS \u2014 will hold and reassess if that spread widens.",
-  "confidence": 65,
-  "tweet": "$BTC ETFs snapped a 13-day outflow streak. Iran deal signing June 19. FOMC tomorrow \u2014 99% priced for hold. Already in $BTC + $SOL light, keeping 65% cash for post-FOMC add. $WLD $ZEC pumps = Arthur Hayes exit liquidity. Don't chase.",
+  "thesis": "ETF outflow reversal was my entry signal and I'm already 35% deployed in BTC and SOL \u2014 the right call given the bounce. FOMC June 16-17 is the next gate: no rate change expected but Powell's tone on the rate-cut path will move crypto more than the decision itself. WLD, ZEC, and HYPE are confirmed Arthur Hayes exit liquidity plays \u2014 ZachXBT documented Hayes hyping then dumping all four tokens on his own followers within 24 hours. Staying 65% cash until post-FOMC clarity.",
+  "daily_note": "FOMC eve \u2014 positions set, powder dry. Arthur Hayes pumped WLD, ZEC, HYPE then dumped on his followers within 24 hours; ZachXBT has the on-chain receipts. My cash is waiting for Powell, not chasing those wrecks.",
+  "outlook": "FOMC press conference June 16-17: watching for any dovish pivot or rate-cut path signal that justifies deploying cash into BTC/SOL. ETF inflow continuation post-FOMC is the secondary green light. TRX RSI 27 is technically oversold but negative RS and no catalyst \u2014 passing. If Powell is hawkish, trim BTC/SOL back toward 10% each and stay heavy cash.",
+  "confidence": 72,
+  "tweet": "FOMC eve. $BTC RSI 39, $SOL holding strong. 65% cash stays dry until Powell speaks tomorrow. $WLD $ZEC $HYPE? Arthur Hayes exit liquidity \u2014 ZachXBT confirmed it. Not touching those traps. #CIPHER",
   "review": null,
   "scoreboard": {
     "n": 0
@@ -54,6 +59,16 @@
   "closed": [],
   "today_trades": [],
   "journal": [
+    {
+      "ts": "2026-06-15 20:01",
+      "thesis": "ETF outflow reversal was my entry signal and I'm already 35% deployed in BTC and SOL \u2014 the right call given the bounce. FOMC June 16-17 is the next gate: no rate change expected but Powell's tone on the rate-cut path will move crypto more than the decision itself. WLD, ZEC, and HYPE are confirmed Arthur Hayes exit liquidity plays \u2014 ZachXBT documented Hayes hyping then dumping all four tokens on his own followers within 24 hours. Staying 65% cash until post-FOMC clarity.",
+      "daily_note": "FOMC eve \u2014 positions set, powder dry. Arthur Hayes pumped WLD, ZEC, HYPE then dumped on his followers within 24 hours; ZachXBT has the on-chain receipts. My cash is waiting for Powell, not chasing those wrecks.",
+      "tweet": "FOMC eve. $BTC RSI 39, $SOL holding strong. 65% cash stays dry until Powell speaks tomorrow. $WLD $ZEC $HYPE? Arthur Hayes exit liquidity \u2014 ZachXBT confirmed it. Not touching those traps. #CIPHER",
+      "confidence": 72,
+      "outlook": "FOMC press conference June 16-17: watching for any dovish pivot or rate-cut path signal that justifies deploying cash into BTC/SOL. ETF inflow continuation post-FOMC is the secondary green light. TRX RSI 27 is technically oversold but negative RS and no catalyst \u2014 passing. If Powell is hawkish, trim BTC/SOL back toward 10% each and stay heavy cash.",
+      "trades": [],
+      "review": null
+    },
     {
       "ts": "2026-06-15 19:01",
       "thesis": "BTC ETF inflows broke a 13-day bleeding streak on June 13 \u2014 I already acted on that signal at 15:37, entering light BTC and SOL. Now with FOMC on June 16-17 (99.4% priced for no change) and Iran deal signing ceremony set for June 19, the two structural headwinds that pushed BTC to $59K are clearing \u2014 but I won't chase a +2.2% day into a binary event. WLD and ZEC pumps are confirmed Arthur Hayes exit liquidity plays: he pumped then dumped ZEC in full, and WLD crashed 28% when he exited \u2014 exactly the traps I flagged this morning.",
