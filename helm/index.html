@@ -120,7 +120,7 @@ footer b{color:var(--ink2)}
 <main class="wrap">
   <section class="hero">
     <h1>A systematic engine that trades <span class="thin">the strong, sizes by risk, and steps aside in storms.</span></h1>
-    <p>Helm blends two evidence-based sleeves — a <b>trend</b> sleeve and a <b>mean-reversion</b> sleeve — over a liquid basket of US mega-caps, index and sector ETFs, sized inverse to volatility and scaled to a vol target. Every component is validated out-of-sample and only kept if it adds value. Tracked as a $100k paper book until it earns a live deployment.</p>
+    <p>Helm blends three evidence-based sleeves — <b>trend</b> and <b>mean-reversion</b> on a liquid basket of US equities/ETFs, plus a <b>multi-asset trend</b> sleeve that goes long or short bonds, gold, commodities and the dollar (managed-futures style, ~uncorrelated to stocks). Sized inverse to volatility and scaled to a vol target. Every component is validated out-of-sample and only kept if it adds value. Tracked as a $100k paper book until it earns a live deployment.</p>
   </section>
 
   <div id="app"><div class="loading">Loading the latest cycle…</div></div>
@@ -194,7 +194,7 @@ function render(d){
         return `<tr><td class="tk">${h.ticker} <span style="color:var(--ink3);font-weight:400;font-size:11px">${h.kind}</span></td><td><span class="kind">${h.sleeve}</span></td><td class="r mono ${sgn(h.weight)}">${pct(h.weight)}</td><td><div class="wbar"><i style="width:${Math.min(100,Math.abs(h.weight)/0.12*100)}%"></i></div></td><td class="r mono ${sgn(h.mom)}">${pct(h.mom,0)}</td></tr>`;
       }).join('')}
       </tbody></table>
-      <div class="note">Net of two sleeves. <b>Trend</b> holds names past a 200-day / 12-month gate, ranked by 3/6/12-month strength. <b>Mean-reversion</b> buys short-term oversold dips in uptrends. The blend is sized inverse to volatility and scaled to a ~${pct(d.params.target_vol,0)} vol target (modest leverage allowed). Idle when neither sleeve has a strong signal.</div>
+      <div class="note">Net of three sleeves. <b>Equity trend</b> holds names past a 200-day / 12-month gate. <b>Mean-reversion</b> buys oversold dips in uptrends. <b>Multi-asset trend</b> goes long or short bonds, gold, commodities and the dollar. Sized inverse to volatility, scaled to a ~${pct(d.params.target_vol,0)} vol target (modest leverage). Negative weights are shorts.</div>
     </div>
 
     <div class="panel">
@@ -229,10 +229,10 @@ function render(d){
   <div class="panel how">
     <h2>How Helm works <span class="pill">evidence-based · few parameters</span></h2>
     <ol class="steps">
-      <li><span class="n">01</span><span><b>Trend sleeve.</b> Names above their 200-day with positive 12-month momentum, ranked by 3/6/12-month strength; hold the top ${d.params.trend_K||6}. The durable drawdown-killer (Faber; Moskowitz-Ooi-Pedersen).</span></li>
-      <li><span class="n">02</span><span><b>Mean-reversion sleeve.</b> Buys short-term oversold dips (RSI-2) in names that are still in uptrends — a different clock from trend, so it diversifies (Connors; Lou-Polk-Skouras).</span></li>
-      <li><span class="n">03</span><span><b>Inverse-vol sizing → vol target.</b> Sized inverse to volatility, the blend scaled to ~${pct(d.params.target_vol,0)} annualised with modest leverage — the engineering, not the signal, is where the Sharpe lives (Harvey et al.).</span></li>
-      <li><span class="n">04</span><span><b>Ensemble + honest validation.</b> The two sleeves are blended equally; every candidate sleeve must beat the existing mix out-of-sample or it's cut. Cash/ballast when neither fires.</span></li>
+      <li><span class="n">01</span><span><b>Equity trend sleeve.</b> Names above their 200-day with positive 12-month momentum, ranked by 3/6/12-month strength. The durable drawdown-killer (Faber; Moskowitz-Ooi-Pedersen).</span></li>
+      <li><span class="n">02</span><span><b>Mean-reversion sleeve.</b> Buys short-term oversold dips (RSI-2) in names still in uptrends — a different clock from trend, so it diversifies (Connors; Lou-Polk-Skouras).</span></li>
+      <li><span class="n">03</span><span><b>Multi-asset trend sleeve.</b> Managed-futures style — long <i>or</i> short bonds, credit, gold, commodities and the dollar by their own trend. ~Zero correlation to stocks, so it cuts drawdowns (AQR's century of trend evidence).</span></li>
+      <li><span class="n">04</span><span><b>Inverse-vol sizing → vol target → honest validation.</b> Sleeves blended equally, sized to ~${pct(d.params.target_vol,0)} vol with modest leverage. Every candidate must beat the existing mix out-of-sample or it's cut.</span></li>
     </ol>
     <p class="note"><b>Honest expectations:</b> a believable net Sharpe near <b>1.0–1.1</b> with drawdowns roughly a third of buy-and-hold — not a fantasy. As a bias check, a version that ranks the <i>entire S&amp;P 500</i> (no hand-picked names) was tested: it lands near Sharpe 1.0, so the curated basket's 1.13 carries a little hindsight-selection premium — real forward results should sit closer to <b>1.0</b>. Self-improvement here means staying calibrated and shedding decaying edges — bounded and audited, not magic.</p>
   </div>
