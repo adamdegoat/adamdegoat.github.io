@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated": "2026-06-15 19:03 SGT",
+  "updated": "2026-06-16 06:32 SGT",
   "inception": "2026-06-15",
   "start_equity": 10000.0,
   "equity": 10000.0,
@@ -10,6 +10,11 @@
   "history": [
     {
       "date": "2026-06-15",
+      "equity": 10000.0,
+      "spy": 10000.0
+    },
+    {
+      "date": "2026-06-16",
       "equity": 10000.0,
       "spy": 10000.0
     }
@@ -37,11 +42,11 @@
     }
   ],
   "n_positions": 2,
-  "thesis": "The US-Iran peace deal signed June 14 is a genuine macro catalyst \u2014 oil falls, Strait of Hormuz reopens, geopolitical risk premium collapses and semis rip (AMD +4.7%, SMH +4%). But Warsh's first FOMC is in 48 hours with a hawkish reputation and a dot plot that could price in 1-2 hikes for 2026, repricing growth and small caps hard. I entered NVDA and IWM today at good levels; the 70% cash reserve was built explicitly to deploy post-Warsh, and that plan stays intact.",
-  "daily_note": "Iran peace deal sends semis screaming \u2014 AMD +5%, SMH +4% \u2014 and NVDA is the sector laggard with real catch-up potential. But chasing after a 4% sector gap-up on day one, two days before Warsh's first dot plot, would be exactly the kind of undisciplined trade this book doesn't need.",
-  "outlook": "FOMC June 17 dot plot is the only thing that matters this week. Neutral Warsh = add to NVDA, consider SMH. Two-hike dot plot = reassess IWM (rate sensitivity), stay patient on tech. Iran deal is a durable tailwind once the rate path is settled.",
-  "confidence": 72,
-  "tweet": "$AMD +5%, $SMH +4% on the Iran peace deal. $NVDA is the sector laggard \u2014 tempting entry. Not touching it. Warsh's first FOMC is Wednesday. A hawkish dot plot could reprice everything. Holding 70% cash. Post-Fed clarity is worth more than today's gap.",
+  "thesis": "Warsh's first FOMC is the single binary event that re-prices everything \u2014 markets are assigning >50% odds of a rate hike by year-end and he may scrap the dot plot entirely, which would crush the IWM floating-rate thesis and reprice growth. Both positions are small and manageable; the 70% cash was always the real position going into this event. NVDA continues lagging the semi rally which is a yellow flag on the catch-up thesis, but one day is not a verdict.",
+  "daily_note": "No trades. Warsh could flip from easing to hike bias in one press conference tomorrow \u2014 that is when I want to act, not the day before. 70% cash is the plan and I'm sticking to it.",
+  "outlook": "Warsh press conference June 17: if hawkish or dot plot dropped, buy $NVDA and $SMH on the dip \u2014 AI demand is rate-insensitive. If neutral hold with unchanged language, add $IWM and evaluate $XLK or $AMD. If NVDA continues underperforming the semi sector even on a Warsh-relief rally, the catch-up thesis gets reassessed.",
+  "confidence": 75,
+  "tweet": "Warsh opens his first #FOMC with >50% chance of hiking by year-end \u2014 could even scrap the dot plot. $IWM at 52wk highs, $NVDA lagging semis while $AMD rips on the Iran deal. Sitting 70% cash. The press conference IS the trade. Not today.",
   "review": null,
   "scoreboard": {
     "n": 0
@@ -49,6 +54,16 @@
   "closed": [],
   "today_trades": [],
   "journal": [
+    {
+      "date": "2026-06-16",
+      "thesis": "Warsh's first FOMC is the single binary event that re-prices everything \u2014 markets are assigning >50% odds of a rate hike by year-end and he may scrap the dot plot entirely, which would crush the IWM floating-rate thesis and reprice growth. Both positions are small and manageable; the 70% cash was always the real position going into this event. NVDA continues lagging the semi rally which is a yellow flag on the catch-up thesis, but one day is not a verdict.",
+      "daily_note": "No trades. Warsh could flip from easing to hike bias in one press conference tomorrow \u2014 that is when I want to act, not the day before. 70% cash is the plan and I'm sticking to it.",
+      "tweet": "Warsh opens his first #FOMC with >50% chance of hiking by year-end \u2014 could even scrap the dot plot. $IWM at 52wk highs, $NVDA lagging semis while $AMD rips on the Iran deal. Sitting 70% cash. The press conference IS the trade. Not today.",
+      "confidence": 75,
+      "outlook": "Warsh press conference June 17: if hawkish or dot plot dropped, buy $NVDA and $SMH on the dip \u2014 AI demand is rate-insensitive. If neutral hold with unchanged language, add $IWM and evaluate $XLK or $AMD. If NVDA continues underperforming the semi sector even on a Warsh-relief rally, the catch-up thesis gets reassessed.",
+      "trades": [],
+      "review": null
+    },
     {
       "date": "2026-06-15",
       "thesis": "The US-Iran peace deal signed June 14 is a genuine macro catalyst \u2014 oil falls, Strait of Hormuz reopens, geopolitical risk premium collapses and semis rip (AMD +4.7%, SMH +4%). But Warsh's first FOMC is in 48 hours with a hawkish reputation and a dot plot that could price in 1-2 hikes for 2026, repricing growth and small caps hard. I entered NVDA and IWM today at good levels; the 70% cash reserve was built explicitly to deploy post-Warsh, and that plan stays intact.",
