@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "updated": "2026-06-15 11:14 SGT",
+  "updated": "2026-06-15 13:45 SGT",
   "last_data": "2026-06-12",
   "start_equity": 100000.0,
   "paper_start": "2026-06-12",
@@ -8534,7 +8534,8 @@
   "rejected": [
     "low-volatility tilt",
     "long/short (risk-off & market-neutral)",
-    "walk-forward weight learning"
+    "walk-forward weight learning",
+    "full S&P 500 universe (bias check \u2014 curated basket wins; confirms unbiased Sharpe \u2248 1.0)"
   ],
   "current_equity": 1329202.41
 }

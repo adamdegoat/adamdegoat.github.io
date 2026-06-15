@@ -234,7 +234,7 @@ function render(d){
       <li><span class="n">03</span><span><b>Inverse-vol sizing → vol target.</b> Sized inverse to volatility, the blend scaled to ~${pct(d.params.target_vol,0)} annualised with modest leverage — the engineering, not the signal, is where the Sharpe lives (Harvey et al.).</span></li>
       <li><span class="n">04</span><span><b>Ensemble + honest validation.</b> The two sleeves are blended equally; every candidate sleeve must beat the existing mix out-of-sample or it's cut. Cash/ballast when neither fires.</span></li>
     </ol>
-    <p class="note"><b>Honest expectations:</b> a believable net Sharpe near 1.1 with drawdowns roughly a third of buy-and-hold — not a fantasy. The intraday "close-trade" overlay is the next candidate, but it can't be honestly backtested on free data, so it'll run forward-only and clearly flagged. Self-improvement here means staying calibrated and shedding decaying edges — bounded and audited, not magic.</p>
+    <p class="note"><b>Honest expectations:</b> a believable net Sharpe near <b>1.0–1.1</b> with drawdowns roughly a third of buy-and-hold — not a fantasy. As a bias check, a version that ranks the <i>entire S&amp;P 500</i> (no hand-picked names) was tested: it lands near Sharpe 1.0, so the curated basket's 1.13 carries a little hindsight-selection premium — real forward results should sit closer to <b>1.0</b>. Self-improvement here means staying calibrated and shedding decaying edges — bounded and audited, not magic.</p>
   </div>
 
   <div class="panel">
