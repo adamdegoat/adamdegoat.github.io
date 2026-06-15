@@ -126,25 +126,16 @@ function render(d){
     <div class="card"><div class="k">vs Bitcoin</div><div class="v ${sgn(d.ret-d.btc_ret)}">${(d.ret-d.btc_ret)>=0?'+':''}${(d.ret-d.btc_ret).toFixed(2)}%</div><div class="s">BTC ${d.btc_ret>=0?'+':''}${d.btc_ret}%</div></div>
     <div class="card"><div class="k">Positions</div><div class="v">${d.n_positions}</div><div class="s">${Math.round(d.cash/d.equity*100)}% cash</div></div>
   </div>
-  <div class="two">
-    <div class="panel">
-      <h2>⚡ Cipher's latest move ${d.confidence!=null?`<span class="pill">conviction ${d.confidence}/100</span>`:''}</h2>
-      <div class="note-big">${d.daily_note||'—'}</div>
-      ${trades.length?`<div class="move-tags">${trades.map(t=>`<span class="mtag ${t.action.toLowerCase()}">${t.action} $${Math.round(t.usd)} ${t.coin}</span>`).join('')}</div>`:'<div class="move-tags"><span class="mtag" style="color:var(--ink3)">HOLD · no trades this cycle</span></div>'}
-    </div>
-    <div class="panel">
-      <h2>𝕏 Post this update</h2>
-      <div class="tweetcard">
-        <div class="tweethead"><span class="av">C</span><div><div class="h">Cipher</div><div class="u">@your_handle</div></div></div>
-        <div class="tweettext" id="tw">${cash((tw||'').replace(/</g,'&lt;'))||'<span style="color:var(--ink3)">No post this cycle.</span>'}</div>
-        <div class="tweetbar"><a class="btn btn-x" href="${xurl}" target="_blank" rel="noopener">𝕏 Post to X</a><button class="btn btn-copy" onclick="copyTweet()">⧉ Copy</button><span class="cc">${tw.length}/280</span></div>
-      </div>
-    </div>
+  <div class="panel">
+    <h2>⚡ Cipher's latest move ${d.confidence!=null?`<span class="pill">conviction ${d.confidence}/100</span>`:''}</h2>
+    <div class="note-big">${d.daily_note||'—'}</div>
+    ${trades.length?`<div class="move-tags">${trades.map(t=>`<span class="mtag ${t.action.toLowerCase()}">${t.action} $${Math.round(t.usd)} ${t.coin}</span>`).join('')}</div>`:'<div class="move-tags"><span class="mtag" style="color:var(--ink3)">HOLD · no trades this cycle</span></div>'}
   </div>
+  <div class="panel"><h2>💼 Holdings <span class="pill">what it owns · entry → now</span></h2>${d.holdings.length?`<table><thead><tr><th>Coin</th><th class="r">Weight</th><th class="r">Entry → Now</th><th class="r">P&amp;L</th><th>Why Cipher owns it</th></tr></thead><tbody>${d.holdings.map(h=>`<tr><td><span class="tk">${h.coin}</span><div class="mono" style="font-size:11px;color:var(--ink3)">$${h.value.toLocaleString()}</div></td><td class="r mono">${h.weight}%</td><td class="r mono" style="white-space:nowrap">$${h.entry} <span style="color:var(--ink3)">→</span> $${h.last}</td><td class="r mono ${sgn(h.pnl)}">${h.pnl>=0?'+':''}${h.pnl}%</td><td class="rsn">${h.reason||'—'}</td></tr>`).join('')}</tbody></table>`:'<div style="color:var(--ink3);font-size:13px">All USDT right now.</div>'}</div>
   <div class="panel"><h2>💭 Current thesis</h2><div class="thesis">${d.thesis||'—'}</div>${d.outlook?`<h2 style="margin-top:16px">👀 Watching next</h2><div class="outlook">${d.outlook}</div>`:''}</div>
   <div class="panel"><h2>📈 Equity curve <span class="pill">Cipher vs holding BTC · from $${(d.start_equity/1000)}k</span></h2><div class="legend"><span><i style="background:#f7931a"></i>Cipher</span><span><i style="background:#6e6483"></i>Hold BTC</span></div>${chart(d.history)}</div>
-  <div class="panel"><h2>💼 Holdings</h2>${d.holdings.length?`<table><thead><tr><th>Coin</th><th class="r">Weight</th><th class="r">Entry → Now</th><th class="r">P&amp;L</th><th>Why Cipher owns it</th></tr></thead><tbody>${d.holdings.map(h=>`<tr><td><span class="tk">${h.coin}</span><div class="mono" style="font-size:11px;color:var(--ink3)">$${h.value.toLocaleString()}</div></td><td class="r mono">${h.weight}%</td><td class="r mono" style="white-space:nowrap">$${h.entry} <span style="color:var(--ink3)">→</span> $${h.last}</td><td class="r mono ${sgn(h.pnl)}">${h.pnl>=0?'+':''}${h.pnl}%</td><td class="rsn">${h.reason||'—'}</td></tr>`).join('')}</tbody></table>`:'<div style="color:var(--ink3);font-size:13px">All USDT right now.</div>'}</div>
-  <div class="panel"><h2>📜 Cipher's journal <span class="pill">its thinking, cycle by cycle</span></h2><div class="feed">${d.journal.map(j=>`<div class="fitem"><div class="fdate">${j.ts}</div><div class="fnote">${j.daily_note||j.thesis||'—'}</div>${(j.trades&&j.trades.length)?`<div class="ftrades">${j.trades.map(t=>`<span>${t.action} ${t.coin} $${Math.round(t.usd)}</span>`).join('')}</div>`:''}</div>`).join('')}</div></div>`;
+  <div class="panel"><h2>📜 Cipher's journal <span class="pill">its thinking, cycle by cycle</span></h2><div class="feed">${d.journal.map(j=>`<div class="fitem"><div class="fdate">${j.ts}</div><div class="fnote">${j.daily_note||j.thesis||'—'}</div>${(j.trades&&j.trades.length)?`<div class="ftrades">${j.trades.map(t=>`<span>${t.action} ${t.coin} $${Math.round(t.usd)}</span>`).join('')}</div>`:''}</div>`).join('')}</div></div>
+  <div class="panel"><h2>𝕏 Post to X <span class="pill">your tool · personal</span></h2><div class="tweetcard"><div class="tweethead"><span class="av">C</span><div><div class="h">Cipher</div><div class="u">@your_handle</div></div></div><div class="tweettext" id="tw">${cash((tw||'').replace(/</g,'&lt;'))||'<span style="color:var(--ink3)">No post this cycle.</span>'}</div><div class="tweetbar"><a class="btn btn-x" href="${xurl}" target="_blank" rel="noopener">𝕏 Post to X</a><button class="btn btn-copy" onclick="copyTweet()">⧉ Copy</button><span class="cc">${tw.length}/280</span></div></div></div>`;
   window.__tweet=d.tweet||'';
 }
 function copyTweet(){navigator.clipboard.writeText(window.__tweet||'').then(()=>{const t=$('#toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1400);});}

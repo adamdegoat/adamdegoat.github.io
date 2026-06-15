@@ -171,24 +171,17 @@ function render(d){
     <div class="card"><div class="k">Positions</div><div class="v">${d.n_positions}</div><div class="s">${Math.round(d.cash/d.equity*100)}% cash</div></div>
   </div>
 
-  <div class="two">
-    <div class="panel">
-      <h2>🧭 Sage's latest move ${d.confidence!=null?`<span class="pill">conviction ${d.confidence}/100</span>`:''}</h2>
-      <div class="note-big">${d.daily_note||'—'}</div>
-      ${trades.length?`<div class="move-tags">${trades.map(t=>`<span class="mtag ${t.action.toLowerCase()}">${t.action} $${Math.round(t.usd)} ${t.ticker}</span>`).join('')}</div>`:'<div class="move-tags"><span class="mtag" style="color:var(--ink3)">HOLD · no trades today</span></div>'}
-    </div>
-    <div class="panel">
-      <h2>𝕏 Post this update</h2>
-      <div class="tweetcard">
-        <div class="tweethead"><span class="av">S</span><div><div class="h">Sage</div><div class="u">@your_handle</div></div></div>
-        <div class="tweettext" id="tw">${cash(tw.replace(/</g,'&lt;'))||'<span style="color:var(--ink3)">No post this cycle.</span>'}</div>
-        <div class="tweetbar">
-          <a class="btn btn-x" href="${xurl}" target="_blank" rel="noopener">𝕏 Post to X</a>
-          <button class="btn btn-copy" onclick="copyTweet()">⧉ Copy</button>
-          <span class="cc">${tw.length}/280</span>
-        </div>
-      </div>
-    </div>
+  <div class="panel">
+    <h2>🧭 Sage's latest move ${d.confidence!=null?`<span class="pill">conviction ${d.confidence}/100</span>`:''}</h2>
+    <div class="note-big">${d.daily_note||'—'}</div>
+    ${trades.length?`<div class="move-tags">${trades.map(t=>`<span class="mtag ${t.action.toLowerCase()}">${t.action} $${Math.round(t.usd)} ${t.ticker}</span>`).join('')}</div>`:'<div class="move-tags"><span class="mtag" style="color:var(--ink3)">HOLD · no trades today</span></div>'}
+  </div>
+
+  <div class="panel">
+    <h2>💼 Holdings <span class="pill">what it owns · entry → now</span></h2>
+    ${d.holdings.length?`<table><thead><tr><th>Ticker</th><th class="r">Weight</th><th class="r">Entry → Now</th><th class="r">P&amp;L</th><th>Why Sage owns it</th></tr></thead><tbody>
+    ${d.holdings.map(h=>`<tr><td><span class="tk">${h.ticker}</span><div class="mono" style="font-size:11px;color:var(--ink3)">$${h.value.toLocaleString()}</div></td><td class="r mono">${h.weight}%</td><td class="r mono" style="white-space:nowrap">$${h.entry} <span style="color:var(--ink3)">→</span> $${h.last}</td><td class="r mono ${sgn(h.pnl)}">${h.pnl>=0?'+':''}${h.pnl}%</td><td class="rsn">${h.reason||'—'}</td></tr>`).join('')}
+    </tbody></table>`:'<div style="color:var(--ink3);font-size:13px">All cash right now.</div>'}
   </div>
 
   <div class="panel">
@@ -204,16 +197,22 @@ function render(d){
   </div>
 
   <div class="panel">
-    <h2>💼 Holdings</h2>
-    ${d.holdings.length?`<table><thead><tr><th>Ticker</th><th class="r">Weight</th><th class="r">Entry → Now</th><th class="r">P&amp;L</th><th>Why Sage owns it</th></tr></thead><tbody>
-    ${d.holdings.map(h=>`<tr><td><span class="tk">${h.ticker}</span><div class="mono" style="font-size:11px;color:var(--ink3)">$${h.value.toLocaleString()}</div></td><td class="r mono">${h.weight}%</td><td class="r mono" style="white-space:nowrap">$${h.entry} <span style="color:var(--ink3)">→</span> $${h.last}</td><td class="r mono ${sgn(h.pnl)}">${h.pnl>=0?'+':''}${h.pnl}%</td><td class="rsn">${h.reason||'—'}</td></tr>`).join('')}
-    </tbody></table>`:'<div style="color:var(--ink3);font-size:13px">All cash right now.</div>'}
-  </div>
-
-  <div class="panel">
     <h2>📜 Sage's journal <span class="pill">its thinking, day by day</span></h2>
     <div class="feed">
     ${d.journal.map(j=>`<div class="fitem"><div class="fdate">${j.date}</div><div class="fnote">${j.daily_note||j.thesis||'—'}</div>${(j.trades&&j.trades.length)?`<div class="ftrades">${j.trades.map(t=>`<span>${t.action} ${t.ticker} $${Math.round(t.usd)}</span>`).join('')}</div>`:''}</div>`).join('')}
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>𝕏 Post to X <span class="pill">your tool · personal</span></h2>
+    <div class="tweetcard">
+      <div class="tweethead"><span class="av">S</span><div><div class="h">Sage</div><div class="u">@your_handle</div></div></div>
+      <div class="tweettext" id="tw">${cash(tw.replace(/</g,'&lt;'))||'<span style="color:var(--ink3)">No post this cycle.</span>'}</div>
+      <div class="tweetbar">
+        <a class="btn btn-x" href="${xurl}" target="_blank" rel="noopener">𝕏 Post to X</a>
+        <button class="btn btn-copy" onclick="copyTweet()">⧉ Copy</button>
+        <span class="cc">${tw.length}/280</span>
+      </div>
     </div>
   </div>
   `;
