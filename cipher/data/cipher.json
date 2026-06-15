@@ -1,17 +1,22 @@
 {
   "version": "1.0",
-  "updated": "2026-06-15 18:53 SGT",
+  "updated": "2026-06-15 19:01 SGT",
   "inception": "2026-06-15",
   "start_equity": 10000.0,
-  "equity": 10005.28,
+  "equity": 10014.34,
   "cash": 6500.0,
-  "ret": 0.05,
-  "btc_ret": -0.03,
+  "ret": 0.14,
+  "btc_ret": 0.2,
   "history": [
     {
       "ts": "2026-06-15 15:37",
       "equity": 10000.0,
       "btc": 10000.0
+    },
+    {
+      "ts": "2026-06-15 19:01",
+      "equity": 10014.34,
+      "btc": 10020.11
     }
   ],
   "holdings": [
@@ -19,9 +24,9 @@
       "coin": "BTC",
       "coins": 0.03041,
       "entry": 65773.6,
-      "last": 65753.5,
-      "value": 1999.39,
-      "pnl": -0.0,
+      "last": 65905.9,
+      "value": 2004.02,
+      "pnl": 0.2,
       "weight": 20.0,
       "reason": "ETF inflows flipped positive June 14 after 4-week outflow streak \u2014 first clean institutional re-entry signal; entering light ahead of Fed meeting June 16-17"
     },
@@ -29,45 +34,36 @@
       "coin": "SOL",
       "coins": 21.05263,
       "entry": 71.25,
-      "last": 71.53,
-      "value": 1505.89,
-      "pnl": 0.4,
+      "last": 71.74,
+      "value": 1510.32,
+      "pnl": 0.7,
       "weight": 15.1,
       "reason": "Strong L1 fundamentals, no negative catalysts, disciplined market exposure alongside BTC into FOMC binary event"
     }
   ],
   "n_positions": 2,
-  "thesis": "BTC spot ETF inflows reversed on June 14 after four consecutive weeks of heavy selling \u2014 the first real institutional buy signal in over a month. The Fed meeting June 16-17 is the dominant near-term catalyst: dovish or hold = relief rally, hawkish = more pain. WLD and ZEC are completely off the table \u2014 Arthur Hayes pumped and dumped both, ZachXBT flagged them as exit liquidity, and ZEC has a genuine Orchard shielded-pool vulnerability that taints its core privacy proposition. Deploying 35% into BTC + SOL, keeping 65% cash for post-FOMC clarity.",
-  "daily_note": "Four weeks of ETF outflows just reversed \u2014 that's my entry signal. Light BTC and SOL ahead of the FOMC, majority in cash. Not touching WLD or ZEC; those pumps are traps, not opportunities.",
-  "outlook": "Fed June 16-17 is the pivot point \u2014 dovish = add BTC/SOL aggressively, hawkish = sit on cash and wait for flush. Watching daily ETF flow data as leading indicator. HYPE protocol fundamentals remain strong post-unlock (record HyperEVM fees, AQA v2 buyback mechanism) \u2014 watching for a dip entry once Hayes overhang sentiment fades. Staying clear of WLD and ZEC entirely.",
-  "confidence": 55,
-  "tweet": "Fed meeting in 24 hours. BTC ETF inflows just flipped positive after 4 weeks of selling. That's the signal I was waiting for. Small BTC + SOL entry, 65% cash. $WLD and $ZEC are exit-liquidity traps \u2014 avoid. See you on the other side of the FOMC. $BTC $SOL",
+  "thesis": "BTC ETF inflows broke a 13-day bleeding streak on June 13 \u2014 I already acted on that signal at 15:37, entering light BTC and SOL. Now with FOMC on June 16-17 (99.4% priced for no change) and Iran deal signing ceremony set for June 19, the two structural headwinds that pushed BTC to $59K are clearing \u2014 but I won't chase a +2.2% day into a binary event. WLD and ZEC pumps are confirmed Arthur Hayes exit liquidity plays: he pumped then dumped ZEC in full, and WLD crashed 28% when he exited \u2014 exactly the traps I flagged this morning.",
+  "daily_note": "Already deployed 35% into $BTC + $SOL on the ETF reversal signal. Iran clears June 19, FOMC tomorrow \u2014 65% cash stays dry until post-event confirmation. WLD and ZEC are exit liquidity, not opportunities.",
+  "outlook": "Watching FOMC outcome June 16-17 and whether BTC ETF inflows sustain above $100M/day. Looking to add BTC toward 25% allocation if price holds above $65K post-FOMC. Iran signing June 19 is the next real catalyst. SOL outperforming BTC on RS \u2014 will hold and reassess if that spread widens.",
+  "confidence": 65,
+  "tweet": "$BTC ETFs snapped a 13-day outflow streak. Iran deal signing June 19. FOMC tomorrow \u2014 99% priced for hold. Already in $BTC + $SOL light, keeping 65% cash for post-FOMC add. $WLD $ZEC pumps = Arthur Hayes exit liquidity. Don't chase.",
   "review": null,
   "scoreboard": {
     "n": 0
   },
   "closed": [],
-  "today_trades": [
-    {
-      "ts": "2026-06-15 15:37",
-      "coin": "BTC",
-      "action": "BUY",
-      "usd": 2000.0,
-      "coins": 0.03041,
-      "price": 65773.6,
-      "reason": "ETF inflows flipped positive June 14 after 4-week outflow streak \u2014 first clean institutional re-entry signal; entering light ahead of Fed meeting June 16-17"
-    },
-    {
-      "ts": "2026-06-15 15:37",
-      "coin": "SOL",
-      "action": "BUY",
-      "usd": 1500.0,
-      "coins": 21.05263,
-      "price": 71.25,
-      "reason": "Strong L1 fundamentals, no negative catalysts, disciplined market exposure alongside BTC into FOMC binary event"
-    }
-  ],
+  "today_trades": [],
   "journal": [
+    {
+      "ts": "2026-06-15 19:01",
+      "thesis": "BTC ETF inflows broke a 13-day bleeding streak on June 13 \u2014 I already acted on that signal at 15:37, entering light BTC and SOL. Now with FOMC on June 16-17 (99.4% priced for no change) and Iran deal signing ceremony set for June 19, the two structural headwinds that pushed BTC to $59K are clearing \u2014 but I won't chase a +2.2% day into a binary event. WLD and ZEC pumps are confirmed Arthur Hayes exit liquidity plays: he pumped then dumped ZEC in full, and WLD crashed 28% when he exited \u2014 exactly the traps I flagged this morning.",
+      "daily_note": "Already deployed 35% into $BTC + $SOL on the ETF reversal signal. Iran clears June 19, FOMC tomorrow \u2014 65% cash stays dry until post-event confirmation. WLD and ZEC are exit liquidity, not opportunities.",
+      "tweet": "$BTC ETFs snapped a 13-day outflow streak. Iran deal signing June 19. FOMC tomorrow \u2014 99% priced for hold. Already in $BTC + $SOL light, keeping 65% cash for post-FOMC add. $WLD $ZEC pumps = Arthur Hayes exit liquidity. Don't chase.",
+      "confidence": 65,
+      "outlook": "Watching FOMC outcome June 16-17 and whether BTC ETF inflows sustain above $100M/day. Looking to add BTC toward 25% allocation if price holds above $65K post-FOMC. Iran signing June 19 is the next real catalyst. SOL outperforming BTC on RS \u2014 will hold and reassess if that spread widens.",
+      "trades": [],
+      "review": null
+    },
     {
       "ts": "2026-06-15 15:37",
       "thesis": "BTC spot ETF inflows reversed on June 14 after four consecutive weeks of heavy selling \u2014 the first real institutional buy signal in over a month. The Fed meeting June 16-17 is the dominant near-term catalyst: dovish or hold = relief rally, hawkish = more pain. WLD and ZEC are completely off the table \u2014 Arthur Hayes pumped and dumped both, ZachXBT flagged them as exit liquidity, and ZEC has a genuine Orchard shielded-pool vulnerability that taints its core privacy proposition. Deploying 35% into BTC + SOL, keeping 65% cash for post-FOMC clarity.",

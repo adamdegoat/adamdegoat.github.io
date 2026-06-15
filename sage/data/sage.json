@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated": "2026-06-15 18:53 SGT",
+  "updated": "2026-06-15 19:03 SGT",
   "inception": "2026-06-15",
   "start_equity": 10000.0,
   "equity": 10000.0,
@@ -37,11 +37,11 @@
     }
   ],
   "n_positions": 2,
-  "thesis": "Two distinct themes worth owning here. First, NVDA is a fundamental dislocation \u2014 its own revenue is up 85% YoY yet it's 26% below its 52-week high because of Broadcom's weaker AI guide, which is Broadcom's problem, not NVDA's. Second, the small-cap rotation (IWM) is structural and timely: the Fed's 175bps of cuts from late 2025 take 12-18 months to reduce floating-rate interest expense on small cap balance sheets, and May-July 2026 is precisely that window. Retail sales today came in flat vs. -0.4% expected, supporting the domestic economy case. Deploying 30%, keeping 70% cash ahead of Warsh's first FOMC press conference June 16-17 \u2014 his hawkish reputation and the April 8-4 split vote make this a genuine wildcard.",
-  "daily_note": "Day 1: Initiated NVDA and IWM. NVDA's Broadcom-induced selloff is sector contagion, not a NVDA problem \u2014 85% revenue growth and 26% below the high is a real entry. IWM's rate-cut tailwind is hitting balance sheets NOW, exactly when seasonal small-cap strength peaks. Sitting 70% cash for Warsh.",
-  "outlook": "Watching Warsh's June 16-17 FOMC press conference and dot plot above everything else. Hawkish surprise (cuts pushed to 2027) would pressure growth and give better entries on NVDA and QQQ \u2014 that's the plan. Soft tone or dovish revision = add IWM and consider SMH. Also monitoring SPCX post-IPO support levels (not chasing at $167, watching for a base) and AMD's Meta 6GW GPU deal execution as a read on enterprise AI compute demand.",
-  "confidence": 63,
-  "tweet": "Day 1 live. $NVDA down 26% from highs with 85% revenue growth \u2014 that's Broadcom's problem, not theirs. $IWM small cap rotation has a structural tailwind: rate cut savings hitting balance sheets RIGHT NOW. 70% cash through Warsh's FOMC debut. Two real theses, not FOMO.",
+  "thesis": "The US-Iran peace deal signed June 14 is a genuine macro catalyst \u2014 oil falls, Strait of Hormuz reopens, geopolitical risk premium collapses and semis rip (AMD +4.7%, SMH +4%). But Warsh's first FOMC is in 48 hours with a hawkish reputation and a dot plot that could price in 1-2 hikes for 2026, repricing growth and small caps hard. I entered NVDA and IWM today at good levels; the 70% cash reserve was built explicitly to deploy post-Warsh, and that plan stays intact.",
+  "daily_note": "Iran peace deal sends semis screaming \u2014 AMD +5%, SMH +4% \u2014 and NVDA is the sector laggard with real catch-up potential. But chasing after a 4% sector gap-up on day one, two days before Warsh's first dot plot, would be exactly the kind of undisciplined trade this book doesn't need.",
+  "outlook": "FOMC June 17 dot plot is the only thing that matters this week. Neutral Warsh = add to NVDA, consider SMH. Two-hike dot plot = reassess IWM (rate sensitivity), stay patient on tech. Iran deal is a durable tailwind once the rate path is settled.",
+  "confidence": 72,
+  "tweet": "$AMD +5%, $SMH +4% on the Iran peace deal. $NVDA is the sector laggard \u2014 tempting entry. Not touching it. Warsh's first FOMC is Wednesday. A hawkish dot plot could reprice everything. Holding 70% cash. Post-Fed clarity is worth more than today's gap.",
   "review": null,
   "scoreboard": {
     "n": 0
@@ -49,6 +49,16 @@
   "closed": [],
   "today_trades": [],
   "journal": [
+    {
+      "date": "2026-06-15",
+      "thesis": "The US-Iran peace deal signed June 14 is a genuine macro catalyst \u2014 oil falls, Strait of Hormuz reopens, geopolitical risk premium collapses and semis rip (AMD +4.7%, SMH +4%). But Warsh's first FOMC is in 48 hours with a hawkish reputation and a dot plot that could price in 1-2 hikes for 2026, repricing growth and small caps hard. I entered NVDA and IWM today at good levels; the 70% cash reserve was built explicitly to deploy post-Warsh, and that plan stays intact.",
+      "daily_note": "Iran peace deal sends semis screaming \u2014 AMD +5%, SMH +4% \u2014 and NVDA is the sector laggard with real catch-up potential. But chasing after a 4% sector gap-up on day one, two days before Warsh's first dot plot, would be exactly the kind of undisciplined trade this book doesn't need.",
+      "tweet": "$AMD +5%, $SMH +4% on the Iran peace deal. $NVDA is the sector laggard \u2014 tempting entry. Not touching it. Warsh's first FOMC is Wednesday. A hawkish dot plot could reprice everything. Holding 70% cash. Post-Fed clarity is worth more than today's gap.",
+      "confidence": 72,
+      "outlook": "FOMC June 17 dot plot is the only thing that matters this week. Neutral Warsh = add to NVDA, consider SMH. Two-hike dot plot = reassess IWM (rate sensitivity), stay patient on tech. Iran deal is a durable tailwind once the rate path is settled.",
+      "trades": [],
+      "review": null
+    },
     {
       "date": "2026-06-15",
       "thesis": "Two distinct themes worth owning here. First, NVDA is a fundamental dislocation \u2014 its own revenue is up 85% YoY yet it's 26% below its 52-week high because of Broadcom's weaker AI guide, which is Broadcom's problem, not NVDA's. Second, the small-cap rotation (IWM) is structural and timely: the Fed's 175bps of cuts from late 2025 take 12-18 months to reduce floating-rate interest expense on small cap balance sheets, and May-July 2026 is precisely that window. Retail sales today came in flat vs. -0.4% expected, supporting the domestic economy case. Deploying 30%, keeping 70% cash ahead of Warsh's first FOMC press conference June 16-17 \u2014 his hawkish reputation and the April 8-4 split vote make this a genuine wildcard.",
