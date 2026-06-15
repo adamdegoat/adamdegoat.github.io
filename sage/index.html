@@ -185,6 +185,12 @@ function render(d){
     <div class="note-big">${d.daily_note||'—'}</div>
     ${trades.length?`<div class="move-tags">${trades.map(t=>`<span class="mtag ${t.action.toLowerCase()}">${t.action} $${Math.round(t.usd)} ${t.ticker}</span>`).join('')}</div>`:'<div class="move-tags"><span class="mtag" style="color:var(--ink3)">HOLD · no trades today</span></div>'}
   </div>
+  ${d.review?`<div class="panel">
+    <h2>⚖️ Second opinion <span class="pill">devil's advocate · ${d.review.overall||'reviewed'}</span></h2>
+    <div class="note-big" style="font-size:14px">${d.review.summary||''}</div>
+    ${(d.review.objections||[]).map(o=>`<div style="margin-top:10px"><span class="mono" style="color:var(--ink2);font-weight:700;font-size:12.5px">${o.target} · ${o.strength}/10 · ${o.verdict}</span><div class="rsn" style="margin-top:2px">${o.objection}</div></div>`).join('')}
+    <div style="margin-top:11px;font-size:12px;color:var(--ink3);line-height:1.6">A skeptical risk-manager pass challenges every proposed trade before it's placed — Sage then defends or revises. This is how it avoids chasing and over-trading.</div>
+  </div>`:''}
 
   <div class="panel">
     <h2>💼 Holdings <span class="pill">what it owns · entry → now</span></h2>
