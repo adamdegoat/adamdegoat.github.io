@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "updated": "2026-06-15 14:00 SGT",
+  "updated": "2026-06-15 14:10 SGT",
   "last_data": "2026-06-12",
   "start_equity": 100000.0,
   "paper_start": "2026-06-12",
@@ -8599,5 +8599,7 @@
     "walk-forward weight learning",
     "full S&P 500 universe (bias check \u2014 curated basket wins; confirms unbiased Sharpe \u2248 1.0)"
   ],
-  "current_equity": 1442829.75
+  "current_equity": 1442829.75,
+  "live_equity": 100000.0,
+  "live_days": 0
 }

@@ -173,11 +173,12 @@ function render(d){
   const gross = (d.diag&&d.diag.gross!=null)?d.diag.gross:d.holdings.reduce((a,h)=>a+Math.abs(h.weight),0);
   const html = `
   <div class="grid cards">
-    <div class="card"><div class="k">Paper equity</div><div class="v">${fmt$(eqNow)}</div><div class="s">from $${(d.start_equity/1000)}k · ${m.yrs}y replay</div></div>
-    <div class="card"><div class="k">Sharpe</div><div class="v">${m.sharpe.toFixed(2)}</div><div class="s">SPY ${s.sharpe.toFixed(2)} · higher is better</div></div>
-    <div class="card"><div class="k">Max drawdown</div><div class="v ${sgn(m.maxdd)}">${pct(m.maxdd)}</div><div class="s">SPY ${pct(s.maxdd)} · less pain</div></div>
+    <div class="card"><div class="k">Paper book · LIVE</div><div class="v">${fmt$(d.live_equity!=null?d.live_equity:d.start_equity)}</div><div class="s">started ${d.paper_start} · ${d.live_days!=null?d.live_days:0} day${d.live_days==1?'':'s'} · from $${(d.start_equity/1000)}k</div></div>
+    <div class="card"><div class="k">Backtest Sharpe</div><div class="v">${m.sharpe.toFixed(2)}</div><div class="s">${m.yrs}y replay · SPY ${s.sharpe.toFixed(2)}</div></div>
+    <div class="card"><div class="k">Backtest max DD</div><div class="v ${sgn(m.maxdd)}">${pct(m.maxdd)}</div><div class="s">SPY ${pct(s.maxdd)} · less pain</div></div>
     <div class="card"><div class="k">Invested now</div><div class="v">${pct(gross,0)}</div><div class="s">${d.holdings.length} positions${gross<0.95?' · rest cash':''}</div></div>
   </div>
+  <div class="note" style="margin:-6px 2px 0;color:var(--ink3);font-size:12px">The big <b>${fmt$(eqNow)}</b> on the curve below is the <b>19-year backtest</b> ($100k compounded since 2007) — proof the rules work, not real gains. The <b>live paper book above started 3 days ago at $100k</b>; that forward record (right of the dashed line) is the real test.</div>
 
   <div class="panel">
     <h2>Equity curve <span class="pill">Helm vs SPY · log scale</span></h2>
