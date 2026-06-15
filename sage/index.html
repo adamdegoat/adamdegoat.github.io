@@ -163,7 +163,7 @@ function chart(hist){
     <path d="${path(sg)}" fill="none" stroke="#6ee7b7" stroke-width="2.6"/></svg></div>`;
 }
 
-function nextDailySGT(h,m){const now=new Date();const s=new Date(now.getTime()+8*3600000+now.getTimezoneOffset()*60000);let t=Date.UTC(s.getUTCFullYear(),s.getUTCMonth(),s.getUTCDate(),h,m)-8*3600000;if(t<=now.getTime())t+=86400000;return t;}
+function nextDailySGT(h,m){const now=Date.now();const s=new Date(now+8*3600000);let t=Date.UTC(s.getUTCFullYear(),s.getUTCMonth(),s.getUTCDate(),h,m)-8*3600000;while(t<=now)t+=86400000;return t;}
 function fmtIn(ms){if(ms<=0)return 'scanning now…';const h=Math.floor(ms/3600000),m=Math.floor(ms%3600000/60000);return (h?h+'h ':'')+m+'m';}
 let __next=0;function tick(){const el=document.getElementById('cd');if(el)el.innerHTML='next scan in <b style="color:var(--ink2)">'+fmtIn(__next-Date.now())+'</b>';}
 setInterval(tick,30000);

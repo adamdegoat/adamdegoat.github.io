@@ -119,13 +119,13 @@ function chart(hist){
   let grid='';for(let k=0;k<=3;k++){const v=lo+(hi-lo)*k/3;grid+=`<line x1="${pl}" y1="${Y(v).toFixed(1)}" x2="${W-pr}" y2="${Y(v).toFixed(1)}" stroke="#1f1a27"/><text class="axlab" x="${pl-6}" y="${(Y(v)+3).toFixed(1)}" text-anchor="end">${fmt$(v)}</text>`;}
   return `<div class="chartwrap"><svg class="chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">${grid}<path d="${path(bt)}" fill="none" stroke="#6e6483" stroke-width="1.6"/><path d="${path(cg)}" fill="none" stroke="#f7931a" stroke-width="2.6"/></svg></div>`;
 }
-function nextEvery(hrs,upStr){let up=new Date(upStr.replace(' SGT','').replace(' ','T')+':00+08:00').getTime();const now=Date.now();let t=up+hrs*3600000;while(t<=now)t+=hrs*3600000;return t;}
+function nextGridSGT(stepH){const now=Date.now();const s=new Date(now+8*3600000);const nh=(Math.floor(s.getUTCHours()/stepH)+1)*stepH;let t=Date.UTC(s.getUTCFullYear(),s.getUTCMonth(),s.getUTCDate(),nh,0)-8*3600000;while(t<=now)t+=stepH*3600000;return t;}
 function fmtIn(ms){if(ms<=0)return 'scanning now…';const h=Math.floor(ms/3600000),m=Math.floor(ms%3600000/60000);return (h?h+'h ':'')+m+'m';}
 let __next=0;function tick(){const el=document.getElementById('cd');if(el)el.innerHTML='next scan in <b style="color:var(--ink2)">'+fmtIn(__next-Date.now())+'</b>';}
 setInterval(tick,30000);
 function render(d){
   $('#upd').innerHTML=`<span class="dot"></span>Updated ${d.updated} · <span id="cd"></span>`;
-  __next=nextEvery(4,d.updated); tick();
+  __next=nextGridSGT(4); tick();
   const tw=d.tweet||'',xurl='https://twitter.com/intent/tweet?text='+encodeURIComponent(tw);
   const trades=(d.today_trades||[]).filter(t=>t.action);
   $('#app').innerHTML=`
