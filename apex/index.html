@@ -133,8 +133,8 @@ footer{margin-top:30px;padding:22px;border-top:1px solid var(--line);color:var(-
 const $=s=>document.querySelector(s);
 const sg=v=>v>=0?'pos':'neg';const pc=v=>(v>=0?'+':'')+v+'%';
 const gcls=g=>({'A+':'Ap','A':'A','A-':'Am','B+':'Bp','B':'B','B-':'Bm','C+':'Cp','C':'C','D':'D','F':'F'}[g]||'C');
-let D=null,TAB='buys',SORT={k:'score',dir:-1},FILT={q:'',sector:'',verdict:''};
-const TABS=[['buys','🎯','Top Buys'],['board','▦','Leaderboard'],['avoid','⚠️','Avoid'],['sectors','🧩','Sectors'],['method','📐','Methodology']];
+let D=null,TAB='conviction',SORT={k:'score',dir:-1},FILT={q:'',sector:'',verdict:''};
+const TABS=[['conviction','★','Top 5'],['buys','🎯','Top Buys'],['board','▦','Leaderboard'],['avoid','⚠️','Avoid'],['sectors','🧩','Sectors'],['method','📐','Methodology']];
 const FACS=['momentum','trend','rel_strength','low_vol','structure','quality','value','growth'];
 const FLAB={momentum:'Momentum',trend:'Trend',rel_strength:'Rel. Strength',low_vol:'Low Vol',structure:'Structure',quality:'Quality',value:'Value',growth:'Growth'};
 
@@ -164,6 +164,21 @@ function sortBy(k){if(SORT.k===k)SORT.dir*=-1;else{SORT.k=k;SORT.dir=(k==='ticke
 function setFilt(k,v){FILT[k]=v;go('board');}
 
 const VIEWS={
+ conviction:d=>{
+  const c=d.conviction||[];const reg=d.regime||{};
+  const rc=reg.label==='Risk-on'?'var(--green)':reg.label==='Risk-off'?'var(--red)':'var(--amber)';
+  const secs=Object.entries(d.conviction_sectors||{});const maxSec=Math.max(0,...secs.map(e=>e[1]));
+  const conc=maxSec>=4;
+  const head=`<div class="panel" style="margin-top:0"><h2>★ Conviction — hold up to 5 <span class="pill">AI-vetted · tradeable · your shortlist</span></h2>
+   <div class="note">The highest-conviction names to own <b>right now</b> — top-graded, bought at smart entries (not chasing), each <b>confirmed by the adversarial skeptic</b>, and all liquid &amp; sizeable. Built for a concentrated 3–5 stock book.</div>
+   <div style="margin-top:11px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--ink2)">
+     <span>Market: <b style="color:${rc}">${reg.label||'—'}</b> (breadth ${reg.breadth??'?'}%)</span>
+     ${secs.length?`<span>·</span><span>Sector mix: ${secs.map(e=>`${e[0]} ×${e[1]}`).join(' · ')}</span>`:''}
+     ${conc?`<span style="color:var(--amber);font-weight:600">⚠ concentrated in one sector — correlated risk</span>`:''}
+   </div></div>`;
+  if(!c.length)return head+`<div class="panel"><div class="empty">No high-conviction, skeptic-confirmed buys cleared the bar today — an honest "nothing worth concentrating into right now." The broader Top Buys and Leaderboard are still there for the full picture.</div></div>`;
+  return head+`<div class="cards" style="margin-top:16px">${c.map(buyCard).join('')}</div>`;
+ },
  buys:d=>{
   const reg=d.regime||{};const rc=reg.label==='Risk-on'?'var(--green)':reg.label==='Risk-off'?'var(--red)':'var(--amber)';
   return `<div class="kpis">
