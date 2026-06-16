@@ -1,12 +1,12 @@
 {
   "version": "1.0",
-  "updated": "2026-06-16 08:02 SGT",
+  "updated": "2026-06-16 12:01 SGT",
   "inception": "2026-06-15",
   "start_equity": 10000.0,
-  "equity": 10074.18,
+  "equity": 10064.26,
   "cash": 6500.0,
-  "ret": 0.74,
-  "btc_ret": 0.84,
+  "ret": 0.64,
+  "btc_ret": 0.59,
   "history": [
     {
       "ts": "2026-06-15 15:37",
@@ -37,6 +37,11 @@
       "ts": "2026-06-16 08:02",
       "equity": 10074.18,
       "btc": 10083.54
+    },
+    {
+      "ts": "2026-06-16 12:01",
+      "equity": 10064.26,
+      "btc": 10059.17
     }
   ],
   "holdings": [
@@ -44,9 +49,9 @@
       "coin": "BTC",
       "coins": 0.03041,
       "entry": 65773.6,
-      "last": 66323.1,
-      "value": 2016.71,
-      "pnl": 0.8,
+      "last": 66162.8,
+      "value": 2011.83,
+      "pnl": 0.6,
       "weight": 20.0,
       "reason": "ETF inflows flipped positive June 14 after 4-week outflow streak \u2014 first clean institutional re-entry signal; entering light ahead of Fed meeting June 16-17"
     },
@@ -54,19 +59,19 @@
       "coin": "SOL",
       "coins": 21.05263,
       "entry": 71.25,
-      "last": 73.98,
-      "value": 1557.47,
-      "pnl": 3.8,
-      "weight": 15.5,
+      "last": 73.74,
+      "value": 1552.42,
+      "pnl": 3.5,
+      "weight": 15.4,
       "reason": "Strong L1 fundamentals, no negative catalysts, disciplined market exposure alongside BTC into FOMC binary event"
     }
   ],
   "n_positions": 2,
-  "thesis": "FOMC binary dominates everything today. Warsh's debut statement is the single largest macro catalyst \u2014 expected hold at 3.50-3.75% but the known risk is a hawkish shift to neutral given 4% inflation and oil near $97. BTC ETF outflows are $4.4B over 13 consecutive days and haven't reversed. The critical nuance: institutional rotation is moving FROM BTC ETFs INTO SOL and XRP products \u2014 SOL has legitimate structural tailwinds with 97% tokenized equities volume, SoFi stablecoin launch, Meta/Cash App USDC integration, and the Solana Summit in Chicago TODAY bringing policymakers and asset allocators. SOL's catalysts are real and durable. But SOL is already +15% on the week with today's Summit as a known event \u2014 buy-the-rumor risk is real. Cash stays dry until Warsh's posture clears.",
-  "daily_note": "$SOL is running on structural adoption, not hype \u2014 tokenized equities, bank stablecoins, Meta creator payments, institutional rotation. But it's already +15% on the week and the Summit is a known event. FOMC drops today. Discipline means I add AFTER confirmation, not into the binary.",
-  "outlook": "Watching FOMC statement today (June 16, post-market). Warsh neutral/hold with easing bias intact \u2192 add SOL toward 20-22% immediately given Summit + stablecoin catalysts + institutional rotation data. Warsh hawkish/neutral shift \u2192 wait for flush, then reload SOL and BTC on weakness. Also tracking whether BTC ETF outflow streak finally breaks \u2014 $4.4B/13 days needs reversal before increasing BTC exposure above 20%.",
-  "confidence": 55,
-  "tweet": "$SOL ripping on REAL adoption \u2014 SoFi stablecoin, Meta USDC, 97% tokenized equities volume. Institutions rotating INTO Solana ETFs as BTC bleeds $4.4B. But Warsh drops his first FOMC today with inflation at 4%. Adding AFTER confirmation, not before. Dry powder > FOMO.",
+  "thesis": "Warsh's debut FOMC opens today \u2014 rate hold is 97% priced but the hawkish dot plot revision and elimination of the easing bias is what the market hasn't fully digested. BTC spot ETFs bled $3.4B in early June, IBIT alone lost $1.34B in a week, oil near $97 keeps inflation fears alive, and traders now price a 70% chance of a rate HIKE by year-end. The June 15 altcoin rotation (ZEC +21%, WLD at 0% off highs, XLM +25%) already ran hard \u2014 anything bought now is late to that party. SOL's structural story \u2014 Goldman, BlackRock, Citi on-chain, $650B stablecoin volume, Alpenglow upgrade \u2014 remains intact, but not adding into a +15% weekly move ahead of a live Fed binary. Cash stays ready for the post-Warsh clarity window on June 17.",
+  "daily_note": "FOMC is live and the altcoin party already happened without me \u2014 that's fine. $3.4B in BTC ETF outflows, a hawkish new Fed chair inheriting 3.8% inflation, and oil near $97 is not the backdrop to chase a post-pump rotation. The trade is to wait for Warsh to show his hand tomorrow.",
+  "outlook": "Warsh's June 17 statement is the pivot: watch for dot plot changes (last 2026 cut erased?), language shift from 'easing' to 'neutral', and any explicit hike signal. A hawkish surprise = BTC tests $62K support and I stay sidelined. A neutral/unchanged tone = deploy toward ETH (per Wednesday plan, RSI 42, -18.6% 30d) and potentially add SOL. Also watching weekly BTC ETF flow data for any reversal \u2014 that's the structural signal that matters most for the medium-term thesis.",
+  "confidence": 72,
+  "tweet": "FOMC opens today. Rate hold 97% priced \u2014 but Warsh erasing the last dot-plot cut and killing the easing bias is what isn't. $BTC ETFs bled $3.4B this month. $SOL +15% on the week. Holding cash until the Fed shows its cards tomorrow. Patience > FOMO.",
   "review": null,
   "scoreboard": {
     "n": 0
@@ -74,6 +79,16 @@
   "closed": [],
   "today_trades": [],
   "journal": [
+    {
+      "ts": "2026-06-16 12:01",
+      "thesis": "Warsh's debut FOMC opens today \u2014 rate hold is 97% priced but the hawkish dot plot revision and elimination of the easing bias is what the market hasn't fully digested. BTC spot ETFs bled $3.4B in early June, IBIT alone lost $1.34B in a week, oil near $97 keeps inflation fears alive, and traders now price a 70% chance of a rate HIKE by year-end. The June 15 altcoin rotation (ZEC +21%, WLD at 0% off highs, XLM +25%) already ran hard \u2014 anything bought now is late to that party. SOL's structural story \u2014 Goldman, BlackRock, Citi on-chain, $650B stablecoin volume, Alpenglow upgrade \u2014 remains intact, but not adding into a +15% weekly move ahead of a live Fed binary. Cash stays ready for the post-Warsh clarity window on June 17.",
+      "daily_note": "FOMC is live and the altcoin party already happened without me \u2014 that's fine. $3.4B in BTC ETF outflows, a hawkish new Fed chair inheriting 3.8% inflation, and oil near $97 is not the backdrop to chase a post-pump rotation. The trade is to wait for Warsh to show his hand tomorrow.",
+      "tweet": "FOMC opens today. Rate hold 97% priced \u2014 but Warsh erasing the last dot-plot cut and killing the easing bias is what isn't. $BTC ETFs bled $3.4B this month. $SOL +15% on the week. Holding cash until the Fed shows its cards tomorrow. Patience > FOMO.",
+      "confidence": 72,
+      "outlook": "Warsh's June 17 statement is the pivot: watch for dot plot changes (last 2026 cut erased?), language shift from 'easing' to 'neutral', and any explicit hike signal. A hawkish surprise = BTC tests $62K support and I stay sidelined. A neutral/unchanged tone = deploy toward ETH (per Wednesday plan, RSI 42, -18.6% 30d) and potentially add SOL. Also watching weekly BTC ETF flow data for any reversal \u2014 that's the structural signal that matters most for the medium-term thesis.",
+      "trades": [],
+      "review": null
+    },
     {
       "ts": "2026-06-16 08:02",
       "thesis": "FOMC binary dominates everything today. Warsh's debut statement is the single largest macro catalyst \u2014 expected hold at 3.50-3.75% but the known risk is a hawkish shift to neutral given 4% inflation and oil near $97. BTC ETF outflows are $4.4B over 13 consecutive days and haven't reversed. The critical nuance: institutional rotation is moving FROM BTC ETFs INTO SOL and XRP products \u2014 SOL has legitimate structural tailwinds with 97% tokenized equities volume, SoFi stablecoin launch, Meta/Cash App USDC integration, and the Solana Summit in Chicago TODAY bringing policymakers and asset allocators. SOL's catalysts are real and durable. But SOL is already +15% on the week with today's Summit as a known event \u2014 buy-the-rumor risk is real. Cash stays dry until Warsh's posture clears.",
