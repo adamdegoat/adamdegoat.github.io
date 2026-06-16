@@ -126,6 +126,13 @@ a{color:inherit;text-decoration:none}
 .mcard:hover{transform:translateY(-4px);box-shadow:0 20px 42px rgba(20,18,14,.1);border-color:#d6cdbe}
 .mcard:hover .mc-ic{transform:scale(1.06) rotate(-3deg)}
 .mc-ic{transition:transform .26s cubic-bezier(.2,.7,.2,1)}
+.mc-motif{position:absolute;top:-14px;right:-14px;width:104px;height:104px;color:var(--accent);
+  opacity:.10;pointer-events:none;z-index:0;transition:opacity .28s,transform .28s cubic-bezier(.2,.7,.2,1)}
+.mcard::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(120% 80% at 88% -10%,var(--wash),transparent 58%)}
+.mcard:hover::after{opacity:1}
+.mcard:hover .mc-motif{opacity:.2;transform:scale(1.08) rotate(5deg)}
+.mc-head,.mcard h3,.mcard p,.mcard .go{position:relative;z-index:1}
 .mc-head{display:flex;align-items:center;gap:12px;margin-bottom:13px}
 .mc-ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-size:20px;flex:none;
   background:var(--wash);border:1px solid var(--line-2)}
@@ -255,6 +262,7 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
   <div class="grid">
 
 <a class="mcard" href="https://adamdegoat.github.io/riptide/" style="--accent:#16a394;--wash:rgba(22,163,148,.1)">
+      <svg class="mc-motif" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M8 38q11-13 22 0t22 0 22 0 22 0"/><path d="M8 55q11-13 22 0t22 0 22 0 22 0"/><path d="M8 72q11-13 22 0t22 0 22 0 22 0"/></svg>
       <div class="mc-head"><span class="mc-ic">🌊</span><span class="mc-tag">Trading engine</span></div>
       <h3>Riptide</h3>
       <p>A systematic long/short trend engine on BTC &amp; ETH — backtested ~3 years, beating buy-and-hold every year. Deterministic, volatility-sized, and self-retuning weekly.</p>
@@ -262,6 +270,7 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
     </a>
 
     <a class="mcard" href="https://adamdegoat.github.io/helm/" style="--accent:#2ad6c5;--wash:rgba(42,214,197,.12)">
+      <svg class="mc-motif" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="50" cy="50" r="33"/><path d="M50 24l7 26-7 26-7-26z" fill="currentColor" stroke="none" opacity=".55"/><circle cx="50" cy="50" r="4.5" fill="currentColor" stroke="none"/></svg>
       <div class="mc-head"><span class="mc-ic">🧭</span><span class="mc-tag">Trading engine</span></div>
       <h3>Helm</h3>
       <p>A systematic paper portfolio over US equities, ETFs, bonds &amp; commodities — three uncorrelated sleeves (trend, mean-reversion, multi-asset managed-futures), every component validated out-of-sample. Sharpe ~1.2 at a third the drawdown of buy-and-hold.</p>
@@ -269,6 +278,7 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
     </a>
 
     <a class="mcard" href="https://adamdegoat.github.io/sage/" style="--accent:#10b981;--wash:rgba(16,185,129,.12)">
+      <svg class="mc-motif" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="48" cy="54" r="27"/><path d="M38 46a13 13 0 019-9" stroke-linecap="round" opacity=".7"/><path d="M74 26l2.6 6.4L83 35l-6.4 2.6L74 44l-2.6-6.4L65 35l6.4-2.6z" fill="currentColor" stroke="none"/></svg>
       <div class="mc-head"><span class="mc-ic">🔮</span><span class="mc-tag">AI experiment · live</span></div>
       <h3>Sage</h3>
       <p>An AI managing a real $10,000 paper portfolio — entirely its own discretionary calls. Every decision, thesis and tweet, shown live. A transparent experiment in how an AI reasons about markets.</p>
@@ -276,6 +286,7 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
     </a>
 
     <a class="mcard" href="https://adamdegoat.github.io/cipher/" style="--accent:#f7931a;--wash:rgba(247,147,26,.12)">
+      <svg class="mc-motif" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M52 16L30 56h18l-6 28 30-44H54z"/><circle cx="22" cy="32" r="3.2" fill="currentColor" stroke="none"/><circle cx="80" cy="68" r="3.2" fill="currentColor" stroke="none"/></svg>
       <div class="mc-head"><span class="mc-ic">⚡</span><span class="mc-tag">AI · crypto · live</span></div>
       <h3>Cipher</h3>
       <p>Sage's crypto sibling — an AI trading a $10,000 paper book across every liquid OKX coin, 24/7. Its own discretionary calls, with an adversarial skeptic challenging each one — every move, thesis and tweet shown live.</p>
@@ -283,6 +294,7 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
     </a>
 
     <a class="mcard" href="https://adamdegoat.github.io/ledger/" style="--accent:#e3b341;--wash:rgba(227,179,65,.12)">
+      <svg class="mc-motif" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="26" y="18" width="40" height="54" rx="4"/><path d="M34 32h24M34 42h24M34 52h15" stroke-linecap="round"/><circle cx="66" cy="64" r="15" fill="var(--paper)"/><path d="M59 64l5 5 8-9" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <div class="mc-head"><span class="mc-ic">📜</span><span class="mc-tag">AI · smart money · live</span></div>
       <h3>Ledger</h3>
       <p>An AI that follows the smart money — it reads the day's SEC Form 4 filings, finds company insiders buying their own stock, and trades a $10,000 paper book on the strongest conviction, with a skeptic challenging every call.</p>
@@ -290,6 +302,7 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
     </a>
 
     <a class="mcard" href="https://adamdegoat.github.io/peter/" style="--accent:#b06fd0;--wash:rgba(176,111,208,.1)">
+      <svg class="mc-motif" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="50" cy="50" r="30"/><circle cx="50" cy="50" r="17"/><path d="M50 10v16M50 74v16M10 50h16M74 50h16" stroke-linecap="round"/></svg>
       <div class="mc-head"><span class="mc-ic">🔭</span><span class="mc-tag">Research engine</span></div>
       <h3>Peter</h3>
       <p>A self-improving research engine surfacing monetizable opportunities across Singapore &amp; South-East Asia — scoring every idea on five dimensions and learning what works.</p>
@@ -297,6 +310,7 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
     </a>
 
     <a class="mcard" href="https://adamdegoat.github.io/beyondcarmart/" style="--accent:#d77a2e;--wash:rgba(215,122,46,.1)">
+      <svg class="mc-motif" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M30 62h44M38 62v-9l7-13h22l7 13v9"/><circle cx="46" cy="66" r="5.5"/><circle cx="70" cy="66" r="5.5"/><path d="M12 46h14M8 56h11" opacity=".6"/></svg>
       <div class="mc-head"><span class="mc-ic">🚗</span><span class="mc-tag">SG · live tool</span></div>
       <h3>BeyondCarMart</h3>
       <p>Paste any sgCarMart listing and get a plain-English breakdown in 20 seconds — market value, red flags, hidden costs and a buy verdict, with live COE prices. No account needed.</p>
@@ -304,6 +318,7 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
     </a>
 
     <a class="mcard" href="https://adamdegoat.github.io/renoradar/" style="--accent:#c2914a;--wash:rgba(194,145,74,.12)">
+      <svg class="mc-motif" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M24 24h44v44" stroke-width="2.6"/><path d="M24 24v44h44" opacity=".4"/><path d="M36 24v8M46 24v6M56 24v8M68 36h-8M68 46h-6M68 56h-8"/></svg>
       <div class="mc-head"><span class="mc-ic">🛠️</span><span class="mc-tag">SG · price index</span></div>
       <h3>RenoRadar</h3>
       <p>Singapore's renovation price index — what 57 items really cost across budget, mid-range and premium tiers, with overcharge patterns and the exact questions to ask your contractor.</p>
@@ -311,6 +326,7 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
     </a>
 
     <a class="mcard" href="https://adamdegoat.github.io/evergrow-electrical/" style="--accent:#e09419;--wash:rgba(224,148,25,.12)">
+      <svg class="mc-motif" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><rect x="34" y="36" width="32" height="24" rx="5"/><path d="M43 36V24M57 36V24M50 60v18"/><path d="M40 78h20"/></svg>
       <div class="mc-head"><span class="mc-ic">⚡</span><span class="mc-tag">Business · CRM</span></div>
       <h3>EverGrow Electrical</h3>
       <p>A private operations portal built for a real electrical business — invoices, quotations, licensing, work permits, road tax and insurance in one bilingual (EN/中文) place.</p>
@@ -318,6 +334,7 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
     </a>
 
     <a class="mcard" href="https://adamdegoat.github.io/sg-electrical-guide/" style="--accent:#caa023;--wash:rgba(202,160,35,.12)">
+      <svg class="mc-motif" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M50 20a21 21 0 00-13 37c3 2.5 4 5 4 8h18c0-3 1-5.5 4-8a21 21 0 00-13-37z"/><path d="M43 73h14M45 80h10"/></svg>
       <div class="mc-head"><span class="mc-ic">💡</span><span class="mc-tag">SG · public resource</span></div>
       <h3>SG Electrical Guide</h3>
       <p>A public Singapore electrical resource — costs, safety rules and when you legally need a Licensed Electrical Worker — with interactive cost and LEW-checker tools.</p>
@@ -325,6 +342,7 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
     </a>
 
     <a class="mcard" href="https://adamdegoat.github.io/chillswithiyls/" style="--accent:#7a9c5e;--wash:rgba(122,156,94,.12)">
+      <svg class="mc-motif" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M14 72l20-32 13 19 11-17 20 30z"/><circle cx="68" cy="28" r="8"/></svg>
       <div class="mc-head"><span class="mc-ic">🏔️</span><span class="mc-tag">Editorial · weekly</span></div>
       <h3>Chillswithiyls</h3>
       <p>A self-improving editorial brand on 4x4 overlanding and off-grid living — long-form features and field guides published every Sunday, learning what resonates.</p>
