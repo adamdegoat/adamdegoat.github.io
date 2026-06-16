@@ -1,13 +1,16 @@
 {
-  "version": "1.0",
-  "updated": "2026-06-16 15:59 SGT",
+  "version": "2.0",
+  "updated": "2026-06-16 18:26 SGT",
   "inception": "2026-06-16",
   "start_equity": 20000.0,
   "equity": 20000.0,
-  "cash": 9000.0,
+  "cash": 18300.0,
   "ret": 0.0,
-  "gross_exposure": 55.0,
-  "n_positions": 5,
+  "gross_exposure": 77.5,
+  "net_exposure": 8.5,
+  "n_positions": 10,
+  "n_long": 5,
+  "n_short": 5,
   "drawdown": 0.0,
   "sharpe": null,
   "history": [
@@ -19,109 +22,225 @@
   "holdings": [
     {
       "ticker": "GS",
-      "shares": 2.82,
+      "side": "long",
+      "shares": 2.45,
       "entry": 1062.75,
       "last": 1062.75,
-      "value": 3000.0,
+      "value": 2600.0,
+      "signed_weight": 13.0,
+      "weight": 13.0,
       "pnl": 0.0,
-      "weight": 15.0,
       "sector": "Financials",
       "champions": [
         "Macro",
         "Technicals",
-        "Sentiment",
         "Quant"
       ],
-      "reason": "Four-lens consensus with zero dissent is the highest conviction signal in the slate. Hawkish hold NIM tailwind is structurally intact and not consensus-priced; SpaceX IPO halo plus dealmaking renaissance provide independent catalysts even if IPO timing slips. RS +24 vs SPY with RSI 61 is clean momentum with room to extend. Maximum weight is earned \u2014 this is what maximum weight is for.",
+      "reason": "Triple-confluence anchor \u2014 full size endorsed. Q1 EPS +24% YoY underpinned by M&A resurgence, rates-trading alpha, and NIM expansion in a higher-for-longer regime, all three independently supportable. RS +24.2 vs SPY, RSI 61, -2.7% off 52-week highs. At 13% the position sits 2pp inside the hard cap; the thesis is durable enough to hold the line. Financials sector net well within limits.",
       "rsi": 61,
       "trend": "up"
     },
     {
-      "ticker": "SMH",
-      "shares": 4.64,
-      "entry": 647.1,
-      "last": 647.1,
-      "value": 3000.0,
-      "pnl": 0.0,
-      "weight": 15.0,
-      "sector": "Sector ETF",
-      "champions": [
-        "Macro",
-        "Technicals",
-        "Quant"
-      ],
-      "reason": "ETF structure is the correct vehicle for AI-capex secular exposure \u2014 eliminates binary single-name risk while capturing the dominant sector momentum regime. Confirmed 52wk-high breakout, RS +52, RSI 59 not extended. Three-analyst consensus, zero dissent. SMH is the semiconductor anchor; its full weight is what justifies cutting the single-name stacks below it.",
-      "rsi": 59,
-      "trend": "up"
-    },
-    {
-      "ticker": "UNH",
-      "shares": 5.91,
-      "entry": 406.2,
-      "last": 406.2,
+      "ticker": "ADBE",
+      "side": "short",
+      "shares": 11.76,
+      "entry": 204.02,
+      "last": 204.02,
       "value": 2400.0,
-      "pnl": 0.0,
+      "signed_weight": -12.0,
       "weight": 12.0,
-      "sector": "Healthcare",
+      "pnl": 0.0,
+      "sector": "Technology",
       "champions": [
         "Technicals",
         "Sentiment",
         "Quant"
       ],
-      "reason": "Genuine diversifier \u2014 non-correlated to semis, rates, and mega-cap tech. Six institutional upgrades in two weeks mark a narrative inflection from utilization crisis to margin recovery with re-rating in early innings. RS +32.5, RSI 64 warm but not overbought, three analysts with zero dissent. June 23 dividend provides near-term sentiment anchor.",
+      "reason": "Anchor short at full size \u2014 strongest by confluence in the book. 3-to-1 analyst majority overrules the lone Fundamentals dissent decisively. CFO departure plus active CEO search plus ARR guidance cut to free tiers is a management credibility event with lasting multiple-compression implications; this is not a one-quarter earnings miss. The -18.9% five-day distribution is ongoing institutional exit, not exhaustion selling. At -50.7% off highs, the structural AI-disruption re-rating has further runway; dead-cat bounces are add opportunities, not stop-outs.",
+      "rsi": 33,
+      "trend": "down"
+    },
+    {
+      "ticker": "AMD",
+      "side": "long",
+      "shares": 3.52,
+      "entry": 511.57,
+      "last": 511.57,
+      "value": 1800.0,
+      "signed_weight": 9.0,
+      "weight": 9.0,
+      "pnl": 0.0,
+      "sector": "Technology",
+      "champions": [
+        "Macro",
+        "Quant"
+      ],
+      "reason": "Trimmed from 12% to 9% \u2014 extension and overlap discipline, not thesis retreat. +164% in three months is parabolic; RSI resetting to 57 shows momentum health but not that the move has been digested. Meta 6GW Instinct deal is live revenue and the NVDA share-gain story persists, but it is now consensus-priced. Combined with SMH at 8%, semi gross long lands ~17% \u2014 cycle exposure intact without concentration blow-up. The call is right; the old size was not.",
+      "rsi": 57,
+      "trend": "up"
+    },
+    {
+      "ticker": "SMH",
+      "side": "long",
+      "shares": 2.47,
+      "entry": 647.1,
+      "last": 647.1,
+      "value": 1600.0,
+      "signed_weight": 8.0,
+      "weight": 8.0,
+      "pnl": 0.0,
+      "sector": "Sector ETF",
+      "champions": [
+        "Technicals"
+      ],
+      "reason": "Trimmed from 10% to 8% to control AMD overlap. ETF wrapper at 52-week high breakout, RSI 59, RS +52 vs SPY \u2014 semis are the undisputed leadership sector and breadth across AMD/MU/TSM confirms a cycle-wide upswing, not a single-name event. 8% alongside AMD at 9% is diversification with leverage to the theme; 10% alongside AMD at 12% was doubling up.",
+      "rsi": 59,
+      "trend": "up"
+    },
+    {
+      "ticker": "CRM",
+      "side": "short",
+      "shares": 9.04,
+      "entry": 165.89,
+      "last": 165.89,
+      "value": 1500.0,
+      "signed_weight": -7.5,
+      "weight": 7.5,
+      "pnl": 0.0,
+      "sector": "Technology",
+      "champions": [
+        "Technicals",
+        "Sentiment",
+        "Quant"
+      ],
+      "reason": "Trimmed from 10% to 7.5% on crowded-short squeeze risk \u2014 -35% YTD with legacy longs still distributing means the short side is packed. RSI 41 provides no oversold cushion to absorb a squeeze; any low-bar earnings beat, M&A speculation, or a single credible Agentforce data point compresses the position fast with no exit window. The AI-agent-replaces-CRM narrative is institutional consensus and the downtrend is intact \u2014 slow-bleed short with a valid thesis. Sized to survive the squeeze, not to exploit a clean ride.",
+      "rsi": 41,
+      "trend": "down"
+    },
+    {
+      "ticker": "UNH",
+      "side": "long",
+      "shares": 3.45,
+      "entry": 406.2,
+      "last": 406.2,
+      "value": 1400.0,
+      "signed_weight": 7.0,
+      "weight": 7.0,
+      "pnl": 0.0,
+      "sector": "Healthcare",
+      "champions": [
+        "Technicals"
+      ],
+      "reason": "Full size \u2014 defensive quality that earns its allocation by providing genuine diversification from the cyclical semi and fintech longs. RS +32.5 vs SPY, RSI 64, +44.8% in three months reflects institutional rotation into non-cyclical quality amid macro uncertainty. Single analyst, no cross-desk conflict, and the technical setup (dominant momentum, near-zero drawdown from highs) justifies the full single-analyst size of 7%.",
       "rsi": 64,
       "trend": "up"
     },
     {
-      "ticker": "GOOGL",
-      "shares": 3.89,
-      "entry": 359.68,
-      "last": 359.68,
+      "ticker": "SBUX",
+      "side": "short",
+      "shares": 13.59,
+      "entry": 103.04,
+      "last": 103.04,
       "value": 1400.0,
-      "pnl": 0.0,
+      "signed_weight": -7.0,
       "weight": 7.0,
-      "sector": "Technology",
+      "pnl": 0.0,
+      "sector": "Consumer",
       "champions": [
         "Fundamentals"
       ],
-      "reason": "RSI 34 on a rotation-driven 10.6% pullback is a credible dislocation signal for a franchise with durable Search + YouTube + Cloud moats; Gemini deepens AI positioning. Sized at 7% to respect live Technicals dissent on mega-cap tech broadly. Adds genuine diversification with zero overlap to semis, financials, or healthcare. Toe-in sizing is the right call pending a technical base.",
-      "rsi": 34,
+      "reason": "Clean unanimous short at full size \u2014 no cross-desk conflict anywhere in the book. Premium multiple sustained by a zero-proof-points turnaround narrative against structurally deteriorating unit economics: negative US same-store sales, secular China traffic decline, and a new CEO with no demonstrated execution record. Only -3.5% off 52-week highs is a textbook mispricing \u2014 the multiple compresses as each expected proof point fails to arrive. 7% correctly embeds the near-highs timing risk; the fundamental dislocation is unambiguous.",
+      "rsi": 50,
+      "trend": "up"
+    },
+    {
+      "ticker": "NFLX",
+      "side": "long",
+      "shares": 14.94,
+      "entry": 80.34,
+      "last": 80.34,
+      "value": 1200.0,
+      "signed_weight": 6.0,
+      "weight": 6.0,
+      "pnl": 0.0,
+      "sector": "Communications",
+      "champions": [
+        "Fundamentals",
+        "Sentiment"
+      ],
+      "reason": "Trimmed from 8% to 6% \u2014 lowest-conviction long in the book, sized accordingly. RSI 15 is the most extreme oversold reading in the universe this cycle and the business is intact: 16% YoY revenue growth, $6.8B buyback, ad-tier structurally accretive. Warner fee is a cash windfall misread as negative. The edge is real but the thesis requires the market to voluntarily reconsider a negative narrative with no identified catalyst timeline. 6% holds the contrarian setup; 8% was pricing in a catalyst we cannot yet see.",
+      "rsi": 15,
+      "trend": "down"
+    },
+    {
+      "ticker": "TLT",
+      "side": "short",
+      "shares": 11.67,
+      "entry": 85.72,
+      "last": 85.72,
+      "value": 1000.0,
+      "signed_weight": -5.0,
+      "weight": 5.0,
+      "pnl": 0.0,
+      "sector": "Bonds",
+      "champions": [
+        "Macro"
+      ],
+      "reason": "Reduced from 8% to 5% on two compounding failure modes that together make full size indefensible. First: binary FOMC event risk today \u2014 any balanced or mildly dovish Warsh tone reverses the short immediately with no clean exit. Second: correlation failure risk \u2014 TLT short is a risk-on bet that loses in a flight-to-quality event precisely when GS, AMD, and SMH are drawing down, hitting the book from both sides simultaneously. May CPI 4.2% headline eliminates the dovish pivot and rate cuts are a 2027 story \u2014 the macro view is right. But single-analyst, conv60, live binary event does not justify 8%. At 5% the higher-for-longer thesis is represented at minimum viable size.",
+      "rsi": 61,
       "trend": "mixed"
     },
     {
-      "ticker": "AMD",
-      "shares": 2.35,
-      "entry": 511.57,
-      "last": 511.57,
-      "value": 1200.0,
+      "ticker": "XOM",
+      "side": "short",
+      "shares": 4.08,
+      "entry": 147.01,
+      "last": 147.01,
+      "value": 600.0,
+      "signed_weight": -3.0,
+      "weight": 3.0,
       "pnl": 0.0,
-      "weight": 6.0,
-      "sector": "Technology",
+      "sector": "Energy",
       "champions": [
-        "Technicals",
-        "Quant"
+        "Macro"
       ],
-      "reason": "RS +152 is the loudest momentum signal in the book but the 5d +9.7% run makes full-size a recency chase. Half-weight participates in semi cycle acceleration without compounding sub-sector concentration \u2014 SMH already holds AMD as a top constituent. Momentum override of Fundamentals valuation caution is acceptable at half-size; at full-size it becomes undisciplined.",
-      "rsi": 57,
-      "trend": "up"
+      "reason": "Minimum viable size at 3%, halved from 6%. US-Iran ceasefire drains Strait of Hormuz supply-disruption premium and DXY ~99.5 is a real FX headwind to dollar-denominated oil revenues \u2014 both thesis legs are valid. But ceasefire durability is entirely exogenous: if the agreement fractures, the position squeezes hard against the book with no forecastable exit. Dropping to zero is defensible as the Risk Manager noted; at 3%, the geopolitical deflation view is expressed with tolerable binary exposure. Held as a macro hedge, not a conviction position.",
+      "rsi": 37,
+      "trend": "mixed"
     }
   ],
   "sectors": [
     {
       "sector": "Financials",
-      "weight": 15.0
-    },
-    {
-      "sector": "Sector ETF",
-      "weight": 15.0
-    },
-    {
-      "sector": "Technology",
       "weight": 13.0
     },
     {
+      "sector": "Technology",
+      "weight": -10.5
+    },
+    {
+      "sector": "Sector ETF",
+      "weight": 8.0
+    },
+    {
       "sector": "Healthcare",
-      "weight": 12.0
+      "weight": 7.0
+    },
+    {
+      "sector": "Consumer",
+      "weight": -7.0
+    },
+    {
+      "sector": "Communications",
+      "weight": 6.0
+    },
+    {
+      "sector": "Bonds",
+      "weight": -5.0
+    },
+    {
+      "sector": "Energy",
+      "weight": -3.0
     }
   ],
   "scoreboard": {
@@ -135,7 +254,7 @@
       "calls": 0,
       "wins": 0,
       "pnl": 0.0,
-      "pitches": 2,
+      "pitches": 4,
       "win_rate": null
     },
     {
@@ -144,7 +263,7 @@
       "calls": 0,
       "wins": 0,
       "pnl": 0.0,
-      "pitches": 4,
+      "pitches": 5,
       "win_rate": null
     },
     {
@@ -153,7 +272,7 @@
       "calls": 0,
       "wins": 0,
       "pnl": 0.0,
-      "pitches": 1,
+      "pitches": 2,
       "win_rate": null
     },
     {
@@ -162,7 +281,7 @@
       "calls": 0,
       "wins": 0,
       "pnl": 0.0,
-      "pitches": 2,
+      "pitches": 3,
       "win_rate": null
     },
     {
@@ -175,395 +294,319 @@
       "win_rate": null
     }
   ],
-  "thesis": "The book runs three independent macro themes with clean sizing: rates-driven financial recovery (GS 15%), AI-capex secular demand via ETF anchor plus one high-beta complement (SMH 15% + AMD 6%), and healthcare margin normalization (UNH 12%), with a small toe-in to a technically dislocated mega-cap franchise (GOOGL 7%). The Risk Manager correctly diagnosed the semiconductor stacking problem \u2014 SMH + AMD + MU at 35% was one thesis expressed three times with two names coming off parabolic moves; MU is dropped entirely and AMD halved, bringing semi exposure to a disciplined 21% with SMH doing the heavy lifting. 45% cash is not timidity \u2014 it is the bid we reserve for positions that earn the same multi-analyst conviction bar the current book required.",
-  "note": "Four-lens GS and clean-breakout SMH do the heavy lifting. We do not buy names on five-day parabolas backed by a single analyst \u2014 that is how you confuse noise for signal.",
-  "outlook": "Three catalysts to watch: (1) Fed June meeting tone \u2014 a dovish tilt pressures the GS NIM thesis and tests whether SMH's breakout sustains without the rates tailwind; (2) GOOGL technical stabilization \u2014 any reversal above the 50-day on volume validates adding toward 10%; (3) semi earnings revisions \u2014 if AMD or MU forward estimates are cut on the next analyst cycle, trim AMD to 3% and reassess SMH weight. MU sits at zero weight on the watchlist; a multi-analyst re-rating backed by confirmed memory-cycle inflection data would be the entry signal, not a single-day gap.",
-  "confidence": 74,
-  "weakness_watch": [
-    {
-      "ticker": "AMD",
-      "reason": "5d +9.7% is the book's highest near-term reversal risk. If RSI pushes above 70 or SMH shows distribution, AMD is the first trim \u2014 it is the most redundant position in the slate and the one sized on recency momentum."
-    },
-    {
-      "ticker": "GOOGL",
-      "reason": "Technicals dissent is live and RSI 34 can become RSI 20 if the mega-cap rotation deepens. Monitor for a base formation \u2014 absence of stabilization above a key level would warrant exiting before thesis damage compounds."
-    },
-    {
-      "ticker": "UNH",
-      "reason": "RSI 64 and only 1.1% off 52wk high. If the institutional upgrade cycle stalls or utilization data disappoints pre-earnings, this becomes the healthcare fade trade. June 23 dividend is a sentiment floor, not a price floor."
-    },
-    {
-      "ticker": "GS",
-      "reason": "SpaceX IPO timing is speculative and any Fed pivot signal compresses NIM expectations directly. A dovish surprise would require re-evaluating the primary thesis even if the dealmaking narrative holds independently."
-    }
-  ],
+  "thesis": "The book opens moderately net-long at +8.5% net / 77.5% gross \u2014 deliberately not market-neutral, because the weight of evidence (semiconductor cycle leadership, financial earnings acceleration, AI-disruption victim re-ratings) favors a net-long tilt with asymmetric long quality versus short structural decay. The four CIO-proposed trims \u2014 AMD parabolic extension, AMD/SMH semi overlap, CRM crowded-short squeeze exposure, and TLT's dual correlation-failure and live FOMC binary \u2014 are size corrections, not thesis reversals; every position stays in the book because the underlying call remains valid. ADBE and GS are the anchors; the shorts provide both alpha and partial hedging against the cyclical longs rather than a clean market-neutral offset, which is an intentional choice given the strength of the long-side confluence.",
+  "note": "Four trims, zero ejections \u2014 the Risk Manager improved the book without breaking it. The net-long tilt is earned conviction, not complacency; if the FOMC reads hawkish today, GS, AMD, and TLT short all move in our favour simultaneously and the book is positioned exactly right.",
+  "outlook": "Warsh FOMC debut today is the immediate binary watch \u2014 a hawkish tone validates GS NIM expansion and TLT short simultaneously; any dovish lean pressures both and warrants TLT short reassessment. AMD next earnings will confirm or break the Meta hyperscaler revenue recognition story and determine whether the 9% size holds. ADBE CEO appointment (or prolonged vacancy) is the key multiple-compression catalyst for the anchor short. NFLX needs a market-structure trigger \u2014 analyst upgrade, accelerated buyback, or ad-tier beat \u2014 to convert the RSI-15 setup into a tradeable catalyst; watching for that without chasing. Ceasefire durability headlines are the XOM stop-loss monitor.",
+  "confidence": 70,
   "pitches": [
     {
       "analyst": "Macro",
       "pitches": [
         {
+          "ticker": "AMD",
+          "side": "long",
+          "conviction": 72,
+          "thesis": "Meta 6GW Instinct GPU deal is live revenue \u2014 AMD is taking NVDA share in hyperscaler AI capex that persists in ANY rate regime; RSI 57 is healthy consolidation after a 164% 3m run, not overheated.",
+          "horizon": "weeks"
+        },
+        {
           "ticker": "GS",
-          "conviction": 73,
-          "thesis": "Hawkish hold at 3.50-3.75% with Dec hike risk being priced in is the single biggest NIM and capital-markets tailwind for the most rate-levered major bank; RS +24 vs SPY and clean RSI 61 give room to run.",
+          "side": "long",
+          "conviction": 65,
+          "thesis": "M&A resurgence + volatile-rates trading revenue + steepening yield curve NIM: GS Q1 EPS was $17.55 vs $14.12 prior year; RSI 61 and only -2.7% off 52-week high means it's still running with fuel.",
           "horizon": "weeks"
-        },
-        {
-          "ticker": "JPM",
-          "conviction": 64,
-          "thesis": "Higher-for-longer confirmed at this week's FOMC directly fattens bank spreads; JPM's diversified platform is the safest vehicle for the financials macro trade in a 1.7%-GDP slow-growth regime.",
-          "horizon": "weeks"
-        },
-        {
-          "ticker": "SMH",
-          "conviction": 67,
-          "thesis": "CBO and Treasury data explicitly name AI capex as the primary US GDP growth driver in 2026; semi ETF captures that structural demand regardless of rate cycle, with RS +52 and RSI 59 \u2014 not yet overbought.",
-          "horizon": "weeks"
-        },
-        {
-          "ticker": "CAT",
-          "conviction": 59,
-          "thesis": "Fiscal spend from the 2025 reconciliation act is flowing into infrastructure and defense procurement; CAT is the cleanest industrial proxy for government capex with RS +19 and RSI 55 \u2014 plenty of room.",
-          "horizon": "weeks"
-        }
-      ],
-      "weak": [
-        {
-          "ticker": "GLD",
-          "reason": "Hawkish hold + firm DXY ~99 + Dec hike risk being priced = textbook gold headwind; rate cuts are off the table through 2026, removing gold's primary macro bid. RS -28 and -22% off highs confirm."
         },
         {
           "ticker": "TLT",
-          "reason": "Fed signaling hawkish hold with potential December hike priced by markets pushes long-end yields up; long-duration bonds are structurally offside in this regime."
+          "side": "short",
+          "conviction": 63,
+          "thesis": "May CPI at 4.2% headline / 2.9% core kills any dovish pivot \u2014 Warsh's FOMC debut today risks hawkish tone; market is now pricing a possible December hike, not a cut, meaning this bond recovery at $85.72 is a trap.",
+          "horizon": "days"
         },
         {
-          "ticker": "NFLX",
-          "reason": "3.8% inflation + zero rate relief = consumer discretionary spending under maximum pressure; RSI 15 is extreme but a broken trend in a high-cost-of-living macro environment has no floor from Fed support."
-        },
-        {
-          "ticker": "ETHA",
-          "reason": "Crypto's primary macro catalyst was a Fed pivot \u2014 with that gone and geopolitical safe-haven flows favouring USD not risk assets, the bid evaporates. RS -33 and -65% off highs are the macro verdict."
-        },
-        {
-          "ticker": "IBIT",
-          "reason": "Same as ETHA: hawkish hold kills the liquidity-premium narrative that drove crypto through 2024-25; DXY firm at 99 is the opposing force."
-        },
-        {
-          "ticker": "AMZN",
-          "reason": "Consumer under pressure from 3.8% headline inflation + high rates; AWS cloud growth faces enterprise budget scrutiny in a 1.7% GDP, 30%-recession-risk environment. RSI 27, -11.7% in one month."
+          "ticker": "XOM",
+          "side": "short",
+          "conviction": 60,
+          "thesis": "US-Iran ceasefire restores Strait of Hormuz transit, draining the geopolitical risk premium that was propping oil \u2014 DXY ~99.5 plus supply normalization is a double headwind for integrated oil majors.",
+          "horizon": "weeks"
         }
       ],
-      "note": "The defining macro force this week is the FOMC hawkish hold \u2014 rates at 3.50-3.75% with a December hike being priced, core CPI at 2.9%, and no pivot in sight. That regime clearly favours rate-sensitive financials (GS, JPM) and structural AI capex plays (SMH) while crushing long-duration (TLT), gold (GLD), and consumer discretionary. Middle East geopolitical risk adds oil upside optionality but XLE price action is not confirming, so I am sidestepping energy entirely."
+      "note": "Macro regime is unambiguously higher-for-longer: 4.2% CPI and a hawkish new Fed chair entering today make rate cuts a 2027 story at best, which is bullish for banks and AI capex survivors (AMD) while punishing bonds and anything that was a geopolitical safe-haven trade (energy). Avoided GLD short despite the clear headwinds \u2014 RSI 33 signals a tactical bounce risk I won't stand in front of."
     },
     {
       "analyst": "Technicals",
       "pitches": [
         {
           "ticker": "SMH",
-          "conviction": 83,
-          "thesis": "Semiconductor ETF at 52wk high with RS +52 vs SPY, uptrend intact, RSI 59 \u2014 not overbought on a confirmed breakout; this is the leading sector and price is saying so cleanly",
-          "horizon": "weeks"
-        },
-        {
-          "ticker": "AMD",
-          "conviction": 79,
-          "thesis": "RS +152 vs SPY is the loudest relative strength signal in the book, uptrend confirmed, RSI 57 neutral \u2014 only 5.7% off 52wk hi with momentum still building",
+          "side": "long",
+          "conviction": 82,
+          "thesis": "At 52wk high (0.0% off), uptrend, RSI 59 \u2014 not overbought \u2014 RS +52 vs SPY; semis are the clear leadership sector and this is a clean uncontested breakout with AMD/MU/TSM all confirming.",
           "horizon": "weeks"
         },
         {
           "ticker": "GS",
+          "side": "long",
           "conviction": 74,
-          "thesis": "Financials are leading \u2014 GS only 2.7% off 52wk hi, RS +24, uptrend, RSI 61 not stretched; banks in the vanguard signals healthy risk-on rotation",
+          "thesis": "Uptrend, RSI 61, RS +24.2 vs SPY, only -2.7% off 52wk high, +36.5% in 3m; financials are the second-strongest sector and GS is the alpha name \u2014 institutional flow chasing the group.",
           "horizon": "weeks"
         },
         {
           "ticker": "UNH",
-          "conviction": 70,
-          "thesis": "Healthcare standout: 1.1% off 52wk hi, RS +32.5, uptrend intact \u2014 price cleared a deep hole fast and trend buyers are in control",
+          "side": "long",
+          "conviction": 68,
+          "thesis": "Uptrend, RSI 64, RS +32.5 vs SPY, -1.1% off 52wk high, +44.8% in 3m; dominant momentum with near-zero drawdown from highs \u2014 money hiding in defensive quality.",
           "horizon": "weeks"
         },
         {
-          "ticker": "TSM",
-          "conviction": 65,
-          "thesis": "1% off 52wk hi in uptrend, RSI 59, RS +18 \u2014 semiconductor supply chain confirming the SMH breakout, cleaner setup than individual chip names",
-          "horizon": "2-3 weeks"
-        }
-      ],
-      "weak": [
-        {
           "ticker": "ADBE",
-          "reason": "Down trend, RSI 33, 50.7% off 52wk hi, RS -30.5 \u2014 structurally broken; today's -6.8% session print accelerating the breakdown"
-        },
-        {
-          "ticker": "NFLX",
-          "reason": "RSI 15 crash, down trend, -40% off 52wk hi, RS -28 \u2014 falling knife with no technical floor visible"
+          "side": "short",
+          "conviction": 78,
+          "thesis": "Downtrend, -50.7% off 52wk high, RS -30.5 vs SPY, -18.2% in 3m; structurally broken SaaS with no technical floor visible \u2014 RSI 33 but broken names don't snap back, they roll.",
+          "horizon": "weeks"
         },
         {
           "ticker": "CRM",
-          "reason": "Down trend, -38.9% off 52wk hi, RS -25.8 \u2014 enterprise software broken; -10.4% 5d move confirms distribution"
+          "side": "short",
+          "conviction": 66,
+          "thesis": "Downtrend, -38.9% off highs, RS -25.8 vs SPY; dead SaaS \u2014 1m flat (+0.3%) is a pause in the decline not a base, bearish on any relief bounce.",
+          "horizon": "weeks"
         },
         {
-          "ticker": "MSFT",
-          "reason": "Down trend, RSI 39, -27.5% off 52wk hi, RS -13.3 \u2014 mega-cap leadership gone, -6.2% last 5d is heavy"
-        },
-        {
-          "ticker": "META",
-          "reason": "Down trend, -24.6% off 52wk hi, RS -17.6 \u2014 despite today's +4.8% bounce, trend is broken and RS negative"
-        },
-        {
-          "ticker": "ETHA",
-          "reason": "Down trend, RSI 23, -65.6% off 52wk hi, RS -33 \u2014 crypto ETF in freefall, no technical support visible"
-        },
-        {
-          "ticker": "GLD",
-          "reason": "RSI 33, -22.1% off 52wk hi, RS -28.4 \u2014 gold breakdown accelerating; defensive hedge not working, avoid"
-        },
-        {
-          "ticker": "ORCL",
-          "reason": "Down trend, -43.5% off 52wk hi despite mild RS \u2014 broken; -13.8% 5d confirms distribution"
-        },
-        {
-          "ticker": "BAC",
-          "reason": "RSI 77 overbought on a 13% 1m run \u2014 not a short call but near-term mean reversion risk; flag for existing holders to tighten stops"
+          "ticker": "NKE",
+          "side": "short",
+          "conviction": 60,
+          "thesis": "Dead-cat bounce \u2014 +7.1%/1m and RSI 53 but still -41.7% off highs, RS -28.3 vs SPY, -16% in 3m; structurally impaired with no catalyst; fade the bounce.",
+          "horizon": "days"
         }
       ],
-      "note": "Semis and financials are the only clean technical leadership in this tape \u2014 SMH/AMD/GS/TSM all near 52wk highs with strong RS while most of mega-cap tech (MSFT, META, ADBE, CRM) is structurally broken; crypto is in freefall and gold is failing as a hedge, so the risk-on rotation into cyclicals and semis is the dominant price signal right now."
+      "note": "Two-sided tape: semis and financials are the only sectors with clean uptrends and positive RS \u2014 own them. Software/SaaS (ADBE, CRM, ORCL, MSFT) is the structural short sector, broken charts across the board. Avoiding shorts on anything RSI <25 (NFLX, IBIT, ETHA) \u2014 too oversold for asymmetric risk."
     },
     {
       "analyst": "Fundamentals",
       "pitches": [
         {
-          "ticker": "GOOGL",
-          "conviction": 68,
-          "thesis": "Search + YouTube + Cloud franchise with structurally durable earnings; RSI 34 on a modest 10.6% pullback while Gemini deepens the moat \u2014 rotation-driven dislocation, not fundamental impairment.",
-          "horizon": "weeks"
-        },
-        {
-          "ticker": "AMZN",
-          "conviction": 65,
-          "thesis": "AWS leadership + accelerating advertising revenue + Prime flywheel; RSI 27 flags near-term dislocation in a compounder whose earnings power is structurally improving quarter over quarter.",
-          "horizon": "weeks"
-        },
-        {
           "ticker": "ADBE",
-          "conviction": 62,
-          "thesis": "50.7% off 52-week high is an extraordinary discount for a subscription software franchise with 90%+ gross margins and deep enterprise lock-in; Firefly positions Adobe as an AI beneficiary, not a casualty \u2014 RSI 33 and a 19% 5-day flush hint at capitulation.",
+          "side": "long",
+          "conviction": 73,
+          "thesis": "Near-monopoly in professional creative software (Creative Cloud) with durable switching costs and strong FCF \u2014 a 50.7% drawdown on AI-disruption fear is excessive; Firefly integration keeps professionals in-ecosystem and the 6.8% single-day flush today looks like terminal capitulation, not fundamental deterioration.",
           "horizon": "weeks"
         },
-        {
-          "ticker": "ORCL",
-          "conviction": 54,
-          "thesis": "43.5% off high while OCI is winning AI infrastructure contracts and Autonomous Database + NetSuite SaaS provide a durable earnings floor \u2014 the re-rating catalyst is AI workload monetization, and the market is ignoring it.",
-          "horizon": "weeks"
-        }
-      ],
-      "weak": [
         {
           "ticker": "NFLX",
-          "reason": "RSI 15 with a 40% drawdown and -15.7% in 3 months signals fundamental deterioration, not just a technical flush \u2014 advertising tier monetization or subscriber trajectory may be structurally missing expectations."
-        },
-        {
-          "ticker": "DIS",
-          "reason": "Linear TV secular decline accelerating, streaming growth plateauing after initial gains, theme park pricing power approaching ceiling \u2014 no credible near-term earnings acceleration thesis."
-        },
-        {
-          "ticker": "NKE",
-          "reason": "Multi-quarter revenue decline, China structurally challenged, turnaround under new CEO is real but measured in years \u2014 market is pricing hope, not results."
+          "side": "long",
+          "conviction": 66,
+          "thesis": "RSI 15 and 40% off highs on a business that has definitively won the streaming wars \u2014 ad-tier monetization is structurally margin-accretive, password-sharing crackdown lifted ARPU, and live-events content builds stickiness; the selloff is technically driven, not earnings-driven.",
+          "horizon": "weeks"
         },
         {
           "ticker": "MSFT",
-          "reason": "Copilot enterprise monetization running behind consensus expectations, Azure growth decelerating against tough comps \u2014 down 27.5% from high in a down trend with no clear near-term re-rating catalyst."
+          "side": "long",
+          "conviction": 62,
+          "thesis": "Best-in-class enterprise moat (Azure #2 cloud, Office 365 omnipresent, GitHub, Copilot deeply embedded) trading 27.5% off highs with RSI 39 \u2014 quality at a genuine discount, not a value trap.",
+          "horizon": "weeks"
         },
         {
-          "ticker": "ADBE",
-          "reason": "Minority view flagged alongside my pitch: if Firefly cannibalization of paid seat count is worse than modeled, the AI beneficiary thesis collapses \u2014 worth monitoring."
+          "ticker": "SBUX",
+          "side": "short",
+          "conviction": 70,
+          "thesis": "Only 3.5% off 52-week highs despite US same-store sales turning negative, China traffic structurally declining, and a new-CEO turnaround narrative with no proof points yet \u2014 premium multiple on deteriorating fundamentals is a textbook short.",
+          "horizon": "weeks"
+        },
+        {
+          "ticker": "MU",
+          "side": "short",
+          "conviction": 60,
+          "thesis": "Memory is the most violently cyclical semiconductor category \u2014 a +130% 3-month run on HBM/AI demand has priced in perfection just as capex scrutiny from hyperscalers builds; when the cycle turns, memory pricing collapses faster than street models assume.",
+          "horizon": "weeks"
         }
       ],
-      "note": "The best fundamental value is in quality internet/software \u2014 GOOGL and AMZN offer durable earnings power at oversold levels while ADBE represents a classic franchise-in-dislocation setup. Semiconductors (AMD, MU) have already re-rated sharply and offer less value cushion from this lens."
+      "note": "The dominant theme I see: AI hype has created two-tier distortions \u2014 quality software franchises (ADBE, NFLX, MSFT) have been indiscriminately sold off on disruption narratives while cyclical chip names (MU +130% in 3m) have been bid to levels that assume a permanent upcycle; the highest-confidence trade is fading SBUX near highs as operational deterioration is plainly visible and the turnaround story has no evidence yet."
     },
     {
       "analyst": "Sentiment",
       "pitches": [
         {
-          "ticker": "GS",
-          "conviction": 78,
-          "thesis": "SpaceX IPO halo (lead underwriter, largest IPO in US history at $75B raised) cements 'dealmaking renaissance' narrative; sentiment still building with RSI 61 and only -2.7% off 52wk high, yet 3m RS vs SPY +24.2 shows institutional rotation isn't done.",
-          "horizon": "2-3 weeks"
-        },
-        {
-          "ticker": "UNH",
-          "conviction": 73,
-          "thesis": "Six institutional upgrades in two weeks signal a narrative inflection from 'utilization crisis' to 'margin recovery and AI efficiency' \u2014 that re-rating is still in early innings; June 23 dividend acts as near-term sentiment anchor.",
-          "horizon": "2-4 weeks"
-        },
-        {
-          "ticker": "QCOM",
-          "conviction": 63,
-          "thesis": "ByteDance AI chip supply deal plus imminent hyperscaler custom processor shipment are undercovered incremental catalysts; stock has pulled back 15% from its recent peak to RSI 42 \u2014 sentiment reset creates a re-entry window before the next catalyst confirms.",
-          "horizon": "2-3 weeks"
-        },
-        {
-          "ticker": "NFLX",
-          "conviction": 50,
-          "thesis": "RSI 15 and seven consecutive down sessions with 0 analyst sell ratings and a $114 consensus vs $80 price point signals capitulation, not a fundamental collapse \u2014 bad news (failed WBD deal, Brazil tax, Q2 guide miss) is fully priced; contrarian bounce only.",
-          "horizon": "5-10 days"
-        }
-      ],
-      "weak": [
-        {
           "ticker": "ADBE",
-          "reason": "CFO departed June 15, stock hit 52wk lows post-earnings despite a beat \u2014 'AI eats creative software' narrative fully owns the story now and there is no positive counter-catalyst visible."
+          "side": "short",
+          "conviction": 72,
+          "thesis": "Story fully broken: dual leadership void (CFO departed June 15 + active CEO search), organic ARR growth guidance cut ~2pp as company retreats to free tiers under competitive AI pressure \u2014 market has re-rated from 'AI winner' to 'AI disruption victim' and each bounce is being sold; -50.7% off highs with no floor in sight.",
+          "horizon": "weeks"
         },
         {
           "ticker": "CRM",
-          "reason": "Three-year lows driven by the same legacy-software-disrupted-by-AI narrative as ADBE; AI-driven workforce reductions feeding the bear story, no sentiment inflection point in sight."
+          "side": "short",
+          "conviction": 65,
+          "thesis": "AI-agent-replaces-CRM narrative gaining institutional consensus; stock down 35% YTD near 52-week lows with crowded legacy-software longs still distributing \u2014 no credible near-term catalyst to reverse the 'Agentforce saves Salesforce' thesis that has clearly failed to move sentiment.",
+          "horizon": "weeks"
         },
         {
-          "ticker": "MSFT",
-          "reason": "Down 27.5% from highs with RSI 39 despite 40% Azure growth \u2014 market is repricing AI capex-skepticism and Copilot monetization lag; sentiment has decoupled from fundamentals in the wrong direction."
+          "ticker": "NFLX",
+          "side": "long",
+          "conviction": 55,
+          "thesis": "RSI 15 is the most extreme oversold reading in the universe today; underlying business is intact (Q1: 16% YoY revenue growth, FCF improving, $6.8B buyback authorized) and the $2.8B Warner termination fee is actually a cash windfall \u2014 market overcorrected on deal noise, setup for sharp mean reversion bounce.",
+          "horizon": "days"
         },
         {
-          "ticker": "GLD",
-          "reason": "Risk-on regime plus higher-for-longer rates (10y at 4.54%) actively squeezing the gold narrative; -22% off highs with 1m -10.2% and RSI 33 \u2014 no sentiment catalyst on the horizon."
-        },
-        {
-          "ticker": "IBIT",
-          "reason": "Crypto malaise with no positive headline catalyst; RSI 22, -49% off high, down trend \u2014 sentiment is absent, not just negative."
+          "ticker": "BAC",
+          "side": "short",
+          "conviction": 58,
+          "thesis": "RSI 77 at all-time highs after a +20% 3-month run; financials are the most crowded long in the book right now on peak rate-cut optimism \u2014 if the Fed delays cuts further or credit softens, this unwinds fast with no margin of safety at current levels.",
+          "horizon": "weeks"
         }
       ],
-      "note": "The clearest sentiment pocket in the market right now is financials \u2014 GS has a generational headline halo and BAC/JPM are riding a credible NII-recovery story into the first FOMC under Warsh (today). Tech is deeply bifurcated: AI infrastructure (AMD/QCOM/SMH) is rebounding on real deal flow while legacy software (ADBE/CRM/MSFT) has no floor; the most asymmetric setup in the book is NFLX at RSI 15 \u2014 not a high-conviction long, but the crowd has fully given up and that is usually worth fading for a short-term bounce."
+      "note": "The dominant theme is broken SaaS/enterprise software stories (ADBE, CRM) where the AI-disruption-victim narrative has firmly taken hold and every bounce is a distribution opportunity; the contrarian long is NFLX where sentiment has catastrophically overcorrected relative to fundamentals. Staying out of the semis crowded long (AMD +164% in 3m) despite the intact AI thesis \u2014 risk/reward for new entries is poor after that run."
     },
     {
       "analyst": "Quant",
       "pitches": [
         {
           "ticker": "AMD",
+          "side": "long",
           "conviction": 82,
-          "thesis": "Cross-sectional momentum leader by widest margin: 3m RS +152 vs SPY, RSI 57 leaves room to extend, fresh 5d +9.7% confirms continuation \u2014 semis cycle in full acceleration.",
+          "thesis": "Top cross-sectional momentum in universe: 3m RS +152 vs SPY, 3m price +164%, uptrend, RSI 57 (not extended), only -5.7% off 52wk high \u2014 cleanest momentum long on the board",
           "horizon": "weeks"
         },
         {
           "ticker": "MU",
-          "conviction": 76,
-          "thesis": "3m RS +118 vs SPY with 5d +13.6% re-acceleration \u2014 memory cycle inflecting hard; RSI 64 warm but not extended enough to trim.",
-          "horizon": "weeks"
-        },
-        {
-          "ticker": "SMH",
-          "conviction": 72,
-          "thesis": "Semiconductor ETF at 52wk high, RS +52 vs SPY, RSI 59 \u2014 cleanest broad-beta vehicle to ride the dominant momentum regime without single-name binary risk.",
+          "side": "long",
+          "conviction": 74,
+          "thesis": "Second-best momentum rank: 3m RS +118 vs SPY, +130.5% 3m, uptrend, RSI 64 (healthy), -9.1% off high \u2014 confirms the semi cycle is real, not AMD-specific",
           "horizon": "weeks"
         },
         {
           "ticker": "GS",
+          "side": "long",
           "conviction": 65,
-          "thesis": "Financials cross-sectional leader: 3m RS +24 vs SPY, only -2.7% off ATH, RSI 61 \u2014 financials rotation intact and GS leads the group.",
+          "thesis": "Financials sector leader by RS (+24.2 vs SPY, 3m +36.5%), uptrend, RSI 61, -2.7% off 52wk high \u2014 breadth and price confirm continued outperformance",
           "horizon": "weeks"
-        },
-        {
-          "ticker": "UNH",
-          "conviction": 62,
-          "thesis": "Surprise 3m RS +32.5 vs SPY, RSI 64, -1.1% off ATH with confirmed uptrend \u2014 healthcare's lone momentum standout, minimal drawdown risk.",
-          "horizon": "weeks"
-        }
-      ],
-      "weak": [
-        {
-          "ticker": "NFLX",
-          "reason": "RSI 15, 3m RS -28.0, down trend, -40% off 52wk high \u2014 momentum rank dead last among comms; no reversal signal."
         },
         {
           "ticker": "ADBE",
-          "reason": "3m RS -30.5, RSI 33, -50.7% off high, down trend \u2014 structural breakdown, not a mean-reversion candidate at this stage."
-        },
-        {
-          "ticker": "ETHA",
-          "reason": "Worst drawdown in universe at -65.6% off high, RSI 23, 3m RS -33.2 \u2014 crypto capitulation ongoing, no momentum floor visible."
+          "side": "short",
+          "conviction": 73,
+          "thesis": "Worst RS in universe ex-crypto (-30.5 vs SPY), 3m -18.2%, 5d -18.9% (fresh distribution, not exhaustion), downtrend, -50.7% off high, RSI 33 \u2014 broken and still falling",
+          "horizon": "weeks"
         },
         {
           "ticker": "CRM",
-          "reason": "3m RS -25.8, -38.9% off high, down trend, RSI 41 \u2014 enterprise SaaS broken; ORCL confirms sector-wide SaaS rotation out."
-        },
-        {
-          "ticker": "GLD",
-          "reason": "3m RS -28.4, RSI 33, 1m -10.2% \u2014 intermediate support failing; gold momentum rank among the lowest in universe."
-        },
-        {
-          "ticker": "MSFT",
-          "reason": "3m RS -13.3, RSI 39, down trend, -27.5% off high \u2014 mega-cap tech that's visibly underperforming its own sector."
+          "side": "short",
+          "conviction": 64,
+          "thesis": "Persistent negative momentum: RS -25.8 vs SPY, 3m -13.5%, downtrend, RSI 41 (not oversold enough to fear squeeze), -38.9% off high \u2014 slow-bleed short with no catalyst for reversal",
+          "horizon": "weeks"
         }
       ],
-      "note": "Semiconductor momentum is the single clearest cross-sectional regime signal this cycle \u2014 AMD and MU rank 1-2 by 3m RS by a factor of 3x over the next best name; SMH packages that in ETF form. Secondary rotation in Financials (GS). Weakness is concentrated in mega-cap software (ADBE, CRM, MSFT) and crypto (ETHA, IBIT) \u2014 the distribution of RS scores is unusually wide, signaling a strong factor dispersion environment that favors pure momentum longs."
+      "note": "Semiconductor cycle is the dominant signal: AMD and MU rank 1-2 in the universe on every momentum metric with RSIs that aren't extended \u2014 the trade is to be long the semis into the cycle. On the short side, ADBE's 5-day -18.9% is fresh distribution, not an exhausted selloff \u2014 I want to be short into that breakdown. Avoided NFLX short (RSI 15 squeeze risk) and crypto (too oversold on RSI 22-23 for clean shorts)."
     }
   ],
   "cio": {
-    "note": "Four analysts converge on GS (highest confluence this cycle) and three each on SMH and UNH, anchoring those three at full or near-full weight; AMD earns 12% as the #1 cross-sectional momentum name despite only two champions. The 31% cash reserve is deliberate \u2014 GOOGL and MU are sized defensively as single-analyst ideas, and the hawkish-hold + semis-leadership regime does not reward adding speculative or technically broken names (ADBE, ORCL, QCOM) with no price confirmation. No longs in long-duration, gold, crypto, or consumer discretionary \u2014 Macro's regime call is clean and all other lenses align with it.",
+    "note": "Book opens at 93% gross / +7% net \u2014 modestly net long reflecting a regime where semis and financials are structurally leading and higher-for-longer macro creates clear directional edges on both sides. Key conflict resolution: ADBE resolved 3-1 short (structural leadership void + fresh distribution decisively outweigh the Fundamentals capitulation case); MU skipped entirely (Quant long vs Fundamentals short deadlock with no tiebreaker); BAC short skipped (Sentiment bearish call overruled by Macro/Technicals bullish on the financials complex broadly \u2014 GS is the cleaner expression); NKE skipped (days-only Technicals pitch, thesis too thin for the book). The paired sector structure \u2014 long GS/AMD/SMH vs short ADBE/CRM \u2014 creates a natural equity hedge that profits whether the semis-vs-SaaS divergence widens or compresses, while TLT and XOM shorts hedge the macro tail and NFLX/UNH provide uncorrelated alpha sources on opposite ends of the momentum spectrum.",
     "slate": [
       {
         "ticker": "GS",
-        "action": "buy",
-        "target_weight": 15,
-        "conviction": 73,
-        "thesis": "Widest analyst confluence in the book: hawkish hold at 3.50-3.75% is a direct NIM tailwind, SpaceX IPO halo cements the dealmaking renaissance narrative, RS +24 vs SPY with RSI 61 shows healthy momentum with room to run, and Quant ranks it as the cross-sectional financials leader. Four independent lenses all pointing the same direction \u2014 maximum weight.",
-        "champions": [
-          "Macro",
-          "Technicals",
-          "Sentiment",
-          "Quant"
-        ]
-      },
-      {
-        "ticker": "SMH",
-        "action": "buy",
-        "target_weight": 15,
-        "conviction": 74,
-        "thesis": "AI capex is the primary 2026 GDP growth driver per CBO/Treasury data; SMH at 52wk high with RS +52 and RSI 59 is a confirmed breakout, not yet overbought. ETF structure avoids single-name binary risk while capturing the dominant sector momentum regime. Three analysts (Macro structural demand + Technicals breakout + Quant regime signal) with no dissent.",
-        "champions": [
-          "Macro",
-          "Technicals",
-          "Quant"
-        ]
-      },
-      {
-        "ticker": "UNH",
-        "action": "buy",
-        "target_weight": 12,
+        "side": "long",
+        "target_weight": 13,
         "conviction": 68,
-        "thesis": "Six institutional upgrades in two weeks signal narrative inflection from utilization crisis to margin recovery \u2014 re-rating still in early innings. RS +32.5, only 1.1% off 52wk high, RSI 64; healthcare's lone momentum standout with June 23 dividend acting as a near-term sentiment anchor. Three analysts, zero dissent.",
+        "thesis": "Highest-confluence long in book \u2014 Macro + Technicals + Quant all independently pitch it. Q1 EPS $17.55 (+24% YoY) with M&A resurgence, volatile-rates trading, and yield-curve NIM expansion in a higher-for-longer regime. RS +24.2 vs SPY, uptrend, RSI 61, only -2.7% off 52-week high \u2014 financials sector alpha name with durable earnings tailwinds and institutional flow chasing the group.",
         "champions": [
+          "Macro",
           "Technicals",
-          "Sentiment",
           "Quant"
         ]
       },
       {
         "ticker": "AMD",
-        "action": "buy",
+        "side": "long",
         "target_weight": 12,
-        "conviction": 79,
-        "thesis": "RS +152 vs SPY is the single loudest momentum signal in the book \u2014 roughly 3x the next-best name. RSI 57 neutral with 5d +9.7% continuation confirms the semis cycle is in full acceleration, not late-stage. High-beta single-name complement to SMH; Fundamentals caution on stretched valuations is noted but momentum regime overrides valuation in this environment.",
+        "conviction": 77,
+        "thesis": "Dual-analyst confluence (Macro + Quant) with the top conviction score across both. #1 momentum rank in universe (3m RS +152 vs SPY, +164% in 3m) with RSI 57 showing no extension \u2014 this is a healthy consolidation after a strong run, not a chase. Meta 6GW Instinct deal is live hyperscaler revenue and a structural share-gain story from NVDA that persists regardless of rate path.",
+        "champions": [
+          "Macro",
+          "Quant"
+        ]
+      },
+      {
+        "ticker": "SMH",
+        "side": "long",
+        "target_weight": 10,
+        "conviction": 78,
+        "thesis": "Technicals' highest-conviction long (conv82). Clean breakout at 52-week high, RSI 59, RS +52 vs SPY \u2014 semis are the undisputed leadership sector. AMD/MU/TSM breadth across multiple analysts confirms a cycle-wide upswing, not a single-name event. ETF wrapper diversifies individual event risk while capturing the dominant sector rotation.",
+        "champions": [
+          "Technicals"
+        ]
+      },
+      {
+        "ticker": "NFLX",
+        "side": "long",
+        "target_weight": 8,
+        "conviction": 61,
+        "thesis": "Dual-analyst confluence (Fundamentals + Sentiment) on a historically extreme technical dislocation \u2014 RSI 15 is the most oversold reading in the entire universe this cycle. Underlying business is intact: 16% YoY revenue growth, $6.8B buyback authorized, ad-tier monetization structurally accretive. $2.8B Warner termination fee is a cash windfall misread as negative. Bounce setup with fundamental support, not a turnaround bet.",
+        "champions": [
+          "Fundamentals",
+          "Sentiment"
+        ]
+      },
+      {
+        "ticker": "UNH",
+        "side": "long",
+        "target_weight": 7,
+        "conviction": 65,
+        "thesis": "Technicals-driven defensive quality allocation. RS +32.5 vs SPY, RSI 64, only -1.1% off 52-week high with +44.8% in 3m \u2014 institutional money rotating into non-cyclical quality amid macro uncertainty. Sized below AMD/GS as single-analyst but the technical setup (dominant momentum with near-zero drawdown from highs) warrants inclusion.",
+        "champions": [
+          "Technicals"
+        ]
+      },
+      {
+        "ticker": "ADBE",
+        "side": "short",
+        "target_weight": 12,
+        "conviction": 74,
+        "thesis": "Strongest short by confluence \u2014 Technicals + Sentiment + Quant vote short (3-1) overruling a single Fundamentals long. CFO departed June 15, active CEO search underway, organic ARR guidance cut ~2pp as company retreats to free tiers under AI competitive pressure. Quant flags fresh -18.9% 5-day distribution \u2014 ongoing institutional exit, not exhaustion. -50.7% off highs with no technical floor and the narrative re-rated to 'AI disruption victim.' Fundamentals value case overruled.",
         "champions": [
           "Technicals",
+          "Sentiment",
           "Quant"
         ]
       },
       {
-        "ticker": "MU",
-        "action": "buy",
-        "target_weight": 8,
-        "conviction": 70,
-        "thesis": "RS +118 and 5d +13.6% re-acceleration signal a hard memory cycle inflection; Quant ranks it #2 cross-sectionally. RSI 64 is warm but not extended enough to trim. Sized to 8% \u2014 not 12%+ \u2014 because Fundamentals warns semis have already re-rated sharply, and this is a single-analyst pitch. Adds cycle-specific exposure SMH ETF underweights.",
+        "ticker": "CRM",
+        "side": "short",
+        "target_weight": 10,
+        "conviction": 65,
+        "thesis": "Triple confluence (Technicals + Sentiment + Quant). AI-agent-replaces-CRM narrative has reached institutional consensus; Agentforce failed to move sentiment and the thesis is now plainly discredited. Stock -35% YTD with crowded legacy longs still distributing \u2014 RS -25.8 vs SPY, downtrend, RSI 41 (not oversold enough for squeeze risk). Slow-bleed short with no credible near-term catalyst for reversal.",
         "champions": [
+          "Technicals",
+          "Sentiment",
           "Quant"
         ]
       },
       {
-        "ticker": "GOOGL",
-        "action": "buy",
+        "ticker": "TLT",
+        "side": "short",
+        "target_weight": 8,
+        "conviction": 60,
+        "thesis": "Macro regime short: May CPI 4.2% headline / 2.9% core eliminates any dovish pivot narrative. Warsh's FOMC debut today risks an explicitly hawkish tone; market now pricing a possible December hike, not a cut. Bond recovery at $85.72 is a sentiment trap in a structurally higher-for-longer rate environment \u2014 rate cuts are a 2027 story at best.",
+        "champions": [
+          "Macro"
+        ]
+      },
+      {
+        "ticker": "SBUX",
+        "side": "short",
         "target_weight": 7,
-        "conviction": 62,
-        "thesis": "Structurally durable Search + YouTube + Cloud franchise at RSI 34 on a rotation-driven 10.6% pullback \u2014 Fundamentals diagnoses dislocation, not impairment. Gemini deepens the moat. Sized small (7%) because Technicals explicitly flagged mega-cap tech as broadly broken and neither Quant nor Sentiment championed it; a toe-in position pending technical stabilization.",
+        "conviction": 68,
+        "thesis": "Fundamentals short with no cross-analyst disagreement. Only -3.5% off 52-week highs despite US same-store sales turning negative, China traffic in structural decline, and a new-CEO turnaround narrative with zero proof points. Premium multiple on demonstrably deteriorating fundamentals is a textbook mispricing \u2014 the multiple compresses as proof-points fail to materialise.",
         "champions": [
           "Fundamentals"
+        ]
+      },
+      {
+        "ticker": "XOM",
+        "side": "short",
+        "target_weight": 6,
+        "conviction": 57,
+        "thesis": "Macro geopolitical risk premium deflation: US-Iran ceasefire restores Strait of Hormuz transit, draining the supply-disruption premium propping integrated majors. DXY ~99.5 adds a FX headwind to dollar-denominated oil revenues. Sized at minimum to reflect single-analyst sourcing and binary headline risk around ceasefire durability.",
+        "champions": [
+          "Macro"
         ]
       }
     ]
@@ -574,481 +617,484 @@
         "ticker": "GS",
         "verdict": "keep",
         "size_factor": 1.0,
-        "reason": "Four-lens confluence with zero dissent, RSI 61 healthy, NIM tailwind thesis structurally intact and not consensus-priced yet. SpaceX IPO timing is speculative but the dealmaking renaissance narrative has independent legs. Max weight is earned by conviction depth here."
+        "reason": "Triple-confluence anchor with durable earnings tailwinds \u2014 M&A resurgence, rates-trading alpha, and NIM expansion all independently supportable. At 13% GS sits within 2pp of the 15% hard cap; flag for monitoring but thesis strength justifies full allocation. Financials sector net +13% is well inside the 45% sector limit."
+      },
+      {
+        "ticker": "AMD",
+        "verdict": "reduce",
+        "size_factor": 0.75,
+        "reason": "+164% price return in 3 months is a parabolic run \u2014 RSI resetting to 57 does not mean the price move has been digested. Momentum can exhaust violently on crowded mega-runners and the hyperscaler deal is now consensus. Additionally, AMD is a top-3 weight in SMH (~9-10% of ETF NAV), so combined AMD + SMH creates ~22% gross semi exposure on the long book at proposed sizes. Trim AMD to 9% to reduce both extension risk and overlap concentration. The share-gain thesis from NVDA remains valid; this is a size adjustment, not a thesis rejection."
       },
       {
         "ticker": "SMH",
-        "verdict": "keep",
-        "size_factor": 1.0,
-        "reason": "Cleanest semiconductor expression in the book: ETF structure eliminates binary single-name risk, 52wk-high breakout confirmed, RSI 59 is not extended. Three-analyst consensus, no dissent. Keeping SMH at full weight is precisely WHY the single-name semi stacks below it can be sized down \u2014 this is the anchor."
+        "verdict": "reduce",
+        "size_factor": 0.8,
+        "reason": "Solid ETF wrapper for the semi cycle but direct AMD overlap is not diversification \u2014 it amplifies. At 10% SMH + 12% AMD the book carries ~23% gross semi longs before trimming AMD. Reduce SMH to 8%; combined with AMD at 9% the semi gross long settles at ~17-18%, capturing the sector rotation without undue concentration. Breakout and RS thesis intact."
+      },
+      {
+        "ticker": "NFLX",
+        "verdict": "reduce",
+        "size_factor": 0.75,
+        "reason": "RSI 15 is statistically extreme and the mean-reversion edge is real, but 'oversold can become more oversold' applies until a catalyst defines the floor. No near-term re-rating event is identified \u2014 the Warner fee misread thesis requires the market to voluntarily reconsider a negative narrative, which carries no timeline. Conviction at 61 is the lowest among longs. Reduce to 6% to reflect the absence of a catalyst trigger while retaining the contrarian setup."
       },
       {
         "ticker": "UNH",
         "verdict": "keep",
         "size_factor": 1.0,
-        "reason": "Genuinely non-correlated to the semis and macro-rates themes. RSI 64 is warm but not overbought, institutional upgrade cycle is early-innings per the thesis, three analysts with zero dissent. June 23 dividend provides near-term sentiment floor. No objections."
+        "reason": "Defensive quality at 7% provides genuine portfolio diversification from the cyclical semi/fintech longs. Single-analyst but no cross-analyst conflict. RSI 64 is approaching watch territory but the +44.8% 3-month run is institutional rotation into non-cyclical quality, not retail speculation. 7% is sized correctly for single-analyst conviction. Keep."
       },
       {
-        "ticker": "AMD",
-        "verdict": "reduce",
-        "size_factor": 0.5,
-        "reason": "5d +9.7% is the loudest recency-chasing signal in the book. RS +152 is impressive but SMH already holds AMD as a top constituent, so full 12% meaningfully double-counts the same bet. Fundamentals flagged stretched valuations and got overridden by momentum \u2014 that override is acceptable at half-size, not full. Six percent participates in the semi cycle without compounding sub-sector concentration unnecessarily."
-      },
-      {
-        "ticker": "MU",
-        "verdict": "drop",
-        "size_factor": 0.0,
-        "reason": "Single-analyst pitch (Quant only) carrying the largest 5-day run in the entire slate (+13.6%) \u2014 this is chasing an already-moved name, not entering a fresh thesis. Fundamentals explicitly warned against semis re-rating and was not overridden here because no other analyst stepped up. SMH already captures MU through its ETF holdings, so this adds correlation without adding conviction. At full slate, SMH+AMD+MU = 35% in one sub-sector riding the same AI-capex/memory-cycle thesis \u2014 that is a single-factor bet masquerading as three positions. MU is the weakest link and gets cut."
-      },
-      {
-        "ticker": "GOOGL",
+        "ticker": "ADBE",
         "verdict": "keep",
         "size_factor": 1.0,
-        "reason": "At 7% the downside is contained and the position is sized to reflect exactly the technical uncertainty. RSI 34 on a rotation-driven pullback is a credible dislocation signal for a franchise of this durability \u2014 Fundamentals is correct that this is not impairment. Non-correlated to semis, financials, or healthcare; adds genuine diversification to the slate. Toe-in sizing is appropriate given Technicals dissent."
+        "reason": "Strongest short by confluence \u2014 3-to-1 majority overruling a lone Fundamentals dissent is decisive. CFO departure plus active CEO search plus ARR guidance cut is a management credibility event with lasting multiple-compression implications. The -18.9% 5-day distribution is ongoing institutional exit, not exhaustion selling. At -50.7% off highs, dead-cat bounce risk exists but the structural AI-disruption re-rating has further to run. Keep at 12%; monitor for bounces as potential add points."
+      },
+      {
+        "ticker": "CRM",
+        "verdict": "reduce",
+        "size_factor": 0.75,
+        "reason": "Crowded-short squeeze risk is materially understated. -35% YTD with legacy longs still unwinding means the short side is already packed; any sentiment shift \u2014 M&A speculation, activist entry, a low-bar earnings beat, or a surprise Agentforce data point \u2014 compresses the position fast. RSI 41 provides no oversold buffer to absorb a squeeze. The downtrend thesis is valid but the position should not be sized for a clean ride. Reduce to 7.5% to retain short exposure while capping squeeze blowout risk."
+      },
+      {
+        "ticker": "TLT",
+        "verdict": "reduce",
+        "size_factor": 0.625,
+        "reason": "Two compounding risks that together make full size unjustifiable. (1) Binary FOMC event risk today: Warsh's debut is a live headline \u2014 any balanced or mildly dovish tone reverses the short immediately with no exit opportunity. (2) Macro-hedge correlation failure: TLT short is a risk-ON bet that LOSES in a broad equity risk-off event (flight-to-quality bond rally), precisely when cyclical longs GS, AMD, and SMH are drawing down \u2014 the book gets hit from both sides simultaneously. Single analyst, conv60, no cross-desk validation. Reduce to 5% to retain the higher-for-longer macro view while neutralising the tail-event double-loss."
+      },
+      {
+        "ticker": "SBUX",
+        "verdict": "keep",
+        "size_factor": 1.0,
+        "reason": "Timing risk of shorting near 52-week highs is real but the fundamental mispricing is textbook: premium multiple sustained by a turnaround narrative with zero proof points against structurally deteriorating unit economics (negative US SSS, China secular decline). Single analyst with no cross-desk disagreement \u2014 clean unanimous short. The timing risk is embedded in the 7% size; that is the right size for a single-analyst, near-highs thesis. Keep."
+      },
+      {
+        "ticker": "XOM",
+        "verdict": "reduce",
+        "size_factor": 0.5,
+        "reason": "Weakest conviction in the book at 57, single analyst, explicit binary headline risk: ceasefire durability is entirely exogenous and unforecastable. If the US-Iran agreement fractures, Strait of Hormuz premium returns and XOM squeezes hard against a short. DXY headwind is real but cannot anchor the thesis independently of the supply narrative. Halve to 3% \u2014 minimum viable size to hold the geopolitical deflation view. If the desk prefers to avoid binary commodity event risk entirely, DROP is defensible."
       }
     ],
     "overall": "trim-risk",
-    "summary": "The book's structural problem is semiconductor sub-sector stacking: SMH + AMD + MU = 35% in effectively one thesis (AI capex / memory cycle inflection) expressed three times with high cross-correlation and two names coming off extreme 5-day runs. Dropping MU (thinnest thesis, hottest recent move, fully redundant via SMH) and halving AMD (recency chase on top of SMH overlap) brings semiconductor exposure to ~21% with SMH doing the heavy lifting cleanly \u2014 no sector-limit breach, no chasing signal, and the AI-capex thesis remains fully represented. The remainder of the book \u2014 GS, UNH, GOOGL \u2014 is well-constructed with genuine theme diversification and appropriate sizing, and the revised slate lands at ~55% gross with 45% cash buffer."
+    "summary": "The slate has structural conviction \u2014 GS and ADBE are strong triple-confluence anchors, the semiconductor cycle thesis is coherent, and the gross/net posture is conservative at 93% / +7% proposed. Four positions require trimming before deployment: AMD's +164% parabolic 3-month run creates extension risk RSI alone cannot dismiss; the AMD/SMH overlap loads 22% gross semi longs at full size; TLT short is the stealth book risk \u2014 a risk-ON bet that compounds cyclical-long drawdowns in any flight-to-quality event and carries live FOMC binary exposure today; CRM crowded-short squeeze risk is understated at full 10%. After recommended trims (AMD\u21929%, SMH\u21928%, NFLX\u21926%, CRM\u21927.5%, TLT\u21925%, XOM\u21923%), revised gross lands near 77.5% and net near +8.5% \u2014 within all hard limits, sector net peaks well below 45%, and tail-risk sources are meaningfully reduced without abandoning the core thesis on any name."
   },
   "today_trades": [
     {
-      "ts": "2026-06-16 15:59",
+      "ts": "2026-06-16 18:26",
       "ticker": "GS",
       "action": "BUY",
-      "usd": 3000.0,
-      "shares": 2.82,
+      "side": "long",
+      "usd": 2600.0,
+      "shares": 2.45,
       "price": 1062.75,
-      "reason": "Four-lens consensus with zero dissent is the highest conviction signal in the slate. Hawkish hold NIM tailwind is structurally intact and not consensus-priced; SpaceX IPO halo plus dealmaking renaissance provide independent catalysts even if IPO timing slips. RS +24 vs SPY with RSI 61 is clean momentum with room to extend. Maximum weight is earned \u2014 this is what maximum weight is for."
+      "reason": "Triple-confluence anchor \u2014 full size endorsed. Q1 EPS +24% YoY underpinned by M&A resurgence, rates-trading alpha, and NIM expansion in a higher-for-longer regime, all three independently supportable. RS +24.2 vs SPY, RSI 61, -2.7% off 52-week highs. At 13% the position sits 2pp inside the hard cap; the thesis is durable enough to hold the line. Financials sector net well within limits."
     },
     {
-      "ts": "2026-06-16 15:59",
-      "ticker": "SMH",
-      "action": "BUY",
-      "usd": 3000.0,
-      "shares": 4.64,
-      "price": 647.1,
-      "reason": "ETF structure is the correct vehicle for AI-capex secular exposure \u2014 eliminates binary single-name risk while capturing the dominant sector momentum regime. Confirmed 52wk-high breakout, RS +52, RSI 59 not extended. Three-analyst consensus, zero dissent. SMH is the semiconductor anchor; its full weight is what justifies cutting the single-name stacks below it."
-    },
-    {
-      "ts": "2026-06-16 15:59",
-      "ticker": "UNH",
-      "action": "BUY",
-      "usd": 2400.0,
-      "shares": 5.91,
-      "price": 406.2,
-      "reason": "Genuine diversifier \u2014 non-correlated to semis, rates, and mega-cap tech. Six institutional upgrades in two weeks mark a narrative inflection from utilization crisis to margin recovery with re-rating in early innings. RS +32.5, RSI 64 warm but not overbought, three analysts with zero dissent. June 23 dividend provides near-term sentiment anchor."
-    },
-    {
-      "ts": "2026-06-16 15:59",
+      "ts": "2026-06-16 18:26",
       "ticker": "AMD",
       "action": "BUY",
-      "usd": 1200.0,
-      "shares": 2.35,
+      "side": "long",
+      "usd": 1800.0,
+      "shares": 3.52,
       "price": 511.57,
-      "reason": "RS +152 is the loudest momentum signal in the book but the 5d +9.7% run makes full-size a recency chase. Half-weight participates in semi cycle acceleration without compounding sub-sector concentration \u2014 SMH already holds AMD as a top constituent. Momentum override of Fundamentals valuation caution is acceptable at half-size; at full-size it becomes undisciplined."
+      "reason": "Trimmed from 12% to 9% \u2014 extension and overlap discipline, not thesis retreat. +164% in three months is parabolic; RSI resetting to 57 shows momentum health but not that the move has been digested. Meta 6GW Instinct deal is live revenue and the NVDA share-gain story persists, but it is now consensus-priced. Combined with SMH at 8%, semi gross long lands ~17% \u2014 cycle exposure intact without concentration blow-up. The call is right; the old size was not."
     },
     {
-      "ts": "2026-06-16 15:59",
-      "ticker": "GOOGL",
+      "ts": "2026-06-16 18:26",
+      "ticker": "SMH",
       "action": "BUY",
+      "side": "long",
+      "usd": 1600.0,
+      "shares": 2.47,
+      "price": 647.1,
+      "reason": "Trimmed from 10% to 8% to control AMD overlap. ETF wrapper at 52-week high breakout, RSI 59, RS +52 vs SPY \u2014 semis are the undisputed leadership sector and breadth across AMD/MU/TSM confirms a cycle-wide upswing, not a single-name event. 8% alongside AMD at 9% is diversification with leverage to the theme; 10% alongside AMD at 12% was doubling up."
+    },
+    {
+      "ts": "2026-06-16 18:26",
+      "ticker": "NFLX",
+      "action": "BUY",
+      "side": "long",
+      "usd": 1200.0,
+      "shares": 14.94,
+      "price": 80.34,
+      "reason": "Trimmed from 8% to 6% \u2014 lowest-conviction long in the book, sized accordingly. RSI 15 is the most extreme oversold reading in the universe this cycle and the business is intact: 16% YoY revenue growth, $6.8B buyback, ad-tier structurally accretive. Warner fee is a cash windfall misread as negative. The edge is real but the thesis requires the market to voluntarily reconsider a negative narrative with no identified catalyst timeline. 6% holds the contrarian setup; 8% was pricing in a catalyst we cannot yet see."
+    },
+    {
+      "ts": "2026-06-16 18:26",
+      "ticker": "UNH",
+      "action": "BUY",
+      "side": "long",
       "usd": 1400.0,
-      "shares": 3.89,
-      "price": 359.68,
-      "reason": "RSI 34 on a rotation-driven 10.6% pullback is a credible dislocation signal for a franchise with durable Search + YouTube + Cloud moats; Gemini deepens AI positioning. Sized at 7% to respect live Technicals dissent on mega-cap tech broadly. Adds genuine diversification with zero overlap to semis, financials, or healthcare. Toe-in sizing is the right call pending a technical base."
+      "shares": 3.45,
+      "price": 406.2,
+      "reason": "Full size \u2014 defensive quality that earns its allocation by providing genuine diversification from the cyclical semi and fintech longs. RS +32.5 vs SPY, RSI 64, +44.8% in three months reflects institutional rotation into non-cyclical quality amid macro uncertainty. Single analyst, no cross-desk conflict, and the technical setup (dominant momentum, near-zero drawdown from highs) justifies the full single-analyst size of 7%."
+    },
+    {
+      "ts": "2026-06-16 18:26",
+      "ticker": "ADBE",
+      "action": "SHORT",
+      "side": "short",
+      "usd": 2400.0,
+      "shares": 11.76,
+      "price": 204.02,
+      "reason": "Anchor short at full size \u2014 strongest by confluence in the book. 3-to-1 analyst majority overrules the lone Fundamentals dissent decisively. CFO departure plus active CEO search plus ARR guidance cut to free tiers is a management credibility event with lasting multiple-compression implications; this is not a one-quarter earnings miss. The -18.9% five-day distribution is ongoing institutional exit, not exhaustion selling. At -50.7% off highs, the structural AI-disruption re-rating has further runway; dead-cat bounces are add opportunities, not stop-outs."
+    },
+    {
+      "ts": "2026-06-16 18:26",
+      "ticker": "CRM",
+      "action": "SHORT",
+      "side": "short",
+      "usd": 1500.0,
+      "shares": 9.04,
+      "price": 165.89,
+      "reason": "Trimmed from 10% to 7.5% on crowded-short squeeze risk \u2014 -35% YTD with legacy longs still distributing means the short side is packed. RSI 41 provides no oversold cushion to absorb a squeeze; any low-bar earnings beat, M&A speculation, or a single credible Agentforce data point compresses the position fast with no exit window. The AI-agent-replaces-CRM narrative is institutional consensus and the downtrend is intact \u2014 slow-bleed short with a valid thesis. Sized to survive the squeeze, not to exploit a clean ride."
+    },
+    {
+      "ts": "2026-06-16 18:26",
+      "ticker": "TLT",
+      "action": "SHORT",
+      "side": "short",
+      "usd": 1000.0,
+      "shares": 11.67,
+      "price": 85.72,
+      "reason": "Reduced from 8% to 5% on two compounding failure modes that together make full size indefensible. First: binary FOMC event risk today \u2014 any balanced or mildly dovish Warsh tone reverses the short immediately with no clean exit. Second: correlation failure risk \u2014 TLT short is a risk-on bet that loses in a flight-to-quality event precisely when GS, AMD, and SMH are drawing down, hitting the book from both sides simultaneously. May CPI 4.2% headline eliminates the dovish pivot and rate cuts are a 2027 story \u2014 the macro view is right. But single-analyst, conv60, live binary event does not justify 8%. At 5% the higher-for-longer thesis is represented at minimum viable size."
+    },
+    {
+      "ts": "2026-06-16 18:26",
+      "ticker": "SBUX",
+      "action": "SHORT",
+      "side": "short",
+      "usd": 1400.0,
+      "shares": 13.59,
+      "price": 103.04,
+      "reason": "Clean unanimous short at full size \u2014 no cross-desk conflict anywhere in the book. Premium multiple sustained by a zero-proof-points turnaround narrative against structurally deteriorating unit economics: negative US same-store sales, secular China traffic decline, and a new CEO with no demonstrated execution record. Only -3.5% off 52-week highs is a textbook mispricing \u2014 the multiple compresses as each expected proof point fails to arrive. 7% correctly embeds the near-highs timing risk; the fundamental dislocation is unambiguous."
+    },
+    {
+      "ts": "2026-06-16 18:26",
+      "ticker": "XOM",
+      "action": "SHORT",
+      "side": "short",
+      "usd": 600.0,
+      "shares": 4.08,
+      "price": 147.01,
+      "reason": "Minimum viable size at 3%, halved from 6%. US-Iran ceasefire drains Strait of Hormuz supply-disruption premium and DXY ~99.5 is a real FX headwind to dollar-denominated oil revenues \u2014 both thesis legs are valid. But ceasefire durability is entirely exogenous: if the agreement fractures, the position squeezes hard against the book with no forecastable exit. Dropping to zero is defensible as the Risk Manager noted; at 3%, the geopolitical deflation view is expressed with tolerable binary exposure. Held as a macro hedge, not a conviction position."
     }
   ],
   "journal": [
     {
-      "ts": "2026-06-16 15:59",
-      "thesis": "The book runs three independent macro themes with clean sizing: rates-driven financial recovery (GS 15%), AI-capex secular demand via ETF anchor plus one high-beta complement (SMH 15% + AMD 6%), and healthcare margin normalization (UNH 12%), with a small toe-in to a technically dislocated mega-cap franchise (GOOGL 7%). The Risk Manager correctly diagnosed the semiconductor stacking problem \u2014 SMH + AMD + MU at 35% was one thesis expressed three times with two names coming off parabolic moves; MU is dropped entirely and AMD halved, bringing semi exposure to a disciplined 21% with SMH doing the heavy lifting. 45% cash is not timidity \u2014 it is the bid we reserve for positions that earn the same multi-analyst conviction bar the current book required.",
-      "note": "Four-lens GS and clean-breakout SMH do the heavy lifting. We do not buy names on five-day parabolas backed by a single analyst \u2014 that is how you confuse noise for signal.",
-      "outlook": "Three catalysts to watch: (1) Fed June meeting tone \u2014 a dovish tilt pressures the GS NIM thesis and tests whether SMH's breakout sustains without the rates tailwind; (2) GOOGL technical stabilization \u2014 any reversal above the 50-day on volume validates adding toward 10%; (3) semi earnings revisions \u2014 if AMD or MU forward estimates are cut on the next analyst cycle, trim AMD to 3% and reassess SMH weight. MU sits at zero weight on the watchlist; a multi-analyst re-rating backed by confirmed memory-cycle inflection data would be the entry signal, not a single-day gap.",
-      "confidence": 74,
-      "weakness_watch": [
-        {
-          "ticker": "AMD",
-          "reason": "5d +9.7% is the book's highest near-term reversal risk. If RSI pushes above 70 or SMH shows distribution, AMD is the first trim \u2014 it is the most redundant position in the slate and the one sized on recency momentum."
-        },
-        {
-          "ticker": "GOOGL",
-          "reason": "Technicals dissent is live and RSI 34 can become RSI 20 if the mega-cap rotation deepens. Monitor for a base formation \u2014 absence of stabilization above a key level would warrant exiting before thesis damage compounds."
-        },
-        {
-          "ticker": "UNH",
-          "reason": "RSI 64 and only 1.1% off 52wk high. If the institutional upgrade cycle stalls or utilization data disappoints pre-earnings, this becomes the healthcare fade trade. June 23 dividend is a sentiment floor, not a price floor."
-        },
-        {
-          "ticker": "GS",
-          "reason": "SpaceX IPO timing is speculative and any Fed pivot signal compresses NIM expectations directly. A dovish surprise would require re-evaluating the primary thesis even if the dealmaking narrative holds independently."
-        }
-      ],
+      "ts": "2026-06-16 18:26",
+      "thesis": "The book opens moderately net-long at +8.5% net / 77.5% gross \u2014 deliberately not market-neutral, because the weight of evidence (semiconductor cycle leadership, financial earnings acceleration, AI-disruption victim re-ratings) favors a net-long tilt with asymmetric long quality versus short structural decay. The four CIO-proposed trims \u2014 AMD parabolic extension, AMD/SMH semi overlap, CRM crowded-short squeeze exposure, and TLT's dual correlation-failure and live FOMC binary \u2014 are size corrections, not thesis reversals; every position stays in the book because the underlying call remains valid. ADBE and GS are the anchors; the shorts provide both alpha and partial hedging against the cyclical longs rather than a clean market-neutral offset, which is an intentional choice given the strength of the long-side confluence.",
+      "note": "Four trims, zero ejections \u2014 the Risk Manager improved the book without breaking it. The net-long tilt is earned conviction, not complacency; if the FOMC reads hawkish today, GS, AMD, and TLT short all move in our favour simultaneously and the book is positioned exactly right.",
+      "outlook": "Warsh FOMC debut today is the immediate binary watch \u2014 a hawkish tone validates GS NIM expansion and TLT short simultaneously; any dovish lean pressures both and warrants TLT short reassessment. AMD next earnings will confirm or break the Meta hyperscaler revenue recognition story and determine whether the 9% size holds. ADBE CEO appointment (or prolonged vacancy) is the key multiple-compression catalyst for the anchor short. NFLX needs a market-structure trigger \u2014 analyst upgrade, accelerated buyback, or ad-tier beat \u2014 to convert the RSI-15 setup into a tradeable catalyst; watching for that without chasing. Ceasefire durability headlines are the XOM stop-loss monitor.",
+      "confidence": 70,
       "pitches": [
         {
           "analyst": "Macro",
           "pitches": [
             {
+              "ticker": "AMD",
+              "side": "long",
+              "conviction": 72,
+              "thesis": "Meta 6GW Instinct GPU deal is live revenue \u2014 AMD is taking NVDA share in hyperscaler AI capex that persists in ANY rate regime; RSI 57 is healthy consolidation after a 164% 3m run, not overheated.",
+              "horizon": "weeks"
+            },
+            {
               "ticker": "GS",
-              "conviction": 73,
-              "thesis": "Hawkish hold at 3.50-3.75% with Dec hike risk being priced in is the single biggest NIM and capital-markets tailwind for the most rate-levered major bank; RS +24 vs SPY and clean RSI 61 give room to run.",
+              "side": "long",
+              "conviction": 65,
+              "thesis": "M&A resurgence + volatile-rates trading revenue + steepening yield curve NIM: GS Q1 EPS was $17.55 vs $14.12 prior year; RSI 61 and only -2.7% off 52-week high means it's still running with fuel.",
               "horizon": "weeks"
-            },
-            {
-              "ticker": "JPM",
-              "conviction": 64,
-              "thesis": "Higher-for-longer confirmed at this week's FOMC directly fattens bank spreads; JPM's diversified platform is the safest vehicle for the financials macro trade in a 1.7%-GDP slow-growth regime.",
-              "horizon": "weeks"
-            },
-            {
-              "ticker": "SMH",
-              "conviction": 67,
-              "thesis": "CBO and Treasury data explicitly name AI capex as the primary US GDP growth driver in 2026; semi ETF captures that structural demand regardless of rate cycle, with RS +52 and RSI 59 \u2014 not yet overbought.",
-              "horizon": "weeks"
-            },
-            {
-              "ticker": "CAT",
-              "conviction": 59,
-              "thesis": "Fiscal spend from the 2025 reconciliation act is flowing into infrastructure and defense procurement; CAT is the cleanest industrial proxy for government capex with RS +19 and RSI 55 \u2014 plenty of room.",
-              "horizon": "weeks"
-            }
-          ],
-          "weak": [
-            {
-              "ticker": "GLD",
-              "reason": "Hawkish hold + firm DXY ~99 + Dec hike risk being priced = textbook gold headwind; rate cuts are off the table through 2026, removing gold's primary macro bid. RS -28 and -22% off highs confirm."
             },
             {
               "ticker": "TLT",
-              "reason": "Fed signaling hawkish hold with potential December hike priced by markets pushes long-end yields up; long-duration bonds are structurally offside in this regime."
+              "side": "short",
+              "conviction": 63,
+              "thesis": "May CPI at 4.2% headline / 2.9% core kills any dovish pivot \u2014 Warsh's FOMC debut today risks hawkish tone; market is now pricing a possible December hike, not a cut, meaning this bond recovery at $85.72 is a trap.",
+              "horizon": "days"
             },
             {
-              "ticker": "NFLX",
-              "reason": "3.8% inflation + zero rate relief = consumer discretionary spending under maximum pressure; RSI 15 is extreme but a broken trend in a high-cost-of-living macro environment has no floor from Fed support."
-            },
-            {
-              "ticker": "ETHA",
-              "reason": "Crypto's primary macro catalyst was a Fed pivot \u2014 with that gone and geopolitical safe-haven flows favouring USD not risk assets, the bid evaporates. RS -33 and -65% off highs are the macro verdict."
-            },
-            {
-              "ticker": "IBIT",
-              "reason": "Same as ETHA: hawkish hold kills the liquidity-premium narrative that drove crypto through 2024-25; DXY firm at 99 is the opposing force."
-            },
-            {
-              "ticker": "AMZN",
-              "reason": "Consumer under pressure from 3.8% headline inflation + high rates; AWS cloud growth faces enterprise budget scrutiny in a 1.7% GDP, 30%-recession-risk environment. RSI 27, -11.7% in one month."
+              "ticker": "XOM",
+              "side": "short",
+              "conviction": 60,
+              "thesis": "US-Iran ceasefire restores Strait of Hormuz transit, draining the geopolitical risk premium that was propping oil \u2014 DXY ~99.5 plus supply normalization is a double headwind for integrated oil majors.",
+              "horizon": "weeks"
             }
           ],
-          "note": "The defining macro force this week is the FOMC hawkish hold \u2014 rates at 3.50-3.75% with a December hike being priced, core CPI at 2.9%, and no pivot in sight. That regime clearly favours rate-sensitive financials (GS, JPM) and structural AI capex plays (SMH) while crushing long-duration (TLT), gold (GLD), and consumer discretionary. Middle East geopolitical risk adds oil upside optionality but XLE price action is not confirming, so I am sidestepping energy entirely."
+          "note": "Macro regime is unambiguously higher-for-longer: 4.2% CPI and a hawkish new Fed chair entering today make rate cuts a 2027 story at best, which is bullish for banks and AI capex survivors (AMD) while punishing bonds and anything that was a geopolitical safe-haven trade (energy). Avoided GLD short despite the clear headwinds \u2014 RSI 33 signals a tactical bounce risk I won't stand in front of."
         },
         {
           "analyst": "Technicals",
           "pitches": [
             {
               "ticker": "SMH",
-              "conviction": 83,
-              "thesis": "Semiconductor ETF at 52wk high with RS +52 vs SPY, uptrend intact, RSI 59 \u2014 not overbought on a confirmed breakout; this is the leading sector and price is saying so cleanly",
-              "horizon": "weeks"
-            },
-            {
-              "ticker": "AMD",
-              "conviction": 79,
-              "thesis": "RS +152 vs SPY is the loudest relative strength signal in the book, uptrend confirmed, RSI 57 neutral \u2014 only 5.7% off 52wk hi with momentum still building",
+              "side": "long",
+              "conviction": 82,
+              "thesis": "At 52wk high (0.0% off), uptrend, RSI 59 \u2014 not overbought \u2014 RS +52 vs SPY; semis are the clear leadership sector and this is a clean uncontested breakout with AMD/MU/TSM all confirming.",
               "horizon": "weeks"
             },
             {
               "ticker": "GS",
+              "side": "long",
               "conviction": 74,
-              "thesis": "Financials are leading \u2014 GS only 2.7% off 52wk hi, RS +24, uptrend, RSI 61 not stretched; banks in the vanguard signals healthy risk-on rotation",
+              "thesis": "Uptrend, RSI 61, RS +24.2 vs SPY, only -2.7% off 52wk high, +36.5% in 3m; financials are the second-strongest sector and GS is the alpha name \u2014 institutional flow chasing the group.",
               "horizon": "weeks"
             },
             {
               "ticker": "UNH",
-              "conviction": 70,
-              "thesis": "Healthcare standout: 1.1% off 52wk hi, RS +32.5, uptrend intact \u2014 price cleared a deep hole fast and trend buyers are in control",
+              "side": "long",
+              "conviction": 68,
+              "thesis": "Uptrend, RSI 64, RS +32.5 vs SPY, -1.1% off 52wk high, +44.8% in 3m; dominant momentum with near-zero drawdown from highs \u2014 money hiding in defensive quality.",
               "horizon": "weeks"
             },
             {
-              "ticker": "TSM",
-              "conviction": 65,
-              "thesis": "1% off 52wk hi in uptrend, RSI 59, RS +18 \u2014 semiconductor supply chain confirming the SMH breakout, cleaner setup than individual chip names",
-              "horizon": "2-3 weeks"
-            }
-          ],
-          "weak": [
-            {
               "ticker": "ADBE",
-              "reason": "Down trend, RSI 33, 50.7% off 52wk hi, RS -30.5 \u2014 structurally broken; today's -6.8% session print accelerating the breakdown"
-            },
-            {
-              "ticker": "NFLX",
-              "reason": "RSI 15 crash, down trend, -40% off 52wk hi, RS -28 \u2014 falling knife with no technical floor visible"
+              "side": "short",
+              "conviction": 78,
+              "thesis": "Downtrend, -50.7% off 52wk high, RS -30.5 vs SPY, -18.2% in 3m; structurally broken SaaS with no technical floor visible \u2014 RSI 33 but broken names don't snap back, they roll.",
+              "horizon": "weeks"
             },
             {
               "ticker": "CRM",
-              "reason": "Down trend, -38.9% off 52wk hi, RS -25.8 \u2014 enterprise software broken; -10.4% 5d move confirms distribution"
+              "side": "short",
+              "conviction": 66,
+              "thesis": "Downtrend, -38.9% off highs, RS -25.8 vs SPY; dead SaaS \u2014 1m flat (+0.3%) is a pause in the decline not a base, bearish on any relief bounce.",
+              "horizon": "weeks"
             },
             {
-              "ticker": "MSFT",
-              "reason": "Down trend, RSI 39, -27.5% off 52wk hi, RS -13.3 \u2014 mega-cap leadership gone, -6.2% last 5d is heavy"
-            },
-            {
-              "ticker": "META",
-              "reason": "Down trend, -24.6% off 52wk hi, RS -17.6 \u2014 despite today's +4.8% bounce, trend is broken and RS negative"
-            },
-            {
-              "ticker": "ETHA",
-              "reason": "Down trend, RSI 23, -65.6% off 52wk hi, RS -33 \u2014 crypto ETF in freefall, no technical support visible"
-            },
-            {
-              "ticker": "GLD",
-              "reason": "RSI 33, -22.1% off 52wk hi, RS -28.4 \u2014 gold breakdown accelerating; defensive hedge not working, avoid"
-            },
-            {
-              "ticker": "ORCL",
-              "reason": "Down trend, -43.5% off 52wk hi despite mild RS \u2014 broken; -13.8% 5d confirms distribution"
-            },
-            {
-              "ticker": "BAC",
-              "reason": "RSI 77 overbought on a 13% 1m run \u2014 not a short call but near-term mean reversion risk; flag for existing holders to tighten stops"
+              "ticker": "NKE",
+              "side": "short",
+              "conviction": 60,
+              "thesis": "Dead-cat bounce \u2014 +7.1%/1m and RSI 53 but still -41.7% off highs, RS -28.3 vs SPY, -16% in 3m; structurally impaired with no catalyst; fade the bounce.",
+              "horizon": "days"
             }
           ],
-          "note": "Semis and financials are the only clean technical leadership in this tape \u2014 SMH/AMD/GS/TSM all near 52wk highs with strong RS while most of mega-cap tech (MSFT, META, ADBE, CRM) is structurally broken; crypto is in freefall and gold is failing as a hedge, so the risk-on rotation into cyclicals and semis is the dominant price signal right now."
+          "note": "Two-sided tape: semis and financials are the only sectors with clean uptrends and positive RS \u2014 own them. Software/SaaS (ADBE, CRM, ORCL, MSFT) is the structural short sector, broken charts across the board. Avoiding shorts on anything RSI <25 (NFLX, IBIT, ETHA) \u2014 too oversold for asymmetric risk."
         },
         {
           "analyst": "Fundamentals",
           "pitches": [
             {
-              "ticker": "GOOGL",
-              "conviction": 68,
-              "thesis": "Search + YouTube + Cloud franchise with structurally durable earnings; RSI 34 on a modest 10.6% pullback while Gemini deepens the moat \u2014 rotation-driven dislocation, not fundamental impairment.",
-              "horizon": "weeks"
-            },
-            {
-              "ticker": "AMZN",
-              "conviction": 65,
-              "thesis": "AWS leadership + accelerating advertising revenue + Prime flywheel; RSI 27 flags near-term dislocation in a compounder whose earnings power is structurally improving quarter over quarter.",
-              "horizon": "weeks"
-            },
-            {
               "ticker": "ADBE",
-              "conviction": 62,
-              "thesis": "50.7% off 52-week high is an extraordinary discount for a subscription software franchise with 90%+ gross margins and deep enterprise lock-in; Firefly positions Adobe as an AI beneficiary, not a casualty \u2014 RSI 33 and a 19% 5-day flush hint at capitulation.",
+              "side": "long",
+              "conviction": 73,
+              "thesis": "Near-monopoly in professional creative software (Creative Cloud) with durable switching costs and strong FCF \u2014 a 50.7% drawdown on AI-disruption fear is excessive; Firefly integration keeps professionals in-ecosystem and the 6.8% single-day flush today looks like terminal capitulation, not fundamental deterioration.",
               "horizon": "weeks"
             },
-            {
-              "ticker": "ORCL",
-              "conviction": 54,
-              "thesis": "43.5% off high while OCI is winning AI infrastructure contracts and Autonomous Database + NetSuite SaaS provide a durable earnings floor \u2014 the re-rating catalyst is AI workload monetization, and the market is ignoring it.",
-              "horizon": "weeks"
-            }
-          ],
-          "weak": [
             {
               "ticker": "NFLX",
-              "reason": "RSI 15 with a 40% drawdown and -15.7% in 3 months signals fundamental deterioration, not just a technical flush \u2014 advertising tier monetization or subscriber trajectory may be structurally missing expectations."
-            },
-            {
-              "ticker": "DIS",
-              "reason": "Linear TV secular decline accelerating, streaming growth plateauing after initial gains, theme park pricing power approaching ceiling \u2014 no credible near-term earnings acceleration thesis."
-            },
-            {
-              "ticker": "NKE",
-              "reason": "Multi-quarter revenue decline, China structurally challenged, turnaround under new CEO is real but measured in years \u2014 market is pricing hope, not results."
+              "side": "long",
+              "conviction": 66,
+              "thesis": "RSI 15 and 40% off highs on a business that has definitively won the streaming wars \u2014 ad-tier monetization is structurally margin-accretive, password-sharing crackdown lifted ARPU, and live-events content builds stickiness; the selloff is technically driven, not earnings-driven.",
+              "horizon": "weeks"
             },
             {
               "ticker": "MSFT",
-              "reason": "Copilot enterprise monetization running behind consensus expectations, Azure growth decelerating against tough comps \u2014 down 27.5% from high in a down trend with no clear near-term re-rating catalyst."
+              "side": "long",
+              "conviction": 62,
+              "thesis": "Best-in-class enterprise moat (Azure #2 cloud, Office 365 omnipresent, GitHub, Copilot deeply embedded) trading 27.5% off highs with RSI 39 \u2014 quality at a genuine discount, not a value trap.",
+              "horizon": "weeks"
             },
             {
-              "ticker": "ADBE",
-              "reason": "Minority view flagged alongside my pitch: if Firefly cannibalization of paid seat count is worse than modeled, the AI beneficiary thesis collapses \u2014 worth monitoring."
+              "ticker": "SBUX",
+              "side": "short",
+              "conviction": 70,
+              "thesis": "Only 3.5% off 52-week highs despite US same-store sales turning negative, China traffic structurally declining, and a new-CEO turnaround narrative with no proof points yet \u2014 premium multiple on deteriorating fundamentals is a textbook short.",
+              "horizon": "weeks"
+            },
+            {
+              "ticker": "MU",
+              "side": "short",
+              "conviction": 60,
+              "thesis": "Memory is the most violently cyclical semiconductor category \u2014 a +130% 3-month run on HBM/AI demand has priced in perfection just as capex scrutiny from hyperscalers builds; when the cycle turns, memory pricing collapses faster than street models assume.",
+              "horizon": "weeks"
             }
           ],
-          "note": "The best fundamental value is in quality internet/software \u2014 GOOGL and AMZN offer durable earnings power at oversold levels while ADBE represents a classic franchise-in-dislocation setup. Semiconductors (AMD, MU) have already re-rated sharply and offer less value cushion from this lens."
+          "note": "The dominant theme I see: AI hype has created two-tier distortions \u2014 quality software franchises (ADBE, NFLX, MSFT) have been indiscriminately sold off on disruption narratives while cyclical chip names (MU +130% in 3m) have been bid to levels that assume a permanent upcycle; the highest-confidence trade is fading SBUX near highs as operational deterioration is plainly visible and the turnaround story has no evidence yet."
         },
         {
           "analyst": "Sentiment",
           "pitches": [
             {
-              "ticker": "GS",
-              "conviction": 78,
-              "thesis": "SpaceX IPO halo (lead underwriter, largest IPO in US history at $75B raised) cements 'dealmaking renaissance' narrative; sentiment still building with RSI 61 and only -2.7% off 52wk high, yet 3m RS vs SPY +24.2 shows institutional rotation isn't done.",
-              "horizon": "2-3 weeks"
-            },
-            {
-              "ticker": "UNH",
-              "conviction": 73,
-              "thesis": "Six institutional upgrades in two weeks signal a narrative inflection from 'utilization crisis' to 'margin recovery and AI efficiency' \u2014 that re-rating is still in early innings; June 23 dividend acts as near-term sentiment anchor.",
-              "horizon": "2-4 weeks"
-            },
-            {
-              "ticker": "QCOM",
-              "conviction": 63,
-              "thesis": "ByteDance AI chip supply deal plus imminent hyperscaler custom processor shipment are undercovered incremental catalysts; stock has pulled back 15% from its recent peak to RSI 42 \u2014 sentiment reset creates a re-entry window before the next catalyst confirms.",
-              "horizon": "2-3 weeks"
-            },
-            {
-              "ticker": "NFLX",
-              "conviction": 50,
-              "thesis": "RSI 15 and seven consecutive down sessions with 0 analyst sell ratings and a $114 consensus vs $80 price point signals capitulation, not a fundamental collapse \u2014 bad news (failed WBD deal, Brazil tax, Q2 guide miss) is fully priced; contrarian bounce only.",
-              "horizon": "5-10 days"
-            }
-          ],
-          "weak": [
-            {
               "ticker": "ADBE",
-              "reason": "CFO departed June 15, stock hit 52wk lows post-earnings despite a beat \u2014 'AI eats creative software' narrative fully owns the story now and there is no positive counter-catalyst visible."
+              "side": "short",
+              "conviction": 72,
+              "thesis": "Story fully broken: dual leadership void (CFO departed June 15 + active CEO search), organic ARR growth guidance cut ~2pp as company retreats to free tiers under competitive AI pressure \u2014 market has re-rated from 'AI winner' to 'AI disruption victim' and each bounce is being sold; -50.7% off highs with no floor in sight.",
+              "horizon": "weeks"
             },
             {
               "ticker": "CRM",
-              "reason": "Three-year lows driven by the same legacy-software-disrupted-by-AI narrative as ADBE; AI-driven workforce reductions feeding the bear story, no sentiment inflection point in sight."
+              "side": "short",
+              "conviction": 65,
+              "thesis": "AI-agent-replaces-CRM narrative gaining institutional consensus; stock down 35% YTD near 52-week lows with crowded legacy-software longs still distributing \u2014 no credible near-term catalyst to reverse the 'Agentforce saves Salesforce' thesis that has clearly failed to move sentiment.",
+              "horizon": "weeks"
             },
             {
-              "ticker": "MSFT",
-              "reason": "Down 27.5% from highs with RSI 39 despite 40% Azure growth \u2014 market is repricing AI capex-skepticism and Copilot monetization lag; sentiment has decoupled from fundamentals in the wrong direction."
+              "ticker": "NFLX",
+              "side": "long",
+              "conviction": 55,
+              "thesis": "RSI 15 is the most extreme oversold reading in the universe today; underlying business is intact (Q1: 16% YoY revenue growth, FCF improving, $6.8B buyback authorized) and the $2.8B Warner termination fee is actually a cash windfall \u2014 market overcorrected on deal noise, setup for sharp mean reversion bounce.",
+              "horizon": "days"
             },
             {
-              "ticker": "GLD",
-              "reason": "Risk-on regime plus higher-for-longer rates (10y at 4.54%) actively squeezing the gold narrative; -22% off highs with 1m -10.2% and RSI 33 \u2014 no sentiment catalyst on the horizon."
-            },
-            {
-              "ticker": "IBIT",
-              "reason": "Crypto malaise with no positive headline catalyst; RSI 22, -49% off high, down trend \u2014 sentiment is absent, not just negative."
+              "ticker": "BAC",
+              "side": "short",
+              "conviction": 58,
+              "thesis": "RSI 77 at all-time highs after a +20% 3-month run; financials are the most crowded long in the book right now on peak rate-cut optimism \u2014 if the Fed delays cuts further or credit softens, this unwinds fast with no margin of safety at current levels.",
+              "horizon": "weeks"
             }
           ],
-          "note": "The clearest sentiment pocket in the market right now is financials \u2014 GS has a generational headline halo and BAC/JPM are riding a credible NII-recovery story into the first FOMC under Warsh (today). Tech is deeply bifurcated: AI infrastructure (AMD/QCOM/SMH) is rebounding on real deal flow while legacy software (ADBE/CRM/MSFT) has no floor; the most asymmetric setup in the book is NFLX at RSI 15 \u2014 not a high-conviction long, but the crowd has fully given up and that is usually worth fading for a short-term bounce."
+          "note": "The dominant theme is broken SaaS/enterprise software stories (ADBE, CRM) where the AI-disruption-victim narrative has firmly taken hold and every bounce is a distribution opportunity; the contrarian long is NFLX where sentiment has catastrophically overcorrected relative to fundamentals. Staying out of the semis crowded long (AMD +164% in 3m) despite the intact AI thesis \u2014 risk/reward for new entries is poor after that run."
         },
         {
           "analyst": "Quant",
           "pitches": [
             {
               "ticker": "AMD",
+              "side": "long",
               "conviction": 82,
-              "thesis": "Cross-sectional momentum leader by widest margin: 3m RS +152 vs SPY, RSI 57 leaves room to extend, fresh 5d +9.7% confirms continuation \u2014 semis cycle in full acceleration.",
+              "thesis": "Top cross-sectional momentum in universe: 3m RS +152 vs SPY, 3m price +164%, uptrend, RSI 57 (not extended), only -5.7% off 52wk high \u2014 cleanest momentum long on the board",
               "horizon": "weeks"
             },
             {
               "ticker": "MU",
-              "conviction": 76,
-              "thesis": "3m RS +118 vs SPY with 5d +13.6% re-acceleration \u2014 memory cycle inflecting hard; RSI 64 warm but not extended enough to trim.",
-              "horizon": "weeks"
-            },
-            {
-              "ticker": "SMH",
-              "conviction": 72,
-              "thesis": "Semiconductor ETF at 52wk high, RS +52 vs SPY, RSI 59 \u2014 cleanest broad-beta vehicle to ride the dominant momentum regime without single-name binary risk.",
+              "side": "long",
+              "conviction": 74,
+              "thesis": "Second-best momentum rank: 3m RS +118 vs SPY, +130.5% 3m, uptrend, RSI 64 (healthy), -9.1% off high \u2014 confirms the semi cycle is real, not AMD-specific",
               "horizon": "weeks"
             },
             {
               "ticker": "GS",
+              "side": "long",
               "conviction": 65,
-              "thesis": "Financials cross-sectional leader: 3m RS +24 vs SPY, only -2.7% off ATH, RSI 61 \u2014 financials rotation intact and GS leads the group.",
+              "thesis": "Financials sector leader by RS (+24.2 vs SPY, 3m +36.5%), uptrend, RSI 61, -2.7% off 52wk high \u2014 breadth and price confirm continued outperformance",
               "horizon": "weeks"
-            },
-            {
-              "ticker": "UNH",
-              "conviction": 62,
-              "thesis": "Surprise 3m RS +32.5 vs SPY, RSI 64, -1.1% off ATH with confirmed uptrend \u2014 healthcare's lone momentum standout, minimal drawdown risk.",
-              "horizon": "weeks"
-            }
-          ],
-          "weak": [
-            {
-              "ticker": "NFLX",
-              "reason": "RSI 15, 3m RS -28.0, down trend, -40% off 52wk high \u2014 momentum rank dead last among comms; no reversal signal."
             },
             {
               "ticker": "ADBE",
-              "reason": "3m RS -30.5, RSI 33, -50.7% off high, down trend \u2014 structural breakdown, not a mean-reversion candidate at this stage."
-            },
-            {
-              "ticker": "ETHA",
-              "reason": "Worst drawdown in universe at -65.6% off high, RSI 23, 3m RS -33.2 \u2014 crypto capitulation ongoing, no momentum floor visible."
+              "side": "short",
+              "conviction": 73,
+              "thesis": "Worst RS in universe ex-crypto (-30.5 vs SPY), 3m -18.2%, 5d -18.9% (fresh distribution, not exhaustion), downtrend, -50.7% off high, RSI 33 \u2014 broken and still falling",
+              "horizon": "weeks"
             },
             {
               "ticker": "CRM",
-              "reason": "3m RS -25.8, -38.9% off high, down trend, RSI 41 \u2014 enterprise SaaS broken; ORCL confirms sector-wide SaaS rotation out."
-            },
-            {
-              "ticker": "GLD",
-              "reason": "3m RS -28.4, RSI 33, 1m -10.2% \u2014 intermediate support failing; gold momentum rank among the lowest in universe."
-            },
-            {
-              "ticker": "MSFT",
-              "reason": "3m RS -13.3, RSI 39, down trend, -27.5% off high \u2014 mega-cap tech that's visibly underperforming its own sector."
+              "side": "short",
+              "conviction": 64,
+              "thesis": "Persistent negative momentum: RS -25.8 vs SPY, 3m -13.5%, downtrend, RSI 41 (not oversold enough to fear squeeze), -38.9% off high \u2014 slow-bleed short with no catalyst for reversal",
+              "horizon": "weeks"
             }
           ],
-          "note": "Semiconductor momentum is the single clearest cross-sectional regime signal this cycle \u2014 AMD and MU rank 1-2 by 3m RS by a factor of 3x over the next best name; SMH packages that in ETF form. Secondary rotation in Financials (GS). Weakness is concentrated in mega-cap software (ADBE, CRM, MSFT) and crypto (ETHA, IBIT) \u2014 the distribution of RS scores is unusually wide, signaling a strong factor dispersion environment that favors pure momentum longs."
+          "note": "Semiconductor cycle is the dominant signal: AMD and MU rank 1-2 in the universe on every momentum metric with RSIs that aren't extended \u2014 the trade is to be long the semis into the cycle. On the short side, ADBE's 5-day -18.9% is fresh distribution, not an exhausted selloff \u2014 I want to be short into that breakdown. Avoided NFLX short (RSI 15 squeeze risk) and crypto (too oversold on RSI 22-23 for clean shorts)."
         }
       ],
       "cio": {
-        "note": "Four analysts converge on GS (highest confluence this cycle) and three each on SMH and UNH, anchoring those three at full or near-full weight; AMD earns 12% as the #1 cross-sectional momentum name despite only two champions. The 31% cash reserve is deliberate \u2014 GOOGL and MU are sized defensively as single-analyst ideas, and the hawkish-hold + semis-leadership regime does not reward adding speculative or technically broken names (ADBE, ORCL, QCOM) with no price confirmation. No longs in long-duration, gold, crypto, or consumer discretionary \u2014 Macro's regime call is clean and all other lenses align with it.",
+        "note": "Book opens at 93% gross / +7% net \u2014 modestly net long reflecting a regime where semis and financials are structurally leading and higher-for-longer macro creates clear directional edges on both sides. Key conflict resolution: ADBE resolved 3-1 short (structural leadership void + fresh distribution decisively outweigh the Fundamentals capitulation case); MU skipped entirely (Quant long vs Fundamentals short deadlock with no tiebreaker); BAC short skipped (Sentiment bearish call overruled by Macro/Technicals bullish on the financials complex broadly \u2014 GS is the cleaner expression); NKE skipped (days-only Technicals pitch, thesis too thin for the book). The paired sector structure \u2014 long GS/AMD/SMH vs short ADBE/CRM \u2014 creates a natural equity hedge that profits whether the semis-vs-SaaS divergence widens or compresses, while TLT and XOM shorts hedge the macro tail and NFLX/UNH provide uncorrelated alpha sources on opposite ends of the momentum spectrum.",
         "slate": [
           {
             "ticker": "GS",
-            "action": "buy",
-            "target_weight": 15,
-            "conviction": 73,
-            "thesis": "Widest analyst confluence in the book: hawkish hold at 3.50-3.75% is a direct NIM tailwind, SpaceX IPO halo cements the dealmaking renaissance narrative, RS +24 vs SPY with RSI 61 shows healthy momentum with room to run, and Quant ranks it as the cross-sectional financials leader. Four independent lenses all pointing the same direction \u2014 maximum weight.",
-            "champions": [
-              "Macro",
-              "Technicals",
-              "Sentiment",
-              "Quant"
-            ]
-          },
-          {
-            "ticker": "SMH",
-            "action": "buy",
-            "target_weight": 15,
-            "conviction": 74,
-            "thesis": "AI capex is the primary 2026 GDP growth driver per CBO/Treasury data; SMH at 52wk high with RS +52 and RSI 59 is a confirmed breakout, not yet overbought. ETF structure avoids single-name binary risk while capturing the dominant sector momentum regime. Three analysts (Macro structural demand + Technicals breakout + Quant regime signal) with no dissent.",
-            "champions": [
-              "Macro",
-              "Technicals",
-              "Quant"
-            ]
-          },
-          {
-            "ticker": "UNH",
-            "action": "buy",
-            "target_weight": 12,
+            "side": "long",
+            "target_weight": 13,
             "conviction": 68,
-            "thesis": "Six institutional upgrades in two weeks signal narrative inflection from utilization crisis to margin recovery \u2014 re-rating still in early innings. RS +32.5, only 1.1% off 52wk high, RSI 64; healthcare's lone momentum standout with June 23 dividend acting as a near-term sentiment anchor. Three analysts, zero dissent.",
+            "thesis": "Highest-confluence long in book \u2014 Macro + Technicals + Quant all independently pitch it. Q1 EPS $17.55 (+24% YoY) with M&A resurgence, volatile-rates trading, and yield-curve NIM expansion in a higher-for-longer regime. RS +24.2 vs SPY, uptrend, RSI 61, only -2.7% off 52-week high \u2014 financials sector alpha name with durable earnings tailwinds and institutional flow chasing the group.",
             "champions": [
+              "Macro",
               "Technicals",
-              "Sentiment",
               "Quant"
             ]
           },
           {
             "ticker": "AMD",
-            "action": "buy",
+            "side": "long",
             "target_weight": 12,
-            "conviction": 79,
-            "thesis": "RS +152 vs SPY is the single loudest momentum signal in the book \u2014 roughly 3x the next-best name. RSI 57 neutral with 5d +9.7% continuation confirms the semis cycle is in full acceleration, not late-stage. High-beta single-name complement to SMH; Fundamentals caution on stretched valuations is noted but momentum regime overrides valuation in this environment.",
+            "conviction": 77,
+            "thesis": "Dual-analyst confluence (Macro + Quant) with the top conviction score across both. #1 momentum rank in universe (3m RS +152 vs SPY, +164% in 3m) with RSI 57 showing no extension \u2014 this is a healthy consolidation after a strong run, not a chase. Meta 6GW Instinct deal is live hyperscaler revenue and a structural share-gain story from NVDA that persists regardless of rate path.",
+            "champions": [
+              "Macro",
+              "Quant"
+            ]
+          },
+          {
+            "ticker": "SMH",
+            "side": "long",
+            "target_weight": 10,
+            "conviction": 78,
+            "thesis": "Technicals' highest-conviction long (conv82). Clean breakout at 52-week high, RSI 59, RS +52 vs SPY \u2014 semis are the undisputed leadership sector. AMD/MU/TSM breadth across multiple analysts confirms a cycle-wide upswing, not a single-name event. ETF wrapper diversifies individual event risk while capturing the dominant sector rotation.",
+            "champions": [
+              "Technicals"
+            ]
+          },
+          {
+            "ticker": "NFLX",
+            "side": "long",
+            "target_weight": 8,
+            "conviction": 61,
+            "thesis": "Dual-analyst confluence (Fundamentals + Sentiment) on a historically extreme technical dislocation \u2014 RSI 15 is the most oversold reading in the entire universe this cycle. Underlying business is intact: 16% YoY revenue growth, $6.8B buyback authorized, ad-tier monetization structurally accretive. $2.8B Warner termination fee is a cash windfall misread as negative. Bounce setup with fundamental support, not a turnaround bet.",
+            "champions": [
+              "Fundamentals",
+              "Sentiment"
+            ]
+          },
+          {
+            "ticker": "UNH",
+            "side": "long",
+            "target_weight": 7,
+            "conviction": 65,
+            "thesis": "Technicals-driven defensive quality allocation. RS +32.5 vs SPY, RSI 64, only -1.1% off 52-week high with +44.8% in 3m \u2014 institutional money rotating into non-cyclical quality amid macro uncertainty. Sized below AMD/GS as single-analyst but the technical setup (dominant momentum with near-zero drawdown from highs) warrants inclusion.",
+            "champions": [
+              "Technicals"
+            ]
+          },
+          {
+            "ticker": "ADBE",
+            "side": "short",
+            "target_weight": 12,
+            "conviction": 74,
+            "thesis": "Strongest short by confluence \u2014 Technicals + Sentiment + Quant vote short (3-1) overruling a single Fundamentals long. CFO departed June 15, active CEO search underway, organic ARR guidance cut ~2pp as company retreats to free tiers under AI competitive pressure. Quant flags fresh -18.9% 5-day distribution \u2014 ongoing institutional exit, not exhaustion. -50.7% off highs with no technical floor and the narrative re-rated to 'AI disruption victim.' Fundamentals value case overruled.",
             "champions": [
               "Technicals",
+              "Sentiment",
               "Quant"
             ]
           },
           {
-            "ticker": "MU",
-            "action": "buy",
-            "target_weight": 8,
-            "conviction": 70,
-            "thesis": "RS +118 and 5d +13.6% re-acceleration signal a hard memory cycle inflection; Quant ranks it #2 cross-sectionally. RSI 64 is warm but not extended enough to trim. Sized to 8% \u2014 not 12%+ \u2014 because Fundamentals warns semis have already re-rated sharply, and this is a single-analyst pitch. Adds cycle-specific exposure SMH ETF underweights.",
+            "ticker": "CRM",
+            "side": "short",
+            "target_weight": 10,
+            "conviction": 65,
+            "thesis": "Triple confluence (Technicals + Sentiment + Quant). AI-agent-replaces-CRM narrative has reached institutional consensus; Agentforce failed to move sentiment and the thesis is now plainly discredited. Stock -35% YTD with crowded legacy longs still distributing \u2014 RS -25.8 vs SPY, downtrend, RSI 41 (not oversold enough for squeeze risk). Slow-bleed short with no credible near-term catalyst for reversal.",
             "champions": [
+              "Technicals",
+              "Sentiment",
               "Quant"
             ]
           },
           {
-            "ticker": "GOOGL",
-            "action": "buy",
+            "ticker": "TLT",
+            "side": "short",
+            "target_weight": 8,
+            "conviction": 60,
+            "thesis": "Macro regime short: May CPI 4.2% headline / 2.9% core eliminates any dovish pivot narrative. Warsh's FOMC debut today risks an explicitly hawkish tone; market now pricing a possible December hike, not a cut. Bond recovery at $85.72 is a sentiment trap in a structurally higher-for-longer rate environment \u2014 rate cuts are a 2027 story at best.",
+            "champions": [
+              "Macro"
+            ]
+          },
+          {
+            "ticker": "SBUX",
+            "side": "short",
             "target_weight": 7,
-            "conviction": 62,
-            "thesis": "Structurally durable Search + YouTube + Cloud franchise at RSI 34 on a rotation-driven 10.6% pullback \u2014 Fundamentals diagnoses dislocation, not impairment. Gemini deepens the moat. Sized small (7%) because Technicals explicitly flagged mega-cap tech as broadly broken and neither Quant nor Sentiment championed it; a toe-in position pending technical stabilization.",
+            "conviction": 68,
+            "thesis": "Fundamentals short with no cross-analyst disagreement. Only -3.5% off 52-week highs despite US same-store sales turning negative, China traffic in structural decline, and a new-CEO turnaround narrative with zero proof points. Premium multiple on demonstrably deteriorating fundamentals is a textbook mispricing \u2014 the multiple compresses as proof-points fail to materialise.",
             "champions": [
               "Fundamentals"
+            ]
+          },
+          {
+            "ticker": "XOM",
+            "side": "short",
+            "target_weight": 6,
+            "conviction": 57,
+            "thesis": "Macro geopolitical risk premium deflation: US-Iran ceasefire restores Strait of Hormuz transit, draining the supply-disruption premium propping integrated majors. DXY ~99.5 adds a FX headwind to dollar-denominated oil revenues. Sized at minimum to reflect single-analyst sourcing and binary headline risk around ceasefire durability.",
+            "champions": [
+              "Macro"
             ]
           }
         ]
@@ -1059,136 +1105,270 @@
             "ticker": "GS",
             "verdict": "keep",
             "size_factor": 1.0,
-            "reason": "Four-lens confluence with zero dissent, RSI 61 healthy, NIM tailwind thesis structurally intact and not consensus-priced yet. SpaceX IPO timing is speculative but the dealmaking renaissance narrative has independent legs. Max weight is earned by conviction depth here."
+            "reason": "Triple-confluence anchor with durable earnings tailwinds \u2014 M&A resurgence, rates-trading alpha, and NIM expansion all independently supportable. At 13% GS sits within 2pp of the 15% hard cap; flag for monitoring but thesis strength justifies full allocation. Financials sector net +13% is well inside the 45% sector limit."
+          },
+          {
+            "ticker": "AMD",
+            "verdict": "reduce",
+            "size_factor": 0.75,
+            "reason": "+164% price return in 3 months is a parabolic run \u2014 RSI resetting to 57 does not mean the price move has been digested. Momentum can exhaust violently on crowded mega-runners and the hyperscaler deal is now consensus. Additionally, AMD is a top-3 weight in SMH (~9-10% of ETF NAV), so combined AMD + SMH creates ~22% gross semi exposure on the long book at proposed sizes. Trim AMD to 9% to reduce both extension risk and overlap concentration. The share-gain thesis from NVDA remains valid; this is a size adjustment, not a thesis rejection."
           },
           {
             "ticker": "SMH",
-            "verdict": "keep",
-            "size_factor": 1.0,
-            "reason": "Cleanest semiconductor expression in the book: ETF structure eliminates binary single-name risk, 52wk-high breakout confirmed, RSI 59 is not extended. Three-analyst consensus, no dissent. Keeping SMH at full weight is precisely WHY the single-name semi stacks below it can be sized down \u2014 this is the anchor."
+            "verdict": "reduce",
+            "size_factor": 0.8,
+            "reason": "Solid ETF wrapper for the semi cycle but direct AMD overlap is not diversification \u2014 it amplifies. At 10% SMH + 12% AMD the book carries ~23% gross semi longs before trimming AMD. Reduce SMH to 8%; combined with AMD at 9% the semi gross long settles at ~17-18%, capturing the sector rotation without undue concentration. Breakout and RS thesis intact."
+          },
+          {
+            "ticker": "NFLX",
+            "verdict": "reduce",
+            "size_factor": 0.75,
+            "reason": "RSI 15 is statistically extreme and the mean-reversion edge is real, but 'oversold can become more oversold' applies until a catalyst defines the floor. No near-term re-rating event is identified \u2014 the Warner fee misread thesis requires the market to voluntarily reconsider a negative narrative, which carries no timeline. Conviction at 61 is the lowest among longs. Reduce to 6% to reflect the absence of a catalyst trigger while retaining the contrarian setup."
           },
           {
             "ticker": "UNH",
             "verdict": "keep",
             "size_factor": 1.0,
-            "reason": "Genuinely non-correlated to the semis and macro-rates themes. RSI 64 is warm but not overbought, institutional upgrade cycle is early-innings per the thesis, three analysts with zero dissent. June 23 dividend provides near-term sentiment floor. No objections."
+            "reason": "Defensive quality at 7% provides genuine portfolio diversification from the cyclical semi/fintech longs. Single-analyst but no cross-analyst conflict. RSI 64 is approaching watch territory but the +44.8% 3-month run is institutional rotation into non-cyclical quality, not retail speculation. 7% is sized correctly for single-analyst conviction. Keep."
           },
           {
-            "ticker": "AMD",
-            "verdict": "reduce",
-            "size_factor": 0.5,
-            "reason": "5d +9.7% is the loudest recency-chasing signal in the book. RS +152 is impressive but SMH already holds AMD as a top constituent, so full 12% meaningfully double-counts the same bet. Fundamentals flagged stretched valuations and got overridden by momentum \u2014 that override is acceptable at half-size, not full. Six percent participates in the semi cycle without compounding sub-sector concentration unnecessarily."
-          },
-          {
-            "ticker": "MU",
-            "verdict": "drop",
-            "size_factor": 0.0,
-            "reason": "Single-analyst pitch (Quant only) carrying the largest 5-day run in the entire slate (+13.6%) \u2014 this is chasing an already-moved name, not entering a fresh thesis. Fundamentals explicitly warned against semis re-rating and was not overridden here because no other analyst stepped up. SMH already captures MU through its ETF holdings, so this adds correlation without adding conviction. At full slate, SMH+AMD+MU = 35% in one sub-sector riding the same AI-capex/memory-cycle thesis \u2014 that is a single-factor bet masquerading as three positions. MU is the weakest link and gets cut."
-          },
-          {
-            "ticker": "GOOGL",
+            "ticker": "ADBE",
             "verdict": "keep",
             "size_factor": 1.0,
-            "reason": "At 7% the downside is contained and the position is sized to reflect exactly the technical uncertainty. RSI 34 on a rotation-driven pullback is a credible dislocation signal for a franchise of this durability \u2014 Fundamentals is correct that this is not impairment. Non-correlated to semis, financials, or healthcare; adds genuine diversification to the slate. Toe-in sizing is appropriate given Technicals dissent."
+            "reason": "Strongest short by confluence \u2014 3-to-1 majority overruling a lone Fundamentals dissent is decisive. CFO departure plus active CEO search plus ARR guidance cut is a management credibility event with lasting multiple-compression implications. The -18.9% 5-day distribution is ongoing institutional exit, not exhaustion selling. At -50.7% off highs, dead-cat bounce risk exists but the structural AI-disruption re-rating has further to run. Keep at 12%; monitor for bounces as potential add points."
+          },
+          {
+            "ticker": "CRM",
+            "verdict": "reduce",
+            "size_factor": 0.75,
+            "reason": "Crowded-short squeeze risk is materially understated. -35% YTD with legacy longs still unwinding means the short side is already packed; any sentiment shift \u2014 M&A speculation, activist entry, a low-bar earnings beat, or a surprise Agentforce data point \u2014 compresses the position fast. RSI 41 provides no oversold buffer to absorb a squeeze. The downtrend thesis is valid but the position should not be sized for a clean ride. Reduce to 7.5% to retain short exposure while capping squeeze blowout risk."
+          },
+          {
+            "ticker": "TLT",
+            "verdict": "reduce",
+            "size_factor": 0.625,
+            "reason": "Two compounding risks that together make full size unjustifiable. (1) Binary FOMC event risk today: Warsh's debut is a live headline \u2014 any balanced or mildly dovish tone reverses the short immediately with no exit opportunity. (2) Macro-hedge correlation failure: TLT short is a risk-ON bet that LOSES in a broad equity risk-off event (flight-to-quality bond rally), precisely when cyclical longs GS, AMD, and SMH are drawing down \u2014 the book gets hit from both sides simultaneously. Single analyst, conv60, no cross-desk validation. Reduce to 5% to retain the higher-for-longer macro view while neutralising the tail-event double-loss."
+          },
+          {
+            "ticker": "SBUX",
+            "verdict": "keep",
+            "size_factor": 1.0,
+            "reason": "Timing risk of shorting near 52-week highs is real but the fundamental mispricing is textbook: premium multiple sustained by a turnaround narrative with zero proof points against structurally deteriorating unit economics (negative US SSS, China secular decline). Single analyst with no cross-desk disagreement \u2014 clean unanimous short. The timing risk is embedded in the 7% size; that is the right size for a single-analyst, near-highs thesis. Keep."
+          },
+          {
+            "ticker": "XOM",
+            "verdict": "reduce",
+            "size_factor": 0.5,
+            "reason": "Weakest conviction in the book at 57, single analyst, explicit binary headline risk: ceasefire durability is entirely exogenous and unforecastable. If the US-Iran agreement fractures, Strait of Hormuz premium returns and XOM squeezes hard against a short. DXY headwind is real but cannot anchor the thesis independently of the supply narrative. Halve to 3% \u2014 minimum viable size to hold the geopolitical deflation view. If the desk prefers to avoid binary commodity event risk entirely, DROP is defensible."
           }
         ],
         "overall": "trim-risk",
-        "summary": "The book's structural problem is semiconductor sub-sector stacking: SMH + AMD + MU = 35% in effectively one thesis (AI capex / memory cycle inflection) expressed three times with high cross-correlation and two names coming off extreme 5-day runs. Dropping MU (thinnest thesis, hottest recent move, fully redundant via SMH) and halving AMD (recency chase on top of SMH overlap) brings semiconductor exposure to ~21% with SMH doing the heavy lifting cleanly \u2014 no sector-limit breach, no chasing signal, and the AI-capex thesis remains fully represented. The remainder of the book \u2014 GS, UNH, GOOGL \u2014 is well-constructed with genuine theme diversification and appropriate sizing, and the revised slate lands at ~55% gross with 45% cash buffer."
+        "summary": "The slate has structural conviction \u2014 GS and ADBE are strong triple-confluence anchors, the semiconductor cycle thesis is coherent, and the gross/net posture is conservative at 93% / +7% proposed. Four positions require trimming before deployment: AMD's +164% parabolic 3-month run creates extension risk RSI alone cannot dismiss; the AMD/SMH overlap loads 22% gross semi longs at full size; TLT short is the stealth book risk \u2014 a risk-ON bet that compounds cyclical-long drawdowns in any flight-to-quality event and carries live FOMC binary exposure today; CRM crowded-short squeeze risk is understated at full 10%. After recommended trims (AMD\u21929%, SMH\u21928%, NFLX\u21926%, CRM\u21927.5%, TLT\u21925%, XOM\u21923%), revised gross lands near 77.5% and net near +8.5% \u2014 within all hard limits, sector net peaks well below 45%, and tail-risk sources are meaningfully reduced without abandoning the core thesis on any name."
       },
       "trades": [
         {
-          "ts": "2026-06-16 15:59",
+          "ts": "2026-06-16 18:26",
           "ticker": "GS",
           "action": "BUY",
-          "usd": 3000.0,
-          "shares": 2.82,
+          "side": "long",
+          "usd": 2600.0,
+          "shares": 2.45,
           "price": 1062.75,
-          "reason": "Four-lens consensus with zero dissent is the highest conviction signal in the slate. Hawkish hold NIM tailwind is structurally intact and not consensus-priced; SpaceX IPO halo plus dealmaking renaissance provide independent catalysts even if IPO timing slips. RS +24 vs SPY with RSI 61 is clean momentum with room to extend. Maximum weight is earned \u2014 this is what maximum weight is for."
+          "reason": "Triple-confluence anchor \u2014 full size endorsed. Q1 EPS +24% YoY underpinned by M&A resurgence, rates-trading alpha, and NIM expansion in a higher-for-longer regime, all three independently supportable. RS +24.2 vs SPY, RSI 61, -2.7% off 52-week highs. At 13% the position sits 2pp inside the hard cap; the thesis is durable enough to hold the line. Financials sector net well within limits."
         },
         {
-          "ts": "2026-06-16 15:59",
-          "ticker": "SMH",
-          "action": "BUY",
-          "usd": 3000.0,
-          "shares": 4.64,
-          "price": 647.1,
-          "reason": "ETF structure is the correct vehicle for AI-capex secular exposure \u2014 eliminates binary single-name risk while capturing the dominant sector momentum regime. Confirmed 52wk-high breakout, RS +52, RSI 59 not extended. Three-analyst consensus, zero dissent. SMH is the semiconductor anchor; its full weight is what justifies cutting the single-name stacks below it."
-        },
-        {
-          "ts": "2026-06-16 15:59",
-          "ticker": "UNH",
-          "action": "BUY",
-          "usd": 2400.0,
-          "shares": 5.91,
-          "price": 406.2,
-          "reason": "Genuine diversifier \u2014 non-correlated to semis, rates, and mega-cap tech. Six institutional upgrades in two weeks mark a narrative inflection from utilization crisis to margin recovery with re-rating in early innings. RS +32.5, RSI 64 warm but not overbought, three analysts with zero dissent. June 23 dividend provides near-term sentiment anchor."
-        },
-        {
-          "ts": "2026-06-16 15:59",
+          "ts": "2026-06-16 18:26",
           "ticker": "AMD",
           "action": "BUY",
-          "usd": 1200.0,
-          "shares": 2.35,
+          "side": "long",
+          "usd": 1800.0,
+          "shares": 3.52,
           "price": 511.57,
-          "reason": "RS +152 is the loudest momentum signal in the book but the 5d +9.7% run makes full-size a recency chase. Half-weight participates in semi cycle acceleration without compounding sub-sector concentration \u2014 SMH already holds AMD as a top constituent. Momentum override of Fundamentals valuation caution is acceptable at half-size; at full-size it becomes undisciplined."
+          "reason": "Trimmed from 12% to 9% \u2014 extension and overlap discipline, not thesis retreat. +164% in three months is parabolic; RSI resetting to 57 shows momentum health but not that the move has been digested. Meta 6GW Instinct deal is live revenue and the NVDA share-gain story persists, but it is now consensus-priced. Combined with SMH at 8%, semi gross long lands ~17% \u2014 cycle exposure intact without concentration blow-up. The call is right; the old size was not."
         },
         {
-          "ts": "2026-06-16 15:59",
-          "ticker": "GOOGL",
+          "ts": "2026-06-16 18:26",
+          "ticker": "SMH",
           "action": "BUY",
+          "side": "long",
+          "usd": 1600.0,
+          "shares": 2.47,
+          "price": 647.1,
+          "reason": "Trimmed from 10% to 8% to control AMD overlap. ETF wrapper at 52-week high breakout, RSI 59, RS +52 vs SPY \u2014 semis are the undisputed leadership sector and breadth across AMD/MU/TSM confirms a cycle-wide upswing, not a single-name event. 8% alongside AMD at 9% is diversification with leverage to the theme; 10% alongside AMD at 12% was doubling up."
+        },
+        {
+          "ts": "2026-06-16 18:26",
+          "ticker": "NFLX",
+          "action": "BUY",
+          "side": "long",
+          "usd": 1200.0,
+          "shares": 14.94,
+          "price": 80.34,
+          "reason": "Trimmed from 8% to 6% \u2014 lowest-conviction long in the book, sized accordingly. RSI 15 is the most extreme oversold reading in the universe this cycle and the business is intact: 16% YoY revenue growth, $6.8B buyback, ad-tier structurally accretive. Warner fee is a cash windfall misread as negative. The edge is real but the thesis requires the market to voluntarily reconsider a negative narrative with no identified catalyst timeline. 6% holds the contrarian setup; 8% was pricing in a catalyst we cannot yet see."
+        },
+        {
+          "ts": "2026-06-16 18:26",
+          "ticker": "UNH",
+          "action": "BUY",
+          "side": "long",
           "usd": 1400.0,
-          "shares": 3.89,
-          "price": 359.68,
-          "reason": "RSI 34 on a rotation-driven 10.6% pullback is a credible dislocation signal for a franchise with durable Search + YouTube + Cloud moats; Gemini deepens AI positioning. Sized at 7% to respect live Technicals dissent on mega-cap tech broadly. Adds genuine diversification with zero overlap to semis, financials, or healthcare. Toe-in sizing is the right call pending a technical base."
+          "shares": 3.45,
+          "price": 406.2,
+          "reason": "Full size \u2014 defensive quality that earns its allocation by providing genuine diversification from the cyclical semi and fintech longs. RS +32.5 vs SPY, RSI 64, +44.8% in three months reflects institutional rotation into non-cyclical quality amid macro uncertainty. Single analyst, no cross-desk conflict, and the technical setup (dominant momentum, near-zero drawdown from highs) justifies the full single-analyst size of 7%."
+        },
+        {
+          "ts": "2026-06-16 18:26",
+          "ticker": "ADBE",
+          "action": "SHORT",
+          "side": "short",
+          "usd": 2400.0,
+          "shares": 11.76,
+          "price": 204.02,
+          "reason": "Anchor short at full size \u2014 strongest by confluence in the book. 3-to-1 analyst majority overrules the lone Fundamentals dissent decisively. CFO departure plus active CEO search plus ARR guidance cut to free tiers is a management credibility event with lasting multiple-compression implications; this is not a one-quarter earnings miss. The -18.9% five-day distribution is ongoing institutional exit, not exhaustion selling. At -50.7% off highs, the structural AI-disruption re-rating has further runway; dead-cat bounces are add opportunities, not stop-outs."
+        },
+        {
+          "ts": "2026-06-16 18:26",
+          "ticker": "CRM",
+          "action": "SHORT",
+          "side": "short",
+          "usd": 1500.0,
+          "shares": 9.04,
+          "price": 165.89,
+          "reason": "Trimmed from 10% to 7.5% on crowded-short squeeze risk \u2014 -35% YTD with legacy longs still distributing means the short side is packed. RSI 41 provides no oversold cushion to absorb a squeeze; any low-bar earnings beat, M&A speculation, or a single credible Agentforce data point compresses the position fast with no exit window. The AI-agent-replaces-CRM narrative is institutional consensus and the downtrend is intact \u2014 slow-bleed short with a valid thesis. Sized to survive the squeeze, not to exploit a clean ride."
+        },
+        {
+          "ts": "2026-06-16 18:26",
+          "ticker": "TLT",
+          "action": "SHORT",
+          "side": "short",
+          "usd": 1000.0,
+          "shares": 11.67,
+          "price": 85.72,
+          "reason": "Reduced from 8% to 5% on two compounding failure modes that together make full size indefensible. First: binary FOMC event risk today \u2014 any balanced or mildly dovish Warsh tone reverses the short immediately with no clean exit. Second: correlation failure risk \u2014 TLT short is a risk-on bet that loses in a flight-to-quality event precisely when GS, AMD, and SMH are drawing down, hitting the book from both sides simultaneously. May CPI 4.2% headline eliminates the dovish pivot and rate cuts are a 2027 story \u2014 the macro view is right. But single-analyst, conv60, live binary event does not justify 8%. At 5% the higher-for-longer thesis is represented at minimum viable size."
+        },
+        {
+          "ts": "2026-06-16 18:26",
+          "ticker": "SBUX",
+          "action": "SHORT",
+          "side": "short",
+          "usd": 1400.0,
+          "shares": 13.59,
+          "price": 103.04,
+          "reason": "Clean unanimous short at full size \u2014 no cross-desk conflict anywhere in the book. Premium multiple sustained by a zero-proof-points turnaround narrative against structurally deteriorating unit economics: negative US same-store sales, secular China traffic decline, and a new CEO with no demonstrated execution record. Only -3.5% off 52-week highs is a textbook mispricing \u2014 the multiple compresses as each expected proof point fails to arrive. 7% correctly embeds the near-highs timing risk; the fundamental dislocation is unambiguous."
+        },
+        {
+          "ts": "2026-06-16 18:26",
+          "ticker": "XOM",
+          "action": "SHORT",
+          "side": "short",
+          "usd": 600.0,
+          "shares": 4.08,
+          "price": 147.01,
+          "reason": "Minimum viable size at 3%, halved from 6%. US-Iran ceasefire drains Strait of Hormuz supply-disruption premium and DXY ~99.5 is a real FX headwind to dollar-denominated oil revenues \u2014 both thesis legs are valid. But ceasefire durability is entirely exogenous: if the agreement fractures, the position squeezes hard against the book with no forecastable exit. Dropping to zero is defensible as the Risk Manager noted; at 3%, the geopolitical deflation view is expressed with tolerable binary exposure. Held as a macro hedge, not a conviction position."
         }
       ]
     }
   ],
   "trades": [
     {
-      "ts": "2026-06-16 15:59",
-      "ticker": "GOOGL",
-      "action": "BUY",
+      "ts": "2026-06-16 18:26",
+      "ticker": "XOM",
+      "action": "SHORT",
+      "side": "short",
+      "usd": 600.0,
+      "shares": 4.08,
+      "price": 147.01,
+      "reason": "Minimum viable size at 3%, halved from 6%. US-Iran ceasefire drains Strait of Hormuz supply-disruption premium and DXY ~99.5 is a real FX headwind to dollar-denominated oil revenues \u2014 both thesis legs are valid. But ceasefire durability is entirely exogenous: if the agreement fractures, the position squeezes hard against the book with no forecastable exit. Dropping to zero is defensible as the Risk Manager noted; at 3%, the geopolitical deflation view is expressed with tolerable binary exposure. Held as a macro hedge, not a conviction position."
+    },
+    {
+      "ts": "2026-06-16 18:26",
+      "ticker": "SBUX",
+      "action": "SHORT",
+      "side": "short",
       "usd": 1400.0,
-      "shares": 3.89,
-      "price": 359.68,
-      "reason": "RSI 34 on a rotation-driven 10.6% pullback is a credible dislocation signal for a franchise with durable Search + YouTube + Cloud moats; Gemini deepens AI positioning. Sized at 7% to respect live Technicals dissent on mega-cap tech broadly. Adds genuine diversification with zero overlap to semis, financials, or healthcare. Toe-in sizing is the right call pending a technical base."
+      "shares": 13.59,
+      "price": 103.04,
+      "reason": "Clean unanimous short at full size \u2014 no cross-desk conflict anywhere in the book. Premium multiple sustained by a zero-proof-points turnaround narrative against structurally deteriorating unit economics: negative US same-store sales, secular China traffic decline, and a new CEO with no demonstrated execution record. Only -3.5% off 52-week highs is a textbook mispricing \u2014 the multiple compresses as each expected proof point fails to arrive. 7% correctly embeds the near-highs timing risk; the fundamental dislocation is unambiguous."
     },
     {
-      "ts": "2026-06-16 15:59",
-      "ticker": "AMD",
-      "action": "BUY",
-      "usd": 1200.0,
-      "shares": 2.35,
-      "price": 511.57,
-      "reason": "RS +152 is the loudest momentum signal in the book but the 5d +9.7% run makes full-size a recency chase. Half-weight participates in semi cycle acceleration without compounding sub-sector concentration \u2014 SMH already holds AMD as a top constituent. Momentum override of Fundamentals valuation caution is acceptable at half-size; at full-size it becomes undisciplined."
+      "ts": "2026-06-16 18:26",
+      "ticker": "TLT",
+      "action": "SHORT",
+      "side": "short",
+      "usd": 1000.0,
+      "shares": 11.67,
+      "price": 85.72,
+      "reason": "Reduced from 8% to 5% on two compounding failure modes that together make full size indefensible. First: binary FOMC event risk today \u2014 any balanced or mildly dovish Warsh tone reverses the short immediately with no clean exit. Second: correlation failure risk \u2014 TLT short is a risk-on bet that loses in a flight-to-quality event precisely when GS, AMD, and SMH are drawing down, hitting the book from both sides simultaneously. May CPI 4.2% headline eliminates the dovish pivot and rate cuts are a 2027 story \u2014 the macro view is right. But single-analyst, conv60, live binary event does not justify 8%. At 5% the higher-for-longer thesis is represented at minimum viable size."
     },
     {
-      "ts": "2026-06-16 15:59",
+      "ts": "2026-06-16 18:26",
+      "ticker": "CRM",
+      "action": "SHORT",
+      "side": "short",
+      "usd": 1500.0,
+      "shares": 9.04,
+      "price": 165.89,
+      "reason": "Trimmed from 10% to 7.5% on crowded-short squeeze risk \u2014 -35% YTD with legacy longs still distributing means the short side is packed. RSI 41 provides no oversold cushion to absorb a squeeze; any low-bar earnings beat, M&A speculation, or a single credible Agentforce data point compresses the position fast with no exit window. The AI-agent-replaces-CRM narrative is institutional consensus and the downtrend is intact \u2014 slow-bleed short with a valid thesis. Sized to survive the squeeze, not to exploit a clean ride."
+    },
+    {
+      "ts": "2026-06-16 18:26",
+      "ticker": "ADBE",
+      "action": "SHORT",
+      "side": "short",
+      "usd": 2400.0,
+      "shares": 11.76,
+      "price": 204.02,
+      "reason": "Anchor short at full size \u2014 strongest by confluence in the book. 3-to-1 analyst majority overrules the lone Fundamentals dissent decisively. CFO departure plus active CEO search plus ARR guidance cut to free tiers is a management credibility event with lasting multiple-compression implications; this is not a one-quarter earnings miss. The -18.9% five-day distribution is ongoing institutional exit, not exhaustion selling. At -50.7% off highs, the structural AI-disruption re-rating has further runway; dead-cat bounces are add opportunities, not stop-outs."
+    },
+    {
+      "ts": "2026-06-16 18:26",
       "ticker": "UNH",
       "action": "BUY",
-      "usd": 2400.0,
-      "shares": 5.91,
+      "side": "long",
+      "usd": 1400.0,
+      "shares": 3.45,
       "price": 406.2,
-      "reason": "Genuine diversifier \u2014 non-correlated to semis, rates, and mega-cap tech. Six institutional upgrades in two weeks mark a narrative inflection from utilization crisis to margin recovery with re-rating in early innings. RS +32.5, RSI 64 warm but not overbought, three analysts with zero dissent. June 23 dividend provides near-term sentiment anchor."
+      "reason": "Full size \u2014 defensive quality that earns its allocation by providing genuine diversification from the cyclical semi and fintech longs. RS +32.5 vs SPY, RSI 64, +44.8% in three months reflects institutional rotation into non-cyclical quality amid macro uncertainty. Single analyst, no cross-desk conflict, and the technical setup (dominant momentum, near-zero drawdown from highs) justifies the full single-analyst size of 7%."
     },
     {
-      "ts": "2026-06-16 15:59",
+      "ts": "2026-06-16 18:26",
+      "ticker": "NFLX",
+      "action": "BUY",
+      "side": "long",
+      "usd": 1200.0,
+      "shares": 14.94,
+      "price": 80.34,
+      "reason": "Trimmed from 8% to 6% \u2014 lowest-conviction long in the book, sized accordingly. RSI 15 is the most extreme oversold reading in the universe this cycle and the business is intact: 16% YoY revenue growth, $6.8B buyback, ad-tier structurally accretive. Warner fee is a cash windfall misread as negative. The edge is real but the thesis requires the market to voluntarily reconsider a negative narrative with no identified catalyst timeline. 6% holds the contrarian setup; 8% was pricing in a catalyst we cannot yet see."
+    },
+    {
+      "ts": "2026-06-16 18:26",
       "ticker": "SMH",
       "action": "BUY",
-      "usd": 3000.0,
-      "shares": 4.64,
+      "side": "long",
+      "usd": 1600.0,
+      "shares": 2.47,
       "price": 647.1,
-      "reason": "ETF structure is the correct vehicle for AI-capex secular exposure \u2014 eliminates binary single-name risk while capturing the dominant sector momentum regime. Confirmed 52wk-high breakout, RS +52, RSI 59 not extended. Three-analyst consensus, zero dissent. SMH is the semiconductor anchor; its full weight is what justifies cutting the single-name stacks below it."
+      "reason": "Trimmed from 10% to 8% to control AMD overlap. ETF wrapper at 52-week high breakout, RSI 59, RS +52 vs SPY \u2014 semis are the undisputed leadership sector and breadth across AMD/MU/TSM confirms a cycle-wide upswing, not a single-name event. 8% alongside AMD at 9% is diversification with leverage to the theme; 10% alongside AMD at 12% was doubling up."
     },
     {
-      "ts": "2026-06-16 15:59",
+      "ts": "2026-06-16 18:26",
+      "ticker": "AMD",
+      "action": "BUY",
+      "side": "long",
+      "usd": 1800.0,
+      "shares": 3.52,
+      "price": 511.57,
+      "reason": "Trimmed from 12% to 9% \u2014 extension and overlap discipline, not thesis retreat. +164% in three months is parabolic; RSI resetting to 57 shows momentum health but not that the move has been digested. Meta 6GW Instinct deal is live revenue and the NVDA share-gain story persists, but it is now consensus-priced. Combined with SMH at 8%, semi gross long lands ~17% \u2014 cycle exposure intact without concentration blow-up. The call is right; the old size was not."
+    },
+    {
+      "ts": "2026-06-16 18:26",
       "ticker": "GS",
       "action": "BUY",
-      "usd": 3000.0,
-      "shares": 2.82,
+      "side": "long",
+      "usd": 2600.0,
+      "shares": 2.45,
       "price": 1062.75,
-      "reason": "Four-lens consensus with zero dissent is the highest conviction signal in the slate. Hawkish hold NIM tailwind is structurally intact and not consensus-priced; SpaceX IPO halo plus dealmaking renaissance provide independent catalysts even if IPO timing slips. RS +24 vs SPY with RSI 61 is clean momentum with room to extend. Maximum weight is earned \u2014 this is what maximum weight is for."
+      "reason": "Triple-confluence anchor \u2014 full size endorsed. Q1 EPS +24% YoY underpinned by M&A resurgence, rates-trading alpha, and NIM expansion in a higher-for-longer regime, all three independently supportable. RS +24.2 vs SPY, RSI 61, -2.7% off 52-week highs. At 13% the position sits 2pp inside the hard cap; the thesis is durable enough to hold the line. Financials sector net well within limits."
     }
   ],
   "brief": "UNIVERSE \u2014 price \u00b7 1d/5d/1m/3m% \u00b7 trend(50/200) \u00b7 RSI \u00b7 %off-52wk-high \u00b7 RS-vs-SPY \u00b7 sector:\n  TLT    $85.72     -0.1/  1.3/   1.3/  -0.6 mixed RSI  61   -4.2%hi RS-12.9 Bonds\n  DIS    $100.04    -0.3/  0.3/  -4.6/   0.8 down  RSI  38  -18.8%hi RS-11.5 Communications\n  NFLX   $80.34     -1.1/ -2.2/  -8.2/ -15.7 down  RSI  15  -40.0%hi RS-28.0 Communications\n  AMZN   $238.55    -1.2/ -3.0/ -11.7/  14.9 mixed RSI  27  -13.3%hi RS  2.6 Consumer\n  COST   $982.35     0.7/  1.1/  -4.9/  -2.4 mixed RSI  35  -10.2%hi RS-14.7 Consumer\n  HD     $328.39     0.7/  5.7/   9.4/  -2.4 mixed RSI  67  -20.8%hi RS-14.7 Consumer\n  MCD    $284.81     0.0/  1.8/   4.0/ -12.2 down  RSI  57  -15.5%hi RS-24.5 Consumer\n  NKE    $44.93     -2.2/  4.5/   7.1/ -16.0 mixed RSI  53  -41.7%hi RS-28.3 Consumer\n  SBUX   $103.04     0.7/  8.1/  -2.2/   4.5 up    RSI  50   -3.5%hi RS -7.8 Consumer\n  TSLA   $406.43     1.8/  3.9/  -8.7/   3.9 mixed RSI  44  -17.0%hi RS -8.4 Consumer\n  ETHA   $12.57     -1.0/  5.9/ -26.1/ -20.9 down  RSI  23  -65.6%hi RS-33.2 Crypto\n  IBIT   $36.04     -0.0/  5.6/ -20.1/ -10.7 down  RSI  22  -49.4%hi RS-23.0 Crypto\n  CVX    $187.22     0.8/ -0.0/   1.6/  -4.0 mixed RSI  44  -10.5%hi RS-16.3 Energy\n  XOM    $147.01     0.3/ -1.9/  -2.4/  -5.2 mixed RSI  37  -13.7%hi RS-17.5 Energy\n  BAC    $56.02      1.6/  4.1/  13.0/  20.5 up    RSI  77   -1.1%hi RS  8.2 Financials\n  BRK-B  $495.52     1.3/  1.7/   2.4/   0.7 mixed RSI  62   -3.6%hi RS-11.6 Financials\n  GS     $1062.75    2.6/  2.3/  11.7/  36.5 up    RSI  61   -2.7%hi RS 24.2 Financials\n  JPM    $320.72     2.3/  2.7/   6.8/  13.7 up    RSI  64   -3.7%hi RS  1.4 Financials\n  MA     $489.98     0.7/ -0.2/  -0.1/  -1.4 down  RSI  45  -17.8%hi RS-13.7 Financials\n  V      $322.39     1.0/ -0.4/   0.6/   5.2 mixed RSI  44  -12.5%hi RS -7.1 Financials\n  GLD    $386.54     0.1/ -2.4/ -10.2/ -16.1 mixed RSI  33  -22.1%hi RS-28.4 Gold\n  ABBV   $221.59    -2.7/ -0.7/   5.1/   0.9 mixed RSI  60   -7.2%hi RS-11.4 Healthcare\n  JNJ    $240.87     1.1/  3.5/   5.1/   0.3 up    RSI  62   -2.5%hi RS-12.0 Healthcare\n  LLY    $1133.0    -2.4/  0.1/  11.7/  15.2 up    RSI  62   -2.4%hi RS  2.9 Healthcare\n  PFE    $26.21      0.2/  0.7/   1.0/   0.2 up    RSI  55   -6.7%hi RS-12.1 Healthcare\n  UNH    $406.2      0.7/  2.3/   1.8/  44.8 up    RSI  64   -1.1%hi RS 32.5 Healthcare\n  DIA    $518.44     1.0/  1.9/   3.6/  10.6 up    RSI  61    0.0%hi RS -1.7 Index ETF\n  IWM    $294.64     0.8/  4.0/   3.8/  18.9 up    RSI  55    0.0%hi RS  6.6 Index ETF\n  QQQ    $744.0      3.1/  3.9/   3.4/  24.1 up    RSI  55   -0.3%hi RS 11.8 Index ETF\n  SPY    $741.75     0.5/  0.6/  -0.1/  12.3 up    RSI  47   -2.3%hi RS -0.0 Index ETF\n  BA     $219.05    -1.2/  1.7/  -9.0/   4.4 mixed RSI  50  -13.1%hi RS -7.9 Industrials\n  CAT    $910.57     1.4/  0.7/   0.9/  31.5 up    RSI  55   -3.2%hi RS 19.2 Industrials\n  GE     $335.3      0.8/  2.2/  13.8/  11.9 mixed RSI  68   -2.9%hi RS -0.4 Industrials\n  SMH    $647.1      4.4/  8.2/  11.9/  64.3 up    RSI  59    0.0%hi RS 52.0 Sector ETF\n  XLE    $57.55      0.8/ -0.2/  -0.1/   0.4 mixed RSI  41   -8.0%hi RS-11.9 Sector ETF\n  XLF    $53.34      1.4/  2.0/   4.6/   9.7 mixed RSI  63   -4.9%hi RS -2.6 Sector ETF\n  XLK    $184.8      0.9/  2.5/   4.5/  35.3 up    RSI  54   -6.8%hi RS 23.0 Sector ETF\n  XLV    $153.81    -0.2/  0.5/   4.8/   3.1 mixed RSI  60   -3.6%hi RS -9.2 Sector ETF\n  AAPL   $291.13    -1.5/ -5.3/  -2.6/  16.5 up    RSI  34   -7.6%hi RS  4.2 Technology\n  ADBE   $204.02    -6.8/-18.9/ -13.6/ -18.2 down  RSI  33  -50.7%hi RS-30.5 Technology\n  AMD    $511.57     4.7/  9.7/  14.8/ 164.5 up    RSI  57   -5.7%hi RS152.2 Technology\n  AVGO   $382.07    -0.9/ -0.9/  -8.3/  18.8 mixed RSI  43  -20.7%hi RS  6.5 Technology\n  CRM    $165.89    -0.3/-10.4/   0.3/ -13.5 down  RSI  41  -38.9%hi RS-25.8 Technology\n  GOOGL  $359.68     0.5/ -2.3/ -10.6/  19.1 mixed RSI  34  -10.6%hi RS  6.8 Technology\n  META   $593.48     4.8/  1.5/  -3.9/  -5.3 down  RSI  45  -24.6%hi RS-17.6 Technology\n  MSFT   $390.74     0.1/ -6.2/  -3.4/  -1.0 down  RSI  39  -27.5%hi RS-13.3 Technology\n  MU     $981.61    -1.4/ 13.6/  22.1/ 130.5 up    RSI  64   -9.1%hi RS118.2 Technology\n  NVDA   $205.19     0.2/  0.0/  -9.0/  14.0 mixed RSI  42  -12.9%hi RS  1.7 Technology\n  ORCL   $184.13     0.0/-13.8/  -3.0/  19.1 down  RSI  47  -43.5%hi RS  6.8 Technology\n  QCOM   $211.72     4.3/ -2.0/  -0.3/  63.7 up    RSI  42  -15.3%hi RS 51.4 Technology\n  TSM    $441.4      4.1/  3.7/   5.9/  30.4 up    RSI  59   -1.0%hi RS 18.1 Technology"
