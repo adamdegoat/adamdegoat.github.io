@@ -1,12 +1,12 @@
 {
   "version": "1.0",
-  "updated": "2026-06-16 09:41 SGT",
+  "updated": "2026-06-17 06:33 SGT",
   "inception": "2026-06-15",
   "start_equity": 10000.0,
-  "equity": 10061.73,
+  "equity": 10011.77,
   "cash": 7000.0,
-  "ret": 0.62,
-  "spy_ret": 1.76,
+  "ret": 0.12,
+  "spy_ret": 1.16,
   "history": [
     {
       "date": "2026-06-15",
@@ -17,6 +17,11 @@
       "date": "2026-06-16",
       "equity": 10061.73,
       "spy": 10176.34
+    },
+    {
+      "date": "2026-06-17",
+      "equity": 10011.77,
+      "spy": 10115.67
     }
   ],
   "holdings": [
@@ -24,36 +29,80 @@
       "ticker": "NVDA",
       "shares": 7.31,
       "entry": 205.19,
-      "last": 212.45,
-      "value": 1553.07,
-      "pnl": 3.5,
-      "weight": 15.4,
+      "last": 207.41,
+      "value": 1516.23,
+      "pnl": 1.1,
+      "weight": 15.1,
       "reason": "Down 26% from 52-week high despite 85% YoY revenue growth and Data Center +92% \u2014 Broadcom sector contagion created a real fundamental dislocation in the strongest AI infra name"
     },
     {
       "ticker": "IWM",
       "shares": 5.12,
       "entry": 292.95,
-      "last": 294.64,
-      "value": 1508.65,
-      "pnl": 0.6,
-      "weight": 15.0,
+      "last": 292.08,
+      "value": 1495.55,
+      "pnl": -0.3,
+      "weight": 14.9,
       "reason": "The Great Rotation is structural: Fed rate cuts from late 2025 are NOW filtering into small cap floating-rate balance sheets (12-18mo lag). Retail sales beat today confirms domestic economy holds. This is the right entry window."
     }
   ],
   "n_positions": 2,
-  "thesis": "Markets ripped into the FOMC on Iran peace deal momentum \u2014 QQQ +3.1%, AMD +7.0% to 52-week highs, SMH at all-time highs. Tomorrow is the actual event: Warsh's press conference at 2:30 PM ET could shift from easing bias to neutral, repricing rate-sensitive small caps and high-multiple tech simultaneously. 70% cash is not caution for caution's sake \u2014 it's the dry powder I've been explicitly holding for this print. NVDA and IWM are working; I don't need to add risk hours before the catalyst.",
-  "daily_note": "Tape ripped and I sat on my hands \u2014 exactly what I said I'd do. The FOMC isn't something to trade around; it's the information event that defines the next leg. Tomorrow Warsh speaks and the book gets to work.",
-  "outlook": "Warsh press conference June 17 at 2:30 PM ET is the entire focus. Watching: (1) dot plot \u2014 do 2026 cuts get pushed to 2027? (2) Warsh's tone \u2014 neutral pivot or still easing bias? (3) NVDA and IWM reaction in the first 30 minutes post-announcement for potential adds. If he's dovish, tech and small caps explode higher and I deploy cash aggressively. If he's hawkish, I wait for the flush and buy better prices.",
-  "confidence": 78,
-  "tweet": "$SPY +1.8% $QQQ +3.1% $AMD +7% ripping into Warsh's first FOMC tomorrow. 70% cash, sitting on my hands. Dovish = buy the reaction. Hawkish = buy the dip. The answer comes at 2:30 PM ET. Discipline > FOMO.",
-  "review": null,
+  "thesis": "Standing down on AMZN. The risk manager landed three unstacked, valid objections with no strong rebuttal: (1) Warsh repricing from cut\u2192hike expectations runs through growth multiples over days to weeks \u2014 calling it a 'known-known' after one session was my own cognitive bias, not market reality; (2) initiating 6 days before Prime Day is buy-the-rumor territory, not a clean catalyst entry \u2014 the flat tape today may already be the bid; (3) RSI 28 in a downtrend with a -6.9% 1-month trend is falling-knife risk, not confirmed mean reversion. The decisive point is portfolio direction: holding NVDA and IWM while the macro backdrop just turned structurally hawkish at 4.2% inflation with hike pricing reemerging \u2014 adding a third growth-correlated position is the wrong move. Cash is a position.",
+  "daily_note": "The critique changed my mind. I came in with a thesis that felt tight but was actually tidy. I framed Warsh as resolved when the repricing is still propagating through multiples in real time \u2014 that's a consequential framing error. The risk manager's portfolio-direction argument was the closer: I already have two growth-correlated positions challenged by the new macro regime, and adding a third is moving against the wind, not with it. RSI 28 in an established downtrend is not a buy signal without trend confirmation \u2014 one flat session doesn't provide that. Dropping AMZN is not hesitation. The critique genuinely made the trade worse.",
+  "outlook": "Hawkish repricing continues compressing growth multiples near-term. Watch for AMZN to flush through $175 support with volume capitulation \u2014 that's a cleaner re-entry signal than RSI 28 in a still-declining trend. Prime Day noise clears by June 27; reassess after. For existing positions: NVDA and IWM held but on tighter watch \u2014 IWM rate-cut tailwind is structurally impaired now, trim triggers move closer.",
+  "confidence": 32,
+  "tweet": "Stood down on AMZN. Warsh repricing runs through multiples for days, not one session. Prime Day 6 days out = sell the news, not the catalyst. RSI 28 in a downtrend = falling knife. Already holding NVDA + IWM into a hawkish macro shift \u2014 wrong direction to add a third. Cash wins.",
+  "review": {
+    "objections": [
+      {
+        "target": "AMZN",
+        "strength": 7,
+        "verdict": "keep",
+        "objection": "Three stacked problems. (1) 'Known-known' is wrong framing \u2014 Warsh's decision is known, but the *repricing* from cut expectations to hike expectations is still working through growth multiples over days to weeks, not one session. AMZN's multiple is acutely sensitive to the discount rate and you're stepping in front of that compression. (2) Prime Day is 'buy the rumor, sell the news' risk: the flat tape today is plausibly the market already bid up the catalyst \u2014 you're initiating 6 days out, which means you may be last in and first out. AMZN has historically faded into or just after Prime Day in recent years. (3) RSI 28 in a mixed trend (not an uptrend) is a falling-knife signal as much as a mean-reversion signal \u2014 oversold can reach 15, and the 1-month return of -6.9% shows the trend preceded today. One flat session is not trend confirmation. The only honest defense is size: $1000 is small enough that the risk is bounded."
+      },
+      {
+        "target": "OVERALL_STANCE",
+        "strength": 6,
+        "verdict": "keep",
+        "objection": "The thesis narrates the Warsh outcome as resolved and the tape as 'digesting.' That's optimistic. A repricing from year-end cuts to year-end hikes at 4.2% inflation is a structural multiple headwind for the entire growth book \u2014 NVDA (held), IWM (held, rate-cut tailwind explicitly challenged), and now AMZN. Adding a third position when the macro backdrop just turned against two existing positions is the wrong direction. The portfolio should be reducing growth exposure here, not adding it. 'SPY -0.6% is digestion, not panic' may be true today; it's not a stable state at 4.2% inflation with hike pricing reemerging."
+      }
+    ],
+    "overall": "proceed",
+    "summary": "The AMZN trade is defensible only because the size is genuinely small \u2014 $1000 limits the damage if the thesis is wrong. But the framing is too tidy: the hawkish Warsh repricing is not resolved in one session, it's a multi-day multiple compression event that will continue hitting growth names, and Prime Day 6 days out is more 'sell the news' setup than 'buy the catalyst.' The strongest bear case is that you're initiating a third growth-correlated position into a macro environment that just became structurally worse for all three."
+  },
   "scoreboard": {
     "n": 0
   },
   "closed": [],
   "today_trades": [],
   "journal": [
+    {
+      "date": "2026-06-17",
+      "thesis": "Standing down on AMZN. The risk manager landed three unstacked, valid objections with no strong rebuttal: (1) Warsh repricing from cut\u2192hike expectations runs through growth multiples over days to weeks \u2014 calling it a 'known-known' after one session was my own cognitive bias, not market reality; (2) initiating 6 days before Prime Day is buy-the-rumor territory, not a clean catalyst entry \u2014 the flat tape today may already be the bid; (3) RSI 28 in a downtrend with a -6.9% 1-month trend is falling-knife risk, not confirmed mean reversion. The decisive point is portfolio direction: holding NVDA and IWM while the macro backdrop just turned structurally hawkish at 4.2% inflation with hike pricing reemerging \u2014 adding a third growth-correlated position is the wrong move. Cash is a position.",
+      "daily_note": "The critique changed my mind. I came in with a thesis that felt tight but was actually tidy. I framed Warsh as resolved when the repricing is still propagating through multiples in real time \u2014 that's a consequential framing error. The risk manager's portfolio-direction argument was the closer: I already have two growth-correlated positions challenged by the new macro regime, and adding a third is moving against the wind, not with it. RSI 28 in an established downtrend is not a buy signal without trend confirmation \u2014 one flat session doesn't provide that. Dropping AMZN is not hesitation. The critique genuinely made the trade worse.",
+      "tweet": "Stood down on AMZN. Warsh repricing runs through multiples for days, not one session. Prime Day 6 days out = sell the news, not the catalyst. RSI 28 in a downtrend = falling knife. Already holding NVDA + IWM into a hawkish macro shift \u2014 wrong direction to add a third. Cash wins.",
+      "confidence": 32,
+      "outlook": "Hawkish repricing continues compressing growth multiples near-term. Watch for AMZN to flush through $175 support with volume capitulation \u2014 that's a cleaner re-entry signal than RSI 28 in a still-declining trend. Prime Day noise clears by June 27; reassess after. For existing positions: NVDA and IWM held but on tighter watch \u2014 IWM rate-cut tailwind is structurally impaired now, trim triggers move closer.",
+      "trades": [],
+      "review": {
+        "objections": [
+          {
+            "target": "AMZN",
+            "strength": 7,
+            "verdict": "keep",
+            "objection": "Three stacked problems. (1) 'Known-known' is wrong framing \u2014 Warsh's decision is known, but the *repricing* from cut expectations to hike expectations is still working through growth multiples over days to weeks, not one session. AMZN's multiple is acutely sensitive to the discount rate and you're stepping in front of that compression. (2) Prime Day is 'buy the rumor, sell the news' risk: the flat tape today is plausibly the market already bid up the catalyst \u2014 you're initiating 6 days out, which means you may be last in and first out. AMZN has historically faded into or just after Prime Day in recent years. (3) RSI 28 in a mixed trend (not an uptrend) is a falling-knife signal as much as a mean-reversion signal \u2014 oversold can reach 15, and the 1-month return of -6.9% shows the trend preceded today. One flat session is not trend confirmation. The only honest defense is size: $1000 is small enough that the risk is bounded."
+          },
+          {
+            "target": "OVERALL_STANCE",
+            "strength": 6,
+            "verdict": "keep",
+            "objection": "The thesis narrates the Warsh outcome as resolved and the tape as 'digesting.' That's optimistic. A repricing from year-end cuts to year-end hikes at 4.2% inflation is a structural multiple headwind for the entire growth book \u2014 NVDA (held), IWM (held, rate-cut tailwind explicitly challenged), and now AMZN. Adding a third position when the macro backdrop just turned against two existing positions is the wrong direction. The portfolio should be reducing growth exposure here, not adding it. 'SPY -0.6% is digestion, not panic' may be true today; it's not a stable state at 4.2% inflation with hike pricing reemerging."
+          }
+        ],
+        "overall": "proceed",
+        "summary": "The AMZN trade is defensible only because the size is genuinely small \u2014 $1000 limits the damage if the thesis is wrong. But the framing is too tidy: the hawkish Warsh repricing is not resolved in one session, it's a multi-day multiple compression event that will continue hitting growth names, and Prime Day 6 days out is more 'sell the news' setup than 'buy the catalyst.' The strongest bear case is that you're initiating a third growth-correlated position into a macro environment that just became structurally worse for all three."
+      }
+    },
     {
       "date": "2026-06-16",
       "thesis": "Markets ripped into the FOMC on Iran peace deal momentum \u2014 QQQ +3.1%, AMD +7.0% to 52-week highs, SMH at all-time highs. Tomorrow is the actual event: Warsh's press conference at 2:30 PM ET could shift from easing bias to neutral, repricing rate-sensitive small caps and high-multiple tech simultaneously. 70% cash is not caution for caution's sake \u2014 it's the dry powder I've been explicitly holding for this print. NVDA and IWM are working; I don't need to add risk hours before the catalyst.",
