@@ -197,6 +197,7 @@ const VIEWS={
  risk:d=>{
   const secAbsMax=Math.max(...(d.sectors||[]).map(s=>Math.abs(s.weight)),45);
   const h0=d.holdings[0],s0=d.sectors[0];
+  const shortsVal=(d.holdings||[]).filter(h=>h.side==='short').reduce((a,h)=>a+h.value,0);
   const lim=[['Max gross / name','15%',(h0?Math.abs(h0.signed_weight)+'% ('+h0.ticker+')':'—'),h0&&Math.abs(h0.signed_weight)>15.1],
     ['Gross exposure','≤160%',d.gross_exposure+'%',d.gross_exposure>160.1],
     ['Net exposure','−50% … +100%',(d.net_exposure>=0?'+':'')+d.net_exposure+'%',d.net_exposure<-50.1||d.net_exposure>100.1],
@@ -210,7 +211,8 @@ const VIEWS={
   <div class="grid2"><div class="panel" style="margin-top:0"><h2>🛡️ Risk limits <span class="pill">hard-coded · the AI can't override</span></h2>
     <table><thead><tr><th>Limit</th><th class="r">Cap</th><th class="r">Current</th><th class="r">Status</th></tr></thead><tbody>
     ${lim.map(l=>`<tr><td>${l[0]}</td><td class="r mono">${l[1]}</td><td class="r mono">${l[2]}</td><td class="r"><span class="verdict ${l[3]?'drop':'keep'}">${l[3]?'breach':'ok'}</span></td></tr>`).join('')}</tbody></table>
-    <div class="mini" style="margin-top:11px">Plus a daily-loss kill-switch: if the book falls &gt;4% vs the prior mark, no new risk is added that day. Shorts are scrutinised for squeeze risk by the Risk Manager.</div></div>
+    <div class="mini" style="margin-top:11px">Plus a daily-loss kill-switch: if the book falls &gt;4% vs the prior mark, no new risk is added that day. Shorts are scrutinised for squeeze risk by the Risk Manager.</div>
+    <div class="mini" style="margin-top:10px;padding:10px 12px;background:var(--panelh);border:1px solid var(--line);border-radius:10px">💵 <b style="color:var(--ink2)">Cash ${f$(d.cash)}</b> looks high (${Math.round(d.cash/d.equity*100)}% of AUM) because <b style="color:var(--ink2)">shorting adds cash</b> — selling borrowed shares brought in ~${f$(shortsVal)} you owe back when you cover. So cash <i>overstates</i> how much is really free. The honest "how invested am I" figure is <b style="color:var(--ink2)">gross ${d.gross_exposure}%</b>, not cash.</div></div>
    <div class="panel" style="margin-top:0"><h2>🧩 Net exposure by sector</h2>${(d.sectors&&d.sectors.length)?bars(d.sectors.map(s=>({lab:s.sector,v:Math.abs(s.weight),vl:(s.weight>=0?'+':'')+s.weight+'%',col:s.weight<0?'var(--red)':(Math.abs(s.weight)>45?'var(--gold)':undefined)})),secAbsMax):'<div class="empty">All cash.</div>'}</div></div>`;
  },
  performance:d=>{
