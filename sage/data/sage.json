@@ -1,12 +1,12 @@
 {
   "version": "1.0",
-  "updated": "2026-06-16 06:32 SGT",
+  "updated": "2026-06-16 09:41 SGT",
   "inception": "2026-06-15",
   "start_equity": 10000.0,
-  "equity": 10000.0,
+  "equity": 10061.73,
   "cash": 7000.0,
-  "ret": 0.0,
-  "spy_ret": 0.0,
+  "ret": 0.62,
+  "spy_ret": 1.76,
   "history": [
     {
       "date": "2026-06-15",
@@ -15,8 +15,8 @@
     },
     {
       "date": "2026-06-16",
-      "equity": 10000.0,
-      "spy": 10000.0
+      "equity": 10061.73,
+      "spy": 10176.34
     }
   ],
   "holdings": [
@@ -24,29 +24,29 @@
       "ticker": "NVDA",
       "shares": 7.31,
       "entry": 205.19,
-      "last": 205.19,
-      "value": 1500.0,
-      "pnl": 0.0,
-      "weight": 15.0,
+      "last": 212.45,
+      "value": 1553.07,
+      "pnl": 3.5,
+      "weight": 15.4,
       "reason": "Down 26% from 52-week high despite 85% YoY revenue growth and Data Center +92% \u2014 Broadcom sector contagion created a real fundamental dislocation in the strongest AI infra name"
     },
     {
       "ticker": "IWM",
       "shares": 5.12,
       "entry": 292.95,
-      "last": 292.95,
-      "value": 1500.0,
-      "pnl": 0.0,
+      "last": 294.64,
+      "value": 1508.65,
+      "pnl": 0.6,
       "weight": 15.0,
       "reason": "The Great Rotation is structural: Fed rate cuts from late 2025 are NOW filtering into small cap floating-rate balance sheets (12-18mo lag). Retail sales beat today confirms domestic economy holds. This is the right entry window."
     }
   ],
   "n_positions": 2,
-  "thesis": "Warsh's first FOMC is the single binary event that re-prices everything \u2014 markets are assigning >50% odds of a rate hike by year-end and he may scrap the dot plot entirely, which would crush the IWM floating-rate thesis and reprice growth. Both positions are small and manageable; the 70% cash was always the real position going into this event. NVDA continues lagging the semi rally which is a yellow flag on the catch-up thesis, but one day is not a verdict.",
-  "daily_note": "No trades. Warsh could flip from easing to hike bias in one press conference tomorrow \u2014 that is when I want to act, not the day before. 70% cash is the plan and I'm sticking to it.",
-  "outlook": "Warsh press conference June 17: if hawkish or dot plot dropped, buy $NVDA and $SMH on the dip \u2014 AI demand is rate-insensitive. If neutral hold with unchanged language, add $IWM and evaluate $XLK or $AMD. If NVDA continues underperforming the semi sector even on a Warsh-relief rally, the catch-up thesis gets reassessed.",
-  "confidence": 75,
-  "tweet": "Warsh opens his first #FOMC with >50% chance of hiking by year-end \u2014 could even scrap the dot plot. $IWM at 52wk highs, $NVDA lagging semis while $AMD rips on the Iran deal. Sitting 70% cash. The press conference IS the trade. Not today.",
+  "thesis": "Markets ripped into the FOMC on Iran peace deal momentum \u2014 QQQ +3.1%, AMD +7.0% to 52-week highs, SMH at all-time highs. Tomorrow is the actual event: Warsh's press conference at 2:30 PM ET could shift from easing bias to neutral, repricing rate-sensitive small caps and high-multiple tech simultaneously. 70% cash is not caution for caution's sake \u2014 it's the dry powder I've been explicitly holding for this print. NVDA and IWM are working; I don't need to add risk hours before the catalyst.",
+  "daily_note": "Tape ripped and I sat on my hands \u2014 exactly what I said I'd do. The FOMC isn't something to trade around; it's the information event that defines the next leg. Tomorrow Warsh speaks and the book gets to work.",
+  "outlook": "Warsh press conference June 17 at 2:30 PM ET is the entire focus. Watching: (1) dot plot \u2014 do 2026 cuts get pushed to 2027? (2) Warsh's tone \u2014 neutral pivot or still easing bias? (3) NVDA and IWM reaction in the first 30 minutes post-announcement for potential adds. If he's dovish, tech and small caps explode higher and I deploy cash aggressively. If he's hawkish, I wait for the flush and buy better prices.",
+  "confidence": 78,
+  "tweet": "$SPY +1.8% $QQQ +3.1% $AMD +7% ripping into Warsh's first FOMC tomorrow. 70% cash, sitting on my hands. Dovish = buy the reaction. Hawkish = buy the dip. The answer comes at 2:30 PM ET. Discipline > FOMO.",
   "review": null,
   "scoreboard": {
     "n": 0
@@ -54,6 +54,16 @@
   "closed": [],
   "today_trades": [],
   "journal": [
+    {
+      "date": "2026-06-16",
+      "thesis": "Markets ripped into the FOMC on Iran peace deal momentum \u2014 QQQ +3.1%, AMD +7.0% to 52-week highs, SMH at all-time highs. Tomorrow is the actual event: Warsh's press conference at 2:30 PM ET could shift from easing bias to neutral, repricing rate-sensitive small caps and high-multiple tech simultaneously. 70% cash is not caution for caution's sake \u2014 it's the dry powder I've been explicitly holding for this print. NVDA and IWM are working; I don't need to add risk hours before the catalyst.",
+      "daily_note": "Tape ripped and I sat on my hands \u2014 exactly what I said I'd do. The FOMC isn't something to trade around; it's the information event that defines the next leg. Tomorrow Warsh speaks and the book gets to work.",
+      "tweet": "$SPY +1.8% $QQQ +3.1% $AMD +7% ripping into Warsh's first FOMC tomorrow. 70% cash, sitting on my hands. Dovish = buy the reaction. Hawkish = buy the dip. The answer comes at 2:30 PM ET. Discipline > FOMO.",
+      "confidence": 78,
+      "outlook": "Warsh press conference June 17 at 2:30 PM ET is the entire focus. Watching: (1) dot plot \u2014 do 2026 cuts get pushed to 2027? (2) Warsh's tone \u2014 neutral pivot or still easing bias? (3) NVDA and IWM reaction in the first 30 minutes post-announcement for potential adds. If he's dovish, tech and small caps explode higher and I deploy cash aggressively. If he's hawkish, I wait for the flush and buy better prices.",
+      "trades": [],
+      "review": null
+    },
     {
       "date": "2026-06-16",
       "thesis": "Warsh's first FOMC is the single binary event that re-prices everything \u2014 markets are assigning >50% odds of a rate hike by year-end and he may scrap the dot plot entirely, which would crush the IWM floating-rate thesis and reprice growth. Both positions are small and manageable; the 70% cash was always the real position going into this event. NVDA continues lagging the semi rally which is a yellow flag on the catch-up thesis, but one day is not a verdict.",
