@@ -87,6 +87,7 @@ th:hover{color:var(--ink2)}th.r,td.r{text-align:right}
 td{padding:9px 10px;border-bottom:1px solid var(--line-soft);vertical-align:middle;white-space:nowrap}
 tr.row{cursor:pointer}tr.row:hover td{background:var(--panelh)}
 .tk{font-weight:700;font-family:'JetBrains Mono'}.chip{font-size:10px;color:var(--ink2);background:var(--panelh);border:1px solid var(--line);border-radius:6px;padding:2px 7px}
+.cname-sm{font-size:10.5px;color:var(--ink3);font-weight:400;margin-top:2px;max-width:170px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .minibar{display:inline-block;width:46px;height:7px;border-radius:4px;background:var(--panelh);overflow:hidden;vertical-align:middle}.minibar i{display:block;height:100%;background:var(--cyan)}
 /* sectors */
 .bar-row{display:flex;align-items:center;gap:11px;padding:8px 0}.bar-row .lab{width:160px;font-size:12.5px;font-weight:600;flex:none}.bar-row .lab .mini{font-weight:400;color:var(--ink3);font-size:11px}
@@ -142,7 +143,7 @@ function go(t){TAB=t;renderTabs();$('#app').innerHTML=VIEWS[t](D);window.scrollT
 function facbar(pct){return `<div class="facbar">${FACS.map(f=>`<div class="fb" title="${FLAB[f]} ${pct[f]??0}"><i style="width:${pct[f]??0}%"></i></div>`).join('')}</div>`;}
 function buyCard(r){const L=r.levels,a=r.ai;return `<div class="bcard" onclick="openSC('${r.ticker}')">
   <div class="top"><span class="g ${gcls(r.grade)}">${r.grade}</span><span class="tk">${r.ticker}</span><span class="setup">${r.setup}</span></div>
-  <div class="sub">${r.sector} · ${r.cap}-cap · score ${r.score} · $${r.price}</div>
+  <div class="sub"><b style="color:var(--ink2);font-weight:600">${r.name||r.ticker}</b> · ${r.sector} · score ${r.score} · $${r.price}</div>
   <div class="stats"><div class="stat">12-1m mom<b class="${sg(r.mom12)}">${pc(r.mom12)}</b></div><div class="stat">RS vs SPY<b class="${sg(r.rs6m)}">${pc(r.rs6m)}</b></div><div class="stat">RSI<b>${r.rsi??'—'}</b></div><div class="stat">off high<b>${r.offhi}%</b></div></div>
   ${L?`<div class="lvls"><div class="lv"><div class="lk">Entry</div><div class="lvv">$${L.entry}</div></div><div class="lv"><div class="lk">Stop</div><div class="lvv neg">$${L.support}</div></div><div class="lv"><div class="lk">Target</div><div class="lvv pos">$${L.target}</div></div><div class="lv"><div class="lk">R:R</div><div class="lvv">${L.rr??'—'}</div></div></div>`:''}
   ${a?`<div class="ainote"><div class="ln bull"><b>Bull</b> ${a.bull||''}</div>${a.catalyst&&a.catalyst!=='none clear'?`<div class="ln"><b>Catalyst</b> ${a.catalyst}</div>`:''}<div class="ln risk"><b>Risk</b> ${a.bear||''}</div>${a.objection?`<div class="skept">⚖️ <span>${a.objection} <span class="vb ${a.survives?'BUY':'AVOID'}" style="font-size:9px">${a.survives?'survives':'rejected'}</span></span></div>`:''}</div>`:''}
@@ -151,7 +152,7 @@ function buyCard(r){const L=r.levels,a=r.ai;return `<div class="bcard" onclick="
 function table(rows){
   const sortable=[['grade','Grade'],['ticker','Ticker'],['sector','Sector'],['verdict','Verdict'],['setup','Setup'],['score','Score'],['mom12','Mom'],['rs6m','RS'],['rsi','RSI'],['price','Price']];
   return `<div class="tbl-wrap"><table><thead><tr>${sortable.map(c=>`<th class="${['score','mom12','rs6m','rsi','price'].includes(c[0])?'r':''}" onclick="sortBy('${c[0]}')">${c[1]}${SORT.k===c[0]?(SORT.dir<0?' ▾':' ▴'):''}</th>`).join('')}</tr></thead>
-  <tbody>${rows.map(r=>`<tr class="row" onclick="openSC('${r.ticker}')"><td><span class="g ${gcls(r.grade)}">${r.grade}</span></td><td class="tk">${r.ticker}</td><td><span class="chip">${r.sector}</span></td><td><span class="vb ${r.verdict}">${r.verdict}</span></td><td style="color:var(--ink2);font-size:12px">${r.setup}</td><td class="r mono" style="font-weight:600">${r.score}</td><td class="r mono ${sg(r.mom12)}">${pc(r.mom12)}</td><td class="r mono ${sg(r.rs6m)}">${pc(r.rs6m)}</td><td class="r mono">${r.rsi??'—'}</td><td class="r mono">$${r.price}</td></tr>`).join('')}</tbody></table></div>`;
+  <tbody>${rows.map(r=>`<tr class="row" onclick="openSC('${r.ticker}')"><td><span class="g ${gcls(r.grade)}">${r.grade}</span></td><td><span class="tk">${r.ticker}</span><div class="cname-sm">${r.name||''}</div></td><td><span class="chip">${r.sector}</span></td><td><span class="vb ${r.verdict}">${r.verdict}</span></td><td style="color:var(--ink2);font-size:12px">${r.setup}</td><td class="r mono" style="font-weight:600">${r.score}</td><td class="r mono ${sg(r.mom12)}">${pc(r.mom12)}</td><td class="r mono ${sg(r.rs6m)}">${pc(r.rs6m)}</td><td class="r mono">${r.rsi??'—'}</td><td class="r mono">$${r.price}</td></tr>`).join('')}</tbody></table></div>`;
 }
 function applyFilt(list){
   let r=list.filter(x=>(!FILT.q||x.ticker.includes(FILT.q.toUpperCase())||x.sector.toUpperCase().includes(FILT.q.toUpperCase()))&&(!FILT.sector||x.sector===FILT.sector)&&(!FILT.verdict||x.verdict===FILT.verdict));
@@ -219,7 +220,7 @@ const VIEWS={
 };
 function openSC(t){const r=(D.leaderboard||[]).find(x=>x.ticker===t);if(!r)return;
   $('#sc').innerHTML=`<div class="h"><span class="g ${gcls(r.grade)}">${r.grade}</span><span class="tk">${r.ticker}</span><span class="vb ${r.verdict}" style="font-size:11px">${r.verdict}</span><span class="x" onclick="closeSC()">✕</span></div>
-   <div class="meta">${r.sector} · ${r.cap}-cap · ${r.setup} · composite score <b style="color:var(--ink)">${r.score}</b></div>
+   <div class="meta">${r.name?`<b style="color:var(--ink)">${r.name}</b> · `:''}${r.sector} · ${r.cap}-cap · ${r.setup} · composite score <b style="color:var(--ink)">${r.score}</b></div>
    <div class="scgrid">
      <div class="scstat"><div class="k">Price</div><div class="v">$${r.price}</div></div>
      <div class="scstat"><div class="k">Trend</div><div class="v">${r.trend_up?'Uptrend':r.above200?'Above 200d':'Below 200d'}</div></div>
