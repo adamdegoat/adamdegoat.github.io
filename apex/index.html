@@ -133,6 +133,12 @@ footer{margin-top:30px;padding:22px;border-top:1px solid var(--line);color:var(-
 const $=s=>document.querySelector(s);
 const sg=v=>v>=0?'pos':'neg';const pc=v=>(v>=0?'+':'')+v+'%';
 const gcls=g=>({'A+':'Ap','A':'A','A-':'Am','B+':'Bp','B':'B','B-':'Bm','C+':'Cp','C':'C','D':'D','F':'F'}[g]||'C');
+function capCat(m,fallback){
+  if(!m)return{l:(fallback?fallback[0].toUpperCase()+fallback.slice(1)+'-cap':''),v:''};
+  const v=m>=1e12?'$'+(m/1e12).toFixed(2)+'T':m>=1e9?'$'+Math.round(m/1e9)+'B':'$'+Math.round(m/1e6)+'M';
+  const l=m>=2e11?'Mega-cap':m>=1e10?'Large-cap':m>=2e9?'Mid-cap':'Small-cap';
+  return{l,v};
+}
 let D=null,TAB='conviction',SORT={k:'score',dir:-1},FILT={q:'',sector:'',verdict:''};
 const TABS=[['conviction','★','Top 5'],['buys','🎯','Top Buys'],['board','▦','Leaderboard'],['avoid','⚠️','Avoid'],['sectors','🧩','Sectors'],['method','📐','Methodology']];
 const FACS=['momentum','trend','rel_strength','low_vol','structure','quality','value','growth'];
@@ -144,7 +150,7 @@ function go(t){TAB=t;renderTabs();$('#app').innerHTML=VIEWS[t](D);window.scrollT
 function facbar(pct){return `<div class="facbar">${FACS.map(f=>`<div class="fb" title="${FLAB[f]} ${pct[f]??0}"><i style="width:${pct[f]??0}%"></i></div>`).join('')}</div>`;}
 function buyCard(r){const L=r.levels,a=r.ai;return `<div class="bcard" onclick="openSC('${r.ticker}')">
   <div class="top"><span class="g ${gcls(r.grade)}">${r.grade}</span><span class="tk">${r.ticker}</span><span class="setup">${r.setup}</span></div>
-  <div class="sub"><b style="color:var(--ink2);font-weight:600">${r.name||r.ticker}</b> · ${r.sector} · score ${r.score} · $${r.price}</div>
+  <div class="sub"><b style="color:var(--ink2);font-weight:600">${r.name||r.ticker}</b> · ${(c=>c.l+(c.v?' '+c.v:''))(capCat(r.mcap,r.cap))} · ${r.sector} · score ${r.score}</div>
   <div class="stats"><div class="stat">12-1m mom<b class="${sg(r.mom12)}">${pc(r.mom12)}</b></div><div class="stat">RS vs SPY<b class="${sg(r.rs6m)}">${pc(r.rs6m)}</b></div><div class="stat">RSI<b>${r.rsi??'—'}</b></div><div class="stat">off high<b>${r.offhi}%</b></div></div>
   ${L?`<div class="lvls"><div class="lv"><div class="lk">Entry</div><div class="lvv">$${L.entry}</div></div><div class="lv"><div class="lk">Stop</div><div class="lvv neg">$${L.support}</div><div class="lpct neg">${((L.support/L.entry-1)*100).toFixed(0)}%</div></div><div class="lv"><div class="lk">Target</div><div class="lvv pos">$${L.target}</div><div class="lpct pos">+${((L.target/L.entry-1)*100).toFixed(0)}%</div></div><div class="lv"><div class="lk">R:R</div><div class="lvv">${L.rr??'—'}</div></div></div>`:''}
   ${a?`<div class="ainote"><div class="ln bull"><b>Bull</b> ${a.bull||''}</div>${a.catalyst&&a.catalyst!=='none clear'?`<div class="ln"><b>Catalyst</b> ${a.catalyst}</div>`:''}<div class="ln risk"><b>Risk</b> ${a.bear||''}</div>${a.objection?`<div class="skept">⚖️ <span>${a.objection} <span class="vb ${a.survives?'BUY':'AVOID'}" style="font-size:9px">${a.survives?'survives':'rejected'}</span></span></div>`:''}</div>`:''}
@@ -153,7 +159,7 @@ function buyCard(r){const L=r.levels,a=r.ai;return `<div class="bcard" onclick="
 function table(rows){
   const sortable=[['grade','Grade'],['ticker','Ticker'],['sector','Sector'],['verdict','Verdict'],['setup','Setup'],['score','Score'],['mom12','Mom'],['rs6m','RS'],['rsi','RSI'],['price','Price']];
   return `<div class="tbl-wrap"><table><thead><tr>${sortable.map(c=>`<th class="${['score','mom12','rs6m','rsi','price'].includes(c[0])?'r':''}" onclick="sortBy('${c[0]}')">${c[1]}${SORT.k===c[0]?(SORT.dir<0?' ▾':' ▴'):''}</th>`).join('')}</tr></thead>
-  <tbody>${rows.map(r=>`<tr class="row" onclick="openSC('${r.ticker}')"><td><span class="g ${gcls(r.grade)}">${r.grade}</span></td><td><span class="tk">${r.ticker}</span><div class="cname-sm">${r.name||''}</div></td><td><span class="chip">${r.sector}</span></td><td><span class="vb ${r.verdict}">${r.verdict}</span></td><td style="color:var(--ink2);font-size:12px">${r.setup}</td><td class="r mono" style="font-weight:600">${r.score}</td><td class="r mono ${sg(r.mom12)}">${pc(r.mom12)}</td><td class="r mono ${sg(r.rs6m)}">${pc(r.rs6m)}</td><td class="r mono">${r.rsi??'—'}</td><td class="r mono">$${r.price}</td></tr>`).join('')}</tbody></table></div>`;
+  <tbody>${rows.map(r=>`<tr class="row" onclick="openSC('${r.ticker}')"><td><span class="g ${gcls(r.grade)}">${r.grade}</span></td><td><span class="tk">${r.ticker}</span><div class="cname-sm">${r.name||''}</div></td><td><span class="chip">${r.sector}</span> <span class="chip" style="color:var(--ink3)">${capCat(r.mcap,r.cap).l.replace('-cap','')}</span></td><td><span class="vb ${r.verdict}">${r.verdict}</span></td><td style="color:var(--ink2);font-size:12px">${r.setup}</td><td class="r mono" style="font-weight:600">${r.score}</td><td class="r mono ${sg(r.mom12)}">${pc(r.mom12)}</td><td class="r mono ${sg(r.rs6m)}">${pc(r.rs6m)}</td><td class="r mono">${r.rsi??'—'}</td><td class="r mono">$${r.price}</td></tr>`).join('')}</tbody></table></div>`;
 }
 function applyFilt(list){
   let r=list.filter(x=>(!FILT.q||x.ticker.includes(FILT.q.toUpperCase())||x.sector.toUpperCase().includes(FILT.q.toUpperCase()))&&(!FILT.sector||x.sector===FILT.sector)&&(!FILT.verdict||x.verdict===FILT.verdict));
@@ -238,7 +244,7 @@ const VIEWS={
 };
 function openSC(t){const r=(D.leaderboard||[]).find(x=>x.ticker===t);if(!r)return;
   $('#sc').innerHTML=`<div class="h"><span class="g ${gcls(r.grade)}">${r.grade}</span><span class="tk">${r.ticker}</span><span class="vb ${r.verdict}" style="font-size:11px">${r.verdict}</span><span class="x" onclick="closeSC()">✕</span></div>
-   <div class="meta">${r.name?`<b style="color:var(--ink)">${r.name}</b> · `:''}${r.sector} · ${r.cap}-cap · ${r.setup} · composite score <b style="color:var(--ink)">${r.score}</b></div>
+   <div class="meta">${r.name?`<b style="color:var(--ink)">${r.name}</b> · `:''}${(c=>c.l+(c.v?' '+c.v:''))(capCat(r.mcap,r.cap))} · ${r.sector} · ${r.setup} · composite score <b style="color:var(--ink)">${r.score}</b></div>
    <div class="scgrid">
      <div class="scstat"><div class="k">Price</div><div class="v">$${r.price}</div></div>
      <div class="scstat"><div class="k">Trend</div><div class="v">${r.trend_up?'Uptrend':r.above200?'Above 200d':'Below 200d'}</div></div>
