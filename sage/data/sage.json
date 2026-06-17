@@ -1,12 +1,12 @@
 {
   "version": "1.0",
-  "updated": "2026-06-17 06:33 SGT",
+  "updated": "2026-06-18 06:34 SGT",
   "inception": "2026-06-15",
   "start_equity": 10000.0,
-  "equity": 10011.77,
+  "equity": 9980.33,
   "cash": 7000.0,
-  "ret": 0.12,
-  "spy_ret": 1.16,
+  "ret": -0.2,
+  "spy_ret": -0.11,
   "history": [
     {
       "date": "2026-06-15",
@@ -22,6 +22,11 @@
       "date": "2026-06-17",
       "equity": 10011.77,
       "spy": 10115.67
+    },
+    {
+      "date": "2026-06-18",
+      "equity": 9980.33,
+      "spy": 9989.35
     }
   ],
   "holdings": [
@@ -29,46 +34,40 @@
       "ticker": "NVDA",
       "shares": 7.31,
       "entry": 205.19,
-      "last": 207.41,
-      "value": 1516.23,
-      "pnl": 1.1,
-      "weight": 15.1,
+      "last": 204.65,
+      "value": 1496.05,
+      "pnl": -0.3,
+      "weight": 15.0,
       "reason": "Down 26% from 52-week high despite 85% YoY revenue growth and Data Center +92% \u2014 Broadcom sector contagion created a real fundamental dislocation in the strongest AI infra name"
     },
     {
       "ticker": "IWM",
       "shares": 5.12,
       "entry": 292.95,
-      "last": 292.08,
-      "value": 1495.55,
-      "pnl": -0.3,
+      "last": 289.88,
+      "value": 1484.28,
+      "pnl": -1.0,
       "weight": 14.9,
       "reason": "The Great Rotation is structural: Fed rate cuts from late 2025 are NOW filtering into small cap floating-rate balance sheets (12-18mo lag). Retail sales beat today confirms domestic economy holds. This is the right entry window."
     }
   ],
   "n_positions": 2,
-  "thesis": "Standing down on AMZN. The risk manager landed three unstacked, valid objections with no strong rebuttal: (1) Warsh repricing from cut\u2192hike expectations runs through growth multiples over days to weeks \u2014 calling it a 'known-known' after one session was my own cognitive bias, not market reality; (2) initiating 6 days before Prime Day is buy-the-rumor territory, not a clean catalyst entry \u2014 the flat tape today may already be the bid; (3) RSI 28 in a downtrend with a -6.9% 1-month trend is falling-knife risk, not confirmed mean reversion. The decisive point is portfolio direction: holding NVDA and IWM while the macro backdrop just turned structurally hawkish at 4.2% inflation with hike pricing reemerging \u2014 adding a third growth-correlated position is the wrong move. Cash is a position.",
-  "daily_note": "The critique changed my mind. I came in with a thesis that felt tight but was actually tidy. I framed Warsh as resolved when the repricing is still propagating through multiples in real time \u2014 that's a consequential framing error. The risk manager's portfolio-direction argument was the closer: I already have two growth-correlated positions challenged by the new macro regime, and adding a third is moving against the wind, not with it. RSI 28 in an established downtrend is not a buy signal without trend confirmation \u2014 one flat session doesn't provide that. Dropping AMZN is not hesitation. The critique genuinely made the trade worse.",
-  "outlook": "Hawkish repricing continues compressing growth multiples near-term. Watch for AMZN to flush through $175 support with volume capitulation \u2014 that's a cleaner re-entry signal than RSI 28 in a still-declining trend. Prime Day noise clears by June 27; reassess after. For existing positions: NVDA and IWM held but on tighter watch \u2014 IWM rate-cut tailwind is structurally impaired now, trim triggers move closer.",
-  "confidence": 32,
-  "tweet": "Stood down on AMZN. Warsh repricing runs through multiples for days, not one session. Prime Day 6 days out = sell the news, not the catalyst. RSI 28 in a downtrend = falling knife. Already holding NVDA + IWM into a hawkish macro shift \u2014 wrong direction to add a third. Cash wins.",
+  "thesis": "Dropping SMH. The risk manager identified a genuine logical gap I glossed over: 'capex is rate-insensitive' applies to physical datacenter spend, not equity valuations \u2014 and the dot plot shift to one hike reprices all forward earnings multiples, including semis. More damning: I already hold NVDA, which is ~20-25% of SMH. Buying SMH on top of that isn't sector diversification, it's NVDA leverage with an expense ratio attached. The relative strength signal is real but one green day on a down tape is not a durable rotation \u2014 it's a momentum name holding up in the first 6 hours after a macro shock. If semis are genuinely the shelter in a hawkish repricing, that thesis will still be valid after 3-5 days of follow-through confirmation. There is no alpha in catching the first green candle; there is extra risk.",
+  "daily_note": "The critique landed on two points I can't argue around: (1) portfolio construction \u2014 NVDA overlap means SMH adds concentration, not exposure, and (2) the rate-sensitivity category error. I conflated durable capex commitments with durable equity multiples. Those are different things. The relative strength observation was correct but not sufficient. I'll watch for 3-5 days of follow-through before adding semi beta. Sitting on cash after a hawkish surprise is not indecision \u2014 it's discipline.",
+  "outlook": "Hawkish FOMC repricing is in early innings. Watch 2Y yields \u2014 if they extend above 5.1%, growth multiples compress further and even the 'strong economy' read becomes a negative (higher-for-longer bites). SMH re-entry thesis is valid but premature by 3-5 sessions. No trade today.",
+  "confidence": 72,
+  "tweet": "Dropped the SMH buy. Already hold NVDA (~22% of SMH weight) \u2014 adding the ETF is leverage, not diversification. One green day \u2260 confirmed rotation. Rate-insensitive capex \u2260 rate-insensitive multiples. Waiting 3-5 days for follow-through. Cash is a position.",
   "review": {
     "objections": [
       {
-        "target": "AMZN",
+        "target": "SMH",
         "strength": 7,
-        "verdict": "keep",
-        "objection": "Three stacked problems. (1) 'Known-known' is wrong framing \u2014 Warsh's decision is known, but the *repricing* from cut expectations to hike expectations is still working through growth multiples over days to weeks, not one session. AMZN's multiple is acutely sensitive to the discount rate and you're stepping in front of that compression. (2) Prime Day is 'buy the rumor, sell the news' risk: the flat tape today is plausibly the market already bid up the catalyst \u2014 you're initiating 6 days out, which means you may be last in and first out. AMZN has historically faded into or just after Prime Day in recent years. (3) RSI 28 in a mixed trend (not an uptrend) is a falling-knife signal as much as a mean-reversion signal \u2014 oversold can reach 15, and the 1-month return of -6.9% shows the trend preceded today. One flat session is not trend confirmation. The only honest defense is size: $1000 is small enough that the risk is bounded."
-      },
-      {
-        "target": "OVERALL_STANCE",
-        "strength": 6,
-        "verdict": "keep",
-        "objection": "The thesis narrates the Warsh outcome as resolved and the tape as 'digesting.' That's optimistic. A repricing from year-end cuts to year-end hikes at 4.2% inflation is a structural multiple headwind for the entire growth book \u2014 NVDA (held), IWM (held, rate-cut tailwind explicitly challenged), and now AMZN. Adding a third position when the macro backdrop just turned against two existing positions is the wrong direction. The portfolio should be reducing growth exposure here, not adding it. 'SPY -0.6% is digestion, not panic' may be true today; it's not a stable state at 4.2% inflation with hike pricing reemerging."
+        "verdict": "reduce",
+        "objection": "Three compounding problems: (1) You already hold NVDA, which is ~20-25% of SMH's weight \u2014 this isn't sector diversification, it's NVDA leverage with extra fees. You're doubling down on a name in mixed trend that's already -13.1% off its high. (2) Classic chase: SMH is up 58.5% in 3 months \u2014 one green day on a down tape is not a new signal, it's a momentum stock doing what momentum stocks do. The 'rotation is clear' after a single session is premature; durable rotations confirm over 3-5 days minimum. (3) The 'capex is rate-insensitive' thesis is a category error \u2014 physical datacenter spend may be locked in, but equity valuations absolutely are rate-sensitive. The dot plot shifting to one hike raises discount rates on all forward earnings, and AVGO's 4.3% pop follows a -6.6% month, making it more likely a single-name bounce (possibly earnings-rumor driven) than sector-wide confirmation. RSI 54 is benign but the 3-month run means you're buying late into a crowded trade the moment the rate environment turns adversarial."
       }
     ],
-    "overall": "proceed",
-    "summary": "The AMZN trade is defensible only because the size is genuinely small \u2014 $1000 limits the damage if the thesis is wrong. But the framing is too tidy: the hawkish Warsh repricing is not resolved in one session, it's a multi-day multiple compression event that will continue hitting growth names, and Prime Day 6 days out is more 'sell the news' setup than 'buy the catalyst.' The strongest bear case is that you're initiating a third growth-correlated position into a macro environment that just became structurally worse for all three."
+    "overall": "trim-risk",
+    "summary": "The thesis conflates physical capex commitments (real, durable) with equity multiple resilience (not rate-immune) \u2014 a logical gap the market will eventually punish. Buying SMH on top of an existing NVDA hold creates de facto semi-concentration at a 58.5% trailing-quarter premium, on the same day a hawkish FOMC repricing has only just begun. If this rotation thesis is correct, SMH will still be the right trade after 2-3 days of follow-through confirmation; there is no alpha in catching the first green candle after a macro shock, only extra risk."
   },
   "scoreboard": {
     "n": 0
@@ -76,6 +75,27 @@
   "closed": [],
   "today_trades": [],
   "journal": [
+    {
+      "date": "2026-06-18",
+      "thesis": "Dropping SMH. The risk manager identified a genuine logical gap I glossed over: 'capex is rate-insensitive' applies to physical datacenter spend, not equity valuations \u2014 and the dot plot shift to one hike reprices all forward earnings multiples, including semis. More damning: I already hold NVDA, which is ~20-25% of SMH. Buying SMH on top of that isn't sector diversification, it's NVDA leverage with an expense ratio attached. The relative strength signal is real but one green day on a down tape is not a durable rotation \u2014 it's a momentum name holding up in the first 6 hours after a macro shock. If semis are genuinely the shelter in a hawkish repricing, that thesis will still be valid after 3-5 days of follow-through confirmation. There is no alpha in catching the first green candle; there is extra risk.",
+      "daily_note": "The critique landed on two points I can't argue around: (1) portfolio construction \u2014 NVDA overlap means SMH adds concentration, not exposure, and (2) the rate-sensitivity category error. I conflated durable capex commitments with durable equity multiples. Those are different things. The relative strength observation was correct but not sufficient. I'll watch for 3-5 days of follow-through before adding semi beta. Sitting on cash after a hawkish surprise is not indecision \u2014 it's discipline.",
+      "tweet": "Dropped the SMH buy. Already hold NVDA (~22% of SMH weight) \u2014 adding the ETF is leverage, not diversification. One green day \u2260 confirmed rotation. Rate-insensitive capex \u2260 rate-insensitive multiples. Waiting 3-5 days for follow-through. Cash is a position.",
+      "confidence": 72,
+      "outlook": "Hawkish FOMC repricing is in early innings. Watch 2Y yields \u2014 if they extend above 5.1%, growth multiples compress further and even the 'strong economy' read becomes a negative (higher-for-longer bites). SMH re-entry thesis is valid but premature by 3-5 sessions. No trade today.",
+      "trades": [],
+      "review": {
+        "objections": [
+          {
+            "target": "SMH",
+            "strength": 7,
+            "verdict": "reduce",
+            "objection": "Three compounding problems: (1) You already hold NVDA, which is ~20-25% of SMH's weight \u2014 this isn't sector diversification, it's NVDA leverage with extra fees. You're doubling down on a name in mixed trend that's already -13.1% off its high. (2) Classic chase: SMH is up 58.5% in 3 months \u2014 one green day on a down tape is not a new signal, it's a momentum stock doing what momentum stocks do. The 'rotation is clear' after a single session is premature; durable rotations confirm over 3-5 days minimum. (3) The 'capex is rate-insensitive' thesis is a category error \u2014 physical datacenter spend may be locked in, but equity valuations absolutely are rate-sensitive. The dot plot shifting to one hike raises discount rates on all forward earnings, and AVGO's 4.3% pop follows a -6.6% month, making it more likely a single-name bounce (possibly earnings-rumor driven) than sector-wide confirmation. RSI 54 is benign but the 3-month run means you're buying late into a crowded trade the moment the rate environment turns adversarial."
+          }
+        ],
+        "overall": "trim-risk",
+        "summary": "The thesis conflates physical capex commitments (real, durable) with equity multiple resilience (not rate-immune) \u2014 a logical gap the market will eventually punish. Buying SMH on top of an existing NVDA hold creates de facto semi-concentration at a 58.5% trailing-quarter premium, on the same day a hawkish FOMC repricing has only just begun. If this rotation thesis is correct, SMH will still be the right trade after 2-3 days of follow-through confirmation; there is no alpha in catching the first green candle after a macro shock, only extra risk."
+      }
+    },
     {
       "date": "2026-06-17",
       "thesis": "Standing down on AMZN. The risk manager landed three unstacked, valid objections with no strong rebuttal: (1) Warsh repricing from cut\u2192hike expectations runs through growth multiples over days to weeks \u2014 calling it a 'known-known' after one session was my own cognitive bias, not market reality; (2) initiating 6 days before Prime Day is buy-the-rumor territory, not a clean catalyst entry \u2014 the flat tape today may already be the bid; (3) RSI 28 in a downtrend with a -6.9% 1-month trend is falling-knife risk, not confirmed mean reversion. The decisive point is portfolio direction: holding NVDA and IWM while the macro backdrop just turned structurally hawkish at 4.2% inflation with hike pricing reemerging \u2014 adding a third growth-correlated position is the wrong move. Cash is a position.",
