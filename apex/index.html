@@ -150,23 +150,23 @@ function renderTabs(){$('#tabs').innerHTML=TABS.map(t=>`<div class="tab ${t[0]==
 function go(t){TAB=t;renderTabs();$('#app').innerHTML=VIEWS[t](D);window.scrollTo({top:0,behavior:'smooth'});}
 
 function facbar(pct){return `<div class="facbar">${FACS.map(f=>`<div class="fb" title="${FLAB[f]} ${pct[f]??0}"><i style="width:${pct[f]??0}%"></i></div>`).join('')}</div>`;}
-function spark(arr,lv){
+function spark(arr){
   if(!arr||arr.length<2)return '';
-  const W=260,H=44,p=3,lo=Math.min(...arr),hi=Math.max(...arr),rng=hi-lo||1;
+  const W=260,H=46,p=3,lo=Math.min(...arr),hi=Math.max(...arr),rng=hi-lo||1;
   const X=i=>p+(W-2*p)*(i/(arr.length-1)),Y=v=>p+(H-2*p)*(1-(v-lo)/rng);
   const d=arr.map((v,i)=>`${i?'L':'M'}${X(i).toFixed(1)} ${Y(v).toFixed(1)}`).join(' ');
   const up=arr[arr.length-1]>=arr[0],col=up?'#34d399':'#fb6f84';
-  let ov='';if(lv){const ln=(val,c)=>{if(val>=lo&&val<=hi){const y=Y(val).toFixed(1);return `<line x1="${p}" y1="${y}" x2="${W-p}" y2="${y}" stroke="${c}" stroke-width="1" stroke-dasharray="3 3" opacity=".55"/>`;}return '';};ov=ln(lv.support,'#fb6f84')+ln(lv.target,'#34d399');}
   const area=d+`L${X(arr.length-1).toFixed(1)} ${(H-p).toFixed(1)}L${p} ${(H-p).toFixed(1)}Z`;
-  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" style="width:100%;height:${H}px;display:block">${ov}<path d="${area}" fill="${col}" opacity=".09"/><path d="${d}" fill="none" stroke="${col}" stroke-width="1.7"/></svg>`;
+  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" style="width:100%;height:${H}px;display:block"><path d="${area}" fill="${col}" opacity=".1"/><path d="${d}" fill="none" stroke="${col}" stroke-width="1.8"/></svg>`;
 }
+const sparkRet=a=>a&&a.length>1?(a[a.length-1]>=a[0]?'+':'')+((a[a.length-1]/a[0]-1)*100).toFixed(0)+'%':'';
 const tvLink=t=>`https://www.tradingview.com/symbols/${t.replace('-','.')}/`;
 function buyCard(r){const L=r.levels,a=r.ai;return `<div class="bcard" onclick="openSC('${r.ticker}')">
   <div class="top"><span class="g ${gcls(r.grade)}">${r.grade}</span><span class="tk">${r.ticker}</span><span class="setup">${r.setup}</span></div>
   <div class="sub"><b style="color:var(--ink2);font-weight:600">${r.name||r.ticker}</b> · ${(c=>c.l+(c.v?' '+c.v:''))(capCat(r.mcap,r.cap))} · ${r.sector} · score ${r.score}</div>
   <div class="stats"><div class="stat">12-1m mom<b class="${sg(r.mom12)}">${pc(r.mom12)}</b></div><div class="stat">RS vs SPY<b class="${sg(r.rs6m)}">${pc(r.rs6m)}</b></div><div class="stat">RSI<b>${r.rsi??'—'}</b></div><div class="stat">off high<b>${r.offhi}%</b></div></div>
   ${L?`<div class="lvls"><div class="lv"><div class="lk">Entry</div><div class="lvv">$${L.entry}</div></div><div class="lv"><div class="lk">Stop</div><div class="lvv neg">$${L.support}</div><div class="lpct neg">${((L.support/L.entry-1)*100).toFixed(0)}%</div></div><div class="lv"><div class="lk">Target</div><div class="lvv pos">$${L.target}</div><div class="lpct pos">+${((L.target/L.entry-1)*100).toFixed(0)}%</div></div><div class="lv"><div class="lk">R:R</div><div class="lvv">${L.rr??'—'}</div></div></div>`:''}
-  ${r.spark?`<div class="sparkwrap"><div class="faclabel" style="display:flex;justify-content:space-between"><span>3-month price${L?' · stop &amp; target overlaid':''}</span><a href="${tvLink(r.ticker)}" target="_blank" onclick="event.stopPropagation()" style="color:var(--cyan);font-weight:600">TradingView ↗</a></div>${spark(r.spark,L)}</div>`:''}
+  ${r.spark?`<div class="sparkwrap"><div class="faclabel" style="display:flex;justify-content:space-between"><span>6-month performance · <span class="${sparkRet(r.spark).startsWith('-')?'neg':'pos'}">${sparkRet(r.spark)}</span></span><a href="${tvLink(r.ticker)}" target="_blank" onclick="event.stopPropagation()" style="color:var(--cyan);font-weight:600">TradingView ↗</a></div>${spark(r.spark)}</div>`:''}
   ${a?`<div class="ainote"><div class="ln bull"><b>Bull</b> ${a.bull||''}</div>${a.catalyst&&a.catalyst!=='none clear'?`<div class="ln"><b>Catalyst</b> ${a.catalyst}</div>`:''}<div class="ln risk"><b>Risk</b> ${a.bear||''}</div>${a.objection?`<div class="skept">⚖️ <span>${a.objection} <span class="vb ${a.survives?'BUY':'AVOID'}" style="font-size:9px">${a.survives?'survives':'rejected'}</span></span></div>`:''}</div>`:''}
   <div class="facwrap"><div class="faclabel">Factor ranks (within sector)</div>${facbar(r.pct)}</div></div>`;}
 
@@ -259,7 +259,7 @@ const VIEWS={
 function openSC(t){const r=(D.leaderboard||[]).find(x=>x.ticker===t);if(!r)return;
   $('#sc').innerHTML=`<div class="h"><span class="g ${gcls(r.grade)}">${r.grade}</span><span class="tk">${r.ticker}</span><span class="vb ${r.verdict}" style="font-size:11px">${r.verdict}</span><span class="x" onclick="closeSC()">✕</span></div>
    <div class="meta">${r.name?`<b style="color:var(--ink)">${r.name}</b> · `:''}${(c=>c.l+(c.v?' '+c.v:''))(capCat(r.mcap,r.cap))} · ${r.sector} · ${r.setup} · composite score <b style="color:var(--ink)">${r.score}</b></div>
-   ${r.spark?`<div style="font-size:10px;color:var(--ink3);text-transform:uppercase;letter-spacing:.5px;font-weight:700;margin-bottom:6px">3-month price${r.levels?' · stop &amp; target overlaid':''}</div><div style="margin-bottom:14px">${spark(r.spark,r.levels)}</div>`:''}
+   ${r.spark?`<div style="font-size:10px;color:var(--ink3);text-transform:uppercase;letter-spacing:.5px;font-weight:700;margin-bottom:6px">6-month performance · <span class="${sparkRet(r.spark).startsWith('-')?'neg':'pos'}">${sparkRet(r.spark)}</span></div><div style="margin-bottom:14px">${spark(r.spark)}</div>`:''}
    <a href="${tvLink(r.ticker)}" target="_blank" class="tvbtn">📈 View full chart on TradingView ↗</a>
    <div class="scgrid">
      <div class="scstat"><div class="k">Price</div><div class="v">$${r.price}</div></div>
