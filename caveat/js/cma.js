@@ -2,7 +2,7 @@
 const CMA = (() => {
   const C = Caveat; let IDX = null; let mode = 'hdb';
 
-  function init(idx) { IDX = idx; renderForm(); }
+  function init(idx) { IDX = idx; renderForm(); regen(); }
 
   const townOpts = () => Object.keys(IDX.hdb_towns).sort()
     .map(t => `<option value="${t}">${Narrative.titleCase(t)}</option>`).join('');
@@ -29,7 +29,7 @@ const CMA = (() => {
 
   function hdbFields() {
     return `
-      <div class="field"><label>Town</label><select id="f_town">${townOpts()}</select></div>
+      <div class="field"><label>Town <span style="font-weight:500;color:var(--ink-3)">· estate not listed (e.g. Potong Pasir)? type it in Street below ↓</span></label><select id="f_town">${townOpts()}</select></div>
       <div class="field"><label>Flat type</label><select id="f_ftype"></select></div>
       <div class="field two">
         <div><label>Floor area</label><input id="f_area" type="number" inputmode="decimal" placeholder="93"><span class="suffix">sqm</span></div>
@@ -396,9 +396,44 @@ const CMA = (() => {
     document.getElementById('f_area').focus();
   }
 
-  function regen() { document.getElementById('cmaResult').innerHTML =
-    `<div class="empty-state"><div class="empty-mark"></div><p>Fill in a property on the left to generate its valuation deck.</p></div>`;
-    window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  async function regen() {
+    const res = document.getElementById('cmaResult');
+    res.innerHTML = `<div class="empty-state"><div class="empty-mark"></div><p>Loading the market…</p></div>`;
+    let p = {};
+    try { p = await (await fetch('data/pulse.json')).json(); } catch (e) {}
+    const ov = p.overall || {}, hdb = ov.hdb || {}, pri = ov.private || {};
+    const fk = n => n >= 1e6 ? '$' + (n / 1e6).toFixed(2) + 'm' : '$' + Math.round(n / 1000) + 'k';
+    const hdbMed = hdb.median_price ? fk(hdb.median_price) : '—';
+    const hdbYield = (p.hdb_rental && p.hdb_rental.implied_gross_yield) ? p.hdb_rental.implied_gross_yield + '%' : '—';
+    const priPsf = pri.median_psf ? '$' + pri.median_psf.toLocaleString() : '—';
+    const txns = (hdb.txns || 0) + (pri.txns || 0);
+    const txnsL = txns ? (txns >= 1000 ? Math.round(txns / 1000) + 'k+' : txns) : '58k+';
+    res.innerHTML = `
+      <div class="cma-welcome">
+        <div class="w-eyebrow"><span class="dot"></span>Live · official URA &amp; HDB data${p.built ? ' · ' + p.built : ''}</div>
+        <h2 class="w-h">Singapore's market, <em>in real numbers.</em></h2>
+        <p class="w-p">Price any HDB flat or condo on the left — you'll get an estimate range, comparable sales, the price trend, a map, rental yield and a written summary in seconds. Every figure is drawn from official caveats, not guesswork.</p>
+        <div class="w-kpis">
+          <div class="w-kpi"><div class="v">${hdbMed}</div><div class="k">HDB median price</div></div>
+          <div class="w-kpi"><div class="v">${hdbYield}</div><div class="k">HDB rental yield</div></div>
+          <div class="w-kpi"><div class="v">${priPsf}</div><div class="k">Private median psf</div></div>
+          <div class="w-kpi"><div class="v">${txnsL}</div><div class="k">transactions tracked</div></div>
+        </div>
+        <div class="w-try"><span>See it in action —</span>
+          <button data-s="TAMPINES|4 ROOM|93|10|70">4-room · Tampines</button>
+          <button data-s="PUNGGOL|5 ROOM|110|12|88">5-room · Punggol</button>
+          <button data-s="ANG MO KIO|3 ROOM|68|8|55">3-room · Ang Mo Kio</button>
+        </div>
+      </div>`;
+    res.querySelectorAll('.w-try button').forEach(b => b.onclick = () => {
+      if (mode !== 'hdb') { mode = 'hdb'; renderForm(); }
+      const [town, ft, area, storey, lease] = b.dataset.s.split('|');
+      const set = (id, v) => { const el = document.getElementById(id); if (el) { el.value = v; el.dispatchEvent(new Event('change', { bubbles: true })); } };
+      set('f_town', town); set('f_ftype', ft); set('f_area', area); set('f_storey', storey); set('f_lease', lease);
+      document.getElementById('cmaGo').click();
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   // ---------- bits ----------
   function chartSVG(trend, color) {
