@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Cadence · Your Marketing Studio</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f9d76'/%3E%3Cpath d='M9 20c2-8 5-10 7-4s4 0 7-4' stroke='white' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+:root{--brand:#0f9d76;--brand-d:#0b7d5e;--ink:#16201b;--ink2:#3f4d46;--ink3:#7c8a82;
+  --bg:#f4f2ec;--card:#fffdf8;--line:#e4e0d6;--wash:rgba(15,157,118,.08);--accent:#0f9d76;--gold:#c08a3e}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
+.serif{font-family:'Fraunces',Georgia,serif}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+/* nav */
+.nav{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:12px;padding:13px 20px;
+  background:rgba(244,242,236,.85);backdrop-filter:blur(12px) saturate(1.3);border-bottom:1px solid var(--line)}
+.navback{font-size:12.5px;font-weight:700;color:var(--ink3);padding:7px 12px;border-radius:30px;border:1px solid var(--line);white-space:nowrap;transition:.15s}
+.navback:hover{color:var(--brand-d);border-color:var(--brand)}
+.brand{display:flex;align-items:center;gap:9px}
+.brand .mk{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--brand),#15b98c);display:flex;align-items:center;justify-content:center}
+.brand .mk svg{width:18px;height:18px}
+.brand .nm{font-family:'Fraunces';font-weight:600;font-size:21px;letter-spacing:.2px}
+.brand .sub{font-size:9.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--ink3);font-weight:700;margin-top:-2px}
+.nav .sp{margin-left:auto}
+.iconbtn{width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:var(--card);font-size:16px;display:flex;align-items:center;justify-content:center;transition:.15s}
+.iconbtn:hover{border-color:var(--brand);color:var(--brand)}
+/* hero */
+.hero{padding:34px 0 8px}
+.hero h1{font-family:'Fraunces';font-size:34px;font-weight:600;letter-spacing:-.5px;line-height:1.08}
+.hero h1 em{font-style:italic;color:var(--brand)}
+.hero p{color:var(--ink2);font-size:15px;margin-top:9px;max-width:640px}
+.datapill{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-size:12px;font-weight:600;color:var(--ink2);background:var(--card);border:1px solid var(--line);border-radius:30px;padding:6px 13px}
+.datapill .dot{width:7px;height:7px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 3px var(--wash)}
+/* layout */
+.studio{display:grid;grid-template-columns:355px 1fr;gap:22px;margin-top:24px;align-items:start;padding-bottom:60px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px}
+.panel.compose{position:sticky;top:74px}
+.lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--ink3);margin-bottom:7px;display:block}
+.field{margin-bottom:15px}
+input[type=text],textarea,select{width:100%;font-family:inherit;font-size:14px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:11px 12px;transition:.15s}
+input:focus,textarea:focus,select:focus{outline:0;border-color:var(--brand);background:#fff}
+textarea{resize:vertical;min-height:76px;line-height:1.45}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.seg.three{grid-template-columns:repeat(3,1fr)}
+.seg button{font-size:12.5px;font-weight:600;color:var(--ink2);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 6px;transition:.15s}
+.seg button.on{background:var(--brand);color:#fff;border-color:var(--brand);box-shadow:0 4px 12px var(--wash)}
+.kinds{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:15px}
+.kind{text-align:left;border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:11px 12px;transition:.15s}
+.kind.on{border-color:var(--brand);background:#fff;box-shadow:0 0 0 1px var(--brand) inset}
+.kind .t{font-weight:700;font-size:13px;display:flex;align-items:center;gap:7px}
+.kind .d{font-size:11px;color:var(--ink3);margin-top:3px;line-height:1.35}
+.gen{width:100%;background:linear-gradient(135deg,var(--brand),var(--brand-d));color:#fff;font-weight:700;font-size:15px;border-radius:12px;padding:14px;margin-top:4px;box-shadow:0 8px 20px var(--wash);transition:.15s;display:flex;align-items:center;justify-content:center;gap:9px}
+.gen:hover{transform:translateY(-1px)}
+.gen:disabled{opacity:.6;transform:none;cursor:wait}
+.spin{width:16px;height:16px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:sp .7s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.hint{font-size:11px;color:var(--ink3);margin-top:10px;text-align:center;line-height:1.4}
+/* results */
+.empty{background:var(--card);border:1px dashed var(--line);border-radius:18px;padding:60px 30px;text-align:center;color:var(--ink3)}
+.empty .big{font-family:'Fraunces';font-size:21px;color:var(--ink2);margin-bottom:8px}
+.results{display:flex;flex-direction:column;gap:18px}
+.rhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.rhead .tt{font-family:'Fraunces';font-size:20px;font-weight:600}
+.chip{font-size:11px;font-weight:700;color:var(--brand-d);background:var(--wash);border:1px solid rgba(15,157,118,.2);border-radius:30px;padding:4px 10px}
+.block{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 17px}
+.block h3{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--ink3);display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.block h3 .ico{font-size:13px}
+.copytxt{font-size:13.5px;color:var(--ink2);white-space:pre-wrap;line-height:1.55}
+.copybtn{margin-left:auto;font-size:11px;font-weight:700;color:var(--brand-d);background:var(--wash);border:1px solid rgba(15,157,118,.25);border-radius:8px;padding:5px 10px;transition:.15s}
+.copybtn:hover{background:var(--brand);color:#fff}
+.copybtn.done{background:var(--brand);color:#fff}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.cols{grid-template-columns:1fr}}
+.hashs{display:flex;flex-wrap:wrap;gap:6px}
+.hashs span{font-size:12px;color:var(--brand-d);background:var(--wash);border-radius:6px;padding:3px 8px;font-weight:600}
+.shot{font-size:12.5px;color:var(--ink2);padding:5px 0 5px 18px;position:relative;border-bottom:1px dashed var(--line)}
+.shot:last-child{border-bottom:0}
+.shot:before{content:"";position:absolute;left:3px;top:11px;width:6px;height:6px;border-radius:50%;background:var(--brand)}
+.coach{background:linear-gradient(135deg,rgba(192,138,62,.08),rgba(15,157,118,.06));border:1px solid rgba(192,138,62,.25)}
+.coach .c{font-size:13px;color:var(--ink2);padding:6px 0 6px 22px;position:relative}
+.coach .c:before{content:"\1F4A1";position:absolute;left:0;top:5px;font-size:13px}
+/* visual graphic (the wow) */
+.assets{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:640px){.assets{grid-template-columns:1fr}}
+.assetwrap{display:flex;flex-direction:column;gap:10px}
+.assetcap{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--ink3);display:flex;align-items:center}
+.dlbtn{margin-left:auto;font-size:11px;font-weight:700;color:#fff;background:var(--ink);border-radius:7px;padding:5px 10px;transition:.15s}
+.dlbtn:hover{background:var(--brand)}
+.shot-stage{border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+/* 1080 square graphic, scaled to fit */
+.sq{width:100%;aspect-ratio:1/1;position:relative;overflow:hidden;color:#fff;background:linear-gradient(150deg,#0f3b2f,#0f9d76 130%)}
+.sq .tex{position:absolute;inset:0;opacity:.5;background:radial-gradient(120% 90% at 110% -10%,rgba(255,255,255,.18),transparent 55%)}
+.sq .pad{position:absolute;inset:0;padding:7% 7.5%;display:flex;flex-direction:column}
+.sq .kick{font-size:clamp(10px,2.4vw,15px);font-weight:700;letter-spacing:.18em;text-transform:uppercase;opacity:.85}
+.sq .big{font-family:'Fraunces';font-weight:600;font-size:clamp(34px,11vw,74px);line-height:1;margin-top:auto}
+.sq .big .u{color:#ffe7b8}
+.sq .lab{font-size:clamp(12px,3vw,19px);font-weight:600;margin-top:10px;opacity:.95}
+.sq .sub{font-size:clamp(9px,2vw,12.5px);opacity:.7;margin-top:5px}
+.sq .ft{display:flex;align-items:center;gap:9px;margin-top:auto;padding-top:6%;font-size:clamp(9px,2vw,12px);opacity:.92}
+.sq .ft .av{width:clamp(22px,5.5vw,34px);height:clamp(22px,5.5vw,34px);border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:clamp(10px,2.5vw,15px)}
+.sq.alt{background:linear-gradient(150deg,#16201b,#243b30 130%)}
+.sq.slide .big{font-size:clamp(20px,6.2vw,40px);font-weight:600;line-height:1.12}
+.sq .num{position:absolute;right:7%;top:6.5%;font-family:'Fraunces';font-size:clamp(28px,8vw,56px);opacity:.22}
+/* phone mockup */
+.phone{width:230px;margin:0 auto;background:#000;border-radius:30px;padding:9px 9px 14px;box-shadow:0 16px 40px rgba(0,0,0,.22)}
+.phone .scr{background:#fff;border-radius:23px;overflow:hidden}
+.ig-top{display:flex;align-items:center;gap:8px;padding:9px 10px;border-bottom:1px solid #eee}
+.ig-top .av{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--gold))}
+.ig-top .nm{font-size:11px;font-weight:700;color:#111}
+.ig-top .nm small{display:block;font-weight:500;color:#888;font-size:9px}
+.ig-top .more{margin-left:auto;color:#bbb;font-weight:700}
+.ig-actions{display:flex;gap:13px;padding:9px 11px 4px;font-size:16px;color:#222}
+.ig-actions .save{margin-left:auto}
+.ig-cap{padding:0 11px 11px;font-size:11px;color:#222;line-height:1.4}
+.ig-cap b{font-weight:700}
+.ig-cap .more{color:#999}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:4px}
+.tab{font-size:12px;font-weight:600;color:var(--ink3);padding:7px 12px;border-radius:9px;border:1px solid transparent}
+.tab.on{background:var(--card);border-color:var(--line);color:var(--ink)}
+/* modal */
+.ov{position:fixed;inset:0;background:rgba(20,24,20,.5);backdrop-filter:blur(3px);z-index:60;display:none;align-items:center;justify-content:center;padding:18px}
+.ov.show{display:flex}
+.modal{background:var(--card);border-radius:20px;max-width:520px;width:100%;max-height:90vh;overflow:auto;padding:24px}
+.modal h2{font-family:'Fraunces';font-size:22px;font-weight:600;display:flex;align-items:center;gap:9px}
+.modal .x{margin-left:auto;font-size:18px;color:var(--ink3)}
+.modal .note{font-size:12.5px;color:var(--ink3);margin:6px 0 18px;line-height:1.5}
+.save-row{display:flex;gap:10px;margin-top:8px}
+.savebtn{flex:1;background:var(--brand);color:#fff;font-weight:700;font-size:14px;border-radius:11px;padding:12px}
+.priv{font-size:11px;color:var(--ink3);background:var(--wash);border:1px solid rgba(15,157,118,.18);border-radius:9px;padding:9px 11px;margin-top:14px;line-height:1.45}
+@media(max-width:860px){.studio{grid-template-columns:1fr}.panel.compose{position:static}}
+/* hidden export canvas holder */
+#export-hold{position:fixed;left:-3000px;top:0}
+#export-hold .sq{width:1080px;height:1080px;aspect-ratio:auto}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="navback" href="https://adamdegoat.github.io/realestate/">← Groundwork</a>
+  <div class="brand">
+    <span class="mk"><svg viewBox="0 0 32 32"><path d="M5 21c3-12 7-15 10-6s6 0 11-7" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/></svg></span>
+    <div><div class="nm">Cadence</div><div class="sub">Marketing Studio</div></div>
+  </div>
+  <span class="sp"></span>
+  <button class="iconbtn" id="setBtn" title="Your profile &amp; brand">⚙</button>
+</nav>
+
+<div class="wrap">
+  <header class="hero">
+    <h1 class="serif">Your listings, into <em>scroll-stopping</em> content.</h1>
+    <p>Type a listing or a market angle — Cadence writes the whole campaign across every channel, in your voice, grounded in real Singapore transaction data, and designs the post-ready graphic.</p>
+    <div class="datapill"><span class="dot"></span><span id="dataPill">Loading live market data…</span></div>
+  </header>
+
+  <div class="studio">
+    <!-- COMPOSE -->
+    <div class="panel compose">
+      <span class="lbl">What are you marketing?</span>
+      <div class="kinds" id="kinds">
+        <button class="kind on" data-kind="listing"><div class="t">🏠 A listing</div><div class="d">Sell a specific unit</div></button>
+        <button class="kind" data-kind="just sold"><div class="t">✅ Just sold</div><div class="d">Social proof post</div></button>
+        <button class="kind" data-kind="market update"><div class="t">📊 Market update</div><div class="d">Be the area authority</div></button>
+        <button class="kind" data-kind="buyer tip"><div class="t">💡 Buyer / seller tip</div><div class="d">Educational content</div></button>
+      </div>
+      <div class="field">
+        <span class="lbl">Area / town <small style="font-weight:500;text-transform:none;letter-spacing:0">(anywhere in SG)</small></span>
+        <input type="text" id="area" placeholder="e.g. Punggol, Tampines, District 9, or leave blank">
+      </div>
+      <div class="field">
+        <span class="lbl">Details</span>
+        <textarea id="details" placeholder="Paste the listing facts, or describe the angle. e.g. 4-room HDB, Blk 268C Punggol Field, 93sqm, high floor, near MRT, asking $640k"></textarea>
+      </div>
+      <div class="field">
+        <span class="lbl">Voice</span>
+        <div class="seg three" id="voice">
+          <button data-v="data" class="on">Data-driven</button>
+          <button data-v="warm">Warm</button>
+          <button data-v="luxury">Luxury</button>
+        </div>
+      </div>
+      <button class="gen" id="genBtn"><span id="genTxt">✨ Generate campaign</span></button>
+      <div class="hint" id="hint">Grounded in live URA &amp; HDB data · CEA-aware</div>
+    </div>
+
+    <!-- RESULTS -->
+    <div id="out">
+      <div class="empty">
+        <div class="big serif">Your campaign appears here</div>
+        Fill in a listing or angle on the left and hit Generate. You'll get the graphic, captions, a reel script, WhatsApp, email and hashtags — ready to post.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SETTINGS MODAL -->
+<div class="ov" id="setOv">
+  <div class="modal">
+    <h2 class="serif">Your profile &amp; brand <button class="x" id="setX">✕</button></h2>
+    <div class="note">This stays <b>private on your Mac</b> — it never goes online. It personalises every campaign and keeps your ads CEA-compliant.</div>
+    <div class="field"><span class="lbl">Your name</span><input type="text" id="p_name" placeholder="e.g. Adam Phang"></div>
+    <div class="cols">
+      <div class="field"><span class="lbl">Agency</span><input type="text" id="p_agency" placeholder="e.g. PropNex"></div>
+      <div class="field"><span class="lbl">CEA reg no</span><input type="text" id="p_cea" placeholder="e.g. R0123456A"></div>
+    </div>
+    <div class="cols">
+      <div class="field"><span class="lbl">Phone / WhatsApp</span><input type="text" id="p_phone" placeholder="+65 …"></div>
+      <div class="field"><span class="lbl">Instagram handle</span><input type="text" id="p_ig" placeholder="@yourhandle"></div>
+    </div>
+    <div class="field"><span class="lbl">Default voice</span>
+      <div class="seg three" id="p_voice">
+        <button data-v="data" class="on">Data-driven</button><button data-v="warm">Warm</button><button data-v="luxury">Luxury</button>
+      </div>
+    </div>
+    <div class="field" id="studioField" style="display:none"><span class="lbl">Studio engine URL <small style="font-weight:500;text-transform:none;letter-spacing:0">· your Cloudflare tunnel, for use away from your Mac</small></span><input type="text" id="p_studio" placeholder="https://xxxx.trycloudflare.com"></div>
+    <div class="priv">🔒 Nothing here is published. Your CEA number only ever appears on content <i>you</i> choose to export. Leave blank and Cadence uses a clear placeholder.</div>
+    <div class="save-row"><button class="savebtn" id="setSave">Save profile</button></div>
+  </div>
+</div>
+
+<div id="export-hold"></div>
+
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+// Local use → talk to the server that served this page. Deployed (Pages) → talk to the
+// agent's own studio server URL (their Cloudflare tunnel), saved in the browser.
+const LOCAL=/^(localhost|127\.|0\.0\.0\.0)/.test(location.hostname);
+let API=LOCAL?location.origin:(localStorage.getItem('cadence_studio')||'');
+let CONNECTED=false;
+let PROFILE={voice:'data',accent:'#0f9d76'}, KIND='listing', VOICE='data', CAMP=null, CTX=null;
+// static fallback so the page looks alive even before the studio connects
+const FALLBACK_CTX={hdb_median_price:630000,hdb_median_psf:605,hdb_gross_yield:6.1,private_median_psf:1719,private_gross_yield:3.6,data_as_of:"2026-06"};
+
+// ---- init ----
+function pill(m){$('#dataPill').textContent=`Live data · HDB median $${(m.hdb_median_price/1000)|0}k · ${m.hdb_median_psf} psf · ${m.hdb_gross_yield}% HDB yield · as of ${m.data_as_of}`;}
+CTX=FALLBACK_CTX; pill(FALLBACK_CTX);
+function connect(){
+  if(!API){ showDisconnected(); return; }
+  fetch(API+'/api/profile').then(r=>r.json()).then(p=>{CONNECTED=true;PROFILE=p;VOICE=p.voice||'data';
+    setSeg('#voice',VOICE); applyAccent(p.accent); $('#discon')&&$('#discon').remove();
+    if(!p.onboarded && LOCAL) setTimeout(openSet,500);
+  }).catch(()=>showDisconnected());
+  fetch(API+'/api/market').then(r=>r.json()).then(m=>{CTX=m;pill(m);}).catch(()=>{});
+}
+function showDisconnected(){
+  CONNECTED=false;
+  if($('#discon'))return;
+  const b=document.createElement('div'); b.id='discon';
+  b.style.cssText='background:#fff7e8;border:1px solid rgba(192,138,62,.4);color:#7a5a18;border-radius:12px;padding:11px 15px;margin:14px 0 0;font-size:13px;font-weight:600;display:flex;gap:10px;align-items:center;flex-wrap:wrap';
+  b.innerHTML='⚡ Your studio engine isn\'t connected. '+(LOCAL?'Start it: <code style="background:#fff;padding:2px 6px;border-radius:5px">python3 ~/cadence/server.py</code>':'Set your studio URL in ⚙ Settings, or open it on your Mac at <code style="background:#fff;padding:2px 6px;border-radius:5px">localhost:8088</code>')+' <button id="dcset" style="margin-left:auto;background:#c08a3e;color:#fff;border-radius:7px;padding:6px 11px;font-weight:700;font-size:12px">Connect</button>';
+  $('.hero').appendChild(b);
+  $('#dcset').onclick=openSet;
+}
+connect();
+function applyAccent(c){if(c)document.documentElement.style.setProperty('--accent',c);}
+
+// ---- compose controls ----
+$('#kinds').onclick=e=>{const b=e.target.closest('.kind');if(!b)return;$$('.kind').forEach(k=>k.classList.remove('on'));b.classList.add('on');KIND=b.dataset.kind;};
+function setSeg(sel,v){$$(sel+' button').forEach(b=>b.classList.toggle('on',b.dataset.v===v));}
+$('#voice').onclick=e=>{const b=e.target.closest('button');if(!b)return;VOICE=b.dataset.v;setSeg('#voice',VOICE);};
+
+// ---- settings ----
+function openSet(){['name','agency','cea','phone','ig'].forEach(k=>{const el=$('#p_'+k);if(el)el.value=PROFILE[k==='name'?'agent_name':k==='ig'?'ig_handle':k==='cea'?'cea_reg':k]||'';});
+  setSeg('#p_voice',PROFILE.voice||'data');
+  if(!LOCAL){$('#studioField').style.display='';$('#p_studio').value=localStorage.getItem('cadence_studio')||'';}
+  $('#setOv').classList.add('show');}
+$('#setBtn').onclick=openSet; $('#setX').onclick=()=>$('#setOv').classList.remove('show');
+$('#setOv').onclick=e=>{if(e.target.id==='setOv')$('#setOv').classList.remove('show');};
+let pVoice='data'; $('#p_voice').onclick=e=>{const b=e.target.closest('button');if(!b)return;pVoice=b.dataset.v;setSeg('#p_voice',pVoice);};
+$('#setSave').onclick=()=>{
+  if(!LOCAL){ const su=$('#p_studio').value.trim().replace(/\/$/,''); localStorage.setItem('cadence_studio',su); API=su; }
+  const body={agent_name:$('#p_name').value.trim(),agency:$('#p_agency').value.trim(),cea_reg:$('#p_cea').value.trim(),
+    phone:$('#p_phone').value.trim(),ig_handle:$('#p_ig').value.trim(),voice:pVoice};
+  VOICE=pVoice; setSeg('#voice',VOICE);
+  if(!API){ $('#setOv').classList.remove('show'); showDisconnected(); return; }
+  fetch(API+'/api/profile',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
+    .then(r=>r.json()).then(d=>{PROFILE=d.profile;CONNECTED=true;$('#discon')&&$('#discon').remove();$('#setOv').classList.remove('show');connect();})
+    .catch(()=>{$('#setOv').classList.remove('show');showDisconnected();});
+};
+
+// ---- generate ----
+$('#genBtn').onclick=()=>{
+  if(!CONNECTED){ showDisconnected(); $('#hint').textContent='Connect your studio engine first ↑'; return; }
+  const details=$('#details').value.trim(), area=$('#area').value.trim();
+  if(!details && KIND!=='market update'){ $('#details').focus(); $('#hint').textContent='Add a few details first ↑'; return; }
+  const btn=$('#genBtn'); btn.disabled=true;
+  $('#genTxt').innerHTML='<span class="spin"></span> Writing your campaign…';
+  $('#hint').textContent='Researching the data + writing all channels — ~30s';
+  fetch(API+'/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({kind:KIND,area,details,voice:VOICE})})
+   .then(r=>r.json()).then(d=>{
+      btn.disabled=false; $('#genTxt').textContent='✨ Generate campaign'; $('#hint').textContent='Grounded in live URA & HDB data · CEA-aware';
+      if(!d.ok){ $('#out').innerHTML=`<div class="empty"><div class="big serif">That didn't generate</div>${d.error||'Try again'}</div>`; return; }
+      CAMP=d.campaign; CTX=d.campaign._ctx||CTX; render();
+   }).catch(e=>{btn.disabled=false;$('#genTxt').textContent='✨ Generate campaign';$('#out').innerHTML=`<div class="empty"><div class="big serif">Connection issue</div>${e}</div>`;});
+};
+
+// ---- render ----
+function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function identity(){const p=PROFILE;let s=p.agent_name||'';if(p.cea_reg)s+=(s?' · CEA ':'CEA ')+p.cea_reg;if(p.agency)s+=(s?' · ':'')+p.agency;return s||'[Your name · CEA reg · Agency]';}
+function initials(){const n=(PROFILE.agent_name||'You').trim().split(/\s+/);return ((n[0]||'')[0]||'Y').toUpperCase()+((n[1]||'')[0]||'').toUpperCase();}
+
+function statCard(c,alt){const s=c.stat||{};return `<div class="sq ${alt?'alt':''}"><div class="tex"></div><div class="pad">
+  <div class="kick">${esc(c.subhead||(CTX?('Singapore · data as of '+CTX.data_as_of):'Singapore Property'))}</div>
+  <div class="big">${esc((s.value||c.headline||'').toString())}</div>
+  <div class="lab">${esc(s.label||c.headline||'')}</div>
+  <div class="sub">${esc(s.sub||'')}</div>
+  <div class="ft"><span class="av">${initials()}</span><span>${esc(identity())}</span></div></div></div>`;}
+
+function slideCard(text,i){return `<div class="sq slide alt"><div class="tex"></div><span class="num">${i+1}</span><div class="pad">
+  <div class="kick">${esc((PROFILE.ig_handle||'').replace(/^@?/,'@')||'Market insight')}</div>
+  <div class="big" style="margin-top:auto;margin-bottom:auto">${esc(text)}</div>
+  <div class="ft"><span class="av">${initials()}</span><span>${esc(PROFILE.agent_name||identity())}</span></div></div></div>`;}
+
+function block(title,ico,id,text){return `<div class="block"><h3><span class="ico">${ico}</span>${title}
+  <button class="copybtn" data-copy="${id}">Copy</button></h3><div class="copytxt" id="${id}">${esc(text)}</div></div>`;}
+
+function render(){
+  const c=CAMP, r=c.reel||{}, em=c.email||{};
+  const capPreview=(c.ig_caption||'').split('\n')[0];
+  const html=`
+  <div class="results">
+    <div class="rhead"><span class="tt serif">Your campaign</span>
+      <span class="chip">📊 grounded in real data</span><span class="chip">✓ ${VOICE} voice</span>
+      ${(PROFILE.cea_reg||PROFILE.agency)?'<span class="chip">⚖ CEA line added</span>':'<span class="chip" style="color:#b9772a;background:rgba(192,138,62,.12);border-color:rgba(192,138,62,.3)">⚠ set CEA in ⚙</span>'}
+    </div>
+
+    <!-- VISUALS -->
+    <div class="block">
+      <h3><span class="ico">🎨</span>Post-ready graphics</h3>
+      <div class="assets">
+        <div class="assetwrap">
+          <div class="assetcap">Stat card · 1080×1080 <button class="dlbtn" data-dl="g_stat" data-name="cadence-stat">Download</button></div>
+          <div class="shot-stage" id="g_stat">${statCard(c,false)}</div>
+        </div>
+        <div class="assetwrap">
+          <div class="assetcap">As it looks on Instagram</div>
+          <div class="phone"><div class="scr">
+            <div class="ig-top"><span class="av"></span><span class="nm">${esc((PROFILE.ig_handle||'your.handle').replace(/^@?/,''))}<small>${esc(c.stat&&c.stat.label||'Sponsored')}</small></span><span class="more">⋯</span></div>
+            <div id="g_stat_mini">${statCard(c,false)}</div>
+            <div class="ig-actions"><span>♡</span><span>💬</span><span>➤</span><span class="save">⊞</span></div>
+            <div class="ig-cap"><b>${esc((PROFILE.ig_handle||'your.handle').replace(/^@?/,''))}</b> ${esc(capPreview)} <span class="more">… more</span></div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CAROUSEL -->
+    ${(c.carousel&&c.carousel.length)?`<div class="block"><h3><span class="ico">🖼️</span>Carousel — ${c.carousel.length} slides <button class="copybtn" data-copy="c_caro">Copy all</button></h3>
+      <div class="assets" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr))">
+        ${c.carousel.map((s,i)=>`<div class="assetwrap"><div class="assetcap">Slide ${i+1} <button class="dlbtn" data-dl="cs_${i}" data-name="cadence-slide-${i+1}">PNG</button></div><div class="shot-stage" id="cs_${i}">${slideCard(s,i)}</div></div>`).join('')}
+      </div><div id="c_caro" style="display:none">${esc(c.carousel.join('\n\n'))}</div></div>`:''}
+
+    <!-- COPY -->
+    <div class="cols">
+      ${block('Instagram caption','📸','c_ig',c.ig_caption||'')}
+      ${block('WhatsApp broadcast','💬','c_wa',c.whatsapp||'')}
+    </div>
+
+    <!-- REEL -->
+    <div class="block"><h3><span class="ico">🎬</span>Reel — script + shot list <button class="copybtn" data-copy="c_reel">Copy</button></h3>
+      <div class="cols">
+        <div><div class="assetcap" style="margin-bottom:6px">SCRIPT</div>
+          <div class="copytxt"><b>Hook:</b> ${esc(r.hook||'')}<br>${(r.script||[]).map(s=>esc(s)).join('<br>')}<br><b>CTA:</b> ${esc(r.cta||'')}</div></div>
+        <div><div class="assetcap" style="margin-bottom:6px">SHOT LIST</div>
+          ${(r.shotlist||[]).map(s=>`<div class="shot">${esc(s)}</div>`).join('')}
+          ${(r.onscreen&&r.onscreen.length)?`<div class="assetcap" style="margin:10px 0 6px">ON-SCREEN TEXT</div>${r.onscreen.map(s=>`<div class="shot">${esc(s)}</div>`).join('')}`:''}</div>
+      </div>
+      <div id="c_reel" style="display:none">REEL\nHook: ${esc(r.hook||'')}\n${esc((r.script||[]).join('\n'))}\nCTA: ${esc(r.cta||'')}\n\nShots:\n${esc((r.shotlist||[]).join('\n'))}</div>
+    </div>
+
+    <div class="cols">
+      ${block('TikTok hook','🎵','c_tt',c.tiktok_hook||'')}
+      ${block('Portal listing copy','🏷️','c_pt',c.portal||'')}
+    </div>
+
+    <div class="block"><h3><span class="ico">✉️</span>Email <button class="copybtn" data-copy="c_em">Copy</button></h3>
+      <div class="copytxt"><b>Subject:</b> ${esc(em.subject||'')}<br><br>${esc(em.body||'')}</div>
+      <div id="c_em" style="display:none">Subject: ${esc(em.subject||'')}\n\n${esc(em.body||'')}</div></div>
+
+    <div class="block"><h3><span class="ico">#️⃣</span>Hashtags <button class="copybtn" data-copy="c_ht">Copy</button></h3>
+      <div class="hashs">${(c.hashtags||[]).map(h=>`<span>${esc(h)}</span>`).join('')}</div>
+      <div id="c_ht" style="display:none">${esc((c.hashtags||[]).join(' '))}</div></div>
+
+    ${(c.coach&&c.coach.length)?`<div class="block coach"><h3 style="color:#a9772f"><span class="ico">🎓</span>Why this works — &amp; how to post it better</h3>
+      ${c.coach.map(x=>`<div class="c">${esc(x)}</div>`).join('')}</div>`:''}
+  </div>`;
+  $('#out').innerHTML=html;
+  window.scrollTo({top:$('#out').offsetTop-70,behavior:'smooth'});
+}
+
+// copy + download (delegated)
+document.addEventListener('click',e=>{
+  const cp=e.target.closest('[data-copy]');
+  if(cp){const el=$('#'+cp.dataset.copy);const t=el?(el.innerText||el.textContent):'';
+    navigator.clipboard.writeText(t.trim()).then(()=>{cp.textContent='Copied ✓';cp.classList.add('done');setTimeout(()=>{cp.textContent=cp.dataset.copy==='c_caro'?'Copy all':'Copy';cp.classList.remove('done');},1400);});}
+  const dl=e.target.closest('[data-dl]');
+  if(dl){download(dl.dataset.dl,dl.dataset.name,dl);}
+});
+function download(srcId,name,btn){
+  const src=$('#'+srcId); if(!src)return; const sq=src.querySelector('.sq'); if(!sq)return;
+  btn.textContent='…';
+  const clone=sq.cloneNode(true); const hold=$('#export-hold'); hold.innerHTML=''; hold.appendChild(clone);
+  html2canvas(clone,{scale:1,width:1080,height:1080,backgroundColor:null,useCORS:true}).then(cv=>{
+    const a=document.createElement('a');a.href=cv.toDataURL('image/png');a.download=name+'.png';a.click();
+    hold.innerHTML=''; btn.textContent=name.includes('slide')?'PNG':'Download';
+  }).catch(()=>{btn.textContent='Download';});
+}
+</script>
+</body>
+</html>
