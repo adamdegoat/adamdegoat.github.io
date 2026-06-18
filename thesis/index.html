@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta name="description" content="Thesis — investment-grade property research for Singapore. Every condo project and new launch scored on official caveats: relative value, mean-reversion, yield, liquidity & supply risk. Part of Groundwork.">
+<title>Thesis · SG Property Research</title>
+<meta name="theme-color" content="#0d1521">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d1521'/%3E%3Cpath d='M7 22 L13 13 L18 18 L25 9' stroke='%231fc18f' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='25' cy='9' r='2.2' fill='%23cda64e'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,500&family=Libre+Franklin:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c131e;--bg2:#0f1826;--panel:#141f31;--panel2:#18243a;--line:#243349;--line2:#2e3f57;
+  --ink:#e8eef7;--ink2:#9fb0c4;--ink3:#6c7d93;
+  --green:#1fc18f;--green-d:#15916b;--gold:#cda64e;--blue:#5aa6e8;--amber:#e0a23a;--red:#e2685f;
+  --sans:'Libre Franklin',system-ui,-apple-system,sans-serif;--serif:'Spectral',Georgia,serif;--mono:'JetBrains Mono',ui-monospace,monospace;
+  --r:14px;--maxw:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(800px 460px at 88% -6%,rgba(31,193,143,.10),transparent 60%),radial-gradient(700px 460px at 6% -4%,rgba(205,166,78,.07),transparent 58%);background-attachment:fixed}
+.serif{font-family:var(--serif)}
+.mono{font-family:var(--mono)}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+/* nav */
+.nav{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:13px;padding:13px 20px;
+  background:rgba(12,19,30,.82);backdrop-filter:blur(12px) saturate(1.2);border-bottom:1px solid var(--line)}
+.navback{font-size:12.5px;font-weight:600;color:var(--ink3);padding:7px 12px;border-radius:30px;border:1px solid var(--line);white-space:nowrap;transition:.15s}
+.navback:hover{color:var(--green);border-color:var(--green-d)}
+.brand{display:flex;align-items:center;gap:9px}
+.brand .mk{width:30px;height:30px;border-radius:8px;background:#0d1521;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center}
+.brand .mk svg{width:19px;height:19px}
+.brand .nm{font-family:var(--serif);font-weight:600;font-size:22px;letter-spacing:.3px}
+.brand .sub{font-size:9px;letter-spacing:1.8px;text-transform:uppercase;color:var(--ink3);font-weight:700;margin-top:-3px}
+.nav .sp{margin-left:auto}
+.datatag{font-size:10.5px;color:var(--ink3);font-weight:600;text-align:right;line-height:1.3}
+.datatag b{color:var(--green);font-weight:700}
+/* tabs */
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);padding:0 20px;background:var(--bg);overflow-x:auto;position:sticky;top:57px;z-index:35}
+.tab{flex:none;font-size:13.5px;font-weight:600;color:var(--ink3);padding:13px 15px;border-bottom:2px solid transparent;white-space:nowrap;transition:.15s;display:flex;gap:7px;align-items:center}
+.tab.on{color:var(--ink);border-bottom-color:var(--green)}
+.tab:hover{color:var(--ink2)}
+/* hero strip */
+.hero{padding:30px 0 8px}
+.hero h1{font-family:var(--serif);font-size:30px;font-weight:600;letter-spacing:-.2px;line-height:1.12}
+.hero h1 em{font-style:italic;color:var(--green)}
+.hero p{color:var(--ink2);font-size:14.5px;margin-top:8px;max-width:680px}
+/* kpis */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin:22px 0 8px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 15px}
+.kpi .k{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--ink3)}
+.kpi .v{font-family:var(--serif);font-size:25px;font-weight:600;margin-top:5px;letter-spacing:-.3px}
+.kpi .s{font-size:11px;color:var(--ink3);margin-top:2px}
+.pos{color:var(--green)}.neg{color:var(--red)}
+/* controls */
+.ctrls{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:22px 0 14px}
+.search{flex:1;min-width:200px;position:relative}
+.search input{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:11px 13px;color:var(--ink);font-size:14px;font-family:inherit}
+.search input:focus{outline:0;border-color:var(--green-d)}
+.search input::placeholder{color:var(--ink3)}
+select.f{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:11px 12px;color:var(--ink2);font-size:13px;font-family:inherit;cursor:pointer}
+/* table */
+.tbl{width:100%;border-collapse:collapse}
+.tbl thead th{text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:var(--ink3);font-weight:700;padding:0 12px 10px;border-bottom:1px solid var(--line);cursor:pointer;white-space:nowrap;user-select:none}
+.tbl thead th.r{text-align:right}
+.tbl tbody tr{border-bottom:1px solid var(--line);cursor:pointer;transition:.12s}
+.tbl tbody tr:hover{background:var(--panel)}
+.tbl td{padding:11px 12px;font-size:13.5px;color:var(--ink2);white-space:nowrap}
+.tbl td.r{text-align:right;font-family:var(--mono);font-size:12.5px}
+.tbl .pn{color:var(--ink);font-weight:600;font-size:13.5px}
+.tbl .pn small{display:block;color:var(--ink3);font-weight:400;font-size:11px;font-family:var(--sans)}
+.chip{font-size:10.5px;color:var(--ink3);background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:2px 7px;font-weight:600}
+/* grade badge */
+.g{font-family:var(--serif);font-weight:600;font-size:14px;padding:3px 10px;border-radius:8px;letter-spacing:.3px;display:inline-block;min-width:36px;text-align:center}
+.g.A{background:rgba(31,193,143,.16);color:#3ad6a4;border:1px solid rgba(31,193,143,.4)}
+.g.B{background:rgba(90,166,232,.14);color:#7bb8ee;border:1px solid rgba(90,166,232,.35)}
+.g.C{background:rgba(224,162,58,.14);color:#e6b566;border:1px solid rgba(224,162,58,.35)}
+.g.D{background:rgba(226,104,95,.14);color:#ec8079;border:1px solid rgba(226,104,95,.35)}
+/* deep-dive panel */
+.ov{position:fixed;inset:0;background:rgba(6,10,16,.72);backdrop-filter:blur(4px);z-index:60;display:none;justify-content:flex-end}
+.ov.show{display:flex}
+.dd{width:min(560px,100%);height:100%;overflow:auto;background:var(--bg2);border-left:1px solid var(--line2);box-shadow:-20px 0 60px rgba(0,0,0,.4);animation:slide .25s ease}
+@keyframes slide{from{transform:translateX(30px);opacity:.5}to{transform:none;opacity:1}}
+.dd-head{position:sticky;top:0;background:var(--bg2);border-bottom:1px solid var(--line);padding:18px 22px;display:flex;align-items:center;gap:13px;z-index:2}
+.dd-head .gg{font-family:var(--serif);font-weight:600;font-size:26px;padding:6px 13px;border-radius:10px}
+.dd-head .tt{font-family:var(--serif);font-size:21px;font-weight:600;line-height:1.1}
+.dd-head .tt small{display:block;font-family:var(--sans);font-size:11.5px;color:var(--ink3);font-weight:500;margin-top:3px}
+.dd-head .x{margin-left:auto;font-size:20px;color:var(--ink3);width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center}
+.dd-head .x:hover{background:var(--panel);color:var(--ink)}
+.dd-body{padding:20px 22px 50px}
+.thesis{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--green);border-radius:10px;padding:14px 16px;font-size:14px;color:var(--ink);line-height:1.6;margin-bottom:8px}
+.thesis b{color:var(--green)}
+.flag-w{background:rgba(224,162,58,.1);border:1px solid rgba(224,162,58,.35);color:#e6b566;border-radius:9px;padding:10px 13px;font-size:12.5px;font-weight:600;margin:12px 0;line-height:1.5}
+.sect{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--ink3);margin:24px 0 11px}
+.facrow{display:flex;align-items:center;gap:11px;margin:9px 0}
+.facrow .fl{width:118px;font-size:12.5px;color:var(--ink2);flex:none}
+.facrow .ft{flex:1;height:8px;border-radius:5px;background:var(--panel2);overflow:hidden}
+.facrow .ft i{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,var(--green-d),var(--green))}
+.facrow .fv{width:30px;text-align:right;font-family:var(--mono);font-size:12px;color:var(--ink2);flex:none}
+.facrow .fw{width:38px;text-align:right;font-size:10px;color:var(--ink3);flex:none}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mc{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 13px}
+.mc .k{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--ink3);font-weight:700}
+.mc .v{font-family:var(--mono);font-size:16px;font-weight:600;margin-top:4px;color:var(--ink)}
+.mc .v small{font-size:11px;color:var(--ink3);font-family:var(--sans)}
+.tvbtn{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--green);background:rgba(31,193,143,.08);border:1px solid rgba(31,193,143,.28);border-radius:9px;padding:9px 13px;margin-top:18px}
+.addcmp{font-size:12px;font-weight:600;color:var(--gold);border:1px solid rgba(205,166,78,.35);border-radius:8px;padding:8px 12px;margin-top:18px;margin-left:9px}
+/* panel */
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;margin-bottom:16px}
+.panel h2{font-family:var(--serif);font-size:18px;font-weight:600;display:flex;align-items:center;gap:9px;margin-bottom:6px}
+.panel .note{font-size:13px;color:var(--ink2);line-height:1.6}
+.pill{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--ink3);border:1px solid var(--line2);border-radius:999px;padding:3px 9px}
+.assess{font-size:11px;font-weight:600;padding:2px 8px;border-radius:6px}
+.assess.ok{background:rgba(31,193,143,.14);color:#3ad6a4}
+.assess.mid{background:rgba(90,166,232,.14);color:#7bb8ee}
+.assess.hi{background:rgba(224,162,58,.14);color:#e6b566}
+.assess.steep{background:rgba(226,104,95,.14);color:#ec8079}
+.bars{margin-top:6px}
+.bar-row{display:flex;align-items:center;gap:11px;padding:7px 0}
+.bar-row .lab{width:150px;font-size:12.5px;flex:none;color:var(--ink2)}
+.bar-row .track{flex:1;height:9px;background:var(--panel2);border-radius:5px;position:relative;overflow:hidden}
+.bar-row .fill{height:100%;border-radius:5px}
+.bar-row .val{width:54px;text-align:right;font-family:var(--mono);font-size:12.5px;flex:none}
+.cmp-grid{display:grid;gap:12px}
+.cmp-col{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
+.empty{text-align:center;color:var(--ink3);padding:50px 20px;font-size:14px}
+.empty .b{font-family:var(--serif);font-size:19px;color:var(--ink2);margin-bottom:8px}
+.foot{color:var(--ink3);font-size:11.5px;text-align:center;padding:30px 20px 50px;line-height:1.6;border-top:1px solid var(--line);margin-top:30px}
+@media(max-width:720px){.kpis{grid-template-columns:1fr 1fr}.mgrid{grid-template-columns:1fr 1fr}
+  .hide-sm{display:none}.hero h1{font-size:25px}.dd{width:100%}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="navback" href="https://adamdegoat.github.io/realestate/">← Groundwork</a>
+  <div class="brand">
+    <span class="mk"><svg viewBox="0 0 32 32"><path d="M7 22 L13 13 L18 18 L25 9" stroke="#1fc18f" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="25" cy="9" r="2.2" fill="#cda64e"/></svg></span>
+    <div><div class="nm">Thesis</div><div class="sub">Property Research</div></div>
+  </div>
+  <span class="sp"></span>
+  <div class="datatag" id="dataTag">loading…</div>
+</nav>
+<div class="tabs" id="tabs"></div>
+<div class="wrap"><div id="app"><div class="empty"><div class="b serif">Loading research…</div>Scoring every project on official caveats.</div></div></div>
+<div class="foot wrap" id="foot"></div>
+
+<div class="ov" id="ov"><div class="dd" id="dd"></div></div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+let D=null,TAB='research',SORT={k:'score',dir:-1},FILT={q:'',seg:'',grade:''},CMP=[];
+const TABS=[['research','▦','Research'],['launches','◆','New launches'],['compare','⇄','Compare'],['method','📐','Methodology']];
+const FACS=['value','timing','liquidity','yield','tenure','supply'];
+const gletter=g=>g[0];
+const fmtP=n=>n>=1e6?'$'+(n/1e6).toFixed(2)+'m':'$'+Math.round(n/1e3)+'k';
+const sg=v=>v>=0?'pos':'neg';
+const distName=d=>'D'+String(d).padStart(2,'0');
+
+fetch('data/thesis.json?cb='+Date.now()).then(r=>r.json()).then(d=>{D=d;init();})
+  .catch(e=>{$('#app').innerHTML='<div class="empty">Could not load research data. '+e+'</div>';});
+
+function init(){
+  $('#dataTag').innerHTML=`<b>${D.n_projects}</b> projects · <b>${D.n_launches}</b> launches<br>official caveats · ${D.as_of.slice(0,2)}’${D.as_of.slice(2)} · backtest IC ${D.backtest?D.backtest.ic:'—'}`;
+  $('#tabs').innerHTML=TABS.map(t=>`<div class="tab ${t[0]===TAB?'on':''}" data-t="${t[0]}"><span>${t[1]}</span>${t[2]}${t[0]==='compare'?` <span id="cmpN" class="chip" style="display:none"></span>`:''}</div>`).join('');
+  $('#tabs').onclick=e=>{const t=e.target.closest('.tab');if(t){TAB=t.dataset.t;render();}};
+  $('#foot').innerHTML=`Thesis · part of <a href="https://adamdegoat.github.io/realestate/" style="color:var(--green)">Groundwork</a>. Research from official URA caveats (${D.window_months}-month window, as of ${D.as_of.slice(0,2)}’${D.as_of.slice(2)}). Indicative analysis, not financial advice — the agent verifies. Grades reflect relative value, mean-reversion, yield, liquidity, tenure &amp; supply risk; they are probabilities, not guarantees.`;
+  render();
+}
+function render(){
+  $$('.tab').forEach(t=>t.classList.toggle('on',t.dataset.t===TAB));
+  $('#app').innerHTML=VIEWS[TAB]();
+  const cn=$('#cmpN');if(cn){cn.style.display=CMP.length?'':'none';cn.textContent=CMP.length;}
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+const VIEWS={
+ research(){
+  const bt=D.backtest||{};
+  const buys=D.projects.filter(p=>['A+','A','A-'].includes(p.grade)).length;
+  let rows=D.projects.filter(p=>(!FILT.q||p.project.toLowerCase().includes(FILT.q.toLowerCase())||distName(p.district).toLowerCase().includes(FILT.q.toLowerCase()))
+    &&(!FILT.seg||p.seg===FILT.seg)&&(!FILT.grade||gletter(p.grade)===FILT.grade));
+  rows=rows.slice().sort((a,b)=>{let x=a[SORT.k],y=b[SORT.k];if(typeof x==='string')return SORT.dir*x.localeCompare(y);return SORT.dir*((x??-999)-(y??-999));});
+  const segOpts=['','CCR','RCR','OCR'].map(s=>`<option value="${s}">${s||'All segments'}</option>`).join('');
+  const grOpts=['','A','B','C','D'].map(s=>`<option value="${s}">${s?s+'-grade':'All grades'}</option>`).join('');
+  return `<div class="hero">
+    <h1 class="serif">Which projects are a <em>smart buy</em> — and why.</h1>
+    <p>Every Singapore condo project scored on official caveats: relative value vs nearby peers, where it sits in the mean-reversion cycle, rental yield, exit liquidity, tenure and incoming supply. Click any project for the full thesis.</p></div>
+   <div class="kpis">
+     <div class="kpi"><div class="k">Projects scored</div><div class="v">${D.n_projects}</div><div class="s">${buys} graded A-tier</div></div>
+     <div class="kpi"><div class="k">Backtest edge</div><div class="v pos">+${bt.spread}%</div><div class="s">top vs bottom, ${bt.fwd_months}mo fwd</div></div>
+     <div class="kpi"><div class="k">Signal strength</div><div class="v">${bt.ic}</div><div class="s">information coefficient</div></div>
+     <div class="kpi"><div class="k">The thesis</div><div class="v" style="font-size:16px;color:var(--green)">Value + reversion</div><div class="s">buy laggards, not the hot</div></div>
+   </div>
+   <div class="ctrls">
+     <div class="search"><input id="q" placeholder="Search a project or district (e.g. One-North, D05)…" value="${FILT.q}"></div>
+     <select class="f" id="fseg">${segOpts}</select><select class="f" id="fgrade">${grOpts}</select>
+   </div>
+   <div style="overflow-x:auto"><table class="tbl"><thead><tr>
+     ${[['grade','Grade'],['project','Project'],['seg','Seg'],['psf','PSF'],['discount','vs peers'],['mom','6mo'],['yield','Yield'],['txns','Sales'],['score','Score']].map(c=>`<th class="${['psf','discount','mom','yield','txns','score'].includes(c[0])?'r':''} ${['seg','yield'].includes(c[0])?'hide-sm':''}" data-k="${c[0]}">${c[1]}${SORT.k===c[0]?(SORT.dir<0?' ▾':' ▴'):''}</th>`).join('')}
+   </tr></thead><tbody>${rows.slice(0,200).map(rowHtml).join('')}</tbody></table>
+   ${rows.length>200?`<div class="empty" style="padding:20px">Showing top 200 of ${rows.length}. Refine with search/filters.</div>`:''}</div>`;
+ },
+ launches(){
+  let ls=D.launches.slice().sort((a,b)=>(a.premium??999)-(b.premium??999));
+  return `<div class="hero"><h1 class="serif">New launch — <em>worth the premium?</em></h1>
+    <p>Every new launch's PSF against comparable <b>resale</b> nearby — the exact question every buyer asks. Lower premium = closer to resale value; a steep premium needs a strong story (location, brand, upside).</p></div>
+   <div class="panel" style="margin-top:18px"><h2>📊 Launch premium over resale <span class="pill">${D.n_launches} launches · sorted by premium</span></h2>
+   <div style="overflow-x:auto;margin-top:6px"><table class="tbl"><thead><tr>
+     <th>Launch</th><th class="hide-sm">Seg</th><th class="r">Launch PSF</th><th class="r">Resale PSF</th><th class="r">Premium</th><th>Assessment</th><th class="r hide-sm">Competing</th>
+   </tr></thead><tbody>${ls.map(launchRow).join('')}</tbody></table></div>
+   <div class="note" style="margin-top:14px;color:var(--ink3)">Resale PSF = median of comparable resale projects in the same segment &amp; district. A launch with a small (or negative) premium is priced near the resale market; 12–25% is a typical "new" premium; above that, the upside case has to carry it.</div></div>`;
+ },
+ compare(){
+  if(!CMP.length)return `<div class="hero"><h1 class="serif">Compare, <em>head to head</em>.</h1>
+    <p>Add projects from the Research tab (the ⇄ button on any project) to line them up side by side — grades, value, the full factor breakdown.</p></div>
+    <div class="empty"><div class="b serif">No projects added yet</div>Open any project → "Add to compare". Up to 3.</div>`;
+  const ps=CMP.map(n=>D.projects.find(p=>p.project===n)).filter(Boolean);
+  return `<div class="hero"><h1 class="serif">Head to head</h1><p>${ps.length} project${ps.length>1?'s':''} compared. <button onclick="CMP=[];render()" style="color:var(--gold);font-size:13px">Clear all</button></p></div>
+   <div class="cmp-grid" style="grid-template-columns:repeat(${ps.length},1fr);margin-top:16px">
+   ${ps.map(p=>`<div class="cmp-col">
+     <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px"><span class="g ${gletter(p.grade)}">${p.grade}</span><span style="font-family:var(--serif);font-size:16px;font-weight:600">${p.project}</span></div>
+     <div style="font-size:11px;color:var(--ink3);margin-bottom:12px">${distName(p.district)} · ${p.seg} · ${p.fh?'Freehold':'Leasehold'}</div>
+     ${[['Score',p.score],['PSF','$'+p.psf],['vs peers',(p.discount>0?'+':'')+p.discount+'%'],['6mo trend',(p.mom>0?'+':'')+p.mom+'%'],['Yield',p.yield?p.yield+'%':'—'],['Sales',p.txns]].map(m=>`<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line);font-size:13px"><span style="color:var(--ink3)">${m[0]}</span><span class="mono">${m[1]}</span></div>`).join('')}
+     <div class="bars" style="margin-top:12px">${FACS.map(f=>`<div style="display:flex;align-items:center;gap:8px;margin:5px 0"><span style="width:74px;font-size:10.5px;color:var(--ink3);flex:none">${D.factor_labels[f]}</span><div class="track" style="flex:1;height:7px"><div class="fill" style="width:${p.pct[f]}%;background:${barCol(p.pct[f])}"></div></div></div>`).join('')}</div>
+     <button onclick="CMP=CMP.filter(x=>x!=='${p.project.replace(/'/g,"\\'")}');render()" style="margin-top:12px;font-size:11.5px;color:var(--red)">Remove</button>
+   </div>`).join('')}</div>`;
+ },
+ method(){
+  const bt=D.backtest||{},W=D.weights,mw=Math.max(...Object.values(W));
+  return `<div class="hero"><h1 class="serif">How the <em>grade</em> is built.</h1>
+    <p>Deterministic and explainable — no black box, no AI guesswork. Six factors from official caveats, each percentile-ranked within its market segment (CCR / RCR / OCR), combined into a 0–100 score and an A–F grade.</p></div>
+   <div class="panel" style="margin-top:18px"><h2>The six factors</h2>
+     <div class="bars" style="margin-top:10px">${Object.entries(W).map(([f,w])=>`<div class="bar-row"><div class="lab">${D.factor_labels[f]}</div><div class="track"><div class="fill" style="width:${w/mw*100}%;background:linear-gradient(90deg,var(--green-d),var(--green))"></div></div><div class="val">${Math.round(w*100)}%</div></div>`).join('')}</div>
+     <div class="note" style="margin-top:14px"><b style="color:var(--ink)">Relative value</b> — PSF vs comparable projects within 1.5km of the same segment (credible gaps only; implausible ones are flagged, not rewarded). <b style="color:var(--ink)">Value timing</b> — the mean-reversion signal: rewards the recently-lagged, penalises the overheated. <b style="color:var(--ink)">Exit liquidity</b> — transaction volume &amp; recent velocity. <b style="color:var(--ink)">Rental yield</b>, <b style="color:var(--ink)">Tenure</b> (freehold edge) and <b style="color:var(--ink)">Supply risk</b> (incoming new-launch competition nearby).</div>
+   </div>
+   ${bt.ic!=null?`<div class="panel"><h2>🏆 Does the grade predict? <span class="pill">walk-forward backtest</span></h2>
+     <div class="note" style="margin-bottom:14px">Scored every project <b>as of ${bt.fwd_months} months ago</b> using only data available then, then measured what actually happened to PSF since. The top-ranked projects appreciated <b class="pos">+${bt.top_ret}%</b> vs <b class="${sg(bt.bot_ret)}">${bt.bot_ret>0?'+':''}${bt.bot_ret}%</b> for the bottom — a real spread the grade captured.</div>
+     <div class="kpis" style="grid-template-columns:repeat(3,1fr)">
+       <div class="kpi"><div class="k">Information coefficient</div><div class="v pos">${bt.ic}</div><div class="s">signal vs outcome</div></div>
+       <div class="kpi"><div class="k">Top − bottom spread</div><div class="v pos">+${bt.spread}%</div><div class="s">${bt.fwd_months}-month forward</div></div>
+       <div class="kpi"><div class="k">Projects tested</div><div class="v">${bt.n}</div><div class="s">with enough history</div></div>
+     </div>
+     <div class="flag-w" style="margin-top:16px">⚠ Honest limit: only ~${D.window_months} months of caveat history exists, so this is a <b>short-window</b> validation over one market period — directionally strong, but not a multi-cycle proof. The mean-reversion edge was powerful here; it's re-checked every week as new data arrives.</div></div>`:''}
+   <div class="panel"><h2>🔁 How it gets smarter</h2>
+     <div class="note">Every week the engine pulls the latest caveats, re-scores every project, <b>re-runs this backtest</b>, and only keeps a factor weighting if it still beats the alternative. The data compounds, the validation repeats, and the model adapts to what's actually predicting — a real closed loop, because property outcomes (resale prices) are observable.</div></div>`;
+ }
+};
+
+function barCol(p){return p>=66?'var(--green)':p>=40?'var(--blue)':p>=25?'var(--amber)':'var(--red)';}
+function rowHtml(p){
+  const dc=p.discount>0?'pos':p.discount<0?'neg':'';
+  return `<tr data-p="${esc(p.project)}"><td><span class="g ${gletter(p.grade)}">${p.grade}</span></td>
+   <td><span class="pn">${p.project}<small>${distName(p.district)}${p.fh?' · FH':''}</small></span></td>
+   <td class="hide-sm"><span class="chip">${p.seg}</span></td>
+   <td class="r">$${p.psf}</td>
+   <td class="r ${dc}">${p.value_flag?'<span title="PSF gap too wide to compare reliably — different product" style="color:var(--amber)">⚠</span>':(p.discount>0?'+':'')+p.discount+'%'}</td>
+   <td class="r ${sg(p.mom)}">${p.mom==null?'—':(p.mom>0?'+':'')+p.mom+'%'}</td>
+   <td class="r hide-sm">${p.yield?p.yield+'%':'—'}</td>
+   <td class="r">${p.txns}</td>
+   <td class="r" style="color:var(--ink);font-weight:600">${p.score}</td></tr>`;
+}
+function launchRow(l){
+  const cls=l.assess.includes('line')?'ok':l.assess.includes('typical')?'mid':l.assess.includes('Stretched')?'hi':l.assess.includes('Steep')?'steep':'';
+  const pc=l.premium==null?'—':(l.premium>0?'+':'')+l.premium+'%';
+  const pcl=l.premium==null?'':l.premium<=12?'pos':l.premium>=35?'neg':'';
+  return `<tr><td><span class="pn">${l.project}<small>${distName(l.district)}</small></span></td>
+   <td class="hide-sm"><span class="chip">${l.seg}</span></td>
+   <td class="r">$${l.launch_psf}</td><td class="r" style="color:var(--ink3)">${l.resale_psf?'$'+l.resale_psf:'—'}</td>
+   <td class="r ${pcl}" style="font-weight:600">${pc}</td>
+   <td><span class="assess ${cls}">${l.assess}</span></td>
+   <td class="r hide-sm">${l.competing||0}</td></tr>`;
+}
+
+// deep-dive
+function openDD(name){
+  const p=D.projects.find(x=>x.project===name);if(!p)return;
+  const tv='https://www.google.com/search?q='+encodeURIComponent(p.project+' condo singapore');
+  $('#dd').innerHTML=`<div class="dd-head"><span class="gg g ${gletter(p.grade)}">${p.grade}</span>
+    <div class="tt">${p.project}<small>${distName(p.district)} · ${p.seg} · ${p.fh?'Freehold':'Leasehold'} · ${p.verdict}</small></div>
+    <span class="x" onclick="closeDD()">✕</span></div>
+   <div class="dd-body">
+     <div class="thesis">${thesis(p)}</div>
+     ${p.value_flag?`<div class="flag-w">⚠ This project's PSF sits unusually far from nearby projects — likely a <b>different product</b> (older or much larger units), so we don't score it on relative value. Verify the comparable set before quoting it.</div>`:''}
+     <div class="sect">Factor breakdown <span style="color:var(--ink3);text-transform:none;letter-spacing:0;font-weight:400">· percentile within ${p.seg}, with weight</span></div>
+     ${FACS.map(f=>`<div class="facrow"><div class="fl">${D.factor_labels[f]}</div><div class="ft"><i style="width:${p.pct[f]}%;background:${barCol(p.pct[f])}"></i></div><div class="fv">${p.pct[f]}</div><div class="fw">${Math.round(D.weights[f]*100)}%</div></div>`).join('')}
+     <div class="sect">The numbers</div>
+     <div class="mgrid">
+       <div class="mc"><div class="k">Median PSF</div><div class="v">$${p.psf}</div></div>
+       <div class="mc"><div class="k">vs peers (within 1.5km)</div><div class="v ${p.discount>0?'pos':p.discount<0?'neg':''}">${p.value_flag?'n/a':(p.discount>0?'+':'')+p.discount+'%'} <small>${p.value_flag?'product mismatch':'peer $'+p.peer_ref}</small></div></div>
+       <div class="mc"><div class="k">6-month PSF trend</div><div class="v ${sg(p.mom)}">${p.mom==null?'—':(p.mom>0?'+':'')+p.mom+'%'}</div></div>
+       <div class="mc"><div class="k">Rental yield</div><div class="v">${p.yield?p.yield+'%':'—'}</div></div>
+       <div class="mc"><div class="k">Median price</div><div class="v">${fmtP(p.price)} <small>~${p.area}sqm</small></div></div>
+       <div class="mc"><div class="k">Sales (liquidity)</div><div class="v">${p.txns} <small>${p.txns_recent} recent</small></div></div>
+     </div>
+     <a class="tvbtn" href="${tv}" target="_blank">Look up ${p.project} ↗</a>
+     <button class="addcmp" onclick="addCmp('${name.replace(/'/g,"\\'")}')">⇄ Add to compare</button>
+   </div>`;
+  $('#ov').classList.add('show');
+}
+function thesis(p){
+  const parts=[];
+  if(!p.value_flag&&p.discount>=5)parts.push(`Trading <b>${p.discount}% below</b> comparable projects nearby`);
+  else if(!p.value_flag&&p.discount<=-5)parts.push(`Priced <b>${-p.discount}% above</b> nearby comparables`);
+  else parts.push(`Priced <b>in line</b> with nearby comparables`);
+  if(p.mom!=null&&p.mom<=-4)parts.push(`has recently <b>lagged</b> (${p.mom}% / 6mo) — the mean-reversion setup that's paid historically`);
+  else if(p.mom!=null&&p.mom>=8)parts.push(`has run <b>hot</b> (+${p.mom}% / 6mo) — stretched, where reversion bites`);
+  if(p.yield)parts.push(`yields <b>${p.yield}%</b>`);
+  parts.push(p.fh?`freehold`:`leasehold`);
+  const sup=p.pct.supply>=60?'low incoming supply nearby':p.pct.supply<=35?'heavy incoming launch supply nearby (a headwind)':'moderate incoming supply';
+  parts.push(sup);
+  return parts.join(', ').replace(/,([^,]*)$/,' and$1')+'.';
+}
+function addCmp(n){if(!CMP.includes(n)&&CMP.length<3)CMP.push(n);closeDD();const cn=$('#cmpN');if(cn){cn.style.display='';cn.textContent=CMP.length;}}
+function closeDD(){$('#ov').classList.remove('show');}
+$('#ov').onclick=e=>{if(e.target.id==='ov')closeDD();};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDD();});
+
+// delegated events
+document.addEventListener('click',e=>{
+  const th=e.target.closest('.tbl thead th[data-k]');
+  if(th){const k=th.dataset.k;if(SORT.k===k)SORT.dir*=-1;else{SORT.k=k;SORT.dir=(k==='project'||k==='seg')?1:-1;}render();return;}
+  const tr=e.target.closest('.tbl tbody tr[data-p]');
+  if(tr){openDD(tr.dataset.p);return;}
+});
+document.addEventListener('input',e=>{if(e.target.id==='q'){FILT.q=e.target.value;const a=$('#app');const inp=e.target;const pos=inp.selectionStart;render();const ni=$('#q');if(ni){ni.focus();ni.setSelectionRange(pos,pos);}}});
+document.addEventListener('change',e=>{if(e.target.id==='fseg'){FILT.seg=e.target.value;render();}if(e.target.id==='fgrade'){FILT.grade=e.target.value;render();}});
+function esc(s){return String(s).replace(/"/g,'&quot;');}
+</script>
+</body>
+</html>
