@@ -56,6 +56,10 @@ p{margin:0}a{text-decoration:none;color:inherit}
 .hero h1 em{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--brand-d)}
 .hero .sub{font-size:18px;color:var(--ink-2);max-width:60ch;margin:0 auto 32px}
 .byline{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--ink-3);margin:0 0 30px}
+.freshline{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-size:12.5px;color:var(--ink-3);font-weight:500}
+.freshline b{color:var(--ink-2);font-weight:600}
+.fdot{width:7px;height:7px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 3px var(--brand-wash);animation:fdpulse 2.6s infinite}
+@keyframes fdpulse{0%,100%{box-shadow:0 0 0 3px var(--brand-wash)}50%{box-shadow:0 0 0 6px rgba(15,157,118,.05)}}
 .hero .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .hero .btn{padding:14px 26px;font-size:15px}
 
@@ -171,6 +175,7 @@ footer .disc{font-size:12px;max-width:70ch;margin:14px auto 0;line-height:1.6}
       <div class="stat"><div class="n">1,125</div><div class="l">amenities mapped</div></div>
       <div class="stat"><div class="n">100%</div><div class="l">official data</div></div>
     </div>
+    <div class="freshline"><span class="fdot"></span>Both tools auto-refresh from official URA &amp; HDB data <b>every Saturday</b> · next refresh <b id="nextref">—</b></div>
   </div>
 </header>
 
@@ -257,5 +262,6 @@ footer .disc{font-size:12px;max-width:70ch;margin:14px auto 0;line-height:1.6}
     <a class="back" href="https://adamdegoat.github.io/">← Back to all projects</a>
   </div>
 </footer>
+<script>(function(){var n=new Date(),a=((6-n.getDay()+7)%7)||7,x=new Date(n);x.setDate(n.getDate()+a);var e=document.getElementById('nextref');if(e)e.textContent=x.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});})();</script>
 </body>
 </html>

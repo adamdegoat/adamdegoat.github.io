@@ -98,9 +98,12 @@ const App = (() => {
       const built = new Date(fr.built + 'T00:00:00');
       const days = Math.max(0, Math.floor((Date.now() - built.getTime()) / 86400000));
       const rel = days === 0 ? 'today' : days === 1 ? 'yesterday' : `${days} days ago`;
+      const now = new Date(); const add = ((6 - now.getDay() + 7) % 7) || 7;
+      const nx = new Date(now); nx.setDate(now.getDate() + add);
+      const nextRefresh = nx.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' });
       const counts = `${fr.hdb_txns.toLocaleString()} HDB resale + ${fr.condo_txns.toLocaleString()} private caveats + ${fr.amenities.toLocaleString()} amenities`;
       document.getElementById('freshness').innerHTML =
-        `<span class="live-dot"></span> Data refreshed <b>${rel}</b> (${fr.built}) · auto-updates weekly · ${counts}`;
+        `<span class="live-dot"></span> Data refreshed <b>${rel}</b> (${fr.built}) · auto-updates weekly · next refresh <b>${nextRefresh}</b> · ${counts}`;
       CMA.init(idx); Eligibility.init(); Prospect.init(idx); Pulse.init(); Search.init(idx); Upgrade.init();
     } catch (err) {
       document.getElementById('freshness').textContent = 'Data failed to load — ' + err.message;
