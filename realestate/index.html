@@ -120,6 +120,20 @@ footer .disc{font-size:12px;max-width:70ch;margin:14px auto 0;line-height:1.6}
 .back{display:inline-block;margin-top:18px;font-size:13px;font-weight:600;color:var(--ink-3)}
 .back:hover{color:var(--brand-d)}
 
+/* toolkit directory */
+.kit-intro{display:flex;align-items:center;gap:18px;max-width:760px;margin:0 auto 6px;justify-content:center;flex-wrap:wrap}
+.kit-count{font-family:var(--mono);font-size:12.5px;font-weight:600;color:var(--brand-d);background:var(--brand-wash);border-radius:30px;padding:6px 14px;white-space:nowrap}
+.tool{margin-top:34px}
+.tool-head{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.tool-head .tnum{font-family:var(--serif);font-size:30px;font-weight:600;color:var(--brand-d);line-height:1;letter-spacing:-.02em}
+.tool-head .tname{font-family:var(--serif);font-size:23px;font-weight:600}
+.tool-head .sp{flex:1;height:1px;background:var(--line)}
+.badge-soon{display:inline-flex;align-items:center;gap:7px;background:var(--amber-wash);color:#9a6a10;font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.08em;padding:6px 12px;border-radius:30px}
+.next-card{background:linear-gradient(180deg,var(--paper-2),var(--card));border:1.5px dashed #d8d3c7;border-radius:var(--r-lg);padding:44px 38px;text-align:center}
+.next-card .nm-emblem{width:48px;height:48px;margin:0 auto 16px;border-radius:14px;background:var(--slate-wash);display:grid;place-items:center;font-size:22px;opacity:.8}
+.next-card h3{font-family:var(--serif);font-size:25px;font-weight:600;margin-bottom:10px}
+.next-card p{color:var(--ink-2);font-size:15px;max-width:52ch;margin:0 auto 16px;line-height:1.6}
+.next-card .soon-note{font-size:12px;font-weight:700;color:var(--ink-3);text-transform:uppercase;letter-spacing:.08em}
 @media(max-width:880px){
   .hero h1{font-size:42px}.hero .sub{font-size:16px}
   .flag{grid-template-columns:1fr}.flag .ft-media{padding:28px 24px 0}
@@ -134,19 +148,19 @@ footer .disc{font-size:12px;max-width:70ch;margin:14px auto 0;line-height:1.6}
 <nav class="nav">
   <a class="navback" href="https://adamdegoat.github.io/">← All projects</a>
   <a class="brand" href="#top"><span class="dia"></span><span class="bm">Groundwork</span><span class="bsub">by Adam Phang</span></a>
-  <a class="btn btn-p cta" href="https://adamdegoat.github.io/caveat/">Open Caveat →</a>
+  <a class="btn btn-p cta" href="#tools">The toolkit ↓</a>
 </nav>
 
 <header class="hero" id="top">
   <div class="wrap">
-    <div class="kick"><span class="dot"></span>Built on official URA · HDB · OneMap data</div>
+    <div class="kick"><span class="dot"></span>A Singapore property agent's toolkit</div>
     <h1>Smarter tools for <em>Singapore</em> property</h1>
-    <p class="sub">A growing suite of data-driven tools <b>I'm building as a Singapore property agent</b> — to value homes,
-      qualify buyers and find leads, powered by the same official transaction data the authorities publish, not guesswork.</p>
+    <p class="sub"><b>Groundwork</b> is a growing toolkit I'm building to work smarter as a Singapore property agent —
+      added to <b>one real tool at a time</b>, each solving a genuine bottleneck, all on official data, not guesswork.</p>
     <p class="byline">— Adam Phang</p>
     <div class="row">
-      <a class="btn btn-p" href="https://adamdegoat.github.io/caveat/">Try the live tool</a>
-      <a class="btn btn-g" href="#tools">See what's inside</a>
+      <a class="btn btn-p" href="#tools">See the toolkit</a>
+      <a class="btn btn-g" href="https://adamdegoat.github.io/caveat/">Open Caveat →</a>
     </div>
     <div class="stats">
       <div class="stat"><div class="n">137,766</div><div class="l">private caveats</div></div>
@@ -159,28 +173,45 @@ footer .disc{font-size:12px;max-width:70ch;margin:14px auto 0;line-height:1.6}
 
 <section class="block" id="tools">
   <div class="wrap">
-    <div class="eyebrow">The flagship</div>
-    <h2 class="h2">Caveat</h2>
-    <p class="lead">A five-tool co-pilot for Singapore property — valuations, a live market terminal, search, affordability and prospecting, all from official data.</p>
-    <div class="flag">
-      <div class="ft-media">
-        <div class="browser">
-          <div class="bar"><i></i><i></i><i></i><span class="u">adamdegoat.github.io/caveat</span></div>
-          <img src="assets/caveat-preview.jpeg" alt="Caveat valuation deck" loading="lazy">
+    <div class="eyebrow">Inside Groundwork</div>
+    <h2 class="h2">The toolkit</h2>
+    <p class="lead">Groundwork grows one real tool at a time — each one earning its place by solving a genuine bottleneck in an agent's day, on the same official data. Here's what's inside.</p>
+    <div class="kit-intro"><span class="kit-count">1 live · more in the works</span></div>
+
+    <!-- Tool 01 -->
+    <div class="tool">
+      <div class="tool-head"><span class="tnum">01</span><span class="tname">Caveat</span><span class="sp"></span><span class="badge-live"><span class="pulse"></span>Live now · installable app</span></div>
+      <div class="flag">
+        <div class="ft-media">
+          <div class="browser">
+            <div class="bar"><i></i><i></i><i></i><span class="u">adamdegoat.github.io/caveat</span></div>
+            <img src="assets/caveat-preview.jpeg" alt="Caveat valuation deck" loading="lazy">
+          </div>
+        </div>
+        <div class="ft-body">
+          <span class="badge-live"><span class="pulse"></span>Valuation &amp; market intelligence</span>
+          <h3>Everything an agent needs, in one app</h3>
+          <p class="desc">A five-tool co-pilot built on 137k URA caveats, 38k HDB resale records, 106k rental contracts and OneMap — every number is real and the working is shown, so you can defend it to a client.</p>
+          <ul class="feat">
+            <li><span class="ic">📊</span><span><b>Valuation</b> — comparable price band, an interactive map, nearby amenities, rental yield &amp; a written summary (HDB &amp; condo; landed + new-launch reference too).</span></li>
+            <li><span class="ic">📈</span><span><b>Market terminal</b> — live median prices, PSF momentum, the rental market &amp; gross yields, by town and region.</span></li>
+            <li><span class="ic">🔎</span><span><b>Find</b> — search condos by budget, region &amp; rental yield; jump straight into a full valuation.</span></li>
+            <li><span class="ic">🧮</span><span><b>Affordability &amp; stamp duty</b> — ABSD, BSD, loan headroom, with every rate verified and the working shown.</span></li>
+            <li><span class="ic">📍</span><span><b>Prospecting</b> — what just sold in your farm area, with a warm outreach message drafted for each.</span></li>
+          </ul>
+          <a class="btn btn-p" href="https://adamdegoat.github.io/caveat/">Open Caveat →</a>
         </div>
       </div>
-      <div class="ft-body">
-        <span class="badge-live"><span class="pulse"></span>Live now · installable app</span>
-        <h3>Everything an agent needs, in one app</h3>
-        <p class="desc">Built on 137k URA caveats, 38k HDB resale records, 106k rental contracts and OneMap — every number is real and the working is shown, so you can defend it to a client.</p>
-        <ul class="feat">
-          <li><span class="ic">📊</span><span><b>Valuation</b> — comparable price band, an interactive map, nearby amenities, rental yield &amp; a written summary (HDB &amp; condo; landed + new-launch reference too).</span></li>
-          <li><span class="ic">📈</span><span><b>Market terminal</b> — live median prices, PSF momentum, the rental market &amp; gross yields, by town and region.</span></li>
-          <li><span class="ic">🔎</span><span><b>Find</b> — search condos by budget, region &amp; rental yield; jump straight into a full valuation.</span></li>
-          <li><span class="ic">🧮</span><span><b>Affordability &amp; stamp duty</b> — ABSD, BSD, loan headroom, with every rate verified and the working shown.</span></li>
-          <li><span class="ic">📍</span><span><b>Prospecting</b> — what just sold in your farm area, with a warm outreach message drafted for each.</span></li>
-        </ul>
-        <a class="btn btn-p" href="https://adamdegoat.github.io/caveat/">Open Caveat →</a>
+    </div>
+
+    <!-- Tool 02 -->
+    <div class="tool">
+      <div class="tool-head"><span class="tnum">02</span><span class="tname">The next tool</span><span class="sp"></span><span class="badge-soon">● In development</span></div>
+      <div class="next-card">
+        <div class="nm-emblem">🛠️</div>
+        <h3>Being built now</h3>
+        <p>A tool earns a spot in Groundwork only when it solves a real bottleneck an agent actually feels — not for the sake of more buttons. The next one is being figured out and built right now.</p>
+        <span class="soon-note">Added when it's genuinely useful</span>
       </div>
     </div>
   </div>
@@ -189,7 +220,7 @@ footer .disc{font-size:12px;max-width:70ch;margin:14px auto 0;line-height:1.6}
 <section class="block" style="padding-top:8px">
   <div class="wrap">
     <div class="approach">
-      <div class="eyebrow">Why it's different</div>
+      <div class="eyebrow">The principles behind every tool</div>
       <h2>Real data. Honest numbers. Built for Singapore.</h2>
       <div class="pillars">
         <div class="pillar"><div class="pn">01</div><h4>Official sources only</h4><p>Every figure traces to URA caveats, HDB resale data and OneMap — free, licensed for commercial use, never scraped.</p></div>
