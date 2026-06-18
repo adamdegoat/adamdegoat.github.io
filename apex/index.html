@@ -142,7 +142,7 @@ function capCat(m,fallback){
   return{l,v};
 }
 let D=null,TAB='conviction',SORT={k:'score',dir:-1},FILT={q:'',sector:'',verdict:''};
-const TABS=[['conviction','★','Top 5'],['buys','🎯','Top Buys'],['board','▦','Leaderboard'],['avoid','⚠️','Avoid'],['sectors','🧩','Sectors'],['learning','🧠','Learning'],['method','📐','Methodology']];
+const TABS=[['conviction','★','Top 3'],['buys','🎯','Top Buys'],['board','▦','Leaderboard'],['avoid','⚠️','Avoid'],['sectors','🧩','Sectors'],['learning','🧠','Learning'],['method','📐','Methodology']];
 const FACS=['momentum','trend','rel_strength','low_vol','structure','quality','value','growth'];
 const FLAB={momentum:'Momentum',trend:'Trend',rel_strength:'Rel. Strength',low_vol:'Low Vol',structure:'Structure',quality:'Quality',value:'Value',growth:'Growth'};
 
@@ -189,8 +189,8 @@ const VIEWS={
   const rc=reg.label==='Risk-on'?'var(--green)':reg.label==='Risk-off'?'var(--red)':'var(--amber)';
   const secs=Object.entries(d.conviction_sectors||{});const maxSec=Math.max(0,...secs.map(e=>e[1]));
   const conc=maxSec>=4;
-  const head=`<div class="panel" style="margin-top:0"><h2>★ Conviction — hold up to 5 <span class="pill">AI-vetted · tradeable · your shortlist</span></h2>
-   <div class="note">The highest-conviction names to own <b>right now</b> — top-graded, bought at smart entries (not chasing), each <b>confirmed by the adversarial skeptic</b>, and all liquid &amp; sizeable. Built for a concentrated 3–5 stock book.</div>
+  const head=`<div class="panel" style="margin-top:0"><h2>★ Conviction — hold up to 3 <span class="pill">US big caps · AI-vetted · your shortlist</span></h2>
+   <div class="note">The highest-conviction <b>US big-cap</b> names to own <b>right now</b> — top-graded, bought at smart entries (not chasing), each <b>confirmed by the adversarial skeptic</b>, and all large &amp; liquid (≥ $10B). Built for a concentrated <b>3-stock big-cap book</b>.</div>
    <div style="margin-top:11px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--ink2)">
      <span>Market: <b style="color:${rc}">${reg.label||'—'}</b> (breadth ${reg.breadth??'?'}%)</span>
      ${secs.length?`<span>·</span><span>Sector mix: ${secs.map(e=>`${e[0]} ×${e[1]}`).join(' · ')}</span>`:''}
@@ -204,11 +204,11 @@ const VIEWS={
   return `<div class="kpis">
     <div class="kpi"><div class="k">Market regime</div><div class="v" style="font-size:18px;color:${rc}">${reg.label||'—'}</div><div class="s">SPY ${reg.spy_trend||''} · breadth ${reg.breadth??'?'}%</div></div>
     <div class="kpi"><div class="k">Universe</div><div class="v">${d.universe}</div><div class="s">S&P 500 + mid-caps</div></div>
-    <div class="kpi"><div class="k">Buy setups</div><div class="v" style="color:var(--green)">${d.n_buy}</div><div class="s">graded + trend-confirmed</div></div>
+    <div class="kpi"><div class="k">Big-cap buys</div><div class="v" style="color:var(--green)">${d.n_big_buys??d.n_buy}</div><div class="s">${d.n_buy} buys all-cap</div></div>
     <div class="kpi"><div class="k">Watch</div><div class="v" style="color:var(--amber)">${d.n_watch}</div><div class="s">strong, timing off</div></div>
     <div class="kpi"><div class="k">Avoid</div><div class="v" style="color:var(--red)">${d.n_avoid}</div><div class="s">weak / downtrend</div></div>
   </div>
-  <div class="panel"><h2>🎯 Top buy setups <span class="pill">highest grade · trend-confirmed · click for scorecard</span></h2>
+  <div class="panel"><h2>🎯 Top buy setups <span class="pill">US big caps (≥$10B) · highest grade · click for scorecard</span></h2>
    ${d.top_buys&&d.top_buys.length?`<div class="cards">${d.top_buys.map(buyCard).join('')}</div>`:'<div class="empty">No A-grade trend-confirmed buys today — an honest "nothing great right now." Check the Leaderboard for the full picture.</div>'}</div>`;
  },
  board:d=>{
