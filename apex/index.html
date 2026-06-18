@@ -222,13 +222,18 @@ const VIEWS={
   const rc=reg.label==='Risk-on'?'var(--green)':reg.label==='Risk-off'?'var(--red)':'var(--amber)';
   const secs=Object.entries(d.conviction_sectors||{});const maxSec=Math.max(0,...secs.map(e=>e[1]));
   const conc=maxSec>=4;
+  const cor=d.conviction_corr;
+  const corCol=cor?(cor.level==='high'?'var(--red)':cor.level==='low'?'var(--green)':'var(--amber)'):'';
+  const hotPair=cor?cor.pairs.find(p=>p.r>=0.6):null;
+  const corDesc=cor?(cor.level==='high'?' — these names move together, so the book is less diversified than the sector mix suggests':cor.level==='low'?' — low overall overlap':' — partial overlap'):'';
+  const corLine=cor?`<div style="margin-top:9px;font-size:12.5px;color:var(--ink2)">Diversification: avg return correlation <b style="color:${corCol}">${cor.avg}</b> <span style="color:var(--ink3)">(${cor.level}${corDesc}, 90d; ${cor.pairs.map(p=>`${p.a}/${p.b} ${p.r}`).join(' · ')})</span>${hotPair&&cor.level!=='high'?`<span style="color:var(--amber);font-weight:600"> · ⚠ ${hotPair.a}/${hotPair.b} move closely together</span>`:''}</div>`:'';
   const head=`<div class="panel" style="margin-top:0"><h2>★ Conviction — hold up to 3 <span class="pill">US mega caps · AI-vetted · your shortlist</span></h2>
    <div class="note">The highest-conviction <b>US mega-cap</b> names to own <b>right now</b> — top-graded, bought at smart entries (not chasing), each <b>confirmed by the adversarial skeptic</b>, and all giants (market cap ≥ $200B). Built for a concentrated <b>3-stock mega-cap book</b>. Each carries a <b>suggested weight</b> (score-proportional), <b>tenure</b> (how long it's held a buy grade), and an <b>earnings-soon flag</b>.</div>
    <div style="margin-top:11px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--ink2)">
      <span>Market: <b style="color:${rc}">${reg.label||'—'}</b> (breadth ${reg.breadth??'?'}%)</span>
      ${secs.length?`<span>·</span><span>Sector mix: ${secs.map(e=>`${e[0]} ×${e[1]}`).join(' · ')}</span>`:''}
-     ${conc?`<span style="color:var(--amber);font-weight:600">⚠ concentrated in one sector — correlated risk</span>`:''}
-   </div></div>`;
+     ${conc?`<span style="color:var(--amber);font-weight:600">⚠ concentrated in one sector</span>`:''}
+   </div>${corLine}</div>`;
   const banner=changesBanner(d);
   if(!c.length)return banner+head+`<div class="panel"><div class="empty">No high-conviction, skeptic-confirmed buys cleared the bar today — an honest "nothing worth concentrating into right now." The broader Top Buys and Leaderboard are still there for the full picture.</div></div>`;
   return banner+head+`<div class="cards" style="margin-top:16px">${c.map(buyCard).join('')}</div>`;
