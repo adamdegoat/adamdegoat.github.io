@@ -161,9 +161,21 @@ function spark(arr){
 }
 const sparkRet=a=>a&&a.length>1?(a[a.length-1]>=a[0]?'+':'')+((a[a.length-1]/a[0]-1)*100).toFixed(0)+'%':'';
 const tvLink=t=>`https://www.tradingview.com/symbols/${t.replace('-','.')}/`;
+function convBadges(r){
+  const cb=(txt,col)=>`<span style="font-size:10.5px;font-weight:700;letter-spacing:.3px;padding:3px 9px;border-radius:999px;border:1px solid ${col[1]};color:${col[0]};background:${col[2]}">${txt}</span>`;
+  const cy=['var(--cyan)','rgba(56,189,248,.3)','rgba(56,189,248,.08)'];
+  const am=['var(--amber)','rgba(245,158,11,.35)','rgba(245,158,11,.1)'];
+  const nt=['var(--ink3)','var(--line)','transparent'];
+  const b=[];
+  if(r.weight)b.push(cb('⚖ '+r.weight+'% suggested weight',cy));
+  if(r.tenure)b.push(cb('📌 '+(r.tenure===1?'new today':r.tenure+' days on buy list'),nt));
+  if(r.earnings_days!=null)b.push(cb('📅 earnings in '+r.earnings_days+'d',r.earnings_days<=8?am:nt));
+  return b.length?`<div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:9px">${b.join('')}</div>`:'';
+}
 function buyCard(r){const L=r.levels,a=r.ai;return `<div class="bcard" onclick="openSC('${r.ticker}')">
   <div class="top"><span class="g ${gcls(r.grade)}">${r.grade}</span><span class="tk">${r.ticker}</span><span class="setup">${r.setup}</span></div>
   <div class="sub"><b style="color:var(--ink2);font-weight:600">${r.name||r.ticker}</b> · ${(c=>c.l+(c.v?' '+c.v:''))(capCat(r.mcap,r.cap))} · ${r.sector} · score ${r.score}</div>
+  ${convBadges(r)}
   <div class="stats"><div class="stat">12-1m mom<b class="${sg(r.mom12)}">${pc(r.mom12)}</b></div><div class="stat">RS vs SPY<b class="${sg(r.rs6m)}">${pc(r.rs6m)}</b></div><div class="stat">RSI<b>${r.rsi??'—'}</b></div><div class="stat">off high<b>${r.offhi}%</b></div></div>
   ${L?`<div class="lvls"><div class="lv"><div class="lk">Entry</div><div class="lvv">$${L.entry}</div></div><div class="lv"><div class="lk">Stop</div><div class="lvv neg">$${L.support}</div><div class="lpct neg">${((L.support/L.entry-1)*100).toFixed(0)}%</div></div><div class="lv"><div class="lk">Target</div><div class="lvv pos">$${L.target}</div><div class="lpct pos">+${((L.target/L.entry-1)*100).toFixed(0)}%</div></div><div class="lv"><div class="lk">R:R</div><div class="lvv">${L.rr??'—'}</div></div></div>`:''}
   ${r.spark?`<div class="sparkwrap"><div class="faclabel" style="display:flex;justify-content:space-between"><span>6-month performance · <span class="${sparkRet(r.spark).startsWith('-')?'neg':'pos'}">${sparkRet(r.spark)}</span></span><a href="${tvLink(r.ticker)}" target="_blank" onclick="event.stopPropagation()" style="color:var(--cyan);font-weight:600">TradingView ↗</a></div>${spark(r.spark)}</div>`:''}
@@ -189,8 +201,8 @@ const VIEWS={
   const rc=reg.label==='Risk-on'?'var(--green)':reg.label==='Risk-off'?'var(--red)':'var(--amber)';
   const secs=Object.entries(d.conviction_sectors||{});const maxSec=Math.max(0,...secs.map(e=>e[1]));
   const conc=maxSec>=4;
-  const head=`<div class="panel" style="margin-top:0"><h2>★ Conviction — hold up to 3 <span class="pill">US big caps · AI-vetted · your shortlist</span></h2>
-   <div class="note">The highest-conviction <b>US big-cap</b> names to own <b>right now</b> — top-graded, bought at smart entries (not chasing), each <b>confirmed by the adversarial skeptic</b>, and all large &amp; liquid (≥ $10B). Built for a concentrated <b>3-stock big-cap book</b>.</div>
+  const head=`<div class="panel" style="margin-top:0"><h2>★ Conviction — hold up to 3 <span class="pill">US mega caps · AI-vetted · your shortlist</span></h2>
+   <div class="note">The highest-conviction <b>US mega-cap</b> names to own <b>right now</b> — top-graded, bought at smart entries (not chasing), each <b>confirmed by the adversarial skeptic</b>, and all giants (market cap ≥ $200B). Built for a concentrated <b>3-stock mega-cap book</b>. Each carries a <b>suggested weight</b> (score-proportional), <b>tenure</b> (how long it's held a buy grade), and an <b>earnings-soon flag</b>.</div>
    <div style="margin-top:11px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--ink2)">
      <span>Market: <b style="color:${rc}">${reg.label||'—'}</b> (breadth ${reg.breadth??'?'}%)</span>
      ${secs.length?`<span>·</span><span>Sector mix: ${secs.map(e=>`${e[0]} ×${e[1]}`).join(' · ')}</span>`:''}
@@ -204,11 +216,11 @@ const VIEWS={
   return `<div class="kpis">
     <div class="kpi"><div class="k">Market regime</div><div class="v" style="font-size:18px;color:${rc}">${reg.label||'—'}</div><div class="s">SPY ${reg.spy_trend||''} · breadth ${reg.breadth??'?'}%</div></div>
     <div class="kpi"><div class="k">Universe</div><div class="v">${d.universe}</div><div class="s">S&P 500 + mid-caps</div></div>
-    <div class="kpi"><div class="k">Big-cap buys</div><div class="v" style="color:var(--green)">${d.n_big_buys??d.n_buy}</div><div class="s">${d.n_buy} buys all-cap</div></div>
+    <div class="kpi"><div class="k">Mega-cap buys</div><div class="v" style="color:var(--green)">${d.n_mega_buys??d.n_big_buys??d.n_buy}</div><div class="s">${d.n_buy} buys all-cap</div></div>
     <div class="kpi"><div class="k">Watch</div><div class="v" style="color:var(--amber)">${d.n_watch}</div><div class="s">strong, timing off</div></div>
     <div class="kpi"><div class="k">Avoid</div><div class="v" style="color:var(--red)">${d.n_avoid}</div><div class="s">weak / downtrend</div></div>
   </div>
-  <div class="panel"><h2>🎯 Top buy setups <span class="pill">US big caps (≥$10B) · highest grade · click for scorecard</span></h2>
+  <div class="panel"><h2>🎯 Top buy setups <span class="pill">US mega caps (≥$200B) · highest grade · click for scorecard</span></h2>
    ${d.top_buys&&d.top_buys.length?`<div class="cards">${d.top_buys.map(buyCard).join('')}</div>`:'<div class="empty">No A-grade trend-confirmed buys today — an honest "nothing great right now." Check the Leaderboard for the full picture.</div>'}</div>`;
  },
  board:d=>{
@@ -260,8 +272,8 @@ const VIEWS={
    <div class="note">Every stock is scored on documented return factors, each <b>percentile-ranked within its own sector</b> (so a stock is judged against true peers, not a tech name vs a utility). The factor ranks combine into a composite <b>0–100 alpha score → A+ … F grade</b>. A name becomes a <b style="color:var(--green)">BUY</b> only when it grades high, is <b>trend-confirmed</b> (above its 200-day in an uptrend), and is <b>not over-extended</b> — the engine penalises chasing (parabolic, overbought RSI, far above the 50-day) and rewards <b>smart entries</b> (pullbacks in an uptrend, early breakouts from a base). So it buys strength <i>without</i> chasing what already ran. Each buy carries entry / invalidation / target levels with % upside, and the top 7 get an <b>AI research note + an adversarial skeptic check</b>.</div>
    <div style="margin-top:16px">${FACS.map(f=>`<div class="facrow"><div class="fl">${FLAB[f]}</div><div class="ft"><i style="width:${(W[f]||0)/mw*100}%"></i></div><div class="fv">${Math.round((W[f]||0)*100)}%</div></div>`).join('')}</div>
    <div class="note" style="margin-top:14px"><b>Price factors:</b> Momentum (12-1m), Trend (multi-TF MA stack), Relative Strength (vs SPY &amp; sector), Low-Volatility, Structure (52-week range). <b>Fundamental factors:</b> Quality (ROE/margins/low-debt), Value (earnings &amp; sales yield), Growth (revenue &amp; EPS). Fundamentals cover ${d.fund_coverage||0}% of the universe; names without them score on price factors only.</div></div>
-  <div class="panel"><h2>★ Conviction Top 5 <span class="pill">the "hold up to 5" shortlist</span></h2>
-   <div class="note">From all the buys, Apex distils a curated shortlist of <b>up to 5 names to hold right now</b>, built for a concentrated book. A name makes the Top 5 only if it: ① grades among the highest, ② is bought at a <b>smart entry</b> (pullback / early breakout, not chasing), ③ <b>survives the adversarial skeptic</b>, and ④ is <b>liquid &amp; tradeable</b> (market cap ≥ $4B — large + liquid mid-caps you can size into and exit cleanly). There's <b>no sector cap</b> — it's the purest top 5 — but the page shows the sector mix and flags it if too many land in one sector (correlated risk). The full ~900-stock grading stays underneath; the Top 5 is just the actionable distillation. <span style="color:var(--ink3)">Note: a concentrated 5-stock book carries more single-name variance than the diversified factor model the backtest validates — that's the nature of concentration.</span></div></div>
+  <div class="panel"><h2>★ Conviction Top 3 <span class="pill">the "hold up to 3" mega-cap shortlist</span></h2>
+   <div class="note">From all the buys, Apex distils a curated shortlist of <b>up to 3 names to hold right now</b>, built for a concentrated book. A name makes the Top 3 only if it: ① grades among the highest, ② is bought at a <b>smart entry</b> (pullback / early breakout, not chasing), ③ <b>survives the adversarial skeptic</b>, and ④ is a <b>US mega-cap</b> (market cap ≥ $200B — the giants you can size into and exit cleanly). There's <b>no sector cap</b> — it's the purest top 3 — but the page shows the sector mix and flags it if too many land in one sector (correlated risk). Each pick also shows a <b>score-proportional suggested weight</b>, its <b>tenure</b> on the buy list, and an <b>earnings-soon flag</b>. The full ~900-stock grading stays underneath; the Top 3 is just the actionable distillation. <span style="color:var(--ink3)">Note: a concentrated 3-stock book carries more single-name variance than the diversified factor model the backtest validates — that's the nature of concentration.</span></div></div>
   ${v?`<div class="panel"><h2>🏆 Validation <span class="pill">walk-forward backtest · does the grade actually predict?</span></h2>
    <div class="note" style="margin-bottom:14px">Across <b>${v.periods} monthly periods</b> on ${v.names} stocks, we ranked the universe by the factor model into quintiles and measured each quintile's <b>forward ${v.fwd_days}-day return</b>. If the model has edge, the top quintile (Q5) should beat the bottom (Q1).</div>
    ${(()=>{const q=v.q_returns;const lo=Math.min(...q,0),hi=Math.max(...q);const rng=hi-lo||1;return q.map((r,i)=>`<div class="bar-row"><div class="lab">Q${i+1}${i===4?' (best)':i===0?' (worst)':''}</div><div class="bar-track" style="background:var(--panelh);position:relative"><div class="bar-fill" style="width:${Math.abs(r)/Math.max(Math.abs(lo),hi)*100}%;background:${r>=0?'linear-gradient(90deg,var(--blue),var(--cyan))':'var(--red)'}"></div></div><div class="val ${sg(r)}">${pc(r)}</div></div>`).join('');})()}
@@ -271,15 +283,27 @@ const VIEWS={
      <div class="scstat"><div class="k">Monotonic</div><div class="v">${v.monotonic?'Yes ✓':'No'}</div></div>
      <div class="scstat"><div class="k">Periods tested</div><div class="v">${v.periods}</div></div>
    </div>
-   <div class="note" style="margin-top:12px;color:var(--ink3)">A positive IC and a positive Q5−Q1 spread mean the grades carry real predictive signal (not just a pretty screen). This is the honesty check — if it stops working, you'll see it here.</div></div>`:`<div class="panel"><h2>🏆 Validation</h2><div class="empty">Backtest running — the walk-forward proof that grades predict returns will appear here.</div></div>`}
+   <div class="note" style="margin-top:12px;color:var(--ink3)">A positive IC and a positive Q5−Q1 spread mean the grades carry real predictive signal (not just a pretty screen). This is the honesty check — if it stops working, you'll see it here.</div>
+   ${v.mega?`<div style="margin-top:18px;padding-top:16px;border-top:1px solid var(--line)"><div style="font-size:11px;color:var(--cyan);text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px">Mega-cap-specific check (≥ $200B — the actionable pool)</div>
+   <div class="note" style="margin-bottom:12px">Since the Conviction book only draws from <b>US mega-caps</b>, this proves the score still ranks correctly <i>inside</i> that pool. Over ${v.mega.periods} periods on ${v.mega.names} mega-caps, the top half by score vs the bottom half:</div>
+   <div class="scgrid">
+     <div class="scstat"><div class="k">Mega-cap IC</div><div class="v ${sg(v.mega.ic)}">${v.mega.ic}</div></div>
+     <div class="scstat"><div class="k">Top half fwd</div><div class="v ${sg(v.mega.top_half)}">${pc(v.mega.top_half)}</div></div>
+     <div class="scstat"><div class="k">Bottom half fwd</div><div class="v ${sg(v.mega.bot_half)}">${pc(v.mega.bot_half)}</div></div>
+     <div class="scstat"><div class="k">Spread</div><div class="v ${sg(v.mega.spread)}">${pc(v.mega.spread)}</div></div>
+   </div>
+   <div class="note" style="margin-top:10px;color:var(--ink3)">It's a small set (${v.mega.names} names split into halves), so read it as a smaller-sample confirmation than the full-universe test — but the ranking clearly still holds where it's actually traded.</div></div>`:''}</div>`:`<div class="panel"><h2>🏆 Validation</h2><div class="empty">Backtest running — the walk-forward proof that grades predict returns will appear here.</div></div>`}
   <div class="panel"><h2>🧠 Self-improving <span class="pill">${d.snapshots||0} daily snapshots recorded</span></h2>
    <div class="note">Apex records every day's grades. Once enough forward outcomes accumulate, it measures each factor's live predictive power (Information Coefficient) and <b>adaptively re-weights toward what's working in the current regime</b> — walk-forward and slow, to learn signal not noise. <span style="color:var(--ink3)">Status: collecting data (${d.snapshots||0} snapshots) — adaptive weighting activates once a meaningful forward sample exists; until then it runs on the validated static weights above.</span></div></div>
   <div class="panel"><div class="note" style="color:var(--ink3)">Honest note: factor edges are real but modest and can fade in any given period. Apex ranks probabilities and enforces discipline across the whole market — it does not predict surprises.</div></div>`;
  },
 };
-function openSC(t){const r=(D.leaderboard||[]).find(x=>x.ticker===t);if(!r)return;
+function openSC(t){let r=(D.leaderboard||[]).find(x=>x.ticker===t);if(!r)return;
+  const enr=[...(D.conviction||[]),...(D.top_buys||[])].find(x=>x.ticker===t);
+  if(enr)r={...r,...enr};
   $('#sc').innerHTML=`<div class="h"><span class="g ${gcls(r.grade)}">${r.grade}</span><span class="tk">${r.ticker}</span><span class="vb ${r.verdict}" style="font-size:11px">${r.verdict}</span><span class="x" onclick="closeSC()">✕</span></div>
    <div class="meta">${r.name?`<b style="color:var(--ink)">${r.name}</b> · `:''}${(c=>c.l+(c.v?' '+c.v:''))(capCat(r.mcap,r.cap))} · ${r.sector} · ${r.setup} · composite score <b style="color:var(--ink)">${r.score}</b></div>
+   ${convBadges(r)}
    ${r.spark?`<div style="font-size:10px;color:var(--ink3);text-transform:uppercase;letter-spacing:.5px;font-weight:700;margin-bottom:6px">6-month performance · <span class="${sparkRet(r.spark).startsWith('-')?'neg':'pos'}">${sparkRet(r.spark)}</span></div><div style="margin-bottom:14px">${spark(r.spark)}</div>`:''}
    <a href="${tvLink(r.ticker)}" target="_blank" class="tvbtn">📈 View full chart on TradingView ↗</a>
    <div class="scgrid">
