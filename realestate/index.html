@@ -35,7 +35,9 @@ p{margin:0}a{text-decoration:none;color:inherit}
 .dia{width:15px;height:15px;border-radius:4px;background:linear-gradient(135deg,var(--brand),var(--gold));transform:rotate(45deg);box-shadow:0 2px 9px rgba(15,157,118,.4)}
 .bm{font-family:var(--serif);font-weight:600;font-size:22px}
 .bsub{font-size:11px;color:var(--ink-3);font-weight:700;text-transform:uppercase;letter-spacing:.13em}
-.nav .cta{margin-left:auto}
+.nav .cta{margin-left:auto;white-space:nowrap}
+.navback{font-size:13px;font-weight:700;color:var(--ink-3);padding:8px 13px;border-radius:30px;border:1px solid var(--line);white-space:nowrap;transition:.18s}
+.navback:hover{color:var(--brand-d);border-color:var(--brand);background:rgba(15,157,118,.06)}
 .btn{display:inline-flex;align-items:center;gap:8px;border-radius:30px;font-weight:700;font-size:14px;padding:11px 20px;transition:.18s;border:0;cursor:pointer}
 .btn-p{background:linear-gradient(135deg,var(--brand),var(--brand-d));color:#fff;box-shadow:0 6px 18px rgba(15,157,118,.32)}
 .btn-p:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(15,157,118,.42)}
@@ -125,11 +127,12 @@ footer .disc{font-size:12px;max-width:70ch;margin:14px auto 0;line-height:1.6}
   .stats{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:0}.stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line-2)}
   .approach{padding:36px 24px}.h2{font-size:30px}
 }
-@media(max-width:520px){.hero h1{font-size:34px}.bsub{display:none}.nav{padding:13px 16px}.wrap{padding:0 16px}}
+@media(max-width:520px){.hero h1{font-size:34px}.bsub{display:none}.nav{padding:13px 16px;gap:9px}.nav .bm{display:none}.wrap{padding:0 16px}}
 </style>
 </head>
 <body>
 <nav class="nav">
+  <a class="navback" href="https://adamdegoat.github.io/">← All projects</a>
   <a class="brand" href="#top"><span class="dia"></span><span class="bm">Groundwork</span><span class="bsub">by Adam Phang</span></a>
   <a class="btn btn-p cta" href="https://adamdegoat.github.io/caveat/">Open Caveat →</a>
 </nav>

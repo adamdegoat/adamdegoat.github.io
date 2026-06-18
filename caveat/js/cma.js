@@ -221,6 +221,7 @@ const CMA = (() => {
   async function genHdb(res) {
     const town = val('f_town'), ft = val('f_ftype'), area = +val('f_area'),
       storey = +val('f_storey'), leaseY = +val('f_lease'), block = val('f_block'), street = val('f_street');
+    if (!town) throw new Error('Pick a town to value an HDB flat.');
     if (!area || !storey) throw new Error('Enter at least floor area and storey.');
     const rows = await C.hdbTown(town);
     const subj = { flat_type: ft, area_sqm: area, storey_mid: storey,
