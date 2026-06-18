@@ -16,6 +16,11 @@ const CMA = (() => {
   function renderForm() {
     const el = document.getElementById('cmaForm');
     el.innerHTML = `
+      <div class="cma-search ac-wrap">
+        <input id="cma_q" autocomplete="off" placeholder="🔎  Search a block, street, estate or condo…">
+        <div class="ac-list" id="cma_qac" style="display:none"></div>
+        <div class="cma-search-hint">Type a place — HDB or condo — and pick it. We'll fill the rest.</div>
+      </div>
       <div class="seg seg-wrap" id="cmaSeg">
         ${MODES.map(([m, l]) => `<button data-m="${m}" class="${mode === m ? 'on' : ''}">${l}</button>`).join('')}
       </div>
@@ -23,49 +28,84 @@ const CMA = (() => {
       <button class="btn-primary" id="cmaGo">${goLabel[mode]}</button>
       <p class="field-err err" id="cmaErr" style="display:none;margin-top:12px"></p>`;
     el.querySelectorAll('#cmaSeg button').forEach(b => b.onclick = () => { mode = b.dataset.m; renderForm(); });
+    wireSearch();
     (wireFor[mode] || (() => {}))();
     document.getElementById('cmaGo').onclick = generate;
   }
 
+  // ---------- unified search: one box for HDB streets/estates + condo projects, auto-routes ----------
+  let STREETS_CACHE = null;
+  async function wireSearch() {
+    const inp = document.getElementById('cma_q'), ac = document.getElementById('cma_qac');
+    if (!inp) return;
+    if (!STREETS_CACHE) STREETS_CACHE = await C.hdbStreets();
+    const run = () => {
+      const q = inp.value.trim().toUpperCase();
+      if (q.length < 2) { ac.style.display = 'none'; return; }
+      const hdb = STREETS_CACHE.filter(s => s.street.includes(q)).slice(0, 6)
+        .map(s => ({ kind: 'hdb', label: Narrative.titleCase(s.street), meta: Narrative.titleCase(s.town) + ' · HDB', town: s.town, street: s.street }));
+      const condo = IDX.condo_projects.filter(p => p[0].includes(q)).slice(0, 6)
+        .map(p => ({ kind: 'condo', label: Narrative.titleCase(p[0]), meta: 'D' + p[1] + ' ' + p[2] + ' · Condo', p }));
+      const hits = [...condo, ...hdb].slice(0, 9);
+      if (!hits.length) { ac.style.display = 'none'; return; }
+      ac.innerHTML = hits.map((h, i) => `<div data-i="${i}"><span class="ac-kind ${h.kind}">${h.kind === 'hdb' ? 'HDB' : 'Condo'}</span> ${h.label} <span class="ac-meta">· ${h.meta.replace(' · HDB', '').replace(' · Condo', '')}</span></div>`).join('');
+      ac.style.display = 'block';
+      ac.querySelectorAll('div[data-i]').forEach(d => d.onclick = () => pickSearch(hits[+d.dataset.i]));
+    };
+    inp.oninput = run; inp.onfocus = run;
+    document.addEventListener('click', e => { if (!ac.contains(e.target) && e.target !== inp) ac.style.display = 'none'; });
+  }
+  async function pickSearch(h) {
+    document.getElementById('cma_qac').style.display = 'none';
+    if (h.kind === 'hdb') {
+      mode = 'hdb'; renderForm();
+      const town = document.getElementById('f_town');
+      if (town && [...town.options].some(o => o.value === h.town)) { town.value = h.town; town.dispatchEvent(new Event('change')); }
+      const st = document.getElementById('f_street'); if (st) st.value = h.label;
+      const blk = document.getElementById('f_block'); if (blk) blk.value = '';
+      await prefillHdb();
+      const q = document.getElementById('cma_q'); if (q) q.value = h.label;
+    } else {
+      mode = 'condo'; renderForm();
+      const inp = document.getElementById('f_project'), meta = document.getElementById('f_projmeta'), info = document.getElementById('f_projinfo');
+      if (inp) inp.value = h.label; if (meta) meta.value = JSON.stringify(h.p);
+      if (info) info.textContent = `District ${h.p[1]} · ${h.p[2]} · ${h.p[3]} · ${h.p[4] ? 'Freehold' : 'Leasehold'}`;
+      await prefillCondo(h.p);
+      const q = document.getElementById('cma_q'); if (q) q.value = h.label;
+    }
+  }
+
   function hdbFields() {
     return `
-      <div class="field"><label>Town <span style="font-weight:500;color:var(--ink-3)">· estate not listed (e.g. Potong Pasir)? type it in Street below ↓</span></label><select id="f_town">${townOpts()}</select></div>
-      <div class="field"><label>Flat type</label><select id="f_ftype"></select></div>
       <div class="field two">
-        <div><label>Floor area</label><input id="f_area" type="number" inputmode="decimal" placeholder="93"><span class="suffix">sqm</span></div>
-        <div><label>Storey</label><input id="f_storey" type="number" inputmode="numeric" placeholder="8"></div>
+        <div><label>Town</label><select id="f_town">${townOpts()}</select></div>
+        <div><label>Flat type</label><select id="f_ftype"></select></div>
+      </div>
+      <div class="opt-note">Only the place &amp; flat type are needed — the rest fills with the <b>typical unit here</b> from real caveats. Adjust any for a specific unit.</div>
+      <div class="field two">
+        <div><label>Floor area <span class="opt">optional</span></label><input id="f_area" type="number" inputmode="decimal" placeholder="typical"><span class="suffix">sqm</span></div>
+        <div><label>Storey <span class="opt">optional</span></label><input id="f_storey" type="number" inputmode="numeric" placeholder="mid-floor"></div>
       </div>
       <div class="field two">
-        <div><label>Lease left</label><input id="f_lease" type="number" inputmode="numeric" placeholder="92"><span class="suffix">yrs</span></div>
-        <div><label>Block</label><input id="f_block" placeholder="406"></div>
+        <div><label>Lease left <span class="opt">auto</span></label><input id="f_lease" type="number" inputmode="numeric" placeholder="from block"><span class="suffix">yrs</span></div>
+        <div><label>Block <span class="opt">optional</span></label><input id="f_block" placeholder="e.g. 406"></div>
       </div>
-      <div class="field ac-wrap"><label>Street / estate <span style="font-weight:500;color:var(--ink-3)">· sets town &amp; sharpens comps</span></label>
-        <input id="f_street" autocomplete="off" placeholder="e.g. Potong Pasir, or Ang Mo Kio Ave 10">
-        <div class="ac-list" id="f_streetac" style="display:none"></div></div>`;
+      <input type="hidden" id="f_street">`;
+  }
+  async function prefillHdb() {
+    const town = val('f_town'), ft = val('f_ftype'), block = val('f_block');
+    const def = await hdbDefaults(town, ft, block);
+    const set = (id, v, sfx) => { const el = document.getElementById(id); if (el && v != null) el.placeholder = v + (sfx || ''); };
+    set('f_area', def.area, '');
+    set('f_storey', def.storey, '');
+    set('f_lease', def.leaseY, '');
   }
   async function wireHdb() {
     const town = document.getElementById('f_town'), ft = document.getElementById('f_ftype');
-    const fill = () => { ft.innerHTML = (IDX.hdb_towns[town.value] || []).map(t => `<option>${t}</option>`).join(''); };
-    town.onchange = fill; fill();
-    // street/estate search → resolves the HDB town (e.g. Potong Pasir → Toa Payoh)
-    const inp = document.getElementById('f_street'), ac = document.getElementById('f_streetac');
-    let STREETS = null;
-    inp.oninput = async () => {
-      const q = inp.value.trim().toUpperCase();
-      if (q.length < 3) { ac.style.display = 'none'; return; }
-      if (!STREETS) STREETS = await C.hdbStreets();
-      const hits = STREETS.filter(s => s.street.includes(q)).slice(0, 8);
-      if (!hits.length) { ac.style.display = 'none'; return; }
-      ac.innerHTML = hits.map(s => `<div data-st="${escAttr(s.street)}" data-tn="${escAttr(s.town)}">
-        ${Narrative.titleCase(s.street)} <span class="ac-meta">· ${Narrative.titleCase(s.town)}</span></div>`).join('');
-      ac.style.display = 'block';
-      ac.querySelectorAll('div').forEach(d => d.onclick = () => {
-        inp.value = Narrative.titleCase(d.dataset.st);
-        if ([...town.options].some(o => o.value === d.dataset.tn)) { town.value = d.dataset.tn; fill(); }
-        ac.style.display = 'none';
-      });
-    };
-    document.addEventListener('click', e => { if (!ac.contains(e.target) && e.target !== inp) ac.style.display = 'none'; });
+    const fill = () => { ft.innerHTML = (IDX.hdb_towns[town.value] || []).map(t => `<option>${t}</option>`).join(''); prefillHdb(); };
+    town.onchange = fill; ft.onchange = prefillHdb;
+    const blk = document.getElementById('f_block'); if (blk) blk.onchange = prefillHdb;
+    fill();
   }
 
   function condoFields() {
@@ -75,11 +115,20 @@ const CMA = (() => {
         <input type="hidden" id="f_projmeta">
         <div class="ac-list" id="f_ac" style="display:none"></div>
       </div>
+      <div class="opt-note">Pick a project and you'll get a valuation for its <b>typical unit</b>. Set size / floor for a specific one.</div>
       <div class="field two">
-        <div><label>Floor area</label><input id="f_area" type="number" inputmode="decimal" placeholder="90"><span class="suffix">sqm</span></div>
-        <div><label>Floor level</label><input id="f_floor" type="number" inputmode="numeric" placeholder="12"></div>
+        <div><label>Floor area <span class="opt">optional</span></label><input id="f_area" type="number" inputmode="decimal" placeholder="typical"><span class="suffix">sqm</span></div>
+        <div><label>Floor level <span class="opt">optional</span></label><input id="f_floor" type="number" inputmode="numeric" placeholder="mid"></div>
       </div>
       <div class="field"><div id="f_projinfo" class="hint"></div></div>`;
+  }
+  async function prefillCondo(p) {
+    if (!p) return;
+    const own = (await C.condoDistrict(p[1])).filter(r => r.project === p[0]);
+    if (!own.length) return;
+    const a = document.getElementById('f_area'), f = document.getElementById('f_floor');
+    if (a) a.placeholder = Math.round(medOf(own.map(r => r.area_sqm))) + '';
+    if (f) f.placeholder = medOf(own.map(r => r.floor_mid)) + '';
   }
   function wireCondo() {
     const inp = document.getElementById('f_project'), ac = document.getElementById('f_ac');
@@ -96,6 +145,7 @@ const CMA = (() => {
         const p = JSON.parse(d.getAttribute('data-p'));
         inp.value = Narrative.titleCase(p[0]); meta.value = JSON.stringify(p); ac.style.display = 'none';
         info.textContent = `District ${p[1]} · ${p[2]} · ${p[3]} · ${p[4] ? 'Freehold' : 'Leasehold'}`;
+        prefillCondo(p);
       });
     };
     document.addEventListener('click', e => { if (!ac.contains(e.target) && e.target !== inp) ac.style.display = 'none'; });
@@ -218,13 +268,37 @@ const CMA = (() => {
     res.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
+  // median of a numeric list (ignoring null/NaN)
+  function medOf(arr) { const a = arr.filter(x => x != null && !isNaN(x)).sort((x, y) => x - y); return a.length ? a[Math.floor(a.length / 2)] : null; }
+
+  // data-driven defaults for a town+flat-type, from the actual comps (block sharpens lease)
+  async function hdbDefaults(town, ft, block) {
+    if (!town || !ft) return {};
+    const rows = (await C.hdbTown(town)).filter(r => r.flat_type === ft);
+    if (!rows.length) return {};
+    const blk = block ? rows.filter(r => String(r.block).toUpperCase() === String(block).toUpperCase()) : [];
+    return {
+      area: Math.round(medOf(rows.map(r => r.area_sqm))),
+      storey: medOf(rows.map(r => r.storey_mid)),
+      leaseY: Math.round((medOf((blk.length ? blk : rows).map(r => r.rem_lease_mths)) || 0) / 12),
+      n: rows.length,
+    };
+  }
+
   async function genHdb(res) {
-    const town = val('f_town'), ft = val('f_ftype'), area = +val('f_area'),
-      storey = +val('f_storey'), leaseY = +val('f_lease'), block = val('f_block'), street = val('f_street');
-    if (!town) throw new Error('Pick a town to value an HDB flat.');
-    if (!area || !storey) throw new Error('Enter at least floor area and storey.');
+    const town = val('f_town'), ft = val('f_ftype'), block = val('f_block'), street = val('f_street');
+    let area = +val('f_area'), storey = +val('f_storey'), leaseY = +val('f_lease');
+    if (!town) throw new Error('Search or pick a place to value an HDB flat.');
+    if (!ft) throw new Error('Pick a flat type.');
     const rows = await C.hdbTown(town);
-    const subj = { flat_type: ft, area_sqm: area, storey_mid: storey,
+    // only location + flat type are required — area / storey / lease default to the typical unit here
+    const def = await hdbDefaults(town, ft, block);
+    if (def.area == null) throw new Error('No recent ' + Narrative.titleCase(ft) + ' transactions in ' + Narrative.titleCase(town) + ' to value against.');
+    const usedDefaults = [];
+    if (!area) { area = def.area; usedDefaults.push('size'); }
+    if (!storey) { storey = def.storey; usedDefaults.push('floor'); }
+    if (!leaseY) { leaseY = def.leaseY; usedDefaults.push('lease'); }
+    const subj = { flat_type: ft, area_sqm: area, storey_mid: storey, defaults: usedDefaults,
       rem_lease_mths: leaseY ? Math.round(leaseY * 12) : null, street: street ? street.toUpperCase() : null, town };
     const r = Engines.hdbEstimate(rows, subj);
     if (!r.ok) throw new Error(r.reason);
@@ -248,12 +322,16 @@ const CMA = (() => {
   }
 
   async function genCondo(res) {
-    const meta = val('f_projmeta'); if (!meta) throw new Error('Pick a project from the list.');
-    const p = JSON.parse(meta); const area = +val('f_area'), floor = +val('f_floor');
-    if (!area || !floor) throw new Error('Enter floor area and floor level.');
+    const meta = val('f_projmeta'); if (!meta) throw new Error('Search or pick a condo project.');
+    const p = JSON.parse(meta); let area = +val('f_area'), floor = +val('f_floor');
     const rows = await C.condoDistrict(p[1]);
+    const own = rows.filter(r => r.project === p[0]);
+    if (!own.length) throw new Error('No recent transactions at ' + Narrative.titleCase(p[0]) + ' to value against.');
+    const usedDefaults = [];
+    if (!area) { area = Math.round(medOf(own.map(r => r.area_sqm))); usedDefaults.push('size'); }
+    if (!floor) { floor = medOf(own.map(r => r.floor_mid)); usedDefaults.push('floor'); }
     const subj = { project: p[0], district: p[1], seg: p[2], ptype: p[3], tenure_fh: p[4],
-      area_sqm: area, floor_mid: floor };
+      area_sqm: area, floor_mid: floor, defaults: usedDefaults };
     const r = Engines.condoEstimate(rows, subj);
     if (!r.ok) throw new Error(r.reason);
     // rental + gross yield (if the project has enough recent leases)
@@ -298,6 +376,7 @@ const CMA = (() => {
           <div class="chip ${cc}"><span class="chip-dot"></span>${r.confidence} confidence</div>
         </div>
       </div>
+      ${(subj.defaults && subj.defaults.length) ? `<div class="deck-default">📐 <b>Typical-unit estimate</b> — ${subj.defaults.join(' & ')} ${subj.defaults.length > 1 ? 'were' : 'was'} set to the median for this ${kind === 'hdb' ? Narrative.titleCase(subj.flat_type) + ' in ' + Narrative.titleCase(subj.town) : 'project'}. Enter the actual unit details above to sharpen it to a specific home.</div>` : ''}
 
       <div class="estimate">
         <div class="est-main">
