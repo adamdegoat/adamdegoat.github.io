@@ -252,6 +252,7 @@ const VIEWS={
 };
 
 function barCol(p){return p>=66?'var(--green)':p>=40?'var(--blue)':p>=25?'var(--amber)':'var(--red)';}
+function gcol(g){return ({A:'#3ad6a4',B:'#7bb8ee',C:'#e6b566',D:'#ec8079',F:'#ec8079'})[gletter(g)]||'var(--ink)';}
 function rowHtml(p){
   const dc=p.discount>0?'pos':p.discount<0?'neg':'';
   return `<tr data-p="${esc(p.project)}"><td><span class="g ${gletter(p.grade)}">${p.grade}</span></td>
@@ -262,7 +263,7 @@ function rowHtml(p){
    <td class="r ${sg(p.mom)}">${p.mom==null?'—':(p.mom>0?'+':'')+p.mom+'%'}</td>
    <td class="r hide-sm">${p.yield?p.yield+'%':'—'}</td>
    <td class="r">${p.txns}</td>
-   <td class="r" style="color:var(--ink);font-weight:600">${p.score}</td></tr>`;
+   <td class="r" style="color:${gcol(p.grade)};font-weight:700">${p.score}</td></tr>`;
 }
 function launchRow(l){
   const cls=l.assess.includes('line')?'ok':l.assess.includes('typical')?'mid':l.assess.includes('Stretched')?'hi':l.assess.includes('Steep')?'steep':'';

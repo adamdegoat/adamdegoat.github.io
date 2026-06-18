@@ -134,9 +134,12 @@ footer .disc{font-size:12px;max-width:70ch;margin:14px auto 0;line-height:1.6}
 .next-card h3{font-family:var(--serif);font-size:25px;font-weight:600;margin-bottom:10px}
 .next-card p{color:var(--ink-2);font-size:15px;max-width:52ch;margin:0 auto 16px;line-height:1.6}
 .next-card .soon-note{font-size:12px;font-weight:700;color:var(--ink-3);text-transform:uppercase;letter-spacing:.08em}
+.flag.rev{grid-template-columns:.95fr 1.05fr}
+.flag.rev .ft-media{order:2}.flag.rev .ft-body{order:1}
 @media(max-width:880px){
   .hero h1{font-size:42px}.hero .sub{font-size:16px}
-  .flag{grid-template-columns:1fr}.flag .ft-media{padding:28px 24px 0}
+  .flag,.flag.rev{grid-template-columns:1fr}.flag .ft-media{padding:28px 24px 0}
+  .flag.rev .ft-media{order:0}.flag.rev .ft-body{order:0}
   .grid3{grid-template-columns:1fr}.pillars{grid-template-columns:1fr;gap:22px}
   .stats{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:0}.stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line-2)}
   .approach{padding:36px 24px}.h2{font-size:30px}
@@ -207,7 +210,7 @@ footer .disc{font-size:12px;max-width:70ch;margin:14px auto 0;line-height:1.6}
     <!-- Tool 02 -->
     <div class="tool">
       <div class="tool-head"><span class="tnum">02</span><span class="tname">Thesis</span><span class="sp"></span><span class="badge-live"><span class="pulse"></span>Live now · research engine</span></div>
-      <div class="flag">
+      <div class="flag rev">
         <div class="ft-media">
           <div class="browser">
             <div class="bar"><i></i><i></i><i></i><span class="u">adamdegoat.github.io/thesis</span></div>
