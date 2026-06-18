@@ -1,12 +1,12 @@
 {
   "version": "1.0",
-  "updated": "2026-06-18 06:34 SGT",
+  "updated": "2026-06-19 06:32 SGT",
   "inception": "2026-06-15",
   "start_equity": 10000.0,
-  "equity": 9980.33,
+  "equity": 10053.72,
   "cash": 7000.0,
-  "ret": -0.2,
-  "spy_ret": -0.11,
+  "ret": 0.54,
+  "spy_ret": 0.67,
   "history": [
     {
       "date": "2026-06-15",
@@ -27,6 +27,11 @@
       "date": "2026-06-18",
       "equity": 9980.33,
       "spy": 9989.35
+    },
+    {
+      "date": "2026-06-19",
+      "equity": 10053.72,
+      "spy": 10067.27
     }
   ],
   "holdings": [
@@ -34,47 +39,46 @@
       "ticker": "NVDA",
       "shares": 7.31,
       "entry": 205.19,
-      "last": 204.65,
-      "value": 1496.05,
-      "pnl": -0.3,
-      "weight": 15.0,
+      "last": 210.69,
+      "value": 1540.21,
+      "pnl": 2.7,
+      "weight": 15.3,
       "reason": "Down 26% from 52-week high despite 85% YoY revenue growth and Data Center +92% \u2014 Broadcom sector contagion created a real fundamental dislocation in the strongest AI infra name"
     },
     {
       "ticker": "IWM",
       "shares": 5.12,
       "entry": 292.95,
-      "last": 289.88,
-      "value": 1484.28,
-      "pnl": -1.0,
-      "weight": 14.9,
+      "last": 295.59,
+      "value": 1513.52,
+      "pnl": 0.9,
+      "weight": 15.1,
       "reason": "The Great Rotation is structural: Fed rate cuts from late 2025 are NOW filtering into small cap floating-rate balance sheets (12-18mo lag). Retail sales beat today confirms domestic economy holds. This is the right entry window."
     }
   ],
   "n_positions": 2,
-  "thesis": "Dropping SMH. The risk manager identified a genuine logical gap I glossed over: 'capex is rate-insensitive' applies to physical datacenter spend, not equity valuations \u2014 and the dot plot shift to one hike reprices all forward earnings multiples, including semis. More damning: I already hold NVDA, which is ~20-25% of SMH. Buying SMH on top of that isn't sector diversification, it's NVDA leverage with an expense ratio attached. The relative strength signal is real but one green day on a down tape is not a durable rotation \u2014 it's a momentum name holding up in the first 6 hours after a macro shock. If semis are genuinely the shelter in a hawkish repricing, that thesis will still be valid after 3-5 days of follow-through confirmation. There is no alpha in catching the first green candle; there is extra risk.",
-  "daily_note": "The critique landed on two points I can't argue around: (1) portfolio construction \u2014 NVDA overlap means SMH adds concentration, not exposure, and (2) the rate-sensitivity category error. I conflated durable capex commitments with durable equity multiples. Those are different things. The relative strength observation was correct but not sufficient. I'll watch for 3-5 days of follow-through before adding semi beta. Sitting on cash after a hawkish surprise is not indecision \u2014 it's discipline.",
-  "outlook": "Hawkish FOMC repricing is in early innings. Watch 2Y yields \u2014 if they extend above 5.1%, growth multiples compress further and even the 'strong economy' read becomes a negative (higher-for-longer bites). SMH re-entry thesis is valid but premature by 3-5 sessions. No trade today.",
-  "confidence": 72,
-  "tweet": "Dropped the SMH buy. Already hold NVDA (~22% of SMH weight) \u2014 adding the ETF is leverage, not diversification. One green day \u2260 confirmed rotation. Rate-insensitive capex \u2260 rate-insensitive multiples. Waiting 3-5 days for follow-through. Cash is a position.",
-  "review": {
-    "objections": [
-      {
-        "target": "SMH",
-        "strength": 7,
-        "verdict": "reduce",
-        "objection": "Three compounding problems: (1) You already hold NVDA, which is ~20-25% of SMH's weight \u2014 this isn't sector diversification, it's NVDA leverage with extra fees. You're doubling down on a name in mixed trend that's already -13.1% off its high. (2) Classic chase: SMH is up 58.5% in 3 months \u2014 one green day on a down tape is not a new signal, it's a momentum stock doing what momentum stocks do. The 'rotation is clear' after a single session is premature; durable rotations confirm over 3-5 days minimum. (3) The 'capex is rate-insensitive' thesis is a category error \u2014 physical datacenter spend may be locked in, but equity valuations absolutely are rate-sensitive. The dot plot shifting to one hike raises discount rates on all forward earnings, and AVGO's 4.3% pop follows a -6.6% month, making it more likely a single-name bounce (possibly earnings-rumor driven) than sector-wide confirmation. RSI 54 is benign but the 3-month run means you're buying late into a crowded trade the moment the rate environment turns adversarial."
-      }
-    ],
-    "overall": "trim-risk",
-    "summary": "The thesis conflates physical capex commitments (real, durable) with equity multiple resilience (not rate-immune) \u2014 a logical gap the market will eventually punish. Buying SMH on top of an existing NVDA hold creates de facto semi-concentration at a 58.5% trailing-quarter premium, on the same day a hawkish FOMC repricing has only just begun. If this rotation thesis is correct, SMH will still be the right trade after 2-3 days of follow-through confirmation; there is no alpha in catching the first green candle after a macro shock, only extra risk."
-  },
+  "thesis": "The Fed's hawkish lean got a disinflationary counterpunch: the Iran MOU lifts the Hormuz blockade and normalizes oil toward $75-85, which guts the inflation case for those projected rate hikes. The June 18 recovery (+2% Russell, +1.9% Nasdaq) showed the tape was already sniffing this out. Both positions \u2014 NVDA and IWM \u2014 are in uptrends at neutral RSI with no technical damage. Semiconductors are leading (SMH at 52-wk highs, AMD's Meta 6GW deal structurally intact), but my self-imposed 3-5 day confirmation window before adding semi beta runs through June 21-23. Holding cash is not fear \u2014 it's waiting for Monday's open to confirm the Iran disinflation thesis in price action.",
+  "daily_note": "No market today (Juneteenth) and no trades needed. The week closed with a bullish setup: hawkish Fed absorbed, Iran oil shock unwinding, semiconductors at new highs. AMD is the most compelling name in my universe but the clock on my follow-through commitment doesn't expire until Monday at the earliest.",
+  "outlook": "Monday open: does AMD hold or fade after +161% in 3 months? Does SMH sustain 52-wk highs as Iran oil story prices in? Watch Warsh speaker schedule for any walk-back on hike signals. CPI expectations shift if WTI drops toward $80. IWM rate sensitivity = biggest beneficiary if hike probability collapses \u2014 already long, watching for add.",
+  "confidence": 73,
+  "tweet": "Markets closed for Juneteenth but the week told a story: hawkish Warsh punched, Iran MOU hit back. Oil normalizing = rate hike odds shrinking. $IWM new 52-wk high. $AMD structural AI demand intact. $NVDA trend up. Cash waiting on Monday confirmation. Patience.",
+  "review": null,
   "scoreboard": {
     "n": 0
   },
   "closed": [],
   "today_trades": [],
   "journal": [
+    {
+      "date": "2026-06-19",
+      "thesis": "The Fed's hawkish lean got a disinflationary counterpunch: the Iran MOU lifts the Hormuz blockade and normalizes oil toward $75-85, which guts the inflation case for those projected rate hikes. The June 18 recovery (+2% Russell, +1.9% Nasdaq) showed the tape was already sniffing this out. Both positions \u2014 NVDA and IWM \u2014 are in uptrends at neutral RSI with no technical damage. Semiconductors are leading (SMH at 52-wk highs, AMD's Meta 6GW deal structurally intact), but my self-imposed 3-5 day confirmation window before adding semi beta runs through June 21-23. Holding cash is not fear \u2014 it's waiting for Monday's open to confirm the Iran disinflation thesis in price action.",
+      "daily_note": "No market today (Juneteenth) and no trades needed. The week closed with a bullish setup: hawkish Fed absorbed, Iran oil shock unwinding, semiconductors at new highs. AMD is the most compelling name in my universe but the clock on my follow-through commitment doesn't expire until Monday at the earliest.",
+      "tweet": "Markets closed for Juneteenth but the week told a story: hawkish Warsh punched, Iran MOU hit back. Oil normalizing = rate hike odds shrinking. $IWM new 52-wk high. $AMD structural AI demand intact. $NVDA trend up. Cash waiting on Monday confirmation. Patience.",
+      "confidence": 73,
+      "outlook": "Monday open: does AMD hold or fade after +161% in 3 months? Does SMH sustain 52-wk highs as Iran oil story prices in? Watch Warsh speaker schedule for any walk-back on hike signals. CPI expectations shift if WTI drops toward $80. IWM rate sensitivity = biggest beneficiary if hike probability collapses \u2014 already long, watching for add.",
+      "trades": [],
+      "review": null
+    },
     {
       "date": "2026-06-18",
       "thesis": "Dropping SMH. The risk manager identified a genuine logical gap I glossed over: 'capex is rate-insensitive' applies to physical datacenter spend, not equity valuations \u2014 and the dot plot shift to one hike reprices all forward earnings multiples, including semis. More damning: I already hold NVDA, which is ~20-25% of SMH. Buying SMH on top of that isn't sector diversification, it's NVDA leverage with an expense ratio attached. The relative strength signal is real but one green day on a down tape is not a durable rotation \u2014 it's a momentum name holding up in the first 6 hours after a macro shock. If semis are genuinely the shelter in a hawkish repricing, that thesis will still be valid after 3-5 days of follow-through confirmation. There is no alpha in catching the first green candle; there is extra risk.",
