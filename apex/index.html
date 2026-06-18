@@ -142,7 +142,7 @@ function capCat(m,fallback){
   return{l,v};
 }
 let D=null,TAB='conviction',SORT={k:'score',dir:-1},FILT={q:'',sector:'',verdict:''};
-const TABS=[['conviction','★','Top 5'],['buys','🎯','Top Buys'],['board','▦','Leaderboard'],['avoid','⚠️','Avoid'],['sectors','🧩','Sectors'],['method','📐','Methodology']];
+const TABS=[['conviction','★','Top 5'],['buys','🎯','Top Buys'],['board','▦','Leaderboard'],['avoid','⚠️','Avoid'],['sectors','🧩','Sectors'],['learning','🧠','Learning'],['method','📐','Methodology']];
 const FACS=['momentum','trend','rel_strength','low_vol','structure','quality','value','growth'];
 const FLAB={momentum:'Momentum',trend:'Trend',rel_strength:'Rel. Strength',low_vol:'Low Vol',structure:'Structure',quality:'Quality',value:'Value',growth:'Growth'};
 
@@ -232,6 +232,27 @@ const VIEWS={
   return `<div class="panel" style="margin-top:0"><h2>🧩 Sector strength <span class="pill">avg grade by sector · where the leadership is</span></h2>
    ${(d.sectors||[]).map(s=>`<div class="bar-row"><div class="lab">${s.sector}<div class="mini">${s.buys} buys · ${s.n} names</div></div><div class="bar-track"><div class="bar-fill" style="width:${Math.max(4,s.avg/mx*100)}%"></div></div><div class="val">${s.avg}</div></div>`).join('')}
    <div class="note" style="margin-top:12px">Average composite score per sector. Higher = the sector's stocks are scoring well as a group → that's where the market's leadership is. Apex tilts you toward strong sectors.</div></div>`;
+ },
+ learning:d=>{
+  const L=d.learning||{};const v=d.validation;const live=L.live;
+  return `<div class="panel" style="margin-top:0"><h2>🧠 Is Apex learning? <span class="pill">honest progress · no fake curves</span></h2>
+    <div class="note">Apex is built to be <b>self-improving</b>: it records its grades every day, and once it's banked enough forward outcomes it will <b>re-weight its factors toward what's actually predicting returns</b>. Until then it runs on the <b>validated static</b> model. This page shows the *real* progress — including live, out-of-sample evidence that its grades are working. I won't show a fake "getting smarter" curve before there's signal to back it.</div></div>
+  <div class="panel"><h2>📈 Runway to adaptive learning</h2>
+    <div class="bar-row"><div class="lab">Snapshots banked</div><div class="bar-track"><div class="bar-fill" style="width:${L.progress||0}%"></div></div><div class="val">${L.snapshots||0}/${L.threshold||30}</div></div>
+    <div class="note" style="margin-top:10px">Each daily scan records its grades. At <b>${L.threshold||30}</b> snapshots (~6 weeks), there's enough forward data to <b>activate &amp; validate adaptive factor-weighting</b> — and Apex will Telegram you the moment it's ready. Status: <b style="color:${L.adaptive_active?'var(--green)':'var(--amber)'}">${L.adaptive_active?'ADAPTIVE ACTIVE':'collecting data — adaptive not yet active'}</b>.</div></div>
+  ${live?`<div class="panel"><h2>🎯 Live forward tracker <span class="pill">are the grades actually working? · ${live.days} day${live.days===1?'':'s'} in</span></h2>
+    <div class="note" style="margin-bottom:14px">Each day Apex tags its <b>top-graded</b> and <b>bottom-graded</b> stocks, then tracks how those two cohorts <b>actually perform after</b> — live, out-of-sample. If the grades carry edge, the top cohort should beat the bottom over time.</div>
+    <div class="kpis" style="grid-template-columns:repeat(3,1fr)">
+      <div class="kpi"><div class="k">Top-graded cohort</div><div class="v ${live.top_ret>=0?'pos':'neg'}">${live.top_ret>=0?'+':''}${live.top_ret}%</div><div class="s">avg return since graded</div></div>
+      <div class="kpi"><div class="k">Bottom-graded cohort</div><div class="v ${live.bottom_ret>=0?'pos':'neg'}">${live.bottom_ret>=0?'+':''}${live.bottom_ret}%</div><div class="s">avg return since graded</div></div>
+      <div class="kpi"><div class="k">Top − Bottom (live edge)</div><div class="v ${live.spread>=0?'pos':'neg'}">${live.spread>=0?'+':''}${live.spread}%</div><div class="s">should grow if it works</div></div>
+    </div>
+    <div class="note" style="margin-top:12px;color:var(--ink3)">⚠ Only <b>${live.days} day${live.days===1?'':'s'}</b> of data so far — this is <b>noise right now, not signal</b>. It becomes meaningful over weeks. Shown so you can watch the real edge build (or not) — honestly, not retrofitted.</div></div>`
+   :`<div class="panel"><h2>🎯 Live forward tracker</h2><div class="empty">Live tracking starts once there's a day of forward data — how the top-graded vs bottom-graded cohorts actually perform will appear here and grow daily.</div></div>`}
+  ${v?`<div class="panel"><h2>🏆 The validated foundation <span class="pill">backtest · what the live learning builds on</span></h2>
+    <div class="note">Before any of this, the grading model was <b>backtested</b>: across ${v.periods} periods, the top-quintile grades returned <b class="pos">+${v.top_q}%</b> vs the bottom's <b class="pos">+${v.bot_q}%</b> over the next ${v.fwd_days} days — <b>monotonic</b>, positive information coefficient (IC <b>${v.ic}</b>). So the static model the live tracker measures is <i>already proven</i> to predict. Full detail on the Methodology tab.</div></div>`:''}
+  <div class="panel"><h2>🔜 What activates at the milestone</h2>
+    <div class="note">Once banked, Apex will: ① compute each factor's <b>live Information Coefficient</b>, ② <b>slowly re-weight</b> toward what's working in the current regime (walk-forward, regularized — signal not noise), and ③ <b>backtest that adaptive beats static</b> — only switching it on if it genuinely helps; if not, it stays static and tells you straight. <span style="color:var(--ink3)">A validated static model beats a noise-chasing 'self-improving' one — so the bar to flip it on is real.</span></div></div>`;
  },
  method:d=>{
   const W=d.weights||{};const mw=Math.max(...Object.values(W),0.01);const v=d.validation;
