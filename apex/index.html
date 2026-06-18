@@ -200,6 +200,22 @@ function applyFilt(list){
 function sortBy(k){if(SORT.k===k)SORT.dir*=-1;else{SORT.k=k;SORT.dir=(k==='ticker'||k==='sector'||k==='setup')?1:-1;}go('board');}
 function setFilt(k,v){FILT[k]=v;go('board');}
 
+function changesBanner(d){
+  const ch=d.changes;if(!ch)return '';
+  const items=[];
+  (ch.added_conviction||[]).forEach(a=>items.push(`<span style="color:var(--green);font-weight:600">🟢 New hold: ${a.ticker}</span>${a.name?` <span style="color:var(--ink3)">${a.name}</span>`:''}`));
+  (ch.dropped_conviction||[]).forEach(x=>items.push(`<span style="color:var(--red);font-weight:600">🔴 Dropped: ${x.ticker}</span> <span style="color:var(--ink3)">(${x.why})</span>`));
+  (ch.downgrades||[]).slice(0,4).forEach(x=>items.push(`<span style="color:var(--amber)">⬇ ${x.ticker} no longer a buy → ${x.to}</span>`));
+  const nb=(ch.new_buys||[]).length, mv=(ch.movers||[]);
+  const head=`<div class="panel" style="margin-top:0;border-color:rgba(56,189,248,.25)"><h2>📣 What changed <span class="pill">since ${ch.prev_date||'last run'}</span></h2>`;
+  if(!items.length&&!nb&&!mv.length)return head+`<div class="note">No change to the Conviction book or buy list since the last run — steady as it goes.</div></div>`;
+  let body=items.length?`<div style="display:flex;flex-direction:column;gap:6px;font-size:13px">${items.map(i=>`<div>${i}</div>`).join('')}</div>`:`<div class="note">No change to the held book.</div>`;
+  const extra=[];
+  if(nb)extra.push(`<b>${nb}</b> new buy${nb>1?'s':''}`);
+  if(mv.length)extra.push(`biggest movers: ${mv.slice(0,4).map(m=>`${m.ticker} <span class="${m.delta>=0?'pos':'neg'}">${m.delta>=0?'+':''}${m.delta}</span>`).join(' · ')}`);
+  if(extra.length)body+=`<div class="note" style="margin-top:10px;color:var(--ink3)">${extra.join(' · ')}</div>`;
+  return head+body+`</div>`;
+}
 const VIEWS={
  conviction:d=>{
   const c=d.conviction||[];const reg=d.regime||{};
@@ -213,8 +229,9 @@ const VIEWS={
      ${secs.length?`<span>·</span><span>Sector mix: ${secs.map(e=>`${e[0]} ×${e[1]}`).join(' · ')}</span>`:''}
      ${conc?`<span style="color:var(--amber);font-weight:600">⚠ concentrated in one sector — correlated risk</span>`:''}
    </div></div>`;
-  if(!c.length)return head+`<div class="panel"><div class="empty">No high-conviction, skeptic-confirmed buys cleared the bar today — an honest "nothing worth concentrating into right now." The broader Top Buys and Leaderboard are still there for the full picture.</div></div>`;
-  return head+`<div class="cards" style="margin-top:16px">${c.map(buyCard).join('')}</div>`;
+  const banner=changesBanner(d);
+  if(!c.length)return banner+head+`<div class="panel"><div class="empty">No high-conviction, skeptic-confirmed buys cleared the bar today — an honest "nothing worth concentrating into right now." The broader Top Buys and Leaderboard are still there for the full picture.</div></div>`;
+  return banner+head+`<div class="cards" style="margin-top:16px">${c.map(buyCard).join('')}</div>`;
  },
  buys:d=>{
   const reg=d.regime||{};const rc=reg.label==='Risk-on'?'var(--green)':reg.label==='Risk-off'?'var(--red)':'var(--amber)';
@@ -291,7 +308,7 @@ const VIEWS={
   <div class="panel"><h2>★ Conviction Top 3 <span class="pill">the "hold up to 3" mega-cap shortlist</span></h2>
    <div class="note">From all the buys, Apex distils a curated shortlist of <b>up to 3 names to hold right now</b>, built for a concentrated book. A name makes the Top 3 only if it: ① grades among the highest, ② is bought at a <b>smart entry</b> (pullback / early breakout, not chasing), ③ <b>survives the adversarial skeptic</b>, ④ is a <b>US mega-cap</b> (market cap ≥ $200B — the giants you can size into and exit cleanly), and ⑤ <b>isn't being cut by analysts</b> (the revision gate — no concentrating into deteriorating estimates). There's <b>no sector cap</b> — it's the purest top 3 — but the page shows the sector mix and flags it if too many land in one sector (correlated risk). Each pick also shows a <b>score-proportional suggested weight</b>, its <b>tenure</b> on the buy list, and an <b>earnings-soon flag</b>. The full ~900-stock grading stays underneath; the Top 3 is just the actionable distillation. <span style="color:var(--ink3)">Note: a concentrated 3-stock book carries more single-name variance than the diversified factor model the backtest validates — that's the nature of concentration.</span></div></div>
   ${v?`<div class="panel"><h2>🏆 Validation <span class="pill">walk-forward backtest · does the grade actually predict?</span></h2>
-   <div class="note" style="margin-bottom:14px">Across <b>${v.periods} monthly periods</b> on ${v.names} stocks, we ranked the universe by the factor model into quintiles and measured each quintile's <b>forward ${v.fwd_days}-day return</b>. If the model has edge, the top quintile (Q5) should beat the bottom (Q1).</div>
+   <div class="note" style="margin-bottom:14px">Across <b>${v.periods} monthly periods${v.hist_years?` (~${v.hist_years} years)`:''}</b> on ${v.names} stocks, we ranked the universe by the <b>actual weighted price model</b> into quintiles and measured each quintile's <b>forward ${v.fwd_days}-day return</b>. If the model has edge, the top quintile (Q5) should beat the bottom (Q1). <span style="color:var(--ink3)">These are real ~monthly-horizon numbers over a full multi-regime sample — modest by design (factor edges are small but persistent); an earlier 2-year window flattered them.</span></div>
    ${(()=>{const q=v.q_returns;const lo=Math.min(...q,0),hi=Math.max(...q);const rng=hi-lo||1;return q.map((r,i)=>`<div class="bar-row"><div class="lab">Q${i+1}${i===4?' (best)':i===0?' (worst)':''}</div><div class="bar-track" style="background:var(--panelh);position:relative"><div class="bar-fill" style="width:${Math.abs(r)/Math.max(Math.abs(lo),hi)*100}%;background:${r>=0?'linear-gradient(90deg,var(--blue),var(--cyan))':'var(--red)'}"></div></div><div class="val ${sg(r)}">${pc(r)}</div></div>`).join('');})()}
    <div class="scgrid" style="margin-top:16px">
      <div class="scstat"><div class="k">Information Coefficient</div><div class="v ${sg(v.ic)}">${v.ic}</div></div>
@@ -300,6 +317,10 @@ const VIEWS={
      <div class="scstat"><div class="k">Periods tested</div><div class="v">${v.periods}</div></div>
    </div>
    <div class="note" style="margin-top:12px;color:var(--ink3)">A positive IC and a positive Q5−Q1 spread mean the grades carry real predictive signal (not just a pretty screen). This is the honesty check — if it stops working, you'll see it here.</div>
+   ${v.factor_ic?(()=>{const fi=v.factor_ic;const fs=['momentum','trend','rel_strength','low_vol','structure'].filter(f=>fi[f]!=null);const mx=Math.max(...fs.map(f=>Math.abs(fi[f])),0.01);return `<div style="margin-top:18px;padding-top:16px;border-top:1px solid var(--line)"><div style="font-size:11px;color:var(--cyan);text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:4px">Which factors carry the model (per-factor IC, ${v.hist_years||5}yr)</div>
+   <div class="note" style="margin-bottom:12px">This is what drove the <b>2026-06-18 re-weight</b>: low-vol was a robust <b>raw-return drag</b> (negative IC across both out-of-sample halves) so its weight was cut 10%→4%; momentum (the strongest) was raised and structure (underweighted) bumped — lifting the composite IC and improving both OOS halves.</div>
+   ${fs.map(f=>{const val=fi[f];const w=Math.abs(val)/mx*100;const pos=val>=0;return `<div class="bar-row"><div class="lab">${FLAB[f]}</div><div class="bar-track" style="background:var(--panelh);position:relative;display:flex;justify-content:${pos?'flex-start':'flex-end'}"><div class="bar-fill" style="width:${w}%;background:${pos?'linear-gradient(90deg,var(--blue),var(--cyan))':'var(--red)'}"></div></div><div class="val ${sg(val)}">${val>=0?'+':''}${val.toFixed(3)}</div></div>`;}).join('')}
+   <div class="note" style="margin-top:8px;color:var(--ink3)">Fundamentals (quality/value/growth) aren't shown here — free data has no point-in-time history to backtest them, so they're held at documented-prior weights and the forward tracker (Learning tab) validates them over time.</div></div>`;})():''}
    ${v.mega?`<div style="margin-top:18px;padding-top:16px;border-top:1px solid var(--line)"><div style="font-size:11px;color:var(--cyan);text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px">Mega-cap-specific check (≥ $200B — the actionable pool)</div>
    <div class="note" style="margin-bottom:12px">Since the Conviction book only draws from <b>US mega-caps</b>, this proves the score still ranks correctly <i>inside</i> that pool. Over ${v.mega.periods} periods on ${v.mega.names} mega-caps, the top half by score vs the bottom half:</div>
    <div class="scgrid">
