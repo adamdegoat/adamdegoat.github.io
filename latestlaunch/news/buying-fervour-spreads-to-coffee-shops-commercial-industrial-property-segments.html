@@ -43,6 +43,7 @@
     <div class="foot-brand"><span class="bmark">L</span><div><b>Latest Project Launch</b><span>By <b style="color:#cabfae">Kiwi Lim</b> · Singapore's new condo launches, in one place.</span></div></div>
     <div class="foot-cols"><div class="fcol"><span class="fch">Explore</span><a href="../index.html">New Launches</a><a href="../districts.html">By District</a><a href="../news.html">Property News</a><a href="../about.html">About Kiwi</a><a href="../contact.html">Contact</a></div><div class="fcol"><span class="fch">More</span><a href="../exec-condo.html">Executive Condos</a><a href="../dual-key.html">Dual-Key Condos</a><a href="../overseas.html">Overseas Property</a><a href="../commercial.html">Commercial</a><a href="../resale.html">Resale</a></div></div>
   </div>
+  <div class="official"><span class="off-h">Information referenced from official sources</span><div class="off-logos"><a class="offlogo" href="https://www.ura.gov.sg/Corporate/" target="_blank" rel="noopener" title="URA"><img src="../assets/img/ura-singapore.png" alt="URA Singapore" loading="lazy"></a><a class="offlogo" href="https://www.hdb.gov.sg/cs/infoweb/homepage" target="_blank" rel="noopener" title="HDB"><img src="../assets/img/hdb-singapore.png" alt="HDB Singapore" loading="lazy"></a><a class="offlogo" href="https://www.mnd.gov.sg/" target="_blank" rel="noopener" title="MND"><img src="../assets/img/mnd-singapore.jpeg" alt="MND Singapore" loading="lazy"></a><a class="offlogo" href="http://onesingapore.org/" target="_blank" rel="noopener" title="One Singapore"><img src="../assets/img/one-singapore.jpeg" alt="One Singapore Singapore" loading="lazy"></a></div></div>
   <div class="foot-bot"><span>© Latest Project Launch · Marketed by Kiwi Lim.</span><span class="disc">Information is indicative and subject to developer confirmation. Not an offer or financial advice.</span></div>
 </div></footer>
 <script>
@@ -55,5 +56,6 @@ var f=c.dataset.filter;cards.forEach(function(card){var ok=f==='all'||card.datas
 document.querySelectorAll('.lgroup').forEach(function(g){var v=[...g.querySelectorAll('[data-status]')].filter(function(x){return x.style.display!=='none';}).length;g.style.display=v?'':'none';});});});
 var cf=document.getElementById('cform');if(cf)cf.addEventListener('submit',function(ev){ev.preventDefault();cf.style.display='none';document.getElementById('cdone').style.display='block';});
 var nf=document.getElementById('nlform');if(nf)nf.addEventListener('submit',function(ev){ev.preventDefault();nf.style.display='none';document.getElementById('nldone').style.display='flex';});
+var hh=location.hash.slice(1);if(hh){var hc=document.querySelector('[data-filter="'+hh+'"]');if(hc){hc.click();var lb=document.getElementById('launches');if(lb)lb.scrollIntoView();}}
 })();
 </script></body></html>
