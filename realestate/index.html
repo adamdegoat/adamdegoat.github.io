@@ -140,6 +140,15 @@ footer .disc{font-size:12px;max-width:70ch;margin:14px auto 0;line-height:1.6}
 .next-card .soon-note{font-size:12px;font-weight:700;color:var(--ink-3);text-transform:uppercase;letter-spacing:.08em}
 .flag.rev{grid-template-columns:.95fr 1.05fr}
 .flag.rev .ft-media{order:2}.flag.rev .ft-body{order:1}
+.kit-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:780px;margin:20px auto 4px}
+.kit-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow);transition:.18s}
+.kit-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--brand)}
+.kit-card .kc-name{font-family:var(--serif);font-size:21px;font-weight:600;display:flex;align-items:center;gap:9px}
+.kit-card .kc-live{font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--brand-d);background:var(--brand-wash);border-radius:20px;padding:3px 9px}
+.kit-card .kc-d{font-size:13.5px;color:var(--ink-2);line-height:1.5}
+.kit-card .kc-go{margin-top:auto;font-weight:700;font-size:13.5px;color:var(--brand-d)}
+.kit-card:hover .kc-go{color:var(--brand)}
+@media(max-width:680px){.kit-cards{grid-template-columns:1fr;gap:12px}}
 @media(max-width:880px){
   .hero h1{font-size:42px}.hero .sub{font-size:16px}
   .flag,.flag.rev{grid-template-columns:1fr}.flag .ft-media{padding:28px 24px 0}
@@ -162,12 +171,13 @@ footer .disc{font-size:12px;max-width:70ch;margin:14px auto 0;line-height:1.6}
   <div class="wrap">
     <div class="kick"><span class="dot"></span>A Singapore property agent's toolkit</div>
     <h1>Smarter tools for <em>Singapore</em> property</h1>
-    <p class="sub"><b>Groundwork</b> is a growing toolkit I'm building to work smarter as a Singapore property agent —
-      added to <b>one real tool at a time</b>, each solving a genuine bottleneck, all on official data, not guesswork.</p>
+    <p class="sub"><b>Groundwork</b> is a growing toolkit I'm building as a Singapore property agent — <b>two tools</b> today, on one
+      source of truth: <b>Caveat</b> values the market, <b>Thesis</b> tells you what's a smart buy. All on official data, not guesswork.</p>
     <p class="byline">— Adam Phang</p>
     <div class="row">
-      <a class="btn btn-p" href="#tools">See the toolkit</a>
+      <a class="btn btn-p" href="#tools">See the toolkit ↓</a>
       <a class="btn btn-g" href="https://adamdegoat.github.io/caveat/">Open Caveat →</a>
+      <a class="btn btn-g" href="https://adamdegoat.github.io/thesis/">Open Thesis →</a>
     </div>
     <div class="stats">
       <div class="stat"><div class="n">137,766</div><div class="l">private caveats</div></div>
@@ -185,6 +195,18 @@ footer .disc{font-size:12px;max-width:70ch;margin:14px auto 0;line-height:1.6}
     <h2 class="h2">The toolkit</h2>
     <p class="lead">Groundwork grows one real tool at a time — each one earning its place by solving a genuine bottleneck in an agent's day, on the same official data. Here's what's inside.</p>
     <div class="kit-intro"><span class="kit-count">2 tools live · more in the works</span></div>
+    <div class="kit-cards">
+      <a class="kit-card" href="https://adamdegoat.github.io/caveat/">
+        <span class="kc-name">Caveat <span class="kc-live">Live</span></span>
+        <span class="kc-d">Value the market — search any home for an instant valuation, plus a live market terminal, affordability &amp; prospecting.</span>
+        <span class="kc-go">Open Caveat →</span>
+      </a>
+      <a class="kit-card" href="https://adamdegoat.github.io/thesis/">
+        <span class="kc-name">Thesis <span class="kc-live">Live</span></span>
+        <span class="kc-d">Research the buy — every condo project graded A–F on whether it's a smart buy, backtested against real prices.</span>
+        <span class="kc-go">Open Thesis →</span>
+      </a>
+    </div>
 
     <!-- Tool 01 -->
     <div class="tool">
