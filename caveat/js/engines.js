@@ -5,35 +5,52 @@ const Engines = (() => {
   // ============ HDB AVM ============
   const HDB = { STOREY: 0.004, LEASE: 0.004, HALFLIFE: 9, SIZE_TOL: 0.20, MIN: 5 };
 
-  function hdbEstimate(rows, subj) {
-    // subj: {flat_type, area_sqm, storey_mid, rem_lease_mths, street}
-    const lo = subj.area_sqm * (1 - HDB.SIZE_TOL), hi = subj.area_sqm * (1 + HDB.SIZE_TOL);
-    let base = rows.filter(r => r.flat_type === subj.flat_type && r.area_sqm >= lo && r.area_sqm <= hi);
-    if (base.length < HDB.MIN) return { ok: false, reason: `Only ${base.length} comparable transactions (need ${HDB.MIN}).` };
+  // Estate key: group streets in the same estate, ignoring road-type/number/direction
+  // tokens. "POTONG PASIR AVE 1/2/3" -> "POTONG PASIR"; "LOR 1 TOA PAYOH" -> "TOA PAYOH".
+  const ROAD_TOKENS = new Set(['AVE','AVENUE','ST','STREET','RD','ROAD','DR','DRIVE','CTRL','CENTRAL',
+    'CRES','CRESCENT','CL','CLOSE','LANE','LINK','WALK','VIEW','TER','TERRACE','PL','PLACE','GDNS',
+    'GARDENS','HTS','HEIGHTS','RISE','LOOP','GROVE','GREEN','HILL','PARK','PK','LOR','LORONG','JLN',
+    'JALAN','NTH','NORTH','STH','SOUTH','EAST','WEST','UPP','UPPER','LOWER']);
+  function estateKey(street) {
+    if (!street) return '';
+    return street.toUpperCase().split(/\s+/)
+      .filter(t => !ROAD_TOKENS.has(t) && !/^\d+[A-Z]?$/.test(t)).join(' ').trim();
+  }
+  const titleish = s => (s || '').toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
 
-    // Refine like condos do with same-project: don't compare a 95-yr-lease flat to a
-    // 60-yr one. Restrict to a similar remaining-lease band, relaxing only if too thin.
-    let comps0 = base, basis = 'town';
-    if (subj.rem_lease_mths) {
-      for (const win of [120, 216]) { // ±10yr, then ±18yr
-        const f = base.filter(r => r.rem_lease_mths && Math.abs(r.rem_lease_mths - subj.rem_lease_mths) <= win);
-        if (f.length >= Math.max(HDB.MIN, 8)) { comps0 = f; basis = `similar lease (±${win / 12 | 0}yr)`; break; }
-      }
-    }
-    // If a street was given and there's a solid same-street pool, prefer it (tightest).
-    if (subj.street) {
-      const sameSt = comps0.filter(r => r.street === subj.street);
-      if (sameSt.length >= 6) { comps0 = sameSt; basis = 'same street'; }
+  function hdbEstimate(rows, subj) {
+    // subj: {flat_type, area_sqm, storey_mid, rem_lease_mths, street, block, town}
+    const lo = subj.area_sqm * (1 - HDB.SIZE_TOL), hi = subj.area_sqm * (1 + HDB.SIZE_TOL);
+    const base = rows.filter(r => r.flat_type === subj.flat_type && r.area_sqm >= lo && r.area_sqm <= hi);
+    if (base.length < HDB.MIN) return { ok: false, reason: `Only ${base.length} comparable sales of this flat type & size in the area (need ${HDB.MIN}).` };
+
+    // LOCALITY TIERS — use the tightest pool with enough comps, and say which one.
+    // block -> street -> estate -> town. Never silently fall back to the whole town.
+    const blkU = String(subj.block || '').toUpperCase().trim();
+    const stU = subj.street || '';
+    const esK = estateKey(stU);
+    const townTitle = subj.town ? titleish(subj.town) : 'the town';
+    const sameBlk = (blkU && stU) ? base.filter(r => String(r.block || '').toUpperCase().trim() === blkU && r.street === stU) : [];
+    const sameSt = stU ? base.filter(r => r.street === stU) : [];
+    const sameEs = esK ? base.filter(r => estateKey(r.street) === esK) : [];
+    let pool, scope, tier;
+    if (sameBlk.length >= 4) { pool = sameBlk; tier = 'block'; scope = `Blk ${subj.block} ${titleish(stU)}`; }
+    else if (sameSt.length >= 5) { pool = sameSt; tier = 'street'; scope = titleish(stU); }
+    else if (sameEs.length >= 6) { pool = sameEs; tier = 'estate'; scope = titleish(esK); }
+    else {
+      pool = base; tier = 'town';
+      const n = sameSt.length || sameEs.length, label = titleish(esK || stU || townTitle);
+      scope = stU ? `wider ${townTitle} — only ${n} ${label} sale${n === 1 ? '' : 's'} in range` : townTitle;
     }
 
     const byMonth = {};
-    comps0.forEach(r => (byMonth[r.yymm] = byMonth[r.yymm] || []).push(r.psf));
+    pool.forEach(r => (byMonth[r.yymm] = byMonth[r.yymm] || []).push(r.psf));
     const idx = {}; for (const m in byMonth) idx[m] = C.median(byMonth[m]);
     const recent = Object.keys(idx).sort().slice(-3);
     const nowLevel = C.median(recent.map(m => idx[m]));
     const now = C.yymmNow();
 
-    const comps = comps0.map(r => {
+    const comps = pool.map(r => {
       const drift = idx[r.yymm] ? nowLevel / idx[r.yymm] : 1;
       const storeyAdj = 1 + HDB.STOREY * ((subj.storey_mid || 0) - (r.storey_mid || 0));
       const leaseAdj = (subj.rem_lease_mths && r.rem_lease_mths)
@@ -43,11 +60,16 @@ const Engines = (() => {
       const wRec = Math.pow(0.5, age / HDB.HALFLIFE);
       const wSize = 1 / (1 + Math.abs(r.area_sqm - subj.area_sqm) / subj.area_sqm * 4);
       const wStorey = 1 / (1 + Math.abs((subj.storey_mid || 0) - (r.storey_mid || 0)) * 0.06);
-      const wStreet = subj.street && r.street === subj.street ? 2 : 1;
-      return { ...r, drift, storeyAdj, leaseAdj, adj_psf: adj, weight: wRec * wSize * wStorey * wStreet };
+      const wLease = (subj.rem_lease_mths && r.rem_lease_mths)
+        ? 1 / (1 + Math.abs(subj.rem_lease_mths - r.rem_lease_mths) / 12 * 0.04) : 1;
+      // proximity: exact block / street dominate even within a wider estate or town pool
+      const wProx = (blkU && String(r.block || '').toUpperCase().trim() === blkU && r.street === stU) ? 2.5
+        : (stU && r.street === stU) ? 1.8
+        : (esK && estateKey(r.street) === esK) ? 1.2 : 1;
+      return { ...r, drift, storeyAdj, leaseAdj, adj_psf: adj, weight: wRec * wSize * wStorey * wLease * wProx };
     });
-    const res = finalize(comps, subj.area_sqm, { highN: 15, highCV: 0.07, medN: 8, medCV: 0.10 });
-    res.scope = basis;
+    const res = finalize(comps, subj.area_sqm, { highN: 12, highCV: 0.07, medN: 6, medCV: 0.10 });
+    res.scope = scope; res.tier = tier;
     return res;
   }
 
