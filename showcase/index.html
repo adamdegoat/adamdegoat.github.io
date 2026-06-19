@@ -67,6 +67,23 @@ main{max-width:1220px;margin:0 auto;padding:0 28px;position:relative}
 .p-ico{width:48px;height:48px;border-radius:13px;background:var(--acc-soft);color:var(--acc);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
 .pillar h3{font-family:var(--dsp);font-weight:600;font-size:20px;color:var(--ink);margin-bottom:8px;line-height:1.15;letter-spacing:-.01em}
 .pillar p{font-size:14px;color:var(--ink2);line-height:1.6}
+/* ---------- compare ---------- */
+.compare{margin:6px 0 42px}
+.compare h2{font-family:var(--dsp);font-weight:600;font-size:clamp(25px,3.2vw,34px);letter-spacing:-.02em;line-height:1.05;margin-bottom:10px}
+.compare .csub{font-size:16.5px;color:var(--ink2);max-width:700px;margin-bottom:26px;line-height:1.55}
+.cmp-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.cmp-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px 24px;box-shadow:var(--sh)}
+.cmp-card.win{border:1px solid var(--acc);box-shadow:var(--glow),var(--sh-lg)}
+.cmp-h{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:16px;line-height:1.5}
+.cmp-card.win .cmp-h{color:var(--acc)}
+.cmp-li{display:flex;gap:11px;align-items:flex-start;padding:9px 0;font-size:14.5px;color:var(--ink2);line-height:1.45;border-top:1px solid var(--line)}
+.cmp-li:first-of-type{border-top:none}
+.cmp-card.win .cmp-li{color:var(--ink);font-weight:450}
+.cmp-ic{flex:none;width:18px;height:18px;stroke-width:2.4;stroke:currentColor;fill:none;stroke-linecap:round;stroke-linejoin:round;margin-top:1px}
+.cmp-x{color:#b9bcc7}.cmp-v{color:var(--acc)}
+.cmp-take{font-size:16px;color:var(--ink2);margin-top:22px}
+.cmp-take b{color:var(--ink);font-weight:600}
+@media(max-width:860px){.cmp-grid{grid-template-columns:1fr}}
 /* ---------- buttons ---------- */
 .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-weight:600;font-size:14.5px;padding:13px 24px;border-radius:40px;cursor:pointer;border:1px solid transparent;background:linear-gradient(150deg,var(--acc),var(--acc2));color:#fff;transition:.18s;white-space:nowrap;box-shadow:var(--glow)}
 .btn:hover{transform:translateY(-2px);box-shadow:0 16px 38px -10px rgba(82,68,230,.6)}
@@ -159,6 +176,29 @@ main{max-width:1220px;margin:0 auto;padding:0 28px;position:relative}
       <div class="pillar"><div class="p-ico"><svg class="ico" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></div><h3>Process data faster</h3><p>Valuations and project research that take hours — done in seconds, from official data.</p></div>
       <div class="pillar"><div class="p-ico"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div><h3>Qualify leads automatically</h3><p>The website itself works out who's a real, ready buyer — before the agent lifts a finger.</p></div>
       <div class="pillar"><div class="p-ico"><svg class="ico" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4 20-7Z"/></svg></div><h3>Market in minutes</h3><p>Launch-ready pages and tools, live the same day — no waiting on a designer.</p></div>
+    </div>
+    <div class="compare">
+      <h2>Why purpose-built — not off-the-shelf</h2>
+      <p class="csub">A website builder fills in a template. These systems are built from the ground up around how your agents actually work — the difference between just being online and winning online.</p>
+      <div class="cmp-grid">
+        <div class="cmp-card">
+          <div class="cmp-h">Off-the-shelf builders · Wix · Squarespace · portals</div>
+          <div class="cmp-li"><svg class="cmp-ic cmp-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>A template anyone can recognise</div>
+          <div class="cmp-li"><svg class="cmp-ic cmp-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>Can't do anything genuinely smart or bespoke</div>
+          <div class="cmp-li"><svg class="cmp-ic cmp-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>Heavy and slow — especially on mobile</div>
+          <div class="cmp-li"><svg class="cmp-ic cmp-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>Rented monthly — your leads live in their system</div>
+          <div class="cmp-li"><svg class="cmp-ic cmp-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>A dead end — it can't grow with you</div>
+        </div>
+        <div class="cmp-card win">
+          <div class="cmp-h">Purpose-built systems</div>
+          <div class="cmp-li"><svg class="cmp-ic cmp-v" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Designed around how your agents actually work</div>
+          <div class="cmp-li"><svg class="cmp-ic cmp-v" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Smart tools no template can offer — like instant affordability</div>
+          <div class="cmp-li"><svg class="cmp-ic cmp-v" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Fast, light and mobile-first by default</div>
+          <div class="cmp-li"><svg class="cmp-ic cmp-v" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Owned outright — your site, your data, your leads</div>
+          <div class="cmp-li"><svg class="cmp-ic cmp-v" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>A foundation that scales to the whole agency</div>
+        </div>
+      </div>
+      <p class="cmp-take">Templates let you fill in blanks. <b>Purpose-built lets you do what competitors can't.</b></p>
     </div>
     <p class="lead" style="margin-bottom:28px">Three live systems, built and running today. Here's what that looks like in practice →</p>
     <button class="btn" data-goto="kiwi">See it live — Project 01 <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
