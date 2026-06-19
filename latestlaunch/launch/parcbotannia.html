@@ -54,16 +54,16 @@
   <div class="lgrid"><a class="lcard" data-status="preview" data-region="OCR" data-year="2026" href="../launch/lucerne-grand.html">
   <div class="lc-img" style="--bg:url('../assets/img/lucerne-grand-condo-new-lakeside-mrt-showflat-v1_orig.jpg')"><img src="../assets/img/lucerne-grand-condo-new-lakeside-mrt-showflat-v1_orig.jpg" alt="Lucerne Grand — new condo launch" loading="lazy"><span class="lc-status soon">Launching soon</span></div>
   <div class="lc-body"><div class="lc-meta"><span class="lc-dist">D22</span><span class="lc-reg">Suburban</span><span class="lc-dev">CDL</span></div>
-  <h3 class="lc-name">Lucerne Grand</h3><p class="lc-tag">New lakeside living by Lakeside MRT</p><span class="lc-go">View details <i>→</i></span></div></a><a class="lcard" data-status="preview" data-region="OCR" data-year="2026" href="../launch/lentor-gardens-residences.html">
+  <h3 class="lc-name">Lucerne Grand</h3><p class="lc-tag">New lakeside living by Lakeside MRT</p><div class="lc-foot"><span class="lc-go">View details <i>→</i></span></div></div></a><a class="lcard" data-status="preview" data-region="OCR" data-year="2026" href="../launch/lentor-gardens-residences.html">
   <div class="lc-img" style="--bg:url('../assets/img/lentor-gardens-residences-condo-new.jpg')"><img src="../assets/img/lentor-gardens-residences-condo-new.jpg" alt="Lentor Gardens Residences — new condo launch" loading="lazy"><span class="lc-status soon">Launching soon</span></div>
   <div class="lc-body"><div class="lc-meta"><span class="lc-dist">D26</span><span class="lc-reg">Suburban</span><span class="lc-dev">Kingsford</span></div>
-  <h3 class="lc-name">Lentor Gardens Residences</h3><p class="lc-tag">By Lentor MRT — preview July 2026</p><span class="lc-go">View details <i>→</i></span></div></a><a class="lcard" data-status="preview" data-region="OCR" data-year="2026" href="../launch/vela-bay.html">
+  <h3 class="lc-name">Lentor Gardens Residences</h3><p class="lc-tag">By Lentor MRT — preview July 2026</p><div class="lc-foot"><span class="lc-go">View details <i>→</i></span></div></div></a><a class="lcard" data-status="preview" data-region="OCR" data-year="2026" data-pricefrom="1200000" href="../launch/vela-bay.html">
   <div class="lc-img" style="--bg:url('../assets/img/vela-bay-condo_orig.jpg')"><img src="../assets/img/vela-bay-condo_orig.jpg" alt="Vela Bay — new condo launch" loading="lazy"><span class="lc-status soon">Launching soon</span></div>
   <div class="lc-body"><div class="lc-meta"><span class="lc-dist">D16</span><span class="lc-reg">Suburban</span></div>
-  <h3 class="lc-name">Vela Bay</h3><p class="lc-tag">25 years of pent-up demand in Bayshore</p><span class="lc-go">View details <i>→</i></span></div></a><a class="lcard" data-status="preview" data-region="OCR" data-year="2026" href="../launch/the-sen.html">
+  <h3 class="lc-name">Vela Bay</h3><p class="lc-tag">25 years of pent-up demand in Bayshore</p><div class="lc-foot"><span class="lc-price">from $1.2m</span><span class="lc-go">View details <i>→</i></span></div></div></a><a class="lcard" data-status="preview" data-region="OCR" data-year="2026" href="../launch/the-sen.html">
   <div class="lc-img" style="--bg:url('../assets/img/the-sen-condo-new-launch-showflat-location-v1.jpg')"><img src="../assets/img/the-sen-condo-new-launch-showflat-location-v1.jpg" alt="The Sen — new condo launch" loading="lazy"><span class="lc-status soon">Launching soon</span></div>
   <div class="lc-body"><div class="lc-meta"><span class="lc-dist">D21</span><span class="lc-reg">Suburban</span></div>
-  <h3 class="lc-name">The Sen</h3><p class="lc-tag">Bukit Timah greenery, D21</p><span class="lc-go">View details <i>→</i></span></div></a></div></div></section><section class="cta-band"><div class="wrap cta-in">
+  <h3 class="lc-name">The Sen</h3><p class="lc-tag">Bukit Timah greenery, D21</p><div class="lc-foot"><span class="lc-go">View details <i>→</i></span></div></div></a></div></div></section><section class="cta-band"><div class="wrap cta-in">
   <div><h2>Thinking of a new launch?</h2><p>Get VVIP preview pricing, the latest e-brochures and a showflat appointment — no spam, no pressure.</p></div>
   <a class="btn btn-lg" href="../contact.html">Register your interest →</a>
 </div></section>
@@ -91,5 +91,16 @@ document.querySelectorAll('.lgroup').forEach(function(g){var v=[...g.querySelect
 var cf=document.getElementById('cform');if(cf)cf.addEventListener('submit',function(ev){ev.preventDefault();cf.style.display='none';document.getElementById('cdone').style.display='block';});
 var nf=document.getElementById('nlform');if(nf)nf.addEventListener('submit',function(ev){ev.preventDefault();nf.style.display='none';document.getElementById('nldone').style.display='flex';});
 var hh=location.hash.slice(1);if(hh){var hc=document.querySelector('[data-filter="'+hh+'"]');if(hc){hc.click();var lb=document.getElementById('launches');if(lb)lb.scrollIntoView();}}
+var _b=parseFloat(localStorage.getItem('llBudget')||'');
+if(_b>0){var _priced=document.querySelectorAll('[data-pricefrom]');
+  _priced.forEach(function(c){var p=+c.dataset.pricefrom,m=c.querySelector('.lc-img');if(!m)return;
+    var s=document.createElement('span');s.className='aff-badge '+(p<=_b?'ab-in':p<=_b*1.12?'ab-str':'ab-over');
+    s.textContent=p<=_b?'✓ Within budget':p<=_b*1.12?'A stretch':'Above budget';m.appendChild(s);});
+  var g=document.querySelector('.lgroup');
+  if(g&&_priced.length){var bar=document.createElement('div');bar.className='aff-bar';
+    bar.innerHTML='<div class="wrap">Showing affordability against your budget of about <b>$'+Math.round(_b).toLocaleString('en-US')+'</b>. <a href="afford.html">Recalculate</a> · <a href="#" id="affclear">clear</a></div>';
+    g.parentNode.insertBefore(bar,g);
+    var cl=document.getElementById('affclear');if(cl)cl.addEventListener('click',function(ev){ev.preventDefault();localStorage.removeItem('llBudget');location.reload();});}
+}
 })();
 </script></body></html>

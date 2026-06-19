@@ -51,16 +51,16 @@
   <div class="lgrid"><a class="lcard" data-status="preview" data-region="RCR" data-year="2026" href="../launch/faber-residence.html">
   <div class="lc-img" style="--bg:url('../assets/img/faber-residence-new-launch-condo.jpg')"><img src="../assets/img/faber-residence-new-launch-condo.jpg" alt="Faber Residence — new condo launch" loading="lazy"><span class="lc-status soon">Launching soon</span></div>
   <div class="lc-body"><div class="lc-meta"><span class="lc-dist">D05</span><span class="lc-reg">City Fringe</span></div>
-  <h3 class="lc-name">Faber Residence</h3><p class="lc-tag">New launch in the Clementi / Faber estate</p><span class="lc-go">View details <i>→</i></span></div></a><a class="lcard" data-status="selling" data-region="RCR" data-year="2025" href="../launch/zyon-grand.html">
+  <h3 class="lc-name">Faber Residence</h3><p class="lc-tag">New launch in the Clementi / Faber estate</p><div class="lc-foot"><span class="lc-go">View details <i>→</i></span></div></div></a><a class="lcard" data-status="selling" data-region="RCR" data-year="2025" data-pricefrom="1298000" href="../launch/zyon-grand.html">
   <div class="lc-img" style="--bg:url('../assets/img/zyon-grand-condo-havelock-river-valley.jpeg')"><img src="../assets/img/zyon-grand-condo-havelock-river-valley.jpeg" alt="Zyon Grand — new condo launch" loading="lazy"><span class="lc-status sell">Now selling</span></div>
   <div class="lc-body"><div class="lc-meta"><span class="lc-dist">D03</span><span class="lc-reg">City Fringe</span></div>
-  <h3 class="lc-name">Zyon Grand</h3><p class="lc-tag">Havelock / River Valley, by the MRT</p><span class="lc-go">View details <i>→</i></span></div></a><a class="lcard" data-status="preview" data-region="RCR" data-year="2026" href="../launch/promenade-peak.html">
+  <h3 class="lc-name">Zyon Grand</h3><p class="lc-tag">Havelock / River Valley, by the MRT</p><div class="lc-foot"><span class="lc-price">from $1.3m</span><span class="lc-go">View details <i>→</i></span></div></div></a><a class="lcard" data-status="preview" data-region="RCR" data-year="2026" data-pricefrom="1380000" href="../launch/promenade-peak.html">
   <div class="lc-img" style="--bg:url('../assets/img/promenade-peak-river-valley-new-launch-condo.jpg')"><img src="../assets/img/promenade-peak-river-valley-new-launch-condo.jpg" alt="Promenade Peak — new condo launch" loading="lazy"><span class="lc-status soon">Launching soon</span></div>
   <div class="lc-body"><div class="lc-meta"><span class="lc-dist">D03</span><span class="lc-reg">City Fringe</span></div>
-  <h3 class="lc-name">Promenade Peak</h3><p class="lc-tag">River Valley high-rise, D3</p><span class="lc-go">View details <i>→</i></span></div></a><a class="lcard" data-status="preview" data-region="RCR" data-year="2026" href="../launch/penrith.html">
+  <h3 class="lc-name">Promenade Peak</h3><p class="lc-tag">River Valley high-rise, D3</p><div class="lc-foot"><span class="lc-price">from $1.38m</span><span class="lc-go">View details <i>→</i></span></div></div></a><a class="lcard" data-status="preview" data-region="RCR" data-year="2026" data-pricefrom="1495000" href="../launch/penrith.html">
   <div class="lc-img" style="--bg:url('../assets/img/penrith-condo-queenstown-new-launch.png')"><img src="../assets/img/penrith-condo-queenstown-new-launch.png" alt="Penrith — new condo launch" loading="lazy"><span class="lc-status soon">Launching soon</span></div>
   <div class="lc-body"><div class="lc-meta"><span class="lc-dist">D03</span><span class="lc-reg">City Fringe</span></div>
-  <h3 class="lc-name">Penrith</h3><p class="lc-tag">Margaret Drive, Queenstown</p><span class="lc-go">View details <i>→</i></span></div></a></div></div></section><section class="cta-band"><div class="wrap cta-in">
+  <h3 class="lc-name">Penrith</h3><p class="lc-tag">Margaret Drive, Queenstown</p><div class="lc-foot"><span class="lc-price">from $1.5m</span><span class="lc-go">View details <i>→</i></span></div></div></a></div></div></section><section class="cta-band"><div class="wrap cta-in">
   <div><h2>Thinking of a new launch?</h2><p>Get VVIP preview pricing, the latest e-brochures and a showflat appointment — no spam, no pressure.</p></div>
   <a class="btn btn-lg" href="../contact.html">Register your interest →</a>
 </div></section>
@@ -88,5 +88,16 @@ document.querySelectorAll('.lgroup').forEach(function(g){var v=[...g.querySelect
 var cf=document.getElementById('cform');if(cf)cf.addEventListener('submit',function(ev){ev.preventDefault();cf.style.display='none';document.getElementById('cdone').style.display='block';});
 var nf=document.getElementById('nlform');if(nf)nf.addEventListener('submit',function(ev){ev.preventDefault();nf.style.display='none';document.getElementById('nldone').style.display='flex';});
 var hh=location.hash.slice(1);if(hh){var hc=document.querySelector('[data-filter="'+hh+'"]');if(hc){hc.click();var lb=document.getElementById('launches');if(lb)lb.scrollIntoView();}}
+var _b=parseFloat(localStorage.getItem('llBudget')||'');
+if(_b>0){var _priced=document.querySelectorAll('[data-pricefrom]');
+  _priced.forEach(function(c){var p=+c.dataset.pricefrom,m=c.querySelector('.lc-img');if(!m)return;
+    var s=document.createElement('span');s.className='aff-badge '+(p<=_b?'ab-in':p<=_b*1.12?'ab-str':'ab-over');
+    s.textContent=p<=_b?'✓ Within budget':p<=_b*1.12?'A stretch':'Above budget';m.appendChild(s);});
+  var g=document.querySelector('.lgroup');
+  if(g&&_priced.length){var bar=document.createElement('div');bar.className='aff-bar';
+    bar.innerHTML='<div class="wrap">Showing affordability against your budget of about <b>$'+Math.round(_b).toLocaleString('en-US')+'</b>. <a href="afford.html">Recalculate</a> · <a href="#" id="affclear">clear</a></div>';
+    g.parentNode.insertBefore(bar,g);
+    var cl=document.getElementById('affclear');if(cl)cl.addEventListener('click',function(ev){ev.preventDefault();localStorage.removeItem('llBudget');location.reload();});}
+}
 })();
 </script></body></html>

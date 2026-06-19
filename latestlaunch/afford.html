@@ -58,11 +58,12 @@
       <p class="out-verdict" id="o_verdict"></p>
       <div class="out-rows" id="o_rows"></div>
       <div class="out-coach" id="o_coach"></div>
+      <div class="out-matches" id="o_matches"></div>
       <a class="btn btn-lg out-cta" href="contact.html">Talk to Kiwi about homes in this range →</a>
       <p class="out-note">Indicative figures. Kiwi can confirm your exact numbers with a banker and show you launches that fit — no obligation.</p>
     </div>
   </aside>
-</div></section><script>
+</div></section><script>window.__LL_LAUNCHES=[{"n":"Vela Bay","s":"vela-bay","r":"OCR","d":16,"p":1200000},{"n":"Newport Residences","s":"newport-residences","r":"CCR","d":2,"p":1298000},{"n":"Springleaf Residence","s":"springleaf-residence","r":"OCR","d":26,"p":878000},{"n":"Zyon Grand","s":"zyon-grand","r":"RCR","d":3,"p":1298000},{"n":"The Robertson Opus","s":"the-robertson-opus","r":"CCR","d":9,"p":1370000},{"n":"Hillhouse","s":"hillhouse","r":"CCR","d":9,"p":1382000},{"n":"Pinery Residences","s":"pinery-residences","r":"OCR","d":18,"p":1498000},{"n":"One Marina Gardens","s":"one-marina-gardens","r":"CCR","d":1,"p":1160000},{"n":"Promenade Peak","s":"promenade-peak","r":"RCR","d":3,"p":1380000},{"n":"Penrith","s":"penrith","r":"RCR","d":3,"p":1495000},{"n":"Upperhouse","s":"upperhouse","r":"CCR","d":9,"p":1554000},{"n":"The Orie","s":"the-orie","r":"RCR","d":12,"p":1280000},{"n":"Parktown Residence","s":"parktown-residence","r":"OCR","d":18,"p":1070000},{"n":"The Collective at One Sophia","s":"the-collective-one-sophia","r":"CCR","d":9,"p":1080000},{"n":"The Arcady at Boon Keng","s":"arcady-at-boon-keng","r":"RCR","d":12,"p":1293000},{"n":"Marina View Residences","s":"marina-view-residences","r":"CCR","d":1,"p":1780000},{"n":"Sora","s":"sora","r":"OCR","d":22,"p":989000},{"n":"Wallich Residence","s":"wallich-residence","r":"CCR","d":2,"p":1640000},{"n":"Sanctuary @ Newton","s":"sanctuary-at-newton","r":"CCR","d":11,"p":2188000},{"n":"The Chuan Park","s":"chuan-park","r":"OCR","d":19,"p":1500000}];</script><script>
 (function(){
   var $=function(id){return document.getElementById(id);};
   var form=$('calc'), out=$('out'), ph=$('ph'), shown=false;
@@ -163,6 +164,24 @@
       tips.push(['idea','You may qualify for an <b>Executive Condo</b> — often more space for the same budget. Switch “Property type” to compare.']);
     var ic={warn:'⚠',up:'↑',idea:'✨'};
     $('o_coach').innerHTML = tips.length ? '<div class="coach-h">Ways to stretch it</div>'+tips.map(function(t){return '<div class="ctip ctip-'+t[0]+'"><span>'+ic[t[0]]+'</span><p>'+t[1]+'</p></div>';}).join('') : '';
+    // save budget so the launch listings can match against it
+    try{localStorage.setItem('llBudget',Math.round(P));}catch(e){}
+    renderMatches(P);
+  }
+  var RN={CCR:'Core Central',RCR:'City Fringe',OCR:'Suburban'};
+  function renderMatches(P){
+    var box=$('o_matches'); if(!box) return;
+    var L=window.__LL_LAUNCHES||[]; if(!L.length){box.innerHTML='';return;}
+    var inreach=[],stretch=[];
+    L.forEach(function(x){ if(x.p<=P) inreach.push(x); else if(x.p<=P*1.12) stretch.push(x); });
+    inreach.sort(function(a,b){return b.p-a.p;}); stretch.sort(function(a,b){return a.p-b.p;});
+    function item(x,kind){return '<a class="match" href="launch/'+x.s+'.html"><span class="m-l"><b>'+x.n+'</b><span class="m-sub">'+(x.d?'D'+(x.d<10?'0'+x.d:x.d)+' · ':'')+(RN[x.r]||x.r)+'</span></span><span class="m-r"><span class="m-price">from '+money(x.p)+'</span><span class="m-badge '+(kind==='in'?'mb-in':'mb-str')+'">'+(kind==='in'?'Within reach':'A stretch')+'</span></span></a>';}
+    var html='';
+    if(inreach.length){html+='<div class="m-h">'+inreach.length+' launch'+(inreach.length>1?'es':'')+' within your budget</div>'+inreach.slice(0,8).map(function(x){return item(x,'in');}).join('');}
+    if(stretch.length){html+='<div class="m-h m-h2">Just out of reach — a stretch</div>'+stretch.slice(0,4).map(function(x){return item(x,'str');}).join('');}
+    if(!inreach.length&&!stretch.length){html='<div class="m-none">None of the current priced launches fall in this range yet — but new ones come up often. <a href="all-launches.html">Browse all launches</a> or ask Kiwi what fits.</div>';}
+    else{html+='<a class="m-all" href="all-launches.html">See all launches with your budget applied →</a>';}
+    box.innerHTML=html;
   }
   // auto-cap tenure default when age changes
   $('f_age').addEventListener('input',function(){var a=num('f_age');if(a>0){var t=Math.max(5,Math.min(30,65-a));if(!$('f_tenure').dataset.touched)$('f_tenure').value=t;}});
@@ -198,5 +217,16 @@ document.querySelectorAll('.lgroup').forEach(function(g){var v=[...g.querySelect
 var cf=document.getElementById('cform');if(cf)cf.addEventListener('submit',function(ev){ev.preventDefault();cf.style.display='none';document.getElementById('cdone').style.display='block';});
 var nf=document.getElementById('nlform');if(nf)nf.addEventListener('submit',function(ev){ev.preventDefault();nf.style.display='none';document.getElementById('nldone').style.display='flex';});
 var hh=location.hash.slice(1);if(hh){var hc=document.querySelector('[data-filter="'+hh+'"]');if(hc){hc.click();var lb=document.getElementById('launches');if(lb)lb.scrollIntoView();}}
+var _b=parseFloat(localStorage.getItem('llBudget')||'');
+if(_b>0){var _priced=document.querySelectorAll('[data-pricefrom]');
+  _priced.forEach(function(c){var p=+c.dataset.pricefrom,m=c.querySelector('.lc-img');if(!m)return;
+    var s=document.createElement('span');s.className='aff-badge '+(p<=_b?'ab-in':p<=_b*1.12?'ab-str':'ab-over');
+    s.textContent=p<=_b?'✓ Within budget':p<=_b*1.12?'A stretch':'Above budget';m.appendChild(s);});
+  var g=document.querySelector('.lgroup');
+  if(g&&_priced.length){var bar=document.createElement('div');bar.className='aff-bar';
+    bar.innerHTML='<div class="wrap">Showing affordability against your budget of about <b>$'+Math.round(_b).toLocaleString('en-US')+'</b>. <a href="afford.html">Recalculate</a> · <a href="#" id="affclear">clear</a></div>';
+    g.parentNode.insertBefore(bar,g);
+    var cl=document.getElementById('affclear');if(cl)cl.addEventListener('click',function(ev){ev.preventDefault();localStorage.removeItem('llBudget');location.reload();});}
+}
 })();
 </script></body></html>

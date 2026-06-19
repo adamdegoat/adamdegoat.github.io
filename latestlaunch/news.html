@@ -70,5 +70,16 @@ document.querySelectorAll('.lgroup').forEach(function(g){var v=[...g.querySelect
 var cf=document.getElementById('cform');if(cf)cf.addEventListener('submit',function(ev){ev.preventDefault();cf.style.display='none';document.getElementById('cdone').style.display='block';});
 var nf=document.getElementById('nlform');if(nf)nf.addEventListener('submit',function(ev){ev.preventDefault();nf.style.display='none';document.getElementById('nldone').style.display='flex';});
 var hh=location.hash.slice(1);if(hh){var hc=document.querySelector('[data-filter="'+hh+'"]');if(hc){hc.click();var lb=document.getElementById('launches');if(lb)lb.scrollIntoView();}}
+var _b=parseFloat(localStorage.getItem('llBudget')||'');
+if(_b>0){var _priced=document.querySelectorAll('[data-pricefrom]');
+  _priced.forEach(function(c){var p=+c.dataset.pricefrom,m=c.querySelector('.lc-img');if(!m)return;
+    var s=document.createElement('span');s.className='aff-badge '+(p<=_b?'ab-in':p<=_b*1.12?'ab-str':'ab-over');
+    s.textContent=p<=_b?'✓ Within budget':p<=_b*1.12?'A stretch':'Above budget';m.appendChild(s);});
+  var g=document.querySelector('.lgroup');
+  if(g&&_priced.length){var bar=document.createElement('div');bar.className='aff-bar';
+    bar.innerHTML='<div class="wrap">Showing affordability against your budget of about <b>$'+Math.round(_b).toLocaleString('en-US')+'</b>. <a href="afford.html">Recalculate</a> · <a href="#" id="affclear">clear</a></div>';
+    g.parentNode.insertBefore(bar,g);
+    var cl=document.getElementById('affclear');if(cl)cl.addEventListener('click',function(ev){ev.preventDefault();localStorage.removeItem('llBudget');location.reload();});}
+}
 })();
 </script></body></html>
