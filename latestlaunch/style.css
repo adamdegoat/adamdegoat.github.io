@@ -289,3 +289,63 @@ em{font-style:italic;color:var(--gold-d)}
   .page-h1{font-size:30px}.page-lead{font-size:15.5px}.art-title{font-size:28px}.sec-h{font-size:22px}
   .cform{padding:18px}.foot-top{flex-direction:column;gap:24px}.foot-cols{gap:36px}
 }
+
+/* ---------- Affordability calculator ---------- */
+.afford-head{padding-bottom:8px}
+.afford-head .page-lead{max-width:760px}
+.afford-wrap{padding:10px 0 70px}
+.afford-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:start}
+.calc{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px 26px 22px;box-shadow:var(--sh-lg)}
+.calc-sec{font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-d);margin:18px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.calc-sec:first-child{margin-top:0}
+.calc-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px}
+.calc label{display:flex;flex-direction:column;font-size:13px;font-weight:600;color:var(--ink2);gap:6px}
+.calc .opt{font-weight:500;color:var(--ink3);font-size:11.5px}
+.calc .hint{font-weight:400;color:var(--ink3);font-size:11.5px;line-height:1.4}
+.calc input,.calc select{font-family:inherit;font-size:15px;font-weight:500;color:var(--ink);background:var(--bg);border:1px solid var(--line2);border-radius:10px;padding:11px 13px;width:100%;transition:.15s}
+.calc input:focus,.calc select:focus{outline:none;border-color:var(--gold);background:#fff;box-shadow:0 0 0 3px rgba(168,127,46,.12)}
+.calc>.btn{width:100%;justify-content:center;margin-top:20px}
+.calc-note{margin-top:14px}
+/* output side */
+.calc-side{position:sticky;top:86px}
+.calc-ph{background:var(--deep);color:#e9e3d6;border-radius:var(--r);padding:40px 30px;text-align:center;box-shadow:var(--sh-lg)}
+.ph-mk{width:54px;height:54px;border-radius:14px;background:rgba(168,127,46,.18);color:var(--gold);font-family:var(--serif);font-size:30px;font-weight:600;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.calc-ph h3{font-family:var(--serif);font-size:21px;font-weight:600;margin-bottom:8px}
+.calc-ph p{font-size:14.5px;color:#b3ad9f;line-height:1.6;max-width:330px;margin:0 auto}
+.calc-out{background:var(--deep);color:#ece6d9;border-radius:var(--r);padding:28px 28px 24px;box-shadow:var(--sh-lg)}
+.calc-out .eyebrow{color:var(--gold)}
+.out-budget{font-family:var(--serif);font-size:40px;font-weight:600;color:#fff;line-height:1.05;margin:8px 0 6px}
+.out-budget .ob-sub{font-size:17px;color:var(--gold);font-weight:500}
+.out-verdict{font-size:14.5px;color:#c8c2b4;line-height:1.6;margin-bottom:20px}
+.out-verdict b{color:#fff}
+.out-rows{border-top:1px solid rgba(255,255,255,.12)}
+.orow{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.09)}
+.orow .ok{font-size:14px;color:#c8c2b4}
+.orow .osub{display:block;font-size:11.5px;color:#8e887b;margin-top:2px}
+.orow .ov{font-size:15px;color:#fff;font-weight:600;white-space:nowrap;text-align:right}
+.orow b{color:#fff}
+.orow-tot{margin-top:4px;border-bottom:none;border-top:1.5px solid var(--gold);padding-top:14px}
+.orow-tot .ok{font-weight:700;color:#fff;font-size:14.5px}
+.orow-tot .ov{font-size:18px;color:var(--gold)}
+.out-coach{margin:18px 0 6px}
+.coach-h{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.ctip{display:flex;gap:10px;align-items:flex-start;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:11px;padding:11px 13px;margin-bottom:8px}
+.ctip span{flex:none;font-size:15px;line-height:1.4}
+.ctip p{font-size:13px;color:#cfc9bb;line-height:1.55;margin:0}
+.ctip b{color:#fff}
+.ctip-warn{background:rgba(180,90,40,.14);border-color:rgba(200,110,60,.3)}
+.ctip-warn span{color:#e8a06a}
+.ctip-up span{color:#8fd19e}
+.ctip-idea span{color:var(--gold)}
+.out-cta{width:100%;justify-content:center;margin-top:18px;background:var(--gold);border-color:var(--gold);color:#1a1410}
+.out-cta:hover{background:#b98e36;border-color:#b98e36}
+.out-note{font-size:12px;color:#8e887b;line-height:1.5;margin-top:12px;text-align:center}
+@media(max-width:860px){
+  .afford-grid{grid-template-columns:1fr;gap:24px}
+  .calc-side{position:static}
+  .out-budget{font-size:34px}
+}
+@media(max-width:480px){
+  .calc{padding:20px 18px 18px}
+  .calc-fields{grid-template-columns:1fr}
+}
