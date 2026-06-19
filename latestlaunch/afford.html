@@ -107,9 +107,12 @@
     var priceFromCash=lo;
     var budget=Math.min(priceFromLoan,priceFromCash);
     var limit = priceFromLoan<=priceFromCash ? 'loan' : 'cash';
+    // "comfortable" level: keep the home-loan repayment near a third of income (~35%), never above the max
+    var comfM=Math.min(maxM, Math.max(0, 0.35*gross - debts));
+    var comfBudget=Math.min(pmtToLoan(comfM,STRESS,tenure)/ltv, priceFromCash);
     return {gross:gross,income:income,co:co,debts:debts,cash:cash,cpf:cpf,age:age,c:c,owned:owned,type:type,
             tenure:tenure,ltv:ltv,minCashRate:minCashRate,aRate:aRate,maxLoan:maxLoan,
-            priceFromLoan:priceFromLoan,priceFromCash:priceFromCash,budget:budget,limit:limit,
+            priceFromLoan:priceFromLoan,priceFromCash:priceFromCash,budget:budget,comfBudget:comfBudget,limit:limit,
             bsdFn:bsd,needFn:need};
   }
   function row(k,v,sub){return '<div class="orow"><span class="ok">'+k+(sub?' <span class="osub">'+sub+'</span>':'')+'</span><span class="ov">'+v+'</span></div>';}
@@ -131,13 +134,26 @@
       $('o_verdict').innerHTML='On these numbers, a purchase may not be within reach yet. Try adding a co-borrower, more savings, or clearing existing loans — or have a chat with Kiwi.';
       $('o_rows').innerHTML=''; $('o_coach').innerHTML=''; return;
     }
-    $('o_budget').innerHTML=money(P)+' <span class="ob-sub">≈ '+mil(P)+'</span>';
+    var comf=r.comfBudget, hasRange = comf < P*0.97;
+    if(hasRange){
+      $('o_budget').innerHTML='<div class="budget-range">'
+        +'<div class="br-item"><span class="br-lab">Comfortable</span><span class="br-val">'+money(comf)+'</span></div>'
+        +'<div class="br-sep">→</div>'
+        +'<div class="br-item br-max"><span class="br-lab">Maximum</span><span class="br-val">'+money(P)+'</span></div>'
+        +'</div>';
+    } else {
+      $('o_budget').innerHTML=money(P)+' <span class="ob-sub">≈ '+mil(P)+'</span>';
+    }
     var lim = r.limit==='loan'
-      ? 'Your <b>loan eligibility</b> (income vs. the 55% TDSR rule) is what caps this.'
-      : 'Your <b>cash &amp; CPF</b> is what caps this — your income could support a larger loan.';
-    $('o_verdict').innerHTML='With your income and savings, you can realistically buy '+(r.type==='EC'?'an EC':'a home')+' up to about <b>'+money(P)+'</b>. '+lim;
+      ? 'Your <b>income</b> (the 55% TDSR rule) sets the ceiling — and you have enough cash &amp; CPF for this range.'
+      : 'Your <b>cash &amp; CPF</b> sets the ceiling here — your income could support a larger loan.';
+    if(hasRange){
+      $('o_verdict').innerHTML='A <b>comfortable</b> budget — keeping the repayment near a third of your income — is about <b>'+money(comf)+'</b>. The <b>most</b> the rules allow is <b>'+money(P)+'</b>. You don’t have to buy at the top; many buyers stay nearer the comfortable end. '+lim;
+    } else {
+      $('o_verdict').innerHTML='You can buy '+(r.type==='EC'?'an EC':'a home')+' up to about <b>'+money(P)+'</b>. '+lim;
+    }
     var absdLabel='Additional Buyer’s Stamp Duty'+(r.aRate>0?' ('+Math.round(r.aRate*100)+'%)':'');
-    var html='';
+    var html='<div class="rows-cap">If you buy at your maximum ('+money(P)+'):</div>';
     html+=row('Bank loan','<b>'+money(loan)+'</b>','at '+Math.round(r.ltv*100)+'% LTV');
     html+=row('Downpayment',money(down),Math.round((1-r.ltv)*100)+'% · cash + CPF');
     html+=row('&#8627; minimum in cash',money(minCash),Math.round(r.minCashRate*100)+'% must be cash');
@@ -146,25 +162,18 @@
     html+='<div class="orow orow-tot"><span class="ok">Cash + CPF needed upfront</span><span class="ov">'+money(upfront)+'</span></div>';
     html+=row('Est. monthly repayment','<b>'+money(monthly)+'</b> /mo','at ~3% p.a. · eligibility tested at 4%');
     $('o_rows').innerHTML=html;
-    // coaching tips
+    // notes — honest explanations of what shapes the budget (NOT a push to overspend)
     var tips=[];
     if(r.type==='EC'&&r.c==='FR') tips.push(['warn','Foreigners aren’t eligible to buy Executive Condos — switch to a private condo to compare.']);
     if(r.type==='EC'&&r.gross>16000) tips.push(['warn','Your household income is above the <b>$16,000</b> EC income ceiling, so an EC likely isn’t available — compare a private condo.']);
-    if(r.limit==='cash'){
-      var target=r.priceFromLoan;
-      var needCash=Math.max(r.minCashRate*target, r.needFn(target)-r.cpf);
-      var extra=needCash-r.cash;
-      if(extra>1000) tips.push(['up','About <b>'+money(extra)+'</b> more in cash/CPF would lift your budget to ~<b>'+money(target)+'</b> (what your income could support).']);
-    }
-    if(r.limit==='loan'&&r.debts>0){
-      var addLoan=pmtToLoan(r.debts,STRESS,r.tenure), addPrice=addLoan/r.ltv;
-      if(addPrice>10000) tips.push(['up','Clearing your <b>'+money(r.debts)+'/mo</b> in repayments would add about <b>'+money(addPrice)+'</b> to your budget.']);
-    }
-    if(r.co<=0) tips.push(['idea','Adding a co-borrower’s income raises your loan ceiling — worth modelling if you’re buying together.']);
+    if(r.limit==='cash') tips.push(['info','Your <b>cash &amp; CPF</b> sets this ceiling — your income could support a larger loan, so it’s savings, not income, that limits you here.']);
+    else tips.push(['info','Your <b>income</b> sets this ceiling under the 55% TDSR rule; your cash &amp; CPF comfortably cover this range.']);
+    if(r.debts>0) tips.push(['info','Your existing <b>'+money(r.debts)+'/mo</b> in repayments lowers how much you can borrow — paying those down would ease it.']);
+    if(r.co<=0) tips.push(['info','Buying with a partner? Their income can be added as a co-borrower.']);
     if(r.type==='PRIV'&&r.c==='SC'&&r.owned===0&&r.gross>0&&r.gross<=16000)
-      tips.push(['idea','You may qualify for an <b>Executive Condo</b> — often more space for the same budget. Switch “Property type” to compare.']);
-    var ic={warn:'⚠',up:'↑',idea:'✨'};
-    $('o_coach').innerHTML = tips.length ? '<div class="coach-h">Ways to stretch it</div>'+tips.map(function(t){return '<div class="ctip ctip-'+t[0]+'"><span>'+ic[t[0]]+'</span><p>'+t[1]+'</p></div>';}).join('') : '';
+      tips.push(['idea','You may qualify for an <b>Executive Condo</b> — often more home for less. Switch “Property type” to compare.']);
+    var ic={warn:'⚠',info:'ℹ',idea:'✨'};
+    $('o_coach').innerHTML = tips.length ? '<div class="coach-h">What’s shaping your budget</div>'+tips.map(function(t){return '<div class="ctip ctip-'+t[0]+'"><span>'+ic[t[0]]+'</span><p>'+t[1]+'</p></div>';}).join('') : '';
     // save budget so the launch listings can match against it
     try{localStorage.setItem('llBudget',Math.round(P));}catch(e){}
     renderMatches(P);
