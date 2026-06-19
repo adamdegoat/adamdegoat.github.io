@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta name="description" content="Thesis — investment-grade property research for Singapore. Every condo project graded A–F on official caveats (relative value, mean-reversion, yield, liquidity, supply), new-launch pricing, and a price-check for upcoming launches. Part of Groundwork.">
+<meta name="description" content="Thesis — investment-grade property research for Singapore. Every condo project graded A–F on official caveats (relative value, mean-reversion, yield, liquidity, supply), plus a launch radar of how every new launch is priced &amp; selling. Part of Groundwork.">
 <title>Thesis · SG Property Research</title>
 <meta name="theme-color" content="#0d1521">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d1521'/%3E%3Cpath d='M7 22 L13 13 L18 18 L25 9' stroke='%231fc18f' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='25' cy='9' r='2.2' fill='%23cda64e'/%3E%3C/svg%3E">
@@ -127,26 +127,25 @@ select.f{background:var(--panel);border:1px solid var(--line);border-radius:10px
 .lstat.sel{background:rgba(58,127,192,.11);color:#2f6aa6}
 .lstat.sold{background:var(--panel2);color:var(--ink3)}
 .sub-r{font-size:10px;color:var(--ink3);font-weight:400;margin-top:2px;font-family:var(--sans)}
-/* upcoming-launch evaluator */
-.up-form{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:14px}
-.up-field{display:flex;flex-direction:column;gap:6px}
-.up-field label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--ink3)}
-.up-form input,.up-form select{font-family:inherit;font-size:14px;color:var(--ink);background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:11px 12px;transition:.15s;width:100%}
-.up-form input:focus,.up-form select:focus{outline:0;border-color:var(--green-d);background:#fff}
-.up-go{grid-column:1/-1;background:linear-gradient(135deg,var(--green),var(--green-d));color:#fff;font-weight:700;font-size:14.5px;border-radius:10px;padding:13px;margin-top:4px;box-shadow:0 6px 16px rgba(15,157,118,.22);transition:.15s}
-.up-go:hover{transform:translateY(-1px)}
-.up-warn{margin-top:14px;color:var(--amber);font-size:13px;font-weight:600}
-.up-verdict{display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:12px;border:1px solid var(--line);background:var(--panel2);margin:20px 0 14px;flex-wrap:wrap}
-.up-verdict .uv-psf{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--ink);line-height:1.1}
-.up-verdict .uv-psf small{font-size:11.5px;color:var(--ink3);font-weight:400;display:block;margin-top:3px;font-family:var(--sans)}
-.up-verdict .uv-label{font-size:16px;font-weight:700;margin-left:auto}
-.up-verdict.act{border-left:4px solid var(--green)}.up-verdict.act .uv-label{color:#0b7d5e}
-.up-verdict.sel{border-left:4px solid var(--blue)}.up-verdict.sel .uv-label{color:#2f6aa6}
-.up-verdict.hi{border-left:4px solid var(--amber)}.up-verdict.hi .uv-label{color:#9a6a10}
-.up-verdict.steep{border-left:4px solid var(--red)}.up-verdict.steep .uv-label{color:#b33f36}
-.up-verdict.sold{border-left:4px solid var(--ink3)}.up-verdict.sold .uv-label{color:var(--ink3)}
-.up-metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:6px}
-@media(max-width:560px){.up-form,.up-metrics{grid-template-columns:1fr}}
+/* launch radar feed */
+.up-chips{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:20px 0 4px}
+.up-chip{font-size:12.5px;font-weight:600;color:var(--ink2);background:var(--panel);border:1px solid var(--line);border-radius:30px;padding:8px 14px;transition:.15s}
+.up-chip:hover{border-color:var(--green-d)}
+.up-chip.on{background:var(--green);color:#fff;border-color:var(--green)}
+.up-count{margin-left:auto;font-size:11.5px;color:var(--ink3);font-weight:600}
+.launch-feed{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.lcard{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:var(--shadow);transition:.15s}
+.lcard:hover{border-color:var(--line2);box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.lc-top{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+.lc-name{font-family:var(--serif);font-size:18px;font-weight:600;line-height:1.15;flex:1}
+.lc-name small{display:block;font-family:var(--sans);font-size:11px;color:var(--ink3);font-weight:500;margin-top:3px}
+.lc-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:11px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.lc-k{font-size:9.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--ink3);font-weight:700}
+.lc-v{font-family:var(--mono);font-size:14px;font-weight:600;color:var(--ink);margin-top:3px}
+.lc-take{font-size:12.5px;color:var(--ink2);line-height:1.5;margin-top:11px}
+.lc-take .assess{margin-right:5px}
+@media(max-width:760px){.launch-feed{grid-template-columns:1fr}}
+@media(max-width:420px){.lc-row{grid-template-columns:1fr 1fr;gap:8px 12px}}
 .bars{margin-top:6px}
 .bar-row{display:flex;align-items:center;gap:11px;padding:7px 0}
 .bar-row .lab{width:150px;font-size:12.5px;flex:none;color:var(--ink2)}
@@ -187,8 +186,8 @@ select.f{background:var(--panel);border:1px solid var(--line);border-radius:10px
 
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-let D=null,TAB='research',SORT={k:'score',dir:-1},FILT={q:'',seg:'',grade:''},CMP=[];
-const TABS=[['research','▦','Research'],['launches','◆','New launches'],['upcoming','◇','Upcoming'],['compare','⇄','Compare'],['method','📐','Methodology']];
+let D=null,TAB='research',SORT={k:'score',dir:-1},FILT={q:'',seg:'',grade:'',upreg:''},CMP=[];
+const TABS=[['research','▦','Research'],['launches','◆','New launches'],['upcoming','◇','Launch radar'],['compare','⇄','Compare'],['method','📐','Methodology']];
 const median=arr=>{const a=arr.filter(x=>x!=null&&!isNaN(x)).slice().sort((x,y)=>x-y);return a.length?a[Math.floor(a.length/2)]:null;};
 const FACS=['value','timing','liquidity','yield','tenure','supply'];
 const gletter=g=>g[0];
@@ -275,19 +274,21 @@ const VIEWS={
    <div class="note" style="margin-top:14px;color:var(--ink3)"><b>Status</b> tells you if it's still moving: <span class="lstat act" style="font-size:10px">Actively selling</span> = sold within ~2 months · <span class="lstat sel" style="font-size:10px">Still selling</span> = within ~8 · <span class="lstat sold" style="font-size:10px">Mostly sold</span> = older. <b>vs resale</b> compares the launch PSF to the median of comparable resale projects in the same area; a small/negative premium is priced near resale, 12–25% is a typical new premium, above that the upside case has to carry it.</div></div>`;
  },
  upcoming(){
-  const dists=[...new Set(D.projects.map(p=>p.district))].sort();
-  return `<div class="hero"><h1 class="serif">Upcoming launch — <em>worth the price?</em></h1>
-    <p>Heard a launch is coming? Enter its area and the expected PSF — we'll benchmark it against what that area's <b>resale and recent launches actually trade at</b>. A price sanity-check before you pitch it. <span style="color:var(--ink3)">(No units exist to value yet — this checks the price against real area data.)</span></p></div>
-   <div class="panel" style="margin-top:18px"><h2>◇ Price-check an upcoming launch</h2>
-     <div class="up-form">
-       <div class="up-field"><label>Expected PSF</label><input id="up_psf" type="number" inputmode="numeric" placeholder="e.g. 2400"></div>
-       <div class="up-field"><label>Area / district</label><select id="up_dist">${dists.map(d=>`<option value="${d}">${distName(d)} · ${distArea(d)}</option>`).join('')}</select></div>
-       <div class="up-field"><label>Segment</label><select id="up_seg"><option value="">Auto (area norm)</option><option>CCR</option><option>RCR</option><option>OCR</option></select></div>
-       <div class="up-field"><label>Project name <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--ink3)">· optional, for the report</span></label><input id="up_name" type="text" placeholder="e.g. The Sceneca"></div>
-       <button class="up-go" id="up_go">Evaluate the price →</button>
-     </div>
-     <div id="up_result"></div>
-   </div>`;
+  const reg=FILT.upreg||'';
+  let ls=D.launches.slice().sort((a,b)=>(''+b.last).localeCompare(''+a.last)||(b.txns||0)-(a.txns||0));
+  const active=ls.filter(l=>launchStatus(l.last)[1]==='act');
+  const medPrem=median(ls.map(l=>l.premium).filter(x=>x!=null));
+  const feed=reg?ls.filter(l=>l.seg===reg):ls;
+  return `<div class="hero"><h1 class="serif">Launch radar — <em>what's new, and how it's priced</em></h1>
+    <p>The new launches in the market right now — <b>freshest activity first</b>, each already benchmarked against the area's real resale. No forms, no searching: just how every launch is priced, how it's selling, and whether the premium stacks up.</p></div>
+   <div class="kpis" style="margin-top:20px;grid-template-columns:repeat(3,1fr)">
+     <div class="kpi"><div class="k">Launches in market</div><div class="v">${D.n_launches}</div><div class="s">all with real sales</div></div>
+     <div class="kpi"><div class="k">Actively selling now</div><div class="v pos">${active.length}</div><div class="s">sold in the last ~2 months</div></div>
+     <div class="kpi"><div class="k">Median premium</div><div class="v">${medPrem>0?'+':''}${medPrem}%</div><div class="s">over area resale</div></div>
+   </div>
+   <div class="up-chips">${['','CCR','RCR','OCR'].map(s=>`<button class="up-chip ${reg===s?'on':''}" data-reg="${s}">${s||'All regions'}</button>`).join('')}<span class="up-count">${feed.length} launches</span></div>
+   <div class="launch-feed">${feed.slice(0,48).map(launchCard).join('')}</div>
+   <div class="note" style="text-align:center;color:var(--ink3);margin:8px 0 30px">Each launch's PSF is benchmarked against the median of comparable resale in the same area. A price sanity-check on real data — not a unit valuation.</div>`;
  },
  compare(){
   if(!CMP.length)return `<div class="hero"><h1 class="serif">Compare, <em>head to head</em>.</h1>
@@ -340,7 +341,7 @@ function rowHtml(p){
    <td class="r" style="color:${gcol(p.grade)};font-weight:700">${p.score}</td></tr>`;
 }
 function launchRow(l){
-  const cls=l.assess.includes('line')?'ok':l.assess.includes('typical')?'mid':l.assess.includes('Stretched')?'hi':l.assess.includes('Steep')?'steep':'';
+  const cls=l.assess.includes('Keenly')?'ok':l.assess.includes('Typical')?'mid':l.assess.includes('Steep')?'steep':l.assess.includes('Premium')?'hi':'';
   const pc=l.premium==null?'—':(l.premium>0?'+':'')+l.premium+'%';
   const pcl=l.premium==null?'':l.premium<=12?'pos':l.premium>=35?'neg':'';
   const s=launchStatus(l.last);
@@ -353,55 +354,27 @@ function launchRow(l){
    <td><span class="lstat ${s[1]}">${s[0]}</span></td></tr>`;
 }
 
-// ---- upcoming-launch evaluator ----
-function evalUpcoming(){
-  const psf=+document.getElementById('up_psf').value;
-  const dist=document.getElementById('up_dist').value;
-  let seg=document.getElementById('up_seg').value;
-  const name=document.getElementById('up_name').value.trim();
-  const out=document.getElementById('up_result');
-  if(!psf||psf<100){ out.innerHTML='<div class="up-warn">⚠ Enter the expected PSF (e.g. 2400) to run the check.</div>'; return; }
-  const distProjects=D.projects.filter(p=>String(p.district)===String(dist));
-  if(!seg){ const c={}; distProjects.forEach(p=>c[p.seg]=(c[p.seg]||0)+1); seg=Object.keys(c).sort((a,b)=>c[b]-c[a])[0]||''; }
-  const resale=distProjects.filter(p=>!seg||p.seg===seg);
-  const resaleRef=median(resale.map(p=>p.psf));
-  const launches=D.launches.filter(l=>String(l.district)===String(dist)&&(!seg||l.seg===seg));
-  const launchRef=median(launches.map(l=>l.launch_psf));
-  const premR=resaleRef?Math.round((psf/resaleRef-1)*1000)/10:null;
-  const premL=launchRef?Math.round((psf/launchRef-1)*1000)/10:null;
-  let verdict,vc;
-  if(premR==null){verdict='Not enough area data';vc='sold';}
-  else if(premR<=12){verdict='In line with resale';vc='act';}
-  else if(premR<=25){verdict='Reasonable new-launch premium';vc='sel';}
-  else if(premR<=40){verdict='Stretched vs the area';vc='hi';}
-  else{verdict='Steep — needs a strong story';vc='steep';}
-  const compResale=resale.slice().sort((a,b)=>Math.abs(a.psf-psf)-Math.abs(b.psf-psf)).slice(0,5);
-  const compLaunch=launches.slice().sort((a,b)=>(''+b.last).localeCompare(''+a.last)).slice(0,5);
-  out.innerHTML=`
-   <div class="up-verdict ${vc}">
-     <div class="uv-psf">$${psf.toLocaleString()}<small>expected psf · ${esc(name||distName(dist))}</small></div>
-     <div class="uv-label">${verdict}</div></div>
-   <div class="up-metrics">
-     <div class="mc"><div class="k">vs resale · ${distName(dist)} ${seg}</div><div class="v">${premR==null?'—':(premR>0?'+':'')+premR+'%'}<small> median resale $${resaleRef?resaleRef.toLocaleString():'—'}</small></div></div>
-     <div class="mc"><div class="k">vs recent launches here</div><div class="v">${premL==null?'—':(premL>0?'+':'')+premL+'%'}<small> launch median $${launchRef?launchRef.toLocaleString():'—'}</small></div></div>
-     <div class="mc"><div class="k">Launches competing</div><div class="v">${launches.length}<small> selling in ${seg}</small></div></div>
-     <div class="mc"><div class="k">Resale comps used</div><div class="v">${resale.length}<small> ${seg} in ${distName(dist)}</small></div></div>
-   </div>
-   <div class="thesis">${upSummary(name,dist,seg,psf,premR,premL,launches.length)}</div>
-   <div class="sect" style="margin-top:18px">Benchmarked against — recent launches in this area</div>
-   ${compLaunch.length?`<table class="tbl"><tbody>${compLaunch.map(l=>`<tr><td><span class="pn">${l.project}<small>last sale ${ymLabel(l.last)}</small></span></td><td class="r">$${l.launch_psf}</td><td class="r" style="color:var(--ink3)">${l.premium==null?'':(l.premium>0?'+':'')+l.premium+'% vs resale'}</td></tr>`).join('')}</tbody></table>`:`<div class="up-warn" style="color:var(--ink3)">No recent launches recorded in this exact area/segment — the verdict leans on resale.</div>`}
-   <div class="sect" style="margin-top:16px">Comparable resale nearby</div>
-   <table class="tbl"><tbody>${compResale.map(p=>`<tr data-p="${esc(p.project)}"><td><span class="pn">${p.project}<small>${p.street?tc(p.street)+' · ':''}${distName(p.district)}</small></span></td><td class="r">$${p.psf}</td><td><span class="g ${gletter(p.grade)}">${p.grade}</span></td></tr>`).join('')}</tbody></table>
-   <div class="note" style="margin-top:14px;color:var(--ink3)">A price sanity-check against real area data — <b>not</b> a valuation of the actual units (they don't exist yet). Verify the launch's exact location &amp; unit mix before quoting a client.</div>`;
+// ---- launch radar: informative feed of current launches (no form) ----
+function launchCard(l){
+  const s=launchStatus(l.last);
+  const pc=l.premium==null?'—':(l.premium>0?'+':'')+l.premium+'%';
+  const cls=l.assess.includes('Keenly')?'ok':l.assess.includes('Typical')?'mid':l.assess.includes('Steep')?'steep':l.assess.includes('Premium')?'hi':'';
+  return `<div class="lcard">
+    <div class="lc-top"><div class="lc-name">${l.project}<small>${distName(l.district)} · ${distArea(l.district)} · ${l.seg}</small></div><span class="lstat ${s[1]}">${s[0]}</span></div>
+    <div class="lc-row">
+      <div class="lc-m"><div class="lc-k">Launch PSF</div><div class="lc-v">$${l.launch_psf}</div></div>
+      <div class="lc-m"><div class="lc-k">vs resale</div><div class="lc-v">${pc}</div></div>
+      <div class="lc-m"><div class="lc-k">Units sold</div><div class="lc-v">${(l.txns||0).toLocaleString()}</div></div>
+      <div class="lc-m"><div class="lc-k">Last sale</div><div class="lc-v">${ymLabel(l.last)}</div></div>
+    </div>
+    <div class="lc-take"><span class="assess ${cls}">${l.assess}</span> ${launchTake(l)}</div>
+  </div>`;
 }
-function upSummary(name,dist,seg,psf,premR,premL,nL){
-  const who=name||'This launch';
-  if(premR==null)return `${who} is in ${distName(dist)}, but there isn't enough ${seg} resale data here to benchmark $${psf.toLocaleString()} psf reliably — treat with caution and check comparables manually.`;
-  const rWord=premR<=12?`<b>in line with</b>`:premR<=25?`a <b>${premR}% premium</b> over`:premR<=40?`a <b>stretched ${premR}%</b> over`:`a <b>steep ${premR}%</b> over`;
-  let s=`At <b>$${psf.toLocaleString()} psf</b>, ${who} is ${rWord} the resale market in ${distName(dist)} ${seg}.`;
-  if(premL!=null) s+= premL>10?` It's also <b>+${premL}%</b> above what launches here actually sold at — above the local launch norm, so the upside case has to carry it.`:` Roughly in line with recent launches here (${premL>0?'+':''}${premL}% vs their PSF).`;
-  if(nL>=3) s+=` ${nL} launches are already selling in this area — real competition to factor in.`;
-  return s;
+function launchTake(l){
+  const r=l.premium, u=(l.txns||0).toLocaleString(), st=launchStatus(l.last)[0].replace('● ','').toLowerCase();
+  if(r==null) return `Priced at $${l.launch_psf} psf — ${u} units sold, ${st}.`;
+  const w=r<=18?`keenly priced for a new launch at ${r}% over resale`:r<=45?`a ${r}% premium over area resale — typical for a new launch`:r<=60?`a top-end ${r}% premium over resale`:`a steep ${r}% over resale — it needs a strong story`;
+  return `At $${l.launch_psf} psf it's ${w} (resale ~$${l.resale_psf||'—'}) — ${u} units sold, ${st}.`;
 }
 
 // deep-dive
@@ -450,7 +423,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDD();});
 
 // delegated events
 document.addEventListener('click',e=>{
-  if(e.target.closest('#up_go')){evalUpcoming();return;}
+  const chip=e.target.closest('.up-chip'); if(chip){FILT.upreg=chip.dataset.reg;render();return;}
   const th=e.target.closest('.tbl thead th[data-k]');
   if(th){const k=th.dataset.k;if(SORT.k===k)SORT.dir*=-1;else{SORT.k=k;SORT.dir=(k==='project'||k==='seg')?1:-1;}render();return;}
   const tr=e.target.closest('.tbl tbody tr[data-p]');
