@@ -55,16 +55,16 @@
   </form>
   <div class="cdone" id="cdone"><div class="cdone-mk">✓</div><h2>Thank you!</h2><p>Your interest in Hyll on Holland has been noted — Kiwi will be in touch shortly.</p></div>
 </div></div></section><section class="lgroup"><div class="wrap"><div class="grp-head"><h2 class="grp-title">More in Core Central</h2><p class="grp-sub">Other launches in the same region.</p></div>
-  <div class="lgrid"><a class="lcard" data-status="preview" data-region="CCR" href="../launch/dunearn-house.html">
+  <div class="lgrid"><a class="lcard" data-status="preview" data-region="CCR" data-year="2026" href="../launch/dunearn-house.html">
   <div class="lc-img" style="--bg:url('../assets/img/dunearn-house-new-launch.jpg')"><img src="../assets/img/dunearn-house-new-launch.jpg" alt="Dunearn House — new condo launch" loading="lazy"><span class="lc-status soon">Launching soon</span></div>
   <div class="lc-body"><div class="lc-meta"><span class="lc-dist">D11</span><span class="lc-reg">Core Central</span><span class="lc-dev">Frasers · Sekisui House</span></div>
-  <h3 class="lc-name">Dunearn House</h3><p class="lc-tag">Bukit Timah, by Sixth Avenue MRT</p><span class="lc-go">View details <i>→</i></span></div></a><a class="lcard" data-status="selling" data-region="CCR" href="../launch/newport-residences.html">
+  <h3 class="lc-name">Dunearn House</h3><p class="lc-tag">Bukit Timah, by Sixth Avenue MRT</p><span class="lc-go">View details <i>→</i></span></div></a><a class="lcard" data-status="selling" data-region="CCR" data-year="2025" href="../launch/newport-residences.html">
   <div class="lc-img" style="--bg:url('../assets/img/newport-residences-condo-cdl-floorplans.jpg')"><img src="../assets/img/newport-residences-condo-cdl-floorplans.jpg" alt="Newport Residences — new condo launch" loading="lazy"><span class="lc-status sell">Now selling</span></div>
   <div class="lc-body"><div class="lc-meta"><span class="lc-dist">D02</span><span class="lc-reg">Core Central</span><span class="lc-dev">CDL</span></div>
-  <h3 class="lc-name">Newport Residences</h3><p class="lc-tag">Freehold in Tanjong Pagar, CBD core</p><span class="lc-go">View details <i>→</i></span></div></a><a class="lcard" data-status="selling" data-region="CCR" href="../launch/the-robertson-opus.html">
+  <h3 class="lc-name">Newport Residences</h3><p class="lc-tag">Freehold in Tanjong Pagar, CBD core</p><span class="lc-go">View details <i>→</i></span></div></a><a class="lcard" data-status="selling" data-region="CCR" data-year="2025" href="../launch/the-robertson-opus.html">
   <div class="lc-img" style="--bg:url('../assets/img/the-robertson-opus-condo-fraser-sekisui-house-singapore.jpg')"><img src="../assets/img/the-robertson-opus-condo-fraser-sekisui-house-singapore.jpg" alt="The Robertson Opus — new condo launch" loading="lazy"><span class="lc-status sell">Now selling</span></div>
   <div class="lc-body"><div class="lc-meta"><span class="lc-dist">D09</span><span class="lc-reg">Core Central</span><span class="lc-dev">Frasers · Sekisui House</span></div>
-  <h3 class="lc-name">The Robertson Opus</h3><p class="lc-tag">Robertson Quay riverside, D9</p><span class="lc-go">View details <i>→</i></span></div></a><a class="lcard" data-status="selling" data-region="CCR" href="../launch/hillhouse.html">
+  <h3 class="lc-name">The Robertson Opus</h3><p class="lc-tag">Robertson Quay riverside, D9</p><span class="lc-go">View details <i>→</i></span></div></a><a class="lcard" data-status="selling" data-region="CCR" data-year="2025" href="../launch/hillhouse.html">
   <div class="lc-img" style="--bg:url('../assets/img/hill-house-orchard-river-valley_orig.jpg')"><img src="../assets/img/hill-house-orchard-river-valley_orig.jpg" alt="Hillhouse — new condo launch" loading="lazy"><span class="lc-status sell">Now selling</span></div>
   <div class="lc-body"><div class="lc-meta"><span class="lc-dist">D09</span><span class="lc-reg">Core Central</span></div>
   <h3 class="lc-name">Hillhouse</h3><p class="lc-tag">999-year tenure, Orchard / River Valley</p><span class="lc-go">View details <i>→</i></span></div></a></div></div></section><section class="cta-band"><div class="wrap cta-in">
@@ -90,7 +90,7 @@ if(b)b.addEventListener('click',function(){b.classList.toggle('on');m.classList.
 var n=document.getElementById('nav');addEventListener('scroll',function(){n.classList.toggle('scrolled',scrollY>10);});
 var chips=document.querySelectorAll('[data-filter]'),cards=document.querySelectorAll('[data-status]');
 chips.forEach(function(c){c.addEventListener('click',function(){chips.forEach(function(x){x.classList.remove('on');});c.classList.add('on');
-var f=c.dataset.filter;cards.forEach(function(card){var ok=f==='all'||card.dataset.status===f||card.dataset.region===f;card.style.display=ok?'':'none';});
+var f=c.dataset.filter;cards.forEach(function(card){var ok=f==='all'||card.dataset.status===f||card.dataset.region===f||card.dataset.year===f;card.style.display=ok?'':'none';});
 document.querySelectorAll('.lgroup').forEach(function(g){var v=[...g.querySelectorAll('[data-status]')].filter(function(x){return x.style.display!=='none';}).length;g.style.display=v?'':'none';});});});
 var cf=document.getElementById('cform');if(cf)cf.addEventListener('submit',function(ev){ev.preventDefault();cf.style.display='none';document.getElementById('cdone').style.display='block';});
 var nf=document.getElementById('nlform');if(nf)nf.addEventListener('submit',function(ev){ev.preventDefault();nf.style.display='none';document.getElementById('nldone').style.display='flex';});

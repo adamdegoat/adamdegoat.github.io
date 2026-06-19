@@ -167,6 +167,12 @@ em{font-style:italic;color:var(--gold-d)}
 .regcard h3{font-family:var(--serif);font-size:23px;font-weight:600;margin:7px 0 5px;color:#fff}
 .regcard p{font-size:13.5px;color:rgba(244,239,230,.72);flex:1;margin-bottom:14px}
 .regcard .lc-go{color:#d9b878}
+.browse-axes{display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap;margin-top:20px}
+.browse-axes .ax-h{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--ink3)}
+.browse-axes a{font-size:14px;font-weight:600;color:var(--ink2)}
+.browse-axes a:hover{color:var(--gold-d)}
+.browse-axes .ax-strong{color:var(--gold-d)}
+.browse-axes .ax-sep{width:1px;height:18px;background:var(--line2)}
 .explore-row{display:flex;align-items:center;gap:10px 16px;flex-wrap:wrap;margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
 .ex-h{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--ink3)}
 .exlink{font-size:14px;font-weight:600;color:var(--ink2);background:var(--surface);border:1px solid var(--line2);border-radius:30px;padding:8px 15px;transition:.15s}
