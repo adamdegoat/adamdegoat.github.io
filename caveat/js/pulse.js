@@ -96,10 +96,10 @@ const Pulse = (() => {
           <th data-k="median_price" class="num">Median price</th>
           <th data-k="median_psf" class="num hide-sm">Median PSF</th>
           <th data-k="txns" class="num">Sales</th>
-          <th data-k="trend" class="num">3-mo PSF Δ</th>
+          <th data-k="trend" class="num">3-mo change</th>
         </tr></thead><tbody id="townsBody">${townRows(d.hdb_towns)}</tbody>
       </table></div>
-      <p class="ptable-legend">“3-mo PSF Δ” = the town’s median PSF over the latest 3 months versus the 3 months before it — a momentum read, not the headline price change.</p>`;
+      <p class="ptable-legend"><b>3-mo change</b> = the town’s median price-per-sqft over the latest 3 months versus the 3 months before it — a momentum read, not the headline price change.</p>`;
   }
   function townRows(towns) {
     return towns.map(t => `<tr>

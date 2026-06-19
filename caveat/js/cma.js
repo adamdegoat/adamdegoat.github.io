@@ -394,15 +394,15 @@ const CMA = (() => {
         <div class="est-side">
           <div class="fact"><span class="k">Indicative range</span><span class="v">±${r.band_pct}%</span></div>
           <div class="fact"><span class="k">Comparables used</span><span class="v">${r.n_comps}</span></div>
-          <div class="fact"><span class="k">Price agreement</span><span class="v">${cvWord(r.cv)}</span></div>
-          ${r.scope ? `<div class="fact"><span class="k">Comp basis</span><span class="v" style="font-size:12px">${r.scope}</span></div>` : ''}
+          <div class="fact"><span class="k">How closely comps agree</span><span class="v">${cvWord(r.cv)}</span></div>
+          ${r.scope ? `<div class="fact"><span class="k">Comps drawn from</span><span class="v" style="font-size:12px">${r.scope}</span></div>` : ''}
           ${r.rental ? `<div class="fact"><span class="k">Est. gross yield</span><span class="v" style="color:var(--brand-d)">~${r.rental.yield}%</span></div>` : ''}
         </div>
       </div>
 
       ${kind === 'condo' ? `<a class="cross-thesis" href="https://adamdegoat.github.io/thesis/?p=${encodeURIComponent(subj.project)}">
         <span class="ct-ic">📊</span>
-        <span><b>Is it a smart buy?</b> See ${Narrative.titleCase(subj.project)}'s investment grade — value vs peers, yield &amp; timing — in Thesis</span>
+        <span><b>Is it a smart buy?</b> See ${Narrative.titleCase(subj.project)}'s investment grade — how it's priced vs nearby condos, its yield &amp; where it sits in the price cycle — in Thesis</span>
         <span class="ct-arr">→</span></a>` : ''}
 
       <div class="deck-section">
@@ -599,7 +599,7 @@ const CMA = (() => {
 
   const val = id => (document.getElementById(id) || {}).value || '';
   const getCss = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
-  const cvWord = cv => cv < 0.05 ? 'Very tight' : cv < 0.08 ? 'Tight' : cv < 0.11 ? 'Moderate' : 'Wide';
+  const cvWord = cv => cv < 0.05 ? 'Very consistent' : cv < 0.08 ? 'Consistent' : cv < 0.11 ? 'Somewhat mixed' : 'Scattered';
   const escAttr = s => s.replace(/'/g, '&#39;');
   const shortAddr = a => Narrative.titleCase(a.replace(/ SINGAPORE \d+$/, ''));
 
