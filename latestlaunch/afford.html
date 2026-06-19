@@ -81,7 +81,8 @@
     if(c==='SC')return order===1?0:order===2?.20:.30;
     if(c==='PR')return order===1?.05:order===2?.30:.35;
     return .60;}
-  var STRESS=0.04;
+  var STRESS=0.04;  // bank stress-test rate — sizes the MAX loan (eligibility)
+  var RATE=0.03;    // realistic current rate — for the est. ACTUAL monthly repayment
   function compute(){
     var income=num('f_income'), co=num('f_coincome'), debts=num('f_debts'),
         cash=num('f_cash'), cpf=num('f_cpf'), age=num('f_age')||35,
@@ -123,7 +124,7 @@
     }
     var P=r.budget, loan=r.ltv*P, down=P-loan, minCash=r.minCashRate*P,
         bsdP=r.bsdFn(P), absdP=P*r.aRate, upfront=down+bsdP+absdP,
-        monthly=loanToPmt(loan,STRESS,r.tenure);
+        monthly=loanToPmt(loan,RATE,r.tenure);
     // headline
     if(P<50000){
       $('o_budget').textContent='—';
@@ -143,7 +144,7 @@
     html+=row('Buyer’s Stamp Duty',money(bsdP));
     html+=row(absdLabel, r.aRate>0?money(absdP):'$0', r.aRate>0?'':'first property');
     html+='<div class="orow orow-tot"><span class="ok">Cash + CPF needed upfront</span><span class="ov">'+money(upfront)+'</span></div>';
-    html+=row('Est. monthly repayment','<b>'+money(monthly)+'</b> /mo','stress-tested at 4%');
+    html+=row('Est. monthly repayment','<b>'+money(monthly)+'</b> /mo','at ~3% p.a. · eligibility tested at 4%');
     $('o_rows').innerHTML=html;
     // coaching tips
     var tips=[];
