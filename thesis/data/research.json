@@ -1,5 +1,76 @@
 {
- "asof": null,
- "disclaimer": "AI-assisted research from public web sources — indicative, verify before quoting a client.",
- "notes": {}
+ "asof": "2026-06-19",
+ "disclaimer": "AI-assisted research from public web sources \u2014 indicative, verify before quoting a client.",
+ "notes": {
+  "ICON": {
+   "note": "ICON is a 646-unit 99-year leasehold development completed in 2007 sitting directly above Tanjong Pagar MRT (East-West Line) with integrated retail (Icon Village) at street level. Its CBD-fringe Tanjong Pagar location benefits from the ongoing Greater Southern Waterfront redevelopment.",
+   "sources": [
+    "https://www.99.co/singapore/condos-apartments/icon",
+    "https://www.edgeprop.sg/condo-apartment/icon"
+   ]
+  },
+  "SELETAR PARK RESIDENCE": {
+   "note": "A 276-unit 99-year leasehold condo completed in 2015, developed by Asplenium Land (Tong Eng group) and designed by SCDA Architects, near Jalan Kayu's eateries with Fernvale LRT about an 8-minute walk away. There is no confirmed MRT station directly serving the estate; a future Seletar Line is only at early engineering-study stage from 2026.",
+   "sources": [
+    "https://www.edgeprop.sg/condo-apartment/seletar-park-residence",
+    "https://www.lta.gov.sg/content/ltagov/en/newsroom/2026/3/news-releases/next-phase-of-rail-development.html"
+   ]
+  },
+  "ONE-NORTH RESIDENCES": {
+   "note": "A 405-unit 99-year leasehold condo completed in 2009 by Vista Development (a UOL/Kheng Leong JV), a few minutes' walk from one-north MRT (Circle Line) within JTC's 200ha one-north research hub. Newer nearby supply has added competition and price benchmarks, including Blossoms By The Park (2023), One-North Eden (2021) and The Hill @ One-North (2024).",
+   "sources": [
+    "https://www.99.co/singapore/condos-apartments/one-north-residences",
+    "https://stackedhomes.com/this-new-condo-will-be-the-biggest-project-in-one-north-is-bloomsbury-residences-worth-a-look/"
+   ]
+  },
+  "THE COAST AT SENTOSA COVE": {
+   "note": "A 249-unit waterfront 99-year leasehold condo completed in 2010 by Ho Bee Land in Sentosa Cove, Singapore's only enclave allowing foreigners to buy landed/strata waterfront homes, but subject to 60% ABSD for foreign buyers. Sentosa Cove resale values have fallen, with a large share of recent transactions made at a loss amid the foreign-buyer ABSD and no new project supply.",
+   "sources": [
+    "https://www.edgeprop.sg/condo-apartment/the-coast-at-sentosa-cove",
+    "https://kopiandproperty.com/foreign-buyers-and-market-trends-in-sentosa-cove/"
+   ]
+  },
+  "OUE TWIN PEAKS": {
+   "note": "A 462-unit 99-year leasehold luxury condo by OUE Limited (tenure from 2015) on Leonie Hill Road, with Great World MRT (Thomson-East Coast Line) about 300m away and Orchard/Somerset MRT within walking distance. Its prime District 9 Orchard-fringe location and Bill Bensley-designed landscaping position it as a high-end city-centre product.",
+   "sources": [
+    "https://www.99.co/singapore/condos-apartments/oue-twin-peaks",
+    "https://www.srx.com.sg/condo/oue-twin-peaks-10552"
+   ]
+  },
+  "SPOTTISWOODE RESIDENCES": {
+   "note": "Freehold 351-unit, 36-storey UOL development completed 2014, located near the upcoming Cantonment MRT station (Circle Line) slated to open in 2026 and within walking distance of Outram Park MRT. It sits within the Greater Southern Waterfront transformation area, a redevelopment zone expected to support long-term capital appreciation.",
+   "sources": [
+    "https://www.99.co/singapore/condos-apartments/spottiswoode-residences",
+    "https://uolhomes.com.sg/project/spottiswoode-residences/"
+   ]
+  },
+  "THE CLIFT": {
+   "note": "A 99-year leasehold, 312-unit, 42-storey condo developed by Far East Organization (completed 2011), sitting opposite Amoy Street Food Centre and between Telok Ayer and Tanjong Pagar MRT stations. Resident reviews are mixed, citing strong location and facilities but recurring maintenance complaints.",
+   "sources": [
+    "https://www.99.co/singapore/condos-apartments/the-clift",
+    "https://condo.singaporeexpats.com/reviews/2522/THE-CLIFT"
+   ]
+  },
+  "WALLICH RESIDENCE": {
+   "note": "A 181-unit luxury development by GuocoLand occupying the upper floors of Guoco Tower (290m, Singapore's tallest building) directly above Tanjong Pagar MRT. Its triplex super penthouse \u2014 the largest non-landed home in Singapore at ~21,108 sqft \u2014 was bought by British billionaire James Dyson for $73.8 million in 2019 (later sold).",
+   "sources": [
+    "https://www.edgeprop.sg/property-news/wallich-residence-penthouse-sold-record-high",
+    "https://en.wikipedia.org/wiki/Guoco_Tower"
+   ]
+  },
+  "JOOL SUITES": {
+   "note": "A small freehold development of 52 mostly one-bedroom units (387-484 sqft) completed in 2014 at Sing Joo Walk, within walking distance of Farrer Park MRT. Recent transactions over the past 12 months ranged from about S$1,707 to S$1,856 psf.",
+   "sources": [
+    "https://www.99.co/singapore/condos-apartments/jool-suites",
+    "https://www.srx.com.sg/condo/jool-suites-14892"
+   ]
+  },
+  "10 SHELFORD": {
+   "note": "A freehold 69-unit boutique development of mostly one-bedroom units completed in 2014 in the school-belt District 11, within walking distance of Botanic Gardens/Tan Kah Kee MRT. Nearby new supply includes UOL/Singapore Land's freehold Watten House on Shelford Road (~180 units, completion 2027), offering recent comparable benchmarks.",
+   "sources": [
+    "https://www.99.co/singapore/condos-apartments/10-shelford",
+    "https://wattenbyuol.sg/"
+   ]
+  }
+ }
 }
