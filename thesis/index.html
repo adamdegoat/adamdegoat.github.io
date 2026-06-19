@@ -121,6 +121,11 @@ select.f{background:var(--panel);border:1px solid var(--line);border-radius:10px
 .legend span b{color:var(--ink2);font-weight:700}
 .facnote{font-size:12px;color:var(--ink2);line-height:1.55;background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:9px 12px;margin-bottom:12px}
 .facnote b{color:var(--ink)}
+.research{background:linear-gradient(120deg,rgba(168,125,36,.06),var(--panel));border:1px solid rgba(168,125,36,.28);border-radius:10px;padding:13px 15px}
+.research p{font-size:13.5px;color:var(--ink);line-height:1.6;margin-bottom:8px}
+.rsrc{display:flex;flex-wrap:wrap;gap:6px 12px;margin:6px 0}
+.rsrc a,.rsrc span{font-size:11px;color:var(--gold);font-weight:600}
+.rdisc{font-size:10.5px;color:var(--ink3);font-style:italic;margin-top:6px;border-top:1px solid var(--line);padding-top:7px}
 .pill{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--ink3);border:1px solid var(--line2);border-radius:999px;padding:3px 9px}
 .assess{font-size:11px;font-weight:600;padding:2px 8px;border-radius:6px}
 .assess.ok{background:rgba(15,157,118,.12);color:#0b7d5e}
@@ -131,6 +136,7 @@ select.f{background:var(--panel);border:1px solid var(--line);border-radius:10px
 .lstat.act{background:rgba(15,157,118,.13);color:#0b7d5e}
 .lstat.sel{background:rgba(58,127,192,.11);color:#2f6aa6}
 .lstat.sold{background:var(--panel2);color:var(--ink3)}
+.lstat.upc{background:rgba(168,125,36,.13);color:var(--gold)}
 .sub-r{font-size:10px;color:var(--ink3);font-weight:400;margin-top:2px;font-family:var(--sans)}
 /* launch radar feed */
 .up-chips{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:20px 0 4px}
@@ -188,8 +194,27 @@ select.f{background:var(--panel);border:1px solid var(--line);border-radius:10px
 .bar-row .track{flex:1;height:9px;background:var(--panel2);border-radius:5px;position:relative;overflow:hidden}
 .bar-row .fill{height:100%;border-radius:5px}
 .bar-row .val{width:54px;text-align:right;font-family:var(--mono);font-size:12.5px;flex:none}
-.cmp-grid{display:grid;gap:12px}
-.cmp-col{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
+.cmp-scroll{overflow-x:auto;margin:16px 0 0;-webkit-overflow-scrolling:touch}
+.cmp-grid{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(248px,1fr);gap:13px;min-width:min-content}
+.cmp-col{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 16px 14px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.cmp-hd{display:flex;align-items:center;gap:10px;margin-bottom:11px}
+.cmp-nm{font-family:var(--serif);font-size:16.5px;font-weight:600;line-height:1.12}
+.cmp-sub{font-size:10.5px;color:var(--ink3);margin-top:3px}
+.cmp-verdict{font-size:12px;font-weight:600;color:var(--green-d);background:var(--panel2);border-radius:7px;padding:6px 10px;margin-bottom:12px;text-align:center}
+.cmp-rows{display:flex;flex-direction:column}
+.cmp-row{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:7px 0;border-bottom:1px solid var(--line)}
+.cr-k{font-size:12px;color:var(--ink2)}.cr-k small{display:block;font-size:10px;color:var(--ink3)}
+.cr-v{font-size:13.5px;font-weight:600;color:var(--ink);white-space:nowrap}
+.cmp-spk{margin-top:12px}
+.cmp-spk-h{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--ink3);margin-bottom:2px}
+.cmp-fac{margin-top:12px;display:flex;flex-direction:column;gap:6px}
+.cmp-fr{display:flex;align-items:center;gap:8px}
+.cf-l{width:96px;font-size:10.5px;color:var(--ink2);flex:none}
+.cmp-fr .track{flex:1;height:7px;background:var(--panel2);border-radius:5px;overflow:hidden}
+.cmp-fr .fill{height:100%;border-radius:5px}
+.cf-v{width:24px;text-align:right;font-family:var(--mono);font-size:11px;color:var(--ink3);flex:none}
+.cmp-rm{margin-top:14px;font-size:11.5px;font-weight:600;color:var(--red);border:1px solid var(--line);border-radius:8px;padding:8px;transition:.15s}
+.cmp-rm:hover{border-color:var(--red);background:rgba(207,83,73,.05)}
 .empty{text-align:center;color:var(--ink3);padding:50px 20px;font-size:14px}
 .empty .b{font-family:var(--serif);font-size:19px;color:var(--ink2);margin-bottom:8px}
 .foot{color:var(--ink3);font-size:11.5px;text-align:center;padding:30px 20px 50px;line-height:1.6;border-top:1px solid var(--line);margin-top:30px}
@@ -223,7 +248,7 @@ select.f{background:var(--panel);border:1px solid var(--line);border-radius:10px
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 let D=null,TAB='research',SORT={k:'score',dir:-1},FILT={q:'',seg:'',grade:'',upreg:'',lview:'feed',lold:false},CMP=[];
-const TABS=[['research','▦','Research'],['launches','◆','New launches'],['compare','⇄','Compare'],['method','📐','Methodology']];
+const TABS=[['research','▦','Research'],['launches','◆','New launches'],['upcoming','◇','Upcoming'],['compare','⇄','Compare'],['method','📐','Methodology']];
 const median=arr=>{const a=arr.filter(x=>x!=null&&!isNaN(x)).slice().sort((x,y)=>x-y);return a.length?a[Math.floor(a.length/2)]:null;};
 const FACS=['value','timing','liquidity','yield','tenure','supply'];
 // plain-English factor labels + one-line meanings (override the engine's terse labels for display)
@@ -249,8 +274,11 @@ const ymIdx=ym=>{ym=''+ym;return (2000+ +ym.slice(0,2))*12 + +ym.slice(2);};
 const ymLabel=ym=>ym?MON[+(''+ym).slice(2)]+" '"+(''+ym).slice(0,2):'—';
 function launchStatus(last){const m=ymIdx(D.as_of)-ymIdx(last);return m<=2?['● Actively selling','act']:m<=8?['Still selling','sel']:['Mostly sold','sold'];}
 
-fetch('data/thesis.json?cb='+Date.now()).then(r=>r.json()).then(d=>{D=d;init();})
-  .catch(e=>{$('#app').innerHTML='<div class="empty">Could not load research data. '+e+'</div>';});
+fetch('data/thesis.json?cb='+Date.now()).then(r=>r.json()).then(async d=>{
+  D=d;
+  try{ window.RESEARCH=await (await fetch('data/research.json?cb='+Date.now())).json(); }catch(e){ window.RESEARCH=null; }
+  init();
+}).catch(e=>{$('#app').innerHTML='<div class="empty">Could not load research data. '+e+'</div>';});
 
 function fresh(builtISO){
   const built=new Date((builtISO||'')+'T00:00:00+08:00'), now=new Date();
@@ -345,20 +373,31 @@ const VIEWS={
   }
   return hero+body+`<div class="note" style="text-align:center;color:var(--ink3);margin:14px 0 30px">Each launch's PSF is benchmarked against the median of comparable resale in the same area — a price sanity-check on real caveats, not a unit valuation.</div>`;
  },
+ upcoming(){
+  const u=D.upcoming||[];
+  const hero=`<div class="hero"><h1 class="serif">Upcoming launches — <em>what's coming, and how it might be priced</em></h1>
+    <p>Projects expected to launch soon — <b>not on sale yet</b>. Because nothing has transacted, every figure here is <b>indicative</b>: we benchmark each one against the <b>real resale prices around it</b> so you can frame the likely premium for a client before the showflat opens.</p></div>
+   <div class="flag-w" style="margin-top:18px">⚠ <b>Indicative only.</b> These aren't selling yet, so prices are estimated from the area's resale — not transactions. Always verify launch dates &amp; pricing with the developer.</div>`;
+  if(!u.length)return hero+`<div class="empty"><div class="b serif">Watchlist is being built</div>Curated upcoming projects will appear here, each benchmarked against nearby resale.</div>`;
+  return hero+`<div class="launch-feed" style="margin-top:18px">${u.map(upcomingCard).join('')}</div>
+   <div class="note" style="text-align:center;color:var(--ink3);margin:8px 0 30px">A curated watchlist (kept current weekly), each benchmarked against the median resale of comparable condos in the same area. Indicative framing — not a valuation.</div>`;
+ },
  compare(){
   if(!CMP.length)return `<div class="hero"><h1 class="serif">Compare, <em>head to head</em>.</h1>
     <p>Add projects from the Research tab (the ⇄ button on any project) to line them up side by side — grades, value, the full factor breakdown.</p></div>
     <div class="empty"><div class="b serif">No projects added yet</div>Open any project → "Add to compare". Up to 3.</div>`;
   const ps=CMP.map(n=>D.projects.find(p=>p.project===n)).filter(Boolean);
-  return `<div class="hero"><h1 class="serif">Head to head</h1><p>${ps.length} project${ps.length>1?'s':''} compared. <button onclick="CMP=[];render()" style="color:var(--gold);font-size:13px">Clear all</button></p></div>
-   <div class="cmp-grid" style="grid-template-columns:repeat(${ps.length},1fr);margin-top:16px">
+  return `<div class="hero"><h1 class="serif">Head to head</h1><p>${ps.length} project${ps.length>1?'s':''} compared, side by side. <button onclick="CMP=[];render()" style="color:var(--gold);font-size:13px">Clear all</button></p></div>
+   <div class="cmp-scroll"><div class="cmp-grid">
    ${ps.map(p=>`<div class="cmp-col">
-     <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px"><span class="g ${gletter(p.grade)}">${p.grade}</span><span style="font-family:var(--serif);font-size:16px;font-weight:600">${p.project}</span></div>
-     <div style="font-size:11px;color:var(--ink3);margin-bottom:12px">${distName(p.district)} · ${p.seg} · ${p.fh?'Freehold':'Leasehold'}</div>
-     ${[['Score (0–100)',p.score],['$ / sqft','$'+p.psf.toLocaleString()],['vs nearby',p.value_flag?'n/a':(p.discount>0?p.discount+'% cheaper':p.discount<0?(-p.discount)+'% pricier':'in line')],['6mo trend',(p.mom>0?'+':'')+p.mom+'%'],['Rental yield',p.yield?p.yield+'%':'—'],['Recent sales',p.txns]].map(m=>`<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line);font-size:13px"><span style="color:var(--ink3)">${m[0]}</span><span class="mono">${m[1]}</span></div>`).join('')}
-     <div class="bars" style="margin-top:12px">${FACS.map(f=>`<div style="display:flex;align-items:center;gap:8px;margin:5px 0"><span style="width:90px;font-size:10.5px;color:var(--ink3);flex:none" title="${FDESC[f]}">${flab(f)}</span><div class="track" style="flex:1;height:7px"><div class="fill" style="width:${p.pct[f]}%;background:${barCol(p.pct[f])}"></div></div></div>`).join('')}</div>
-     <button onclick="CMP=CMP.filter(x=>x!=='${p.project.replace(/'/g,"\\'")}');render()" style="margin-top:12px;font-size:11.5px;color:var(--red)">Remove</button>
-   </div>`).join('')}</div>`;
+     <div class="cmp-hd"><span class="g ${gletter(p.grade)}">${p.grade}</span><div><div class="cmp-nm">${tc(p.project)}</div><div class="cmp-sub">${distName(p.district)} · ${p.seg} · ${p.fh?'Freehold':'Leasehold'}</div></div></div>
+     <div class="cmp-verdict">${p.verdict}</div>
+     <div class="cmp-rows">${[['Grade score','out of 100',p.score],['Price / sqft','typical unit','$'+p.psf.toLocaleString()],['vs nearby condos','same class, 1.5km',p.value_flag?'n/a':(p.discount>0?p.discount+'% cheaper':p.discount<0?(-p.discount)+'% pricier':'in line')],['Price trend','last 6 months',(p.mom==null?'—':(p.mom>0?'+':'')+p.mom+'%')],['Rental yield','gross',p.yield?p.yield+'%':'—'],['Recent sales','ease of exit',p.txns]].map(m=>`<div class="cmp-row"><span class="cr-k">${m[0]}<small>${m[1]}</small></span><span class="cr-v mono">${m[2]}</span></div>`).join('')}</div>
+     ${p.spark&&p.spark.length>=4?`<div class="cmp-spk"><div class="cmp-spk-h">Price trend · ${D.window_months}mo</div>${sparkSVG(p.spark)}</div>`:''}
+     <div class="cmp-fac">${FACS.map(f=>`<div class="cmp-fr"><span class="cf-l" title="${FDESC[f]}">${flab(f)}</span><div class="track"><div class="fill" style="width:${p.pct[f]}%;background:${barCol(p.pct[f])}"></div></div><span class="cf-v">${p.pct[f]}</span></div>`).join('')}</div>
+     <button class="cmp-rm" onclick="CMP=CMP.filter(x=>x!=='${p.project.replace(/'/g,"\\'")}');render()">Remove</button>
+   </div>`).join('')}</div></div>
+   <div class="note" style="color:var(--ink3);margin:14px 2px 30px;font-size:12px">Bars are each project's 0–100 rank versus others in the same region (higher is better). On a phone, swipe sideways to see every card.</div>`;
  },
  method(){
   const bt=D.backtest||{},W=D.weights,mw=Math.max(...Object.values(W));
@@ -477,6 +516,26 @@ function sparkSVG(pts){
   </svg>`;
 }
 
+// ---- upcoming launches: indicative, benchmarked against nearby resale ----
+function upcomingCard(l){
+  const hasEst=l.est_psf!=null;
+  const take=hasEst
+    ? (l.premium!=null?`At an indicative <b>$${l.est_psf.toLocaleString()} psf</b> it would be <b>${l.premium>0?l.premium+'% above':Math.abs(l.premium)+'% below'}</b> the resale around it (~$${(l.resale_psf||0).toLocaleString()}).`:`Indicative <b>$${l.est_psf.toLocaleString()} psf</b>.`)
+    : (l.resale_psf?`Resale nearby runs <b>~$${l.resale_psf.toLocaleString()} psf</b>; new launches in this area have typically opened about <b>${l.typical_premium}% higher</b>, so a first guide is roughly <b>$${(l.expected_psf||0).toLocaleString()} psf</b> — confirm when it launches.`:`No resale benchmark available for this area yet.`);
+  return `<div class="lcard">
+    <div class="lc-top"><div class="lc-name">${tc(l.project)}<small>${distName(l.district)} · ${distArea(l.district)} · ${l.seg}</small></div><span class="lstat upc">◇ ${l.expected||'Upcoming'}</span></div>
+    <div class="lc-row">
+      <div class="lc-m"><div class="lc-k">Status</div><div class="lc-v" style="font-size:12px">Not selling yet</div></div>
+      <div class="lc-m"><div class="lc-k">Resale nearby</div><div class="lc-v">${l.resale_psf?'$'+l.resale_psf.toLocaleString():'—'}</div></div>
+      <div class="lc-m"><div class="lc-k">${hasEst?'Indicative psf':'Likely psf'}</div><div class="lc-v">${hasEst?'$'+l.est_psf.toLocaleString():(l.expected_psf?'~$'+l.expected_psf.toLocaleString():'TBA')}</div></div>
+      <div class="lc-m"><div class="lc-k">Units</div><div class="lc-v">${l.units||'—'}</div></div>
+    </div>
+    <div class="lc-take">${take}</div>
+    ${l.note?`<div class="lc-comps"><b>Note</b>: ${l.note}${l.developer?` · ${l.developer}`:''}</div>`:''}
+    ${(l.comps&&l.comps.length)?`<div class="lc-comps"><b>Resale benchmark</b> (${l.comp_basis||'same area'}): ${l.comps.slice(0,3).map(c=>`${tc(c.n)} <span class="cmp-psf">$${c.psf.toLocaleString()}</span>`).join(' · ')}</div>`:''}
+  </div>`;
+}
+
 // deep-dive
 function openDD(name){
   const p=D.projects.find(x=>x.project===name);if(!p)return;
@@ -488,6 +547,8 @@ function openDD(name){
    <div class="dd-body">
      <div class="thesis">${thesis(p)}</div>
      ${p.value_flag?`<div class="flag-w">⚠ This project's PSF sits unusually far from nearby projects — likely a <b>different product</b> (older or much larger units), so we don't score it on relative value. Verify the comparable set before quoting it.</div>`:''}
+     ${(()=>{const rn=window.RESEARCH&&window.RESEARCH.notes&&window.RESEARCH.notes[p.project];return rn?`<div class="sect">Field research <span style="color:var(--ink3);text-transform:none;letter-spacing:0;font-weight:400">· AI-assisted · ${window.RESEARCH.asof||''}</span></div>
+     <div class="research"><p>${rn.note}</p>${rn.sources&&rn.sources.length?`<div class="rsrc">${rn.sources.map(s=>/^https?:/.test(s)?`<a href="${s}" target="_blank">${s.replace(/^https?:\/\/(www\.)?/,'').split('/')[0]} ↗</a>`:`<span>${s}</span>`).join('')}</div>`:''}<div class="rdisc">${window.RESEARCH.disclaimer||'AI-assisted research — verify before quoting.'}</div></div>`:''})()}
      <div class="sect">What drives the grade</div>
      <div class="facnote">Each bar is this project's rank from <b>0 to 100</b> against other ${p.seg} projects — <b>higher is better</b>. The % on the right is how much that factor counts toward the overall grade.</div>
      ${FACS.map(f=>`<div class="facrow"><div class="fl" title="${FDESC[f]}">${flab(f)}</div><div class="ft"><i style="width:${p.pct[f]}%;background:${barCol(p.pct[f])}"></i></div><div class="fv">${p.pct[f]}</div><div class="fw">${Math.round(D.weights[f]*100)}%</div></div>`).join('')}
