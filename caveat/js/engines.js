@@ -74,6 +74,9 @@ const Engines = (() => {
     });
     const res = finalize(comps, areaForEst, { highN: 12, highCV: 0.07, medN: 6, medCV: 0.10 });
     res.scope = scope; res.tier = tier; res.area_assumed = !hasArea;
+    res.block_n = sameBlk.length;  // recent sales at the exact block searched
+    const yrs = pool.map(r => r.rem_lease_mths).filter(Boolean).map(m => Math.round(m / 12));
+    if (yrs.length) { res.lease_lo = Math.min(...yrs); res.lease_hi = Math.max(...yrs); }
     return res;
   }
 
@@ -136,11 +139,18 @@ const Engines = (() => {
     comps.forEach(c => (byM[c.yymm] = byM[c.yymm] || []).push(c.psf));
     const trend = Object.keys(byM).sort().map(m => ({ yymm: m, psf: Math.round(C.median(byM[m])) }));
 
+    // observed range of comparable sales (normalised to subject size), trimmed 10th–90th pct
+    const psfSorted = comps.map(c => c.adj_psf).sort((a, b) => a - b);
+    const pctl = q => psfSorted[Math.max(0, Math.min(psfSorted.length - 1, Math.round(q * (psfSorted.length - 1))))];
+    const obs_low = Math.round(pctl(0.10) * sqft / 1000) * 1000;
+    const obs_high = Math.round(pctl(0.90) * sqft / 1000) * 1000;
+
     return {
       ok: true, estimate_psf: Math.round(estPsf),
       estimate_price: Math.round(estPrice / 1000) * 1000,
       low: Math.round(estPrice * (1 - band) / 1000) * 1000,
       high: Math.round(estPrice * (1 + band) / 1000) * 1000,
+      obs_low, obs_high,
       band_pct: +(band * 100).toFixed(1), confidence, n_comps: comps.length,
       cv: +cv.toFixed(3), area_sqf: Math.round(sqft), comps, trend,
     };

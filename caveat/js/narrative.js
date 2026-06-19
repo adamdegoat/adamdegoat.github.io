@@ -28,8 +28,8 @@ const Narrative = (() => {
 
     let p1 = `Based on ${res.n_comps} comparable ${kind === 'hdb' ? 'resale transactions' : 'caveats'} ` +
       `(${res.scope ? res.scope.replace(/·/g, '·') + ', ' : ''}drawn from the last ${kind === 'hdb' ? 15 : 18} months), ` +
-      `${sub} is estimated at ${C.fmtMoney(res.estimate_price)} — a working range of ` +
-      `${C.fmtMoney(res.low)} to ${C.fmtMoney(res.high)} (≈${C.fmtPsf(res.estimate_psf)}). ` +
+      `${sub} is estimated at ${C.fmtMoney(res.estimate_price)} (≈${C.fmtPsf(res.estimate_psf)}), with comparable units selling between ` +
+      `${C.fmtMoney(res.obs_low)} and ${C.fmtMoney(res.obs_high)}. ` +
       `The comparables form ${confLine[res.confidence]}.`;
 
     let p2 = `Pricing in the area has been ${t.word}${t.pct ? ` (about ${t.pct}% over the window)` : ''} on a per-square-foot basis. `;

@@ -49,7 +49,8 @@ const CaveatMap = (() => {
 
     if (pts.length) m.fitBounds(L.latLngBounds(pts).pad(0.25));
     else m.setView([1.3521, 103.8198], 12);
-    setTimeout(() => m.invalidateSize(), 120);
+    // only resize if this map is still the live one (a new valuation may have replaced it)
+    setTimeout(() => { if (maps[elId] === m && el.isConnected) { try { m.invalidateSize(); } catch (e) {} } }, 120);
   }
 
   return { render };

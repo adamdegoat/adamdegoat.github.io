@@ -285,6 +285,17 @@ const CMA = (() => {
       : `${subj.seg} · D${subj.district} · ${r.area_sqf} sqft · ${subj.tenure_fh ? 'Freehold' : 'Leasehold'}`;
     const cc = r.confidence.toLowerCase();
     const paras = Narrative.cma(kind, subj, r, amen);
+    const blockMsg = (kind === 'hdb' && subj.block)
+      ? (r.tier === 'block'
+          ? `✓ Based on ${r.block_n} recent sale${r.block_n > 1 ? 's' : ''} at Blk ${subj.block}`
+          : (r.block_n > 0
+              ? `Only ${r.block_n} recent ${subj.flat_type.toLowerCase()} sale${r.block_n > 1 ? 's' : ''} at Blk ${subj.block} — estimate uses ${r.n_comps} nearby ${r.scope} sales`
+              : `No recent ${subj.flat_type.toLowerCase()} sales at Blk ${subj.block} — estimate uses ${r.n_comps} nearby ${r.scope} sales`))
+      : '';
+    const leaseMsg = (kind === 'hdb' && r.lease_lo && r.lease_hi && (r.lease_hi - r.lease_lo) >= 10)
+      ? `comparables span ${r.lease_lo}–${r.lease_hi} yrs lease — shorter-lease units sit at the lower end` : '';
+    const rspan = Math.max(1, (r.obs_high || 0) - (r.obs_low || 0));
+    const midPct = Math.max(8, Math.min(92, Math.round((r.estimate_price - (r.obs_low || r.estimate_price)) / rspan * 100)));
 
     res.innerHTML = `<div class="deck" id="deck">
       <div class="print-cover">
@@ -297,6 +308,7 @@ const CMA = (() => {
             <div class="deck-kicker">Comparable Market Analysis</div>
             <div class="deck-addr">${subj.locationName}</div>
             <div class="deck-sub">${sub}</div>
+            ${blockMsg ? `<div class="deck-sub" style="color:var(--brand-d);font-weight:600;margin-top:4px">${blockMsg}</div>` : ''}
           </div>
           <div class="chip ${cc}"><span class="chip-dot"></span>${r.confidence} confidence</div>
         </div>
@@ -304,19 +316,20 @@ const CMA = (() => {
 
       <div class="estimate">
         <div class="est-main">
-          <div class="est-label">Estimated value</div>
+          <div class="est-label">Indicative value</div>
           <div class="est-figure" style="color:${getCss('--ink')}">${C.fmtMoney(r.estimate_price)}</div>
-          <div class="est-psf">≈ ${C.fmtPsf(r.estimate_psf)} · based on ${r.n_comps} comparables</div>
+          <div class="est-psf">≈ ${C.fmtPsf(r.estimate_psf)} · ${r.n_comps} comparables</div>
           <div class="band">
             <div class="band-track">
-              <div class="band-fill" style="left:14%;right:14%;background:linear-gradient(90deg,${color},${App.shade(color, -18)})"></div>
-              <div class="band-mid" style="left:50%"></div>
+              <div class="band-fill" style="left:8%;right:8%;background:linear-gradient(90deg,${color},${App.shade(color, -18)})"></div>
+              <div class="band-mid" style="left:${midPct}%"></div>
             </div>
-            <div class="band-ends"><span>${C.fmtMoney(r.low)}</span><span>${C.fmtMoney(r.high)}</span></div>
+            <div class="band-ends"><span>${C.fmtMoney(r.obs_low)}</span><span>${C.fmtMoney(r.obs_high)}</span></div>
           </div>
+          <div class="est-rangenote" style="font-size:12.5px;color:var(--ink-2);line-height:1.5;margin-top:9px">Comparable units sold between <b>${C.fmtMoney(r.obs_low)}</b> and <b>${C.fmtMoney(r.obs_high)}</b>${leaseMsg ? ` · ${leaseMsg}` : ''}.</div>
         </div>
         <div class="est-side">
-          <div class="fact"><span class="k">Indicative range</span><span class="v">±${r.band_pct}%</span></div>
+          <div class="fact"><span class="k">Likely range</span><span class="v" style="font-size:12.5px">${C.fmtK(r.obs_low)}–${C.fmtK(r.obs_high)}</span></div>
           <div class="fact"><span class="k">Comparables used</span><span class="v">${r.n_comps}</span></div>
           <div class="fact"><span class="k">Price agreement</span><span class="v">${cvWord(r.cv)}</span></div>
           ${r.scope ? `<div class="fact"><span class="k">Comp basis</span><span class="v" style="font-size:12px">${r.scope}</span></div>` : ''}
