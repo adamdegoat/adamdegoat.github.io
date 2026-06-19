@@ -122,6 +122,11 @@ select.f{background:var(--panel);border:1px solid var(--line);border-radius:10px
 .assess.mid{background:rgba(58,127,192,.11);color:#2f6aa6}
 .assess.hi{background:rgba(192,132,24,.12);color:#9a6a10}
 .assess.steep{background:rgba(207,83,73,.11);color:#b33f36}
+.lstat{display:inline-block;font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:30px;white-space:nowrap}
+.lstat.act{background:rgba(15,157,118,.13);color:#0b7d5e}
+.lstat.sel{background:rgba(58,127,192,.11);color:#2f6aa6}
+.lstat.sold{background:var(--panel2);color:var(--ink3)}
+.sub-r{font-size:10px;color:var(--ink3);font-weight:400;margin-top:2px;font-family:var(--sans)}
 .bars{margin-top:6px}
 .bar-row{display:flex;align-items:center;gap:11px;padding:7px 0}
 .bar-row .lab{width:150px;font-size:12.5px;flex:none;color:var(--ink2)}
@@ -170,6 +175,12 @@ const tc=s=>(s||'').toLowerCase().replace(/\b([a-z])/g,(m,c)=>c.toUpperCase());
 const fmtP=n=>n>=1e6?'$'+(n/1e6).toFixed(2)+'m':'$'+Math.round(n/1e3)+'k';
 const sg=v=>v>=0?'pos':'neg';
 const distName=d=>'D'+String(d).padStart(2,'0');
+const DISTRICTS={'01':'Marina · Raffles','02':'Tanjong Pagar · Chinatown','03':'Tiong Bahru · Queenstown','04':'Sentosa · Harbourfront','05':'Clementi · West Coast','06':'City Hall · Clarke Quay','07':'Bugis · Beach Rd','08':'Farrer Park · Little India','09':'Orchard · River Valley','10':'Tanglin · Holland','11':'Newton · Novena','12':'Balestier · Toa Payoh','13':'Macpherson · Potong Pasir','14':'Geylang · Eunos','15':'East Coast · Marine Parade','16':'Bedok · Upper East Coast','17':'Changi · Loyang','18':'Tampines · Pasir Ris','19':'Hougang · Sengkang · Punggol','20':'Bishan · Ang Mo Kio','21':'Upper Bukit Timah','22':'Jurong','23':'Bukit Batok · Bukit Panjang','24':'Tengah · Lim Chu Kang','25':'Woodlands · Admiralty','26':'Mandai · Upper Thomson','27':'Sembawang · Yishun','28':'Seletar · Yio Chu Kang'};
+const distArea=d=>DISTRICTS[String(d).padStart(2,'0')]||'';
+const MON=['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const ymIdx=ym=>{ym=''+ym;return (2000+ +ym.slice(0,2))*12 + +ym.slice(2);};
+const ymLabel=ym=>ym?MON[+(''+ym).slice(2)]+" '"+(''+ym).slice(0,2):'—';
+function launchStatus(last){const m=ymIdx(D.as_of)-ymIdx(last);return m<=2?['● Actively selling','act']:m<=8?['Still selling','sel']:['Mostly sold','sold'];}
 
 fetch('data/thesis.json?cb='+Date.now()).then(r=>r.json()).then(d=>{D=d;init();})
   .catch(e=>{$('#app').innerHTML='<div class="empty">Could not load research data. '+e+'</div>';});
@@ -228,13 +239,19 @@ const VIEWS={
  },
  launches(){
   let ls=D.launches.slice().sort((a,b)=>(a.premium??999)-(b.premium??999));
-  return `<div class="hero"><h1 class="serif">New launch — <em>worth the premium?</em></h1>
-    <p>Every new launch's PSF against comparable <b>resale</b> nearby — the exact question every buyer asks. Lower premium = closer to resale value; a steep premium needs a strong story (location, brand, upside).</p></div>
-   <div class="panel" style="margin-top:18px"><h2>📊 Launch premium over resale <span class="pill">${D.n_launches} launches · sorted by premium</span></h2>
+  const active=ls.filter(l=>launchStatus(l.last)[1]==='act').length;
+  return `<div class="hero"><h1 class="serif">New launches — <em>worth the premium?</em></h1>
+    <p>These are <b>launched projects that are selling now</b> (each has real new-sale caveats). For every one: how its developer price compares to <b>resale nearby</b> — the question every buyer asks — plus how many units have sold and whether it's still moving.</p></div>
+   <div class="kpis" style="margin-top:20px;grid-template-columns:repeat(3,1fr)">
+     <div class="kpi"><div class="k">Launches tracked</div><div class="v">${D.n_launches}</div><div class="s">all with real sales</div></div>
+     <div class="kpi"><div class="k">Actively selling</div><div class="v pos">${active}</div><div class="s">sold in the last ~2 months</div></div>
+     <div class="kpi"><div class="k">As of</div><div class="v" style="font-size:18px">${ymLabel(D.as_of)}</div><div class="s">latest caveats</div></div>
+   </div>
+   <div class="panel"><h2>📊 Launch vs resale — and how it's selling <span class="pill">sorted by premium over resale</span></h2>
    <div style="overflow-x:auto;margin-top:6px"><table class="tbl"><thead><tr>
-     <th>Launch</th><th class="hide-sm">Seg</th><th class="r">Launch PSF</th><th class="r">Resale PSF</th><th class="r">Premium</th><th>Assessment</th><th class="r hide-sm">Competing</th>
+     <th>Launch</th><th class="r">Launch PSF</th><th class="r">vs resale</th><th class="hide-sm">Pricing</th><th class="r hide-sm">Units sold</th><th class="r hide-sm">Last sale</th><th>Status</th>
    </tr></thead><tbody>${ls.map(launchRow).join('')}</tbody></table></div>
-   <div class="note" style="margin-top:14px;color:var(--ink3)">Resale PSF = median of comparable resale projects in the same segment &amp; district. A launch with a small (or negative) premium is priced near the resale market; 12–25% is a typical "new" premium; above that, the upside case has to carry it.</div></div>`;
+   <div class="note" style="margin-top:14px;color:var(--ink3)"><b>Status</b> tells you if it's still moving: <span class="lstat act" style="font-size:10px">Actively selling</span> = sold within ~2 months · <span class="lstat sel" style="font-size:10px">Still selling</span> = within ~8 · <span class="lstat sold" style="font-size:10px">Mostly sold</span> = older. <b>vs resale</b> compares the launch PSF to the median of comparable resale projects in the same area; a small/negative premium is priced near resale, 12–25% is a typical new premium, above that the upside case has to carry it.</div></div>`;
  },
  compare(){
   if(!CMP.length)return `<div class="hero"><h1 class="serif">Compare, <em>head to head</em>.</h1>
@@ -290,12 +307,14 @@ function launchRow(l){
   const cls=l.assess.includes('line')?'ok':l.assess.includes('typical')?'mid':l.assess.includes('Stretched')?'hi':l.assess.includes('Steep')?'steep':'';
   const pc=l.premium==null?'—':(l.premium>0?'+':'')+l.premium+'%';
   const pcl=l.premium==null?'':l.premium<=12?'pos':l.premium>=35?'neg':'';
-  return `<tr><td><span class="pn">${l.project}<small>${distName(l.district)}</small></span></td>
-   <td class="hide-sm"><span class="chip">${l.seg}</span></td>
-   <td class="r">$${l.launch_psf}</td><td class="r" style="color:var(--ink3)">${l.resale_psf?'$'+l.resale_psf:'—'}</td>
-   <td class="r ${pcl}" style="font-weight:600">${pc}</td>
-   <td><span class="assess ${cls}">${l.assess}</span></td>
-   <td class="r hide-sm">${l.competing||0}</td></tr>`;
+  const s=launchStatus(l.last);
+  return `<tr><td><span class="pn">${l.project}<small>${distName(l.district)} · ${distArea(l.district)} · ${l.seg}</small></span></td>
+   <td class="r">$${l.launch_psf}<div class="sub-r">resale ${l.resale_psf?'$'+l.resale_psf:'—'}</div></td>
+   <td class="r ${pcl}" style="font-weight:700">${pc}</td>
+   <td class="hide-sm"><span class="assess ${cls}">${l.assess}</span></td>
+   <td class="r hide-sm">${(l.txns||0).toLocaleString()}</td>
+   <td class="r hide-sm" style="color:var(--ink2)">${ymLabel(l.last)}</td>
+   <td><span class="lstat ${s[1]}">${s[0]}</span></td></tr>`;
 }
 
 // deep-dive
