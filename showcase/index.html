@@ -1,91 +1,131 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Property Tech — Live Showcase</title>
+<title>Adam Phang — Property Tech · Live Showcase</title>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2313100c'/%3E%3Ctext x='16' y='22' font-size='18' font-family='Georgia' fill='%23cda349' text-anchor='middle'%3E%E2%96%B2%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231c1814'/%3E%3Ctext x='16' y='22' font-size='17' font-family='Georgia' fill='%23b8893a' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
 <style>
-:root{--bg:#13100c;--panel:#1c1813;--panel2:#221d16;--line:rgba(255,255,255,.10);--gold:#cda349;--gold2:#e3c074;--cream:#ece6da;--dim:#9c9486;--serif:'Fraunces',Georgia,serif;--sans:'Plus Jakarta Sans',system-ui,sans-serif}
+:root{
+  --bg:#f7f3ec;--surface:#fffdf9;--surface2:#fbf8f1;
+  --ink:#1d1814;--ink2:#5b5349;--ink3:#8d8475;
+  --line:#ece4d6;--line2:#ddd3c2;
+  --gold:#9c7626;--gold-b:#b8893a;--green:#1f2c23;--green2:#2c3d31;
+  --serif:'Fraunces',Georgia,serif;--sans:'Plus Jakarta Sans',system-ui,sans-serif;
+  --sh-sm:0 1px 2px rgba(40,30,15,.05);
+  --sh:0 2px 8px rgba(40,30,15,.06),0 1px 2px rgba(40,30,15,.04);
+  --sh-lg:0 30px 60px -28px rgba(50,38,18,.28),0 6px 16px -8px rgba(50,38,18,.12);
+}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--cream);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 a{color:inherit;text-decoration:none}
-.eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
-/* ---- top bar ---- */
-.top{position:sticky;top:0;z-index:50;background:rgba(19,16,12,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.top-in{max-width:1180px;margin:0 auto;padding:14px 26px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:11px;font-weight:700}
-.bmark{width:34px;height:34px;border-radius:8px;background:var(--gold);color:#1a1409;font-family:var(--serif);font-weight:600;display:flex;align-items:center;justify-content:center;font-size:18px;flex:none}
-.brand b{font-size:15px;letter-spacing:.01em}
-.brand .byline{display:block;font-size:11px;font-weight:500;color:var(--dim);letter-spacing:.02em}
-.tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+svg{display:block}
+.ico{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+/* ---------- top bar ---------- */
+.top{position:sticky;top:0;z-index:50;background:rgba(247,243,236,.85);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--line)}
+.top-in{max-width:1200px;margin:0 auto;padding:13px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}
+.bmark{width:40px;height:40px;border-radius:11px;background:var(--green);color:var(--gold-b);font-family:var(--serif);font-weight:600;font-size:20px;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:var(--sh-sm)}
+.brand b{font-size:15.5px;font-weight:700;letter-spacing:.01em;display:block}
+.brand .byline{font-size:11.5px;font-weight:500;color:var(--ink3);letter-spacing:.02em}
+.tabs{display:flex;gap:3px;overflow-x:auto;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
-.tab{font-family:inherit;font-size:13.5px;font-weight:600;color:var(--dim);background:none;border:1px solid transparent;border-radius:30px;padding:9px 16px;cursor:pointer;white-space:nowrap;transition:.15s}
-.tab:hover{color:var(--cream);background:rgba(255,255,255,.05)}
-.tab.on{color:#1a1409;background:var(--gold);border-color:var(--gold)}
-.tab .tn{opacity:.6;font-weight:700;margin-right:5px}
-.tab.on .tn{opacity:.55}
-/* ---- panels ---- */
-main{max-width:1180px;margin:0 auto;padding:0 26px}
-.panel{display:none;padding:54px 0 80px;animation:fade .4s ease}
-.panel.on{display:block}
-@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-/* ---- welcome ---- */
-.welcome{max-width:880px}
-.welcome h1{font-family:var(--serif);font-weight:500;font-size:clamp(34px,5.5vw,58px);line-height:1.04;letter-spacing:-.01em;margin:16px 0 22px}
-.welcome h1 em{font-style:italic;color:var(--gold2)}
-.lead{font-size:clamp(17px,2vw,20px);color:#d6cfc1;max-width:720px}
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:42px 0 38px}
-.pillar{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px 22px}
-.pillar .pi{font-size:24px}
-.pillar h3{font-family:var(--serif);font-weight:600;font-size:19px;margin:12px 0 7px;color:#fff}
-.pillar p{font-size:14px;color:var(--dim);line-height:1.6}
-/* ---- buttons ---- */
-.btn{display:inline-flex;align-items:center;gap:9px;font-family:inherit;font-weight:600;font-size:14.5px;padding:13px 22px;border-radius:40px;cursor:pointer;border:1px solid var(--gold);background:var(--gold);color:#1a1409;transition:.18s;white-space:nowrap}
-.btn:hover{background:var(--gold2);border-color:var(--gold2);transform:translateY(-1px)}
-.btn.ghost{background:transparent;color:var(--cream);border-color:var(--line)}
-.btn.ghost:hover{background:rgba(255,255,255,.06);border-color:var(--cream);transform:none}
-/* ---- project ---- */
-.p-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px}
-.p-num{font-family:var(--serif);font-size:15px;color:var(--gold)}
-.panel h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px,4.5vw,46px);line-height:1.06;letter-spacing:-.01em;margin:6px 0 10px}
-.p-tag{font-size:clamp(16px,2vw,19px);color:#d6cfc1;max-width:760px;margin-bottom:30px}
-.p-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:38px;align-items:start}
-.facts .fblock{margin-bottom:22px}
-.facts .flab{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
-.facts .ftext{font-size:15.5px;color:#cfc8ba;line-height:1.65}
-.facts .ftext b{color:#fff;font-weight:600}
-.launch{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-/* ---- live browser preview ---- */
-.browser{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.45)}
-.bbar{display:flex;align-items:center;gap:7px;padding:11px 14px;background:var(--panel2);border-bottom:1px solid var(--line)}
-.dot{width:11px;height:11px;border-radius:50%;background:#403a31;flex:none}
-.dot:nth-child(1){background:#e0655a}.dot:nth-child(2){background:#e3b14a}.dot:nth-child(3){background:#6fbf73}
-.burl{margin-left:10px;font-size:12px;color:var(--dim);background:var(--bg);border-radius:7px;padding:5px 12px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.browser iframe{width:100%;height:440px;border:0;background:#fff;display:block}
-.pre-note{font-size:12px;color:var(--dim);margin-top:9px;text-align:center}
-/* ---- pager ---- */
-.pager{display:flex;justify-content:space-between;gap:12px;margin-top:54px;padding-top:24px;border-top:1px solid var(--line)}
-.pager .btn.ghost{font-size:13.5px}
+.tab{font-family:inherit;font-size:13.5px;font-weight:600;color:var(--ink2);background:none;border:1px solid transparent;border-radius:40px;padding:9px 16px;cursor:pointer;white-space:nowrap;transition:.16s}
+.tab:hover{color:var(--ink);background:rgba(156,118,38,.08)}
+.tab.on{color:#fff;background:var(--ink);border-color:var(--ink);box-shadow:var(--sh-sm)}
+.tab .tn{font-weight:700;color:var(--gold-b);margin-right:6px}
+.tab.on .tn{color:var(--gold-b)}
+/* ---------- panels ---------- */
+main{max-width:1200px;margin:0 auto;padding:0 28px}
+.panel{display:none;padding:60px 0 40px}
+.panel.on{display:block;animation:rise .45s cubic-bezier(.2,.7,.3,1)}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+/* ---------- welcome ---------- */
+.welcome{max-width:900px}
+.welcome h1{font-family:var(--serif);font-weight:500;font-size:clamp(36px,5.6vw,62px);line-height:1.02;letter-spacing:-.015em;margin:18px 0 24px}
+.welcome h1 em{font-style:italic;color:var(--gold-b)}
+.lead{font-size:clamp(17px,1.9vw,20.5px);color:var(--ink2);max-width:740px;line-height:1.62}
+.lead em{font-style:italic;color:var(--ink)}
+.creds{display:flex;flex-wrap:wrap;gap:10px;margin:30px 0 4px}
+.cred{font-size:12.5px;font-weight:600;color:var(--ink2);background:var(--surface);border:1px solid var(--line);border-radius:30px;padding:8px 15px;box-shadow:var(--sh-sm)}
+.cred b{color:var(--gold)}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:40px 0 40px}
+.pillar{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px 24px;box-shadow:var(--sh);transition:.2s}
+.pillar:hover{transform:translateY(-3px);box-shadow:var(--sh-lg)}
+.p-ico{width:46px;height:46px;border-radius:12px;background:rgba(156,118,38,.1);color:var(--gold);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.pillar h3{font-family:var(--serif);font-weight:600;font-size:20px;color:var(--ink);margin-bottom:8px;line-height:1.15}
+.pillar p{font-size:14px;color:var(--ink2);line-height:1.6}
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:inherit;font-weight:600;font-size:14.5px;padding:13px 24px;border-radius:40px;cursor:pointer;border:1px solid var(--ink);background:var(--ink);color:#fff;transition:.18s;white-space:nowrap}
+.btn:hover{background:#000;transform:translateY(-1px);box-shadow:var(--sh)}
+.btn.gold{background:var(--gold-b);border-color:var(--gold-b);color:#fff}
+.btn.gold:hover{background:var(--gold)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line2)}
+.btn.ghost:hover{background:var(--surface);border-color:var(--ink);box-shadow:var(--sh-sm)}
+.btn .ico{width:17px;height:17px;stroke-width:1.9}
+/* ---------- project ---------- */
+.p-kicker{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.p-num{font-family:var(--serif);font-weight:600;font-size:14px;color:#fff;background:var(--gold-b);border-radius:30px;padding:4px 13px;letter-spacing:.04em}
+.panel h2{font-family:var(--serif);font-weight:500;font-size:clamp(32px,4.6vw,50px);line-height:1.04;letter-spacing:-.015em;margin:2px 0 12px}
+.p-tag{font-size:clamp(16px,2vw,20px);color:var(--ink2);max-width:780px;line-height:1.5;margin-bottom:34px}
+.p-tag b{color:var(--ink);font-weight:600}
+.p-grid{display:grid;grid-template-columns:1fr 1.08fr;gap:46px;align-items:start}
+.fblock{margin-bottom:24px}
+.flab{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.flab::before{content:"";width:18px;height:1.5px;background:var(--gold-b);border-radius:2px}
+.ftext{font-size:15.5px;color:var(--ink2);line-height:1.66}
+.ftext b{color:var(--ink);font-weight:600}
+.launch{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+/* ---------- browser preview ---------- */
+.browser{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--sh-lg)}
+.bbar{display:flex;align-items:center;gap:7px;padding:12px 15px;background:var(--surface2);border-bottom:1px solid var(--line)}
+.dot{width:11px;height:11px;border-radius:50%;flex:none}
+.dot:nth-child(1){background:#ec6a5e}.dot:nth-child(2){background:#f4bf4f}.dot:nth-child(3){background:#61c554}
+.burl{margin-left:9px;font-size:12px;color:var(--ink3);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:6px 14px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:center}
+.browser iframe{width:100%;height:470px;border:0;background:#fff;display:block}
+.pre-note{font-size:12px;color:var(--ink3);margin-top:11px;text-align:center}
+/* ---------- vision ---------- */
+.vis-head{max-width:820px;margin-bottom:38px}
+.vlayers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:34px}
+.vcard{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px 24px;box-shadow:var(--sh);transition:.2s}
+.vcard:hover{transform:translateY(-3px);box-shadow:var(--sh-lg)}
+.vcard .p-ico{background:rgba(31,44,35,.08);color:var(--green2)}
+.vcard h3{font-family:var(--serif);font-weight:600;font-size:20px;margin-bottom:9px;line-height:1.15}
+.vcard p{font-size:14.5px;color:var(--ink2);line-height:1.62}
+.vcta{background:var(--green);color:#f3 efe6;color:#f4efe6;border-radius:22px;padding:40px 44px;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;box-shadow:var(--sh-lg)}
+.vcta h3{font-family:var(--serif);font-weight:500;font-size:clamp(24px,3vw,32px);line-height:1.12;color:#fff;max-width:620px}
+.vcta p{font-size:15px;color:#c3cabf;margin-top:12px;max-width:600px}
+.vcta .btn{background:var(--gold-b);border-color:var(--gold-b)}
+.vcta .btn:hover{background:#c79a45}
+/* ---------- pager ---------- */
+.pager{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:56px;padding-top:26px;border-top:1px solid var(--line)}
+.pager .btn.ghost{font-size:13.5px;padding:11px 18px}
 .spacer{flex:1}
-/* ---- vision strip on last ---- */
-@media(max-width:820px){
-  .pillars{grid-template-columns:1fr}
-  .p-grid{grid-template-columns:1fr;gap:26px}
-  .browser iframe{height:360px}
+/* ---------- footer ---------- */
+.foot{border-top:1px solid var(--line);margin-top:30px}
+.foot-in{max-width:1200px;margin:0 auto;padding:26px 28px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--ink3)}
+.foot b{color:var(--ink2)}
+/* ---------- responsive ---------- */
+@media(max-width:860px){
+  .pillars,.vlayers{grid-template-columns:1fr}
+  .p-grid{grid-template-columns:1fr;gap:30px}
+  .browser iframe{height:380px}
   .top-in{padding:12px 18px}
   main{padding:0 18px}
+  .vcta{padding:30px 26px}
 }
 </style></head><body>
 
 <header class="top"><div class="top-in">
-  <div class="brand"><span class="bmark">▲</span><div><b>Property Tech</b><!-- EDIT YOUR NAME BELOW --><span class="byline">Presented by Your Name</span></div></div>
+  <div class="brand"><span class="bmark">A</span><div><b>Adam Phang</b><span class="byline">Digital systems for property professionals</span></div></div>
   <nav class="tabs" id="tabs">
     <button class="tab on" data-tab="welcome">Welcome</button>
     <button class="tab" data-tab="kiwi"><span class="tn">01</span>Latest Project Launch</button>
     <button class="tab" data-tab="caveat"><span class="tn">02</span>Caveat</button>
     <button class="tab" data-tab="thesis"><span class="tn">03</span>Thesis</button>
+    <button class="tab" data-tab="vision"><span class="tn">04</span>The Vision</button>
   </nav>
 </div></header>
 
@@ -95,18 +135,24 @@ main{max-width:1180px;margin:0 auto;padding:0 26px}
     <span class="eyebrow">The case for automation</span>
     <h1>Automation that lets agents <em>sell more</em> — not admin more.</h1>
     <p class="lead">Every hour an agent spends formatting a brochure, pulling market data by hand, or chasing a lead who can't afford to buy is an hour <em>not</em> spent closing. These systems take that work off the agent — running data, marketing and lead-handling at machine speed — so the agent is free to do the one thing software can't: build trust and close the deal.</p>
-    <div class="pillars">
-      <div class="pillar"><div class="pi">⚡</div><h3>Process data faster</h3><p>Valuations and project research that take hours — done in seconds, from official data.</p></div>
-      <div class="pillar"><div class="pi">🎯</div><h3>Qualify leads automatically</h3><p>The website itself works out who's a real, ready buyer before the agent lifts a finger.</p></div>
-      <div class="pillar"><div class="pi">🚀</div><h3>Market in minutes</h3><p>Launch-ready pages and tools, live the same day — no waiting on a designer.</p></div>
+    <div class="creds">
+      <span class="cred"><b>3</b> &nbsp;live systems</span>
+      <span class="cred">Built &amp; running <b>today</b></span>
+      <span class="cred"><b>$0</b> &nbsp;to operate</span>
+      <span class="cred">Singapore property</span>
     </div>
-    <p class="lead" style="margin-bottom:26px">Three live systems, built and running today. Here's what that looks like in practice →</p>
-    <button class="btn" data-goto="kiwi">See it live — Project 01 &nbsp;→</button>
+    <div class="pillars">
+      <div class="pillar"><div class="p-ico"><svg class="ico" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></div><h3>Process data faster</h3><p>Valuations and project research that take hours — done in seconds, from official data.</p></div>
+      <div class="pillar"><div class="p-ico"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div><h3>Qualify leads automatically</h3><p>The website itself works out who's a real, ready buyer — before the agent lifts a finger.</p></div>
+      <div class="pillar"><div class="p-ico"><svg class="ico" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4 20-7Z"/></svg></div><h3>Market in minutes</h3><p>Launch-ready pages and tools, live the same day — no waiting on a designer.</p></div>
+    </div>
+    <p class="lead" style="margin-bottom:28px">Three live systems, built and running today. Here's what that looks like in practice →</p>
+    <button class="btn" data-goto="kiwi">See it live — Project 01 <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
   </div></section>
 
   <!-- ============ 01 KIWI ============ -->
   <section class="panel" id="kiwi">
-    <div class="p-head"><span class="p-num">Project 01 / 03</span></div>
+    <div class="p-kicker"><span class="p-num">01 / 03</span><span class="eyebrow">Agent website</span></div>
     <h2>Latest Project Launch</h2>
     <p class="p-tag">A complete agent website — rebuilt mobile-first, and built to <b>qualify leads on its own</b>.</p>
     <div class="p-grid">
@@ -115,14 +161,14 @@ main{max-width:1180px;margin:0 auto;padding:0 26px}
         <div class="fblock"><div class="flab">What it does</div><div class="ftext">367 fast, mobile-first pages covering every launch and guide. Its centrepiece is a first-of-its-kind <b>"What Can I Afford?" engine</b>: a buyer enters their finances and instantly sees their real budget, every stamp duty, and the homes that actually fit.</div></div>
         <div class="fblock"><div class="flab">The payoff</div><div class="ftext">The site has the buyer's <b>first conversation for them</b> — and hands the agent a warm, already-qualified lead instead of a cold click.</div></div>
         <div class="launch">
-          <a class="btn" href="https://adamdegoat.github.io/latestlaunch/" target="_blank" rel="noopener">Open the site &nbsp;↗</a>
-          <a class="btn ghost" href="https://adamdegoat.github.io/latestlaunch/afford.html" target="_blank" rel="noopener">✨ Affordability engine ↗</a>
+          <a class="btn" href="https://adamdegoat.github.io/latestlaunch/" target="_blank" rel="noopener">Open the site <svg class="ico" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+          <a class="btn gold" href="https://adamdegoat.github.io/latestlaunch/afford.html" target="_blank" rel="noopener">Affordability engine <svg class="ico" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
         </div>
       </div>
       <div>
         <div class="browser"><div class="bbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="burl">adamdegoat.github.io/latestlaunch</span></div>
           <iframe src="https://adamdegoat.github.io/latestlaunch/" loading="lazy" title="Latest Project Launch"></iframe></div>
-        <p class="pre-note">Live preview — scroll inside, or open full ↗</p>
+        <p class="pre-note">Live preview — scroll inside, or open the full site ↗</p>
       </div>
     </div>
     <div class="pager"><button class="btn ghost" data-goto="welcome">← Welcome</button><span class="spacer"></span><button class="btn ghost" data-goto="caveat">Next: 02 Caveat →</button></div>
@@ -130,7 +176,7 @@ main{max-width:1180px;margin:0 auto;padding:0 26px}
 
   <!-- ============ 02 CAVEAT ============ -->
   <section class="panel" id="caveat">
-    <div class="p-head"><span class="p-num">Project 02 / 03</span></div>
+    <div class="p-kicker"><span class="p-num">02 / 03</span><span class="eyebrow">Valuation &amp; prospecting</span></div>
     <h2>Caveat</h2>
     <p class="p-tag">An instant valuation &amp; prospecting co-pilot — the answers an agent needs, <b>in seconds</b>.</p>
     <div class="p-grid">
@@ -139,13 +185,13 @@ main{max-width:1180px;margin:0 auto;padding:0 26px}
         <div class="fblock"><div class="flab">What it does</div><div class="ftext">One search returns a <b>data-driven valuation</b> for HDB and condos, live ABSD &amp; stamp-duty figures, market context, and prospecting leads — all from <b>free official data</b>, no costly subscriptions.</div></div>
         <div class="fblock"><div class="flab">The payoff</div><div class="ftext">An agent answers "what's it worth?" and "what will I pay?" <b>on the spot, in front of the client</b> — credible and fast.</div></div>
         <div class="launch">
-          <a class="btn" href="https://adamdegoat.github.io/caveat/" target="_blank" rel="noopener">Open Caveat &nbsp;↗</a>
+          <a class="btn" href="https://adamdegoat.github.io/caveat/" target="_blank" rel="noopener">Open Caveat <svg class="ico" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
         </div>
       </div>
       <div>
         <div class="browser"><div class="bbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="burl">adamdegoat.github.io/caveat</span></div>
           <iframe src="https://adamdegoat.github.io/caveat/" loading="lazy" title="Caveat"></iframe></div>
-        <p class="pre-note">Live preview — scroll inside, or open full ↗</p>
+        <p class="pre-note">Live preview — scroll inside, or open the full tool ↗</p>
       </div>
     </div>
     <div class="pager"><button class="btn ghost" data-goto="kiwi">← 01 Latest Project Launch</button><span class="spacer"></span><button class="btn ghost" data-goto="thesis">Next: 03 Thesis →</button></div>
@@ -153,7 +199,7 @@ main{max-width:1180px;margin:0 auto;padding:0 26px}
 
   <!-- ============ 03 THESIS ============ -->
   <section class="panel" id="thesis">
-    <div class="p-head"><span class="p-num">Project 03 / 03</span></div>
+    <div class="p-kicker"><span class="p-num">03 / 03</span><span class="eyebrow">Research engine</span></div>
     <h2>Thesis</h2>
     <p class="p-tag">A research engine that <b>grades every Singapore condo project</b> on real transaction data.</p>
     <div class="p-grid">
@@ -162,24 +208,52 @@ main{max-width:1180px;margin:0 auto;padding:0 26px}
         <div class="fblock"><div class="flab">What it does</div><div class="ftext">Thesis scores every project <b>A–F on actual caveats</b>: relative value, price timing (mean-reversion), yield, liquidity, tenure and upcoming supply — and flags whether a new launch is overpriced versus nearby resale. The method is <b>backtested</b>.</div></div>
         <div class="fblock"><div class="flab">The payoff</div><div class="ftext">The agent gives clients an <b>evidence-backed view no portal offers</b> — the confidence to buy the quiet laggard, not the hyped launch.</div></div>
         <div class="launch">
-          <a class="btn" href="https://adamdegoat.github.io/thesis/" target="_blank" rel="noopener">Open Thesis &nbsp;↗</a>
+          <a class="btn" href="https://adamdegoat.github.io/thesis/" target="_blank" rel="noopener">Open Thesis <svg class="ico" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
         </div>
       </div>
       <div>
         <div class="browser"><div class="bbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="burl">adamdegoat.github.io/thesis</span></div>
           <iframe src="https://adamdegoat.github.io/thesis/" loading="lazy" title="Thesis"></iframe></div>
-        <p class="pre-note">Live preview — scroll inside, or open full ↗</p>
+        <p class="pre-note">Live preview — scroll inside, or open the full tool ↗</p>
       </div>
     </div>
-    <div class="pager"><button class="btn ghost" data-goto="caveat">← 02 Caveat</button><span class="spacer"></span><button class="btn ghost" data-goto="welcome">↺ Back to start</button></div>
+    <div class="pager"><button class="btn ghost" data-goto="caveat">← 02 Caveat</button><span class="spacer"></span><button class="btn ghost" data-goto="vision">Next: The Vision →</button></div>
+  </section>
+
+  <!-- ============ 04 VISION ============ -->
+  <section class="panel" id="vision">
+    <div class="p-kicker"><span class="p-num">04</span><span class="eyebrow">For the agency</span></div>
+    <div class="vis-head">
+      <h2>One platform for your whole agency.</h2>
+      <p class="p-tag" style="margin-bottom:0">Everything you've just seen — rolled out to <b>every agent</b>. Self-serve, branded to each agent, and the leads <b>owned by the agency</b>.</p>
+    </div>
+    <div class="vlayers">
+      <div class="vcard"><div class="p-ico"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></div><h3>Branded agent sites</h3><p>Every agent gets their own mobile-first launch site with the affordability engine built in — published the same day, no designer needed.</p></div>
+      <div class="vcard"><div class="p-ico"><svg class="ico" viewBox="0 0 24 24"><path d="M5 5h14l3 7v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-6l3-7Z"/><path d="M2 12h6l2 3h4l2-3h6"/></svg></div><h3>A built-in leads CRM</h3><p>Enquiries land in the agent's inbox and stay owned by the agency. Stop renting expensive portal leads — own your lead engine.</p></div>
+      <div class="vcard"><div class="p-ico"><svg class="ico" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 14 3-3 3 3 5-6"/></svg></div><h3>Smart tools built in</h3><p>Instant valuations and project research (Caveat &amp; Thesis) so every agent walks into a client meeting credible, fast and data-backed.</p></div>
+    </div>
+    <div class="vcta">
+      <div>
+        <h3>Let's prove it with a pilot.</h3>
+        <p>Roll this out to 3–5 of your agents over 6–8 weeks. We measure leads captured and time saved — then scale it agency-wide. A recruiting magnet, too: "join us, get the toolkit no other agency has."</p>
+      </div>
+      <a class="btn" data-goto="welcome" style="cursor:pointer">↺ Back to start</a>
+    </div>
+    <div class="pager"><button class="btn ghost" data-goto="thesis">← 03 Thesis</button><span class="spacer"></span><button class="btn ghost" data-goto="welcome">↺ Back to start</button></div>
   </section>
 </main>
+
+<footer class="foot"><div class="foot-in">
+  <span>Presented by <b>Adam Phang</b> · Property Tech · Singapore</span>
+  <span>Three live systems — built solo, running today.</span>
+</div></footer>
 
 <script>
 (function(){
   var tabs=[].slice.call(document.querySelectorAll('.tab'));
   var panels=[].slice.call(document.querySelectorAll('.panel'));
   function show(id){
+    if(!document.getElementById(id))return;
     tabs.forEach(function(t){t.classList.toggle('on',t.dataset.tab===id);});
     panels.forEach(function(p){p.classList.toggle('on',p.id===id);});
     window.scrollTo({top:0,behavior:'smooth'});
