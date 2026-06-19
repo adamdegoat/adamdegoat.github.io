@@ -105,6 +105,12 @@ const App = (() => {
       document.getElementById('freshness').innerHTML =
         `<span class="live-dot"></span> Data refreshed <b>${rel}</b> (${fr.built}) · auto-updates weekly · next refresh <b>${nextRefresh}</b> · ${counts}`;
       CMA.init(idx); Eligibility.init(); Prospect.init(idx); Pulse.init(); Search.init(idx); Upgrade.init();
+      // deep-link from Thesis: ?p=PROJECT opens a condo valuation here
+      const pq = new URLSearchParams(location.search).get('p');
+      if (pq) {
+        const meta = (idx.condo_projects || []).find(x => String(x[0]).toUpperCase() === pq.toUpperCase());
+        if (meta) { route('valuation'); CMA.loadCondo(meta); setTimeout(() => { const g = document.getElementById('cmaGo'); if (g) g.click(); }, 90); }
+      }
     } catch (err) {
       document.getElementById('freshness').textContent = 'Data failed to load — ' + err.message;
     }

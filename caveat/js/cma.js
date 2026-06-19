@@ -400,6 +400,11 @@ const CMA = (() => {
         </div>
       </div>
 
+      ${kind === 'condo' ? `<a class="cross-thesis" href="https://adamdegoat.github.io/thesis/?p=${encodeURIComponent(subj.project)}">
+        <span class="ct-ic">📊</span>
+        <span><b>Is it a smart buy?</b> See ${Narrative.titleCase(subj.project)}'s investment grade — value vs peers, yield &amp; timing — in Thesis</span>
+        <span class="ct-arr">→</span></a>` : ''}
+
       <div class="deck-section">
         <h4>Per-sqft price trend</h4>
         ${chartSVG(r.trend, color)}
