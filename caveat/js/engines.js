@@ -20,9 +20,12 @@ const Engines = (() => {
 
   function hdbEstimate(rows, subj) {
     // subj: {flat_type, area_sqm, storey_mid, rem_lease_mths, street, block, town}
-    const lo = subj.area_sqm * (1 - HDB.SIZE_TOL), hi = subj.area_sqm * (1 + HDB.SIZE_TOL);
-    const base = rows.filter(r => r.flat_type === subj.flat_type && r.area_sqm >= lo && r.area_sqm <= hi);
-    if (base.length < HDB.MIN) return { ok: false, reason: `Only ${base.length} comparable sales of this flat type & size in the area (need ${HDB.MIN}).` };
+    // Floor area & storey are OPTIONAL — flat type + address is enough for a typical-unit estimate.
+    const hasArea = subj.area_sqm > 0, hasStorey = subj.storey_mid > 0;
+    const lo = hasArea ? subj.area_sqm * (1 - HDB.SIZE_TOL) : 0;
+    const hi = hasArea ? subj.area_sqm * (1 + HDB.SIZE_TOL) : Infinity;
+    const base = rows.filter(r => r.flat_type === subj.flat_type && (!hasArea || (r.area_sqm >= lo && r.area_sqm <= hi)));
+    if (base.length < HDB.MIN) return { ok: false, reason: `Only ${base.length} comparable ${subj.flat_type} sales in the area (need ${HDB.MIN}).` };
 
     // LOCALITY TIERS — use the tightest pool with enough comps, and say which one.
     // block -> street -> estate -> town. Never silently fall back to the whole town.
@@ -43,6 +46,7 @@ const Engines = (() => {
       scope = stU ? `wider ${townTitle} — only ${n} ${label} sale${n === 1 ? '' : 's'} in range` : townTitle;
     }
 
+    const areaForEst = hasArea ? subj.area_sqm : C.median(pool.map(r => r.area_sqm));
     const byMonth = {};
     pool.forEach(r => (byMonth[r.yymm] = byMonth[r.yymm] || []).push(r.psf));
     const idx = {}; for (const m in byMonth) idx[m] = C.median(byMonth[m]);
@@ -52,14 +56,14 @@ const Engines = (() => {
 
     const comps = pool.map(r => {
       const drift = idx[r.yymm] ? nowLevel / idx[r.yymm] : 1;
-      const storeyAdj = 1 + HDB.STOREY * ((subj.storey_mid || 0) - (r.storey_mid || 0));
+      const storeyAdj = hasStorey ? 1 + HDB.STOREY * (subj.storey_mid - (r.storey_mid || 0)) : 1;
       const leaseAdj = (subj.rem_lease_mths && r.rem_lease_mths)
         ? 1 + HDB.LEASE * ((subj.rem_lease_mths - r.rem_lease_mths) / 12) : 1;
       const adj = r.psf * drift * storeyAdj * leaseAdj;
       const age = C.monthsBetween(r.yymm, now);
       const wRec = Math.pow(0.5, age / HDB.HALFLIFE);
-      const wSize = 1 / (1 + Math.abs(r.area_sqm - subj.area_sqm) / subj.area_sqm * 4);
-      const wStorey = 1 / (1 + Math.abs((subj.storey_mid || 0) - (r.storey_mid || 0)) * 0.06);
+      const wSize = hasArea ? 1 / (1 + Math.abs(r.area_sqm - subj.area_sqm) / subj.area_sqm * 4) : 1;
+      const wStorey = hasStorey ? 1 / (1 + Math.abs(subj.storey_mid - (r.storey_mid || 0)) * 0.06) : 1;
       const wLease = (subj.rem_lease_mths && r.rem_lease_mths)
         ? 1 / (1 + Math.abs(subj.rem_lease_mths - r.rem_lease_mths) / 12 * 0.04) : 1;
       // proximity: exact block / street dominate even within a wider estate or town pool
@@ -68,8 +72,8 @@ const Engines = (() => {
         : (esK && estateKey(r.street) === esK) ? 1.2 : 1;
       return { ...r, drift, storeyAdj, leaseAdj, adj_psf: adj, weight: wRec * wSize * wStorey * wLease * wProx };
     });
-    const res = finalize(comps, subj.area_sqm, { highN: 12, highCV: 0.07, medN: 6, medCV: 0.10 });
-    res.scope = scope; res.tier = tier;
+    const res = finalize(comps, areaForEst, { highN: 12, highCV: 0.07, medN: 6, medCV: 0.10 });
+    res.scope = scope; res.tier = tier; res.area_assumed = !hasArea;
     return res;
   }
 

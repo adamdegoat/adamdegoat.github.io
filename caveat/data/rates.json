@@ -52,7 +52,7 @@
       "bank": {"1": 75, "2": 45, "3": 35},
       "bank_reduced": {"1": 55, "2": 25, "3": 15},
       "hdb_loan": 75,
-      "reduced_note": "Reduced LTV applies if loan tenure > 30yr (HDB) / 35yr (private) OR loan tenure + borrower age extends beyond age 65."
+      "reduced_note": "Reduced LTV applies if loan tenure exceeds 30yr (private) / 25yr (HDB), or the loan extends beyond the borrower's age of 65."
     },
     "min_cash_pct": {"ltv75": 5, "ltv55": 10, "second_plus": 25}
   },

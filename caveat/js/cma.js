@@ -38,11 +38,12 @@ const CMA = (() => {
         <div><label>Flat type</label><select id="f_ftype"><option value="">Pick a street first</option></select></div>
       </div>
       <div class="field two">
-        <div><label>Floor area</label><input id="f_area" type="number" inputmode="decimal" placeholder="93"><span class="suffix">sqm</span></div>
-        <div><label>Storey</label><input id="f_storey" type="number" inputmode="numeric" placeholder="8"></div>
+        <div><label>Floor area <span style="font-weight:500;color:var(--ink-3)">· optional</span></label><input id="f_area" type="number" inputmode="decimal" placeholder="typical"><span class="suffix">sqm</span></div>
+        <div><label>Storey <span style="font-weight:500;color:var(--ink-3)">· optional</span></label><input id="f_storey" type="number" inputmode="numeric" placeholder="any"></div>
       </div>
-      <div class="field"><label>Lease remaining <span style="font-weight:500;color:var(--ink-3)">· optional, sharpens estimate</span></label>
-        <input id="f_lease" type="number" inputmode="numeric" placeholder="62"><span class="suffix">yrs</span></div>`;
+      <div class="field"><label>Lease remaining <span style="font-weight:500;color:var(--ink-3)">· optional</span></label>
+        <input id="f_lease" type="number" inputmode="numeric" placeholder="62"><span class="suffix">yrs</span></div>
+      <p class="hint">Just the address &amp; flat type is enough — add floor area, storey or lease to sharpen the estimate.</p>`;
   }
   async function wireHdb() {
     const townH = document.getElementById('f_town'), ft = document.getElementById('f_ftype');
@@ -224,9 +225,8 @@ const CMA = (() => {
       storey = +val('f_storey'), leaseY = +val('f_lease'), block = val('f_block'), street = val('f_street');
     if (!town || !street) throw new Error('Search an address and pick it from the list first.');
     if (!ft) throw new Error('Pick the flat type.');
-    if (!area || !storey) throw new Error('Enter at least floor area and storey.');
     const rows = await C.hdbTown(town);
-    const subj = { flat_type: ft, area_sqm: area, storey_mid: storey,
+    const subj = { flat_type: ft, area_sqm: area || null, storey_mid: storey || null,
       rem_lease_mths: leaseY ? Math.round(leaseY * 12) : null,
       street: street ? street.toUpperCase() : null, block: block || null, town };
     const r = Engines.hdbEstimate(rows, subj);
@@ -281,7 +281,7 @@ const CMA = (() => {
     const pr = App.getProfile() || {};
     const color = pr.color || getCss('--brand');
     const sub = kind === 'hdb'
-      ? `${Narrative.titleCase(subj.flat_type)} · ${r.area_sqf} sqft · ${C.leaseYears(subj.rem_lease_mths) || '—'} yrs lease`
+      ? `${Narrative.titleCase(subj.flat_type)} · ${r.area_assumed ? '~' : ''}${r.area_sqf} sqft${r.area_assumed ? ' (typical)' : ''} · ${C.leaseYears(subj.rem_lease_mths) || 'lease n/a'}${subj.rem_lease_mths ? ' yrs lease' : ''}`
       : `${subj.seg} · D${subj.district} · ${r.area_sqf} sqft · ${subj.tenure_fh ? 'Freehold' : 'Leasehold'}`;
     const cc = r.confidence.toLowerCase();
     const paras = Narrative.cma(kind, subj, r, amen);
