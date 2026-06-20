@@ -260,10 +260,10 @@ input,select,textarea,button{font-family:inherit;font-size:inherit;color:inherit
 .fstep.navy .fnode{background:linear-gradient(135deg,var(--blue),var(--navy-2));box-shadow:0 4px 10px rgba(53,99,176,.28)}
 .flab{font-size:12.5px;font-weight:700;line-height:1.22;padding:0 2px}
 .fsub{font-size:10.5px;color:var(--ink-3);margin-top:3px;line-height:1.3;padding:0 1px}
-.fconn{flex:none;width:74px;height:38px;position:relative}
-.fconn::before{content:"";position:absolute;left:-4px;right:-2px;top:19px;height:2px;background:var(--line)}
-.fconn::after{content:"";position:absolute;right:-3px;top:15px;width:0;height:0;border-left:7px solid var(--line);border-top:5px solid transparent;border-bottom:5px solid transparent}
-.fgap{position:absolute;left:50%;top:19px;transform:translate(-50%,-50%);background:var(--card);font-family:var(--mono);font-size:10px;font-weight:600;color:var(--brand-d);padding:3px 6px;border-radius:20px;white-space:nowrap;border:1px solid var(--line-2);line-height:1.1}
+.fconn{flex:none;width:80px;height:38px;position:relative;z-index:3}
+.fconn::before{content:"";position:absolute;left:-4px;right:-2px;top:19px;height:2px;background:var(--line);z-index:1}
+.fconn::after{content:"";position:absolute;right:-3px;top:15px;width:0;height:0;border-left:7px solid var(--line);border-top:5px solid transparent;border-bottom:5px solid transparent;z-index:1}
+.fgap{position:absolute;left:50%;top:19px;transform:translate(-50%,-50%);background:var(--card);font-family:var(--mono);font-size:10px;font-weight:600;color:var(--brand-d);padding:3px 7px;border-radius:20px;white-space:nowrap;border:1px solid var(--line-2);line-height:1.1;z-index:2}
 .flowcard.gold .fgap{color:var(--gold-d)}.flowcard.navy .fgap{color:var(--blue)}
 .flownote{font-size:11.5px;color:var(--ink-4);line-height:1.45;padding:4px 2px 0}
 .flow-hint{display:none}
@@ -532,12 +532,12 @@ function renderHow(){
       <p class="d flow-hint" style="margin-top:-8px">On a phone, swipe across each flow to see every step.</p>
 
       ${fc('brand','HDB Resale',
-        [['Intent to Sell','Seller registers'],['OTP granted','Option fee paid'],['OTP exercised','Exercise fee paid'],['HDB accepts','Resale app in'],['Completion','Keys collected']],
-        ['+7 days','≤21 days · 4pm','on exercise','~8 weeks'])}
+        [['Intent to Sell','Seller registers'],['OTP granted','Option fee paid'],['OTP exercised','By 4pm, day 21'],['HDB accepts','Resale app in'],['Completion','Keys collected']],
+        ['+7 days','≤21 days','on exercise','~8 weeks'])}
 
       ${fc('gold','Private Resale',
-        [['OTP granted','1% option fee'],['OTP exercised','4% — 5% total'],['Stamp duty','BSD/ABSD to IRAS'],['Completion','Keys collected']],
-        ['≤14 days · 4pm','+14 days','~10 wks*'],
+        [['OTP granted','1% option fee'],['OTP exercised','By 4pm · 5% total'],['Stamp duty','BSD/ABSD to IRAS'],['Completion','Keys collected']],
+        ['≤14 days','+14 days','~10 wks*'],
         '*Both stamp duty (day&nbsp;14) and completion (~10&nbsp;weeks) run from the exercise date. The option period and completion window are editable per deal.')}
 
       ${fc('navy','Rental',
