@@ -167,7 +167,7 @@ footer .rates{font-size:11px;color:var(--ink-4);max-width:78ch;margin:8px auto 0
 <footer>
   <div class="wrap">
     Abacus · Tool 04 of <a href="https://adamdegoat.github.io/realestate/" style="color:var(--brand-d);font-weight:600">Groundwork</a> · by Adam Phang.
-    <p class="rates">Indicative estimates using rules current as at June 2026: BSD &amp; ABSD (from 2023), SSD (4-yr regime from 4 Jul 2025), TDSR 55% · MSR 30% · stress rate 4% · first-loan LTV 75%, CPF OA 2.5%. On the higher of price or market valuation where applicable. Not financial advice — confirm with the bank, a lawyer and IRAS for your specific case.</p>
+    <p class="rates">Indicative estimates using rules current as at June 2026: BSD &amp; ABSD (from 2023), SSD (4-yr regime from 4 Jul 2025), TDSR 55% · MSR 30% · stress rate 4% · first-loan LTV 75%, CPF OA 2.5%, property tax (owner-occupier from 1 Jan 2025 / non-owner from 1 Jan 2024), rental stamp duty 0.4%, HDB MOP 5 years. On the higher of price or market valuation where applicable. Not financial advice — confirm with the bank, a lawyer and IRAS for your specific case.</p>
   </div>
 </footer>
 
@@ -185,6 +185,10 @@ var RULES={
   ssdNew:[.16,.12,.08,.04],     // bought on/after 4 Jul 2025 (4-year regime)
   ssdOld:[.12,.08,.04],         // bought 11 Mar 2017 – 3 Jul 2025 (3-year regime)
   tdsr:.55, msr:.30, stress:.04, cpfOA:.025,
+  // Property tax — owner-occupier (from 1 Jan 2025) & non-owner-occupier (from 1 Jan 2024) — [bandWidth, rate]
+  ptOO:[[12000,0],[28000,.04],[10000,.06],[25000,.10],[10000,.14],[15000,.20],[40000,.26],[Infinity,.32]],
+  ptNOO:[[30000,.12],[15000,.20],[15000,.28],[Infinity,.36]],
+  mopYears:5, rentalSD:.004,
   progressive:[['Booking — Option fee (OTP)',5],['Signing Sale &amp; Purchase (within 8 wks)',15],['Completion of foundation',10],['Reinforced concrete framework',10],['Brick / partition walls',5],['Roofing / ceiling',5],['Doors, windows, electrical &amp; plumbing',5],['Car park, roads &amp; drains',5],['Temporary Occupation Permit (TOP) — keys',25],['Certificate of Statutory Completion (CSC)',15]]
 };
 
@@ -192,7 +196,10 @@ var RULES={
 function num(v){v=parseFloat(String(v).replace(/[, ]/g,''));return isFinite(v)?v:0;}
 function money(n){return (n<0?'-$':'$')+Math.round(Math.abs(n)).toLocaleString('en-SG');}
 function pct(n,d){return (n*100).toFixed(d==null?2:d)+'%';}
-function bsd(price){var r=0,left=price;for(var i=0;i<RULES.bsd.length;i++){var w=RULES.bsd[i][0],rate=RULES.bsd[i][1];var x=Math.min(left,w);r+=x*rate;left-=x;if(left<=0)break;}return Math.floor(r);}
+function tiered(amount,bands){var r=0,left=amount;for(var i=0;i<bands.length;i++){var w=bands[i][0],rate=bands[i][1];var x=Math.min(left,w);r+=x*rate;left-=x;if(left<=0)break;}return r;}
+function bsd(price){return Math.floor(tiered(price,RULES.bsd));}
+function addYears(iso,n){var d=new Date(iso);d.setFullYear(d.getFullYear()+n);return d;}
+function fmtD(d){return d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});}
 function absdRate(profile,owned){var t=RULES.absd[profile]||RULES.absd.SC;return t[Math.min(owned,2)];}
 function pmt(P,annual,years){var i=annual/12,n=years*12;return i===0?P/n:P*i/(1-Math.pow(1+i,-n));}
 function loanFromPmt(M,annual,years){var i=annual/12,n=years*12;return i===0?M*n:M*(1-Math.pow(1+i,-n))/i;}
@@ -387,7 +394,74 @@ var CALCS=[
        ['Refinancing cost',money(cost),''],
        ['Break-even',isFinite(be)?(Math.ceil(be)+' months'):'—','to recover the switching cost']],
      notes:[['i','Check your <b>lock-in period</b> first — refinancing during it can trigger a 1.5% penalty and clawback of any legal subsidy, which you should add to the cost above.'],
-       (save<=0?['warn','The new rate doesn’t save anything here — refinancing isn’t worth it at these numbers.']:null)]};}}
+       (save<=0?['warn','The new rate doesn’t save anything here — refinancing isn’t worth it at these numbers.']:null)]};}},
+
+{id:'proptax',persona:'investor',personas:['buyer','investor'],accent:'navy',icon:'🏛️',name:'Property Tax',blurb:'Your yearly property tax from the Annual Value — at the right rate for living in it vs renting it out.',
+ fields:[
+   {k:'av',l:'Annual Value (AV)',t:'money',d:36000,hint:'estimated annual rent IRAS assigns'},
+   {k:'use',l:'How it’s used',t:'select',o:[['OO','I live in it (owner-occupier)'],['NOO','Rented out / not occupied']],d:'OO'}],
+ compute:function(g){var av=g('av'),use=g('use');var bands=use==='OO'?RULES.ptOO:RULES.ptNOO;var tax=Math.round(tiered(av,bands));
+   return{head:['Annual property tax',money(tax)],
+     rows:[['Annual Value',money(av),''],['Basis',use==='OO'?'Owner-occupier rates':'Non-owner-occupier rates',''],
+       ['Effective rate',pct(av?tax/av:0),''],['__tot','Property tax per year',money(tax)],['↳ per month',money(tax/12),'']],
+     notes:[use==='OO'?['i','Owner-occupier rates apply only if you live there. 2026 has a one-off rebate (15% for owner-occupied HDB; 10%, capped $500, for owner-occupied private) — not deducted above.']:['warn','Rented-out / second homes are taxed at the higher non-owner-occupier rates, starting at 12%.']]};}},
+
+{id:'buyrent',persona:'buyer',accent:'brand',icon:'⚖️',name:'Buy vs Rent',blurb:'Over your time horizon, does buying or renting actually cost less — once appreciation and opportunity cost are in?',
+ fields:[
+   {k:'price',l:'Property price',t:'money',d:1800000},
+   {k:'rent',l:'Rent for similar place /mo',t:'money',d:5000},
+   {k:'years',l:'Years you’ll stay',t:'num',d:10},
+   {k:'down',l:'Downpayment',t:'select',o:[['25','25%'],['45','45%'],['55','55%']],d:'25'},
+   {k:'rate',l:'Loan rate % p.a.',t:'num',d:3.5},
+   {k:'appr',l:'Property growth % /yr',t:'num',d:3},
+   {k:'inv',l:'If invested instead % /yr',t:'num',d:4},
+   {k:'costs',l:'Maintenance + tax /yr',t:'money',d:9000}],
+ compute:function(g){var price=g('price'),rent=g('rent'),yrs=g('years')||1,downP=parseFloat(g('down'))/100,rate=g('rate')/100,appr=g('appr')/100,inv=g('inv')/100,costs=g('costs');
+   var dp=price*downP,bsdP=bsd(price),loan=price-dp,ten=30,i=rate/12,n=ten*12,p=yrs*12;
+   var m=pmt(loan,rate,ten);
+   var bal=i===0?loan*(1-p/n):loan*(Math.pow(1+i,n)-Math.pow(1+i,p))/(Math.pow(1+i,n)-1);
+   var principalPaid=loan-bal,interest=m*p-principalPaid;
+   var apprGain=price*(Math.pow(1+appr,yrs)-1);
+   var buyCost=bsdP+interest+costs*yrs-apprGain;
+   var invGain=(dp+bsdP)*(Math.pow(1+inv,yrs)-1);
+   var rentCost=rent*12*yrs-invGain;
+   var diff=rentCost-buyCost,buyWins=diff>=0;
+   return{head:['Over '+yrs+' yrs · '+(buyWins?'buying wins by':'renting wins by'),money(Math.abs(diff))],
+     rows:[['Net cost of BUYING',money(buyCost),''],['Net cost of RENTING',money(rentCost),''],
+       ['__tot',buyWins?'Buying is cheaper by':'Renting is cheaper by',money(Math.abs(diff))],
+       ['— mortgage interest paid',money(interest),'over '+yrs+' yrs (principal builds equity)'],
+       ['— property growth gain',money(apprGain),'at '+g('appr')+'%/yr'],
+       ['— maintenance + tax',money(costs*yrs),''],
+       ['— if you invested the cash',money(invGain),'at '+g('inv')+'%/yr (renting side)']],
+     notes:[['i','Buying’s cost = stamp duty + loan interest + upkeep − property appreciation. Renting’s cost = rent − what your downpayment could earn if invested. Principal repayment isn’t a cost (it’s your equity).'],
+       ['warn','Very sensitive to the <b>growth</b> and <b>investment-return</b> assumptions — nudge them to test it. Excludes selling costs/SSD and rent inflation.']],
+     flagPos:buyWins,flagNeg:!buyWins};}},
+
+{id:'mop',persona:'seller',accent:'gold',icon:'🗓️',name:'MOP Checker',blurb:'When your HDB hits its 5-year Minimum Occupation Period — so you know when you can sell, upgrade or rent it out.',
+ fields:[
+   {k:'key',l:'Date you collected keys',t:'date',d:'2021-06-01'}],
+ compute:function(g){var key=g('key');if(!key)return{head:['Enter your key collection date','—'],rows:[]};
+   var end=addYears(key,RULES.mopYears),now=new Date();now.setHours(0,0,0,0);
+   var met=now>=end,ms=Math.round((end-now)/2629800000);
+   return{head:[met?'MOP complete — you’re free to sell':'You can sell / upgrade from',met?'✓':fmtD(end)],
+     rows:[['Keys collected',fmtD(new Date(key)),''],['Minimum Occupation Period','5 years',''],
+       ['MOP completion',fmtD(end),''],['__tot','Status',met?'Completed ✓':(ms+' month'+(ms===1?'':'s')+' to go')]],
+     notes:[met?['i','MOP done — you can now <b>sell on the open market, buy private property, and rent out the whole flat</b>.']:['warn','During MOP you <b>cannot</b> sell, buy private/overseas residential property, or rent out the whole flat (renting individual rooms with HDB approval is allowed).'],
+       ['i','Counted from key collection; periods where the flat isn’t occupied (e.g. whole-unit subletting) don’t count toward MOP.']]};}},
+
+{id:'rentalsd',persona:'buyer',personas:['buyer','investor'],accent:'navy',icon:'📝',name:'Rental Stamp Duty',blurb:'The stamp duty on a tenancy agreement — what a tenant pays to stamp the lease.',
+ fields:[
+   {k:'rent',l:'Monthly rent',t:'money',d:4000},
+   {k:'months',l:'Lease length (months)',t:'num',d:24}],
+ compute:function(g){var rent=g('rent'),months=g('months')||12;var leaseYrs=months/12,total=rent*months,aar=rent*12;
+   var duty=aar<=1000?0:(leaseYrs<=4?RULES.rentalSD*total:RULES.rentalSD*4*aar);duty=Math.ceil(duty);
+   var yy=Math.floor(months/12),mm=months%12,term=(yy?yy+'y ':'')+(mm?mm+'m':(yy?'':'0m'));
+   return{head:['Tenancy stamp duty',money(duty)],
+     rows:[['Monthly rent',money(rent),''],['Lease term',term,months+' months'],
+       ['Total rent over lease',money(total),''],['Rate','0.4%',leaseYrs>4?'on 4× annual rent (lease > 4 yrs)':'on total rent'],
+       ['__tot','Stamp duty payable',money(duty)]],
+     notes:[['i','Usually paid by the <b>tenant</b>, within 14 days of signing. Leases over 4 years are capped at 0.4% of 4× the average annual rent.'],
+       (aar<=1000?['i','Annual rent ≤ $1,000 is exempt from stamp duty.']:null)]};}}
 ];
 
 /* ===================== rendering ===================== */
@@ -400,7 +474,7 @@ function renderTabs(){
   Array.prototype.forEach.call(document.querySelectorAll('.tab'),function(t){t.onclick=function(){VIEW=t.dataset.p;renderTabs();renderGrid();};});
 }
 function renderGrid(){
-  $('grid').innerHTML=CALCS.filter(function(c){return c.persona===VIEW;}).map(function(c){
+  $('grid').innerHTML=CALCS.filter(function(c){return c.personas?c.personas.indexOf(VIEW)>=0:c.persona===VIEW;}).map(function(c){
     return '<div class="ccard '+c.accent+'" data-id="'+c.id+'"><span class="ci">'+c.icon+'</span><h3>'+c.name+'</h3><p>'+c.blurb+'</p><span class="go">Open calculator →</span></div>';
   }).join('');
   Array.prototype.forEach.call(document.querySelectorAll('.ccard'),function(el){el.onclick=function(){openCalc(el.dataset.id);};});
