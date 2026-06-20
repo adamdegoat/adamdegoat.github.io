@@ -322,7 +322,7 @@ const VIEWS={
     <p>Every Singapore condo, graded on official sale records: is it priced below similar condos nearby, where it sits in the price cycle, what it rents for, how easily it sells, freehold vs leasehold, and how much new competition is coming. Click any project to see the full reasoning.</p></div>
    <div class="kpis">
      <div class="kpi"><div class="k">Projects graded</div><div class="v">${D.n_projects}</div><div class="s">${buys} are top-grade (A-tier)</div></div>
-     <div class="kpi"><div class="k">Proven edge</div><div class="v pos">+${bt.spread}%</div><div class="s">top-graded beat bottom over ${bt.fwd_months} months (backtested)</div></div>
+     <div class="kpi"><div class="k">Proven edge</div><div class="v pos">+${bt.spread}%</div><div class="s">value signal: top vs bottom over ${bt.fwd_months} months (backtested)</div></div>
      <div class="kpi"><div class="k">How well it predicts</div><div class="v">${bt.ic}</div><div class="s">0 = coin-flip · higher = sharper</div></div>
      <div class="kpi"><div class="k">The strategy</div><div class="v" style="font-size:16px;color:var(--green)">Buy the value</div><div class="s">cheap + recently-dipped beats chasing the hot ones</div></div>
    </div>
@@ -408,16 +408,17 @@ const VIEWS={
      <div class="facnote" style="margin-top:12px">${FACS.map(f=>`<b>${flab(f)}</b> — ${FDESC[f]}.`).join(' ')}</div>
      <div class="note" style="margin-top:14px"><b style="color:var(--ink)">Relative value</b> — PSF vs comparable projects within 1.5km of the same segment (credible gaps only; implausible ones are flagged, not rewarded). <b style="color:var(--ink)">Value timing</b> — the mean-reversion signal: rewards the recently-lagged, penalises the overheated. <b style="color:var(--ink)">Exit liquidity</b> — transaction volume &amp; recent velocity. <b style="color:var(--ink)">Rental yield</b>, <b style="color:var(--ink)">Tenure</b> (freehold edge) and <b style="color:var(--ink)">Supply risk</b> (incoming new-launch competition nearby).</div>
    </div>
-   ${bt.ic!=null?`<div class="panel"><h2>🏆 Does the grade predict? <span class="pill">walk-forward backtest</span></h2>
-     <div class="note" style="margin-bottom:14px">Scored every project <b>as of ${bt.fwd_months} months ago</b> using only data available then, then measured what actually happened to PSF since. The top-ranked projects appreciated <b class="pos">+${bt.top_ret}%</b> vs <b class="${sg(bt.bot_ret)}">${bt.bot_ret>0?'+':''}${bt.bot_ret}%</b> for the bottom — a real spread the grade captured.</div>
+   ${bt.ic!=null?`<div class="panel"><h2>🏆 Does it actually predict? <span class="pill">walk-forward backtest</span></h2>
+     <div class="note" style="margin-bottom:14px">Ranked every project <b>as of ${bt.fwd_months} months ago</b> by the <b>price signal</b> (relative value + mean-reversion) using only data available then, then measured what actually happened to PSF since. The top of that ranking appreciated <b class="pos">+${bt.top_ret}%</b> vs <b class="${sg(bt.bot_ret)}">${bt.bot_ret>0?'+':''}${bt.bot_ret}%</b> for the bottom — a real, repeatable spread.</div>
      <div class="kpis" style="grid-template-columns:repeat(3,1fr)">
        <div class="kpi"><div class="k">How well it predicts</div><div class="v pos">${bt.ic}</div><div class="s">0 = coin-flip · higher = sharper</div></div>
-       <div class="kpi"><div class="k">Top-graded beat bottom by</div><div class="v pos">+${bt.spread}%</div><div class="s">over the next ${bt.fwd_months} months</div></div>
+       <div class="kpi"><div class="k">Top vs bottom spread</div><div class="v pos">+${bt.spread}%</div><div class="s">over the next ${bt.fwd_months} months</div></div>
        <div class="kpi"><div class="k">Projects tested</div><div class="v">${bt.n}</div><div class="s">with enough history</div></div>
      </div>
+     <div class="note" style="margin-top:14px;font-size:12px;color:var(--ink3)">What's validated is the <b>price signal</b> — relative value &amp; mean-reversion — which drives roughly the value + timing weight of the grade. Yield, liquidity, tenure and supply are quality/risk filters, not separately return-tested (they're point-in-time, so they can't be).</div>
      <div class="flag-w" style="margin-top:16px">⚠ Honest limit: only ~${D.window_months} months of caveat history exists, so this is a <b>short-window</b> validation over one market period — directionally strong, but not a multi-cycle proof. The mean-reversion edge was powerful here; it's re-checked every week as new data arrives.</div></div>`:''}
-   <div class="panel"><h2>🔁 How it gets smarter</h2>
-     <div class="note">Every week the engine pulls the latest caveats, re-scores every project, <b>re-runs this backtest</b>, and only keeps a factor weighting if it still beats the alternative. The data compounds, the validation repeats, and the model adapts to what's actually predicting — a real closed loop, because property outcomes (resale prices) are observable.</div></div>`;
+   <div class="panel"><h2>🔁 How it stays current</h2>
+     <div class="note">Every week the engine pulls the latest caveats, <b>re-scores every project</b> and <b>re-runs this backtest</b>, so both the grades and the validation stay current as the market moves. The factor weights are <b>deliberately held fixed</b> — with only ~${D.window_months} months of history, auto-tuning them would just curve-fit one market period rather than learn anything real. They'll be revisited as more data accrues. The point isn't a model that secretly changes on you; it's the same transparent rules, re-checked against fresh outcomes every week.</div></div>`;
  }
 };
 
