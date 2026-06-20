@@ -132,6 +132,12 @@ footer .rates{font-size:11px;color:var(--ink-4);max-width:78ch;margin:8px auto 0
 .note.warn{background:var(--amber-wash);border-color:#efe0bf;color:var(--amber-d)}
 .note .ni{flex:none}
 .disc{font-size:11px;color:var(--ink-4);margin-top:14px;line-height:1.5}
+.terms-h{font-size:11px;color:var(--ink-4);font-weight:600;margin:16px 0 8px}
+.terms{display:flex;flex-wrap:wrap;gap:7px}
+.termchip{font-size:11.5px;font-weight:700;color:var(--ink-2);background:var(--slate-wash);border:1px solid var(--line);border-radius:30px;padding:5px 12px;cursor:pointer;transition:.14s}
+.termchip:hover{border-color:var(--brand);color:var(--brand-d)}
+.termchip.on{background:var(--brand-wash);border-color:var(--brand);color:var(--brand-d)}
+.termdef{display:none;margin-top:9px;font-size:12.5px;line-height:1.55;background:var(--paper);border:1px solid var(--line-2);border-left:3px solid var(--brand);border-radius:8px;padding:10px 12px;color:var(--ink-2)}
 
 @media(max-width:820px){.grid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){
@@ -469,6 +475,40 @@ var CALCS=[
        (aar<=1000?['i','Annual rent ≤ $1,000 is exempt from stamp duty.']:null)]};}}
 ];
 
+/* ===================== plain-English glossary ===================== */
+var GLOSSARY={
+  bsd:['BSD','Buyer’s Stamp Duty — a tax everyone pays when buying property, on a sliding scale from 1% to 6% of the price.'],
+  absd:['ABSD','Additional Buyer’s Stamp Duty — an extra tax on top of BSD: 20% for a citizen’s 2nd home (30% for 3rd+), and higher for PRs (5/30/35%) and foreigners (60%).'],
+  ssd:['SSD','Seller’s Stamp Duty — a tax if you sell a home within 4 years of buying it (16/12/8/4% by year held). Meant to discourage quick flipping.'],
+  av:['Annual Value','IRAS’s estimate of one year’s rent for your property. Your property tax is charged on this figure — find it on your IRAS tax bill.'],
+  tdsr:['TDSR','Total Debt Servicing Ratio — all your monthly loan repayments (home, car, cards…) can’t exceed 55% of your gross monthly income.'],
+  msr:['MSR','Mortgage Servicing Ratio — for HDB flats & ECs only: your home-loan repayment alone can’t exceed 30% of gross monthly income.'],
+  ltv:['LTV','Loan-to-Value — the most a bank will lend as a % of the price. Usually 75% for a first home loan, so you fund the other 25%.'],
+  iwaa:['IWAA','Income-Weighted Average Age — for two borrowers, banks blend both ages by income to set the max loan tenure; a younger, higher earner pulls it down.'],
+  cpfoa:['CPF OA','CPF Ordinary Account — the CPF savings you can use for a property. Whatever you use must be refunded, with 2.5% interest, when you sell.'],
+  accrued:['Accrued interest','The 2.5%/yr your CPF would have earned if you hadn’t used it. It goes back into your CPF (not your pocket) when you sell.'],
+  otp:['OTP','Option to Purchase — the document that reserves a property. You pay an option fee, then “exercise” it with more deposit to commit.'],
+  buc:['BUC','Building Under Construction — a new launch not built yet. You pay in stages as construction hits milestones (progressive payment).'],
+  mop:['MOP','Minimum Occupation Period — you must live in an HDB flat 5 years before you can sell it, buy private property, or rent out the whole unit.'],
+  aar:['AAR','Average Annual Rent — the total rent over the lease ÷ number of years. Rental stamp duty is 0.4% of this.'],
+  decoupling:['Decoupling','One co-owner transfers their share to the other so a person becomes a “first” property owner again — used to avoid 20% ABSD on a second home.'],
+  stress:['Stress-test rate','Banks check you could still afford the loan at a 4% interest rate (even if your actual rate is lower) before approving it.'],
+  netyield:['Net yield','Yearly rent minus running costs (maintenance, tax, insurance, vacancy) as a % of price — the honest return, vs the headline “gross” figure.'],
+  oo:['Owner-occupier','You live in the property yourself — taxed at the lower 0–32% rates.'],
+  noo:['Non-owner-occupier','Rented out or not lived in by you — taxed at the higher 12–36% rates.'],
+  lockin:['Lock-in period','The years your loan’s rate is fixed. Refinancing during it usually triggers a ~1.5% penalty plus clawback of any legal subsidy.']
+};
+var CALC_TERMS={
+  stampduty:['bsd','absd'], afford:['tdsr','msr','ltv','iwaa','cpfoa','stress'], progressive:['buc','ltv','otp'],
+  mortgage:['stress'], proceeds:['cpfoa','accrued'], ssd:['ssd','otp'], decoupling:['decoupling','absd','bsd'],
+  yield:['netyield'], refi:['lockin'], proptax:['av','oo','noo'], mop:['mop'], rentalsd:['aar']
+};
+function showTerm(k){var d=$('termdef'),x=GLOSSARY[k];if(!x)return;
+  if(d.dataset.k===k&&d.style.display==='block'){d.style.display='none';d.dataset.k='';}
+  else {var p=x[1].split(' — ');d.innerHTML='<b>'+p[0]+'</b> — '+p.slice(1).join(' — ');d.style.display='block';d.dataset.k=k;}
+  Array.prototype.forEach.call(document.querySelectorAll('.termchip'),function(c){c.classList.toggle('on',c.dataset.k===d.dataset.k&&d.style.display==='block');});
+}
+
 /* ===================== rendering ===================== */
 var PERSONAS=[['buyer','🏠','Buyers','Working out a purchase'],['seller','💰','Sellers','Cashing out right'],['investor','📈','Investors','Making the numbers work']];
 var VIEW='buyer';
@@ -498,8 +538,10 @@ function openCalc(id){
       inner='<div class="'+(pre?'prefix':'')+'"><input id="cf_'+f.k+'" type="'+(f.t==='money'?'text':'number')+'" inputmode="'+(f.t==='money'?'numeric':'decimal')+'" '+(f.d!=null?'value="'+dv+'"':'')+' '+(f.ph?'placeholder="'+f.ph+'"':'')+'></div>';}
     return '<div class="fld'+(f.t==='money'||f.full?' full':'')+'"><label>'+f.l+(f.opt?' <span class="opt">optional</span>':'')+'</label>'+inner+(f.hint?'<span class="hint">'+f.hint+'</span>':'')+'</div>';
   }).join('');
+  var tks=CALC_TERMS[CUR.id]||[];
+  var termsBar=tks.length?'<div class="terms-h">New to the terms? Tap one for a plain-English explanation:</div><div class="terms">'+tks.map(function(k){return '<button class="termchip" data-k="'+k+'" onclick="showTerm(\''+k+'\')">ⓘ '+(GLOSSARY[k]?GLOSSARY[k][0]:k)+'</button>';}).join('')+'</div><div class="termdef" id="termdef"></div>':'';
   $('modal').innerHTML='<div class="m-head"><span class="mi">'+CUR.icon+'</span><div><h2>'+CUR.name+'</h2><p>'+CUR.blurb+'</p></div><div class="x" onclick="closeCalc()">✕</div></div>'+
-    '<div class="m-body"><div class="fgrid">'+fields+'</div><div class="result" id="cresult"></div>'+
+    '<div class="m-body"><div class="fgrid">'+fields+'</div><div class="result" id="cresult"></div>'+termsBar+
     '<p class="disc">Indicative estimate using rules current as at June 2026. On the higher of price or valuation where applicable. Not financial advice.</p></div>';
   CUR.fields.forEach(function(f){if(f.t==='sec')return;var el=$('cf_'+f.k);if(!el)return;
     if(f.t==='money'){el.addEventListener('input',function(){var s=el.selectionStart,len=el.value.length;var c=el.value.replace(/[^\d]/g,'');el.value=c?(+c).toLocaleString('en-SG'):'';el.selectionStart=el.selectionEnd=Math.max(0,el.value.length-(len-s));runCalc();});}
