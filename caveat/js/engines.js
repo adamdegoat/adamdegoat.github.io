@@ -30,6 +30,7 @@ const Engines = (() => {
     // LOCALITY TIERS — use the tightest pool with enough comps, and say which one.
     // block -> street -> estate -> town. Never silently fall back to the whole town.
     const blkU = String(subj.block || '').toUpperCase().trim();
+    const subjBlkNum = parseInt(blkU, 10) || 0;  // numeric part, for nearest-block ordering
     const stU = subj.street || '';
     const esK = estateKey(stU);
     const townTitle = subj.town ? titleish(subj.town) : 'the town';
@@ -70,7 +71,10 @@ const Engines = (() => {
       const wProx = (blkU && String(r.block || '').toUpperCase().trim() === blkU && r.street === stU) ? 2.5
         : (stU && r.street === stU) ? 1.8
         : (esK && estateKey(r.street) === esK) ? 1.2 : 1;
-      return { ...r, drift, storeyAdj, leaseAdj, adj_psf: adj, weight: wRec * wSize * wStorey * wLease * wProx };
+      // nearest-block ordering: on the same street, closer block numbers rank higher
+      const rBlkNum = parseInt(String(r.block || ''), 10) || 0;
+      const wBlock = (subjBlkNum && rBlkNum && r.street === stU) ? 1 / (1 + Math.abs(rBlkNum - subjBlkNum) * 0.05) : 1;
+      return { ...r, drift, storeyAdj, leaseAdj, adj_psf: adj, weight: wRec * wSize * wStorey * wLease * wProx * wBlock };
     });
     const res = finalize(comps, areaForEst, { highN: 12, highCV: 0.07, medN: 6, medCV: 0.10 });
     res.scope = scope; res.tier = tier; res.area_assumed = !hasArea;
