@@ -35,6 +35,7 @@
     <div class="calc-fields">
       <label>Your gross monthly income<input id="f_income" type="number" inputmode="numeric" min="0" placeholder="e.g. 8000"></label>
       <label>Co-borrower's income <span class="opt">optional</span><input id="f_coincome" type="number" inputmode="numeric" min="0" placeholder="e.g. 5000"></label>
+      <label>Co-borrower's age <span class="opt">optional</span><input id="f_coage" type="number" inputmode="numeric" min="21" max="75" placeholder="if buying together"><span class="hint">Ages are blended by income (IWAA) — the rule banks use for joint loans</span></label>
       <label>Existing monthly repayments <span class="opt">optional</span><input id="f_debts" type="number" inputmode="numeric" min="0" placeholder="car · loans · cards"><span class="hint">These eat into how much you can borrow</span></label>
     </div>
     <div class="calc-sec">Savings</div>
@@ -85,13 +86,16 @@
   var RATE=0.03;    // realistic current rate — for the est. ACTUAL monthly repayment
   function compute(){
     var income=num('f_income'), co=num('f_coincome'), debts=num('f_debts'),
-        cash=num('f_cash'), cpf=num('f_cpf'), age=num('f_age')||35,
+        cash=num('f_cash'), cpf=num('f_cpf'), age=num('f_age')||35, coage=num('f_coage')||0,
         c=val('f_citizen'), owned=parseInt(val('f_owned'),10), type=val('f_type');
+    // joint borrowers: banks use the Income-Weighted Average Age (IWAA) to set max tenure
+    var jointAge=(co>0&&coage>0&&(income+co)>0)?((age*income+coage*co)/(income+co)):null;
+    var effAge=jointAge!==null?jointAge:age;
     // auto-cap tenure to end by 65 (best LTV), respect user input
     var tenure=num('f_tenure')||30; tenure=Math.max(5,Math.min(35,tenure));
     var gross=income+co;
-    // LTV: 75% if tenure<=30 and loan ends by 65, else 55%
-    var fullLTV=(tenure<=30)&&(age+tenure<=65);
+    // LTV: 75% if tenure<=30 and loan ends by 65 (by effective/IWAA age), else 55%
+    var fullLTV=(tenure<=30)&&(effAge+tenure<=65);
     var ltv=fullLTV?0.75:0.55, minCashRate=fullLTV?0.05:0.10;
     var aRate=absdRate(c,owned);
     // max loan from income (TDSR 55%; MSR 30% also for EC)
@@ -110,7 +114,8 @@
     // "comfortable" level: keep the home-loan repayment near a third of income (~35%), never above the max
     var comfM=Math.min(maxM, Math.max(0, 0.35*gross - debts));
     var comfBudget=Math.min(pmtToLoan(comfM,STRESS,tenure)/ltv, priceFromCash);
-    return {gross:gross,income:income,co:co,debts:debts,cash:cash,cpf:cpf,age:age,c:c,owned:owned,type:type,
+    return {gross:gross,income:income,co:co,debts:debts,cash:cash,cpf:cpf,age:age,coage:coage,
+            jointAge:jointAge,effAge:effAge,c:c,owned:owned,type:type,
             tenure:tenure,ltv:ltv,minCashRate:minCashRate,aRate:aRate,maxLoan:maxLoan,
             priceFromLoan:priceFromLoan,priceFromCash:priceFromCash,budget:budget,comfBudget:comfBudget,limit:limit,
             bsdFn:bsd,needFn:need};
@@ -154,7 +159,7 @@
     }
     var absdLabel='Additional Buyer’s Stamp Duty'+(r.aRate>0?' ('+Math.round(r.aRate*100)+'%)':'');
     var html='<div class="rows-cap">If you buy at your maximum ('+money(P)+'):</div>';
-    html+=row('Bank loan','<b>'+money(loan)+'</b>','at '+Math.round(r.ltv*100)+'% LTV');
+    html+=row('Bank loan','<b>'+money(loan)+'</b>','at '+Math.round(r.ltv*100)+'% LTV · '+r.tenure+'-yr tenure');
     html+=row('Downpayment',money(down),Math.round((1-r.ltv)*100)+'% · cash + CPF');
     html+=row('&#8627; minimum in cash',money(minCash),Math.round(r.minCashRate*100)+'% must be cash');
     html+=row('Buyer’s Stamp Duty',money(bsdP));
@@ -169,7 +174,9 @@
     if(r.limit==='cash') tips.push(['info','Your <b>cash &amp; CPF</b> sets this ceiling — your income could support a larger loan, so it’s savings, not income, that limits you here.']);
     else tips.push(['info','Your <b>income</b> sets this ceiling under the 55% TDSR rule; your cash &amp; CPF comfortably cover this range.']);
     if(r.debts>0) tips.push(['info','Your existing <b>'+money(r.debts)+'/mo</b> in repayments lowers how much you can borrow — paying those down would ease it.']);
-    if(r.co<=0) tips.push(['info','Buying with a partner? Their income can be added as a co-borrower.']);
+    if(r.jointAge!==null) tips.push(['info','Two borrowers: banks blend your ages by income into an <b>income-weighted average age (IWAA) of '+Math.round(r.effAge)+'</b>, which sets your max loan tenure. A younger, higher-earning co-borrower lengthens the tenure and can raise your loan ceiling.']);
+    else if(r.co>0) tips.push(['info','Add your <b>co-borrower’s age</b> too — banks blend both ages by income (IWAA) to set the loan tenure, so it changes your real budget.']);
+    if(r.co<=0) tips.push(['info','Buying with a partner? Their income <i>and age</i> can be added as a co-borrower.']);
     if(r.type==='PRIV'&&r.c==='SC'&&r.owned===0&&r.gross>0&&r.gross<=16000)
       tips.push(['idea','You may qualify for an <b>Executive Condo</b> — often more home for less. Switch “Property type” to compare.']);
     var ic={warn:'⚠',info:'ℹ',idea:'✨'};
@@ -194,7 +201,15 @@
     box.innerHTML=html;
   }
   // auto-cap tenure default when age changes
-  $('f_age').addEventListener('input',function(){var a=num('f_age');if(a>0){var t=Math.max(5,Math.min(30,65-a));if(!$('f_tenure').dataset.touched)$('f_tenure').value=t;}});
+  function autoTenure(){
+    var a=num('f_age'), mi=num('f_income'), ci=num('f_coincome'), ca=num('f_coage');
+    var eff=a; if(a>0&&ci>0&&ca>0&&(mi+ci)>0) eff=(a*mi+ca*ci)/(mi+ci);
+    if(eff>0&&!$('f_tenure').dataset.touched)$('f_tenure').value=Math.max(5,Math.min(30,Math.round(65-eff)));
+  }
+  $('f_age').addEventListener('input',autoTenure);
+  $('f_coage').addEventListener('input',autoTenure);
+  $('f_coincome').addEventListener('input',autoTenure);
+  $('f_income').addEventListener('input',autoTenure);
   $('f_tenure').addEventListener('input',function(){$('f_tenure').dataset.touched='1';});
   form.addEventListener('submit',function(ev){ev.preventDefault();render();out.scrollIntoView({behavior:'smooth',block:'nearest'});});
   form.addEventListener('input',function(){if(shown)render();});
