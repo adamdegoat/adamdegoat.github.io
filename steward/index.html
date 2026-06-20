@@ -224,6 +224,31 @@ input,select,textarea,button{font-family:inherit;font-size:inherit;color:inherit
 .modal-foot{display:flex;gap:10px;margin-top:24px}
 .modal-foot .btn{flex:1}
 
+/* ---------- how it works ---------- */
+.how{max-width:840px}
+.how .intro{font-size:15.5px;color:var(--ink-2);max-width:64ch;margin-bottom:6px}
+.howsec{margin-top:34px}
+.howsec h2{font-size:20px;font-family:var(--serif);font-weight:600;margin-bottom:7px;display:flex;align-items:center;gap:10px}
+.howsec h2 .e{font-size:19px}
+.howsec .d{font-size:14px;color:var(--ink-3);margin-bottom:16px;max-width:64ch}
+.rulecard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:6px 20px 8px;box-shadow:var(--shadow);margin-bottom:14px;border-top:3px solid var(--brand)}
+.rulecard.gold{border-top-color:var(--gold)}.rulecard.navy{border-top-color:var(--blue)}
+.rulecard .rh{display:flex;align-items:center;gap:10px;padding:13px 0 4px}
+.rulecard .rh .tag{font-size:11px}
+.rule{display:flex;align-items:baseline;gap:11px;padding:11px 0;border-bottom:1px solid var(--line-2);flex-wrap:wrap}
+.rule:last-child{border-bottom:0}
+.rule .trig{font-weight:700;font-size:12.5px;background:var(--slate-wash);color:var(--ink-2);padding:4px 10px;border-radius:7px;white-space:nowrap}
+.rule .off{font-family:var(--mono);font-size:11.5px;color:var(--brand-d);font-weight:600;white-space:nowrap}
+.rulecard.gold .off{color:var(--gold-d)}.rulecard.navy .off{color:var(--blue)}
+.rule .out{font-size:13.5px;color:var(--ink-2);flex:1;min-width:170px;line-height:1.4}
+.how-list{display:grid;gap:12px}
+.how-li{display:flex;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 17px;box-shadow:var(--shadow)}
+.how-li .hic{flex:none;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-size:18px;background:linear-gradient(135deg,var(--brand-wash),var(--gold-wash))}
+.how-li h4{font-size:15px;margin-bottom:3px}
+.how-li p{font-size:13.5px;color:var(--ink-3);line-height:1.5}
+.honest{background:linear-gradient(180deg,var(--amber-wash),#fff);border:1px solid #efe0bf;border-radius:var(--r);padding:18px 20px;font-size:13.5px;color:var(--amber-d);line-height:1.55}
+.honest b{color:#7a5408}
+
 footer{padding:30px 0 40px;text-align:center;color:var(--ink-4);font-size:12px}
 
 @media(max-width:760px){
@@ -255,6 +280,7 @@ footer{padding:30px 0 40px;text-align:center;color:var(--ink-4);font-size:12px}
   <div class="tabs">
     <button class="tab on" data-view="dashboard">This Week</button>
     <button class="tab" data-view="pipeline">Pipeline</button>
+    <button class="tab" data-view="how">How it works</button>
   </div>
   <button class="btn btn-p btn-sm" id="addBtn">+ New deal</button>
 </nav>
@@ -444,7 +470,73 @@ function sideLabel(deal){const t=TYPES[deal.type];const f=t&&t.sides.find(s=>s[0
 function activeDeals(){return DEALS.filter(d=>!d.archived&&unifiedStage(d)!=='done');}
 
 /* ============ render router ============ */
-function render(){VIEW==='dashboard'?renderDashboard():renderPipeline();}
+function render(){if(VIEW==='how')return renderHow();VIEW==='pipeline'?renderPipeline():renderDashboard();}
+
+/* ---------- how it works ---------- */
+function renderHow(){
+  const rule=(trig,off,out)=>`<div class="rule"><span class="trig">${trig}</span><span class="off">${off}</span><span class="out">${out}</span></div>`;
+  document.getElementById('app').innerHTML=`
+  <div class="page how" style="padding-top:0">
+    <div class="phead"><div>
+      <div class="eyebrow">The thinking inside Steward</div>
+      <h1>How it works</h1>
+    </div></div>
+    <p class="intro">Steward turns the few dates you actually know into the full set of deadlines you're legally on the hook for — then keeps every one of them in front of you across all your live deals. You enter the dates; it does the date maths.</p>
+
+    <div class="howsec">
+      <h2><span class="e">⏱️</span> The deadline engine</h2>
+      <p class="d">For each deal you only ever type the <b>anchor dates</b> (when the OTP was granted, when it was exercised, when the TA was signed). From those, Steward computes every downstream statutory deadline below and shows a live countdown — change an anchor and the whole chain re-flows instantly.</p>
+
+      <div class="rulecard">
+        <div class="rh"><span class="tag brand">HDB Resale</span></div>
+        ${rule('Intent to Sell','+7 days','Earliest date you can grant the OTP (seller)')}
+        ${rule('OTP granted','+21 days · 4pm','Option expires — buyer must exercise by 4pm on day 21')}
+        ${rule('OTP exercised','now','Submit the HDB resale application')}
+        ${rule('HDB accepted','+8 weeks','Completion &amp; key collection')}
+      </div>
+
+      <div class="rulecard gold">
+        <div class="rh"><span class="tag gold">Private Resale</span></div>
+        ${rule('OTP granted','+ option period · 4pm','Exercise deadline (default 14 days — editable per deal)')}
+        ${rule('OTP exercised','+14 days','Stamp duty (BSD/ABSD) due to IRAS')}
+        ${rule('OTP exercised','+ completion','Target completion (default 10 weeks — editable)')}
+      </div>
+
+      <div class="rulecard navy">
+        <div class="rh"><span class="tag navy">Rental</span></div>
+        ${rule('TA signed','+14 days','Stamp duty on the Tenancy Agreement due')}
+        ${rule('Lease start','now','Handover &amp; inventory checklist')}
+        ${rule('Lease start','+12 months','Diplomatic clause becomes eligible (2-year lease)')}
+        ${rule('Lease end','−2 months','Renewal follow-up with your client')}
+        ${rule('Lease end','—','Lease expires')}
+      </div>
+      <p class="d" style="margin-top:4px">When a deadline is met, tick <b>✓ Mark done</b> in the deal and it drops off your action list — exercising the OTP, for instance, clears the option-expiry countdown automatically.</p>
+    </div>
+
+    <div class="howsec">
+      <h2><span class="e">🧭</span> Your three views</h2>
+      <div class="how-list">
+        <div class="how-li"><div class="hic">📋</div><div><h4>This Week</h4><p>Every deadline and follow-up across all your deals in one list, sorted by urgency — overdue first, then due-this-week, then coming up. This is your morning check: open it and you instantly see what can't wait.</p></div></div>
+        <div class="how-li"><div class="hic">🗂️</div><div><h4>Pipeline</h4><p>Every deal as a card, grouped by stage (Lead → Option/LOI → In Progress → Closing → Done) and colour-coded by type. The stage is worked out automatically from your dates — no dragging needed.</p></div></div>
+        <div class="how-li"><div class="hic">📄</div><div><h4>Deal detail</h4><p>Open any card for the full picture: the computed timeline, your key dates, a stage-gated checklist tailored to that deal type, your own to-dos, commission tracking and a compliance toggle.</p></div></div>
+      </div>
+    </div>
+
+    <div class="howsec">
+      <h2><span class="e">🛡️</span> Checklists, commission &amp; compliance</h2>
+      <p class="d">Each deal type and side (buyer/seller, landlord/tenant) gets its own checklist of the real steps — from verifying an HFE letter to collecting keys — so nothing standard gets skipped. Every deal also tracks <b>expected vs invoiced vs received commission</b> (with co-broke splits), and a <b>CDD / AML</b> reminder per client — a nudge toward the CEA requirement to run customer due diligence and keep records for five years.</p>
+    </div>
+
+    <div class="howsec">
+      <h2><span class="e">🔒</span> Where your data lives</h2>
+      <p class="d">Your deals are stored privately in your own Supabase database, so they sync across your phone and laptop. If you ever lose connection, Steward keeps working from this device and syncs back when you're online. Reminders are shown right here in the app — there's no email or push, by design.</p>
+    </div>
+
+    <div class="howsec">
+      <div class="honest"><b>A note on the deadlines.</b> Steward's dates are computed guides to keep you ahead of the clock — they're based on the standard HDB, private-resale and tenancy timelines. Always confirm the exact dates against the actual OTP, Sale &amp; Purchase Agreement, tenancy agreement and current CEA / IRAS rules for each specific deal. Steward helps you not forget; it doesn't replace the paperwork.</div>
+    </div>
+  </div>`;
+}
 
 /* ---------- dashboard ---------- */
 function renderDashboard(){
