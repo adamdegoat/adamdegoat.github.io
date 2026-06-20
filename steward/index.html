@@ -133,6 +133,18 @@ input,select,textarea,button{font-family:inherit;font-size:inherit;color:inherit
 .commbar .cl-l{display:block;font-size:10.5px;color:var(--ink-3);font-weight:700;text-transform:uppercase;letter-spacing:.07em}
 .commbar .cl-v{display:block;font-family:var(--serif);font-size:21px;font-weight:600;margin-top:3px}
 .commbar .cl-v.green{color:var(--brand-d)}
+/* horizontal-scroll affordance */
+.hscroll{position:relative;--fb:var(--paper)}
+.hscroll::before,.hscroll::after{content:"";position:absolute;top:0;bottom:0;width:46px;pointer-events:none;z-index:5;opacity:1;transition:opacity .25s ease}
+.hscroll::before{left:0;background:linear-gradient(to right,var(--fb),transparent)}
+.hscroll::after{right:0;background:linear-gradient(to left,var(--fb),transparent)}
+.hscroll.at-start::before{opacity:0}
+.hscroll.at-end::after{opacity:0}
+.flowcard .hscroll{--fb:var(--card)}
+.scroll-cue{display:none;position:absolute;top:50%;right:11px;transform:translateY(-50%);z-index:6;pointer-events:none;font-family:var(--sans);font-size:25px;font-weight:700;line-height:1;color:var(--ink-3);opacity:.55;transition:opacity .25s;animation:cueP 1.5s ease-in-out infinite}
+.hscroll.at-end .scroll-cue{opacity:0}
+@keyframes cueP{0%,100%{transform:translateY(-50%) translateX(0)}50%{transform:translateY(-50%) translateX(4px)}}
+@media(max-width:760px){.scroll-cue{display:block}}
 
 /* ---------- empty state ---------- */
 .empty{text-align:center;padding:70px 24px;background:linear-gradient(180deg,var(--paper-2),var(--card));border:1.5px dashed #d8d3c7;border-radius:var(--r-lg)}
@@ -505,7 +517,22 @@ function contactChip(c){
 }
 
 /* ============ render router ============ */
-function render(){if(VIEW==='how')return renderHow();VIEW==='pipeline'?renderPipeline():renderDashboard();}
+function render(){
+  if(VIEW==='how')renderHow();
+  else if(VIEW==='pipeline')renderPipeline();
+  else renderDashboard();
+  wireScrollHints();
+}
+function wireScrollHints(){
+  document.querySelectorAll('.hscroll').forEach(w=>{
+    const sc=w.querySelector('.board, .flow');if(!sc)return;
+    const upd=()=>{const max=sc.scrollWidth-sc.clientWidth-2;
+      w.classList.toggle('at-start',sc.scrollLeft<=2);
+      w.classList.toggle('at-end',sc.scrollLeft>=max);};
+    if(!sc.dataset.cueWired){sc.dataset.cueWired='1';sc.addEventListener('scroll',upd,{passive:true});}
+    upd();
+  });
+}
 
 /* ---------- how it works ---------- */
 function renderHow(){
@@ -516,7 +543,7 @@ function renderHow(){
       steps+=`<div class="fstep ${mod}"><div class="fnode">${i+1}</div><div class="flab">${nd[0]}</div><div class="fsub">${nd[1]}</div></div>`;
       if(i<nodes.length-1)steps+=`<div class="fconn"><span class="fgap">${gaps[i]}</span></div>`;
     });
-    return `<div class="flowcard ${mod}"><div class="rh"><span class="tag ${accent}">${tag}</span></div><div class="flow">${steps}</div>${note?`<div class="flownote">${note}</div>`:''}</div>`;
+    return `<div class="flowcard ${mod}"><div class="rh"><span class="tag ${accent}">${tag}</span></div><div class="hscroll"><div class="flow">${steps}</div><span class="scroll-cue">›</span></div>${note?`<div class="flownote">${note}</div>`:''}</div>`;
   };
   document.getElementById('app').innerHTML=`
   <div class="page how" style="padding-top:0">
@@ -529,7 +556,6 @@ function renderHow(){
     <div class="howsec">
       <h2><span class="e">⏱️</span> The deadline engine</h2>
       <p class="d">For each deal you only ever type the <b>anchor dates</b> (when the OTP was granted, when it was exercised, when the TA was signed). From those, Steward maps out the whole transaction below — read each one left&nbsp;→&nbsp;right to follow the deal's journey, with the time gap on every hop and a live countdown on the real one in your deal.</p>
-      <p class="d flow-hint" style="margin-top:-8px">On a phone, swipe across each flow to see every step.</p>
 
       ${fc('brand','HDB Resale',
         [['Intent to Sell','Seller registers'],['OTP granted','Option fee paid'],['OTP exercised','By 4pm, day 21'],['HDB accepts','Resale app in'],['Completion','Keys collected']],
@@ -674,11 +700,11 @@ function renderPipeline(){
   </div>`;
   const byCol={};COLS.forEach(([k])=>byCol[k]=[]);
   pool.forEach(d=>byCol[unifiedStage(d)].push(d));
-  html+=`<div class="board">`+COLS.map(([k,l])=>{
+  html+=`<div class="hscroll"><div class="board">`+COLS.map(([k,l])=>{
     const cards=byCol[k];
     return `<div class="col"><div class="col-h">${l}<span class="ct">${cards.length}</span></div>
       <div class="cards">${cards.length?cards.map(dcard).join(''):'<div class="col-empty">—</div>'}</div></div>`;
-  }).join('')+`</div>`;
+  }).join('')+`</div><span class="scroll-cue">›</span></div>`;
   document.getElementById('app').innerHTML=html;
 }
 function dcard(d){
@@ -849,6 +875,7 @@ document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
 function setView(v){VIEW=v;document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x.dataset.view===v));render();}
 function setFilter(f){FILTER=f;render();}
 document.getElementById('addBtn').onclick=()=>openModal();
+window.addEventListener('resize',()=>wireScrollHints());
 document.getElementById('scrim').onclick=closeDeal;
 document.getElementById('modalScrim').onclick=e=>{if(e.target.id==='modalScrim')closeModal();};
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(document.getElementById('modalScrim').classList.contains('show'))closeModal();else if(OPEN)closeDeal();}});
