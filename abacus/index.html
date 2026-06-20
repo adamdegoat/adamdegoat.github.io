@@ -474,8 +474,9 @@ function renderTabs(){
   Array.prototype.forEach.call(document.querySelectorAll('.tab'),function(t){t.onclick=function(){VIEW=t.dataset.p;renderTabs();renderGrid();};});
 }
 function renderGrid(){
+  var acc={buyer:'',seller:'gold',investor:'navy'}[VIEW];
   $('grid').innerHTML=CALCS.filter(function(c){return c.personas?c.personas.indexOf(VIEW)>=0:c.persona===VIEW;}).map(function(c){
-    return '<div class="ccard '+c.accent+'" data-id="'+c.id+'"><span class="ci">'+c.icon+'</span><h3>'+c.name+'</h3><p>'+c.blurb+'</p><span class="go">Open calculator →</span></div>';
+    return '<div class="ccard '+acc+'" data-id="'+c.id+'"><span class="ci">'+c.icon+'</span><h3>'+c.name+'</h3><p>'+c.blurb+'</p><span class="go">Open calculator →</span></div>';
   }).join('');
   Array.prototype.forEach.call(document.querySelectorAll('.ccard'),function(el){el.onclick=function(){openCalc(el.dataset.id);};});
 }
