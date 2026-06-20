@@ -100,6 +100,7 @@ footer .rates{font-size:11px;color:var(--ink-4);max-width:78ch;margin:8px auto 0
 .fld input,.fld select{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:15px;transition:.16s;width:100%}
 .fld input:focus,.fld select:focus{outline:0;border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-wash)}
 .fld .hint{font-size:11px;color:var(--ink-4)}
+.fsec{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-d);margin:10px 0 0;padding-top:11px;border-top:1px solid var(--line-2)}
 .prefix{position:relative}.prefix input{padding-left:30px}
 .prefix::before{content:"$";position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--ink-4);font-size:14px;z-index:1}
 
@@ -228,17 +229,21 @@ var CALCS=[
      notes:[['i','Payable within 14 days of signing the OTP/S&P (or exercise). Charged on the <b>higher</b> of price or market valuation.'],
             (prof==='FR'?['warn','Foreigners pay 60% ABSD on any residential purchase. US nationals and a few treaty nationalities are charged the Citizen rate.']:null)]};}},
 
-{id:'afford',persona:'buyer',accent:'brand',icon:'🏠',name:'Affordability',blurb:'What you can really buy — loan, downpayment, every stamp duty and the monthly, by TDSR/MSR/LTV (with joint-borrower IWAA).',
+{id:'afford',persona:'buyer',accent:'brand',icon:'🏠',name:'Affordability',blurb:'What you can really buy — your loan, downpayment, stamp duty and monthly repayment, using Singapore’s real lending limits (and the income-weighted age rule for couples).',
  fields:[
+   {t:'sec',l:'About you'},
    {k:'age',l:'Your age',t:'num',d:35},
    {k:'coage',l:'Co-borrower age',t:'num',opt:1,ph:'if buying together'},
+   {t:'sec',l:'Monthly income'},
    {k:'income',l:'Your gross monthly income',t:'money',d:8000},
    {k:'coincome',l:'Co-borrower income',t:'money',opt:1,ph:'optional'},
    {k:'debts',l:'Existing monthly repayments',t:'money',opt:1,ph:'car, loans, cards'},
+   {t:'sec',l:'Savings'},
    {k:'cash',l:'Cash available',t:'money',d:300000},
-   {k:'cpf',l:'CPF (OA) available',t:'money',d:150000},
+   {k:'cpf',l:'CPF available',t:'money',d:150000,hint:'your Ordinary Account (OA) savings'},
+   {t:'sec',l:'The property'},
    {k:'profile',l:'You are a',t:'select',o:[['SC','Singapore Citizen'],['PR','Permanent Resident'],['FR','Foreigner']],d:'SC'},
-   {k:'owned',l:'Properties owned',t:'select',o:OWNED,d:'0'},
+   {k:'owned',l:'Properties you already own',t:'select',o:OWNED,d:'0'},
    {k:'type',l:'Property type',t:'select',o:[['PRIV','Private condo'],['EC','Executive Condo']],d:'PRIV'}],
  compute:function(g){
    var age=g('age')||35,coage=g('coage'),income=g('income'),co=g('coincome'),debts=g('debts'),
@@ -307,7 +312,7 @@ var CALCS=[
  fields:[
    {k:'price',l:'Expected sale price',t:'money',d:1200000},
    {k:'loan',l:'Outstanding home loan',t:'money',d:500000},
-   {k:'cpf',l:'CPF (OA) used so far',t:'money',d:200000,hint:'principal withdrawn for this home'},
+   {k:'cpf',l:'CPF used so far',t:'money',d:200000,hint:'principal taken from your OA for this home — see your CPF dashboard'},
    {k:'years',l:'Years you’ve held it',t:'num',d:8},
    {k:'agent',l:'Agent fee %',t:'num',d:2},
    {k:'legal',l:'Legal fees',t:'money',d:3000}],
@@ -398,7 +403,7 @@ var CALCS=[
 
 {id:'proptax',persona:'investor',personas:['buyer','investor'],accent:'navy',icon:'🏛️',name:'Property Tax',blurb:'Your yearly property tax from the Annual Value — at the right rate for living in it vs renting it out.',
  fields:[
-   {k:'av',l:'Annual Value (AV)',t:'money',d:36000,hint:'estimated annual rent IRAS assigns'},
+   {k:'av',l:'Annual Value (AV)',t:'money',d:36000,hint:'the AV on your IRAS property tax bill (≈ a year’s rent)'},
    {k:'use',l:'How it’s used',t:'select',o:[['OO','I live in it (owner-occupier)'],['NOO','Rented out / not occupied']],d:'OO'}],
  compute:function(g){var av=g('av'),use=g('use');var bands=use==='OO'?RULES.ptOO:RULES.ptNOO;var tax=Math.round(tiered(av,bands));
    return{head:['Annual property tax',money(tax)],
@@ -485,16 +490,21 @@ var CUR=null;
 function openCalc(id){
   CUR=CALCS.filter(function(c){return c.id===id;})[0];if(!CUR)return;
   var fields=CUR.fields.map(function(f){
+    if(f.t==='sec')return '<div class="fld full"><div class="fsec">'+f.l+'</div></div>';
     var inner;
     if(f.t==='select'){inner='<select id="cf_'+f.k+'">'+f.o.map(function(o){return '<option value="'+o[0]+'"'+(String(f.d)===o[0]?' selected':'')+'>'+o[1]+'</option>';}).join('')+'</select>';}
     else if(f.t==='date'){inner='<input id="cf_'+f.k+'" type="date" value="'+(f.d||'')+'">';}
-    else {var pre=(f.t==='money');inner='<div class="'+(pre?'prefix':'')+'"><input id="cf_'+f.k+'" type="number" inputmode="'+(f.t==='money'?'numeric':'decimal')+'" '+(f.d!=null?'value="'+f.d+'"':'')+' '+(f.ph?'placeholder="'+f.ph+'"':'')+'></div>';}
+    else {var pre=(f.t==='money');var dv=f.d!=null?(f.t==='money'?(+f.d).toLocaleString('en-SG'):f.d):'';
+      inner='<div class="'+(pre?'prefix':'')+'"><input id="cf_'+f.k+'" type="'+(f.t==='money'?'text':'number')+'" inputmode="'+(f.t==='money'?'numeric':'decimal')+'" '+(f.d!=null?'value="'+dv+'"':'')+' '+(f.ph?'placeholder="'+f.ph+'"':'')+'></div>';}
     return '<div class="fld'+(f.t==='money'||f.full?' full':'')+'"><label>'+f.l+(f.opt?' <span class="opt">optional</span>':'')+'</label>'+inner+(f.hint?'<span class="hint">'+f.hint+'</span>':'')+'</div>';
   }).join('');
   $('modal').innerHTML='<div class="m-head"><span class="mi">'+CUR.icon+'</span><div><h2>'+CUR.name+'</h2><p>'+CUR.blurb+'</p></div><div class="x" onclick="closeCalc()">✕</div></div>'+
     '<div class="m-body"><div class="fgrid">'+fields+'</div><div class="result" id="cresult"></div>'+
     '<p class="disc">Indicative estimate using rules current as at June 2026. On the higher of price or valuation where applicable. Not financial advice.</p></div>';
-  CUR.fields.forEach(function(f){var el=$('cf_'+f.k);el.addEventListener('input',runCalc);el.addEventListener('change',runCalc);});
+  CUR.fields.forEach(function(f){if(f.t==='sec')return;var el=$('cf_'+f.k);if(!el)return;
+    if(f.t==='money'){el.addEventListener('input',function(){var s=el.selectionStart,len=el.value.length;var c=el.value.replace(/[^\d]/g,'');el.value=c?(+c).toLocaleString('en-SG'):'';el.selectionStart=el.selectionEnd=Math.max(0,el.value.length-(len-s));runCalc();});}
+    else el.addEventListener('input',runCalc);
+    el.addEventListener('change',runCalc);});
   runCalc();
   $('scrim').classList.add('show');document.body.style.overflow='hidden';
 }
