@@ -5,12 +5,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta name="description" content="Steward — the deadline-aware deal pipeline for Singapore property agents. Never miss an OTP expiry, stamp-duty deadline or follow-up across all your transactions.">
-<title>Steward · Groundwork</title>
+<title>Steward · Deal Pipeline</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230f9d76'/%3E%3Cstop offset='1' stop-color='%23b88a2e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='8' y='8' width='16' height='16' rx='4' transform='rotate(45 16 16)' fill='url(%23g)'/%3E%3C/svg%3E">
 <meta name="theme-color" content="#101a2b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Spectral:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Steward">
+<style>
+.st-install{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--brand-d);padding:7px 13px;border-radius:30px;border:1px solid var(--brand);background:rgba(15,157,118,.06);cursor:pointer;white-space:nowrap;transition:.18s;font-family:'Libre Franklin',sans-serif}
+.st-install:hover{background:rgba(15,157,118,.12)}
+.st-modal{position:fixed;inset:0;z-index:9999;background:rgba(16,21,31,.5);backdrop-filter:blur(5px);display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:24px 16px;font-family:'Libre Franklin',sans-serif}
+.st-modal.open{display:flex}
+.st-box{width:100%;max-width:460px;background:#fff;border:1px solid var(--line);border-radius:24px;padding:30px 26px;margin:auto;box-shadow:0 24px 60px rgba(16,21,31,.18)}
+.st-x{float:right;background:#eef0f3;border:0;width:34px;height:34px;border-radius:10px;font-size:19px;cursor:pointer;color:var(--ink-3)}
+.st-head{text-align:center;margin-bottom:20px}
+.st-head img{width:74px;height:74px;border-radius:18px;margin:4px auto 14px;box-shadow:0 8px 22px rgba(16,21,31,.18)}
+.st-head h2{font-family:'Spectral',serif;font-size:26px;font-weight:600;color:var(--ink);margin:0}
+.st-head p{font-size:13.5px;color:var(--ink-3);margin-top:7px;line-height:1.5}
+.st-feats{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:0 0 22px}
+.st-feat{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:12px 13px}
+.st-feat .fi{font-size:18px}.st-feat b{display:block;font-size:13px;margin:5px 0 2px;color:var(--ink)}.st-feat span{font-size:11.5px;color:var(--ink-3)}
+.st-seg{display:inline-flex;gap:6px;margin-bottom:12px}
+.st-seg button{background:var(--paper);border:1px solid var(--line);color:var(--ink-3);font-family:inherit;font-weight:700;font-size:13px;padding:8px 18px;border-radius:30px;cursor:pointer}
+.st-seg button.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.st-steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.st-steps li{counter-increment:s;position:relative;padding:12px 0 12px 46px;border-bottom:1px solid var(--line-2);font-size:14.5px;color:var(--ink);line-height:1.5}
+.st-steps li:last-child{border-bottom:0}.st-steps li b{font-weight:700}
+.st-steps li::before{content:counter(s);position:absolute;left:0;top:10px;width:30px;height:30px;border-radius:50%;background:var(--brand-wash);border:1px solid var(--brand);color:var(--brand-d);font-weight:800;font-size:13px;display:grid;place-items:center}
+.st-got{width:100%;margin-top:20px;padding:13px;background:var(--brand);color:#fff;border:0;border-radius:12px;font-weight:700;font-size:15px;cursor:pointer}
+.st-hidden{display:none!important}
+@media(max-width:480px){.st-feats{grid-template-columns:1fr}}
+</style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <style>
 :root{
@@ -321,6 +352,7 @@ footer{padding:30px 0 40px;text-align:center;color:var(--ink-4);font-size:12px}
     <button class="tab" data-view="pipeline">Pipeline</button>
     <button class="tab" data-view="how">How it works</button>
   </div>
+  <button class="st-install" id="stInstall" onclick="openStGuide()" title="Install Steward as an app">📲 Install</button>
   <button class="btn btn-p btn-sm" id="addBtn">+ New deal</button>
 </nav>
 <div class="offline" id="offline">⚠ Working offline — changes are saved on this device only and won't sync until the connection returns.</div>
@@ -328,7 +360,7 @@ footer{padding:30px 0 40px;text-align:center;color:var(--ink-4);font-size:12px}
 <main class="wrap page" id="app"></main>
 
 <footer>
-  Steward · Tool 03 of <a href="https://adamdegoat.github.io/realestate/" style="color:var(--brand-d);font-weight:600">Groundwork</a> · built by Adam Phang.
+  Steward · built by Adam Phang.
   Deadlines are computed guides from your dates — always verify against the OTP, SPA &amp; CEA requirements.
 </footer>
 
@@ -881,6 +913,46 @@ document.getElementById('modalScrim').onclick=e=>{if(e.target.id==='modalScrim')
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(document.getElementById('modalScrim').classList.contains('show'))closeModal();else if(OPEN)closeDeal();}});
 
 (async function init(){await loadAll();render();})();
+</script>
+<!-- INSTALL GUIDE -->
+<div class="st-modal" id="stGuide">
+  <div class="st-box">
+    <button class="st-x" onclick="stCloseGuide()">×</button>
+    <div class="st-head">
+      <img src="icon-192.png" alt="Steward">
+      <h2>Add Steward to your phone</h2>
+      <p>Install once — every deal and deadline a tap away, with you wherever you are.</p>
+    </div>
+    <div class="st-feats">
+      <div class="st-feat"><div class="fi">⏰</div><b>Never miss a deadline</b><span>OTP, stamp duty &amp; completion</span></div>
+      <div class="st-feat"><div class="fi">📁</div><b>All your deals in one place</b><span>The full pipeline, organised</span></div>
+      <div class="st-feat"><div class="fi">📶</div><b>Opens like an app</b><span>Fullscreen, no browser bars</span></div>
+      <div class="st-feat"><div class="fi">🔒</div><b>Private to you</b><span>Your live deals, your device</span></div>
+    </div>
+    <div class="st-seg"><button data-os="ios" class="on">iPhone</button><button data-os="and">Android</button></div>
+    <ol class="st-steps" id="stIos">
+      <li>Open this page in <b>Safari</b> (not Chrome).</li>
+      <li>Tap the <b>Share</b> button — the square with an ↑ arrow.</li>
+      <li>Scroll down and tap <b>"Add to Home Screen"</b>.</li>
+      <li>Tap <b>Add</b> — the Steward icon appears on your home screen. 🎉</li>
+    </ol>
+    <ol class="st-steps st-hidden" id="stAnd">
+      <li>Open this page in <b>Chrome</b>.</li>
+      <li>Tap the <b>⋮</b> menu (top-right).</li>
+      <li>Tap <b>"Add to Home screen"</b> / <b>"Install app"</b>.</li>
+      <li>Tap <b>Add</b> — the Steward app icon appears. 🎉</li>
+    </ol>
+    <button class="st-got" onclick="stCloseGuide()">Got it</button>
+  </div>
+</div>
+<script>
+function stSetOs(os){document.querySelectorAll('.st-seg button').forEach(function(b){b.classList.toggle('on',b.dataset.os===os);});document.getElementById('stIos').classList.toggle('st-hidden',os!=='ios');document.getElementById('stAnd').classList.toggle('st-hidden',os!=='and');}
+function openStGuide(){stSetOs(/iPad|iPhone|iPod/.test(navigator.userAgent)?'ios':'and');document.getElementById('stGuide').classList.add('open');}
+function stCloseGuide(){document.getElementById('stGuide').classList.remove('open');}
+document.querySelectorAll('.st-seg button').forEach(function(b){b.addEventListener('click',function(){stSetOs(b.dataset.os);});});
+document.getElementById('stGuide').addEventListener('click',function(e){if(e.target.id==='stGuide')stCloseGuide();});
+(function(){var sa=(window.matchMedia&&window.matchMedia('(display-mode: standalone)').matches)||window.navigator.standalone;if(sa){var el=document.getElementById('stInstall');if(el)el.classList.add('st-hidden');}})();
+if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
 </script>
 </body>
 </html>
