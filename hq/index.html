@@ -94,18 +94,7 @@ footer{padding:22px 0 40px;text-align:center;color:var(--ink-4);font-size:11px;l
 </head>
 <body>
 
-<div class="gate" id="gate">
-  <div class="gate-box">
-    <div class="dia"></div>
-    <h1>HQ</h1>
-    <p>Private. Enter passcode.</p>
-    <input id="pin" type="password" inputmode="numeric" autocomplete="off" placeholder="••••">
-    <button onclick="tryPin()">Enter</button>
-    <div class="err" id="pinErr"></div>
-  </div>
-</div>
-
-<main id="app" style="visibility:hidden">
+<main id="app">
 <div class="wrap">
   <div class="hd">
     <span class="dia"></span>
@@ -132,13 +121,6 @@ footer{padding:22px 0 40px;text-align:center;color:var(--ink-4);font-size:11px;l
 </main>
 
 <script>
-/* ============ passcode (change PASS to whatever you like) ============ */
-var PASS="1234";
-function unlock(){document.getElementById('gate').classList.add('hidden');var a=document.getElementById('app');a.style.visibility='visible';render();document.getElementById('q').focus({preventScroll:true});}
-function tryPin(){var v=document.getElementById('pin').value.trim();if(v===PASS){localStorage.setItem('hq_ok','1');unlock();}else{document.getElementById('pinErr').textContent='Wrong passcode';}}
-document.getElementById('pin').addEventListener('keydown',function(e){if(e.key==='Enter')tryPin();});
-if(localStorage.getItem('hq_ok')==='1'){unlock();}
-
 /* ============ data ============ */
 var SITE="https://adamdegoat.github.io";
 var GH="https://github.com/adamdegoat";
@@ -202,6 +184,7 @@ function card(it){
     (it.r?'<a class="mini" target="_blank" rel="noopener" href="'+it.r+'">Edit</a>':'')+extra+'</div></div>';
 }
 
+render();
 if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
 </script>
 </body>
