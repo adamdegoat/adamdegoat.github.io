@@ -11,6 +11,38 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Spectral:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Abacus">
+<style>
+.ab-install{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:var(--brand-d);padding:7px 14px;border-radius:30px;border:1px solid var(--brand);background:rgba(15,157,118,.06);cursor:pointer;white-space:nowrap;transition:.18s;font-family:var(--sans)}
+.ab-install:hover{background:rgba(15,157,118,.12)}
+.ab-modal{position:fixed;inset:0;z-index:200;background:rgba(16,21,31,.5);backdrop-filter:blur(5px);display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:24px 16px}
+.ab-modal.open{display:flex}
+.ab-box{width:100%;max-width:460px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:30px 26px;margin:auto;box-shadow:var(--shadow-lg)}
+.ab-x{float:right;background:var(--slate-wash);border:0;width:34px;height:34px;border-radius:10px;font-size:19px;cursor:pointer;color:var(--ink-3)}
+.ab-head{text-align:center;margin-bottom:20px}
+.ab-head img{width:74px;height:74px;border-radius:18px;margin:4px auto 14px;box-shadow:var(--shadow)}
+.ab-head h2{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--ink)}
+.ab-head p{font-size:13.5px;color:var(--ink-3);margin-top:7px;line-height:1.5}
+.ab-feats{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:0 0 22px}
+.ab-feat{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:12px 13px}
+.ab-feat .fi{font-size:18px}.ab-feat b{display:block;font-size:13px;margin:5px 0 2px}.ab-feat span{font-size:11.5px;color:var(--ink-3)}
+.ab-seg{display:inline-flex;gap:6px;margin-bottom:12px}
+.ab-seg button{background:var(--paper);border:1px solid var(--line);color:var(--ink-3);font-family:inherit;font-weight:700;font-size:13px;padding:8px 18px;border-radius:30px;cursor:pointer}
+.ab-seg button.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.ab-steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.ab-steps li{counter-increment:s;position:relative;padding:12px 0 12px 46px;border-bottom:1px solid var(--line-2);font-size:14.5px;color:var(--ink);line-height:1.5}
+.ab-steps li:last-child{border-bottom:0}
+.ab-steps li::before{content:counter(s);position:absolute;left:0;top:10px;width:30px;height:30px;border-radius:50%;background:var(--brand-wash);border:1px solid var(--brand);color:var(--brand-d);font-weight:800;font-size:13px;display:grid;place-items:center}
+.ab-steps b{font-weight:700}
+.ab-got{width:100%;margin-top:20px;padding:13px;background:var(--brand);color:#fff;border:0;border-radius:12px;font-weight:700;font-size:15px;cursor:pointer}
+.ab-hidden{display:none!important}
+@media(max-width:480px){.ab-feats{grid-template-columns:1fr}}
+</style>
 <style>
 :root{
   --ink:#10151f;--ink-2:#384256;--ink-3:#6b7587;--ink-4:#9aa2b1;--line:#e7e4dd;--line-2:#efece6;
@@ -152,6 +184,7 @@ footer .rates{font-size:11px;color:var(--ink-4);max-width:78ch;margin:8px auto 0
   <a class="navback" href="https://adamdegoat.github.io/realestate/">← Groundwork</a>
   <a class="brand" href="#"><span class="dia"></span><span class="bm">Abacus</span><span class="bsub">SG Property Calculators</span></a>
   <span class="sp"></span>
+  <button class="ab-install" id="abInstall" onclick="openAbGuide()">📲 Install app</button>
 </nav>
 
 <header class="hero wrap">
@@ -567,6 +600,46 @@ function runCalc(){
 $('scrim').addEventListener('click',function(e){if(e.target.id==='scrim')closeCalc();});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&CUR)closeCalc();});
 renderTabs();renderGrid();
+</script>
+<!-- INSTALL GUIDE -->
+<div class="ab-modal" id="abGuide">
+  <div class="ab-box">
+    <button class="ab-x" onclick="closeAbGuide()">×</button>
+    <div class="ab-head">
+      <img src="icon-192.png" alt="Abacus">
+      <h2>Add Abacus to your phone</h2>
+      <p>Install it once — then it opens fullscreen like an app, every calculator a tap away.</p>
+    </div>
+    <div class="ab-feats">
+      <div class="ab-feat"><div class="fi">⚡</div><b>Instant on-site</b><span>Answer a client in seconds</span></div>
+      <div class="ab-feat"><div class="fi">🧮</div><b>All the calculators</b><span>Stamp duty, affordability, SSD &amp; more</span></div>
+      <div class="ab-feat"><div class="fi">📶</div><b>Works offline</b><span>Opens with no signal</span></div>
+      <div class="ab-feat"><div class="fi">🆓</div><b>Free · no login</b><span>Real IRAS/MAS rules</span></div>
+    </div>
+    <div class="ab-seg"><button data-os="ios" class="on">iPhone</button><button data-os="and">Android</button></div>
+    <ol class="ab-steps" id="abIos">
+      <li>Open this page in <b>Safari</b> (not Chrome).</li>
+      <li>Tap the <b>Share</b> button — the square with an ↑ arrow.</li>
+      <li>Scroll down and tap <b>"Add to Home Screen"</b>.</li>
+      <li>Tap <b>Add</b> — the Abacus icon appears on your home screen. 🎉</li>
+    </ol>
+    <ol class="ab-steps ab-hidden" id="abAnd">
+      <li>Open this page in <b>Chrome</b>.</li>
+      <li>Tap the <b>⋮</b> menu (top-right).</li>
+      <li>Tap <b>"Add to Home screen"</b> / <b>"Install app"</b>.</li>
+      <li>Tap <b>Add</b> — the Abacus app icon appears. 🎉</li>
+    </ol>
+    <button class="ab-got" onclick="closeAbGuide()">Got it</button>
+  </div>
+</div>
+<script>
+function abSetOs(os){document.querySelectorAll('.ab-seg button').forEach(function(b){b.classList.toggle('on',b.dataset.os===os);});document.getElementById('abIos').classList.toggle('ab-hidden',os!=='ios');document.getElementById('abAnd').classList.toggle('ab-hidden',os!=='and');}
+function openAbGuide(){abSetOs(/iPad|iPhone|iPod/.test(navigator.userAgent)?'ios':'and');document.getElementById('abGuide').classList.add('open');}
+function closeAbGuide(){document.getElementById('abGuide').classList.remove('open');}
+document.querySelectorAll('.ab-seg button').forEach(function(b){b.addEventListener('click',function(){abSetOs(b.dataset.os);});});
+document.getElementById('abGuide').addEventListener('click',function(e){if(e.target.id==='abGuide')closeAbGuide();});
+(function(){var sa=(window.matchMedia&&window.matchMedia('(display-mode: standalone)').matches)||window.navigator.standalone;if(sa){var el=document.getElementById('abInstall');if(el)el.classList.add('ab-hidden');}})();
+if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
 </script>
 </body>
 </html>
