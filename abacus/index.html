@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta name="description" content="Abacus — free Singapore property calculators for buyers, sellers & investors. Stamp duty (BSD/ABSD), affordability, sale proceeds & CPF, SSD, decoupling, rental yield and more. Every number uses the real MAS/IRAS rules, with the working shown.">
-<title>Abacus · Singapore Property Calculators · Groundwork</title>
+<title>Abacus · Singapore Property Calculators</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230f9d76'/%3E%3Cstop offset='1' stop-color='%23b88a2e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='8' y='8' width='16' height='16' rx='4' transform='rotate(45 16 16)' fill='url(%23g)'/%3E%3C/svg%3E">
 <meta name="theme-color" content="#101a2b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +41,6 @@
 .ab-steps b{font-weight:700}
 .ab-got{width:100%;margin-top:20px;padding:13px;background:var(--brand);color:#fff;border:0;border-radius:12px;font-weight:700;font-size:15px;cursor:pointer}
 .ab-hidden{display:none!important}
-.standalone .hub-only{display:none!important}
 @media(max-width:480px){.ab-feats{grid-template-columns:1fr}}
 </style>
 <style>
@@ -182,14 +181,14 @@ footer .rates{font-size:11px;color:var(--ink-4);max-width:78ch;margin:8px auto 0
 </head>
 <body>
 <nav class="nav">
-  <a class="navback hub-only" href="https://adamdegoat.github.io/realestate/">← Groundwork</a>
+  <a class="navback" href="https://adamdegoat.github.io/realestate/">← Groundwork</a>
   <a class="brand" href="#"><span class="dia"></span><span class="bm">Abacus</span><span class="bsub">SG Property Calculators</span></a>
   <span class="sp"></span>
   <button class="ab-install" id="abInstall" onclick="openAbGuide()">📲 Install app</button>
 </nav>
 
 <header class="hero wrap">
-  <div class="eyebrow hub-only">Groundwork · Tool 04</div>
+  <div class="eyebrow">Singapore Property Calculators</div>
   <h1>Every property number, <em>done right</em></h1>
   <p>Free Singapore property calculators for buyers, sellers and investors — built on the real MAS &amp; IRAS rules, with the working shown so you can trust every figure.</p>
 </header>
@@ -207,7 +206,7 @@ footer .rates{font-size:11px;color:var(--ink-4);max-width:78ch;margin:8px auto 0
 
 <footer>
   <div class="wrap">
-    Abacus · <span class="hub-only">Tool 04 of <a href="https://adamdegoat.github.io/realestate/" style="color:var(--brand-d);font-weight:600">Groundwork</a> · </span>by Adam Phang.
+    Abacus · by Adam Phang.
     <p class="rates">Indicative estimates using rules current as at June 2026: BSD &amp; ABSD (from 2023), SSD (4-yr regime from 4 Jul 2025), TDSR 55% · MSR 30% · stress rate 4% · first-loan LTV 75%, CPF OA 2.5%, property tax (owner-occupier from 1 Jan 2025 / non-owner from 1 Jan 2024), rental stamp duty 0.4%, HDB MOP 5 years. On the higher of price or market valuation where applicable. Not financial advice — confirm with the bank, a lawyer and IRAS for your specific case.</p>
   </div>
 </footer>
@@ -639,7 +638,7 @@ function openAbGuide(){abSetOs(/iPad|iPhone|iPod/.test(navigator.userAgent)?'ios
 function closeAbGuide(){document.getElementById('abGuide').classList.remove('open');}
 document.querySelectorAll('.ab-seg button').forEach(function(b){b.addEventListener('click',function(){abSetOs(b.dataset.os);});});
 document.getElementById('abGuide').addEventListener('click',function(e){if(e.target.id==='abGuide')closeAbGuide();});
-(function(){var sa=(window.matchMedia&&window.matchMedia('(display-mode: standalone)').matches)||window.navigator.standalone;if(sa){document.body.classList.add('standalone');var el=document.getElementById('abInstall');if(el)el.classList.add('ab-hidden');}})();
+(function(){var sa=(window.matchMedia&&window.matchMedia('(display-mode: standalone)').matches)||window.navigator.standalone;if(sa){var el=document.getElementById('abInstall');if(el)el.classList.add('ab-hidden');}})();
 if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
 </script>
 </body>
