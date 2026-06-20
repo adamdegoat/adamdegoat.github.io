@@ -415,7 +415,7 @@ function eligibility(){
   var r={status:'ok',title:'',points:[]};
   if(t==='HDB_BTO'){
     if(!hasSC){r.status='block';r.title='A BTO needs a Singapore Citizen';r.points.push('Only Citizens can apply for a BTO (a PR or foreigner may join only as a spouse/occupier under an SC applicant).');return r;}
-    if(S.co==='none'){r.status='cond';r.title='You can apply — under the right scheme';r.points.push('A single Citizen can buy a BTO only from <b>35</b> (2-room Flexi in non-mature estates). Couples/families have the full range.');}
+    if(S.co==='none'){r.status='cond';r.title='You can apply — under the right scheme';r.points.push('A single Citizen can buy a BTO only from <b>35</b> (a 2-room Flexi, available islandwide). Couples/families have the full range.');}
     else{r.status='ok';r.title='You\'re eligible to ballot for a BTO';}
     if(income>RULES.btoIncomeCeiling)r.points.push('⚠️ Household income of '+money(income)+' is above the typical <b>$14,000</b> family BTO ceiling — an EC or resale flat may suit better.');
     r.points.push('You must form an eligible family nucleus and clear the ballot — supply is balloted, not guaranteed.');
@@ -432,7 +432,7 @@ function eligibility(){
     if(!hasSC){r.status='block';r.title='An EC needs a Singapore Citizen';r.points.push('At least one applicant must be a Citizen; a foreigner can\'t buy a new EC.');return r;}
     if(income>RULES.ecIncomeCeiling){r.status='block';r.title='Over the EC income ceiling';r.points.push('Household income of '+money(income)+' exceeds the <b>$16,000</b> EC ceiling. A private condo has no income limit.');return r;}
     r.title='You\'re eligible for a new EC';
-    r.points.push('ECs need an eligible family nucleus and have a 5-year MOP, but are cheaper than condos with CPF grants possible.');
+    r.points.push('New ECs need an eligible family nucleus and have a <b>10-year MOP</b> (raised from 5 years for EC sites launched from 8 May 2026), but are cheaper than condos with CPF grants possible.');
     return r;
   }
   if(t==='LANDED'){
@@ -498,7 +498,7 @@ var TIMELINES={
     ['Book a unit at the showflat','launch day','Pay the booking fee and receive the Option to Purchase.'],
     ['Exercise & sign the S&P','~3 weeks','Pay the downpayment; stamp duty is due within 14 days of exercise.'],
     ['Progressive payments','as it\'s built','You pay in stages as construction hits each milestone (BUC).'],
-    ['TOP & keys','~3–4 years','Collect keys at Temporary Occupation Permit; your 5-year MOP begins.']],
+    ['TOP & keys','~3–4 years','Collect keys at Temporary Occupation Permit; your 10-year MOP begins (new EC sites from 8 May 2026).']],
   CONDO:[
     ['Get bank In-Principle Approval','first','Know your real loan headroom before you commit to anything.'],
     ['Secure the OTP','flexible','Pay the option fee (1% resale; booking fee for new launch) for the Option to Purchase.'],
@@ -544,12 +544,17 @@ function showRoadmap(){
     h+=roadFoot();$('#road');document.getElementById('road').innerHTML=h;swap();return;
   }
 
+  if(b.P<50000){
+  /* 2 low borrowing capacity */
+  h+='<div class="sec"><div class="sec-h"><span class="si">💰</span><h3>What you can afford</h3></div>'+
+    '<div class="elig cond"><span class="ei">!</span><div><b>Your borrowing capacity looks limited right now.</b> On these numbers — '+money(b.income)+'/mo income'+(num(S.debts)?' and '+money(num(S.debts))+'/mo existing repayments':'')+' — the 55% TDSR cap leaves little or no room for a home loan yet. Raising your income, clearing existing debts, or buying with a co-buyer would lift this. Have a chat with Adam to map a realistic path.</div></div></div>';
+  } else {
   /* 2 budget */
   h+='<div class="sec"><div class="sec-h"><span class="si">💰</span><h3>What you can afford</h3></div>'+
     '<div class="headline"><span class="hl">Your estimated budget</span><span class="hv">'+money(b.P)+'</span></div>'+
     orow('Maximum bank loan',money(b.loan),pct(b.ltv)+' LTV · '+b.tenure+'-year tenure')+
     orow('Estimated monthly repayment',money(b.monthly),'~3.5% p.a. · stress-tested at 4%')+
-    note(b.limit==='income'?'i':'i',b.limit==='income'
+    note('i',b.limit==='income'
       ?'Your <b>income</b> sets this ceiling under the 55% TDSR rule'+(b.isMSR?' and the 30% MSR for HDB/EC':'')+'. More income or fewer debts would raise it.'
       :'Your <b>cash &amp; CPF</b> set this ceiling — your income could support a bigger loan, but you\'d need more upfront. Saving more raises this.')+
     '</div>';
@@ -565,8 +570,10 @@ function showRoadmap(){
     (b.val?orow('Valuation',money(b.val),'private purchase'):'')+
     orow('__tot','Total cash + CPF needed',money(b.upfront))+
     note('warn','Stamp duty is due <b>within 14 days</b> of exercising the option — have this money liquid, not locked up.')+
+    (b.isHDBloan?note('tip','With an <b>HDB housing loan</b>, the 25% downpayment can be paid entirely from your CPF OA — potentially <b>$0 cash</b>. A bank loan needs at least 5% in cash, so the cash figure above is the safe, bank-loan case.'):'')+
     (a.remission?note('tip','You pay <b>$0 ABSD</b> as a married couple buying your first home with a Citizen. If either of you owned a home before, the remission may not apply — confirm with IRAS.'):'')+
     '</div>';
+  }
 
   /* 4 timeline */
   var tl=TIMELINES[S.type];
