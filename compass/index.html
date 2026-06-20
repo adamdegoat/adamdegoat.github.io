@@ -282,6 +282,18 @@ var RULES={
   tdsr:.55, msr:.30, stress:.04, cpfOA:.025,
   ecIncomeCeiling:16000, btoIncomeCeiling:14000, mopYears:5
 };
+/* ===================== VERIFIED SG CPF HOUSING GRANTS (June 2026) ===================== */
+/* Single source of truth — every grant figure lives here. */
+var GRANTS={
+  ehgCeiling:9000, ehgSingleCeiling:4500,
+  // EHG families — [upperIncome, grant], $500 bands (EHG enhanced 20 Aug 2024)
+  ehgFamily:[[1500,120000],[2000,110000],[2500,105000],[3000,95000],[3500,90000],[4000,80000],[4500,70000],[5000,65000],[5500,55000],[6000,50000],[6500,40000],[7000,30000],[7500,25000],[8000,20000],[8500,10000],[9000,5000]],
+  familyGrant:{small:80000,big:50000}, familyPRdeduct:10000, familyCeiling:14000,
+  singlesGrant:{small:40000,big:25000}, singlesCeiling:7000,
+  phgFamily:{with:30000,near:20000}, phgSingle:{with:15000,near:10000},
+  ecCeiling:12000,
+  ecGrant:{scsc:[[10000,30000],[11000,20000],[12000,10000]], scpr:[[10000,20000],[11000,10000],[12000,0]]}
+};
 /* math helpers (same as Abacus) */
 function num(v){v=parseFloat(String(v).replace(/[, ]/g,''));return isFinite(v)?v:0;}
 function money(n){return (n<0?'-$':'$')+Math.round(Math.abs(n)).toLocaleString('en-SG');}
@@ -296,7 +308,8 @@ function worstProfile(ps){var w='SC';ps.forEach(function(p){if(WORST[p]>WORST[w]
 
 /* ===================== wizard state ===================== */
 var S={profile:'SC',co:'none',coProfile:'SC',owned:'0',type:'CONDO',purpose:'own',
-       income:'8000',coIncome:'',age:'35',coAge:'',cash:'250000',cpf:'120000',debts:''};
+       income:'8000',coIncome:'',age:'35',coAge:'',cash:'250000',cpf:'120000',debts:'',
+       firsttimer:'yes',flatsize:'small',proximity:'no'};
 var STEP=0;
 var TYPES={HDB_RESALE:'HDB resale flat',HDB_BTO:'HDB BTO (new flat)',EC:'Executive Condo (EC)',CONDO:'Private condo / apartment',LANDED:'Landed property'};
 
@@ -322,7 +335,7 @@ var STEPS=[
 /* 2 — what */
 {key:'what',q:'What you want to buy',d:'Different property types have different eligibility rules, loan limits and timelines.',
  render:function(){
-   return choice('type','Property type',[
+   var h=choice('type','Property type',[
      ['HDB_RESALE','HDB resale flat','Buy on the open market'],
      ['HDB_BTO','HDB BTO','New flat from HDB'],
      ['EC','Executive Condo','New EC launch'],
@@ -330,6 +343,19 @@ var STEPS=[
      ['LANDED','Landed','Terrace / semi-D / bungalow']]) +
    choice('purpose','You\'re buying this to…',[
      ['own','Live in it','Own-stay'],['invest','Rent it out','Investment']],'two');
+   if(S.type==='HDB_RESALE'||S.type==='HDB_BTO'||S.type==='EC'){
+     h+=choice('firsttimer','Is this your first subsidised home?',[
+        ['yes','Yes — first-timer','No HDB grant / subsidised flat before'],
+        ['no','No — owned before','Had a flat or a housing grant']],'two');
+     if(S.type==='HDB_RESALE'){
+       h+=choice('flatsize','Resale flat size',[
+          ['small','Up to 4-room',''],['big','5-room or bigger','']],'two');
+       h+=choice('proximity','Will you live near family?',[
+          ['with','Living with them',''],['near','Within 4km',''],['no','Neither','']]);
+     }
+     h+=teach('First-timer Citizens can stack big CPF housing grants (up to ~$120k EHG alone) — Compass estimates yours on the roadmap.');
+   }
+   return h;
  }},
 /* 3 — money */
 {key:'money',q:'Your finances',d:'A few numbers let Compass work out your real budget and the cash you\'ll need. Nothing is saved or sent anywhere.',
@@ -480,6 +506,41 @@ function budget(){
     income:income,cashCpf:cash+cpf,isHDBloan:isHDBloan,isMSR:isMSR,effAge:effAge};
 }
 
+function bandLookup(tbl,v){for(var i=0;i<tbl.length;i++)if(v<=tbl[i][0])return tbl[i][1];return 0;}
+function ehgAmt(income,single){
+  if(single){if(income>GRANTS.ehgSingleCeiling)return 0;return bandLookup(GRANTS.ehgFamily,income*2)/2;}
+  if(income>GRANTS.ehgCeiling)return 0;return bandLookup(GRANTS.ehgFamily,income);
+}
+function grants(){
+  var t=S.type; if(t==='CONDO'||t==='LANDED')return null;
+  var ps=profilesList(),hasSC=ps.indexOf('SC')>=0,pr=ps.indexOf('PR')>=0,single=(S.co==='none'),income=hh(),ft=(S.firsttimer!=='no');
+  var items=[],notes=[];
+  if(!hasSC)return {eligible:false,items:[],total:0,notes:['CPF housing grants need at least one <b>Singapore Citizen</b> buyer — a PR-only household generally won\'t qualify.']};
+  if(!ft)return {eligible:false,items:[],total:0,notes:['The EHG and Family Grant are for <b>first-timers</b>. As a second-timer you may still get a <b>Step-Up</b> or <b>Half-Housing Grant</b> — check with HDB.']};
+  if(t==='HDB_BTO'||t==='HDB_RESALE'){
+    var e=ehgAmt(income,single);
+    if(e>0)items.push(['Enhanced CPF Housing Grant (EHG)',e,single?'singles tier':'income-tiered']);
+    else notes.push('Income above the EHG ceiling ('+money(single?GRANTS.ehgSingleCeiling:GRANTS.ehgCeiling)+'/mo) — no EHG.');
+  }
+  if(t==='HDB_RESALE'){
+    var big=S.flatsize==='big';
+    if(single){
+      if(income<=GRANTS.singlesCeiling)items.push(['CPF Housing Grant (Singles)',GRANTS.singlesGrant[big?'big':'small'],big?'5-room or bigger':'up to 4-room']);
+      else notes.push('Income above the '+money(GRANTS.singlesCeiling)+' Singles Grant ceiling.');
+    }else{
+      if(income<=GRANTS.familyCeiling){var fg=GRANTS.familyGrant[big?'big':'small']-(pr?GRANTS.familyPRdeduct:0);items.push(['CPF Housing Grant (Family)',fg,(big?'5-room+':'≤4-room')+(pr?' · SC/PR (−$10k)':'')]);}
+      else notes.push('Income above the '+money(GRANTS.familyCeiling)+' Family Grant ceiling.');
+    }
+    if(S.proximity==='with'||S.proximity==='near')items.push(['Proximity Housing Grant',(single?GRANTS.phgSingle:GRANTS.phgFamily)[S.proximity],S.proximity==='with'?'living with family':'within 4km of family']);
+  }
+  if(t==='EC'){
+    if(income<=GRANTS.ecCeiling){var ec=bandLookup(pr?GRANTS.ecGrant.scpr:GRANTS.ecGrant.scsc,income);if(ec>0)items.push(['CPF Housing Grant for EC',ec,(pr?'SC/PR':'SC/SC')+' first-timer']);else notes.push('Income too high for an EC grant.');}
+    else notes.push('Income above the '+money(GRANTS.ecCeiling)+' EC grant ceiling (you can still buy up to the $16,000 purchase ceiling).');
+  }
+  var total=items.reduce(function(s,i){return s+i[1];},0);
+  return {eligible:items.length>0,items:items,total:total,notes:notes};
+}
+
 var TIMELINES={
   HDB_RESALE:[
     ['Get your HFE letter','~1 week','Apply on the HDB portal — confirms eligibility, grants and HDB loan amount before you offer.'],
@@ -575,6 +636,22 @@ function showRoadmap(){
     (b.isHDBloan?note('tip','With an <b>HDB housing loan</b>, the 25% downpayment can be paid entirely from your CPF OA — potentially <b>$0 cash</b>. A bank loan needs at least 5% in cash, so the cash figure above is the safe, bank-loan case.'):'')+
     (a.remission?note('tip','You pay <b>$0 ABSD</b> as a married couple buying your first home with a Citizen. If either of you owned a home before, the remission may not apply — confirm with IRAS.'):'')+
     '</div>';
+  }
+
+  /* 3b grants */
+  var gr=grants();
+  if(gr){
+    h+='<div class="sec"><div class="sec-h"><span class="si">💸</span><h3>Grants you may qualify for</h3>'+(gr.eligible?'<span class="sn">first-timer estimate</span>':'')+'</div>';
+    if(gr.eligible){
+      h+='<div class="headline"><span class="hl">Estimated CPF housing grants</span><span class="hv">'+money(gr.total)+'</span></div>'+
+        gr.items.map(function(i){return orow(i[0],money(i[1]),i[2]);}).join('')+
+        note('tip','Grants are paid into your <b>CPF at completion</b> — they cut your loan and total cost (and can stretch what you can comfortably afford), but they do <b>not</b> reduce the upfront cash above (option fee + stamp duty), which you pay first.')+
+        note('i','Indicative estimate — your <b>exact</b> grant depends on your assessed income and is confirmed by HDB. Headline amounts &amp; ceilings are current as at June 2026.');
+      gr.notes.forEach(function(n){h+=note('i',n);});
+    }else{
+      h+=gr.notes.map(function(n){return note('i',n);}).join('');
+    }
+    h+='</div>';
   }
 
   /* 4 timeline */
