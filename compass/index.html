@@ -168,6 +168,7 @@ input,select,button{font-family:inherit;font-size:inherit;color:inherit}
 .rm-cta p{font-size:13px;color:#aab8c9;max-width:46ch;margin:0 auto 14px}
 .rm-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 .disc{font-size:11px;color:var(--ink-4);line-height:1.5;margin-top:4px;text-align:center}
+.print-contact{display:none}
 
 footer{padding:26px 0 46px;text-align:center;color:var(--ink-4);font-size:12px;line-height:1.6}
 footer .rates{font-size:11px;color:var(--ink-4);max-width:74ch;margin:8px auto 0}
@@ -186,6 +187,7 @@ footer .rates{font-size:11px;color:var(--ink-4);max-width:74ch;margin:8px auto 0
   .rm-head{-webkit-print-color-adjust:exact;print-color-adjust:exact;border-radius:0}
   .sec{page-break-inside:avoid}.headline,.elig{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   #road{display:block!important}
+  .print-contact{display:block!important;text-align:center;margin:16px 0 4px;font-size:13px;color:#10151f;border-top:1px solid #e7e4dd;padding-top:14px}
 }
 
 /* install modal */
@@ -596,6 +598,7 @@ function roadFoot(){
   return '</div><div class="rm-foot"><div class="rm-cta"><h4>Ready to make a move?</h4><p>This roadmap is your starting line. For your exact numbers, financing and the smartest way to structure it — have a quick chat with Adam.</p>'+
     '<a class="btn btn-p" target="_blank" rel="noopener" href="https://wa.me/6583219747?text=Hi%20Adam%2C%20I%20just%20used%20Compass%20and%20would%20like%20to%20talk%20through%20my%20home-buying%20plan.">💬 WhatsApp Adam →</a></div>'+
     '<div class="rm-actions"><button class="btn btn-g" onclick="window.print()">🖨️ Print / Save PDF</button><button class="btn btn-g" onclick="restart()">↺ Start over</button></div>'+
+    '<div class="print-contact">Prepared by <b>Adam Phang</b>, Singapore property agent · WhatsApp <b>8321 9747</b> · Groundwork — adamdegoat.github.io/realestate</div>'+
     '<p class="disc">Indicative personalised estimate using Singapore rules current as at June 2026 — not financial or legal advice. Loan amounts, eligibility and exact stamp duty must be confirmed with the bank, HDB, a lawyer and IRAS.</p></div>';
 }
 function swap(){
