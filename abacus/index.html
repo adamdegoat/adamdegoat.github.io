@@ -207,7 +207,7 @@ footer .rates{font-size:11px;color:var(--ink-4);max-width:78ch;margin:8px auto 0
 <footer>
   <div class="wrap">
     Abacus · by Adam Phang.
-    <p class="rates">Indicative estimates using rules current as at June 2026: BSD &amp; ABSD (from 2023), SSD (4-yr regime from 4 Jul 2025), TDSR 55% · MSR 30% · stress rate 4% · first-loan LTV 75%, CPF OA 2.5%, property tax (owner-occupier from 1 Jan 2025 / non-owner from 1 Jan 2024), rental stamp duty 0.4%, HDB MOP 5 years. On the higher of price or market valuation where applicable. Not financial advice — confirm with the bank, a lawyer and IRAS for your specific case.</p>
+    <p class="rates">Indicative estimates using rules current as at June 2026: BSD &amp; ABSD (from 2023), SSD (4-yr regime from 4 Jul 2025), TDSR 55% · MSR 30% · stress rate 4% · first-loan LTV 75%, CPF OA 2.5%, property tax (owner-occupier from 1 Jan 2025 / non-owner from 1 Jan 2024), rental stamp duty 0.4%, HDB MOP 5 years (Standard) / 10 years (Plus &amp; Prime). On the higher of price or market valuation where applicable. Not financial advice — confirm with the bank, a lawyer and IRAS for your specific case.</p>
   </div>
 </footer>
 
@@ -228,7 +228,7 @@ var RULES={
   // Property tax — owner-occupier (from 1 Jan 2025) & non-owner-occupier (from 1 Jan 2024) — [bandWidth, rate]
   ptOO:[[12000,0],[28000,.04],[10000,.06],[25000,.10],[10000,.14],[15000,.20],[40000,.26],[Infinity,.32]],
   ptNOO:[[30000,.12],[15000,.20],[15000,.28],[Infinity,.36]],
-  mopYears:5, rentalSD:.004,
+  mopYears:5, mopYearsPP:10, rentalSD:.004,
   progressive:[['Booking — Option fee (OTP)',5],['Signing Sale &amp; Purchase (within 8 wks)',15],['Completion of foundation',10],['Reinforced concrete framework',10],['Brick / partition walls',5],['Roofing / ceiling',5],['Doors, windows, electrical &amp; plumbing',5],['Car park, roads &amp; drains',5],['Temporary Occupation Permit (TOP) — keys',25],['Certificate of Statutory Completion (CSC)',15]]
 };
 
@@ -481,16 +481,19 @@ var CALCS=[
        ['warn','Very sensitive to the <b>growth</b> and <b>investment-return</b> assumptions — nudge them to test it. Excludes selling costs/SSD and rent inflation.']],
      flagPos:buyWins,flagNeg:!buyWins};}},
 
-{id:'mop',persona:'seller',accent:'gold',icon:'🗓️',name:'MOP Checker',blurb:'When your HDB hits its 5-year Minimum Occupation Period — so you know when you can sell, upgrade or rent it out.',
+{id:'mop',persona:'seller',accent:'gold',icon:'🗓️',name:'MOP Checker',blurb:'When your HDB hits its Minimum Occupation Period — so you know when you can sell, upgrade or rent it out. Covers Standard (5-yr) and the new Plus / Prime (10-yr) flats.',
  fields:[
+   {k:'flat',l:'Flat type',t:'select',o:[['STD','Standard flat (5-year MOP)'],['PP','Plus / Prime flat (10-year MOP)']],d:'STD'},
    {k:'key',l:'Date you collected keys',t:'date',d:'2021-06-01'}],
  compute:function(g){var key=g('key');if(!key)return{head:['Enter your key collection date','—'],rows:[]};
-   var end=addYears(key,RULES.mopYears),now=new Date();now.setHours(0,0,0,0);
+   var pp=g('flat')==='PP',yrs=pp?RULES.mopYearsPP:RULES.mopYears;
+   var end=addYears(key,yrs),now=new Date();now.setHours(0,0,0,0);
    var met=now>=end,ms=Math.round((end-now)/2629800000);
    return{head:[met?'MOP complete — you’re free to sell':'You can sell / upgrade from',met?'✓':fmtD(end)],
-     rows:[['Keys collected',fmtD(new Date(key)),''],['Minimum Occupation Period','5 years',''],
+     rows:[['Keys collected',fmtD(new Date(key)),''],['Flat type',pp?'Plus / Prime':'Standard',''],['Minimum Occupation Period',yrs+' years',''],
        ['MOP completion',fmtD(end),''],['__tot','Status',met?'Completed ✓':(ms+' month'+(ms===1?'':'s')+' to go')]],
      notes:[met?['i','MOP done — you can now <b>sell on the open market, buy private property, and rent out the whole flat</b>.']:['warn','During MOP you <b>cannot</b> sell, buy private/overseas residential property, or rent out the whole flat (renting individual rooms with HDB approval is allowed).'],
+       pp?['i','<b>Plus and Prime flats</b> (new HDB framework, launched from the Oct 2024 BTO exercise) have a <b>10-year MOP</b> and tighter resale conditions, including a subsidy clawback on sale.']:['i','<b>Standard flats</b> have a <b>5-year MOP</b>. Plus / Prime flats (new flats from the Oct 2024 BTO exercise) are 10 years — switch the flat type above.'],
        ['i','Counted from key collection; periods where the flat isn’t occupied (e.g. whole-unit subletting) don’t count toward MOP.']]};}},
 
 {id:'rentalsd',persona:'buyer',personas:['buyer','investor'],accent:'navy',icon:'📝',name:'Rental Stamp Duty',blurb:'The stamp duty on a tenancy agreement — what a tenant pays to stamp the lease.',
@@ -522,7 +525,7 @@ var GLOSSARY={
   accrued:['Accrued interest','The 2.5%/yr your CPF would have earned if you hadn’t used it. It goes back into your CPF (not your pocket) when you sell.'],
   otp:['OTP','Option to Purchase — the document that reserves a property. You pay an option fee, then “exercise” it with more deposit to commit.'],
   buc:['BUC','Building Under Construction — a new launch not built yet. You pay in stages as construction hits milestones (progressive payment).'],
-  mop:['MOP','Minimum Occupation Period — you must live in an HDB flat 5 years before you can sell it, buy private property, or rent out the whole unit.'],
+  mop:['MOP','Minimum Occupation Period — you must live in an HDB flat before you can sell it, buy private property, or rent out the whole unit. 5 years for Standard flats; 10 years for the newer Plus and Prime flats (from the Oct 2024 BTO exercise).'],
   aar:['AAR','Average Annual Rent — the total rent over the lease ÷ number of years. Rental stamp duty is 0.4% of this.'],
   decoupling:['Decoupling','One co-owner transfers their share to the other so a person becomes a “first” property owner again — used to avoid 20% ABSD on a second home.'],
   stress:['Stress-test rate','Banks check you could still afford the loan at a 4% interest rate (even if your actual rate is lower) before approving it.'],
