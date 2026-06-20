@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta name="description" content="Steward — the deadline-aware deal pipeline for Singapore property agents. Never miss an OTP expiry, stamp-duty deadline or follow-up across all your transactions.">
+<title>Steward · Groundwork</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230f9d76'/%3E%3Cstop offset='1' stop-color='%23b88a2e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='8' y='8' width='16' height='16' rx='4' transform='rotate(45 16 16)' fill='url(%23g)'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#101a2b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Spectral:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<style>
+:root{
+  --ink:#10151f;--ink-2:#384256;--ink-3:#6b7587;--ink-4:#9aa2b1;--line:#e7e4dd;--line-2:#efece6;
+  --paper:#f7f5f1;--paper-2:#fbfaf7;--card:#fff;
+  --brand:#0f9d76;--brand-d:#0b7d5e;--brand-wash:#e8f5ef;--gold:#b88a2e;--gold-d:#9a6a10;--gold-wash:#f7efdc;
+  --navy:#101a2b;--navy-2:#1a2740;--blue:#3563b0;--blue-wash:#e7eefb;
+  --amber:#c98a16;--amber-d:#9a6a10;--amber-wash:#fbf0d8;
+  --red:#c0392b;--red-d:#9e2417;--red-wash:#fbe8e5;--slate-wash:#eef0f3;
+  --shadow:0 4px 14px rgba(16,21,31,.07),0 2px 4px rgba(16,21,31,.04);
+  --shadow-lg:0 24px 60px rgba(16,21,31,.16),0 8px 20px rgba(16,21,31,.07);
+  --r:16px;--r-lg:24px;--r-sm:11px;
+  --sans:'Libre Franklin',system-ui,-apple-system,sans-serif;--serif:'Spectral',Georgia,serif;--mono:ui-monospace,'SF Mono',Menlo,monospace;--maxw:1180px;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-feature-settings:"kern" 1,"liga" 1;letter-spacing:-.005em;text-rendering:optimizeLegibility}
+h1,h2,h3,h4{margin:0;letter-spacing:-.022em;line-height:1.12;font-weight:700}
+p{margin:0}a{text-decoration:none;color:inherit}
+input,select,textarea,button{font-family:inherit;font-size:inherit;color:inherit}
+.serif{font-family:var(--serif)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono)}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:14px;padding:13px 24px;
+  background:rgba(251,250,247,.82);backdrop-filter:blur(14px) saturate(1.3);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px}
+.dia{width:15px;height:15px;border-radius:4px;background:linear-gradient(135deg,var(--brand),var(--gold));transform:rotate(45deg);box-shadow:0 2px 9px rgba(15,157,118,.4)}
+.bm{font-family:var(--serif);font-weight:600;font-size:21px}
+.bsub{font-size:10.5px;color:var(--ink-3);font-weight:700;text-transform:uppercase;letter-spacing:.13em}
+.navback{font-size:13px;font-weight:700;color:var(--ink-3);padding:7px 12px;border-radius:30px;border:1px solid var(--line);white-space:nowrap;transition:.18s}
+.navback:hover{color:var(--brand-d);border-color:var(--brand);background:rgba(15,157,118,.06)}
+.nav .spacer{flex:1}
+.tabs{display:flex;gap:4px;background:var(--slate-wash);padding:4px;border-radius:30px}
+.tab{padding:7px 16px;border-radius:30px;font-size:13.5px;font-weight:700;color:var(--ink-3);cursor:pointer;border:0;background:transparent;transition:.16s;white-space:nowrap}
+.tab.on{background:var(--card);color:var(--ink);box-shadow:var(--shadow)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border-radius:30px;font-weight:700;font-size:14px;padding:10px 18px;transition:.18s;border:0;cursor:pointer;white-space:nowrap}
+.btn-p{background:linear-gradient(135deg,var(--brand),var(--brand-d));color:#fff;box-shadow:0 6px 18px rgba(15,157,118,.32)}
+.btn-p:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(15,157,118,.42)}
+.btn-g{background:var(--card);border:1px solid var(--line);color:var(--ink-2)}
+.btn-g:hover{border-color:var(--brand);color:var(--ink)}
+.btn-d{background:transparent;border:1px solid var(--line);color:var(--red-d)}
+.btn-d:hover{background:var(--red-wash);border-color:var(--red)}
+.btn-sm{padding:7px 13px;font-size:13px}
+.btn-x{padding:6px 11px;font-size:12.5px}
+
+/* ---------- offline banner ---------- */
+.offline{display:none;background:var(--amber-wash);color:var(--amber-d);font-weight:700;font-size:13px;text-align:center;padding:8px 16px;border-bottom:1px solid #efe0bf}
+.offline.show{display:block}
+
+/* ---------- page shell ---------- */
+.page{padding:26px 0 90px;min-height:60vh}
+.phead{display:flex;align-items:flex-end;gap:16px;margin-bottom:6px;flex-wrap:wrap}
+.phead h1{font-size:30px;font-family:var(--serif);font-weight:600}
+.phead .sub{color:var(--ink-3);font-size:14px;margin-top:3px}
+.eyebrow{font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:var(--brand-d);margin-bottom:7px}
+
+/* ---------- summary strip ---------- */
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0 28px}
+.scard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px 18px 16px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.scard .n{font-family:var(--serif);font-size:32px;font-weight:600;line-height:1}
+.scard .l{font-size:12px;color:var(--ink-3);font-weight:600;margin-top:7px}
+.scard .ic{position:absolute;top:14px;right:14px;font-size:17px;opacity:.5}
+.scard.alert{border-color:#f0cfc9;background:linear-gradient(180deg,#fdf4f2,#fff)}
+.scard.alert .n{color:var(--red-d)}
+.scard.warn .n{color:var(--amber-d)}
+
+/* ---------- action feed (dashboard) ---------- */
+.feed{display:flex;flex-direction:column;gap:9px}
+.feed-sec{margin-top:18px}
+.feed-sec h3{font-size:12.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.feed-sec.over h3{color:var(--red-d)}
+.act{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 15px;box-shadow:var(--shadow);cursor:pointer;transition:.16s;border-left-width:4px}
+.act:hover{transform:translateX(2px);box-shadow:var(--shadow-lg);border-color:#dcd8cf}
+.act.ov{border-left-color:var(--red)}
+.act.due{border-left-color:var(--amber)}
+.act.up{border-left-color:var(--brand)}
+.act.todo{border-left-color:var(--ink-4)}
+.act .body{flex:1;min-width:0}
+.act .lab{font-weight:700;font-size:14.5px;color:var(--ink)}
+.act .meta{font-size:12.5px;color:var(--ink-3);margin-top:2px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.act .cd{flex:none;text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:3px}
+.chip{font-family:var(--mono);font-size:11.5px;font-weight:600;padding:4px 10px;border-radius:30px;white-space:nowrap;letter-spacing:-.01em}
+.chip.red{background:var(--red-wash);color:var(--red-d)}
+.chip.amber{background:var(--amber-wash);color:var(--amber-d)}
+.chip.green{background:var(--brand-wash);color:var(--brand-d)}
+.chip.slate{background:var(--slate-wash);color:var(--ink-2)}
+.chip.gold{background:var(--gold-wash);color:var(--gold-d)}
+.chip.blue{background:var(--blue-wash);color:var(--blue)}
+.act .date{font-size:11px;color:var(--ink-4);font-weight:500}
+.tag{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;padding:3px 9px;border-radius:20px;white-space:nowrap}
+.tag.brand{background:var(--brand-wash);color:var(--brand-d)}
+.tag.gold{background:var(--gold-wash);color:var(--gold-d)}
+.tag.navy{background:var(--blue-wash);color:var(--blue)}
+.dot-sep{width:3px;height:3px;border-radius:50%;background:var(--ink-4)}
+
+/* ---------- pipeline board ---------- */
+.filters{display:flex;gap:7px;margin:4px 0 20px;flex-wrap:wrap}
+.fbtn{padding:7px 14px;border-radius:30px;font-size:13px;font-weight:700;border:1px solid var(--line);background:var(--card);color:var(--ink-3);cursor:pointer;transition:.16s}
+.fbtn.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.fbtn:not(.on):hover{border-color:var(--brand);color:var(--ink)}
+.board{display:grid;grid-template-columns:repeat(5,minmax(216px,1fr));gap:14px;align-items:start;overflow-x:auto;padding-bottom:14px}
+.col{background:linear-gradient(180deg,var(--paper-2),rgba(247,245,241,.4));border:1px solid var(--line-2);border-radius:var(--r);padding:12px 11px;min-height:120px}
+.col-h{display:flex;align-items:center;justify-content:space-between;padding:2px 4px 11px;font-size:12.5px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2)}
+.col-h .ct{font-family:var(--mono);font-size:11px;color:var(--ink-3);background:var(--card);border:1px solid var(--line);border-radius:20px;padding:1px 8px;font-weight:600}
+.col .cards{display:flex;flex-direction:column;gap:10px}
+.dcard{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:13px;box-shadow:var(--shadow);cursor:pointer;transition:.16s;border-top:3px solid var(--brand)}
+.dcard.t-gold{border-top-color:var(--gold)}.dcard.t-navy{border-top-color:var(--blue)}
+.dcard:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.dcard .top{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+.av{flex:none;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-weight:800;font-size:13px;color:#fff;background:linear-gradient(135deg,var(--brand),var(--brand-d))}
+.av.gold{background:linear-gradient(135deg,var(--gold),#946d22)}.av.navy{background:linear-gradient(135deg,var(--blue),var(--navy-2))}
+.dcard .nm{font-weight:700;font-size:14px;line-height:1.2}
+.dcard .pr{font-size:12px;color:var(--ink-3);line-height:1.3;margin-top:1px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.dcard .foot{display:flex;align-items:center;justify-content:space-between;gap:7px 8px;margin-top:11px;padding-top:10px;border-top:1px solid var(--line-2);flex-wrap:wrap}
+.dcard .foot .tag{flex:0 1 auto;overflow:hidden;text-overflow:ellipsis}
+.col-empty{font-size:12px;color:var(--ink-4);text-align:center;padding:14px 6px;font-style:italic}
+
+/* ---------- empty state ---------- */
+.empty{text-align:center;padding:70px 24px;background:linear-gradient(180deg,var(--paper-2),var(--card));border:1.5px dashed #d8d3c7;border-radius:var(--r-lg)}
+.empty .em{font-size:40px;margin-bottom:14px;opacity:.85}
+.empty h3{font-family:var(--serif);font-size:23px;font-weight:600;margin-bottom:9px}
+.empty p{color:var(--ink-2);font-size:14.5px;max-width:46ch;margin:0 auto 20px}
+
+/* ---------- slide-over panel ---------- */
+.scrim{position:fixed;inset:0;background:rgba(16,21,31,.45);backdrop-filter:blur(2px);z-index:50;opacity:0;pointer-events:none;transition:.22s}
+.scrim.show{opacity:1;pointer-events:auto}
+.panel{position:fixed;top:0;right:0;bottom:0;width:min(560px,100%);background:var(--paper-2);z-index:60;box-shadow:-30px 0 80px rgba(16,21,31,.28);transform:translateX(100%);transition:transform .28s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column}
+.panel.show{transform:translateX(0)}
+.p-head{padding:20px 24px 18px;border-bottom:1px solid var(--line);background:var(--card)}
+.p-head .row1{display:flex;align-items:center;gap:12px}
+.p-head .x{margin-left:auto;width:34px;height:34px;border-radius:10px;border:1px solid var(--line);background:var(--card);display:grid;place-items:center;cursor:pointer;font-size:17px;color:var(--ink-3);transition:.16s}
+.p-head .x:hover{background:var(--slate-wash);color:var(--ink)}
+.p-head h2{font-size:21px;font-family:var(--serif);font-weight:600;margin-top:2px}
+.p-head .pr{font-size:13px;color:var(--ink-3);margin-top:2px}
+.p-tags{display:flex;gap:7px;margin-top:12px;flex-wrap:wrap;align-items:center}
+.p-body{flex:1;overflow-y:auto;padding:22px 24px 60px}
+.sec{margin-bottom:26px}
+.sec-t{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);margin-bottom:13px;display:flex;align-items:center;gap:9px}
+.sec-t .ln{flex:1;height:1px;background:var(--line)}
+
+/* timeline */
+.tl{position:relative;padding-left:8px}
+.tl .item{position:relative;padding:0 0 18px 28px;border-left:2px solid var(--line)}
+.tl .item:last-child{border-left-color:transparent;padding-bottom:0}
+.tl .nd{position:absolute;left:-8px;top:1px;width:15px;height:15px;border-radius:50%;background:var(--card);border:2.5px solid var(--ink-4)}
+.tl .item.done .nd{background:var(--brand);border-color:var(--brand)}
+.tl .item.ov .nd{background:var(--red);border-color:var(--red)}
+.tl .item.due .nd{background:var(--amber);border-color:var(--amber)}
+.tl .it-top{display:flex;align-items:center;gap:10px}
+.tl .it-lab{font-weight:700;font-size:14px}
+.tl .item.done .it-lab{color:var(--ink-3)}
+.tl .it-sub{font-size:12px;color:var(--ink-4);margin-top:2px}
+.tl .mk{margin-top:7px;font-size:12px;font-weight:700;color:var(--brand-d);background:var(--brand-wash);border:0;border-radius:8px;padding:5px 11px;cursor:pointer;transition:.16s}
+.tl .mk:hover{background:#d6efe5}
+.tl .undo{margin-top:7px;font-size:11.5px;color:var(--ink-4);background:none;border:0;cursor:pointer;text-decoration:underline}
+
+/* date grid */
+.dg{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.fld{display:flex;flex-direction:column;gap:5px}
+.fld label{font-size:12px;font-weight:700;color:var(--ink-2)}
+.fld input,.fld select,.fld textarea{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 11px;font-size:14px;transition:.16s;width:100%}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:0;border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-wash)}
+.fld.full{grid-column:1/-1}
+.hint{font-size:11.5px;color:var(--ink-4)}
+
+/* checklist */
+.cl{display:flex;flex-direction:column;gap:2px}
+.cl .it{display:flex;align-items:center;gap:11px;padding:9px 8px;border-radius:9px;cursor:pointer;transition:.13s}
+.cl .it:hover{background:var(--paper)}
+.cl .ck{flex:none;width:21px;height:21px;border-radius:6px;border:2px solid var(--line);display:grid;place-items:center;transition:.16s;color:#fff;font-size:12px}
+.cl .it.on .ck{background:var(--brand);border-color:var(--brand)}
+.cl .it.on .tx{color:var(--ink-3);text-decoration:line-through}
+.cl .tx{font-size:13.5px;font-weight:500}
+
+/* tasks */
+.tk{display:flex;align-items:center;gap:11px;padding:8px 0}
+.tk .ck{flex:none;width:19px;height:19px;border-radius:6px;border:2px solid var(--line);display:grid;place-items:center;cursor:pointer;color:#fff;font-size:11px}
+.tk.on .ck{background:var(--brand);border-color:var(--brand)}
+.tk.on .tx{color:var(--ink-3);text-decoration:line-through}
+.tk .tx{font-size:13.5px;flex:1}
+.tk .dd{font-size:11.5px;color:var(--ink-4);font-family:var(--mono)}
+.tk .del{background:none;border:0;color:var(--ink-4);cursor:pointer;font-size:15px;padding:2px 4px}
+.tk .del:hover{color:var(--red)}
+.addtask{display:flex;gap:8px;margin-top:10px}
+.addtask input{flex:1;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 11px;font-size:13.5px}
+.addtask input[type=date]{flex:none;width:138px}
+
+/* toggles */
+.tgl-row{display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line-2)}
+.tgl-row:last-child{border-bottom:0}
+.tgl-row .tl-lab{font-size:13.5px;font-weight:600}
+.tgl-row .tl-sub{font-size:11.5px;color:var(--ink-4)}
+.sw{width:42px;height:24px;border-radius:30px;background:var(--line);position:relative;cursor:pointer;transition:.18s;flex:none}
+.sw::after{content:"";position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.2);transition:.18s}
+.sw.on{background:var(--brand)}.sw.on::after{left:20px}
+
+/* ---------- modal ---------- */
+.modal-scrim{position:fixed;inset:0;background:rgba(16,21,31,.5);backdrop-filter:blur(3px);z-index:70;display:none;align-items:center;justify-content:center;padding:20px}
+.modal-scrim.show{display:flex}
+.modal{background:var(--card);border-radius:var(--r-lg);width:min(520px,100%);max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-lg);padding:28px}
+.modal h2{font-size:22px;font-family:var(--serif);font-weight:600;margin-bottom:5px}
+.modal .msub{font-size:13.5px;color:var(--ink-3);margin-bottom:20px}
+.seg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:6px}
+.seg .opt{border:1.5px solid var(--line);border-radius:12px;padding:12px 8px;text-align:center;cursor:pointer;transition:.16s;background:var(--card)}
+.seg .opt:hover{border-color:var(--brand)}
+.seg .opt.on{border-color:var(--brand);background:var(--brand-wash)}
+.seg .opt .ot{font-weight:700;font-size:14px}
+.seg .opt .os{font-size:11px;color:var(--ink-3);margin-top:2px}
+.modal-foot{display:flex;gap:10px;margin-top:24px}
+.modal-foot .btn{flex:1}
+
+footer{padding:30px 0 40px;text-align:center;color:var(--ink-4);font-size:12px}
+
+@media(max-width:760px){
+  .strip{grid-template-columns:1fr 1fr}
+  .board{grid-template-columns:repeat(5,80vw)}
+  .dg{grid-template-columns:1fr}
+  .tabs{order:3}
+  .nav{flex-wrap:wrap}
+  .nav .spacer{display:none}
+  .phead h1{font-size:25px}
+}
+@media(max-width:520px){
+  .wrap{padding:0 15px}
+  .nav{padding:11px 15px;gap:9px}
+  .bsub{display:none}
+  .seg{grid-template-columns:1fr}
+  .p-body{padding:18px 16px 50px}
+  .p-head{padding:16px 16px 14px}
+  .scard .n{font-size:26px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="navback" href="https://adamdegoat.github.io/realestate/">← Groundwork</a>
+  <a class="brand" href="#"><span class="dia"></span><span class="bm">Steward</span><span class="bsub">Deal Pipeline</span></a>
+  <span class="spacer"></span>
+  <div class="tabs">
+    <button class="tab on" data-view="dashboard">This Week</button>
+    <button class="tab" data-view="pipeline">Pipeline</button>
+  </div>
+  <button class="btn btn-p btn-sm" id="addBtn">+ New deal</button>
+</nav>
+<div class="offline" id="offline">⚠ Working offline — changes are saved on this device only and won't sync until the connection returns.</div>
+
+<main class="wrap page" id="app"></main>
+
+<footer>
+  Steward · Tool 03 of <a href="https://adamdegoat.github.io/realestate/" style="color:var(--brand-d);font-weight:600">Groundwork</a> · built by Adam Phang.
+  Deadlines are computed guides from your dates — always verify against the OTP, SPA &amp; CEA requirements.
+</footer>
+
+<!-- slide-over panel -->
+<div class="scrim" id="scrim"></div>
+<aside class="panel" id="panel"></aside>
+
+<!-- add/edit modal -->
+<div class="modal-scrim" id="modalScrim">
+  <div class="modal" id="modal"></div>
+</div>
+
+<script>
+const SB_URL='https://wimlphbdiborlwikjfdi.supabase.co';
+const SB_KEY='sb_publishable_VTpMm2_t79Klsy-RjyVJEA_vhGpo_Np';
+const sb=supabase.createClient(SB_URL,SB_KEY);
+
+/* ============ config ============ */
+const TYPES={
+  hdb_resale:{label:'HDB Resale',short:'HDB',cls:'brand',av:'',sides:[['buy','Buyer'],['sell','Seller']]},
+  private_resale:{label:'Private Resale',short:'Private',cls:'gold',av:'gold',sides:[['buy','Buyer'],['sell','Seller']]},
+  rental:{label:'Rental',short:'Rental',cls:'navy',av:'navy',sides:[['landlord','Landlord'],['tenant','Tenant']]},
+};
+const ANCHOR_FIELDS={
+  hdb_resale:[
+    {k:'intent_to_sell',l:'Intent to Sell registered',sides:['sell']},
+    {k:'otp_granted',l:'OTP granted'},
+    {k:'exercised',l:'OTP exercised'},
+    {k:'hdb_accepted',l:'HDB accepted resale application'},
+  ],
+  private_resale:[
+    {k:'otp_granted',l:'OTP granted'},
+    {k:'exercised',l:'OTP exercised'},
+  ],
+  rental:[
+    {k:'loi',l:'Letter of Intent signed'},
+    {k:'ta_signed',l:'Tenancy Agreement signed'},
+    {k:'lease_start',l:'Lease commencement'},
+    {k:'lease_end',l:'Lease end date'},
+  ],
+};
+const CHECKLISTS={
+  hdb_resale:{
+    buy:['Verify buyer eligibility (HFE letter valid)','CDD / AML form completed','OTP granted & option fee paid','Loan: HDB/Bank Letter of Offer secured','OTP exercised (resale application submitted)','Both parties\' resale applications in','Resale completion appointment booked','Final flat inspection done','Keys collected','Commission invoiced'],
+    sell:['Intent to Sell registered (≥7 days before OTP)','CDD / AML form completed','Outstanding loan & CPF refund checked','OTP granted & option fee received','OTP exercised','Resale application submitted','Completion appointment booked','Final inspection & meter readings','Keys handed over','Commission invoiced'],
+  },
+  private_resale:{
+    buy:['CDD / AML form completed','Financing / IPA confirmed','OTP granted (1% option fee paid)','OTP exercised (4% paid — 5% total)','Stamp duty (BSD/ABSD) paid within 14 days','Conveyancing lawyer appointed','Title search & requisitions cleared','Completion & key collection','Commission invoiced'],
+    sell:['CDD / AML form completed','Existing loan redemption & CPF refund checked','OTP granted (1% received)','OTP exercised (4% received)','Conveyancing lawyer appointed','Completion & handover of keys','Commission invoiced'],
+  },
+  rental:{
+    landlord:['CDD / AML form completed','Marketing & viewings','Letter of Intent + good-faith deposit','Tenancy Agreement signed','Stamp duty on TA paid within 14 days','Security deposit & advance rental collected','Inventory list + handover photos','Keys handed over','Diary diplomatic-clause / renewal dates','Commission invoiced'],
+    tenant:['CDD / AML form completed','Shortlist & viewings','Letter of Intent + good-faith deposit','Tenancy Agreement signed','Stamp duty on TA arranged','Deposit & advance rental paid','Inventory check on handover','Keys collected','Commission invoiced'],
+  },
+};
+/* unified board columns */
+const COLS=[['lead','Lead'],['option','Option / LOI'],['progress','In Progress'],['closing','Closing'],['done','Done']];
+
+/* ============ date helpers ============ */
+function today(){const d=new Date();d.setHours(0,0,0,0);return d;}
+function pd(s){if(!s)return null;const p=String(s).slice(0,10).split('-');return new Date(+p[0],+p[1]-1,+p[2]);}
+function addDays(d,n){const x=new Date(d);x.setDate(x.getDate()+n);return x;}
+function diffDays(d){return Math.round((d-today())/86400000);}
+function fmtDate(d){return d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});}
+function todayISO(){const d=today();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function timeLabel(t){if(!t)return'';let[h,m]=t.split(':').map(Number);const ap=h>=12?'pm':'am';let hh=h%12||12;return hh+(m?':'+String(m).padStart(2,'0'):'')+ap;}
+function countdown(d,time){
+  const n=diffDays(d);let text,cls;
+  if(n<0){text=(-n)+(n===-1?' day overdue':' days overdue');cls='red';}
+  else if(n===0){text='Today'+(time?' · '+timeLabel(time):'');cls='red';}
+  else if(n===1){text='Tomorrow'+(time?' · '+timeLabel(time):'');cls='amber';}
+  else if(n<=7){text='in '+n+' days';cls='amber';}
+  else if(n<=21){text='in '+n+' days';cls='slate';}
+  else text='in '+n+' days';
+  if(n>21)cls='slate';
+  return {text,cls,n};
+}
+function urgencyCls(n){if(n==null)return'todo';if(n<0)return'ov';if(n<=7)return'due';return'up';}
+
+/* ============ engine ============ */
+function deadlines(deal){
+  const a=deal.anchors||{};const out=[];
+  const add=(id,label,fromK,off,o={})=>{
+    if(!a[fromK])return;
+    out.push({id,label,date:addDays(pd(a[fromK]),off),time:o.time||null,kind:o.kind||'deadline',
+      satBy:o.satBy||null,satisfied:o.satBy?!!a[o.satBy]:false});
+  };
+  if(deal.type==='hdb_resale'){
+    if(deal.side==='sell')add('intent_otp','OTP can be granted from','intent_to_sell',7,{kind:'milestone',satBy:'otp_granted'});
+    add('option_expiry','OTP expires — exercise by','otp_granted',21,{time:'16:00',satBy:'exercised'});
+    add('resale_app','Submit HDB resale application','exercised',0,{kind:'action',satBy:'hdb_accepted'});
+    add('completion','Completion & key collection','hdb_accepted',56,{satBy:'completed'});
+  }else if(deal.type==='private_resale'){
+    const od=parseInt(a.option_days)||14, cd=parseInt(a.completion_days)||70;
+    add('option_expiry','OTP exercise deadline','otp_granted',od,{time:'16:00',satBy:'exercised'});
+    add('stamp_duty','Stamp duty (BSD/ABSD) due to IRAS','exercised',14,{satBy:'stamp_paid'});
+    add('completion','Target completion','exercised',cd,{satBy:'completed'});
+  }else if(deal.type==='rental'){
+    add('ta_stamp','Stamp duty on Tenancy Agreement due','ta_signed',14,{satBy:'stamp_paid'});
+    add('handover','Handover & inventory checklist','lease_start',0,{kind:'action',satBy:'handover_done'});
+    add('diplomatic','Diplomatic clause eligible (if 2-yr lease)','lease_start',365,{kind:'milestone'});
+    add('renewal','Renewal follow-up with client','lease_end',-60,{satBy:'renewed'});
+    add('lease_expiry','Lease expires','lease_end',0,{kind:'milestone'});
+  }
+  return out.sort((x,y)=>x.date-y.date);
+}
+function unifiedStage(deal){
+  const a=deal.anchors||{};
+  if(deal.archived)return'done';
+  if(deal.type==='rental'){
+    if(a.lease_end){const n=diffDays(pd(a.lease_end));if(n<0)return'done';if(n<=90)return'closing';}
+    if(a.ta_signed||a.lease_start)return'progress';
+    if(a.loi)return'option';
+    return'lead';
+  }
+  if(a.completed)return'done';
+  if(a.hdb_accepted)return'closing';
+  if(a.exercised)return deal.type==='private_resale'?'closing':'progress';
+  if(a.otp_granted)return'option';
+  return'lead';
+}
+function nextDeadline(deal){
+  return deadlines(deal).filter(d=>!d.satisfied&&d.kind!=='milestone').sort((a,b)=>a.date-b.date)[0]||null;
+}
+
+/* ============ state + data ============ */
+let DEALS=[],TASKS=[],VIEW='dashboard',FILTER='all',OPEN=null,OFFLINE=false;
+const LS='steward_cache_v1';
+function cacheSave(){try{localStorage.setItem(LS,JSON.stringify({DEALS,TASKS}))}catch(e){}}
+function cacheLoad(){try{const c=JSON.parse(localStorage.getItem(LS));if(c){DEALS=c.DEALS||[];TASKS=c.TASKS||[];}}catch(e){}}
+function setOffline(v){OFFLINE=v;document.getElementById('offline').classList.toggle('show',v);}
+
+async function loadAll(){
+  try{
+    const[a,b]=await Promise.all([
+      sb.from('steward_deals').select('*').order('created_at',{ascending:true}),
+      sb.from('steward_tasks').select('*'),
+    ]);
+    if(a.error||b.error)throw(a.error||b.error);
+    DEALS=a.data||[];TASKS=b.data||[];setOffline(false);cacheSave();
+  }catch(e){console.warn('Supabase load failed, using cache:',e.message);cacheLoad();setOffline(true);}
+}
+function dealById(id){return DEALS.find(d=>d.id===id);}
+function tasksFor(id){return TASKS.filter(t=>t.deal_id===id);}
+
+async function createDeal(p){
+  const row={...p,anchors:p.anchors||{},checks:[]};
+  if(OFFLINE){row.id=crypto.randomUUID();row.created_at=new Date().toISOString();DEALS.push(row);cacheSave();return row;}
+  const{data,error}=await sb.from('steward_deals').insert(row).select().single();
+  if(error){console.warn(error);row.id=crypto.randomUUID();DEALS.push(row);setOffline(true);cacheSave();return row;}
+  DEALS.push(data);cacheSave();return data;
+}
+async function saveDeal(deal){
+  deal.updated_at=new Date().toISOString();cacheSave();
+  if(OFFLINE)return;
+  const{id,created_at,...rest}=deal;
+  const{error}=await sb.from('steward_deals').update(rest).eq('id',id);
+  if(error){console.warn(error);setOffline(true);}
+}
+async function removeDeal(id){
+  DEALS=DEALS.filter(d=>d.id!==id);TASKS=TASKS.filter(t=>t.deal_id!==id);cacheSave();
+  if(!OFFLINE){await sb.from('steward_deals').delete().eq('id',id);}
+}
+async function addTask(deal_id,label,due_date){
+  const row={deal_id,label,due_date:due_date||null,done:false};
+  if(OFFLINE){row.id=crypto.randomUUID();TASKS.push(row);cacheSave();return;}
+  const{data,error}=await sb.from('steward_tasks').insert(row).select().single();
+  if(error){row.id=crypto.randomUUID();TASKS.push(row);setOffline(true);}else TASKS.push(data);
+  cacheSave();
+}
+async function toggleTask(t){t.done=!t.done;cacheSave();if(!OFFLINE)await sb.from('steward_tasks').update({done:t.done}).eq('id',t.id);}
+async function delTask(id){TASKS=TASKS.filter(t=>t.id!==id);cacheSave();if(!OFFLINE)await sb.from('steward_tasks').delete().eq('id',id);}
+
+/* ============ small utils ============ */
+function initials(n){if(!n)return'?';return n.trim().split(/\s+/).slice(0,2).map(w=>w[0].toUpperCase()).join('');}
+function esc(s){return(s==null?'':String(s)).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function sideLabel(deal){const t=TYPES[deal.type];const f=t&&t.sides.find(s=>s[0]===deal.side);return f?f[1]:(deal.side||'');}
+function activeDeals(){return DEALS.filter(d=>!d.archived&&unifiedStage(d)!=='done');}
+
+/* ============ render router ============ */
+function render(){VIEW==='dashboard'?renderDashboard():renderPipeline();}
+
+/* ---------- dashboard ---------- */
+function renderDashboard(){
+  const items=[];
+  DEALS.forEach(d=>{
+    if(d.archived)return;
+    deadlines(d).forEach(dl=>{
+      if(dl.satisfied||dl.kind==='milestone')return;
+      const c=countdown(dl.date,dl.time);
+      items.push({n:c.n,date:dl.date,time:dl.time,label:dl.label,deal:d,kind:dl.kind});
+    });
+    tasksFor(d.id).forEach(t=>{
+      if(t.done)return;
+      const dd=t.due_date?pd(t.due_date):null;
+      items.push({n:dd?diffDays(dd):null,date:dd,label:t.label,deal:d,task:t});
+    });
+    if(!d.cdd_done&&unifiedStage(d)!=='done')
+      items.push({n:null,label:'Complete CDD / AML form for client',deal:d,cdd:true});
+  });
+  items.sort((a,b)=>{
+    if(a.n==null&&b.n==null)return 0;
+    if(a.n==null)return 1;if(b.n==null)return -1;return a.n-b.n;
+  });
+  const over=items.filter(i=>i.n!=null&&i.n<0);
+  const week=items.filter(i=>i.n!=null&&i.n>=0&&i.n<=7);
+  const later=items.filter(i=>i.n!=null&&i.n>7&&i.n<=30);
+  const todo=items.filter(i=>i.n==null);
+
+  const act=activeDeals();
+  const closingMonth=DEALS.filter(d=>!d.archived).filter(d=>{const nd=nextDeadline(d);return nd&&diffDays(nd.date)>=0&&diffDays(nd.date)<=30&&(nd.id==='completion'||nd.id==='lease_expiry'||unifiedStage(d)==='closing');}).length;
+
+  let html=`
+  <div class="phead"><div>
+    <div class="eyebrow">Across all your transactions</div>
+    <h1>What needs you this week</h1>
+    <div class="sub">${act.length} active deal${act.length!==1?'s':''} · sorted by urgency, the most pressing first.</div>
+  </div></div>
+  <div class="strip">
+    <div class="scard"><span class="ic">📂</span><div class="n">${act.length}</div><div class="l">Active deals</div></div>
+    <div class="scard ${over.length?'alert':''}"><span class="ic">⏰</span><div class="n">${over.length}</div><div class="l">Overdue actions</div></div>
+    <div class="scard ${week.length?'warn':''}"><span class="ic">📌</span><div class="n">${week.length}</div><div class="l">Due within 7 days</div></div>
+    <div class="scard"><span class="ic">🏁</span><div class="n">${closingMonth}</div><div class="l">Closing this month</div></div>
+  </div>`;
+
+  if(!items.length){
+    html+=`<div class="empty"><div class="em">✨</div><h3>You're all clear</h3>
+      <p>No deadlines or follow-ups need attention right now. Add a deal and Steward will track every statutory date for you automatically.</p>
+      <button class="btn btn-p" onclick="openModal()">+ Add your first deal</button></div>`;
+    document.getElementById('app').innerHTML=html;return;
+  }
+  const sec=(title,arr,extra='')=>arr.length?`<div class="feed-sec ${extra}"><h3>${title} <span class="chip slate">${arr.length}</span></h3><div class="feed">${arr.map(actRow).join('')}</div></div>`:'';
+  html+=sec('⚠ Overdue',over,'over')+sec('This week',week)+sec('Coming up (next 30 days)',later)+sec('Reminders',todo);
+  document.getElementById('app').innerHTML=html;
+}
+function actRow(i){
+  const t=TYPES[i.deal.type];
+  let cd='';
+  if(i.n!=null){const c=countdown(i.date,i.time);cd=`<div class="cd"><span class="chip ${c.cls}">${c.text}</span><span class="date">${fmtDate(i.date)}</span></div>`;}
+  else cd=`<div class="cd"><span class="chip slate">To do</span></div>`;
+  return `<div class="act ${urgencyCls(i.n)}" onclick="openDeal('${i.deal.id}')">
+    <div class="body">
+      <div class="lab">${esc(i.label)}</div>
+      <div class="meta"><span class="tag ${t.cls}">${t.short}</span><b style="color:var(--ink-2)">${esc(i.deal.client_name||'—')}</b>
+      ${i.deal.property_addr?`<span class="dot-sep"></span>${esc(i.deal.property_addr)}`:''}</div>
+    </div>${cd}</div>`;
+}
+
+/* ---------- pipeline ---------- */
+function renderPipeline(){
+  const fbtns=[['all','All'],['hdb_resale','HDB'],['private_resale','Private'],['rental','Rental']]
+    .map(([k,l])=>`<button class="fbtn ${FILTER===k?'on':''}" onclick="setFilter('${k}')">${l}</button>`).join('');
+  let pool=DEALS.filter(d=>FILTER==='all'||d.type===FILTER);
+  const total=DEALS.length;
+  let html=`
+  <div class="phead"><div>
+    <div class="eyebrow">Every deal, by stage</div>
+    <h1>Pipeline</h1>
+    <div class="sub">${pool.length} of ${total} deal${total!==1?'s':''} shown.</div>
+  </div></div>
+  <div class="filters">${fbtns}</div>`;
+
+  if(!total){
+    html+=`<div class="empty"><div class="em">🗂️</div><h3>No deals yet</h3>
+      <p>Add your first transaction — HDB resale, private resale or a rental — and it'll appear on the board with every deadline auto-tracked.</p>
+      <button class="btn btn-p" onclick="openModal()">+ Add your first deal</button></div>`;
+    document.getElementById('app').innerHTML=html;return;
+  }
+  const byCol={};COLS.forEach(([k])=>byCol[k]=[]);
+  pool.forEach(d=>byCol[unifiedStage(d)].push(d));
+  html+=`<div class="board">`+COLS.map(([k,l])=>{
+    const cards=byCol[k];
+    return `<div class="col"><div class="col-h">${l}<span class="ct">${cards.length}</span></div>
+      <div class="cards">${cards.length?cards.map(dcard).join(''):'<div class="col-empty">—</div>'}</div></div>`;
+  }).join('')+`</div>`;
+  document.getElementById('app').innerHTML=html;
+}
+function dcard(d){
+  const t=TYPES[d.type];const nd=nextDeadline(d);
+  let chip='';
+  if(nd){const c=countdown(nd.date,nd.time);chip=`<span class="chip ${c.cls}">${c.text}</span>`;}
+  else chip=`<span class="chip green">on track</span>`;
+  return `<div class="dcard t-${t.cls}" onclick="openDeal('${d.id}')">
+    <div class="top"><div class="av ${t.av}">${initials(d.client_name)}</div>
+      <div style="min-width:0"><div class="nm">${esc(d.client_name||'Unnamed')}</div>
+      <div class="pr">${esc(d.property_addr||sideLabel(d))}</div></div></div>
+    <div class="foot"><span class="tag ${t.cls}">${t.short} · ${esc(sideLabel(d))}</span>${chip}</div>
+  </div>`;
+}
+
+/* ---------- deal panel ---------- */
+function openDeal(id){OPEN=id;renderPanel();document.getElementById('scrim').classList.add('show');document.getElementById('panel').classList.add('show');document.body.style.overflow='hidden';}
+function closeDeal(){OPEN=null;document.getElementById('scrim').classList.remove('show');document.getElementById('panel').classList.remove('show');document.body.style.overflow='';render();}
+function renderPanel(){
+  const d=dealById(OPEN);if(!d)return closeDeal();
+  const t=TYPES[d.type];
+  const dls=deadlines(d);
+  const fields=ANCHOR_FIELDS[d.type].filter(f=>!f.sides||f.sides.includes(d.side));
+  const checklist=CHECKLISTS[d.type][d.side]||[];
+  const checks=d.checks||[];
+  const tks=tasksFor(d.id);
+
+  const tl=dls.length?dls.map(dl=>{
+    const c=countdown(dl.date,dl.time);
+    const st=dl.satisfied?'done':(c.n<0?'ov':(c.n<=7?'due':''));
+    let action='';
+    if(dl.satBy&&!dl.satisfied)action=`<button class="mk" onclick="markDone('${dl.satBy}')">✓ Mark done</button>`;
+    else if(dl.satBy&&dl.satisfied)action=`<button class="undo" onclick="unmark('${dl.satBy}')">undo</button>`;
+    return `<div class="item ${st}"><div class="nd"></div>
+      <div class="it-top"><span class="it-lab">${esc(dl.label)}</span>
+        ${dl.satisfied?'<span class="chip green">done</span>':`<span class="chip ${c.cls}">${c.text}</span>`}</div>
+      <div class="it-sub">${fmtDate(dl.date)}${dl.time?' · '+timeLabel(dl.time):''}${dl.kind==='milestone'?' · marker':''}</div>
+      ${action}</div>`;
+  }).join(''):`<div class="hint" style="padding:4px 0 8px">Enter the key dates below and the statutory timeline appears here automatically.</div>`;
+
+  const dateInputs=fields.map(f=>`<div class="fld"><label>${f.l}</label>
+    <input type="date" value="${(d.anchors||{})[f.k]||''}" onchange="setAnchor('${f.k}',this.value)"></div>`).join('');
+  const extraInputs=d.type==='private_resale'?`
+    <div class="fld"><label>Option period (days)</label><input type="number" value="${(d.anchors||{}).option_days||14}" onchange="setAnchor('option_days',this.value)"></div>
+    <div class="fld"><label>Completion (days after exercise)</label><input type="number" value="${(d.anchors||{}).completion_days||70}" onchange="setAnchor('completion_days',this.value)"></div>`:'';
+
+  const cl=checklist.map((s,i)=>{const on=checks.includes(i);
+    return `<div class="it ${on?'on':''}" onclick="toggleCheck(${i})"><span class="ck">${on?'✓':''}</span><span class="tx">${esc(s)}</span></div>`;}).join('');
+
+  const taskRows=tks.sort((a,b)=>(a.due_date||'~').localeCompare(b.due_date||'~')).map(tk=>`
+    <div class="tk ${tk.done?'on':''}"><span class="ck" onclick="tgTask('${tk.id}')">${tk.done?'✓':''}</span>
+      <span class="tx">${esc(tk.label)}</span>
+      ${tk.due_date?`<span class="dd">${fmtDate(pd(tk.due_date))}</span>`:''}
+      <button class="del" onclick="rmTask('${tk.id}')">×</button></div>`).join('');
+
+  document.getElementById('panel').innerHTML=`
+  <div class="p-head">
+    <div class="row1"><div class="av ${t.av}" style="width:40px;height:40px;border-radius:11px;font-size:15px">${initials(d.client_name)}</div>
+      <div style="min-width:0"><h2>${esc(d.client_name||'Unnamed')}</h2>
+      <div class="pr">${esc(d.property_addr||'No address')}</div></div>
+      <div class="x" onclick="closeDeal()">✕</div></div>
+    <div class="p-tags"><span class="tag ${t.cls}">${t.label}</span><span class="tag ${t.cls}">${esc(sideLabel(d))}</span>
+      ${d.client_contact?`<span class="chip slate">${esc(d.client_contact)}</span>`:''}
+      <span class="spacer" style="flex:1"></span>
+      <button class="btn btn-g btn-x" onclick="openModal('${d.id}')">Edit details</button></div>
+  </div>
+  <div class="p-body">
+    <div class="sec"><div class="sec-t">Statutory timeline <span class="ln"></span></div><div class="tl">${tl}</div></div>
+
+    <div class="sec"><div class="sec-t">Key dates <span class="ln"></span></div>
+      <div class="dg">${dateInputs}${extraInputs}</div>
+      <div class="hint" style="margin-top:9px">Change any date and every downstream deadline recomputes instantly.</div></div>
+
+    <div class="sec"><div class="sec-t">Checklist <span class="ln"></span><span class="chip slate">${checks.length}/${checklist.length}</span></div>
+      <div class="cl">${cl}</div></div>
+
+    <div class="sec"><div class="sec-t">Your own to-dos <span class="ln"></span></div>
+      ${taskRows||'<div class="hint">No custom tasks yet.</div>'}
+      <div class="addtask"><input id="ntLabel" placeholder="Add a follow-up…" onkeydown="if(event.key==='Enter')addTk()">
+        <input id="ntDate" type="date"><button class="btn btn-g btn-x" onclick="addTk()">Add</button></div></div>
+
+    <div class="sec"><div class="sec-t">Commission <span class="ln"></span></div>
+      <div class="dg">
+        <div class="fld"><label>Expected commission (S$)</label><input type="number" value="${d.commission_expected||''}" placeholder="0" onchange="setField('commission_expected',this.value?+this.value:null)"></div>
+        <div class="fld"><label>Co-broke / split</label><input type="text" value="${esc(d.cobroke||'')}" placeholder="e.g. 50/50 ABC Realty" onchange="setField('cobroke',this.value)"></div>
+      </div>
+      <div style="margin-top:12px">
+        <div class="tgl-row"><div><div class="tl-lab">Invoice submitted</div></div><div class="sw ${d.commission_invoiced?'on':''}" onclick="tgField('commission_invoiced')"></div></div>
+        <div class="tgl-row"><div><div class="tl-lab">Commission received</div></div><div class="sw ${d.commission_received?'on':''}" onclick="tgField('commission_received')"></div></div>
+      </div></div>
+
+    <div class="sec"><div class="sec-t">Compliance <span class="ln"></span></div>
+      <div class="tgl-row"><div><div class="tl-lab">CDD / AML form completed</div><div class="tl-sub">Required per client · keep records 5 years (CEA)</div></div>
+        <div class="sw ${d.cdd_done?'on':''}" onclick="tgField('cdd_done')"></div></div></div>
+
+    <div class="sec"><div class="sec-t">Notes <span class="ln"></span></div>
+      <textarea rows="3" placeholder="Anything to remember about this deal…" onchange="setField('notes',this.value)" style="background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px;width:100%;font-size:13.5px;resize:vertical">${esc(d.notes||'')}</textarea></div>
+
+    <div class="sec" style="display:flex;gap:10px">
+      <button class="btn btn-g btn-sm" onclick="archiveDeal()" style="flex:1">${d.archived?'Un-archive':'Archive (close out)'}</button>
+      <button class="btn btn-d btn-sm" onclick="deleteDeal()" style="flex:1">Delete deal</button>
+    </div>
+  </div>`;
+}
+
+/* ---------- panel actions ---------- */
+function curr(){return dealById(OPEN);}
+function setAnchor(k,v){const d=curr();d.anchors={...(d.anchors||{})};if(v)d.anchors[k]=v;else delete d.anchors[k];saveDeal(d);renderPanel();}
+function markDone(k){const d=curr();d.anchors={...(d.anchors||{}),[k]:todayISO()};saveDeal(d);renderPanel();}
+function unmark(k){const d=curr();d.anchors={...(d.anchors||{})};delete d.anchors[k];saveDeal(d);renderPanel();}
+function setField(f,v){const d=curr();d[f]=v;saveDeal(d);}
+function tgField(f){const d=curr();d[f]=!d[f];saveDeal(d);renderPanel();}
+function toggleCheck(i){const d=curr();const c=new Set(d.checks||[]);c.has(i)?c.delete(i):c.add(i);d.checks=[...c];saveDeal(d);renderPanel();}
+function addTk(){const l=document.getElementById('ntLabel').value.trim();if(!l)return;const dt=document.getElementById('ntDate').value;addTask(OPEN,l,dt).then(renderPanel);}
+function tgTask(id){const t=TASKS.find(x=>x.id===id);toggleTask(t).then(renderPanel);}
+function rmTask(id){delTask(id).then(renderPanel);}
+function archiveDeal(){const d=curr();d.archived=!d.archived;saveDeal(d);closeDeal();}
+function deleteDeal(){if(!confirm('Delete this deal permanently? This cannot be undone.'))return;removeDeal(OPEN).then(closeDeal);}
+
+/* ---------- modal (add / edit) ---------- */
+let MODAL_EDIT=null,MODAL_TYPE='hdb_resale',MODAL_SIDE='buy';
+function openModal(editId){
+  MODAL_EDIT=editId||null;
+  const d=editId?dealById(editId):null;
+  MODAL_TYPE=d?d.type:'hdb_resale';MODAL_SIDE=d?d.side:'buy';
+  renderModal(d);
+  document.getElementById('modalScrim').classList.add('show');
+}
+function closeModal(){document.getElementById('modalScrim').classList.remove('show');}
+function renderModal(d){
+  const typeOpts=Object.entries(TYPES).map(([k,v])=>`<div class="opt ${MODAL_TYPE===k?'on':''}" onclick="modalType('${k}')"><div class="ot">${v.short}</div><div class="os">${v.label}</div></div>`).join('');
+  const sideOpts=TYPES[MODAL_TYPE].sides.map(([k,l])=>`<div class="opt ${MODAL_SIDE===k?'on':''}" onclick="modalSide('${k}')" style="padding:10px"><div class="ot">${l}</div></div>`).join('');
+  document.getElementById('modal').innerHTML=`
+    <h2>${d?'Edit deal':'New deal'}</h2>
+    <div class="msub">${d?'Update the client and property details.':'Pick the transaction type — Steward sets up the right deadlines and checklist.'}</div>
+    <div class="fld" style="margin-bottom:16px"><label>Transaction type</label><div class="seg">${typeOpts}</div></div>
+    <div class="fld" style="margin-bottom:16px"><label>Your client is the…</label><div class="seg" style="grid-template-columns:1fr 1fr">${sideOpts}</div></div>
+    <div class="dg">
+      <div class="fld full"><label>Client name</label><input id="mName" value="${d?esc(d.client_name||''):''}" placeholder="e.g. Mr & Mrs Tan"></div>
+      <div class="fld"><label>Contact</label><input id="mContact" value="${d?esc(d.client_contact||''):''}" placeholder="Phone / email"></div>
+      <div class="fld"><label>Expected commission (S$)</label><input id="mComm" type="number" value="${d?(d.commission_expected||''):''}" placeholder="0"></div>
+      <div class="fld full"><label>Property address</label><input id="mAddr" value="${d?esc(d.property_addr||''):''}" placeholder="e.g. Blk 123 Tampines St 11 #08-456"></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-g" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-p" onclick="submitModal()">${d?'Save changes':'Create deal'}</button>
+    </div>`;
+}
+function modalType(k){MODAL_TYPE=k;if(!TYPES[k].sides.find(s=>s[0]===MODAL_SIDE))MODAL_SIDE=TYPES[k].sides[0][0];renderModal(MODAL_EDIT?dealById(MODAL_EDIT):null);}
+function modalSide(k){MODAL_SIDE=k;renderModal(MODAL_EDIT?dealById(MODAL_EDIT):null);}
+async function submitModal(){
+  const name=document.getElementById('mName').value.trim();
+  if(!name){alert('Please enter a client name.');return;}
+  const payload={
+    type:MODAL_TYPE,side:MODAL_SIDE,client_name:name,
+    client_contact:document.getElementById('mContact').value.trim(),
+    property_addr:document.getElementById('mAddr').value.trim(),
+    commission_expected:document.getElementById('mComm').value?+document.getElementById('mComm').value:null,
+  };
+  if(MODAL_EDIT){const d=dealById(MODAL_EDIT);Object.assign(d,payload);await saveDeal(d);closeModal();if(OPEN)renderPanel();else render();}
+  else{const row=await createDeal(payload);closeModal();render();openDeal(row.id);}
+}
+
+/* ---------- wire up ---------- */
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
+  VIEW=t.dataset.view;document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===t));render();});
+function setView(v){VIEW=v;document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x.dataset.view===v));render();}
+function setFilter(f){FILTER=f;render();}
+document.getElementById('addBtn').onclick=()=>openModal();
+document.getElementById('scrim').onclick=closeDeal;
+document.getElementById('modalScrim').onclick=e=>{if(e.target.id==='modalScrim')closeModal();};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(document.getElementById('modalScrim').classList.contains('show'))closeModal();else if(OPEN)closeDeal();}});
+
+(async function init(){await loadAll();render();})();
+</script>
+</body>
+</html>
