@@ -129,6 +129,10 @@ input,select,textarea,button{font-family:inherit;font-size:inherit;color:inherit
 .dcard .foot{display:flex;align-items:center;justify-content:space-between;gap:7px 8px;margin-top:11px;padding-top:10px;border-top:1px solid var(--line-2);flex-wrap:wrap}
 .dcard .foot .tag{flex:0 1 auto;overflow:hidden;text-overflow:ellipsis}
 .col-empty{font-size:12px;color:var(--ink-4);text-align:center;padding:14px 6px;font-style:italic}
+.commbar{display:flex;gap:30px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 22px;box-shadow:var(--shadow);margin:0 0 20px}
+.commbar .cl-l{display:block;font-size:10.5px;color:var(--ink-3);font-weight:700;text-transform:uppercase;letter-spacing:.07em}
+.commbar .cl-v{display:block;font-family:var(--serif);font-size:21px;font-weight:600;margin-top:3px}
+.commbar .cl-v.green{color:var(--brand-d)}
 
 /* ---------- empty state ---------- */
 .empty{text-align:center;padding:70px 24px;background:linear-gradient(180deg,var(--paper-2),var(--card));border:1.5px dashed #d8d3c7;border-radius:var(--r-lg)}
@@ -468,6 +472,14 @@ function initials(n){if(!n)return'?';return n.trim().split(/\s+/).slice(0,2).map
 function esc(s){return(s==null?'':String(s)).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 function sideLabel(deal){const t=TYPES[deal.type];const f=t&&t.sides.find(s=>s[0]===deal.side);return f?f[1]:(deal.side||'');}
 function activeDeals(){return DEALS.filter(d=>!d.archived&&unifiedStage(d)!=='done');}
+function sgd(n){return 'S$'+Math.round(n||0).toLocaleString('en-SG');}
+function contactChip(c){
+  if(!c)return'';
+  const ph=c.replace(/[\s()-]/g,'');
+  if(/^\+?\d{6,}$/.test(ph))return `<a class="chip slate" style="cursor:pointer" href="tel:${esc(ph)}">📞 ${esc(c)}</a>`;
+  if(/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(c))return `<a class="chip slate" style="cursor:pointer" href="mailto:${esc(c)}">✉️ ${esc(c)}</a>`;
+  return `<span class="chip slate">${esc(c)}</span>`;
+}
 
 /* ============ render router ============ */
 function render(){if(VIEW==='how')return renderHow();VIEW==='pipeline'?renderPipeline():renderDashboard();}
@@ -566,7 +578,7 @@ function renderDashboard(){
   const todo=items.filter(i=>i.n==null);
 
   const act=activeDeals();
-  const closingMonth=DEALS.filter(d=>!d.archived).filter(d=>{const nd=nextDeadline(d);return nd&&diffDays(nd.date)>=0&&diffDays(nd.date)<=30&&(nd.id==='completion'||nd.id==='lease_expiry'||unifiedStage(d)==='closing');}).length;
+  const closingMonth=DEALS.filter(d=>!d.archived).filter(d=>deadlines(d).some(dl=>!dl.satisfied&&(dl.id==='completion'||dl.id==='lease_expiry'||dl.id==='renewal')&&diffDays(dl.date)>=0&&diffDays(dl.date)<=30)).length;
 
   let html=`
   <div class="phead"><div>
@@ -581,10 +593,14 @@ function renderDashboard(){
     <div class="scard"><span class="ic">🏁</span><div class="n">${closingMonth}</div><div class="l">Closing this month</div></div>
   </div>`;
 
-  if(!items.length){
-    html+=`<div class="empty"><div class="em">✨</div><h3>You're all clear</h3>
-      <p>No deadlines or follow-ups need attention right now. Add a deal and Steward will track every statutory date for you automatically.</p>
-      <button class="btn btn-p" onclick="openModal()">+ Add your first deal</button></div>`;
+  const shownCount=over.length+week.length+later.length+todo.length;
+  if(!shownCount){
+    const has=DEALS.some(d=>!d.archived);
+    const future=items.filter(i=>i.n!=null&&i.n>30).length;
+    const futureNote=future?` ${future} deadline${future>1?'s are':' is'} further than 30 days out — open the deal${future>1?'s':''} to see ${future>1?'them':'it'}.`:'';
+    html+=`<div class="empty"><div class="em">${has?'✅':'✨'}</div><h3>${has?'Nothing needs you in the next 30 days':"You're all clear"}</h3>
+      <p>${has?'Your active deals are on track — new deadlines appear here as they come within range.'+futureNote:'No deals yet. Add one and Steward will track every statutory date for you automatically.'}</p>
+      <button class="btn btn-p" onclick="${has?"setView('pipeline')":'openModal()'}">${has?'View the pipeline →':'+ Add your first deal'}</button></div>`;
     document.getElementById('app').innerHTML=html;return;
   }
   const sec=(title,arr,extra='')=>arr.length?`<div class="feed-sec ${extra}"><h3>${title} <span class="chip slate">${arr.length}</span></h3><div class="feed">${arr.map(actRow).join('')}</div></div>`:'';
@@ -624,6 +640,15 @@ function renderPipeline(){
       <button class="btn btn-p" onclick="openModal()">+ Add your first deal</button></div>`;
     document.getElementById('app').innerHTML=html;return;
   }
+  const live=pool.filter(d=>!d.archived&&unifiedStage(d)!=='done');
+  const sumExp=live.reduce((s,d)=>s+(+d.commission_expected||0),0);
+  const sumRec=pool.reduce((s,d)=>s+(d.commission_received?(+d.commission_expected||0):0),0);
+  const sumOut=live.filter(d=>!d.commission_received).reduce((s,d)=>s+(+d.commission_expected||0),0);
+  if(sumExp||sumRec)html+=`<div class="commbar">
+    <div><span class="cl-l">Pipeline commission</span><span class="cl-v">${sgd(sumExp)}</span></div>
+    <div><span class="cl-l">Received</span><span class="cl-v green">${sgd(sumRec)}</span></div>
+    <div><span class="cl-l">Outstanding</span><span class="cl-v">${sgd(sumOut)}</span></div>
+  </div>`;
   const byCol={};COLS.forEach(([k])=>byCol[k]=[]);
   pool.forEach(d=>byCol[unifiedStage(d)].push(d));
   html+=`<div class="board">`+COLS.map(([k,l])=>{
@@ -693,7 +718,7 @@ function renderPanel(){
       <div class="pr">${esc(d.property_addr||'No address')}</div></div>
       <div class="x" onclick="closeDeal()">✕</div></div>
     <div class="p-tags"><span class="tag ${t.cls}">${t.label}</span><span class="tag ${t.cls}">${esc(sideLabel(d))}</span>
-      ${d.client_contact?`<span class="chip slate">${esc(d.client_contact)}</span>`:''}
+      ${contactChip(d.client_contact)}
       <span class="spacer" style="flex:1"></span>
       <button class="btn btn-g btn-x" onclick="openModal('${d.id}')">Edit details</button></div>
   </div>
@@ -790,7 +815,7 @@ async function submitModal(){
     property_addr:document.getElementById('mAddr').value.trim(),
     commission_expected:document.getElementById('mComm').value?+document.getElementById('mComm').value:null,
   };
-  if(MODAL_EDIT){const d=dealById(MODAL_EDIT);Object.assign(d,payload);await saveDeal(d);closeModal();if(OPEN)renderPanel();else render();}
+  if(MODAL_EDIT){const d=dealById(MODAL_EDIT);if(d.type!==MODAL_TYPE||d.side!==MODAL_SIDE)d.checks=[];Object.assign(d,payload);await saveDeal(d);closeModal();if(OPEN)renderPanel();else render();}
   else{const row=await createDeal(payload);closeModal();render();openDeal(row.id);}
 }
 
