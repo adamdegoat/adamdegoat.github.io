@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta name="description" content="Compass — a free, personalised Singapore home-buying roadmap. Answer a few questions and get your eligibility, budget, full upfront cash, stamp duties, timeline and step-by-step checklist on one page. Built on the real IRAS, HDB & MAS rules.">
+<title>Compass · Your Singapore Home-Buying Roadmap</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230f9d76'/%3E%3Cstop offset='1' stop-color='%23b88a2e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='8' y='8' width='16' height='16' rx='4' transform='rotate(45 16 16)' fill='url(%23g)'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#101a2b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Spectral:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Compass">
+<style>
+:root{
+  --ink:#10151f;--ink-2:#384256;--ink-3:#6b7587;--ink-4:#9aa2b1;--line:#e7e4dd;--line-2:#efece6;
+  --paper:#f7f5f1;--paper-2:#fbfaf7;--card:#fff;
+  --brand:#0f9d76;--brand-d:#0b7d5e;--brand-wash:#e8f5ef;--gold:#b88a2e;--gold-d:#9a6a10;--gold-wash:#f7efdc;
+  --navy:#101a2b;--navy-2:#1a2740;--blue:#3563b0;--blue-wash:#e7eefb;
+  --amber:#c98a16;--amber-d:#9a6a10;--amber-wash:#fbf0d8;
+  --red:#c0392b;--red-d:#9e2417;--red-wash:#fbe8e5;--slate-wash:#eef0f3;
+  --shadow:0 4px 14px rgba(16,21,31,.07),0 2px 4px rgba(16,21,31,.04);
+  --shadow-lg:0 24px 60px rgba(16,21,31,.16),0 8px 20px rgba(16,21,31,.07);
+  --r:16px;--r-lg:24px;
+  --sans:'Libre Franklin',system-ui,-apple-system,sans-serif;--serif:'Spectral',Georgia,serif;--mono:ui-monospace,'SF Mono',Menlo,monospace;--maxw:760px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;letter-spacing:-.005em}
+h1,h2,h3,h4{margin:0;letter-spacing:-.022em;line-height:1.14;font-weight:700}
+p{margin:0}a{text-decoration:none;color:inherit}
+input,select,button{font-family:inherit;font-size:inherit;color:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.serif{font-family:var(--serif)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:14px;padding:13px 22px;background:rgba(251,250,247,.82);backdrop-filter:blur(14px) saturate(1.3);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px}
+.dia{width:15px;height:15px;border-radius:4px;background:linear-gradient(135deg,var(--brand),var(--gold));transform:rotate(45deg);box-shadow:0 2px 9px rgba(15,157,118,.4)}
+.bm{font-family:var(--serif);font-weight:600;font-size:21px}
+.bsub{font-size:10.5px;color:var(--ink-3);font-weight:700;text-transform:uppercase;letter-spacing:.13em}
+.navback{font-size:13px;font-weight:700;color:var(--ink-3);padding:7px 12px;border-radius:30px;border:1px solid var(--line);white-space:nowrap;transition:.18s}
+.navback:hover{color:var(--brand-d);border-color:var(--brand);background:rgba(15,157,118,.06)}
+.nav .sp{flex:1}
+.ab-install{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:var(--brand-d);padding:7px 14px;border-radius:30px;border:1px solid var(--brand);background:rgba(15,157,118,.06);cursor:pointer;white-space:nowrap;transition:.18s}
+.ab-install:hover{background:rgba(15,157,118,.12)}
+
+/* hero */
+.hero{padding:40px 0 6px;text-align:center}
+.eyebrow{font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:var(--brand-d);margin-bottom:10px}
+.hero h1{font-size:38px;font-family:var(--serif);font-weight:600;letter-spacing:-.03em;max-width:18ch;margin:0 auto 12px}
+.hero h1 em{font-style:italic;color:var(--brand-d)}
+.hero p{font-size:16px;color:var(--ink-2);max-width:54ch;margin:0 auto}
+
+/* progress */
+.prog{display:flex;align-items:center;gap:6px;justify-content:center;margin:26px 0 6px;flex-wrap:wrap}
+.pstep{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--ink-4)}
+.pstep .pn{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--slate-wash);border:1px solid var(--line);font-size:12px;transition:.18s}
+.pstep.on{color:var(--brand-d)}.pstep.on .pn{background:var(--brand);color:#fff;border-color:var(--brand)}
+.pstep.done .pn{background:var(--brand-wash);color:var(--brand-d);border-color:var(--brand)}
+.pstep .pl{white-space:nowrap}
+.pbar{flex:0 0 18px;height:2px;background:var(--line);border-radius:2px}
+@media(max-width:620px){.pstep .pl{display:none}.pbar{flex-basis:14px}}
+
+/* card / steps */
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow);margin:18px 0 10px;overflow:hidden}
+.step{padding:26px 28px 8px}
+.step .sq{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--brand-d)}
+.step h2{font-size:24px;font-family:var(--serif);font-weight:600;margin:6px 0 4px}
+.step .sd{font-size:14px;color:var(--ink-3);margin-bottom:18px;max-width:52ch}
+.fld{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.fld>label{font-size:13.5px;font-weight:700;color:var(--ink-2)}
+.fld .opt{font-weight:700;font-size:9.5px;color:var(--ink-4);text-transform:uppercase;letter-spacing:.05em;margin-left:6px;background:var(--slate-wash);padding:1px 6px;border-radius:20px}
+.fld .hint{font-size:11.5px;color:var(--ink-4)}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:9px}
+.opts.two{grid-template-columns:1fr 1fr}
+.opt-card{display:flex;flex-direction:column;gap:2px;text-align:left;padding:13px 15px;border-radius:13px;border:1.5px solid var(--line);background:var(--paper-2);cursor:pointer;transition:.14s}
+.opt-card:hover{border-color:var(--brand)}
+.opt-card.on{border-color:var(--brand);background:var(--brand-wash);box-shadow:var(--shadow)}
+.opt-card .oc-t{font-weight:700;font-size:14.5px;display:flex;align-items:center;gap:7px}
+.opt-card .oc-s{font-size:11.5px;color:var(--ink-3);line-height:1.4}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.in{position:relative}
+.in input{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:12px 13px;font-size:15.5px;width:100%;transition:.16s}
+.in.money input{padding-left:30px}
+.in.money::before{content:"$";position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--ink-4);font-size:14px}
+.in input:focus{outline:0;border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-wash)}
+.teach{display:flex;gap:9px;font-size:12.5px;line-height:1.5;background:var(--blue-wash);border:1px solid #d4e0f5;border-radius:11px;padding:10px 12px;color:#2b4a82;margin:2px 0 18px}
+.teach .ti{flex:none}
+.err{display:none;font-size:12.5px;color:var(--red-d);background:var(--red-wash);border:1px solid #f1cdc7;border-radius:10px;padding:9px 12px;margin:0 0 10px}
+.err.show{display:block}
+
+/* nav buttons */
+.foot{display:flex;align-items:center;gap:10px;padding:16px 28px;border-top:1px solid var(--line-2);background:var(--paper-2)}
+.foot .sp{flex:1}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:30px;font-weight:700;font-size:14.5px;padding:12px 24px;border:0;cursor:pointer;transition:.18s}
+.btn-p{background:linear-gradient(135deg,var(--brand),var(--brand-d));color:#fff;box-shadow:0 6px 18px rgba(15,157,118,.32)}
+.btn-p:hover{transform:translateY(-1px)}
+.btn-g{background:var(--card);border:1px solid var(--line);color:var(--ink-2)}
+.btn-g:hover{border-color:var(--brand);color:var(--ink)}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+
+/* ===== roadmap output ===== */
+#road{display:none}
+.rm-head{background:linear-gradient(150deg,var(--navy),var(--navy-2));color:#fff;border-radius:var(--r-lg) var(--r-lg) 0 0;padding:26px 28px;position:relative;overflow:hidden}
+.rm-head::after{content:"";position:absolute;inset:0;background:radial-gradient(420px 220px at 88% 0,rgba(15,157,118,.3),transparent 65%);pointer-events:none}
+.rm-prep{font-size:11.5px;color:#8fa1bd;font-weight:700;text-transform:uppercase;letter-spacing:.1em;display:flex;align-items:center;gap:8px}
+.rm-prep .dia{box-shadow:none}
+.rm-head h2{font-family:var(--serif);font-weight:600;font-size:25px;margin:10px 0 6px}
+.rm-summary{font-size:13.5px;color:#c3cee0}
+.rm-body{padding:6px 28px 8px}
+.sec{padding:22px 0;border-bottom:1px solid var(--line-2)}
+.sec:last-child{border-bottom:0}
+.sec-h{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.sec-h .si{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-size:17px;background:linear-gradient(135deg,var(--brand-wash),var(--gold-wash));flex:none}
+.sec-h h3{font-family:var(--serif);font-size:19px;font-weight:600}
+.sec-h .sn{font-size:11.5px;color:var(--ink-4);font-weight:600}
+
+.elig{border-radius:14px;padding:15px 17px;display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.5}
+.elig .ei{font-size:22px;flex:none;line-height:1}
+.elig.ok{background:var(--brand-wash);border:1px solid #bfe6d6;color:var(--brand-d)}
+.elig.cond{background:var(--amber-wash);border:1px solid #efe0bf;color:var(--amber-d)}
+.elig.block{background:var(--red-wash);border:1px solid #f1cdc7;color:var(--red-d)}
+.elig b{color:inherit}
+.elig ul{margin:7px 0 0;padding-left:18px}.elig li{margin:3px 0}
+
+.headline{background:linear-gradient(135deg,var(--brand-wash),var(--gold-wash));border-radius:14px;padding:17px 19px;display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.headline .hl{font-size:13px;font-weight:700;color:var(--ink-2)}
+.headline .hv{font-family:var(--serif);font-size:30px;font-weight:600;color:var(--ink);text-align:right;white-space:nowrap}
+.orow{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:9px 2px;border-bottom:1px solid var(--line-2);font-size:14px}
+.orow:last-child{border-bottom:0}
+.orow .ok{color:var(--ink-2)}.orow .osub{font-size:11.5px;color:var(--ink-4);font-weight:500;margin-left:5px;display:block}
+.orow .ov{font-weight:700;text-align:right;white-space:nowrap}
+.orow.tot{border-top:2px solid var(--line);border-bottom:0;margin-top:4px;padding-top:11px;font-size:15.5px}
+.orow.tot .ok{font-weight:700}
+.orow.sub .ok{padding-left:14px;color:var(--ink-3);font-size:13px}
+
+.tl{counter-reset:t;list-style:none;padding:0;margin:0}
+.tl li{counter-increment:t;position:relative;padding:0 0 18px 44px}
+.tl li:last-child{padding-bottom:0}
+.tl li::before{content:counter(t);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:var(--brand-wash);border:1px solid var(--brand);color:var(--brand-d);font-weight:800;font-size:13px;display:grid;place-items:center;z-index:1}
+.tl li::after{content:"";position:absolute;left:14.5px;top:30px;bottom:-2px;width:1.5px;background:var(--line)}
+.tl li:last-child::after{display:none}
+.tl .tt{font-weight:700;font-size:14.5px}
+.tl .tw{font-size:11.5px;font-weight:700;color:var(--brand-d);background:var(--brand-wash);border-radius:20px;padding:1px 9px;margin-left:7px}
+.tl .td{font-size:12.5px;color:var(--ink-3);margin-top:2px}
+
+.chk{list-style:none;padding:0;margin:0;display:grid;gap:9px}
+.chk li{display:flex;gap:11px;align-items:flex-start;font-size:14px;background:var(--paper-2);border:1px solid var(--line-2);border-radius:11px;padding:11px 13px}
+.chk .cb{flex:none;width:19px;height:19px;border-radius:6px;border:1.5px solid var(--brand);margin-top:1px}
+.chk b{font-weight:700}.chk .cs{display:block;font-size:12px;color:var(--ink-3);margin-top:1px}
+
+.notes{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+.note{display:flex;gap:9px;font-size:12.5px;line-height:1.5;background:var(--paper);border:1px solid var(--line-2);border-radius:10px;padding:10px 12px;color:var(--ink-2)}
+.note.warn{background:var(--amber-wash);border-color:#efe0bf;color:var(--amber-d)}
+.note.tip{background:var(--blue-wash);border-color:#d4e0f5;color:#2b4a82}
+.note .ni{flex:none}
+
+.rm-foot{padding:20px 28px 24px;background:var(--paper-2);border-top:1px solid var(--line)}
+.rm-cta{background:linear-gradient(150deg,var(--navy),var(--navy-2));color:#fff;border-radius:var(--r);padding:20px 22px;text-align:center;position:relative;overflow:hidden;margin-bottom:14px}
+.rm-cta::after{content:"";position:absolute;inset:0;background:radial-gradient(360px 180px at 85% 0,rgba(15,157,118,.28),transparent 65%);pointer-events:none}
+.rm-cta h4{font-family:var(--serif);font-size:19px;font-weight:600;margin-bottom:5px}
+.rm-cta p{font-size:13px;color:#aab8c9;max-width:46ch;margin:0 auto 14px}
+.rm-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.disc{font-size:11px;color:var(--ink-4);line-height:1.5;margin-top:4px;text-align:center}
+
+footer{padding:26px 0 46px;text-align:center;color:var(--ink-4);font-size:12px;line-height:1.6}
+footer .rates{font-size:11px;color:var(--ink-4);max-width:74ch;margin:8px auto 0}
+
+@media(max-width:560px){
+  .wrap{padding:0 14px}.hero h1{font-size:29px}.nav .bm{font-size:19px}.bsub{display:none}
+  .step{padding:22px 18px 6px}.foot{padding:14px 18px}.rm-head,.rm-body,.rm-foot{padding-left:18px;padding-right:18px}
+  .row2{grid-template-columns:1fr}.opts.two{grid-template-columns:1fr}.headline .hv{font-size:25px}
+  .btn{padding:11px 18px;font-size:14px}
+}
+
+/* print */
+@media print{
+  .nav,.hero,.prog,#wizard,.rm-cta,.rm-actions,.ab-install,footer .rates{display:none!important}
+  body{background:#fff}.panel{box-shadow:none;border:0;margin:0}
+  .rm-head{-webkit-print-color-adjust:exact;print-color-adjust:exact;border-radius:0}
+  .sec{page-break-inside:avoid}.headline,.elig{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #road{display:block!important}
+}
+
+/* install modal */
+.ab-modal{position:fixed;inset:0;z-index:200;background:rgba(16,21,31,.5);backdrop-filter:blur(5px);display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:24px 16px}
+.ab-modal.open{display:flex}
+.ab-box{width:100%;max-width:460px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:30px 26px;margin:auto;box-shadow:var(--shadow-lg)}
+.ab-x{float:right;background:var(--slate-wash);border:0;width:34px;height:34px;border-radius:10px;font-size:19px;cursor:pointer;color:var(--ink-3)}
+.ab-head{text-align:center;margin-bottom:20px}
+.ab-head img{width:74px;height:74px;border-radius:18px;margin:4px auto 14px;box-shadow:var(--shadow)}
+.ab-head h3{font-family:var(--serif);font-size:24px;font-weight:600}
+.ab-head p{font-size:13.5px;color:var(--ink-3);margin-top:7px;line-height:1.5}
+.ab-seg{display:inline-flex;gap:6px;margin-bottom:12px}
+.ab-seg button{background:var(--paper);border:1px solid var(--line);color:var(--ink-3);font-weight:700;font-size:13px;padding:8px 18px;border-radius:30px;cursor:pointer}
+.ab-seg button.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.ab-steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.ab-steps li{counter-increment:s;position:relative;padding:12px 0 12px 46px;border-bottom:1px solid var(--line-2);font-size:14.5px;color:var(--ink);line-height:1.5}
+.ab-steps li:last-child{border-bottom:0}
+.ab-steps li::before{content:counter(s);position:absolute;left:0;top:10px;width:30px;height:30px;border-radius:50%;background:var(--brand-wash);border:1px solid var(--brand);color:var(--brand-d);font-weight:800;font-size:13px;display:grid;place-items:center}
+.ab-got{width:100%;margin-top:20px;padding:13px;background:var(--brand);color:#fff;border:0;border-radius:12px;font-weight:700;font-size:15px;cursor:pointer}
+.ab-hidden{display:none!important}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="navback" href="https://adamdegoat.github.io/realestate/">← Groundwork</a>
+  <a class="brand" href="#"><span class="dia"></span><span class="bm">Compass</span><span class="bsub">Your buying roadmap</span></a>
+  <span class="sp"></span>
+  <button class="ab-install" id="abInstall" onclick="openAbGuide()">📲 Install app</button>
+</nav>
+
+<header class="hero wrap" id="heroTop">
+  <div class="eyebrow">Singapore Home-Buying Roadmap</div>
+  <h1>Your whole property purchase, <em>on one page</em></h1>
+  <p>Answer a few quick questions and Compass maps your entire journey — what you're eligible for, what you can afford, every dollar of cash you'll need, the timeline and a step-by-step checklist. Built on the real IRAS, HDB &amp; MAS rules.</p>
+</header>
+
+<main class="wrap">
+  <div class="prog" id="prog"></div>
+
+  <div id="wizard" class="panel">
+    <div class="step" id="stepBody"></div>
+    <div class="err" id="err"></div>
+    <div class="foot">
+      <button class="btn btn-g" id="backBtn" onclick="back()">← Back</button>
+      <span class="sp"></span>
+      <button class="btn btn-p" id="nextBtn" onclick="next()">Continue →</button>
+    </div>
+  </div>
+
+  <div id="road" class="panel"></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    Compass · by Adam Phang.
+    <p class="rates">A personalised guide, not financial or legal advice. Figures use Singapore rules current as at June 2026: BSD &amp; ABSD, TDSR 55% · MSR 30% (HDB/EC) · stress rate 4% · first-loan LTV 75% (5% min cash), HDB 5-year MOP, EC household income ceiling $16,000. Stamp duty is charged on the higher of price or valuation. Confirm your eligibility, loan and exact figures with HDB, the bank, a conveyancing lawyer and IRAS for your own situation.</p>
+  </div>
+</footer>
+
+<!-- INSTALL GUIDE -->
+<div class="ab-modal" id="abGuide">
+  <div class="ab-box">
+    <button class="ab-x" onclick="closeAbGuide()">×</button>
+    <div class="ab-head">
+      <img src="icon-192.png" alt="Compass">
+      <h3>Add Compass to your phone</h3>
+      <p>Install it once — then build a buyer a full roadmap in seconds, even offline.</p>
+    </div>
+    <div class="ab-seg"><button data-os="ios" class="on">iPhone</button><button data-os="and">Android</button></div>
+    <ol class="ab-steps" id="abIos">
+      <li>Open this page in <b>Safari</b> (not Chrome).</li>
+      <li>Tap the <b>Share</b> button — the square with an ↑ arrow.</li>
+      <li>Scroll down and tap <b>"Add to Home Screen"</b>.</li>
+      <li>Tap <b>Add</b> — the Compass icon appears on your home screen. 🎉</li>
+    </ol>
+    <ol class="ab-steps ab-hidden" id="abAnd">
+      <li>Open this page in <b>Chrome</b>.</li>
+      <li>Tap the <b>⋮</b> menu (top-right).</li>
+      <li>Tap <b>"Add to Home screen"</b> / <b>"Install app"</b>.</li>
+      <li>Tap <b>Add</b> — the Compass app icon appears. 🎉</li>
+    </ol>
+    <button class="ab-got" onclick="closeAbGuide()">Got it</button>
+  </div>
+</div>
+
+<script>
+/* ===================== VERIFIED SG RULES (June 2026) — shared with Abacus ===================== */
+var RULES={
+  bsd:[[180000,.01],[180000,.02],[640000,.03],[500000,.04],[1500000,.05],[Infinity,.06]],
+  absd:{SC:[0,.20,.30],PR:[.05,.30,.35],FR:[.60,.60,.60]},
+  absdName:{SC:'Singapore Citizen',PR:'Permanent Resident',FR:'Foreigner'},
+  tdsr:.55, msr:.30, stress:.04, cpfOA:.025,
+  ecIncomeCeiling:16000, btoIncomeCeiling:14000, mopYears:5
+};
+/* math helpers (same as Abacus) */
+function num(v){v=parseFloat(String(v).replace(/[, ]/g,''));return isFinite(v)?v:0;}
+function money(n){return (n<0?'-$':'$')+Math.round(Math.abs(n)).toLocaleString('en-SG');}
+function pct(n,d){return (n*100).toFixed(d==null?0:d)+'%';}
+function tiered(amount,bands){var r=0,left=amount;for(var i=0;i<bands.length;i++){var w=bands[i][0],rate=bands[i][1];var x=Math.min(left,w);r+=x*rate;left-=x;if(left<=0)break;}return r;}
+function bsd(price){return Math.floor(tiered(price,RULES.bsd));}
+function absdRate(profile,owned){var t=RULES.absd[profile]||RULES.absd.SC;return t[Math.min(owned,2)];}
+function pmt(P,annual,years){var i=annual/12,n=years*12;return i===0?P/n:P*i/(1-Math.pow(1+i,-n));}
+function loanFromPmt(M,annual,years){var i=annual/12,n=years*12;return i===0?M*n:M*(1-Math.pow(1+i,-n))/i;}
+var WORST={FR:3,PR:2,SC:1};
+function worstProfile(ps){var w='SC';ps.forEach(function(p){if(WORST[p]>WORST[w])w=p;});return w;}
+
+/* ===================== wizard state ===================== */
+var S={profile:'SC',co:'none',coProfile:'SC',owned:'0',type:'CONDO',purpose:'own',
+       income:'8000',coIncome:'',age:'35',coAge:'',cash:'250000',cpf:'120000',debts:''};
+var STEP=0;
+var TYPES={HDB_RESALE:'HDB resale flat',HDB_BTO:'HDB BTO (new flat)',EC:'Executive Condo (EC)',CONDO:'Private condo / apartment',LANDED:'Landed property'};
+
+var STEPS=[
+/* 0 — who */
+{key:'who',q:'About you',d:'Your residency and who you\'re buying with set which rules — and which stamp duties — apply to you.',
+ render:function(){
+   return choice('profile','Your residency status',[
+     ['SC','🇸🇬 Singapore Citizen',''],['PR','Permanent Resident',''],['FR','Foreigner','']]) +
+   choice('co','Are you buying with someone?',[
+     ['none','Just me',''],['spouse','With my spouse',''],['cobuyer','With a co-buyer','family / friend / partner']],'two') +
+   (S.co!=='none'? choice('coProfile','Your co-buyer\'s residency',[
+     ['SC','🇸🇬 Citizen',''],['PR','PR',''],['FR','Foreigner','']]) : '') +
+   teach('A married couple with at least one Citizen pays no ABSD on their first home together — Compass applies that for you.');
+ }},
+/* 1 — own */
+{key:'own',q:'What you own now',d:'How many residential properties you already own decides your ABSD rate and how much a bank can lend you.',
+ render:function(){
+   return choice('owned','Residential properties you already own',[
+     ['0','None — this is my first',''],['1','I own 1 already',''],['2','I own 2 or more','']]) +
+   teach('A first home is the cheapest entry: 0% ABSD for a Citizen and up to 75% loan. Each extra property you hold raises ABSD and lowers how much you can borrow.');
+ }},
+/* 2 — what */
+{key:'what',q:'What you want to buy',d:'Different property types have different eligibility rules, loan limits and timelines.',
+ render:function(){
+   return choice('type','Property type',[
+     ['HDB_RESALE','HDB resale flat','Buy on the open market'],
+     ['HDB_BTO','HDB BTO','New flat from HDB'],
+     ['EC','Executive Condo','New EC launch'],
+     ['CONDO','Private condo','Resale or new launch'],
+     ['LANDED','Landed','Terrace / semi-D / bungalow']]) +
+   choice('purpose','You\'re buying this to…',[
+     ['own','Live in it','Own-stay'],['invest','Rent it out','Investment']],'two');
+ }},
+/* 3 — money */
+{key:'money',q:'Your finances',d:'A few numbers let Compass work out your real budget and the cash you\'ll need. Nothing is saved or sent anywhere.',
+ render:function(){
+   var co=S.co!=='none';
+   return field('income','Your gross monthly income','money') +
+     (co?field('coIncome','Co-buyer\'s monthly income','money',1):'') +
+     '<div class="row2">'+field('age','Your age','num')+(co?field('coAge','Co-buyer\'s age','num',1):'')+'</div>'+
+     field('cash','Cash available for this purchase','money',0,'savings you can put in') +
+     field('cpf','CPF Ordinary Account balance','money',0,'usable for property') +
+     field('debts','Existing monthly repayments','money',1,'car, study, other loans — leave blank if none') +
+     teach('Banks cap all your monthly loan repayments at 55% of income (TDSR), and stress-test you at a 4% rate. Compass uses the same limits a bank does.');
+ }}
+];
+
+/* ---------- field builders ---------- */
+function choice(key,label,opts,cls){
+  var h='<div class="fld"><label>'+label+'</label><div class="opts'+(cls==='two'?' two':'')+'">';
+  opts.forEach(function(o){var on=S[key]===o[0];
+    h+='<button type="button" class="opt-card'+(on?' on':'')+'" data-k="'+key+'" data-v="'+o[0]+'"><span class="oc-t">'+o[1]+'</span>'+(o[2]?'<span class="oc-s">'+o[2]+'</span>':'')+'</button>';});
+  return h+'</div></div>';
+}
+function field(key,label,t,opt,hint){
+  var money=t==='money',dv=S[key];
+  if(money&&dv!=='')dv=(+String(dv).replace(/[^\d]/g,'')).toLocaleString('en-SG');
+  return '<div class="fld"><label>'+label+(opt?' <span class="opt">optional</span>':'')+'</label>'+
+    '<div class="in'+(money?' money':'')+'"><input data-k="'+key+'" type="'+(money?'text':'number')+'" inputmode="'+(money?'numeric':'decimal')+'" value="'+(dv||'')+'"'+(hint?' aria-label="'+label+'"':'')+'></div>'+
+    (hint?'<span class="hint">'+hint+'</span>':'')+'</div>';
+}
+function teach(t){return '<div class="teach"><span class="ti">💡</span><span>'+t+'</span></div>';}
+
+/* ---------- render wizard ---------- */
+function $(id){return document.getElementById(id);}
+function renderProg(){
+  var labels=['You','Own','Buy','Money','Roadmap'];
+  $('prog').innerHTML=labels.map(function(l,i){
+    var cls=i<STEP?'done':(i===STEP?'on':'');
+    return (i?'<span class="pbar"></span>':'')+'<span class="pstep '+cls+'"><span class="pn">'+(i<STEP?'✓':i+1)+'</span><span class="pl">'+l+'</span></span>';
+  }).join('');
+}
+function renderStep(){
+  var s=STEPS[STEP];
+  $('stepBody').innerHTML='<div class="sq">Step '+(STEP+1)+' of 4</div><h2>'+s.q+'</h2><p class="sd">'+s.d+'</p>'+s.render();
+  $('backBtn').style.visibility=STEP===0?'hidden':'visible';
+  $('nextBtn').innerHTML=STEP===STEPS.length-1?'See my roadmap →':'Continue →';
+  $('err').classList.remove('show');
+  bind();renderProg();
+}
+function bind(){
+  Array.prototype.forEach.call(document.querySelectorAll('.opt-card'),function(b){
+    b.onclick=function(){var k=b.dataset.k,v=b.dataset.v;S[k]=v;
+      if(k==='co'||k==='type'||k==='profile')renderStep();else{
+        Array.prototype.forEach.call(document.querySelectorAll('.opt-card[data-k="'+k+'"]'),function(x){x.classList.toggle('on',x.dataset.v===v);});}
+    };});
+  Array.prototype.forEach.call(document.querySelectorAll('#stepBody input'),function(el){
+    el.oninput=function(){var k=el.dataset.k;
+      if(el.type==='text'){var c=el.value.replace(/[^\d]/g,'');el.value=c?(+c).toLocaleString('en-SG'):'';S[k]=c;}
+      else S[k]=el.value;};
+  });
+}
+function validate(){
+  var s=STEPS[STEP];
+  if(s.key==='money'){
+    if(num(S.income)<=0)return 'Please enter your monthly income.';
+    if(num(S.age)<18||num(S.age)>80)return 'Please enter a valid age.';
+  }
+  return '';
+}
+function next(){
+  var e=validate();
+  if(e){$('err').textContent=e;$('err').classList.add('show');return;}
+  if(STEP<STEPS.length-1){STEP++;renderStep();scrollTop();}
+  else showRoadmap();
+}
+function back(){if(STEP>0){STEP--;renderStep();scrollTop();}}
+function scrollTop(){window.scrollTo({top:0,behavior:'smooth'});}
+
+/* ===================== THE ENGINE ===================== */
+function profilesList(){var p=[S.profile];if(S.co!=='none')p.push(S.coProfile);return p;}
+function hh(){return num(S.income)+(S.co!=='none'?num(S.coIncome):0);}
+
+function eligibility(){
+  var ps=profilesList(),hasSC=ps.indexOf('SC')>=0,anyFR=ps.indexOf('FR')>=0,anyPR=ps.indexOf('PR')>=0,
+      married=S.co==='spouse',income=hh(),t=S.type;
+  var r={status:'ok',title:'',points:[]};
+  if(t==='HDB_BTO'){
+    if(!hasSC){r.status='block';r.title='A BTO needs a Singapore Citizen';r.points.push('Only Citizens can apply for a BTO (a PR or foreigner may join only as a spouse/occupier under an SC applicant).');return r;}
+    if(S.co==='none'){r.status='cond';r.title='You can apply — under the right scheme';r.points.push('A single Citizen can buy a BTO only from <b>35</b> (2-room Flexi in non-mature estates). Couples/families have the full range.');}
+    else{r.status='ok';r.title='You\'re eligible to ballot for a BTO';}
+    if(income>RULES.btoIncomeCeiling)r.points.push('⚠️ Household income of '+money(income)+' is above the typical <b>$14,000</b> family BTO ceiling — an EC or resale flat may suit better.');
+    r.points.push('You must form an eligible family nucleus and clear the ballot — supply is balloted, not guaranteed.');
+    return r;
+  }
+  if(t==='HDB_RESALE'){
+    if(anyFR&&!(married&&hasSC)){r.status='block';r.title='Foreigners can\'t buy an HDB flat';r.points.push('A foreigner can co-own an HDB resale flat only as the <b>spouse of a Citizen</b> (Non-Citizen Spouse Scheme).');return r;}
+    if(!hasSC&&anyPR){r.status='cond';r.title='PR households can buy resale — with conditions';r.points.push('Both buyers must have been PRs for at least <b>3 years</b>, and can only buy a resale flat (not a BTO).');}
+    else r.title='You\'re eligible to buy a resale flat';
+    r.points.push('Buy through the HDB Resale Portal — get your <b>HFE letter</b> first, it confirms eligibility and your grants/loan.');
+    return r;
+  }
+  if(t==='EC'){
+    if(!hasSC){r.status='block';r.title='An EC needs a Singapore Citizen';r.points.push('At least one applicant must be a Citizen; a foreigner can\'t buy a new EC.');return r;}
+    if(income>RULES.ecIncomeCeiling){r.status='block';r.title='Over the EC income ceiling';r.points.push('Household income of '+money(income)+' exceeds the <b>$16,000</b> EC ceiling. A private condo has no income limit.');return r;}
+    r.title='You\'re eligible for a new EC';
+    r.points.push('ECs need an eligible family nucleus and have a 5-year MOP, but are cheaper than condos with CPF grants possible.');
+    return r;
+  }
+  if(t==='LANDED'){
+    if(anyFR){r.status='block';r.title='Foreigners need approval for landed';r.points.push('Foreigners generally can\'t buy landed homes without Singapore Land Authority approval (Sentosa Cove is the main exception).');return r;}
+    if(anyPR&&!hasSC){r.status='cond';r.title='PRs need SLA approval for landed';r.points.push('A PR must get Land Dealings Unit approval to buy a landed home, usually requiring strong economic contribution.');}
+    else r.title='You\'re eligible to buy landed property';
+    return r;
+  }
+  /* CONDO */
+  r.title='You\'re eligible to buy a private condo';
+  if(anyFR)r.points.push('Foreigners can freely buy private apartments/condos (not landed). ABSD of 60% applies.');
+  return r;
+}
+
+function absdProfileAndRate(owned){
+  var ps=profilesList(),worst=worstProfile(ps),married=S.co==='spouse',hasSC=ps.indexOf('SC')>=0;
+  /* married couple, at least one SC, first home together → ABSD remission */
+  if(owned===0&&married&&hasSC)return {prof:'SC',rate:0,remission:true};
+  return {prof:worst,rate:absdRate(worst,owned),remission:false};
+}
+
+function budget(){
+  var income=hh(),debts=num(S.debts),cash=num(S.cash),cpf=num(S.cpf),owned=parseInt(S.owned,10),
+      isHDBloan=(S.type==='HDB_RESALE'||S.type==='HDB_BTO'),isMSR=(isHDBloan||S.type==='EC');
+  var age=num(S.age)||35,coAge=num(S.coAge),coInc=num(S.coIncome);
+  var effAge=(S.co!=='none'&&coInc>0&&coAge>0)?((age*num(S.income)+coAge*coInc)/(num(S.income)+coInc)):age;
+  var tenCap=isHDBloan?25:30;
+  var tenure=Math.max(5,Math.min(tenCap,Math.round(65-effAge)));
+  var fullLTV=(effAge+tenure<=65)&&tenure<=tenCap;
+  var ltvTier=[.75,.45,.35],ltv=ltvTier[Math.min(owned,2)];
+  var minCashRate=owned===0?(fullLTV?.05:.10):.25;
+  if(!fullLTV&&owned===0)ltv=.55;
+  var a=absdProfileAndRate(owned);
+  var maxM=RULES.tdsr*income-debts; if(isMSR)maxM=Math.min(maxM,RULES.msr*income); maxM=Math.max(0,maxM);
+  var maxLoan=loanFromPmt(maxM,RULES.stress,tenure),priceFromLoan=maxLoan/ltv;
+  function need(P){return (1-ltv)*P+bsd(P)+P*a.rate;}
+  var lo=0,hi=40000000;for(var k=0;k<48;k++){var m=(lo+hi)/2;if(cash>=minCashRate*m-1&&cash+cpf>=need(m)-1)lo=m;else hi=m;}
+  var priceFromCash=lo,P=Math.min(priceFromLoan,priceFromCash),limit=priceFromLoan<=priceFromCash?'income':'cash';
+  var loan=ltv*P,down=P-loan,minCash=minCashRate*P,b=bsd(P),ab=Math.floor(P*a.rate),
+      legal=3000,val=isHDBloan?0:500,upfront=down+b+ab+legal+val,monthly=pmt(loan,0.035,tenure);
+  return {P:P,ltv:ltv,tenure:tenure,loan:loan,down:down,minCash:minCash,minCashRate:minCashRate,
+    bsd:b,absd:ab,absdInfo:a,legal:legal,val:val,upfront:upfront,monthly:monthly,limit:limit,
+    income:income,cashCpf:cash+cpf,isHDBloan:isHDBloan,isMSR:isMSR,effAge:effAge};
+}
+
+var TIMELINES={
+  HDB_RESALE:[
+    ['Get your HFE letter','~1 week','Apply on the HDB portal — confirms eligibility, grants and HDB loan amount before you offer.'],
+    ['Get bank In-Principle Approval','same week','If taking a bank loan instead of HDB, secure your IPA so you know your real budget.'],
+    ['Negotiate & get the OTP','flexible','Agree the price; the seller grants an Option to Purchase. You pay the option fee.'],
+    ['Exercise the option','within 21 days','Within the option period, your lawyer exercises it and you pay the deposit.'],
+    ['Submit the resale application','both parties','You and the seller submit to HDB via the portal; HDB reviews documents.'],
+    ['Completion & keys','~8 weeks total','HDB schedules the completion appointment — you pay the balance and collect keys.']],
+  HDB_BTO:[
+    ['Get your HFE letter','before applying','Confirms eligibility, grants and loan — required to apply for a BTO.'],
+    ['Apply in a BTO exercise','launch window','Submit your application during a sales launch and wait for the ballot.'],
+    ['Booking appointment','after ballot','If your queue number is called, select a unit and pay the option fee.'],
+    ['Sign the lease agreement','~4 months','Sign the Agreement for Lease and pay the downpayment (stamp duty due here).'],
+    ['Construction','~3–4 years','The flat is built; you pay nothing more until it\'s ready.'],
+    ['Key collection','on completion','Collect keys, pay any balance, start your 5-year MOP.']],
+  EC:[
+    ['Get bank In-Principle Approval','first','EC uses bank loans (no HDB loan). Secure your IPA and check the income ceiling.'],
+    ['Book a unit at the showflat','launch day','Pay the booking fee and receive the Option to Purchase.'],
+    ['Exercise & sign the S&P','~3 weeks','Pay the downpayment; stamp duty is due within 14 days of exercise.'],
+    ['Progressive payments','as it\'s built','You pay in stages as construction hits each milestone (BUC).'],
+    ['TOP & keys','~3–4 years','Collect keys at Temporary Occupation Permit; your 5-year MOP begins.']],
+  CONDO:[
+    ['Get bank In-Principle Approval','first','Know your real loan headroom before you commit to anything.'],
+    ['Secure the OTP','flexible','Pay the option fee (1% resale; booking fee for new launch) for the Option to Purchase.'],
+    ['Exercise the option','within 14 days (resale)','Pay the deposit (to 5% / 20%); stamp duty is due within 14 days of exercise.'],
+    ['Conveyancing & financing','in parallel','Your lawyer does title checks; the bank prepares the loan and CPF is arranged.'],
+    ['Completion & keys','~8–12 weeks (resale)','Pay the balance via loan + CPF/cash and collect keys. New launches complete progressively.']],
+  LANDED:[
+    ['Get bank In-Principle Approval','first','Landed financing is more bespoke — confirm your loan early.'],
+    ['Secure the OTP','flexible','Pay the option fee for the Option to Purchase.'],
+    ['Exercise the option','within 14 days','Pay the deposit; stamp duty due within 14 days of exercise.'],
+    ['Conveyancing & checks','in parallel','Title, tenure and any URA/SLA conditions are verified by your lawyer.'],
+    ['Completion & keys','~10–12 weeks','Pay the balance and complete the purchase.']]
+};
+function checklist(){
+  var hdb=(S.type==='HDB_RESALE'||S.type==='HDB_BTO'),common=[
+    ['Get an In-Principle Approval / HFE','Know exactly what you can borrow before you offer — '+(hdb?'an HFE letter for HDB.':'a bank IPA, valid ~30 days.')],
+    ['Set aside your cash + CPF','Have the upfront cash and stamp-duty money ready — stamp duty is due fast.'],
+    ['Appoint a conveyancing lawyer','They handle the legal transfer, CPF and loan paperwork.'],
+    ['Arrange home & fire insurance','Required before completion (mortgage fire insurance is compulsory for HDB).']];
+  if(S.type==='HDB_RESALE')common.splice(1,0,['Use the HDB Resale Portal','Both you and the seller submit your halves of the resale application.']);
+  if(S.type==='HDB_BTO')common.splice(1,0,['Plan around the build time','A BTO is ~3–4 years away — factor your housing in the meantime.']);
+  if(S.type==='EC')common.push(['Confirm the $16k income ceiling','Your household income must stay within the EC limit at application.']);
+  return common;
+}
+
+/* ===================== render roadmap ===================== */
+function showRoadmap(){
+  STEP=4;renderProg();
+  var el=eligibility(),blocked=el.status==='block',b=budget(),a=b.absdInfo,owned=parseInt(S.owned,10);
+  var ps=profilesList(),profName=RULES.absdName[a.prof];
+  var sum=[RULES.absdName[S.profile],(owned===0?'first property':(owned===1?'2nd property':'3rd+ property')),TYPES[S.type].toLowerCase(),(S.purpose==='own'?'own-stay':'investment')].join(' · ');
+
+  var h='<div class="rm-head"><div class="rm-prep"><span class="dia"></span>Prepared with Compass · by Adam Phang</div>'+
+    '<h2>Your home-buying roadmap</h2><div class="rm-summary">'+sum+'</div></div><div class="rm-body">';
+
+  /* 1 eligibility */
+  h+='<div class="sec"><div class="sec-h"><span class="si">'+(blocked?'🚫':el.status==='cond'?'⚠️':'✅')+'</span><h3>Can you buy this?</h3></div>'+
+     '<div class="elig '+(blocked?'block':el.status==='cond'?'cond':'ok')+'"><span class="ei">'+(blocked?'✕':el.status==='cond'?'!':'✓')+'</span><div><b>'+el.title+'</b>'+
+     (el.points.length?'<ul>'+el.points.map(function(p){return '<li>'+p+'</li>';}).join('')+'</ul>':'')+'</div></div></div>';
+
+  if(blocked){
+    h+='<div class="sec"><div class="note tip"><span class="ni">💡</span><span>Because this property type isn\'t open to you, Compass hasn\'t run the budget. Go <b>Back</b> and try a type you\'re eligible for — or talk to Adam about your options.</span></div></div>';
+    h+=roadFoot();$('#road');document.getElementById('road').innerHTML=h;swap();return;
+  }
+
+  /* 2 budget */
+  h+='<div class="sec"><div class="sec-h"><span class="si">💰</span><h3>What you can afford</h3></div>'+
+    '<div class="headline"><span class="hl">Your estimated budget</span><span class="hv">'+money(b.P)+'</span></div>'+
+    orow('Maximum bank loan',money(b.loan),pct(b.ltv)+' LTV · '+b.tenure+'-year tenure')+
+    orow('Estimated monthly repayment',money(b.monthly),'~3.5% p.a. · stress-tested at 4%')+
+    note(b.limit==='income'?'i':'i',b.limit==='income'
+      ?'Your <b>income</b> sets this ceiling under the 55% TDSR rule'+(b.isMSR?' and the 30% MSR for HDB/EC':'')+'. More income or fewer debts would raise it.'
+      :'Your <b>cash &amp; CPF</b> set this ceiling — your income could support a bigger loan, but you\'d need more upfront. Saving more raises this.')+
+    '</div>';
+
+  /* 3 cash needed */
+  h+='<div class="sec"><div class="sec-h"><span class="si">💵</span><h3>Cash you\'ll need upfront</h3><span class="sn">for a '+money(b.P)+' purchase</span></div>'+
+    orow('Downpayment',money(b.down),pct(1-b.ltv)+' of price (cash + CPF)')+
+    orow('↳ minimum that must be cash',money(b.minCash),pct(b.minCashRate)+' in cash','sub')+
+    orow('Buyer\'s Stamp Duty (BSD)',money(b.bsd),'on '+money(b.P))+
+    orow('Additional Buyer\'s Stamp Duty',b.absd?money(b.absd):'$0',
+      a.remission?'$0 — married-couple remission, first home':(a.rate?pct(a.rate)+' · '+profName+(owned?', +'+owned+' owned':''):'first property, no ABSD'))+
+    orow('Legal / conveyancing',money(b.legal),'estimate')+
+    (b.val?orow('Valuation',money(b.val),'private purchase'):'')+
+    orow('__tot','Total cash + CPF needed',money(b.upfront))+
+    note('warn','Stamp duty is due <b>within 14 days</b> of exercising the option — have this money liquid, not locked up.')+
+    (a.remission?note('tip','You pay <b>$0 ABSD</b> as a married couple buying your first home with a Citizen. If either of you owned a home before, the remission may not apply — confirm with IRAS.'):'')+
+    '</div>';
+
+  /* 4 timeline */
+  var tl=TIMELINES[S.type];
+  h+='<div class="sec"><div class="sec-h"><span class="si">🗓️</span><h3>Your timeline</h3></div><ol class="tl">'+
+    tl.map(function(s){return '<li><span class="tt">'+s[0]+'<span class="tw">'+s[1]+'</span></span><div class="td">'+s[2]+'</div></li>';}).join('')+'</ol></div>';
+
+  /* 5 checklist */
+  h+='<div class="sec"><div class="sec-h"><span class="si">📋</span><h3>Your action checklist</h3></div><ul class="chk">'+
+    checklist().map(function(c){return '<li><span class="cb"></span><div><b>'+c[0]+'</b><span class="cs">'+c[1]+'</span></div></li>';}).join('')+'</ul></div>';
+
+  h+=roadFoot();
+  document.getElementById('road').innerHTML=h;swap();
+}
+function orow(k,v,sub,cls){
+  if(k==='__tot')return '<div class="orow tot"><span class="ok">'+v+'</span><span class="ov">'+sub+'</span></div>';
+  return '<div class="orow'+(cls==='sub'?' sub':'')+'"><span class="ok">'+k+(sub?'<span class="osub">'+sub+'</span>':'')+'</span><span class="ov">'+v+'</span></div>';
+}
+function note(t,txt){return '<div class="note'+(t==='warn'?' warn':t==='tip'?' tip':'')+'"><span class="ni">'+(t==='warn'?'⚠':t==='tip'?'💡':'ℹ')+'</span><p>'+txt+'</p></div>';}
+function roadFoot(){
+  return '</div><div class="rm-foot"><div class="rm-cta"><h4>Ready to make a move?</h4><p>This roadmap is your starting line. For your exact numbers, financing and the smartest way to structure it — have a quick chat with Adam.</p>'+
+    '<a class="btn btn-p" href="https://adamdegoat.github.io/realestate/">Talk to Adam →</a></div>'+
+    '<div class="rm-actions"><button class="btn btn-g" onclick="window.print()">🖨️ Print / Save PDF</button><button class="btn btn-g" onclick="restart()">↺ Start over</button></div>'+
+    '<p class="disc">Indicative personalised estimate using Singapore rules current as at June 2026 — not financial or legal advice. Loan amounts, eligibility and exact stamp duty must be confirmed with the bank, HDB, a lawyer and IRAS.</p></div>';
+}
+function swap(){
+  document.getElementById('wizard').style.display='none';
+  document.getElementById('road').style.display='block';
+  document.getElementById('heroTop').style.display='none';
+  scrollTop();
+}
+function restart(){
+  STEP=0;
+  document.getElementById('road').style.display='none';
+  document.getElementById('wizard').style.display='block';
+  document.getElementById('heroTop').style.display='';
+  renderStep();scrollTop();
+}
+
+/* install modal */
+function abSetOs(os){document.querySelectorAll('.ab-seg button').forEach(function(b){b.classList.toggle('on',b.dataset.os===os);});document.getElementById('abIos').classList.toggle('ab-hidden',os!=='ios');document.getElementById('abAnd').classList.toggle('ab-hidden',os!=='and');}
+function openAbGuide(){abSetOs(/iPad|iPhone|iPod/.test(navigator.userAgent)?'ios':'and');document.getElementById('abGuide').classList.add('open');}
+function closeAbGuide(){document.getElementById('abGuide').classList.remove('open');}
+document.querySelectorAll('.ab-seg button').forEach(function(b){b.addEventListener('click',function(){abSetOs(b.dataset.os);});});
+document.getElementById('abGuide').addEventListener('click',function(e){if(e.target.id==='abGuide')closeAbGuide();});
+(function(){var sa=(window.matchMedia&&window.matchMedia('(display-mode: standalone)').matches)||window.navigator.standalone;if(sa){var el=document.getElementById('abInstall');if(el)el.classList.add('ab-hidden');}})();
+if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
+
+/* go */
+renderStep();
+</script>
+</body>
+</html>
