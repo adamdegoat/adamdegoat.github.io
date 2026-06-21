@@ -85,19 +85,26 @@ const Engines = (() => {
   }
 
   // ============ CONDO AVM ============
-  const CD = { FLOOR: 0.007, FH: 0.12, HALFLIFE: 8, SIZE_TOL: 0.18, MIN_PROJ: 4, MIN: 5 };
+  const CD = { FLOOR: 0.007, FH: 0.12, HALFLIFE: 8, SIZE_TOL: 0.18, MIN_PROJ: 2, MIN: 5, CROSS_PROJ: 25, CROSS_KM: 0.3 };
 
   function condoEstimate(rows, subj) {
     // subj: {project, seg, ptype, tenure_fh, area_sqm, floor_mid}
     const lo = subj.area_sqm * (1 - CD.SIZE_TOL), hi = subj.area_sqm * (1 + CD.SIZE_TOL);
     const inSize = r => r.area_sqm >= lo && r.area_sqm <= hi;
+    // subject location: use any same-project caveats' coords (centroid) so the
+    // cross-district fallback can weight by real distance — no frontend wiring needed.
+    const projRows = rows.filter(r => r.project === subj.project && r.x && r.y);
+    const subjX = subj.x || (projRows.length ? C.median(projRows.map(r => r.x)) : null);
+    const subjY = subj.y || (projRows.length ? C.median(projRows.map(r => r.y)) : null);
     let pool = rows.filter(r => r.project === subj.project && inSize(r));
     let cross = false, scope = 'same project';
     if (pool.length < CD.MIN_PROJ) {
       pool = rows.filter(r => r.seg === subj.seg && r.ptype === subj.ptype && inSize(r));
       cross = true; scope = `D${subj.district} · ${subj.seg} · ${subj.ptype}`;
     }
-    if (pool.length < CD.MIN) return { ok: false, reason: `Only ${pool.length} comparable caveats in ${scope} (need ${CD.MIN}).` };
+    // same-project sales are strong signal: accept from MIN_PROJ. district fallback needs MIN.
+    const need = cross ? CD.MIN : CD.MIN_PROJ;
+    if (pool.length < need) return { ok: false, reason: `Only ${pool.length} comparable caveats in ${scope} (need ${need}).` };
 
     const byMonth = {};
     pool.forEach(r => (byMonth[r.yymm] = byMonth[r.yymm] || []).push(r.psf));
@@ -115,7 +122,19 @@ const Engines = (() => {
       const wRec = Math.pow(0.5, age / CD.HALFLIFE);
       const wSize = 1 / (1 + Math.abs(r.area_sqm - subj.area_sqm) / subj.area_sqm * 4);
       const wFloor = 1 / (1 + Math.abs((subj.floor_mid || 0) - (r.floor_mid || 0)) * 0.04);
-      return { ...r, drift, floorAdj, tenureAdj, adj_psf: adj, weight: wRec * wSize * wFloor };
+      // cross-district fallback only: lean on same-project sales and physically nearer
+      // projects (real GPS distance) instead of weighting the whole district equally.
+      let wProx = 1;
+      if (cross) {
+        const wProj = r.project === subj.project ? CD.CROSS_PROJ : 1;
+        let wDist = 1;
+        if (subjX && subjY && r.x && r.y) {
+          const km = Math.hypot(subjX - r.x, subjY - r.y) / 1000;
+          wDist = 1 / (1 + km / CD.CROSS_KM);
+        }
+        wProx = wProj * wDist;
+      }
+      return { ...r, drift, floorAdj, tenureAdj, adj_psf: adj, weight: wRec * wSize * wFloor * wProx };
     });
     const res = finalize(comps, subj.area_sqm, cross
       ? { highN: 999, highCV: 0, medN: 6, medCV: 0.10 }
