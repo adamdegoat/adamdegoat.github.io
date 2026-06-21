@@ -37,14 +37,20 @@
   header.bar{position:sticky;top:0;z-index:50;background:rgba(10,10,12,.86);
     backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
   .bar .wrap{display:flex;align-items:center;gap:12px;height:56px}
-  .logo{font-family:Oswald;font-weight:700;font-size:24px;letter-spacing:2px}
+  .logo{font-family:Oswald;font-weight:700;font-size:24px;letter-spacing:2px;white-space:nowrap}
   .logo b{color:var(--red2)}
+  @media(max-width:480px){.logo .sfx{display:none}}
   .bar .grow{flex:1}
   .live{display:inline-flex;align-items:center;gap:7px;background:var(--red);
     color:#fff;font-weight:700;font-size:13px;padding:9px 14px;border-radius:10px;
     text-decoration:none;box-shadow:0 4px 16px rgba(210,10,10,.4)}
   .live .dot{width:8px;height:8px;border-radius:50%;background:#fff;
     animation:pulse 1.4s infinite}
+  .inst{background:var(--panel2);color:#fff;border:1px solid var(--line);
+    font-weight:600;font-size:13px;padding:9px 12px;border-radius:10px;cursor:pointer;
+    font-family:inherit}
+  .inst:active{background:var(--line)}
+  @media(max-width:430px){.logo{font-size:19px}.inst{padding:9px 10px;font-size:12px}.live{padding:9px 11px}}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 
   /* tabs */
@@ -67,8 +73,9 @@
     background:radial-gradient(120% 90% at 100% 0,rgba(210,10,10,.22),transparent 60%);pointer-events:none}
   .eyebrow{color:var(--red2);font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase}
   .hero h1{font-size:30px;line-height:1.05;margin:8px 0 4px}
-  .hero .when{font-weight:600;color:var(--gold);margin-top:6px;font-size:15px}
-  .hero .venue{color:var(--mut);font-size:14px;margin-top:2px}
+  .hero .when{font-weight:700;color:var(--gold);margin-top:8px;font-size:16px}
+  .hero .when2{font-weight:600;color:var(--mut);margin-top:3px;font-size:14px}
+  .hero .venue{color:var(--mut);font-size:14px;margin-top:4px}
   .hook{font-style:italic;color:var(--txt);opacity:.9;margin:14px 0 0;font-size:15px}
 
   /* countdown */
@@ -122,6 +129,28 @@
     font-size:12px;text-align:center;line-height:1.8}
   footer a{color:var(--mut)}
   .empty{color:var(--mut);text-align:center;padding:40px 0}
+
+  /* install modal */
+  .modal{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.65);
+    backdrop-filter:blur(4px);display:flex;align-items:flex-end;justify-content:center}
+  .modal[hidden]{display:none}
+  .sheet{background:var(--panel);border:1px solid var(--line);border-radius:20px 20px 0 0;
+    width:100%;max-width:var(--maxw);max-height:88vh;overflow-y:auto;padding:24px 20px 36px;
+    position:relative;animation:up .25s}
+  @keyframes up{from{transform:translateY(40px);opacity:.5}to{transform:none;opacity:1}}
+  .sheet h3{font-size:22px;margin-bottom:6px}
+  .sheet .msub{color:var(--mut);font-size:14px;margin:0 0 18px}
+  .sheet .x{position:absolute;top:16px;right:16px;background:var(--panel2);border:1px solid var(--line);
+    color:var(--txt);width:34px;height:34px;border-radius:50%;font-size:14px;cursor:pointer}
+  .step-blk{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px}
+  .step-blk.hot{border-color:var(--red);box-shadow:0 0 0 1px var(--red) inset}
+  .step-blk .os{font-family:Oswald;font-weight:600;font-size:16px;margin-bottom:10px}
+  .step-blk .os span{color:var(--mut);font-size:13px;font-weight:400}
+  .step-blk ol{margin:0;padding-left:20px;line-height:1.7;font-size:14.5px}
+  .step-blk .ic{display:inline-block;background:var(--panel2);border:1px solid var(--line);
+    border-radius:5px;padding:0 6px;font-size:13px}
+  .step-blk .tip{color:var(--gold);font-size:12.5px;margin:8px 0 0}
+  @media(min-width:680px){.modal{align-items:center}.sheet{border-radius:20px}}
   @media(min-width:680px){
     .hero h1{font-size:38px}
     .cd .n{font-size:38px}
@@ -130,8 +159,9 @@
 </head>
 <body>
 <header class="bar"><div class="wrap">
-  <span class="logo"><b>UFC</b> · Fight Week</span>
+  <span class="logo"><b>UFC</b><span class="sfx"> · Fight Week</span></span>
   <span class="grow"></span>
+  <button class="inst" id="installBtn" title="Install app">📲 Install</button>
   <a class="live" id="liveBtn" href="#" target="_blank" rel="noopener"><span class="dot"></span>Watch Live</a>
 </div></header>
 
@@ -148,10 +178,46 @@
 </main>
 
 <footer class="wrap">
-  All times in <b>SGT</b> · broadcast start shown — prelims begin earlier.<br>
+  All times in <b>SGT</b> · main card &amp; prelims shown · confirm on fight day.<br>
   Data: TheSportsDB · News: Sherdog, MMA Fighting, MMA Mania, BJPenn<br>
-  <span id="updated"></span> · Add to Home Screen to install
+  <span id="updated"></span> · <a href="#" id="installLink" style="color:var(--red2);font-weight:600">📲 Install this app</a>
 </footer>
+
+<!-- Install guide modal -->
+<div id="installModal" class="modal" hidden>
+  <div class="sheet">
+    <button class="x" id="installClose" aria-label="Close">✕</button>
+    <h3>Install UFC · Fight Week</h3>
+    <p class="msub">Add it to your home screen — opens full-screen like a real app, with the live countdown.</p>
+
+    <div class="step-blk" data-os="ios">
+      <div class="os">📱 iPhone / iPad <span>(Safari)</span></div>
+      <ol>
+        <li>Tap the <b>Share</b> button <span class="ic">⎙</span> at the bottom of Safari.</li>
+        <li>Scroll down and tap <b>“Add to Home Screen”</b>.</li>
+        <li>Tap <b>Add</b> (top-right). Done — find the UFC icon on your home screen.</li>
+      </ol>
+      <p class="tip">Must be open in <b>Safari</b> (not Chrome) on iPhone.</p>
+    </div>
+
+    <div class="step-blk" data-os="android">
+      <div class="os">🤖 Android <span>(Chrome)</span></div>
+      <ol>
+        <li>Tap the <b>⋮</b> menu (top-right).</li>
+        <li>Tap <b>“Install app”</b> or <b>“Add to Home screen”</b>.</li>
+        <li>Confirm <b>Install</b>.</li>
+      </ol>
+    </div>
+
+    <div class="step-blk" data-os="desktop">
+      <div class="os">💻 Desktop <span>(Chrome / Edge)</span></div>
+      <ol>
+        <li>Click the <b>install icon</b> ⊕ in the address bar (right side), or the <b>⋮</b> menu.</li>
+        <li>Choose <b>“Install UFC · Fight Week”</b>.</li>
+      </ol>
+    </div>
+  </div>
+</div>
 
 <script>
 const $ = (s,r=document)=>r.querySelector(s);
@@ -215,8 +281,9 @@ function renderNext(d){
   let html=`<div class="hero">
     <div class="eyebrow">Next Event</div>
     <h1>${esc(ev.name)}</h1>
-    <div class="when">📅 ${esc(ev.when_sgt||'TBA')}</div>
-    ${ev.venue?`<div class="venue">📍 ${esc(ev.venue)}</div>`:''}
+    <div class="when">🥊 Main card · ${esc(ev.when_main||'TBA')}</div>
+    ${ev.when_prelims?`<div class="when2">⏱ Prelims · ${esc(ev.when_prelims)}</div>`:''}
+    ${ev.location?`<div class="venue">📍 ${esc(ev.location)}</div>`:''}
     ${d.hooks&&d.hooks.prefight?`<p class="hook">${esc(d.hooks.prefight)}</p>`:''}
     <div class="cd" id="cd"></div>`;
   if(me) html+=`<div class="mainevt"><div class="tag">Main Event</div>
@@ -225,7 +292,7 @@ function renderNext(d){
   html+=`<div class="btnrow">
     <a class="btn primary" href="${esc(d.stream)}" target="_blank" rel="noopener">📺 Watch Live</a>
     <a class="btn ghost" href="#full">View Full Card</a></div>
-    <div class="note">Broadcast start (SGT) — prelims begin earlier</div>
+    <div class="note">All times in SGT · confirm on fight day</div>
   </div>`;
   html+=`<div id="full">${group(ev.bouts,false)}</div>`;
   $('#next').innerHTML=html;
@@ -239,7 +306,8 @@ function renderResults(d){
   let html=`<div class="hero" style="padding:18px">
     <div class="eyebrow">Latest Results</div>
     <h1 style="font-size:24px">${esc(ev.name)}</h1>
-    <div class="when">📅 ${esc(ev.when_sgt||'')}</div>
+    ${ev.when_sgt?`<div class="when">📅 ${esc(ev.when_sgt)}</div>`:''}
+    ${ev.location?`<div class="venue">📍 ${esc(ev.location)}</div>`:''}
     ${d.hooks&&d.hooks.results?`<p class="hook">${esc(d.hooks.results)}</p>`:''}
   </div>`;
   html += decided ? group(ev.bouts,true)
@@ -269,6 +337,36 @@ async function load(){
   }
 }
 load();
+
+// ── Install guide ──────────────────────────────────────────────
+let deferredPrompt = null;
+window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredPrompt = e; });
+const modal = $('#installModal');
+function openInstall(){
+  // highlight the user's platform
+  const ua = navigator.userAgent;
+  const os = /iphone|ipad|ipod/i.test(ua) ? 'ios' : /android/i.test(ua) ? 'android' : 'desktop';
+  document.querySelectorAll('.step-blk').forEach(b=>b.classList.toggle('hot', b.dataset.os===os));
+  modal.hidden = false;
+}
+async function handleInstall(e){
+  if(e) e.preventDefault();
+  if(deferredPrompt){            // Android / desktop Chrome — real prompt
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
+    deferredPrompt = null;
+  } else {                        // iOS / unsupported — show guide
+    openInstall();
+  }
+}
+$('#installBtn').onclick = handleInstall;
+$('#installLink').onclick = handleInstall;
+$('#installClose').onclick = ()=> modal.hidden = true;
+modal.onclick = e => { if(e.target===modal) modal.hidden = true; };
+// hide the install button if already running as an installed app
+if(window.matchMedia('(display-mode: standalone)').matches || navigator.standalone){
+  $('#installBtn').style.display='none';
+}
 
 // PWA service worker
 if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js').catch(()=>{}); }
