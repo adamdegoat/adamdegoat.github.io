@@ -56,7 +56,7 @@ const Search = (() => {
 
   async function runCondo(out) {
     if (!CONDO) CONDO = C.expand(await C.getJSON('condo_summary.json'));
-    const region = val('s_region'), budget = +val('s_budget') || Infinity, minY = +val('s_yield') || 0, sort = val('s_sort');
+    const region = val('s_region'), bRaw = val('s_budget').trim(), budget = bRaw === '' ? Infinity : +bRaw, minY = +val('s_yield') || 0, sort = val('s_sort');
     let m = CONDO.filter(p => (!region || p.seg === region) && p.median_price <= budget && (minY ? (p.yield != null && p.yield >= minY) : true));
     const sorters = { yield: (a, b) => (b.yield ?? -1) - (a.yield ?? -1), price: (a, b) => a.median_price - b.median_price,
       txns: (a, b) => b.txns - a.txns, psf: (a, b) => a.median_psf - b.median_psf };
@@ -90,9 +90,9 @@ const Search = (() => {
   }
 
   function runHdb(out) {
-    const budget = +val('s_budget') || Infinity, sort = val('s_sort');
-    let towns = (window.__pulse ? window.__pulse.hdb_towns : []).filter(t => t.median_price <= budget);
-    if (!towns.length && !window.__pulse) { out.innerHTML = `<div class="empty-state"><p class="err">Market data still loading — try again in a moment.</p></div>`; return; }
+    if (!window.__pulse) { out.innerHTML = `<div class="empty-state"><p class="err">Market data still loading — try again in a moment.</p></div>`; return; }
+    const bRaw = val('s_budget').trim(), budget = bRaw === '' ? Infinity : +bRaw, sort = val('s_sort');
+    let towns = window.__pulse.hdb_towns.filter(t => t.median_price <= budget);
     const sorters = { price: (a, b) => a.median_price - b.median_price, txns: (a, b) => b.txns - a.txns, psf: (a, b) => a.median_psf - b.median_psf };
     towns.sort(sorters[sort] || sorters.price);
     if (!towns.length) { out.innerHTML = `<div class="empty-state"><p>No towns under that budget — raise it.</p></div>`; return; }

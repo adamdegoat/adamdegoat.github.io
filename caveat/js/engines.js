@@ -25,7 +25,7 @@ const Engines = (() => {
     const lo = hasArea ? subj.area_sqm * (1 - HDB.SIZE_TOL) : 0;
     const hi = hasArea ? subj.area_sqm * (1 + HDB.SIZE_TOL) : Infinity;
     const base = rows.filter(r => r.flat_type === subj.flat_type && (!hasArea || (r.area_sqm >= lo && r.area_sqm <= hi)));
-    if (base.length < HDB.MIN) return { ok: false, reason: `Only ${base.length} comparable ${subj.flat_type} sales in the area (need ${HDB.MIN}).` };
+    if (base.length < HDB.MIN) { const n = base.length; return { ok: false, reason: `Only ${n} recent ${subj.flat_type.toLowerCase()} sale${n === 1 ? '' : 's'} on record near here — try a nearby street or a more common flat type.` }; }
 
     // LOCALITY TIERS — use the tightest pool with enough comps, and say which one.
     // block -> street -> estate -> town. Never silently fall back to the whole town.
@@ -89,8 +89,9 @@ const Engines = (() => {
 
   function condoEstimate(rows, subj) {
     // subj: {project, seg, ptype, tenure_fh, area_sqm, floor_mid}
-    const lo = subj.area_sqm * (1 - CD.SIZE_TOL), hi = subj.area_sqm * (1 + CD.SIZE_TOL);
-    const inSize = r => r.area_sqm >= lo && r.area_sqm <= hi;
+    const hasArea = subj.area_sqm > 0;
+    const lo = hasArea ? subj.area_sqm * (1 - CD.SIZE_TOL) : 0, hi = hasArea ? subj.area_sqm * (1 + CD.SIZE_TOL) : Infinity;
+    const inSize = r => !hasArea || (r.area_sqm >= lo && r.area_sqm <= hi);
     // subject location: use any same-project caveats' coords (centroid) so the
     // cross-district fallback can weight by real distance — no frontend wiring needed.
     const projRows = rows.filter(r => r.project === subj.project && r.x && r.y);
@@ -104,7 +105,7 @@ const Engines = (() => {
     }
     // same-project sales are strong signal: accept from MIN_PROJ. district fallback needs MIN.
     const need = cross ? CD.MIN : CD.MIN_PROJ;
-    if (pool.length < need) return { ok: false, reason: `Only ${pool.length} comparable caveats in ${scope} (need ${need}).` };
+    if (pool.length < need) { const n = pool.length; return { ok: false, reason: `Only ${n} comparable sale${n === 1 ? '' : 's'} in ${scope}${hasArea ? ' near this size' : ''}. ${hasArea ? 'Clear the floor area to include all unit sizes, or try' : 'Try'} a nearby project.` }; }
 
     const byMonth = {};
     pool.forEach(r => (byMonth[r.yymm] = byMonth[r.yymm] || []).push(r.psf));
@@ -120,7 +121,7 @@ const Engines = (() => {
       const adj = r.psf * drift * floorAdj * tenureAdj;
       const age = C.monthsBetween(r.yymm, now);
       const wRec = Math.pow(0.5, age / CD.HALFLIFE);
-      const wSize = 1 / (1 + Math.abs(r.area_sqm - subj.area_sqm) / subj.area_sqm * 4);
+      const wSize = hasArea ? 1 / (1 + Math.abs(r.area_sqm - subj.area_sqm) / subj.area_sqm * 4) : 1;
       const wFloor = 1 / (1 + Math.abs((subj.floor_mid || 0) - (r.floor_mid || 0)) * 0.04);
       // cross-district fallback only: lean on same-project sales and physically nearer
       // projects (real GPS distance) instead of weighting the whole district equally.
@@ -136,10 +137,11 @@ const Engines = (() => {
       }
       return { ...r, drift, floorAdj, tenureAdj, adj_psf: adj, weight: wRec * wSize * wFloor * wProx };
     });
-    const res = finalize(comps, subj.area_sqm, cross
+    const areaForEst = hasArea ? subj.area_sqm : C.median(pool.map(r => r.area_sqm));
+    const res = finalize(comps, areaForEst, cross
       ? { highN: 999, highCV: 0, medN: 6, medCV: 0.10 }
       : { highN: 8, highCV: 0.07, medN: 6, medCV: 0.10 });
-    res.scope = scope; res.cross = cross;
+    res.scope = scope; res.cross = cross; res.area_assumed = !hasArea;
     return res;
   }
 

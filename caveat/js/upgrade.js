@@ -22,9 +22,11 @@ const Upgrade = (() => {
   }
 
   function calc() {
-    const val = +v('u_val'), loan = +v('u_loan') || 0, save = +v('u_save') || 0, price = +v('u_price'), income = +v('u_income') || 0;
+    const val = +v('u_val'); let loan = +v('u_loan') || 0, save = +v('u_save') || 0, income = +v('u_income') || 0; const price = +v('u_price');
+    if (loan < 0) loan = 0; if (save < 0) save = 0; if (income < 0) income = 0;
     const e = document.getElementById('u_err');
-    if (!val || !price) { e.textContent = 'Enter your flat value and the target condo price.'; e.style.display = 'block'; return; }
+    if (!(val > 0) || !(price > 0)) { e.textContent = 'Enter a valid flat value and target condo price.'; e.style.display = 'block'; return; }
+    if (loan > val) { e.textContent = 'Your outstanding loan is larger than the flat value — please check the figures.'; e.style.display = 'block'; return; }
     e.style.display = 'none';
     const mopMet = document.getElementById('u_mop').checked;
     const sellCost = Math.round(val * 0.02 * 1.09 + 2500); // ~2% agent commission (+9% GST) + ~$2.5k legal
@@ -75,7 +77,7 @@ const Upgrade = (() => {
       ${!ctx.mopMet ? `<div class="ref-banner" style="margin:0 0 2px">⚠ You must complete your <b>5-year MOP</b> before you can sell your flat or buy private property — these figures assume MOP is met.</div>` : ''}
       <div class="up-paths">
         ${pathCard('Sell first, then buy', 'Your condo becomes your only property — no ABSD. Cleanest path, but you may need interim housing between the sale and the new place.', sell, true)}
-        ${pathCard('Buy first, keep HDB', 'Pay the 20% ABSD upfront — fully refundable if you sell the flat within 6 months. Needs more cash and a smaller loan while the HDB loan is still on.', buy, false)}
+        ${pathCard('Buy first, keep HDB', `Pay the ${buy.absdPct}% ABSD upfront — fully refundable if you sell the flat within 6 months. Needs more cash and a smaller loan while the HDB loan is still on.`, buy, false)}
       </div>
       <div class="rules-applied" style="border-radius:0 0 var(--r-lg) var(--r-lg)">
         <h4>Good to know</h4>

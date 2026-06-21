@@ -7,7 +7,7 @@ const Narrative = (() => {
     if (trend.length < 3) return { word: 'broadly stable', dir: 0 };
     const first = C.median(trend.slice(0, Math.ceil(trend.length / 2)).map(t => t.psf));
     const last = C.median(trend.slice(-Math.ceil(trend.length / 2)).map(t => t.psf));
-    const chg = (last - first) / first;
+    const chg = first ? (last - first) / first : 0;
     if (chg > 0.03) return { word: 'firming', dir: 1, pct: Math.round(chg * 100) };
     if (chg < -0.03) return { word: 'softening', dir: -1, pct: Math.round(-chg * 100) };
     return { word: 'broadly stable', dir: 0 };

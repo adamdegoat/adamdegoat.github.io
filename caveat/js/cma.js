@@ -78,10 +78,11 @@ const CMA = (() => {
         <div class="ac-list" id="f_ac" style="display:none"></div>
       </div>
       <div class="field two">
-        <div><label>Floor area</label><input id="f_area" type="number" inputmode="decimal" placeholder="90"><span class="suffix">sqm</span></div>
-        <div><label>Floor level</label><input id="f_floor" type="number" inputmode="numeric" placeholder="12"></div>
+        <div><label>Floor area <span style="font-weight:500;color:var(--ink-3)">· optional</span></label><input id="f_area" type="number" inputmode="decimal" placeholder="your unit"><span class="suffix">sqm</span></div>
+        <div><label>Floor level <span style="font-weight:500;color:var(--ink-3)">· optional</span></label><input id="f_floor" type="number" inputmode="numeric" placeholder="any"></div>
       </div>
-      <div class="field"><div id="f_projinfo" class="hint"></div></div>`;
+      <div class="field"><div id="f_projinfo" class="hint"></div></div>
+      <p class="hint">Just the project name works — but condo prices swing a lot by size, so <b>add your floor area</b> for an accurate figure (without it you'll get a rough typical-unit estimate).</p>`;
   }
   function wireCondo() {
     const inp = document.getElementById('f_project'), ac = document.getElementById('f_ac');
@@ -224,7 +225,12 @@ const CMA = (() => {
     const town = val('f_town'), ft = val('f_ftype'), area = +val('f_area'),
       storey = +val('f_storey'), leaseY = +val('f_lease'), block = val('f_block'), street = val('f_street');
     if (!town || !street) throw new Error('Search an address and pick it from the list first.');
-    if (!ft) throw new Error('Pick the flat type.');
+    if (!ft) {
+      const sel = document.getElementById('f_ftype');
+      throw new Error(sel && sel.options.length <= 1
+        ? 'No HDB sales on record for this street — try a nearby street or estate.'
+        : 'Pick the flat type.');
+    }
     const rows = await C.hdbTown(town);
     const subj = { flat_type: ft, area_sqm: area || null, storey_mid: storey || null,
       rem_lease_mths: leaseY ? Math.round(leaseY * 12) : null,
@@ -251,12 +257,17 @@ const CMA = (() => {
   }
 
   async function genCondo(res) {
-    const meta = val('f_projmeta'); if (!meta) throw new Error('Pick a project from the list.');
+    let meta = val('f_projmeta');
+    if (!meta) {  // typed a name but didn't tap the dropdown — auto-resolve an exact match
+      const typed = val('f_project').trim().toUpperCase();
+      const hit = typed && IDX.condo_projects.find(p => p[0] === typed);
+      if (hit) meta = JSON.stringify(hit);
+      else throw new Error('Pick the matching project from the dropdown.');
+    }
     const p = JSON.parse(meta); const area = +val('f_area'), floor = +val('f_floor');
-    if (!area || !floor) throw new Error('Enter floor area and floor level.');
     const rows = await C.condoDistrict(p[1]);
     const subj = { project: p[0], district: p[1], seg: p[2], ptype: p[3], tenure_fh: p[4],
-      area_sqm: area, floor_mid: floor };
+      area_sqm: area || null, floor_mid: floor || null };
     const r = Engines.condoEstimate(rows, subj);
     if (!r.ok) throw new Error(r.reason);
     // rental + gross yield (if the project has enough recent leases)
@@ -282,7 +293,7 @@ const CMA = (() => {
     const color = pr.color || getCss('--brand');
     const sub = kind === 'hdb'
       ? `${Narrative.titleCase(subj.flat_type)} · ${r.area_assumed ? '~' : ''}${r.area_sqf} sqft${r.area_assumed ? ' (typical)' : ''} · ${C.leaseYears(subj.rem_lease_mths) || 'lease n/a'}${subj.rem_lease_mths ? ' yrs lease' : ''}`
-      : `${subj.seg} · D${subj.district} · ${r.area_sqf} sqft · ${subj.tenure_fh ? 'Freehold' : 'Leasehold'}`;
+      : `${subj.seg} · D${subj.district} · ${r.area_assumed ? '~' : ''}${r.area_sqf} sqft${r.area_assumed ? ' (typical)' : ''} · ${subj.tenure_fh ? 'Freehold' : 'Leasehold'}`;
     const cc = r.confidence.toLowerCase();
     const paras = Narrative.cma(kind, subj, r, amen);
     const blockMsg = (kind === 'hdb' && subj.block)
@@ -294,6 +305,7 @@ const CMA = (() => {
       : '';
     const leaseMsg = (kind === 'hdb' && r.lease_lo && r.lease_hi && (r.lease_hi - r.lease_lo) >= 10)
       ? `comparables span ${r.lease_lo}–${r.lease_hi} yrs lease — shorter-lease units sit at the lower end` : '';
+    const areaMsg = r.area_assumed ? '⚠ Rough estimate for a typical unit in this project — enter your floor area for an accurate figure' : '';
     const rspan = Math.max(1, (r.obs_high || 0) - (r.obs_low || 0));
     const midPct = Math.max(8, Math.min(92, Math.round((r.estimate_price - (r.obs_low || r.estimate_price)) / rspan * 100)));
 
@@ -309,6 +321,7 @@ const CMA = (() => {
             <div class="deck-addr">${subj.locationName}</div>
             <div class="deck-sub">${sub}</div>
             ${blockMsg ? `<div class="deck-sub" style="color:var(--brand-d);font-weight:600;margin-top:4px">${blockMsg}</div>` : ''}
+            ${areaMsg ? `<div class="deck-sub" style="color:var(--amber,#c98a16);font-weight:600;margin-top:4px">${areaMsg}</div>` : ''}
           </div>
           <div class="chip ${cc}"><span class="chip-dot"></span>${r.confidence} confidence</div>
         </div>

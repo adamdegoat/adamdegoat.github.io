@@ -75,6 +75,12 @@ const App = (() => {
     document.getElementById('helpClose').addEventListener('click', closeHelp);
     document.getElementById('helpGotit').addEventListener('click', closeHelp);
     helpModal.addEventListener('click', e => { if (e.target.id === 'helpModal') closeHelp(); });
+    // Escape closes any open modal
+    document.addEventListener('keydown', e => {
+      if (e.key !== 'Escape') return;
+      ['settingsModal', 'helpModal', 'ratesModal'].forEach(id => { const m = document.getElementById(id); if (m && !m.hidden) m.hidden = true; });
+      document.querySelectorAll('.cav-modal.open').forEach(m => m.classList.remove('open'));
+    });
     if (!localStorage.getItem('caveat_seen_help')) setTimeout(openHelp, 700); // first-visit tour
 
     document.getElementById('settingsForm').addEventListener('submit', e => {

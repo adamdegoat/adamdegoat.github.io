@@ -47,7 +47,7 @@ const Eligibility = (() => {
       <div class="ref-sec"><h3>Seller's Stamp Duty (SSD)</h3>
         <p class="ref-note">${RATES.ssd.note}</p>
         <table class="ref-tbl"><thead><tr><th>Sold within</th><th>Rate</th></tr></thead><tbody>${ssd}<tr><td>After 4 years</td><td class="num">0%</td></tr></tbody></table>
-        <p class="ref-note">${RATES.ssd.grandfathered_pre_2025_07_04.note} Then: Yr1 12%, Yr2 8%, Yr3 4%, after 3yr 0%.</p>
+        <p class="ref-note">${RATES.ssd.grandfathered_pre_2025_07_04.note} Then: ${RATES.ssd.grandfathered_pre_2025_07_04.tiers.filter(t => t.held_years_upto).map(t => `Yr${t.held_years_upto} ${t.rate}%`).join(', ')}, after 0%.</p>
       </div>
       <div class="ref-sec"><h3>Financing limits</h3>
         <ul class="ref-list">
@@ -110,7 +110,7 @@ const Eligibility = (() => {
       <div class="field" id="e_ftaWrap" style="display:none">
         <label>Nationality (FTA check)</label>
         <select id="e_fta"><option value="">— Other —</option></select>
-        <div class="hint">US, Iceland, Liechtenstein, Norway &amp; Switzerland nationals are taxed as Citizens under FTAs.</div>
+        <div class="hint">${RATES.absd.fta_as_sc.join(', ')} nationals are taxed as Citizens under FTAs.</div>
       </div>
       <div class="field"><label>This will be their…</label>
         <select id="e_count">
@@ -153,9 +153,13 @@ const Eligibility = (() => {
   }
 
   function mortCalc() {
-    const loan = +v('m_loan'), rate = +v('m_rate') || 3.5, tenure = +v('m_tenure') || 25;
+    const loan = +v('m_loan');
+    let rate = v('m_rate').trim() === '' ? 3.5 : +v('m_rate');
+    let tenure = v('m_tenure').trim() === '' ? 25 : +v('m_tenure');
+    if (!(rate >= 0)) rate = 3.5;
+    tenure = Math.min(35, Math.max(1, tenure || 25));
     const e = document.getElementById('m_err');
-    if (!loan) { e.textContent = 'Enter a loan amount.'; e.style.display = 'block'; return; }
+    if (!(loan > 0)) { e.textContent = 'Enter a valid loan amount.'; e.style.display = 'block'; return; }
     e.style.display = 'none';
     const r = rate / 100 / 12, n = tenure * 12;
     const monthly = r ? loan * r / (1 - Math.pow(1 + r, -n)) : loan / n;
@@ -184,9 +188,10 @@ const Eligibility = (() => {
   }
 
   function calc() {
-    const price = +v('e_price'), income = +v('e_income') || 0;
+    let price = +v('e_price'), income = +v('e_income') || 0;
+    if (income < 0) income = 0;
     const errEl = document.getElementById('e_err');
-    if (!price) { errEl.textContent = 'Enter a purchase price.'; errEl.style.display = 'block'; return; }
+    if (!(price > 0)) { errEl.textContent = 'Enter a valid purchase price.'; errEl.style.display = 'block'; return; }
     errEl.style.display = 'none';
     let profile = v('e_profile'); const fta = v('e_fta');
     if (profile === 'Foreigner' && fta) profile = 'SC'; // FTA national taxed as citizen
