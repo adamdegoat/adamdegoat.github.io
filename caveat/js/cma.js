@@ -489,26 +489,27 @@ const CMA = (() => {
   const mLabel = yymm => ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+yymm.slice(2) - 1] + " '" + yymm.slice(0, 2);
 
   function compsTable(kind, comps) {
-    const rows = comps.slice(0, 8).map(c => kind === 'hdb' ? `<tr>
+    const SHOWN = 20, win = kind === 'hdb' ? 15 : 18;
+    const rows = comps.slice(0, SHOWN).map(c => kind === 'hdb' ? `<tr>
       <td>Blk ${c.block}${c.storey_mid ? ` <span style="color:var(--ink-3)">· #${c.storey_mid}</span>` : ''} <span class="hide-sm">${Narrative.titleCase(c.street).replace(/Ave /,'Ave ')}</span></td>
-      <td class="hide-sm">${mLabel(c.yymm)}</td>
+      <td>${mLabel(c.yymm)}</td>
       <td class="num">${c.area_sqm}m²</td>
       <td class="num hide-sm">$${Math.round(c.psf)}</td>
       <td class="num adj">$${Math.round(c.adj_psf)}</td>
       <td class="num">${C.fmtK(c.price)}</td></tr>`
       : `<tr>
       <td>${Narrative.titleCase(c.project)}${c.floor_mid ? ` <span style="color:var(--ink-3)">· #${String(c.floor_mid).padStart(2, '0')}</span>` : ''}</td>
-      <td class="hide-sm">${mLabel(c.yymm)}</td>
+      <td>${mLabel(c.yymm)}</td>
       <td class="num">${c.area_sqm}m²</td>
       <td class="num hide-sm">$${Math.round(c.psf)}</td>
       <td class="num adj">$${Math.round(c.adj_psf)}</td>
       <td class="num">${C.fmtK(c.price)}</td></tr>`).join('');
     return `<table class="comps"><thead><tr>
-      <th>${kind === 'hdb' ? 'Block' : 'Project'}</th><th class="hide-sm">Month</th>
+      <th>${kind === 'hdb' ? 'Block' : 'Project'}</th><th>Month</th>
       <th style="text-align:right">Size</th><th style="text-align:right" class="hide-sm">Raw psf</th>
       <th style="text-align:right">Adj psf</th><th style="text-align:right">Price</th>
       </tr></thead><tbody>${rows}</tbody></table>
-      <p class="hint" style="margin-top:10px">“Adj psf” normalises each comparable to the subject for time, ${kind === 'hdb' ? 'storey &amp; lease' : 'floor &amp; tenure'}. #floor is the mid-point of the band URA/HDB reports.</p>`;
+      <p class="hint" style="margin-top:10px">Showing the ${Math.min(comps.length, SHOWN)} closest of ${comps.length} comparable${comps.length === 1 ? '' : 's'} used (last ${win} months), ranked by recency, size &amp; floor. “Adj psf” normalises each to the subject for time, ${kind === 'hdb' ? 'storey &amp; lease' : 'floor &amp; tenure'}. #floor is the band mid-point.</p>`;
   }
 
   const amenIcon = { mrt: '🚇', lrt: '🚈', school: '🎓', hawker: '🍜', park: '🌳' };
