@@ -47,7 +47,7 @@ const Narrative = (() => {
       const nearest = (k, label) => { if (amen[k] && amen[k][0]) bits.push(`${label} ${amen[k][0].name.replace(/\s*\(.*\)/, '')} (${amen[k][0].dist}m)`); };
       if (amen.mrt) nearest('mrt', 'the MRT at');
       else if (amen.lrt) nearest('lrt', 'the LRT at');
-      nearest('school', 'a primary school'); nearest('hawker', 'a hawker centre'); nearest('park', 'a park');
+      nearest('school', 'a school'); nearest('hawker', 'a hawker centre'); nearest('park', 'a park');
       if (bits.length) p3 = `On location, the unit is within walking reach of ${joinList(bits)}.`;
     }
     return [p1, p2.trim(), p3].filter(Boolean);

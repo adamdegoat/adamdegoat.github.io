@@ -58,7 +58,7 @@ const Prospect = (() => {
     const area = Narrative.titleCase(town);
     render(out, area, rows.map(r => ({
       title: `Blk ${r.block} ${Narrative.titleCase(r.street)}`,
-      sub: `${Narrative.titleCase(r.flat_type)} · ${r.area_sqm}m² · ${mLabel(r.yymm)}`,
+      sub: `${Narrative.titleCase(r.flat_type)} · ${Math.round(r.area_sqm * C.SQM_SQF)} sqft · ${mLabel(r.yymm)}`,
       price: r.price, psf: r.psf,
       txn: { flat_type: r.flat_type, block: r.block, price: r.price, psf: r.psf },
     })), area);
@@ -71,7 +71,7 @@ const Prospect = (() => {
     const area = `District ${d}`;
     render(out, area, rows.map(r => ({
       title: Narrative.titleCase(r.project),
-      sub: `${r.ptype} · ${r.area_sqm}m² · #${String(r.floor_mid || '').padStart(2, '0')} · ${mLabel(r.yymm)}`,
+      sub: `${r.ptype} · ${Math.round(r.area_sqm * C.SQM_SQF)} sqft · #${String(r.floor_mid || '').padStart(2, '0')} · ${mLabel(r.yymm)}`,
       price: r.price, psf: r.psf,
       txn: { ptype: r.ptype, price: r.price, psf: r.psf },
     })), area);
