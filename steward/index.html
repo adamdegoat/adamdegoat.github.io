@@ -58,7 +58,8 @@
 }
 *{box-sizing:border-box}
 html,body{margin:0}
-body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-feature-settings:"kern" 1,"liga" 1;letter-spacing:-.005em;text-rendering:optimizeLegibility}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-feature-settings:"kern" 1,"liga" 1;letter-spacing:-.005em;text-rendering:optimizeLegibility;
+  background-image:radial-gradient(680px 480px at 88% -6%,rgba(184,138,46,.13),transparent 60%),radial-gradient(600px 500px at 8% -4%,rgba(15,157,118,.10),transparent 58%),radial-gradient(820px 620px at 75% 122%,rgba(15,157,118,.09),transparent 60%);background-attachment:fixed}
 h1,h2,h3,h4{margin:0;letter-spacing:-.022em;line-height:1.12;font-weight:700}
 p{margin:0}a{text-decoration:none;color:inherit}
 input,select,textarea,button{font-family:inherit;font-size:inherit;color:inherit}
@@ -151,7 +152,7 @@ input,select,textarea,button{font-family:inherit;font-size:inherit;color:inherit
 .col .cards{display:flex;flex-direction:column;gap:10px}
 .dcard{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:13px;box-shadow:var(--shadow);cursor:pointer;transition:.16s;border-top:3px solid var(--brand)}
 .dcard.t-gold{border-top-color:var(--gold)}.dcard.t-navy{border-top-color:var(--blue)}
-.dcard:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.dcard:hover{transform:translateY(-4px);box-shadow:0 22px 48px rgba(15,157,118,.13),0 6px 16px rgba(16,21,31,.06)}
 .dcard .top{display:flex;align-items:center;gap:10px;margin-bottom:9px}
 .av{flex:none;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-weight:800;font-size:13px;color:#fff;background:linear-gradient(135deg,var(--brand),var(--brand-d))}
 .av.gold{background:linear-gradient(135deg,var(--gold),#946d22)}.av.navy{background:linear-gradient(135deg,var(--blue),var(--navy-2))}

@@ -31,7 +31,8 @@
   --sans:'Libre Franklin',system-ui,-apple-system,sans-serif;--serif:'Spectral',Georgia,serif;--mono:ui-monospace,'SF Mono',Menlo,monospace;--maxw:760px;
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;letter-spacing:-.005em}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;letter-spacing:-.005em;
+  background-image:radial-gradient(680px 480px at 88% -6%,rgba(184,138,46,.13),transparent 60%),radial-gradient(600px 500px at 8% -4%,rgba(15,157,118,.10),transparent 58%),radial-gradient(820px 620px at 75% 122%,rgba(15,157,118,.09),transparent 60%);background-attachment:fixed}
 h1,h2,h3,h4{margin:0;letter-spacing:-.022em;line-height:1.14;font-weight:700}
 p{margin:0}a{text-decoration:none;color:inherit}
 input,select,button{font-family:inherit;font-size:inherit;color:inherit}
@@ -80,7 +81,7 @@ input,select,button{font-family:inherit;font-size:inherit;color:inherit}
 .opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:9px}
 .opts.two{grid-template-columns:1fr 1fr}
 .opt-card{display:flex;flex-direction:column;gap:2px;text-align:left;padding:13px 15px;border-radius:13px;border:1.5px solid var(--line);background:var(--paper-2);cursor:pointer;transition:.14s}
-.opt-card:hover{border-color:var(--brand)}
+.opt-card:hover{border-color:var(--brand);transform:translateY(-1px);box-shadow:0 8px 20px rgba(15,157,118,.10)}
 .opt-card.on{border-color:var(--brand);background:var(--brand-wash);box-shadow:var(--shadow)}
 .opt-card .oc-t{font-weight:700;font-size:14.5px;display:flex;align-items:center;gap:7px}
 .opt-card .oc-s{font-size:11.5px;color:var(--ink-3);line-height:1.4}

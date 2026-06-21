@@ -57,7 +57,8 @@
   --sans:'Libre Franklin',system-ui,-apple-system,sans-serif;--serif:'Spectral',Georgia,serif;--mono:ui-monospace,'SF Mono',Menlo,monospace;--maxw:1080px;
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;letter-spacing:-.005em}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;letter-spacing:-.005em;
+  background-image:radial-gradient(680px 480px at 88% -6%,rgba(184,138,46,.13),transparent 60%),radial-gradient(600px 500px at 8% -4%,rgba(15,157,118,.10),transparent 58%),radial-gradient(820px 620px at 75% 122%,rgba(15,157,118,.09),transparent 60%);background-attachment:fixed}
 h1,h2,h3,h4{margin:0;letter-spacing:-.022em;line-height:1.12;font-weight:700}
 p{margin:0}a{text-decoration:none;color:inherit}
 input,select,button{font-family:inherit;font-size:inherit;color:inherit}
@@ -92,9 +93,9 @@ input,select,button{font-family:inherit;font-size:inherit;color:inherit}
 
 /* calc grid */
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0 10px}
-.ccard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;box-shadow:var(--shadow);cursor:pointer;transition:.16s;border-top:3px solid var(--brand);display:flex;flex-direction:column;gap:7px}
+.ccard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;box-shadow:var(--shadow);cursor:pointer;transition:.22s cubic-bezier(.2,.7,.2,1);border-top:3px solid var(--brand);display:flex;flex-direction:column;gap:7px}
 .ccard.gold{border-top-color:var(--gold)}.ccard.navy{border-top-color:var(--blue)}
-.ccard:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.ccard:hover{transform:translateY(-4px);box-shadow:0 22px 48px rgba(15,157,118,.14),0 6px 16px rgba(16,21,31,.06)}
 .ccard .ci{font-size:23px}
 .ccard h3{font-size:17px;font-family:var(--serif);font-weight:600}
 .ccard p{font-size:13px;color:var(--ink-3);line-height:1.45}

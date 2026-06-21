@@ -23,6 +23,7 @@
 html{-webkit-text-size-adjust:100%}
 body{
   margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);
+  background-image:radial-gradient(680px 480px at 88% -6%,rgba(184,138,46,.13),transparent 60%),radial-gradient(600px 500px at 8% -4%,rgba(15,157,118,.10),transparent 58%),radial-gradient(820px 620px at 75% 122%,rgba(15,157,118,.09),transparent 60%);background-attachment:fixed;
   font-size:15.5px;line-height:1.58;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
   font-feature-settings:"kern" 1,"liga" 1,"cv05" 1;letter-spacing:-.005em;
   background-image:radial-gradient(1200px 600px at 80% -10%,#fff 0,transparent 60%),
@@ -511,6 +512,7 @@ body.dark{
   --shadow-sm:0 1px 2px rgba(0,0,0,.35);--shadow:0 4px 14px rgba(0,0,0,.4);--shadow-lg:0 18px 50px rgba(0,0,0,.55);
   background-image:radial-gradient(1200px 600px at 80% -10%,#172230 0,transparent 60%),radial-gradient(900px 500px at -10% 0,rgba(15,157,118,.1) 0,transparent 55%);
 }
+body.dark{background-image:none}
 body.dark .appbar{background:rgba(14,19,26,.85)}
 body.dark .tabs button.active{background:var(--brand-d);color:#fff}
 body.dark .tabs button:hover{background:var(--paper-2)}
