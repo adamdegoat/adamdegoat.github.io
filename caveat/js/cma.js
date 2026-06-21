@@ -3,7 +3,7 @@ const CMA = (() => {
   const C = Caveat; let IDX = null; let mode = 'hdb';
 
   // sqm/sqft input toggle — engine always works in sqm; choice is remembered.
-  const areaUnit = () => localStorage.getItem('caveat_area_unit') || 'sqm';
+  const areaUnit = () => localStorage.getItem('caveat_area_unit') || (mode === 'condo' ? 'sqft' : 'sqm');
   const toSqm = v => (areaUnit() === 'sqft' && v ? v / C.SQM_SQF : v);
   function wireAreaUnit() {
     const el = document.getElementById('f_area_unit'); if (!el) return;
