@@ -28,6 +28,8 @@ const Caveat = (() => {
   let HDBRENT = null, STREETS = null;
   async function hdbRent() { return HDBRENT || (HDBRENT = await getJSON('hdb_rent.json')); }
   async function hdbStreets() { return STREETS || (STREETS = expand(await getJSON('hdb_streets.json'))); }
+  let LANDEDST = null;
+  async function landedStreets() { return LANDEDST || (LANDEDST = expand(await getJSON('landed_streets.json'))); }
 
   // nearest amenities by distance band (e.g. schools within 1km / 1-2km)
   async function nearbyBand(x, y, kind, bands) {
@@ -87,7 +89,7 @@ const Caveat = (() => {
   const median = arr => { const s = [...arr].sort((a, b) => a - b); const m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
   const leaseYears = m => m ? (m / 12).toFixed(1).replace(/\.0$/, '') : null;
 
-  return { getJSON, expand, index, rates, rentals, hdbRent, hdbStreets, amenities, hdbTown, condoDistrict,
+  return { getJSON, expand, index, rates, rentals, hdbRent, hdbStreets, landedStreets, amenities, hdbTown, condoDistrict,
     geocode, nearby, nearbyBand, fmtMoney, fmtK, fmtPsf, SQM_SQF, yymmNow, yymmIdx,
     monthsBetween, median, leaseYears };
 })();

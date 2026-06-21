@@ -9,7 +9,7 @@ const CMA = (() => {
 
   const MODES = [['hdb', 'HDB'], ['condo', 'Condo'], ['landed', 'Landed'], ['newlaunch', 'New launch']];
   const fieldsFor = { hdb: hdbFields, condo: condoFields, landed: landedFields, newlaunch: newLaunchFields };
-  const wireFor = { hdb: wireHdb, condo: wireCondo, landed: () => {}, newlaunch: wireNewLaunch };
+  const wireFor = { hdb: wireHdb, condo: wireCondo, landed: wireLanded, newlaunch: wireNewLaunch };
   const goLabel = { hdb: 'Generate valuation', condo: 'Generate valuation',
     landed: 'Show landed reference', newlaunch: 'Show launch benchmark' };
 
@@ -126,38 +126,72 @@ const CMA = (() => {
   // ===================== LANDED (reference only) =====================
   const LANDED_TYPES = ['Terrace', 'Semi-detached', 'Detached', 'Strata Terrace', 'Strata Semi-detached', 'Strata Detached'];
   function landedFields() {
-    const ds = [...new Set(IDX.condo_projects.map(p => p[1]))].sort();
     return `
-      <div class="field"><label>District</label><select id="l_district">
-        ${ds.map(d => `<option value="${d}">District ${d}</option>`).join('')}</select></div>
+      <div class="field ac-wrap"><label>Street or area <span style="font-weight:500;color:var(--ink-3)">· type &amp; pick from the list</span></label>
+        <input id="l_street" autocomplete="off" placeholder="e.g. Alnwick Road">
+        <input type="hidden" id="l_meta">
+        <div class="ac-list" id="l_streetac" style="display:none"></div></div>
       <div class="field"><label>Landed type</label><select id="l_type">
         <option value="">All landed</option><option>Terrace</option><option>Semi-detached</option><option>Detached</option></select></div>
-      <p class="hint">Landed prices swing widely with land area, tenure &amp; plot — so Caveat shows <b>recent transactions for reference</b>, not a single estimate.</p>`;
+      <p class="hint">Search a street to see recent landed sales there, with the surrounding area for context. Landed prices swing widely with land size, tenure &amp; plot — these are <b>reference transactions</b>, not a single estimate.</p>`;
+  }
+  async function wireLanded() {
+    const inp = document.getElementById('l_street'), ac = document.getElementById('l_streetac'), meta = document.getElementById('l_meta');
+    if (!inp) return;
+    let LS = null;
+    inp.oninput = async () => {
+      meta.value = '';
+      const q = inp.value.trim().toUpperCase();
+      if (q.length < 2) { ac.style.display = 'none'; return; }
+      if (!LS) LS = await C.landedStreets();
+      const hits = LS.filter(s => s.street.includes(q)).sort((a, b) => b.n - a.n).slice(0, 8);
+      if (!hits.length) { ac.style.display = 'none'; return; }
+      ac.innerHTML = hits.map(s => `<div data-st="${escAttr(s.street)}" data-d="${s.district}">
+        ${Narrative.titleCase(s.street)} <span class="ac-meta">· D${s.district} · ${s.n} sale${s.n > 1 ? 's' : ''}</span></div>`).join('');
+      ac.style.display = 'block';
+      ac.querySelectorAll('div').forEach(d => d.onclick = () => {
+        inp.value = Narrative.titleCase(d.dataset.st);
+        meta.value = JSON.stringify([d.dataset.st, d.dataset.d]);
+        ac.style.display = 'none';
+      });
+    };
+    document.addEventListener('click', e => { if (!ac.contains(e.target) && e.target !== inp) ac.style.display = 'none'; });
   }
   async function genLanded(res) {
-    const d = val('l_district'), type = val('l_type');
-    let rows = (await C.condoDistrict(d)).filter(r => LANDED_TYPES.includes(r.ptype));
-    if (type) rows = rows.filter(r => r.ptype === type || r.ptype === 'Strata ' + type);
-    if (rows.length < 1) throw new Error('No landed transactions found for that district/type in the last 18 months.');
+    let meta = val('l_meta');
+    if (!meta) {  // typed but didn't tap — auto-resolve an exact street match
+      const typed = val('l_street').trim().toUpperCase();
+      const LS = await C.landedStreets();
+      const hit = typed && LS.find(s => s.street === typed);
+      if (hit) meta = JSON.stringify([hit.street, hit.district]);
+      else throw new Error('Pick a street from the dropdown.');
+    }
+    const [street, d] = JSON.parse(meta), type = val('l_type'), streetU = street.toUpperCase();
+    let area = (await C.condoDistrict(d)).filter(r => LANDED_TYPES.includes(r.ptype));
+    if (type) area = area.filter(r => r.ptype === type || r.ptype === 'Strata ' + type);
+    const rows = area.filter(r => (r.street || '').toUpperCase() === streetU);
+    if (rows.length < 1) throw new Error(`No recent ${type || 'landed'} sales on ${Narrative.titleCase(street)} — try the "All landed" type or another street.`);
     rows.sort((a, b) => b.yymm.localeCompare(a.yymm));
-    const psfs = rows.map(r => r.psf), prices = rows.map(r => r.price);
+    const prices = rows.map(r => r.price), psfs = rows.map(r => r.psf);
+    const aPrices = area.map(r => r.price), aPsf = area.map(r => r.psf);
     res.innerHTML = `<div class="deck" id="deck">
       <div class="deck-top"><div class="dt-row"><div>
-        <div class="deck-kicker">Landed reference · District ${d}</div>
-        <div class="deck-addr">${type || 'All landed'} transactions</div>
-        <div class="deck-sub">${rows.length} sales · last 18 months</div></div>
+        <div class="deck-kicker">Landed reference · ${Narrative.titleCase(street)}</div>
+        <div class="deck-addr">${type || 'All landed'} · District ${d}</div>
+        <div class="deck-sub">${rows.length} sale${rows.length > 1 ? 's' : ''} on this street · last 18 months</div></div>
         <div class="chip lower"><span class="chip-dot"></span>Reference only</div></div></div>
       <div class="ref-banner">⚠ Landed homes vary enormously by land size, tenure and plot — there is no reliable single price-per-sqft. These are <b>actual recent transactions</b> to anchor your own judgement, not a valuation.</div>
       <div class="estimate" style="grid-template-columns:1fr 1fr 1fr">
-        <div><div class="est-label">Median price</div><div class="est-figure" style="font-size:30px">${C.fmtMoney(C.median(prices))}</div></div>
+        <div><div class="est-label">Median price · this street</div><div class="est-figure" style="font-size:30px">${C.fmtMoney(C.median(prices))}</div></div>
         <div><div class="est-label">Median land PSF</div><div class="est-figure" style="font-size:30px">$${Math.round(C.median(psfs))}</div></div>
         <div><div class="est-label">Price range</div><div class="est-figure" style="font-size:22px">${C.fmtK(Math.min(...prices))}–${C.fmtK(Math.max(...prices))}</div></div>
       </div>
-      <div class="deck-section"><h4>Recent landed transactions</h4>
-        <table class="comps"><thead><tr><th>Street</th><th class="hide-sm">Type</th><th class="hide-sm">Month</th>
+      <p class="hint" style="margin:2px 0 0">Wider area — District ${d} ${type || 'landed'}: median <b>${C.fmtMoney(C.median(aPrices))}</b> at <b>$${Math.round(C.median(aPsf))} psf</b> across ${area.length} recent sale${area.length > 1 ? 's' : ''}.</p>
+      <div class="deck-section"><h4>Recent sales on ${Narrative.titleCase(street)}</h4>
+        <table class="comps"><thead><tr><th>Type</th><th class="hide-sm">Month</th>
           <th style="text-align:right">Land area</th><th style="text-align:right">PSF</th><th style="text-align:right">Price</th></tr></thead>
         <tbody>${rows.slice(0, 14).map(r => `<tr>
-          <td>${Narrative.titleCase(r.street)}</td><td class="hide-sm">${r.ptype}</td><td class="hide-sm">${mLabel(r.yymm)}</td>
+          <td>${r.ptype}</td><td class="hide-sm">${mLabel(r.yymm)}</td>
           <td class="num">${Math.round(r.area_sqm * C.SQM_SQF)} sf</td><td class="num">$${Math.round(r.psf)}</td><td class="num">${C.fmtK(r.price)}</td></tr>`).join('')}</tbody></table>
         <p class="hint" style="margin-top:10px">PSF is on strata/land area as filed with URA. Showing ${Math.min(rows.length, 14)} most recent of ${rows.length}.</p></div>
       <div class="deck-disc">${window.__freshness ? `Transactions current as of ${window.__freshness.built}. ` : ''}Reference transactions from URA caveats — not a valuation or guarantee of price.</div>
