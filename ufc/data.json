@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-21T23:03:10.004883+08:00",
+  "updated": "2026-06-21T23:07:28.769656+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -306,12 +306,6 @@
       "priority": true
     },
     {
-      "title": "Allycia Hellen Rodrigues returns stronger from injury for biggest fight of her career",
-      "link": "https://www.bjpenn.com/mma-news/allycia-hellen-rodrigues/allycia-hellen-rodrigues-returns-stronger-from-injury-for-biggest-fight-of-her-career/?utm_source=rss&utm_medium=rss&utm_campaign=allycia-hellen-rodrigues-returns-stronger-from-injury-for-biggest-fight-of-her-career",
-      "source": "BJPenn",
-      "priority": true
-    },
-    {
       "title": "‘I stopped him twice that night’: Justin Gaethje doubles down on Ilia Topuria not deserving rematch after UFC White House",
       "link": "https://www.mmafighting.com/ufc/495642/i-stopped-him-twice-that-night-justin-gaethje-doubles-down-on-ilia-topuria-not-deserving-rematch-after-ufc-white-house",
       "source": "MMA Fighting",
@@ -370,11 +364,17 @@
       "link": "https://www.mmamania.com/ufc-results/452341/ufc-vegas-119-the-morning-after-manel-kape-and-the-flyweight-touch-of-death",
       "source": "MMA Mania",
       "priority": false
+    },
+    {
+      "title": "Kyoji Horiguchi releases statement following UFC Vegas 119 knockout loss – ‘I’m truly sorry’",
+      "link": "https://www.mmamania.com/ufc-results/452367/kyoji-horiguchi-releases-statement-following-ufc-vegas-119-knockout-loss-im-truly-sorry",
+      "source": "MMA Mania",
+      "priority": false
     }
   ],
   "hooks": {
-    "week": "Fiziev versus Torres this Sunday: lightweight fireworks you cannot miss.",
-    "prefight": "Rafael Fiziev faces Manuel Torres in a must-watch lightweight showdown Sunday midnight.",
-    "results": "Manel Kape dismantles Kyoji Horiguchi with third-round TKO."
+    "week": "Lightweight fireworks ignite Sunday when Fiziev clashes with Torres at midnight SGT.",
+    "prefight": "Fiziev's striking precision meets Torres's relentless pressure in an electric lightweight showdown Sunday.",
+    "results": "Kape's relentless punches break down Horiguchi for third-round TKO finish."
   }
 }
