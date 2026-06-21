@@ -105,6 +105,15 @@ a{color:inherit;text-decoration:none}
   background:radial-gradient(120% 70% at 50% -8%,var(--wash),transparent 60%)}
 .feat:hover::after{opacity:1}
 .feat:hover{transform:translateY(-6px);box-shadow:0 26px 54px rgba(20,18,14,.14);border-color:#d6cdbe}
+/* — Groundwork hero: premium effects (showcase card) — */
+.feat-hero::before{height:4px;animation:heroGlow 4s ease-in-out infinite}
+@keyframes heroGlow{0%,100%{box-shadow:0 0 9px -1px var(--accent)}50%{box-shadow:0 0 19px 2px var(--accent)}}
+.feat-hero:hover{transform:translateY(-8px);box-shadow:0 32px 66px rgba(15,157,118,.20),0 0 0 1.5px rgba(15,157,118,.42)}
+.feat-hero .feat-shot::before{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;
+  background:linear-gradient(115deg,transparent 36%,rgba(255,255,255,.5) 50%,transparent 64%);transform:translateX(-135%)}
+.feat-hero:hover .feat-shot::before{animation:heroSweep 1.05s ease}
+@keyframes heroSweep{to{transform:translateX(135%)}}
+@media(prefers-reduced-motion:reduce){.feat-hero::before{animation:none}.feat-hero:hover .feat-shot::before{animation:none}}
 .feat-shot{position:relative;height:154px;overflow:hidden;background:var(--wash)}
 .feat-shot img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
 .feat:hover .feat-shot img{transform:scale(1.05)}
@@ -232,7 +241,7 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
   <div class="featured">
 
     <a class="feat r feat-hero" href="https://adamdegoat.github.io/realestate/" style="--accent:var(--green);--wash:rgba(15,157,118,.1)">
-      <div class="feat-shot"><img src="assets/feat/groundwork.jpg?v=1" alt="Groundwork — smarter tools for Singapore property, built on official data" loading="lazy" width="820" height="519"><span class="feat-live">Live</span></div>
+      <div class="feat-shot"><img src="assets/feat/groundwork.jpg?v=2" alt="Groundwork — smarter tools for Singapore property, built on official data" loading="lazy" width="820" height="519"><span class="feat-live">Live</span></div>
       <div class="feat-main">
         <span class="feat-no">01</span>
         <div class="feat-top"><span class="feat-ic">🏙️</span><span class="feat-metric">137k+ URA caveats</span></div>
