@@ -509,14 +509,14 @@ const CMA = (() => {
     const rows = comps.slice(0, SHOWN).map(c => kind === 'hdb' ? `<tr>
       <td>Blk ${c.block}${c.storey_mid ? ` <span style="color:var(--ink-3)">· #${c.storey_mid}</span>` : ''} <span class="hide-sm">${Narrative.titleCase(c.street).replace(/Ave /,'Ave ')}</span>${(c.flat_model || c.rem_lease_mths) ? `<div style="font-size:11px;color:var(--ink-3);margin-top:1px">${[c.flat_model, c.rem_lease_mths ? Math.round(c.rem_lease_mths / 12) + ' yr lease' : ''].filter(Boolean).join(' · ')}</div>` : ''}</td>
       <td>${mLabel(c.yymm)}</td>
-      <td class="num">${c.area_sqm}m²</td>
+      <td class="num">${Math.round(c.area_sqm * C.SQM_SQF)} sqft</td>
       <td class="num hide-sm">$${Math.round(c.psf)}</td>
       <td class="num adj">$${Math.round(c.adj_psf)}</td>
       <td class="num">${C.fmtK(c.price)}</td></tr>`
       : `<tr>
       <td>${Narrative.titleCase(c.project)}${c.floor_mid ? ` <span style="color:var(--ink-3)">· #${String(c.floor_mid).padStart(2, '0')}</span>` : ''}<div style="font-size:11px;color:var(--ink-3);margin-top:1px">${[c.tenure_fh ? 'Freehold' : (c.lease_left ? '~' + c.lease_left + ' yr left' : 'Leasehold'), ({ Condominium: 'Condo', 'Executive Condominium': 'EC', Apartment: 'Apt' }[c.ptype] || c.ptype)].filter(Boolean).join(' · ')}</div></td>
       <td>${mLabel(c.yymm)}</td>
-      <td class="num">${c.area_sqm}m²</td>
+      <td class="num">${Math.round(c.area_sqm * C.SQM_SQF)} sqft</td>
       <td class="num hide-sm">$${Math.round(c.psf)}</td>
       <td class="num adj">$${Math.round(c.adj_psf)}</td>
       <td class="num">${C.fmtK(c.price)}</td></tr>`).join('');
