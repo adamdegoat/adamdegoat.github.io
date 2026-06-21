@@ -113,6 +113,7 @@ footer{padding:22px 0 40px;text-align:center;color:var(--ink-4);font-size:11px;l
       <li><span class="k">Launch generator</span><span>Say <b>“new launch: [name]”</b> → fresh research + standalone microsite on the <b>newlaunches</b> account</span></li>
       <li><span class="k">Worlds cron</span><span>Each world auto-cycles <b>5×/day</b> (07:00 / 11:30 / 15:00 / 18:30 / 22:30) + oracle midnight</span></li>
       <li><span class="k">Traders cron</span><span>Apex &amp; Helm <b>06:00</b> daily · Riptide hourly</span></li>
+      <li><span class="k">UFC engine</span><span>Refreshes <b>4×/day</b> · posts Wed preview / Sat card / results-when-final to Telegram · self-updating site</span></li>
     </ul>
   </div>
 
@@ -153,6 +154,9 @@ var GROUPS=[
    P("Evergrow Electrical","Business manager portal",SITE+"/evergrow-electrical/",GH+"/evergrow-electrical","live","client portal · shared login"),
    P("RenoRadar","Renovation intelligence",SITE+"/renoradar/",GH+"/renoradar","tool","scheduler off"),
    P("SG Electrical Guide","Reference site",SITE+"/sg-electrical-guide/",GH+"/sg-electrical-guide","live"),
+ ]},
+ {t:"🥊 Personal",d:"just for me & a friend",items:[
+   P("UFC Fight Week","Self-running UFC tracker",SITE+"/ufc/",MAIN+"/ufc","live","Wed preview · Sat card · results · PWA + Telegram",[{l:"🤖 Bot",u:"https://t.me/Ufceventsbot"}]),
  ]},
  {t:"👤 Client & Off-hub",d:"not on the public hub",items:[
    P("Chills with Iyls","Daily story brain",SITE+"/chillswithiyls/",GH+"/chillswithiyls","hold","on hold"),
