@@ -19,6 +19,7 @@
 <meta name="apple-mobile-web-app-title" content="Abacus">
 <style>
 .ab-install{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:var(--brand-d);padding:7px 14px;border-radius:30px;border:1px solid var(--brand);background:rgba(15,157,118,.06);cursor:pointer;white-space:nowrap;transition:.18s;font-family:var(--sans)}
+@media(max-width:560px){.ab-install{font-size:0;gap:0;padding:0;width:36px;height:36px;flex:none;justify-content:center}.ab-install::before{content:"📲";font-size:16px}.bsub{display:none}}
 .ab-install:hover{background:rgba(15,157,118,.12)}
 .ab-modal{position:fixed;inset:0;z-index:200;background:rgba(16,21,31,.5);backdrop-filter:blur(5px);display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:24px 16px}
 .ab-modal.open{display:flex}
