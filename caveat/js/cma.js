@@ -2,6 +2,21 @@
 const CMA = (() => {
   const C = Caveat; let IDX = null; let mode = 'hdb';
 
+  // sqm/sqft input toggle — engine always works in sqm; choice is remembered.
+  const areaUnit = () => localStorage.getItem('caveat_area_unit') || 'sqm';
+  const toSqm = v => (areaUnit() === 'sqft' && v ? v / C.SQM_SQF : v);
+  function wireAreaUnit() {
+    const el = document.getElementById('f_area_unit'); if (!el) return;
+    el.textContent = areaUnit();
+    el.onclick = () => {
+      const next = areaUnit() === 'sqm' ? 'sqft' : 'sqm';
+      const inp = document.getElementById('f_area'), v = parseFloat(inp.value);
+      if (!isNaN(v) && v > 0) inp.value = next === 'sqft' ? Math.round(v * C.SQM_SQF) : +(v / C.SQM_SQF).toFixed(1);
+      localStorage.setItem('caveat_area_unit', next);
+      el.textContent = next;
+    };
+  }
+
   function init(idx) { IDX = idx; renderForm(); }
 
   const townOpts = () => Object.keys(IDX.hdb_towns).sort()
@@ -24,6 +39,7 @@ const CMA = (() => {
       <p class="field-err err" id="cmaErr" style="display:none;margin-top:12px"></p>`;
     el.querySelectorAll('#cmaSeg button').forEach(b => b.onclick = () => { mode = b.dataset.m; renderForm(); });
     (wireFor[mode] || (() => {}))();
+    wireAreaUnit();
     document.getElementById('cmaGo').onclick = generate;
   }
 
@@ -38,7 +54,7 @@ const CMA = (() => {
         <div><label>Flat type</label><select id="f_ftype"><option value="">Pick a street first</option></select></div>
       </div>
       <div class="field two">
-        <div><label>Floor area <span style="font-weight:500;color:var(--ink-3)">· optional</span></label><input id="f_area" type="number" inputmode="decimal" placeholder="typical"><span class="suffix">sqm</span></div>
+        <div><label>Floor area <span style="font-weight:500;color:var(--ink-3)">· optional</span></label><input id="f_area" type="number" inputmode="decimal" placeholder="typical"><span class="suffix" id="f_area_unit" role="button" tabindex="0" title="Tap to switch sqm / sqft" style="cursor:pointer;text-decoration:underline dotted">sqm</span></div>
         <div><label>Storey <span style="font-weight:500;color:var(--ink-3)">· optional</span></label><input id="f_storey" type="number" inputmode="numeric" placeholder="any"></div>
       </div>
       <div class="field"><label>Lease remaining <span style="font-weight:500;color:var(--ink-3)">· optional</span></label>
@@ -78,7 +94,7 @@ const CMA = (() => {
         <div class="ac-list" id="f_ac" style="display:none"></div>
       </div>
       <div class="field two">
-        <div><label>Floor area <span style="font-weight:500;color:var(--ink-3)">· optional</span></label><input id="f_area" type="number" inputmode="decimal" placeholder="your unit"><span class="suffix">sqm</span></div>
+        <div><label>Floor area <span style="font-weight:500;color:var(--ink-3)">· optional</span></label><input id="f_area" type="number" inputmode="decimal" placeholder="your unit"><span class="suffix" id="f_area_unit" role="button" tabindex="0" title="Tap to switch sqm / sqft" style="cursor:pointer;text-decoration:underline dotted">sqm</span></div>
         <div><label>Floor level <span style="font-weight:500;color:var(--ink-3)">· optional</span></label><input id="f_floor" type="number" inputmode="numeric" placeholder="any"></div>
       </div>
       <div class="field"><div id="f_projinfo" class="hint"></div></div>
@@ -256,7 +272,7 @@ const CMA = (() => {
   }
 
   async function genHdb(res) {
-    const town = val('f_town'), ft = val('f_ftype'), area = +val('f_area'),
+    const town = val('f_town'), ft = val('f_ftype'), area = toSqm(+val('f_area')),
       storey = +val('f_storey'), leaseY = +val('f_lease'), block = val('f_block'), street = val('f_street');
     if (!town || !street) throw new Error('Search an address and pick it from the list first.');
     if (!ft) {
@@ -298,7 +314,7 @@ const CMA = (() => {
       if (hit) meta = JSON.stringify(hit);
       else throw new Error('Pick the matching project from the dropdown.');
     }
-    const p = JSON.parse(meta); const area = +val('f_area'), floor = +val('f_floor');
+    const p = JSON.parse(meta); const area = toSqm(+val('f_area')), floor = +val('f_floor');
     const rows = await C.condoDistrict(p[1]);
     const subj = { project: p[0], district: p[1], seg: p[2], ptype: p[3], tenure_fh: p[4],
       area_sqm: area || null, floor_mid: floor || null };
