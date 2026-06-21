@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UFC · Fight Week</title>
+<meta name="description" content="UFC fight week — upcoming cards, live countdown, results and news. All times in SGT.">
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0a0a0c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="UFC">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="icon" href="icons/icon-192.png">
+<meta http-equiv="Cache-Control" content="no-cache">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0c; --panel:#141418; --panel2:#1b1b21; --line:#2a2a32;
+    --red:#d20a0a; --red2:#ff1f1f; --gold:#f5b301; --green:#27c93f;
+    --txt:#f4f4f6; --mut:#9a9aa6; --mut2:#6e6e7a;
+    --rad:16px; --maxw:880px;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;background:var(--bg);color:var(--txt);
+    font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  body{padding-bottom:env(safe-area-inset-bottom)}
+  a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 16px}
+  h1,h2,h3{font-family:Oswald,sans-serif;letter-spacing:.5px;margin:0}
+
+  /* top bar */
+  header.bar{position:sticky;top:0;z-index:50;background:rgba(10,10,12,.86);
+    backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .bar .wrap{display:flex;align-items:center;gap:12px;height:56px}
+  .logo{font-family:Oswald;font-weight:700;font-size:24px;letter-spacing:2px}
+  .logo b{color:var(--red2)}
+  .bar .grow{flex:1}
+  .live{display:inline-flex;align-items:center;gap:7px;background:var(--red);
+    color:#fff;font-weight:700;font-size:13px;padding:9px 14px;border-radius:10px;
+    text-decoration:none;box-shadow:0 4px 16px rgba(210,10,10,.4)}
+  .live .dot{width:8px;height:8px;border-radius:50%;background:#fff;
+    animation:pulse 1.4s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+  /* tabs */
+  nav.tabs{position:sticky;top:56px;z-index:40;background:var(--bg);
+    border-bottom:1px solid var(--line)}
+  nav.tabs .wrap{display:flex;gap:4px;padding:8px 16px}
+  .tab{flex:1;text-align:center;padding:10px 6px;border-radius:10px;
+    font-weight:600;font-size:14px;color:var(--mut);cursor:pointer;
+    background:transparent;border:0;font-family:inherit;transition:.15s}
+  .tab.on{background:var(--panel2);color:#fff}
+
+  section{display:none;padding:18px 0 40px;animation:fade .25s}
+  section.on{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1}}
+
+  /* hero */
+  .hero{background:linear-gradient(160deg,#1a1115,#141418 55%);
+    border:1px solid var(--line);border-radius:var(--rad);padding:22px;overflow:hidden;position:relative}
+  .hero::before{content:"";position:absolute;inset:0;
+    background:radial-gradient(120% 90% at 100% 0,rgba(210,10,10,.22),transparent 60%);pointer-events:none}
+  .eyebrow{color:var(--red2);font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase}
+  .hero h1{font-size:30px;line-height:1.05;margin:8px 0 4px}
+  .hero .when{font-weight:600;color:var(--gold);margin-top:6px;font-size:15px}
+  .hero .venue{color:var(--mut);font-size:14px;margin-top:2px}
+  .hook{font-style:italic;color:var(--txt);opacity:.9;margin:14px 0 0;font-size:15px}
+
+  /* countdown */
+  .cd{display:flex;gap:8px;margin:18px 0 6px}
+  .cd .cell{flex:1;background:var(--panel);border:1px solid var(--line);
+    border-radius:12px;padding:12px 6px;text-align:center}
+  .cd .n{font-family:Oswald;font-weight:700;font-size:30px;line-height:1}
+  .cd .l{font-size:10px;letter-spacing:1.5px;color:var(--mut);text-transform:uppercase;margin-top:6px}
+  .cd.done .n{color:var(--green)}
+
+  .mainevt{margin-top:18px;background:var(--panel);border:1px solid var(--line);
+    border-radius:12px;padding:16px;text-align:center}
+  .mainevt .tag{font-size:11px;letter-spacing:2px;color:var(--mut);text-transform:uppercase}
+  .mainevt .vs{font-family:Oswald;font-weight:700;font-size:22px;margin-top:8px;line-height:1.2}
+  .mainevt .vs .x{color:var(--red2);margin:0 8px}
+  .mainevt .wc{color:var(--gold);font-size:13px;margin-top:6px;font-weight:600}
+
+  .btnrow{display:flex;gap:10px;margin-top:16px}
+  .btn{flex:1;text-align:center;padding:14px;border-radius:12px;font-weight:700;
+    text-decoration:none;font-size:15px}
+  .btn.primary{background:var(--red);color:#fff;box-shadow:0 6px 20px rgba(210,10,10,.35)}
+  .btn.ghost{background:var(--panel2);color:#fff;border:1px solid var(--line)}
+
+  .note{color:var(--mut2);font-size:12px;margin-top:12px;text-align:center}
+
+  /* cards / bouts */
+  h2.sec{font-size:18px;margin:26px 4px 12px;color:var(--mut);letter-spacing:1.5px;text-transform:uppercase}
+  h2.sec:first-of-type{margin-top:8px}
+  .bout{display:flex;align-items:center;gap:10px;background:var(--panel);
+    border:1px solid var(--line);border-radius:12px;padding:13px 14px;margin-bottom:8px}
+  .bout .wc{font-size:11px;color:var(--gold);font-weight:600;width:96px;flex-shrink:0;
+    text-transform:uppercase;letter-spacing:.5px}
+  .bout .fighters{flex:1;font-weight:600;font-size:15px}
+  .bout .fighters .vs{color:var(--mut2);font-weight:500;margin:0 6px;font-size:13px}
+  .bout.win .a{color:var(--green)}
+  .bout .method{font-size:12px;color:var(--mut);margin-top:3px;font-weight:500}
+  .badge{font-size:10px;font-weight:700;padding:3px 7px;border-radius:6px;flex-shrink:0}
+  .badge.main{background:rgba(210,10,10,.18);color:var(--red2)}
+  .badge.w{background:rgba(39,201,63,.16);color:var(--green)}
+
+  /* news */
+  .news a{display:block;background:var(--panel);border:1px solid var(--line);
+    border-radius:12px;padding:14px;margin-bottom:8px;text-decoration:none}
+  .news a:active{background:var(--panel2)}
+  .news .src{font-size:11px;color:var(--red2);font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+  .news .t{font-weight:600;font-size:15px;margin-top:4px;line-height:1.3}
+  .news .pri{display:inline-block;font-size:9px;background:var(--gold);color:#000;
+    font-weight:800;padding:2px 6px;border-radius:5px;margin-left:6px;vertical-align:middle}
+
+  footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--mut2);
+    font-size:12px;text-align:center;line-height:1.8}
+  footer a{color:var(--mut)}
+  .empty{color:var(--mut);text-align:center;padding:40px 0}
+  @media(min-width:680px){
+    .hero h1{font-size:38px}
+    .cd .n{font-size:38px}
+  }
+</style>
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <span class="logo"><b>UFC</b> · Fight Week</span>
+  <span class="grow"></span>
+  <a class="live" id="liveBtn" href="#" target="_blank" rel="noopener"><span class="dot"></span>Watch Live</a>
+</div></header>
+
+<nav class="tabs"><div class="wrap">
+  <button class="tab on" data-t="next">Next</button>
+  <button class="tab" data-t="results">Results</button>
+  <button class="tab" data-t="news">News</button>
+</div></nav>
+
+<main class="wrap">
+  <section id="next" class="on"></section>
+  <section id="results"></section>
+  <section id="news"></section>
+</main>
+
+<footer class="wrap">
+  All times in <b>SGT</b> · broadcast start shown — prelims begin earlier.<br>
+  Data: TheSportsDB · News: Sherdog, MMA Fighting, MMA Mania, BJPenn<br>
+  <span id="updated"></span> · Add to Home Screen to install
+</footer>
+
+<script>
+const $ = (s,r=document)=>r.querySelector(s);
+const esc = s => (s==null?'':String(s)).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let DATA = null;
+
+// tabs
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===t));
+  document.querySelectorAll('section').forEach(s=>s.classList.toggle('on',s.id===t.dataset.t));
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+
+function mainEvent(ev){
+  if(!ev||!ev.bouts) return null;
+  const m = ev.bouts.filter(b=>b.section==='main');
+  return m[0] || ev.bouts[0] || null;
+}
+function boutRow(b,decided){
+  const win = decided && b.decided;
+  const wc = `<span class="wc">${esc(b.weight)}</span>`;
+  const f = win
+    ? `<div class="fighters"><span class="a">${esc(b.a)}</span> <span class="vs">def.</span> ${esc(b.b)}
+         <div class="method">${esc(b.method)}${b.round?` · R${esc(b.round)} ${esc(b.time)}`:''}</div></div>`
+    : `<div class="fighters">${esc(b.a)} <span class="vs">vs</span> ${esc(b.b)}</div>`;
+  const badge = win?'<span class="badge w">WIN</span>':(b.section==='main'?'<span class="badge main">MAIN</span>':'');
+  return `<div class="bout ${win?'win':''}">${wc}${f}${badge}</div>`;
+}
+function group(bouts,decided){
+  const labels={main:'Main Card',prelim:'Prelims',early:'Early Prelims'};
+  let html='';
+  for(const sec of ['main','prelim','early']){
+    const rows=bouts.filter(b=>b.section===sec && (!decided || b.decided));
+    if(!rows.length) continue;
+    html+=`<h2 class="sec">${labels[sec]}</h2>`+rows.map(b=>boutRow(b,decided)).join('');
+  }
+  return html;
+}
+
+// live countdown
+let cdTimer=null;
+function startCountdown(iso){
+  const el=$('#cd'); if(!el) return;
+  clearInterval(cdTimer);
+  const tick=()=>{
+    const diff = new Date(iso) - new Date();
+    if(diff<=0){ el.classList.add('done');
+      el.innerHTML=`<div class="cell" style="flex:none;width:100%"><div class="n">LIVE / DONE</div><div class="l">check results tab</div></div>`;
+      clearInterval(cdTimer); return; }
+    const d=Math.floor(diff/864e5),h=Math.floor(diff/36e5)%24,m=Math.floor(diff/6e4)%60,s=Math.floor(diff/1e3)%60;
+    const cell=(n,l)=>`<div class="cell"><div class="n">${String(n).padStart(2,'0')}</div><div class="l">${l}</div></div>`;
+    el.innerHTML=cell(d,'Days')+cell(h,'Hrs')+cell(m,'Min')+cell(s,'Sec');
+  };
+  tick(); cdTimer=setInterval(tick,1000);
+}
+
+function renderNext(d){
+  const ev=d.next;
+  if(!ev){ $('#next').innerHTML='<div class="empty">No upcoming event scheduled.</div>'; return; }
+  const me=mainEvent(ev);
+  let html=`<div class="hero">
+    <div class="eyebrow">Next Event</div>
+    <h1>${esc(ev.name)}</h1>
+    <div class="when">📅 ${esc(ev.when_sgt||'TBA')}</div>
+    ${ev.venue?`<div class="venue">📍 ${esc(ev.venue)}</div>`:''}
+    ${d.hooks&&d.hooks.prefight?`<p class="hook">${esc(d.hooks.prefight)}</p>`:''}
+    <div class="cd" id="cd"></div>`;
+  if(me) html+=`<div class="mainevt"><div class="tag">Main Event</div>
+    <div class="vs">${esc(me.a)}<span class="x">×</span>${esc(me.b)}</div>
+    <div class="wc">${esc(me.weight)}</div></div>`;
+  html+=`<div class="btnrow">
+    <a class="btn primary" href="${esc(d.stream)}" target="_blank" rel="noopener">📺 Watch Live</a>
+    <a class="btn ghost" href="#full">View Full Card</a></div>
+    <div class="note">Broadcast start (SGT) — prelims begin earlier</div>
+  </div>`;
+  html+=`<div id="full">${group(ev.bouts,false)}</div>`;
+  $('#next').innerHTML=html;
+  if(ev.date_sgt) startCountdown(ev.date_sgt);
+}
+
+function renderResults(d){
+  const ev=d.last;
+  if(!ev){ $('#results').innerHTML='<div class="empty">No results yet.</div>'; return; }
+  const decided=ev.bouts.some(b=>b.decided);
+  let html=`<div class="hero" style="padding:18px">
+    <div class="eyebrow">Latest Results</div>
+    <h1 style="font-size:24px">${esc(ev.name)}</h1>
+    <div class="when">📅 ${esc(ev.when_sgt||'')}</div>
+    ${d.hooks&&d.hooks.results?`<p class="hook">${esc(d.hooks.results)}</p>`:''}
+  </div>`;
+  html += decided ? group(ev.bouts,true)
+    : '<div class="empty">Results not in yet — check back after fight night.</div>';
+  $('#results').innerHTML=html;
+}
+
+function renderNews(d){
+  const n=d.news||[];
+  if(!n.length){ $('#news').innerHTML='<div class="empty">No news right now.</div>'; return; }
+  $('#news').innerHTML='<div class="news">'+n.map(x=>
+    `<a href="${esc(x.link)}" target="_blank" rel="noopener">
+       <div class="src">${esc(x.source)}${x.priority?'<span class="pri">BIG</span>':''}</div>
+       <div class="t">${esc(x.title)}</div></a>`).join('')+'</div>';
+}
+
+async function load(){
+  try{
+    const r=await fetch('data.json?cb='+Date.now(),{cache:'no-store'});
+    DATA=await r.json();
+  }catch(e){ $('#next').innerHTML='<div class="empty">Could not load data.</div>'; return; }
+  $('#liveBtn').href=DATA.stream||'#';
+  renderNext(DATA); renderResults(DATA); renderNews(DATA);
+  if(DATA.updated){
+    const u=new Date(DATA.updated);
+    $('#updated').textContent='Updated '+u.toLocaleString('en-SG',{timeZone:'Asia/Singapore',dateStyle:'medium',timeStyle:'short'});
+  }
+}
+load();
+
+// PWA service worker
+if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js').catch(()=>{}); }
+</script>
+</body>
+</html>

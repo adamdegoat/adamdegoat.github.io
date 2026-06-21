@@ -1,0 +1,523 @@
+{
+  "updated": "2026-06-21T22:26:09.698814+08:00",
+  "tz": "SGT",
+  "stream": "https://istreameast.app/mmastreams3",
+  "next": {
+    "id": "2468284",
+    "name": "UFC Fight Night 280 Fiziev vs Torres",
+    "short": "Fiziev vs Torres",
+    "date_utc": "2026-06-27T14:00:00",
+    "date_sgt": "2026-06-27T22:00:00+08:00",
+    "when_sgt": "Sat 27 Jun, 10:00 PM SGT",
+    "venue": "National Gymnastics Arena",
+    "city": "Baku",
+    "desc": "UFC Fight Night: Fiziev vs. Torres (also known as UFC Fight Night 280) is an upcoming mixed martial arts event produced by the Ultimate Fighting Championship that is scheduled to take place on June 27, 2026, at the National Gymnastics Arena in Baku, Azerbaijan",
+    "badge": "https://www.thesportsdb.com/images/media/event/thumb/oq891n1782041517.jpg",
+    "bouts": [
+      {
+        "section": "prelim",
+        "weight": "Welterweight",
+        "a": "Farman Hasanov",
+        "b": "Eric Nolan",
+        "decided": false,
+        "method": "",
+        "round": "",
+        "time": ""
+      },
+      {
+        "section": "prelim",
+        "weight": "Light Heavyweight",
+        "a": "Abdul-Rakhman Yakhyaev",
+        "b": "Julius Walker",
+        "decided": false,
+        "method": "",
+        "round": "",
+        "time": ""
+      },
+      {
+        "section": "prelim",
+        "weight": "Middleweight",
+        "a": "Nursulton Ruziboev",
+        "b": "Andrey Pulyaev",
+        "decided": false,
+        "method": "",
+        "round": "",
+        "time": ""
+      },
+      {
+        "section": "prelim",
+        "weight": "Featherweight",
+        "a": "Kaan Ofli",
+        "b": "Javier Reyes",
+        "decided": false,
+        "method": "",
+        "round": "",
+        "time": ""
+      },
+      {
+        "section": "prelim",
+        "weight": "Welterweight",
+        "a": "Daniil Donchenko",
+        "b": "Theodor Berggren",
+        "decided": false,
+        "method": "",
+        "round": "",
+        "time": ""
+      },
+      {
+        "section": "prelim",
+        "weight": "Bantamweight",
+        "a": "Bekzat Almakhan",
+        "b": "Jean Matsumoto",
+        "decided": false,
+        "method": "",
+        "round": "",
+        "time": ""
+      },
+      {
+        "section": "prelim",
+        "weight": "Welterweight",
+        "a": "Tahir Abdullayev",
+        "b": "Jefferson Nascimento",
+        "decided": false,
+        "method": "",
+        "round": "",
+        "time": ""
+      },
+      {
+        "section": "main",
+        "weight": "Lightweight",
+        "a": "Rafael Fiziev",
+        "b": "Manuel Torres",
+        "decided": false,
+        "method": "",
+        "round": "",
+        "time": ""
+      },
+      {
+        "section": "main",
+        "weight": "Middleweight",
+        "a": "Sharabutdin Magomedov",
+        "b": "Michel Pereira",
+        "decided": false,
+        "method": "",
+        "round": "",
+        "time": ""
+      },
+      {
+        "section": "main",
+        "weight": "Lightweight",
+        "a": "Nazim Sadykhov",
+        "b": "Matheus Camilo",
+        "decided": false,
+        "method": "",
+        "round": "",
+        "time": ""
+      },
+      {
+        "section": "main",
+        "weight": "Flyweight",
+        "a": "Asu Almabayev",
+        "b": "Charles Johnson",
+        "decided": false,
+        "method": "",
+        "round": "",
+        "time": ""
+      },
+      {
+        "section": "main",
+        "weight": "Middleweight",
+        "a": "Ikram Aliskerov",
+        "b": "Brunno Ferreira",
+        "decided": false,
+        "method": "",
+        "round": "",
+        "time": ""
+      },
+      {
+        "section": "main",
+        "weight": "Middleweight",
+        "a": "Abusupiyan Magomedov",
+        "b": "Michał Oleksiejczuk",
+        "decided": false,
+        "method": "",
+        "round": "",
+        "time": ""
+      }
+    ],
+    "finished": false
+  },
+  "last": {
+    "id": "2468283",
+    "name": "UFC Fight Night 279 Kape vs Horiguchi",
+    "short": "Kape vs Horiguchi",
+    "date_utc": "2026-06-20T00:00:00",
+    "date_sgt": "2026-06-20T08:00:00+08:00",
+    "when_sgt": "Sat 20 Jun, 8:00 AM SGT",
+    "venue": "UFC APEX",
+    "city": "Las Vegas, Nevada",
+    "desc": "UFC Fight Night: Kape vs. Horiguchi (also known as UFC Fight Night 279 and UFC Vegas 119) was a mixed martial arts event produced by the Ultimate Fighting Championship that took place on June 20, 2026, at the Meta Apex in Enterprise, Nevada, part of the Las Vegas Valley, United States.",
+    "badge": "https://www.thesportsdb.com/images/media/event/thumb/ktlfmk1782032413.jpg",
+    "bouts": [
+      {
+        "section": "main",
+        "weight": "Flyweight",
+        "a": "Manel Kape",
+        "b": "Kyoji Horiguchi",
+        "decided": true,
+        "method": "TKO (punches)",
+        "round": "3",
+        "time": "2:42"
+      },
+      {
+        "section": "main",
+        "weight": "Light Heavyweight",
+        "a": "Navajo Stirling",
+        "b": "Ion Cuțelaba",
+        "decided": true,
+        "method": "TKO (punches)",
+        "round": "2",
+        "time": "3:23"
+      },
+      {
+        "section": "main",
+        "weight": "Featherweight",
+        "a": "Christian Rodriguez",
+        "b": "Hyder Amil",
+        "decided": true,
+        "method": "Technical Submission (guillotine choke)",
+        "round": "1",
+        "time": "3:43"
+      },
+      {
+        "section": "main",
+        "weight": "Featherweight",
+        "a": "Murtazali Magomedov",
+        "b": "Melsik Baghdasaryan",
+        "decided": true,
+        "method": "Submission (twister)",
+        "round": "1",
+        "time": "1:17"
+      },
+      {
+        "section": "main",
+        "weight": "Featherweight",
+        "a": "Vinicius Oliveira",
+        "b": "Andre Fili",
+        "decided": true,
+        "method": "TKO (punches and elbows)",
+        "round": "2",
+        "time": "4:56"
+      },
+      {
+        "section": "prelim",
+        "weight": "Catchweight (129 lb)",
+        "a": "Kevin Borjas",
+        "b": "André Lima",
+        "decided": true,
+        "method": "Decision (unanimous) (30–27, 29–28, 29–28)",
+        "round": "3",
+        "time": "5:00"
+      },
+      {
+        "section": "prelim",
+        "weight": "Women's Bantamweight",
+        "a": "Beatriz Mesquita",
+        "b": "Melissa Mullins",
+        "decided": true,
+        "method": "Submission (armbar)",
+        "round": "1",
+        "time": "3:16"
+      },
+      {
+        "section": "prelim",
+        "weight": "Flyweight",
+        "a": "Mitch Raposo",
+        "b": "Allan Nascimento",
+        "decided": true,
+        "method": "Decision (split) (29–28, 28–29, 29–28)",
+        "round": "3",
+        "time": "5:00"
+      },
+      {
+        "section": "prelim",
+        "weight": "Featherweight",
+        "a": "Gastón Bolaños",
+        "b": "Michael Aswell Jr.",
+        "decided": true,
+        "method": "Decision (unanimous) (29–28, 29–28, 29–28)",
+        "round": "3",
+        "time": "5:00"
+      },
+      {
+        "section": "prelim",
+        "weight": "Welterweight",
+        "a": "Levan Chokheli",
+        "b": "Leon Shahbazyan",
+        "decided": true,
+        "method": "TKO (leg kicks and punches)",
+        "round": "1",
+        "time": "0:23"
+      },
+      {
+        "section": "prelim",
+        "weight": "Women's Bantamweight",
+        "a": "Luana Santos",
+        "b": "Karol Rosa",
+        "decided": true,
+        "method": "Decision (unanimous) (30–27, 30–27, 30–27)",
+        "round": "3",
+        "time": "5:00"
+      },
+      {
+        "section": "prelim",
+        "weight": "Featherweight",
+        "a": "Shane Collins",
+        "b": "Otari Tanzilovi",
+        "decided": true,
+        "method": "Decision (unanimous) (30–27, 30–27, 30–27)",
+        "round": "3",
+        "time": "5:00"
+      }
+    ],
+    "finished": true
+  },
+  "news": [
+    {
+      "title": "Highlights! Manel Kape makes case for flyweight title shot after wild TKO comeback over Kyoji Horiguchi | UFC Vegas 119",
+      "link": "https://www.mmamania.com/ufc-paramount-plus-news-hub-fight-cards-schedule/452080/watch-ufc-vegas-119-video-highlights-results-mma-paramount-kape-knockout-horiguchi",
+      "source": "MMA Mania",
+      "priority": true
+    },
+    {
+      "title": "Jean Silva believe’s he’s 'next one in line' for UFC title shot",
+      "link": "https://www.sherdog.com/news/news/Jean-Silva-believes-hes-next-one-in-line-for-UFC-title-shot-201587",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
+      "title": "Lack of UFC return option may cause ex-UFC vet to retire and vacate Oktagon MMA belt",
+      "link": "https://www.bjpenn.com/mma-news/ufc/lack-of-ufc-return-option-may-cause-ex-ufc-vet-to-retire-and-vacate-oktagon-mma-belt/?utm_source=rss&utm_medium=rss&utm_campaign=lack-of-ufc-return-option-may-cause-ex-ufc-vet-to-retire-and-vacate-oktagon-mma-belt",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
+      "title": "Stella Hemetsberger has ‘certain’ prediction for her teammate’s ONE World Title fight on Friday",
+      "link": "https://www.bjpenn.com/mma-news/stella-hemetsberger/stella-hemetsberger-has-certain-prediction-for-her-teammates-one-world-title-fight-on-friday/?utm_source=rss&utm_medium=rss&utm_campaign=stella-hemetsberger-has-certain-prediction-for-her-teammates-one-world-title-fight-on-friday",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
+      "title": "Allycia Hellen Rodrigues returns stronger from injury for biggest fight of her career",
+      "link": "https://www.bjpenn.com/mma-news/allycia-hellen-rodrigues/allycia-hellen-rodrigues-returns-stronger-from-injury-for-biggest-fight-of-her-career/?utm_source=rss&utm_medium=rss&utm_campaign=allycia-hellen-rodrigues-returns-stronger-from-injury-for-biggest-fight-of-her-career",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
+      "title": "Roundtable: Is Ciryl Gane the UFC’s dirtiest fighter?",
+      "link": "https://www.mmafighting.com/latest-news/495432/roundtable-is-ciryl-gane-the-ufcs-dirtiest-fighter",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "UFC Vegas 119 post-fight show: Reaction to Manel Kape’s revenge knockout of Kyoji Horiguchi",
+      "link": "https://www.mmafighting.com/ufc/495693/ufc-vegas-119-post-fight-show-reaction-to-manel-kapes-revenge-knockout-of-kyoji-horiguchi",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Manel Kape flattens Kyoji Horiguchi with vicious knockout to get his revenge in UFC Vegas 119 main event",
+      "link": "https://www.mmafighting.com/ufc/495649/manel-kape-flattens-kyoji-horiguchi-with-vicious-knockout-to-get-his-revenge-in-ufc-vegas-119-main-event",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "UFC Vegas 119 video: Navajo Stirling unloads barrage of punches, elbows to melt Ion Cutelaba in second round",
+      "link": "https://www.mmafighting.com/ufc/495624/ufc-vegas-119-video-navajo-stirling-unloads-barrage-of-punches-elbows-to-melt-ion-cutelaba-in-second-round",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "UFC Vegas 119 live blog: Manel Kape vs. Kyoji Horiguchi 2",
+      "link": "https://www.mmafighting.com/latest-news/495563/ufc-vegas-119-live-blog-manel-kape-vs-kyoji-horiguchi-2",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "UFC Vegas 119 video: Murtazali Magomedov pulls off rare Scottish twister submission to tap Melsik Baghdasaryan",
+      "link": "https://www.mmafighting.com/ufc/495601/ufc-vegas-119-video-murtazali-magomedov-pulls-off-rare-scottish-twister-submission-to-tap-melsik-baghdasaryan",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Dricus du Plessis vs. Kamaru Usman headlines UFC Oklahoma City",
+      "link": "https://www.mmafighting.com/ufc/486598/dricus-du-plessis-vs-kamaru-usman-headlines-ufc-oklahoma-city",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "UFC Vegas 119 video: Vinicius Oliveira delivers brutal elbows to finish Andre Fili in featherweight debut",
+      "link": "https://www.mmafighting.com/ufc/495597/ufc-vegas-119-video-vinicius-oliveira-delivers-brutal-elbows-to-finish-andre-fili-in-featherweight-debut",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Video: Bia Mesquita scores first-round comeback armbar at UFC Vegas 119",
+      "link": "https://www.mmafighting.com/latest-news/495575/video-bia-mesquita-scores-first-round-comeback-armbar-at-ufc-vegas-119",
+      "source": "MMA Fighting",
+      "priority": false
+    }
+  ],
+  "hooks": {
+    "week": "Six days until Fiziev and Torres go to war—lightweight fireworks Saturday night in Singapore.",
+    "prefight": "Fiziev and Torres collide Saturday night in a championship-caliber lightweight showdown.",
+    "results": "Kape stopped Horiguchi cold in round three via brutal TKO."
+  },
+  "upcoming": [
+    {
+      "id": "2468284",
+      "name": "UFC Fight Night 280 Fiziev vs Torres",
+      "short": "Fiziev vs Torres",
+      "date_utc": "2026-06-27T14:00:00",
+      "date_sgt": "2026-06-27T22:00:00+08:00",
+      "when_sgt": "Sat 27 Jun, 10:00 PM SGT",
+      "venue": "National Gymnastics Arena",
+      "city": "Baku",
+      "desc": "UFC Fight Night: Fiziev vs. Torres (also known as UFC Fight Night 280) is an upcoming mixed martial arts event produced by the Ultimate Fighting Championship that is scheduled to take place on June 27, 2026, at the National Gymnastics Arena in Baku, Azerbaijan",
+      "badge": "https://www.thesportsdb.com/images/media/event/thumb/oq891n1782041517.jpg",
+      "bouts": [
+        {
+          "section": "prelim",
+          "weight": "Welterweight",
+          "a": "Farman Hasanov",
+          "b": "Eric Nolan",
+          "decided": false,
+          "method": "",
+          "round": "",
+          "time": ""
+        },
+        {
+          "section": "prelim",
+          "weight": "Light Heavyweight",
+          "a": "Abdul-Rakhman Yakhyaev",
+          "b": "Julius Walker",
+          "decided": false,
+          "method": "",
+          "round": "",
+          "time": ""
+        },
+        {
+          "section": "prelim",
+          "weight": "Middleweight",
+          "a": "Nursulton Ruziboev",
+          "b": "Andrey Pulyaev",
+          "decided": false,
+          "method": "",
+          "round": "",
+          "time": ""
+        },
+        {
+          "section": "prelim",
+          "weight": "Featherweight",
+          "a": "Kaan Ofli",
+          "b": "Javier Reyes",
+          "decided": false,
+          "method": "",
+          "round": "",
+          "time": ""
+        },
+        {
+          "section": "prelim",
+          "weight": "Welterweight",
+          "a": "Daniil Donchenko",
+          "b": "Theodor Berggren",
+          "decided": false,
+          "method": "",
+          "round": "",
+          "time": ""
+        },
+        {
+          "section": "prelim",
+          "weight": "Bantamweight",
+          "a": "Bekzat Almakhan",
+          "b": "Jean Matsumoto",
+          "decided": false,
+          "method": "",
+          "round": "",
+          "time": ""
+        },
+        {
+          "section": "prelim",
+          "weight": "Welterweight",
+          "a": "Tahir Abdullayev",
+          "b": "Jefferson Nascimento",
+          "decided": false,
+          "method": "",
+          "round": "",
+          "time": ""
+        },
+        {
+          "section": "main",
+          "weight": "Lightweight",
+          "a": "Rafael Fiziev",
+          "b": "Manuel Torres",
+          "decided": false,
+          "method": "",
+          "round": "",
+          "time": ""
+        },
+        {
+          "section": "main",
+          "weight": "Middleweight",
+          "a": "Sharabutdin Magomedov",
+          "b": "Michel Pereira",
+          "decided": false,
+          "method": "",
+          "round": "",
+          "time": ""
+        },
+        {
+          "section": "main",
+          "weight": "Lightweight",
+          "a": "Nazim Sadykhov",
+          "b": "Matheus Camilo",
+          "decided": false,
+          "method": "",
+          "round": "",
+          "time": ""
+        },
+        {
+          "section": "main",
+          "weight": "Flyweight",
+          "a": "Asu Almabayev",
+          "b": "Charles Johnson",
+          "decided": false,
+          "method": "",
+          "round": "",
+          "time": ""
+        },
+        {
+          "section": "main",
+          "weight": "Middleweight",
+          "a": "Ikram Aliskerov",
+          "b": "Brunno Ferreira",
+          "decided": false,
+          "method": "",
+          "round": "",
+          "time": ""
+        },
+        {
+          "section": "main",
+          "weight": "Middleweight",
+          "a": "Abusupiyan Magomedov",
+          "b": "Michał Oleksiejczuk",
+          "decided": false,
+          "method": "",
+          "round": "",
+          "time": ""
+        }
+      ],
+      "finished": false
+    }
+  ]
+}
