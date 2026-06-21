@@ -59,4 +59,23 @@ if(_b>0){var _priced=document.querySelectorAll('[data-pricefrom]');
     var cl=document.getElementById('affclear');if(cl)cl.addEventListener('click',function(ev){ev.preventDefault();localStorage.removeItem('llBudget');location.reload();});}
 }
 })();
+</script><script>
+(function(){
+  var sel='.lcard,.hncard,.regcard,.arch-card,.grp-head,.hero-copy,.hero-feat,.cta-in,.ld-info,.ld-media,.cfig';
+  var els=[].slice.call(document.querySelectorAll(sel));
+  if(!els.length)return;
+  els.forEach(function(el){el.classList.add('rv');});
+  document.querySelectorAll('.lgrid,.hngrid,.reggrid').forEach(function(g){
+    [].slice.call(g.children).forEach(function(c,i){if(c.classList.contains('rv'))c.style.transitionDelay=((i%4)*55)+'ms';});
+  });
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{rootMargin:'0px 0px -7% 0px',threshold:.06});
+    els.forEach(function(el){io.observe(el);});
+  } else { els.forEach(function(el){el.classList.add('in');}); }
+  function countUp(el){var raw=(el.textContent||'').trim();var num=parseInt(raw.replace(/[^0-9]/g,''),10);if(!num||num<5){return;}var suf=raw.replace(/[0-9,]/g,'');var t0=null;
+    function step(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/1100);var v=Math.round(num*(1-Math.pow(1-p,3)));el.textContent=v.toLocaleString('en-US')+suf;if(p<1)requestAnimationFrame(step);}
+    el.textContent='0'+suf;requestAnimationFrame(step);}
+  var stats=[].slice.call(document.querySelectorAll('.hero-stats b'));
+  if(stats.length){if('IntersectionObserver' in window){var so=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){countUp(en.target);so.unobserve(en.target);}});});stats.forEach(function(s){so.observe(s);});}else{stats.forEach(countUp);}}
+})();
 </script></body></html>
