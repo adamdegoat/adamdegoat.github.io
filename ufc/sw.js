@@ -1,5 +1,5 @@
 // UFC Fight Week — service worker (offline shell, fresh data)
-const CACHE = 'ufc-v2';
+const CACHE = 'ufc-v3';
 const SHELL = ['./', './index.html', './manifest.json', './icons/icon-192.png', './icons/icon-512.png'];
 
 self.addEventListener('install', e => {

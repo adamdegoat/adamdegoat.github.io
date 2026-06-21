@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-21T23:30:00.267323+08:00",
+  "updated": "2026-06-21T23:40:29.632879+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -12,6 +12,7 @@
     "when_prelims": "Sat 27 Jun, 9:00 PM SGT",
     "has_time": true,
     "location": "Baku, Azerbaijan",
+    "highlights": "https://www.youtube.com/results?search_query=UFC%20Fight%20Night%20280%20Fiziev%20vs%20Torres%20highlights",
     "desc": "UFC Fight Night: Fiziev vs. Torres (also known as UFC Fight Night 280) is an upcoming mixed martial arts event produced by the Ultimate Fighting Championship that is scheduled to take place on June 27, 2026, at the National Gymnastics Arena in Baku, Azerbaijan",
     "badge": "https://www.thesportsdb.com/images/media/event/thumb/oq891n1782041517.jpg",
     "bouts": [
@@ -159,6 +160,7 @@
     "when_prelims": "Sun 21 Jun, 5:00 AM SGT",
     "has_time": true,
     "location": "Las Vegas, USA",
+    "highlights": "https://www.youtube.com/results?search_query=UFC%20Fight%20Night%20279%20Kape%20vs%20Horiguchi%20highlights",
     "desc": "UFC Fight Night: Kape vs. Horiguchi (also known as UFC Fight Night 279 and UFC Vegas 119) was a mixed martial arts event produced by the Ultimate Fighting Championship that took place on June 20, 2026, at the Meta Apex in Enterprise, Nevada, part of the Las Vegas Valley, United States.",
     "badge": "https://www.thesportsdb.com/images/media/event/thumb/ktlfmk1782032413.jpg",
     "bouts": [
@@ -373,8 +375,8 @@
     }
   ],
   "hooks": {
-    "week": "Fiziev vs Torres drops Sunday midnight SGT—fight week is here.",
-    "prefight": "Fiziev and Torres ignite the octagon Sunday — elite lightweight striking supremacy awaits.",
-    "results": "Kape's punches force Horiguchi's TKO surrender in the third round."
+    "week": "Fiziev vs Torres Sunday midnight SGT—lightweight elite collide this fight week.",
+    "prefight": "Lightweight warfare erupts Sunday as Fiziev faces Torres in an elite striking showcase.",
+    "results": "Manel Kape stops Kyoji Horiguchi via TKO in round 3."
   }
 }

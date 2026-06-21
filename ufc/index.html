@@ -115,6 +115,9 @@
   .badge{font-size:10px;font-weight:700;padding:3px 7px;border-radius:6px;flex-shrink:0}
   .badge.main{background:rgba(210,10,10,.18);color:var(--red2)}
   .badge.w{background:rgba(39,201,63,.16);color:var(--green)}
+  .hl{flex-shrink:0;font-size:16px;text-decoration:none;padding:4px 8px;border-radius:8px;
+    background:var(--panel2);border:1px solid var(--line)}
+  .hl:active{background:var(--red)}
 
   /* news */
   .news a{display:block;background:var(--panel);border:1px solid var(--line);
@@ -236,6 +239,7 @@ function mainEvent(ev){
   const m = ev.bouts.filter(b=>b.section==='main');
   return m[0] || ev.bouts[0] || null;
 }
+const ytSearch = q => 'https://www.youtube.com/results?search_query='+encodeURIComponent(q);
 function boutRow(b,decided){
   const win = decided && b.decided;
   const wc = `<span class="wc">${esc(b.weight)}</span>`;
@@ -243,8 +247,11 @@ function boutRow(b,decided){
     ? `<div class="fighters"><span class="a">${esc(b.a)}</span> <span class="vs">def.</span> ${esc(b.b)}
          <div class="method">${esc(b.method)}${b.round?` · R${esc(b.round)} ${esc(b.time)}`:''}</div></div>`
     : `<div class="fighters">${esc(b.a)} <span class="vs">vs</span> ${esc(b.b)}</div>`;
+  const hl = win
+    ? `<a class="hl" href="${ytSearch(b.a+' vs '+b.b+' UFC highlights')}" target="_blank" rel="noopener" title="Watch highlights">🎬</a>`
+    : '';
   const badge = win?'<span class="badge w">WIN</span>':(b.section==='main'?'<span class="badge main">MAIN</span>':'');
-  return `<div class="bout ${win?'win':''}">${wc}${f}${badge}</div>`;
+  return `<div class="bout ${win?'win':''}">${wc}${f}${hl}${badge}</div>`;
 }
 function group(bouts,decided){
   const labels={main:'Main Card',prelim:'Prelims',early:'Early Prelims'};
@@ -309,6 +316,7 @@ function renderResults(d){
     ${ev.when_sgt?`<div class="when">📅 ${esc(ev.when_sgt)}</div>`:''}
     ${ev.location?`<div class="venue">📍 ${esc(ev.location)}</div>`:''}
     ${d.hooks&&d.hooks.results?`<p class="hook">${esc(d.hooks.results)}</p>`:''}
+    ${ev.highlights?`<a class="btn primary" style="display:block;margin-top:14px" href="${esc(ev.highlights)}" target="_blank" rel="noopener">🎬 Watch Event Highlights</a>`:''}
   </div>`;
   html += decided ? group(ev.bouts,true)
     : '<div class="empty">Results not in yet — check back after fight night.</div>';
