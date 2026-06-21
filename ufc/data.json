@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-21T22:58:58.936818+08:00",
+  "updated": "2026-06-21T23:02:17.198588+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -288,12 +288,6 @@
   },
   "news": [
     {
-      "title": "Highlights! Manel Kape makes case for flyweight title shot after wild TKO comeback over Kyoji Horiguchi | UFC Vegas 119",
-      "link": "https://www.mmamania.com/ufc-paramount-plus-news-hub-fight-cards-schedule/452080/watch-ufc-vegas-119-video-highlights-results-mma-paramount-kape-knockout-horiguchi",
-      "source": "MMA Mania",
-      "priority": true
-    },
-    {
       "title": "Jean Silva believe’s he’s 'next one in line' for UFC title shot",
       "link": "https://www.sherdog.com/news/news/Jean-Silva-believes-hes-next-one-in-line-for-UFC-title-shot-201587",
       "source": "Sherdog",
@@ -316,6 +310,12 @@
       "link": "https://www.bjpenn.com/mma-news/allycia-hellen-rodrigues/allycia-hellen-rodrigues-returns-stronger-from-injury-for-biggest-fight-of-her-career/?utm_source=rss&utm_medium=rss&utm_campaign=allycia-hellen-rodrigues-returns-stronger-from-injury-for-biggest-fight-of-her-career",
       "source": "BJPenn",
       "priority": true
+    },
+    {
+      "title": "‘I stopped him twice that night’: Justin Gaethje doubles down on Ilia Topuria not deserving rematch after UFC White House",
+      "link": "https://www.mmafighting.com/ufc/495642/i-stopped-him-twice-that-night-justin-gaethje-doubles-down-on-ilia-topuria-not-deserving-rematch-after-ufc-white-house",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "Roundtable: Is Ciryl Gane the UFC’s dirtiest fighter?",
@@ -366,15 +366,15 @@
       "priority": false
     },
     {
-      "title": "Video: Bia Mesquita scores first-round comeback armbar at UFC Vegas 119",
-      "link": "https://www.mmafighting.com/latest-news/495575/video-bia-mesquita-scores-first-round-comeback-armbar-at-ufc-vegas-119",
-      "source": "MMA Fighting",
+      "title": "UFC Vegas 119, The Morning After: Manel Kape and the Flyweight touch of death",
+      "link": "https://www.mmamania.com/ufc-results/452341/ufc-vegas-119-the-morning-after-manel-kape-and-the-flyweight-touch-of-death",
+      "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Fiziev takes on Torres Sunday midnight—elite striking showdown incoming.",
-    "prefight": "Fiziev and Torres ignite the octagon Sunday midnight SGT in an unmissable main event battle.",
-    "results": "Manel Kape stopped Kyoji Horiguchi via third-round TKO punches."
+    "week": "Fiziev meets Torres this Sunday midnight—elite lightweight action you cannot miss.",
+    "prefight": "Fiziev vs Torres Sunday at midnight SGT. Two elite lightweights in a striking masterclass.",
+    "results": "Manel Kape forces Horiguchi's exit in round three with a punishing TKO barrage."
   }
 }
