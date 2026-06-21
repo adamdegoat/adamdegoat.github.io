@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-21T22:53:50.701270+08:00",
+  "updated": "2026-06-21T22:58:25.407955+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -373,8 +373,8 @@
     }
   ],
   "hooks": {
-    "week": "Fiziev versus Torres goes down Sunday midnight SGT—expect striking fireworks in the octagon.",
-    "prefight": "Main event mayhem: Fiziev's lightning-quick hands challenge Torres's crushing power Sunday.",
-    "results": "Manel Kape puts away Kyoji Horiguchi with a round three TKO."
+    "week": "Fight week is here: Fiziev clashes Torres Sunday midnight SGT in this lightweight main event.",
+    "prefight": "Torres challenges striking elite Fiziev in Sunday's must-see lightweight main event.",
+    "results": "Manel Kape knocked out Kyoji Horiguchi with a round 3 TKO."
   }
 }
