@@ -1,5 +1,5 @@
 // Adam Phang hub — service worker (offline shell + installable PWA)
-const CACHE = 'adamhub-v1';
+const CACHE = 'adamhub-v3';
 const CORE = [
   'index.html',
   'tools/afford.html', 'tools/value.html', 'tools/stamp-duty.html',
@@ -22,18 +22,24 @@ self.addEventListener('fetch', e => {
   const r = e.request;
   if (r.method !== 'GET') return;
   const u = new URL(r.url);
-  // live market/rates data — always try the network first, fall back to cache
-  if (u.pathname.includes('/caveat/data/')) {
-    e.respondWith(fetch(r).then(resp => {
-      const cc = resp.clone(); caches.open(CACHE).then(c => c.put(r, cc)); return resp;
-    }).catch(() => caches.match(r)));
+  const isHTML = r.mode === 'navigate' || (r.headers.get('accept') || '').includes('text/html');
+
+  // pages + live data: always try the network first so content is never stale; fall back to cache offline
+  if (isHTML || u.pathname.includes('/caveat/data/')) {
+    e.respondWith(
+      fetch(r).then(resp => {
+        if (u.origin === location.origin) { const cc = resp.clone(); caches.open(CACHE).then(c => c.put(r, cc)); }
+        return resp;
+      }).catch(() => caches.match(r).then(hit => hit || caches.match('index.html')))
+    );
     return;
   }
-  // everything else — cache first, then network (and cache same-origin responses)
+
+  // static assets (icons, fonts, etc.): cache-first
   e.respondWith(
     caches.match(r).then(hit => hit || fetch(r).then(resp => {
       if (u.origin === location.origin) { const cc = resp.clone(); caches.open(CACHE).then(c => c.put(r, cc)); }
       return resp;
-    }).catch(() => r.mode === 'navigate' ? caches.match('index.html') : undefined))
+    }).catch(() => undefined))
   );
 });
