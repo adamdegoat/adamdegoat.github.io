@@ -144,8 +144,13 @@ function compute(){
   if(buy==='ec'){
     if(single) notes.push('Singles can’t buy a new EC — it needs a family nucleus.');
     else if(timer==='first'){
-      if(income<=16000){const ec=house==='scpr'?20000:30000; out.push(['EC Family Grant',ec]); total+=ec;}
-      else notes.push('Your income is above the EC grant ceiling ($16,000/mo).');
+      let ec = house==='scpr'
+        ? (income<=10000?20000 : income<=11000?10000 : 0)
+        : (income<=10000?30000 : income<=11000?20000 : income<=12000?10000 : 0);
+      if(ec>0){out.push(['EC Family Grant',ec]); total+=ec;}
+      else notes.push(income<=16000
+        ? 'The EC grant tapers to $0 above $12,000 income — you can still buy an EC (ceiling $16,000), just no grant.'
+        : 'Income above the EC income ceiling ($16,000).');
     } else notes.push('The EC grant is for first-timers.');
   }
   if(timer==='second' && buy!=='ec') notes.push('Upgrading from a subsidised 2- or 3-room flat? You may also qualify for the $15k Step-Up Grant (income ≤ $7,000) — ask me to check.');

@@ -386,6 +386,7 @@ em{font-style:italic;color:var(--brass)}
         <label class="am-f"><span>Existing monthly debts</span><div class="am-in"><i>$</i><input id="amDebts" inputmode="numeric" value="0"></div></label>
         <label class="am-f"><span>Of savings, CPF</span><div class="am-in"><i>$</i><input id="amCpf" inputmode="numeric" value="0"></div></label>
       </div>
+      <label class="am-f"><span>Housing grant <a href="tools/grants.html" style="color:var(--green2);font-weight:700">find →</a></span><div class="am-in"><i>$</i><input id="amGrant" inputmode="numeric" value="0"></div></label>
       <label class="am-f"><span>Loan length — <b id="amTenV">25 years</b></span><input type="range" id="amTen" min="5" max="30" step="1" value="25"></label>
     </div>
     <div class="am-result">
@@ -527,7 +528,7 @@ fetch('ticker.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{
   const autoTen=age=>Math.max(5,Math.min(PT[type].maxTen,65-age));
   function calc(){
     const income=num('amIncome'),sav=num('amSav'),age=num('amAge')||35;
-    const debts=extraOpen?num('amDebts'):0, cpf=extraOpen?Math.min(num('amCpf'),sav):0;
+    const debts=extraOpen?num('amDebts'):0, cpf=extraOpen?Math.min(num('amCpf'),sav):0, grant=extraOpen?num('amGrant'):0;
     const cash=sav-cpf, cfg=PT[type];
     const years=extraOpen?(+g('amTen').value):autoTen(age);
     const tdsrRoom=Math.max(0,income*R.tdsr-debts);
@@ -535,7 +536,7 @@ fetch('ticker.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{
     const loanByIncome=loanFromMonthly(maxMonthly,years);
     const reduced=(years>cfg.maxTen)||(age+years>65);
     const ltv=reduced?R.ltvReduced:R.ltv, minCash=reduced?R.minCashReduced:R.minCash;
-    const dpFrac=1-ltv, savings=cash+cpf;
+    const dpFrac=1-ltv, savings=cash+cpf+grant;
     const priceByIncome=loanByIncome/ltv, priceBySavings=dpFrac>0?savings/dpFrac:0, priceByCash=minCash>0?cash/minCash:0;
     const maxPrice=Math.max(0,Math.min(priceByIncome,priceBySavings,priceByCash));
     const loan=Math.min(ltv*maxPrice,loanByIncome), downpay=maxPrice-loan;
@@ -557,7 +558,7 @@ fetch('ticker.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{
     if(extraOpen){g('amTen').value=autoTen(num('amAge')||35); g('amTenV').textContent=g('amTen').value+' years';}
     calc();
   };
-  ['amIncome','amSav','amDebts','amCpf'].forEach(id=>g(id).addEventListener('input',e=>{const raw=e.target.value.replace(/[^0-9]/g,'');e.target.value=raw?Number(raw).toLocaleString('en-US'):'';calc();}));
+  ['amIncome','amSav','amDebts','amCpf','amGrant'].forEach(id=>g(id).addEventListener('input',e=>{const raw=e.target.value.replace(/[^0-9]/g,'');e.target.value=raw?Number(raw).toLocaleString('en-US'):'';calc();}));
   g('amAge').addEventListener('input',e=>{e.target.value=e.target.value.replace(/[^0-9]/g,'').slice(0,2);calc();});
   g('amTen').addEventListener('input',()=>{g('amTenV').textContent=g('amTen').value+' years';calc();});
   fetch('/caveat/data/rates.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{

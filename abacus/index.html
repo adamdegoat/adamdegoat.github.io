@@ -326,10 +326,11 @@ var CALCS=[
    {k:'profile',l:'You are a',t:'select',o:[['SC','Singapore Citizen'],['PR','Permanent Resident'],['FR','Foreigner']],d:'SC'},
    {k:'owned',l:'Properties you already own',t:'select',o:OWNED,d:'0'},
    {k:'type',l:'Property type',t:'select',o:[['PRIV','Private condo'],['EC','Executive Condo']],d:'PRIV'},
-   {k:'remlease',l:'Remaining lease (years)',t:'num',opt:1,ph:'leasehold only — blank = freehold/new'}],
+   {k:'remlease',l:'Remaining lease (years)',t:'num',opt:1,ph:'leasehold only — blank = freehold/new'},
+   {k:'grant',l:'Housing grant',t:'money',opt:1,ph:'EC/HDB first-timer — added to CPF'}],
  compute:function(g){
    var age=g('age')||35,coage=g('coage'),income=g('income'),co=g('coincome'),debts=g('debts'),
-       cash=g('cash'),cpf=g('cpf'),prof=g('profile'),owned=parseInt(g('owned'),10),type=g('type'),remlease=g('remlease');
+       cash=g('cash'),cpf=g('cpf'),prof=g('profile'),owned=parseInt(g('owned'),10),type=g('type'),remlease=g('remlease'),grant=g('grant');
    var gross=income+co;
    var jointAge=(co>0&&coage>0)?((age*income+coage*co)/(income+co)):null;
    var effAge=jointAge!=null?jointAge:age;
@@ -340,6 +341,7 @@ var CALCS=[
      if(remlease<20){cpfEff=0;leaseNote='warn';}
      else if(remlease<need95){cpfEff=cpf*(remlease/need95);leaseNote='prorate';}
      else leaseNote='ok';}
+   cpfEff+=grant;
    var fullLTV=(tenure<=30)&&(effAge+tenure<=65);
    var ltv=fullLTV?.75:.55, minCashRate=fullLTV?.05:.10;
    var maxM=RULES.tdsr*gross-debts; if(type==='EC')maxM=Math.min(maxM,RULES.msr*gross); maxM=Math.max(0,maxM);
