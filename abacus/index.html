@@ -325,21 +325,28 @@ var CALCS=[
    {t:'sec',l:'The property'},
    {k:'profile',l:'You are a',t:'select',o:[['SC','Singapore Citizen'],['PR','Permanent Resident'],['FR','Foreigner']],d:'SC'},
    {k:'owned',l:'Properties you already own',t:'select',o:OWNED,d:'0'},
-   {k:'type',l:'Property type',t:'select',o:[['PRIV','Private condo'],['EC','Executive Condo']],d:'PRIV'}],
+   {k:'type',l:'Property type',t:'select',o:[['PRIV','Private condo'],['EC','Executive Condo']],d:'PRIV'},
+   {k:'remlease',l:'Remaining lease (years)',t:'num',opt:1,ph:'leasehold only — blank = freehold/new'}],
  compute:function(g){
    var age=g('age')||35,coage=g('coage'),income=g('income'),co=g('coincome'),debts=g('debts'),
-       cash=g('cash'),cpf=g('cpf'),prof=g('profile'),owned=parseInt(g('owned'),10),type=g('type');
+       cash=g('cash'),cpf=g('cpf'),prof=g('profile'),owned=parseInt(g('owned'),10),type=g('type'),remlease=g('remlease');
    var gross=income+co;
    var jointAge=(co>0&&coage>0)?((age*income+coage*co)/(income+co)):null;
    var effAge=jointAge!=null?jointAge:age;
    var tenure=Math.max(5,Math.min(30,Math.round(65-effAge)));
+   var youngest=(co>0&&coage>0)?Math.min(age,coage):age, cpfEff=cpf, leaseNote=null;
+   if(remlease>0){var need95=Math.max(1,95-youngest);
+     tenure=Math.min(tenure,Math.max(5,Math.floor(remlease-20)));
+     if(remlease<20){cpfEff=0;leaseNote='warn';}
+     else if(remlease<need95){cpfEff=cpf*(remlease/need95);leaseNote='prorate';}
+     else leaseNote='ok';}
    var fullLTV=(tenure<=30)&&(effAge+tenure<=65);
    var ltv=fullLTV?.75:.55, minCashRate=fullLTV?.05:.10;
    var maxM=RULES.tdsr*gross-debts; if(type==='EC')maxM=Math.min(maxM,RULES.msr*gross); maxM=Math.max(0,maxM);
    var maxLoan=loanFromPmt(maxM,RULES.stress,tenure), priceFromLoan=maxLoan/ltv;
    var aR=absdRate(prof,owned);
    function need(P){return (1-ltv)*P+bsd(P)+P*aR;}
-   var lo=0,hi=30000000;for(var k=0;k<46;k++){var m=(lo+hi)/2;if(cash>=minCashRate*m-1&&cash+cpf>=need(m)-1)lo=m;else hi=m;}
+   var lo=0,hi=30000000;for(var k=0;k<46;k++){var m=(lo+hi)/2;if(cash>=minCashRate*m-1&&cash+cpfEff>=need(m)-1)lo=m;else hi=m;}
    var priceFromCash=lo, budget=Math.min(priceFromLoan,priceFromCash), limit=priceFromLoan<=priceFromCash?'loan':'cash';
    var P=budget,loan=ltv*P,down=P-loan,minCash=minCashRate*P,b=bsd(P),a=Math.floor(P*aR),upfront=down+b+a,monthly=pmt(loan,0.03,tenure);
    var rows=[['Bank loan',money(loan),pct(ltv,0)+' LTV · '+tenure+'-yr tenure'],
@@ -352,6 +359,12 @@ var CALCS=[
    var notes=[[limit==='loan'?'i':'i',limit==='loan'?'Your <b>income</b> sets this ceiling under the 55% TDSR rule.':'Your <b>cash &amp; CPF</b> set this ceiling — your income could support a larger loan.']];
    if(jointAge!=null)notes.push(['i','Two borrowers: ages blended by income into an <b>IWAA of '+Math.round(effAge)+'</b>, which sets the '+tenure+'-yr max tenure — the rule banks actually use.']);
    if(type==='EC'&&gross>16000)notes.push(['warn','Household income above the <b>$16,000</b> EC ceiling — an EC likely isn’t available.']);
+   notes.push(['i','Loan &amp; CPF are capped at the bank’s <b>valuation</b> — buying <b>above</b> valuation means the gap is extra cash on top of these figures.']);
+   if(remlease>0){
+     if(leaseNote==='warn')notes.push(['warn','A remaining lease under <b>20 years</b> can’t be paid with CPF and is hard to finance — treat this budget as indicative only.']);
+     else if(leaseNote==='prorate')notes.push(['warn','The lease doesn’t cover the youngest buyer (age '+youngest+') to <b>95</b>, so <b>CPF use is pro-rated</b> and loan tenure is capped by the lease — lowering this budget. Confirm exact limits with your bank &amp; CPF.']);
+     else notes.push(['i','The lease covers the youngest buyer to 95 — full CPF and loan available.']);
+   }
    return{head:['Your estimated budget',money(budget)],rows:rows,notes:notes};}},
 
 {id:'progressive',persona:'buyer',accent:'brand',icon:'🏗️',name:'Progressive Payment',blurb:'For a new launch under construction — exactly what you pay at each stage, from cash to loan, and when the monthly kicks in.',
