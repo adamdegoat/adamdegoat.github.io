@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-22T13:00:00.309066+08:00",
+  "updated": "2026-06-22T21:00:00.320536+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -368,15 +368,15 @@
       "priority": false
     },
     {
-      "title": "Rookie Report Card: Grading all Octagon newcomers UFC Vegas 119 post-mortem",
-      "link": "https://www.mmamania.com/ufc-results/452114/rookie-report-card-grading-all-octagon-newcomers-ufc-vegas-119-post-mortem",
+      "title": "Uh-oh. Ian Machado Garry wants to beat Islam Makhachev ‘in his own world’ at UFC 330",
+      "link": "https://www.mmamania.com/ufc-news/452529/uh-oh-ian-machado-garry-wants-to-beat-islam-makhachev-in-his-own-world-at-ufc-330",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Fiziev battles Torres Sunday 28 June, midnight SGT—striking excellence awaits.",
-    "prefight": "Fiziev's elite striking collides with Torres' raw power in this unmissable main event.",
-    "results": "Manel Kape TKOs Kyoji Horiguchi with a round 3 punching barrage for the main event."
+    "week": "Fiziev vs Torres headlines Sunday—get ready for UFC's next blockbuster matchup.",
+    "prefight": "Fiziev and Torres ignite the octagon in a lightweight main event showdown Sunday.",
+    "results": "Manel Kape batters Kyoji Horiguchi into a round 3 TKO with devastating punches."
   }
 }
