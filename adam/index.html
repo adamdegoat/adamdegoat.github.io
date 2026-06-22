@@ -25,6 +25,11 @@ body::before{content:"";position:fixed;inset:-20%;z-index:-2;pointer-events:none
 /* grain */
 body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opacity:.045;mix-blend-mode:multiply;
  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* topographic contour field — signals land/maps, very faint, slow drift */
+.topo{position:fixed;inset:-10%;z-index:-1;pointer-events:none;animation:topo 40s ease-in-out infinite alternate;will-change:transform}
+.topo svg{width:100%;height:100%;display:block}
+@keyframes topo{0%{transform:translate3d(0,0,0)}100%{transform:translate3d(-2.4%,-3.2%,0)}}
+@media(prefers-reduced-motion:reduce){.topo{animation:none}}
 .wrap{max-width:1200px;margin:0 auto;padding:0 36px}
 a{color:inherit;text-decoration:none}
 .serif{font-family:var(--serif)}
@@ -155,14 +160,17 @@ em{font-style:italic;color:var(--brass)}
 .fpill:hover{border-color:var(--green2);color:var(--green)}
 .fpill.on{background:var(--green);color:#f4efe6;border-color:var(--green)}
 .tools{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.tool{position:relative;background:#fffdf8;border:1px solid var(--line);border-radius:18px;padding:24px 20px;transition:transform .3s var(--ease),box-shadow .3s,border-color .3s}
-.tool:hover{transform:translateY(-6px);box-shadow:var(--sh2);border-color:var(--line2)}
-.tool .ti2{width:42px;height:42px;color:var(--green2);margin-bottom:15px;transition:.35s var(--ease)}
-.tool:hover .ti2{transform:translateY(-2px) scale(1.06)}
+.tool{position:relative;background:#fffdf8;border:1px solid var(--line);border-radius:18px;padding:26px 22px 24px;box-shadow:0 5px 18px rgba(25,21,18,.05);transition:transform .34s var(--ease),box-shadow .34s,border-color .34s}
+.tool::after{content:"Open →";position:absolute;right:22px;bottom:24px;font-size:12px;font-weight:700;color:var(--green2);opacity:0;transform:translateX(-6px);transition:.3s var(--ease)}
+.tool:hover{transform:translateY(-7px);box-shadow:0 26px 56px rgba(25,21,18,.14);border-color:var(--green2)}
+.tool:hover::after{opacity:1;transform:none}
+.tool .ti2{width:48px;height:48px;padding:12px;border-radius:14px;box-sizing:border-box;background:rgba(27,58,45,.05);border:1px solid var(--line);stroke:var(--green2);color:var(--green2);margin-bottom:16px;transition:.34s var(--ease)}
+.tool:hover .ti2{background:linear-gradient(140deg,var(--green2),var(--green3));border-color:transparent;stroke:var(--brass3);color:var(--brass3);transform:translateY(-3px)}
 .tool h4{font-family:var(--serif);font-weight:600;font-size:18.5px;margin-bottom:6px}
 .tool p{font-size:12.5px;color:var(--ink2);line-height:1.5}
 .tool .free{display:inline-block;margin-top:12px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--brass);background:rgba(176,141,87,.12);padding:3px 9px;border-radius:6px}
-.tool.feat{border-color:var(--green2);box-shadow:0 16px 44px rgba(27,58,45,.16)}
+.tool.feat{border-color:var(--green2);box-shadow:0 18px 46px rgba(27,58,45,.18)}
+.tool.feat .ti2{background:linear-gradient(140deg,var(--green2),var(--green3));border-color:transparent;stroke:var(--brass3);color:var(--brass3)}
 .tool .badge{position:absolute;top:-10px;left:18px;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#241a0d;background:linear-gradient(135deg,var(--brass3),var(--brass));padding:5px 11px;border-radius:20px;box-shadow:0 5px 14px rgba(176,141,87,.42)}
 
 /* field notes */
@@ -218,6 +226,11 @@ em{font-style:italic;color:var(--brass)}
 </style></head>
 <body>
 <div class="prog" id="prog"></div>
+<div class="topo" aria-hidden="true"><svg viewBox="0 0 1440 1520" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+<defs><path id="cl" d="M-120 92 C 210 18 380 156 660 96 C 940 44 1150 162 1560 90" fill="none"/></defs>
+<g stroke="#27513f" stroke-opacity=".10" stroke-width="1.1" fill="none">
+<use href="#cl" y="-40"/><use href="#cl" y="55"/><use href="#cl" y="150"/><use href="#cl" y="245"/><use href="#cl" y="340"/><use href="#cl" y="435"/><use href="#cl" y="530"/><use href="#cl" y="625"/><use href="#cl" y="720"/><use href="#cl" y="815"/><use href="#cl" y="910"/><use href="#cl" y="1005"/><use href="#cl" y="1100"/><use href="#cl" y="1195"/><use href="#cl" y="1290"/><use href="#cl" y="1385"/><use href="#cl" y="1480"/>
+</g></svg></div>
 
 <header class="nav" id="nav"><div class="wrap nav-in">
   <div class="brand"><b>Adam Phang</b><span>Singapore Property</span></div>
