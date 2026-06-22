@@ -44,7 +44,7 @@ input:focus,select:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(39
 .res.on{display:block}
 .res .fr{position:absolute;inset:13px;border:1px solid rgba(227,201,143,.22);border-radius:12px}
 .res .tot-k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass3);font-weight:700;position:relative}
-.res .tot{font-family:var(--serif);font-weight:600;font-size:46px;line-height:1;margin:8px 0 4px;position:relative}
+.res .tot{font-family:var(--serif);font-weight:600;font-size:40px;line-height:1.05;margin:8px 0 5px;position:relative;letter-spacing:-.01em;white-space:nowrap}
 .res .totsub{font-size:14px;color:rgba(243,239,230,.82);position:relative}
 .res .totsub b{color:#f3efe6;font-weight:700}
 .chip{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-size:12.5px;font-weight:700;padding:6px 13px;border-radius:30px;position:relative}
@@ -66,7 +66,7 @@ input:focus,select:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(39
 .btn.p{background:linear-gradient(135deg,var(--brass3),var(--brass));color:#241a0d}
 .btn.g{background:#fffdf8;border:1px solid var(--line2);color:var(--ink)}
 .foot{padding:30px 0 70px}.foot a{font-size:14px;font-weight:700;color:var(--green2)}
-@media(max-width:560px){.res .tot{font-size:38px}.two{flex-direction:column;gap:0}}
+@media(max-width:560px){.res .tot{font-size:30px}.two{flex-direction:column;gap:0}}
 </style></head>
 <body>
 <header class="bar"><div class="wrap"><span class="b">Adam Phang</span><a class="back" href="../index.html#tools">← Back to tools</a></div></header>
@@ -110,7 +110,7 @@ input:focus,select:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(39
   </div>
 
   <div class="res" id="res"><div class="fr"></div>
-    <div class="tot-k">Estimated value</div>
+    <div class="tot-k">Estimated value range</div>
     <div class="tot" id="tot">—</div>
     <div class="totsub" id="totsub"></div>
     <span class="chip" id="conf"><span class="dot"></span><span id="conftxt"></span></span>
@@ -239,8 +239,8 @@ async function run(){
 function plainReason(s){return s;} // engine reasons are already plain enough
 
 function render(r,label,subj){
-  $('#tot').textContent='~'+fmtM(r.estimate_price);
-  $('#totsub').innerHTML=`<b>${label}</b> — most likely between <b>${fmtM(r.low)}</b> and <b>${fmtM(r.high)}</b>`;
+  $('#tot').textContent=`${fmtM(r.low)} – ${fmtM(r.high)}`;
+  $('#totsub').innerHTML=`<b>${label}</b> — the likely range for ${r.area_assumed?'a typical unit':'this size'}. Mid-point about <b>${fmtM(r.estimate_price)}</b>.`;
   const cm={High:'High confidence',Medium:'Fair confidence',Lower:'Indicative'}[r.confidence]||r.confidence;
   $('#conf').className='chip '+r.confidence;$('#conftxt').textContent=cm;
   const html=[
