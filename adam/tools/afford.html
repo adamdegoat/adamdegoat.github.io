@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>What Can I Afford? — Adam Phang · Singapore Property</title>
-<meta name="description" content="Work out the home price you can realistically afford in Singapore — based on your income, savings and the official lending rules. Free, plain English, by Adam Phang.">
+<meta name="description" content="Work out the home price you can realistically afford in Singapore — based on your income, savings, age and the official lending rules. Free, plain English, by Adam Phang.">
 <meta name="theme-color" content="#1b3a2d">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b3a2d'/%3E%3Ctext x='16' y='23' font-size='19' font-family='Georgia' fill='%23cda86a' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -26,11 +26,12 @@ label{display:block;font-size:13px;font-weight:700;color:var(--ink);margin:0 0 4
 label small{display:block;font-size:11.5px;font-weight:500;color:var(--ink3);margin-bottom:9px}
 .field{margin-bottom:20px}
 .money{position:relative}
-.money span{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--ink3);font-weight:600;font-size:17px}
+.money span.pre{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--ink3);font-weight:600;font-size:17px}
 input[type=text]{width:100%;font-family:inherit;font-size:19px;font-weight:600;padding:14px 16px;padding-left:32px;border:1px solid var(--line2);border-radius:12px;background:#fff;color:var(--ink);outline:none;transition:.2s}
+input.plain{padding-left:16px}
 input:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(39,81,63,.1)}
 .opts{display:flex;gap:8px;flex-wrap:wrap}
-.opt{flex:1;min-width:120px;text-align:center;font-weight:600;font-size:14px;padding:12px 10px;border:1px solid var(--line2);border-radius:11px;background:#fff;color:var(--ink2);cursor:pointer;transition:.18s}
+.opt{flex:1;min-width:104px;text-align:center;font-weight:600;font-size:14px;padding:12px 8px;border:1px solid var(--line2);border-radius:11px;background:#fff;color:var(--ink2);cursor:pointer;transition:.18s}
 .opt:hover{border-color:var(--ink3)}.opt.on{background:var(--green);color:#f4efe6;border-color:var(--green)}
 .two{display:flex;gap:14px}.two .field{flex:1}
 .range{display:flex;align-items:center;gap:14px}
@@ -40,17 +41,19 @@ input[type=range]{flex:1;accent-color:var(--green2)}
 .res .fr{position:absolute;inset:13px;border:1px solid rgba(227,201,143,.22);border-radius:12px}
 .res .tot-k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass3);font-weight:700;position:relative}
 .res .tot{font-family:var(--serif);font-weight:600;font-size:46px;line-height:1;margin:8px 0 4px;position:relative}
-.res .totsub{font-size:13px;color:rgba(243,239,230,.72);position:relative;max-width:90%}
+.res .totsub{font-size:13px;color:rgba(243,239,230,.72);position:relative;max-width:92%}
 .rows{margin-top:20px;position:relative}
 .row{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid rgba(243,239,230,.13);font-size:14.5px}
 .row:last-child{border-bottom:0}
 .row .k{color:rgba(243,239,230,.85)}.row .k small{display:block;font-size:12px;color:rgba(243,239,230,.55);font-weight:400}
 .row .v{font-weight:700;font-family:var(--serif);font-size:17px;white-space:nowrap}
-.limit{margin-top:18px;background:#fff8e9;border:1px solid #ecdcb4;border-radius:12px;padding:14px 16px;font-size:13.5px;color:#6b5526;line-height:1.55}
-.limit b{color:#4a3a16}
+.flag{margin-top:14px;background:#fff8e9;border:1px solid #ecdcb4;border-radius:12px;padding:13px 16px;font-size:13.5px;color:#6b5526;line-height:1.55}
+.flag b{color:#4a3a16}
+.limit{margin-top:14px;background:#eef3ef;border:1px solid #d6e2da;border-radius:12px;padding:13px 16px;font-size:13.5px;color:#324a3d;line-height:1.55}
+.limit b{color:#1b3a2d}
 .note{font-size:13px;color:var(--ink2);margin-top:18px;line-height:1.6}.note b{color:var(--ink)}
-.disc{font-size:12.5px;color:var(--ink3);margin-top:22px;border-top:1px solid var(--line);padding-top:18px;line-height:1.6}
-.cta{margin:26px 0 0;display:flex;gap:11px;flex-wrap:wrap}
+.disc{font-size:12.5px;color:var(--ink3);margin-top:20px;border-top:1px solid var(--line);padding-top:18px;line-height:1.6}
+.cta{margin:24px 0 0;display:flex;gap:11px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;padding:13px 22px;border-radius:30px}
 .btn.p{background:linear-gradient(135deg,var(--brass3),var(--brass));color:#241a0d}
 .btn.g{background:#fffdf8;border:1px solid var(--line2);color:var(--ink)}
@@ -69,20 +72,20 @@ input[type=range]{flex:1;accent-color:var(--green2)}
 
   <div class="card">
     <div class="field">
-      <label>Property type<small>HDB flats follow a stricter limit (the loan can't exceed 30% of your income)</small></label>
-      <div class="opts" id="ptype"><div class="opt on" data-p="private">Private / condo</div><div class="opt" data-p="hdb">HDB flat</div></div>
+      <label>What are you buying?<small>HDB flats and new ECs have a stricter cap — the loan alone can't exceed 30% of your income.</small></label>
+      <div class="opts" id="ptype"><div class="opt on" data-p="private">Private / condo</div><div class="opt" data-p="hdb">HDB flat</div><div class="opt" data-p="ec">New EC</div></div>
     </div>
     <div class="field money">
       <label>Your gross monthly income<small>Before CPF. Combine both incomes if buying together.</small></label>
-      <span>$</span><input type="text" id="income" inputmode="numeric" value="10,000">
-    </div>
-    <div class="field money">
-      <label>Monthly debt repayments<small>Car loan, other loans, minimum on credit cards. Leave 0 if none.</small></label>
-      <span>$</span><input type="text" id="debts" inputmode="numeric" value="0">
+      <span class="pre">$</span><input type="text" id="income" inputmode="numeric" value="10,000">
     </div>
     <div class="two">
-      <div class="field money"><label>Cash savings<small>For the home</small></label><span>$</span><input type="text" id="cash" inputmode="numeric" value="300,000"></div>
-      <div class="field money"><label>CPF savings<small>Ordinary Account</small></label><span>$</span><input type="text" id="cpf" inputmode="numeric" value="150,000"></div>
+      <div class="field money"><label>Monthly debt repayments<small>Car, other loans, card minimums</small></label><span class="pre">$</span><input type="text" id="debts" inputmode="numeric" value="0"></div>
+      <div class="field"><label>Your age<small>The oldest borrower</small></label><input type="text" class="plain" id="age" inputmode="numeric" value="35"></div>
+    </div>
+    <div class="two">
+      <div class="field money"><label>Cash savings<small>For the home</small></label><span class="pre">$</span><input type="text" id="cash" inputmode="numeric" value="300,000"></div>
+      <div class="field money"><label>CPF you'll use<small>Ordinary Account</small></label><span class="pre">$</span><input type="text" id="cpf" inputmode="numeric" value="150,000"></div>
     </div>
     <div class="field" style="margin-bottom:4px">
       <label>Loan length</label>
@@ -91,12 +94,13 @@ input[type=range]{flex:1;accent-color:var(--green2)}
   </div>
 
   <div class="res" id="res"><div class="fr"></div>
-    <div class="tot-k">You can comfortably look up to</div>
+    <div class="tot-k">Your realistic ceiling</div>
     <div class="tot" id="tot">—</div>
     <div class="totsub" id="totsub"></div>
     <div class="rows" id="rows"></div>
   </div>
 
+  <div class="flag" id="flag" style="display:none"></div>
   <div class="limit" id="limit"></div>
   <p class="note" id="note"></p>
 
@@ -111,15 +115,18 @@ input[type=range]{flex:1;accent-color:var(--green2)}
 
 <script>
 // verified fallback (mirror of caveat/data/rates.json financing block)
-let R={tdsr:.55,msr:.30,stress:.04,ltv:.75,minCash:.05,bsd:[[180000,1],[360000,2],[1000000,3],[1500000,4],[3000000,5],[null,6]],as_of:"14 Jun 2026"};
+let R={tdsr:.55,msr:.30,stress:.04,ltv:.75,ltvReduced:.55,minCash:.05,minCashReduced:.10,
+       bsd:[[180000,1],[360000,2],[1000000,3],[1500000,4],[3000000,5],[null,6]],as_of:"14 Jun 2026"};
 fetch('https://adamdegoat.github.io/caveat/data/rates.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{
-  if(d.financing){R.tdsr=d.financing.tdsr_pct/100;R.msr=d.financing.msr_pct/100;R.stress=d.financing.stress_rate_pct/100;
-    if(d.financing.ltv&&d.financing.ltv.bank)R.ltv=d.financing.ltv.bank['1']/100;
-    if(d.financing.min_cash_pct)R.minCash=d.financing.min_cash_pct.ltv75/100;}
+  if(d.financing){const f=d.financing;R.tdsr=f.tdsr_pct/100;R.msr=f.msr_pct/100;R.stress=f.stress_rate_pct/100;
+    if(f.ltv&&f.ltv.bank)R.ltv=f.ltv.bank['1']/100;
+    if(f.ltv&&f.ltv.bank_reduced)R.ltvReduced=f.ltv.bank_reduced['1']/100;
+    if(f.min_cash_pct){R.minCash=f.min_cash_pct.ltv75/100;R.minCashReduced=f.min_cash_pct.ltv55/100;}}
   if(d.bsd&&d.bsd.tiers)R.bsd=d.bsd.tiers.map(t=>[t.upto,t.rate]);
   if(d.as_of)R.as_of=d.as_of; calc();
 }).catch(()=>{});
 
+const PTYPE={private:{msr:false,maxTen:30},hdb:{msr:true,maxTen:25},ec:{msr:true,maxTen:30}};
 const $=s=>document.querySelector(s);
 const num=id=>parseFloat(($('#'+id).value||'').replace(/[^0-9.]/g,''))||0;
 const fmt=n=>'$'+Math.round(n).toLocaleString('en-US');
@@ -127,66 +134,71 @@ const fmtM=n=>n>=1e6?'$'+(n/1e6).toFixed(2).replace(/0$/,'')+'M':'$'+Math.round(
 let ptype='private';
 
 function bsd(price){let prev=0,t=0;for(const[u,r] of R.bsd){const cap=(u==null)?price:Math.min(price,u);if(cap>prev){t+=(cap-prev)*r/100;prev=cap;}if(u!=null&&price<=u)break;}return t;}
-// loan from a monthly payment, at the stress rate over n years
 function loanFromMonthly(m,years){const r=R.stress/12,n=years*12;if(m<=0)return 0;return m*(1-Math.pow(1+r,-n))/r;}
 function monthlyFromLoan(loan,years,rate){const r=rate/12,n=years*12;if(loan<=0)return 0;return loan*r/(1-Math.pow(1+r,-n));}
 
 function compute(inp){
-  const {income,debts,cash,cpf,years,type}=inp;
-  // 1) max monthly mortgage allowed
+  const {income,debts,cash,cpf,years,age,type}=inp;
+  const cfg=PTYPE[type]||PTYPE.private;
   const tdsrRoom=Math.max(0, income*R.tdsr - debts);
-  const maxMonthly = type==='hdb' ? Math.min(tdsrRoom, income*R.msr) : tdsrRoom;
-  // 2) max loan from income (stress-tested)
+  const maxMonthly = cfg.msr ? Math.min(tdsrRoom, income*R.msr) : tdsrRoom;
   const loanByIncome = loanFromMonthly(maxMonthly, years);
-  // 3) price constraints
-  const ltv=R.ltv, dpFrac=1-ltv, savings=cash+cpf;
-  const priceByIncome = loanByIncome/ltv;            // borrow the max, price = loan/LTV
-  const priceBySavings = savings/dpFrac;             // down payment can't exceed savings
-  const priceByCash = cash/R.minCash;                // min cash portion (5%) must be in cash
+  // LTV drops to 55% if loan runs past age 65 OR tenure exceeds the cap
+  const reduced = (years > cfg.maxTen) || (age + years > 65);
+  const ltv = reduced ? R.ltvReduced : R.ltv;
+  const minCash = reduced ? R.minCashReduced : R.minCash;
+  const dpFrac = 1-ltv, savings=cash+cpf;
+  const priceByIncome = loanByIncome/ltv;
+  const priceBySavings = savings/dpFrac;
+  const priceByCash = cash/minCash;
   const maxPrice = Math.max(0, Math.min(priceByIncome, priceBySavings, priceByCash));
-  // 4) resulting figures at maxPrice
   const loan = Math.min(ltv*maxPrice, loanByIncome);
   const downpay = maxPrice - loan;
-  const cashPortion = Math.max(R.minCash*maxPrice, downpay - cpf); // at least 5% cash, plus whatever CPF can't cover
+  const cashPortion = Math.max(minCash*maxPrice, downpay - cpf);
   const cpfPortion = Math.max(0, downpay - cashPortion);
   const monthlyStress = monthlyFromLoan(loan, years, R.stress);
-  const duty = bsd(maxPrice);
-  const legal = 3000;
+  const duty = bsd(maxPrice), legal=3000;
   const cashUpfront = cashPortion + duty + legal;
-  // which constraint binds
   let limit='income';
   if(priceBySavings<=priceByIncome && priceBySavings<=priceByCash) limit='savings';
   else if(priceByCash<priceByIncome && priceByCash<priceBySavings) limit='cash';
-  return {maxPrice,loan,downpay,cashPortion,cpfPortion,monthlyStress,duty,legal,cashUpfront,maxMonthly,limit,loanByIncome};
+  return {maxPrice,loan,downpay,cashPortion,cpfPortion,monthlyStress,duty,cashUpfront,maxMonthly,limit,reduced,ltv,minCash,msr:cfg.msr,maxTen:cfg.maxTen};
 }
 
 function calc(){
   $('#tenrv').textContent=$('#tenure').value+' years';
-  const r=compute({income:num('income'),debts:num('debts'),cash:num('cash'),cpf:num('cpf'),years:+$('#tenure').value,type:ptype});
-  if(!(r.maxPrice>0)){$('#tot').textContent='—';$('#totsub').textContent='';$('#rows').innerHTML='';$('#limit').innerHTML='';$('#note').innerHTML='';return;}
+  const age=num('age')||35;
+  const r=compute({income:num('income'),debts:num('debts'),cash:num('cash'),cpf:num('cpf'),years:+$('#tenure').value,age:age,type:ptype});
+  if(!(r.maxPrice>0)){$('#tot').textContent='—';$('#totsub').textContent='';$('#rows').innerHTML='';$('#flag').style.display='none';$('#limit').innerHTML='';$('#note').innerHTML='';return;}
   $('#tot').textContent='~'+fmtM(r.maxPrice);
-  $('#totsub').textContent='a realistic ceiling — many buyers aim a little below this for breathing room';
+  $('#totsub').textContent='the most you should look at — many buyers aim a bit below this for breathing room';
   const rows=[
-    ['Home price','the most you should look at','~'+fmt(r.maxPrice)],
-    ['Loan you’d take','about '+Math.round(R.ltv*100)+'% of the price','~'+fmt(r.loan)],
+    ['Home price','the ceiling for your search','~'+fmt(r.maxPrice)],
+    ['Loan you’d take','about '+Math.round(r.ltv*100)+'% of the price','~'+fmt(r.loan)],
     ['You put down','cash ~'+fmt(r.cashPortion)+' + CPF ~'+fmt(r.cpfPortion),'~'+fmt(r.downpay)],
-    ['Monthly repayment','tested at '+(R.stress*100)+'% as banks require','~'+fmt(r.monthlyStress)],
-    ['Cash needed upfront','down payment + stamp duty + legal','~'+fmt(r.cashUpfront)],
+    ['Monthly repayment','tested at '+(R.stress*100)+'% — your actual will be lower','~'+fmt(r.monthlyStress)],
+    ['Cash needed upfront','min cash + stamp duty + legal','~'+fmt(r.cashUpfront)],
   ];
   $('#rows').innerHTML=rows.map(x=>`<div class="row"><span class="k">${x[0]}<small>${x[1]}</small></span><span class="v">${x[2]}</span></div>`).join('');
-  // binding constraint advice
+  // reduced-LTV flag (the important honesty bit)
+  if(r.reduced){
+    $('#flag').style.display='block';
+    const why = (age+(+$('#tenure').value)>65) ? `the loan would run past age 65` : `the loan is longer than ${r.maxTen} years`;
+    $('#flag').innerHTML=`⚠️ Because ${why}, banks cap your loan at <b>${Math.round(r.ltv*100)}%</b> (not 75%) — so you need a much bigger down payment. A shorter loan, or buying younger, lifts this.`;
+  } else $('#flag').style.display='none';
+  // binding constraint
   let L='';
-  if(r.limit==='income') L=`<b>Your income is the limit here.</b> The banks cap your loan at a share of your income — so the way to lift your budget is a longer loan, a co-borrower, or clearing existing debt.`;
+  if(r.limit==='income') L=`<b>Your income is the limit here.</b> Banks cap your loan at a share of your income — a longer loan, a co-borrower, or clearing existing debt would lift your budget.`;
   else if(r.limit==='savings') L=`<b>Your savings are the limit here.</b> You could borrow more, but the down payment needs cash + CPF you don’t have yet. Building savings raises your ceiling fastest.`;
-  else L=`<b>Your cash is the limit here.</b> At least ${Math.round(R.minCash*100)}% of the price must be paid in cash (CPF can’t cover that part) — more cash on hand lifts what you can buy.`;
+  else L=`<b>Your cash is the limit here.</b> At least ${Math.round(r.minCash*100)}% of the price must be paid in cash (CPF can’t cover that part).`;
   $('#limit').innerHTML=L;
-  $('#note').innerHTML=`This uses the real rules: a bank can lend you up to <b>${Math.round(R.tdsr*100)}% of your income for all debts</b>${ptype==='hdb'?` (and for an HDB flat, the loan alone can’t exceed <b>${Math.round(R.msr*100)}%</b>)`:''}, and it’s stress-tested at <b>${R.stress*100}%</b> even though real rates are usually lower.`;
-  $('#disc').innerHTML='Indicative only — not financial advice. A real figure depends on your credit, exact CPF usage limits, age and the bank’s valuation. Assumes your first housing loan. Rules as of '+R.as_of+'. Always confirm with a banker.';
+  $('#note').innerHTML=`This uses the real rules: a bank can lend up to <b>${Math.round(R.tdsr*100)}% of your income for all debts</b>${r.msr?` and, for an HDB flat or new EC, the home loan alone can’t exceed <b>${Math.round(R.msr*100)}%</b>`:''} — stress-tested at <b>${R.stress*100}%</b> even though real rates are usually lower.`;
+  $('#disc').innerHTML='Indicative only — not financial advice. Assumes a <b>bank loan</b> and your <b>first home</b>. CPF use is capped at the property’s valuation and you may keep a buffer in your OA, so treat the CPF figure as a maximum. If your income is mainly commission or self-employed, banks count only about <b>70%</b> of it — your real figure would be lower. A precise number depends on your credit and the bank’s valuation. Rules as of '+R.as_of+'. Always confirm with a banker.';
 }
 
-['income','debts','cash','cpf'].forEach(id=>$('#'+id).addEventListener('input',e=>{const raw=e.target.value.replace(/[^0-9]/g,'');e.target.value=raw?Number(raw).toLocaleString('en-US'):'';calc();}));
+['income','debts','cash','cpf','age'].forEach(id=>$('#'+id).addEventListener('input',e=>{const raw=e.target.value.replace(/[^0-9]/g,'');e.target.value=raw?(id==='age'?raw:Number(raw).toLocaleString('en-US')):'';calc();}));
 $('#tenure').addEventListener('input',calc);
-document.querySelectorAll('#ptype .opt').forEach(o=>o.onclick=()=>{document.querySelectorAll('#ptype .opt').forEach(x=>x.classList.remove('on'));o.classList.add('on');ptype=o.dataset.p;if(ptype==='hdb'){$('#tenure').max=25;if(+$('#tenure').value>25)$('#tenure').value=25;}else{$('#tenure').max=30;}calc();});
+document.querySelectorAll('#ptype .opt').forEach(o=>o.onclick=()=>{document.querySelectorAll('#ptype .opt').forEach(x=>x.classList.remove('on'));o.classList.add('on');ptype=o.dataset.p;const mt=PTYPE[ptype].maxTen;$('#tenure').max=mt;if(+$('#tenure').value>mt)$('#tenure').value=mt;calc();});
 window.__afford={compute,loanFromMonthly,monthlyFromLoan,bsd,R:()=>R};
 calc();
 </script>
