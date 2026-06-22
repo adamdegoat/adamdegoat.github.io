@@ -152,6 +152,11 @@ const num=id=>parseFloat(($('#'+id).value||'').replace(/[^0-9.]/g,''))||0;
 const fmt=n=>'$'+Math.round(n).toLocaleString('en-US');
 const fmtM=n=>n>=1e6?'$'+(n/1e6).toFixed(2).replace(/0$/,'')+'M':'$'+Math.round(n/1000)+'k';
 let mode='hdb', IDX=null, projSel=null, projList=[], cur=-1, STREETS={};
+// plain-English area names (no district codes) + plain segment labels
+const AREAS={1:'City Centre',2:'Tanjong Pagar',3:'Queenstown / Tiong Bahru',4:'Sentosa / Harbourfront',5:'Clementi / West Coast',6:'City Hall',7:'Bugis / Beach Road',8:'Little India',9:'Orchard',10:'Bukit Timah / Holland',11:'Novena / Newton',12:'Toa Payoh / Balestier',13:'Macpherson / Potong Pasir',14:'Geylang / Paya Lebar',15:'East Coast (Katong)',16:'Bedok / Upper East Coast',17:'Changi / Loyang',18:'Tampines / Pasir Ris',19:'Serangoon / Hougang',20:'Bishan / Ang Mo Kio',21:'Upper Bukit Timah',22:'Jurong',23:'Bukit Panjang / Choa Chu Kang',24:'Tengah / Lim Chu Kang',25:'Woodlands',26:'Upper Thomson',27:'Yishun / Sembawang',28:'Seletar / Yio Chu Kang'};
+const area=d=>AREAS[parseInt(d,10)]||('District '+d);
+const SEGP={CCR:'Prime',RCR:'City fringe',OCR:'Suburbs'};
+const segPlain=s=>SEGP[s]||s;
 
 // graceful guard if the engine failed to load
 if(typeof Engines==='undefined'){ $('#go').disabled=true; $('#err').classList.add('on'); $('#err').textContent='Valuation engine is loading — please refresh in a moment.'; }
@@ -192,7 +197,7 @@ $('#proj').addEventListener('input',e=>{
 function renderAc(){
   const ac=$('#projac');
   if(!projList.length){ac.innerHTML='<div class="meta" style="cursor:default">No matching project.</div>';ac.classList.add('on');return;}
-  ac.innerHTML=projList.map((p,i)=>`<div data-i="${i}" class="${i===cur?'hl':''}">${title(p[0])} <span class="meta">· D${p[1]} · ${p[2]}</span></div>`).join('');
+  ac.innerHTML=projList.map((p,i)=>`<div data-i="${i}" class="${i===cur?'hl':''}">${title(p[0])} <span class="meta">· ${area(p[1])} · ${segPlain(p[2])}</span></div>`).join('');
   ac.classList.add('on');
   ac.querySelectorAll('div[data-i]').forEach(el=>el.onclick=()=>pickProj(projList[+el.dataset.i]));
 }
@@ -228,7 +233,7 @@ async function run(){
       rows=await Caveat.condoDistrict(p[1]);
       subj={project:p[0],district:p[1],seg:p[2],ptype:p[3],tenure_fh:p[4],area_sqm:sqm(num('csize')),floor_mid:num('floor')||null};
       r=Engines.condoEstimate(rows,subj);
-      label=`${title(p[0])} · D${p[1]}`;
+      label=`${title(p[0])} · ${area(p[1])}`;
     }
     if(!r.ok){throw new Error(plainReason(r.reason));}
     render(r,label,subj);
