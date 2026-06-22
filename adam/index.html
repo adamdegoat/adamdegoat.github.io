@@ -95,9 +95,16 @@ em{font-style:italic;color:var(--brass)}
 .seg-chip{flex:1;text-align:center;background:rgba(27,58,45,.045);border:1px solid var(--line);border-radius:10px;padding:8px 4px}
 .seg-chip .sk{font-size:9.5px;font-weight:800;letter-spacing:.09em;color:var(--ink3)}
 .seg-chip .sv{font-family:var(--serif);font-weight:600;font-size:15px;margin-top:2px;color:var(--ink)}
-.lp-cta{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:15px;background:var(--green);color:#f4efe6;font-weight:700;font-size:13.5px;padding:13px;border-radius:12px;position:relative;transition:.22s var(--ease)}
-.lp-cta:hover{background:var(--green3);transform:translateY(-2px)}
+.lp-say{margin-top:14px;font-size:11.5px;line-height:1.5;color:var(--ink2);position:relative}
+.lp-say em{font-style:normal;font-weight:700;color:var(--green2)}
+.lp-ctas{margin-top:12px;display:flex;flex-direction:column;gap:9px}
+.lp-cta{display:flex;align-items:center;justify-content:center;gap:8px;font-weight:700;border-radius:12px;position:relative;transition:.22s var(--ease)}
 .lp-cta i{font-style:normal;transition:.22s var(--ease)}.lp-cta:hover i{transform:translateX(4px)}
+.lp-cta.pri{background:linear-gradient(135deg,var(--brass3),var(--brass));color:#241a0d;font-size:14px;padding:14px;box-shadow:0 10px 24px rgba(176,141,87,.3)}
+.lp-cta.pri:hover{transform:translateY(-2px);filter:brightness(1.04)}
+.lp-cta.pri .st{font-size:12px;margin-right:-2px}
+.lp-cta.sec{background:#fff;border:1px solid var(--line2);color:var(--green);font-size:12.5px;padding:11px}
+.lp-cta.sec:hover{border-color:var(--green2);transform:translateY(-1px)}
 .lp-tools{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:13px;padding-top:14px;border-top:1px solid var(--line);position:relative}
 .lp-tools .lbl{width:100%;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:1px}
 .lp-tools a{font-size:12px;font-weight:600;color:var(--ink2);background:rgba(27,58,45,.05);border:1px solid var(--line);border-radius:30px;padding:6px 11px;transition:.18s var(--ease)}
@@ -250,23 +257,25 @@ em{font-style:italic;color:var(--brass)}
     </div>
     <div class="lp-grid">
       <div class="lp-stat">
-        <div class="lp-k">HDB resale</div>
+        <div class="lp-k">Typical HDB flat</div>
         <div class="lp-v" id="lpHdbV">—</div>
-        <div class="lp-sub">median · <b id="lpHdbPsf">—</b> psf</div>
+        <div class="lp-sub" id="lpHdbT">resale</div>
         <svg class="spark" id="lpHdbSpark" viewBox="0 0 120 28" preserveAspectRatio="none"></svg>
       </div>
       <div class="lp-stat">
-        <div class="lp-k">Private</div>
+        <div class="lp-k">Typical condo</div>
         <div class="lp-v" id="lpPvtV">—</div>
-        <div class="lp-sub">median · <b id="lpPvtPsf">—</b> psf</div>
+        <div class="lp-sub" id="lpPvtT">private</div>
         <svg class="spark" id="lpPvtSpark" viewBox="0 0 120 28" preserveAspectRatio="none"></svg>
       </div>
     </div>
-    <div class="lp-segs" id="lpSegs"></div>
-    <a class="lp-cta" href="tools/value.html">Value your home <i>→</i></a>
+    <p class="lp-say">That's what people are paying right now. What <em>you</em> can buy comes down to your budget — find out free:</p>
+    <div class="lp-ctas">
+      <a class="lp-cta pri" href="tools/afford.html"><span class="st">★</span> What can I afford? <i>→</i></a>
+      <a class="lp-cta sec" href="tools/value.html">Value a home <i>→</i></a>
+    </div>
     <div class="lp-tools">
       <span class="lbl">More free tools</span>
-      <a href="tools/afford.html">What can I afford?</a>
       <a href="tools/stamp-duty.html">Stamp duty</a>
       <a href="tools/schools.html">Schools nearby</a>
       <a href="tools/sell.html">Selling?</a>
@@ -397,16 +406,21 @@ fetch('ticker.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{
     el.innerHTML=`<path d="${area}" fill="${col}" opacity=".10"/><path d="${line}" fill="none" stroke="${col}" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="2.1" fill="${col}"/>`;
   }
   const SEGLBL={CCR:'Prime',RCR:'City fringe',OCR:'Suburbs'};
+  function trend(ms){
+    const v=(ms||[]).slice(-12).map(m=>m.psf); if(v.length<2) return '';
+    const p=(v[v.length-1]-v[0])/v[0]*100;
+    if(Math.abs(p)<2) return 'holding steady';
+    return (p>0?'up ':'down ')+Math.abs(Math.round(p))+'% over the year';
+  }
   function render(d){
     try{
       const hdb=d.overall.hdb,pvt=d.overall.private;
-      g('lpHdbV').textContent=moneyShort(hdb.median_price); g('lpHdbPsf').textContent='$'+hdb.median_psf.toLocaleString();
-      g('lpPvtV').textContent=moneyShort(pvt.median_price); g('lpPvtPsf').textContent='$'+pvt.median_psf.toLocaleString();
+      g('lpHdbV').textContent=moneyShort(hdb.median_price);
+      g('lpPvtV').textContent=moneyShort(pvt.median_price);
+      g('lpHdbT').textContent=['resale',trend(hdb.months)].filter(Boolean).join(' · ');
+      g('lpPvtT').textContent=['private',trend(pvt.months)].filter(Boolean).join(' · ');
       spark(g('lpHdbSpark'),hdb.months.slice(-12).map(m=>m.psf));
       spark(g('lpPvtSpark'),pvt.months.slice(-12).map(m=>m.psf));
-      const segs=d.private_segments||[];
-      const pick=['CCR','RCR','OCR'].map(k=>segs.find(s=>s.seg===k)).filter(Boolean);
-      g('lpSegs').innerHTML=pick.map(s=>`<div class="seg-chip"><div class="sk">${SEGLBL[s.seg]||s.seg}</div><div class="sv">$${s.median_psf.toLocaleString()}</div></div>`).join('');
       if(d.built){const dt=new Date(d.built);if(!isNaN(dt))g('lpUpd').textContent='updated '+dt.toLocaleDateString('en-SG',{month:'short',year:'numeric'});}
     }catch(e){}
   }
