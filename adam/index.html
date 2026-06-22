@@ -217,7 +217,7 @@ em{font-style:italic;color:var(--brass)}
     <p class="rv">The kind of data the portals keep behind a wall — here, free, for you.</p></div>
   <div class="tools">
     <a class="tool rv" href="https://adamdegoat.github.io/caveat/"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#27513f" stroke-width="1.6" stroke-linecap="round"><path d="M17 4H7v10l11 11 10-10z"/><circle cx="12" cy="9" r="1.6"/></svg><h4>Value a home</h4><p>Any condo or HDB, valued on real transactions — with an honest confidence range.</p><span class="free">Free</span></a>
-    <a class="tool rv" href="https://adamdegoat.github.io/abacus/"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#27513f" stroke-width="1.6" stroke-linecap="round"><rect x="7" y="4" width="18" height="24" rx="3"/><path d="M11 9h10M11 14h4M19 14h2M11 19h4M19 19h2M11 24h4"/></svg><h4>Run the math</h4><p>ABSD, stamp duty, TDSR — the real cost of your move, to the dollar.</p><span class="free">Free</span></a>
+    <a class="tool rv" href="https://adamdegoat.github.io/abacus/"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#27513f" stroke-width="1.6" stroke-linecap="round"><rect x="7" y="4" width="18" height="24" rx="3"/><path d="M11 9h10M11 14h4M19 14h2M11 19h4M19 19h2M11 24h4"/></svg><h4>Run the math</h4><p>Stamp duties and how much you can borrow — the real cost of your move, to the dollar.</p><span class="free">Free</span></a>
     <div class="tool rv"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#27513f" stroke-width="1.6" stroke-linecap="round"><path d="M5 12l11-6 11 6-11 6z"/><path d="M10 15v6c0 0 2.5 2 6 2s6-2 6-2v-6"/></svg><h4>Find by school</h4><p>See every home within 1km &amp; 2km of the school you want.</p><span class="free" style="color:var(--ink3);background:rgba(152,142,126,.16)">Soon</span></div>
     <a class="tool rv" href="https://adamdegoat.github.io/compass/"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#27513f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="12"/><path d="M21 11l-3 7-7 3 3-7z"/></svg><h4>Plan your move</h4><p>Answer a few questions → your eligibility, budget and a clear buying roadmap.</p><span class="free">Free</span></a>
   </div>
@@ -267,9 +267,13 @@ addEventListener('scroll',()=>{const y=scrollY;nav.classList.toggle('scrolled',y
 // counters
 const cio=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){const el=e.target,to=+el.dataset.to,suf=el.dataset.suf||'';let t0=null;const step=ts=>{if(!t0)t0=ts;const p=Math.min(1,(ts-t0)/1200);el.textContent=Math.round(to*(1-Math.pow(1-p,3)))+suf;if(p<1)requestAnimationFrame(step);};requestAnimationFrame(step);cio.unobserve(el);}});});
 document.querySelectorAll('.count').forEach(el=>cio.observe(el));
-// ticker (duplicated for seamless loop)
-const T=[['D09','$2,8xx','u','+1.2%'],['D10','$2,5xx','d','-0.4%'],['D15','$2,1xx','u','+0.8%'],['D19','$1,7xx','u','+2.1%'],['D05','$1,9xx','u','+0.6%'],['D03','$2,3xx','d','-0.3%'],['D23','$1,5xx','u','+1.4%'],['D28','$1,6xx','u','+0.9%']];
-const item=t=>`<span class="ti"><span class="lbl">${t[0]}</span> <b>${t[1]}</b> psf <span class="${t[2]}">${t[2]==='u'?'▲':'▼'} ${t[3]}</span></span>`;
-document.getElementById('tick').innerHTML=(T.map(item).join('')).repeat(2);
+// ticker — real recent sales, plain English (from ticker.json)
+fetch('ticker.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{
+  const items=(j.items||[]);
+  if(!items.length){document.querySelector('.ticker').style.display='none';return;}
+  const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  const item=x=>`<span class="ti"><span class="lbl">Just sold</span> a ${esc(x.what)} in ${esc(x.place)} · <b>${esc(x.price)}</b></span>`;
+  document.getElementById('tick').innerHTML=(items.map(item).join('')).repeat(2);
+}).catch(()=>{document.querySelector('.ticker').style.display='none';});
 </script>
 </body></html>
