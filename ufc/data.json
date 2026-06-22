@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-21T23:46:53.814529+08:00",
+  "updated": "2026-06-22T09:00:00.248601+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -290,9 +290,33 @@
   },
   "news": [
     {
+      "title": "Manel Kape takes aim at Joshua Van ahead of potential title fight: ‘He’s my kid and I can’t wait to take his diaper’",
+      "link": "https://www.mmafighting.com/ufc/495685/manel-kape-takes-aim-at-joshua-van-ahead-of-potential-title-fight-hes-my-kid-and-i-cant-wait-to-take-his-diaper",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
+      "title": "Islam Makhachev: Usman Nurmagomedov will take pay cut by signing with UFC",
+      "link": "https://www.sherdog.com/news/news/Islam-Makhachev-Usman-Nurmagomedov-will-take-pay-cut-by-signing-with-UFC-201597",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
       "title": "Jean Silva believe’s he’s 'next one in line' for UFC title shot",
       "link": "https://www.sherdog.com/news/news/Jean-Silva-believes-hes-next-one-in-line-for-UFC-title-shot-201587",
       "source": "Sherdog",
+      "priority": true
+    },
+    {
+      "title": "Michael Chandler is ‘not a UFC-level guy’ if you ask one retired fan favorite: “He shouldn’t be the star that he is”",
+      "link": "https://www.bjpenn.com/mma-news/ufc/michael-chandler-is-not-a-ufc-level-guy-if-you-ask-one-retired-fan-favorite-he-shouldnt-be-the-star-that-he-is/?utm_source=rss&utm_medium=rss&utm_campaign=michael-chandler-is-not-a-ufc-level-guy-if-you-ask-one-retired-fan-favorite-he-shouldnt-be-the-star-that-he-is",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
+      "title": "Manel Kape thinks he earned UFC title shot after revenge KO over Kyoji Horguchi: “It was enough”",
+      "link": "https://www.bjpenn.com/mma-news/ufc/manel-kape-thinks-he-earned-ufc-title-shot-after-revenge-ko-over-kyoji-horguchi-it-was-enough/?utm_source=rss&utm_medium=rss&utm_campaign=manel-kape-thinks-he-earned-ufc-title-shot-after-revenge-ko-over-kyoji-horguchi-it-was-enough",
+      "source": "BJPenn",
       "priority": true
     },
     {
@@ -306,6 +330,24 @@
       "link": "https://www.bjpenn.com/mma-news/stella-hemetsberger/stella-hemetsberger-has-certain-prediction-for-her-teammates-one-world-title-fight-on-friday/?utm_source=rss&utm_medium=rss&utm_campaign=stella-hemetsberger-has-certain-prediction-for-her-teammates-one-world-title-fight-on-friday",
       "source": "BJPenn",
       "priority": true
+    },
+    {
+      "title": "‘You’re not going to lay a glove on me’: Conor McGregor, Max Holloway trade insults in first face-to-face showdown ahead of UFC 329",
+      "link": "https://www.mmafighting.com/ufc/494714/youre-not-going-to-lay-a-glove-on-me-conor-mcgregor-max-holloway-trade-insults-in-first-face-to-face-showdown-ahead-of-ufc-329",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Trevor Wittman reveals UFC reached out about potentially using his glove design; Dana White responds",
+      "link": "https://www.mmafighting.com/ufc/495550/trevor-wittman-reveals-ufc-reached-out-about-potentially-using-his-glove-design",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Matt Brown argues Michael Chandler ‘clearly not a UFC level guy’ anymore after latest loss at UFC White House",
+      "link": "https://www.mmafighting.com/ufc/495534/matt-brown-argues-michael-chandler-clearly-not-a-ufc-level-guy-anymore-after-latest-loss-at-ufc-white-house",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "‘I stopped him twice that night’: Justin Gaethje doubles down on Ilia Topuria not deserving rematch after UFC White House",
@@ -326,57 +368,15 @@
       "priority": false
     },
     {
-      "title": "Manel Kape flattens Kyoji Horiguchi with vicious knockout to get his revenge in UFC Vegas 119 main event",
-      "link": "https://www.mmafighting.com/ufc/495649/manel-kape-flattens-kyoji-horiguchi-with-vicious-knockout-to-get-his-revenge-in-ufc-vegas-119-main-event",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "UFC Vegas 119 video: Navajo Stirling unloads barrage of punches, elbows to melt Ion Cutelaba in second round",
-      "link": "https://www.mmafighting.com/ufc/495624/ufc-vegas-119-video-navajo-stirling-unloads-barrage-of-punches-elbows-to-melt-ion-cutelaba-in-second-round",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "UFC Vegas 119 live blog: Manel Kape vs. Kyoji Horiguchi 2",
-      "link": "https://www.mmafighting.com/latest-news/495563/ufc-vegas-119-live-blog-manel-kape-vs-kyoji-horiguchi-2",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "UFC Vegas 119 video: Murtazali Magomedov pulls off rare Scottish twister submission to tap Melsik Baghdasaryan",
-      "link": "https://www.mmafighting.com/ufc/495601/ufc-vegas-119-video-murtazali-magomedov-pulls-off-rare-scottish-twister-submission-to-tap-melsik-baghdasaryan",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Dricus du Plessis vs. Kamaru Usman headlines UFC Oklahoma City",
-      "link": "https://www.mmafighting.com/ufc/486598/dricus-du-plessis-vs-kamaru-usman-headlines-ufc-oklahoma-city",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "UFC Vegas 119 video: Vinicius Oliveira delivers brutal elbows to finish Andre Fili in featherweight debut",
-      "link": "https://www.mmafighting.com/ufc/495597/ufc-vegas-119-video-vinicius-oliveira-delivers-brutal-elbows-to-finish-andre-fili-in-featherweight-debut",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "UFC Vegas 119, The Morning After: Manel Kape and the Flyweight touch of death",
-      "link": "https://www.mmamania.com/ufc-results/452341/ufc-vegas-119-the-morning-after-manel-kape-and-the-flyweight-touch-of-death",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "Kyoji Horiguchi releases statement following UFC Vegas 119 knockout loss – ‘I’m truly sorry’",
-      "link": "https://www.mmamania.com/ufc-results/452367/kyoji-horiguchi-releases-statement-following-ufc-vegas-119-knockout-loss-im-truly-sorry",
+      "title": "Rookie Report Card: Grading all Octagon newcomers UFC Vegas 119 post-mortem",
+      "link": "https://www.mmamania.com/ufc-results/452114/rookie-report-card-grading-all-octagon-newcomers-ufc-vegas-119-post-mortem",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Fiziev and Torres bring striking fireworks Sunday midnight—lightweight elite combat awaits.",
-    "prefight": "Pure lightweight striking erupts when Fiziev faces Torres Sunday June 28 at midnight SGT.",
-    "results": "Manel Kape pounds Horiguchi into a third-round TKO stoppage."
+    "week": "This Sunday, Fiziev meets Torres for lightweight supremacy.",
+    "prefight": "Fiziev's striking meets Torres' pressure in an explosive lightweight clash Sunday.",
+    "results": "Kape stops Horiguchi cold with a devastating third-round TKO."
   }
 }
