@@ -90,6 +90,8 @@ em{font-style:italic;color:var(--brass)}
 .covers b{color:var(--ink2);font-weight:700}
 .hinstall{display:inline-block;margin-top:16px;font-size:13px;font-weight:700;color:var(--green2);border-bottom:1.5px solid transparent;transition:.2s var(--ease)}
 .hinstall:hover{border-bottom-color:var(--brass)}
+.hessentials{display:inline-block;margin-top:14px;font-size:13.5px;font-weight:700;color:var(--green2);border:1px solid var(--line2);border-radius:30px;padding:9px 16px;transition:.2s var(--ease)}
+.hessentials:hover{border-color:var(--brass);transform:translateY(-1px)}
 .fresh{display:inline-flex;align-items:center;gap:9px;margin-top:14px;font-size:12.5px;color:var(--ink3);font-weight:600}
 .fresh .dot{width:8px;height:8px;border-radius:50%;background:#2e9e6b;box-shadow:0 0 0 0 rgba(46,158,107,.5);animation:pulse 2s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(46,158,107,.45)}70%{box-shadow:0 0 0 9px rgba(46,158,107,0)}100%{box-shadow:0 0 0 0 rgba(46,158,107,0)}}
@@ -107,10 +109,11 @@ em{font-style:italic;color:var(--brass)}
 .am-fields,.am-extra{display:flex;flex-direction:column;gap:11px;position:relative}
 .am-row{display:flex;gap:10px}.am-row .am-f{flex:1}
 .am-f>span{display:block;font-size:11px;font-weight:700;color:var(--ink2);margin-bottom:5px}
+.am-hint{display:block;font-style:normal;font-weight:500;font-size:10px;color:var(--ink3);margin-top:1px;line-height:1.3}
 .am-in{position:relative}
 .am-in i{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-style:normal;color:var(--ink3);font-weight:600;font-size:14px}
 .am-in input{width:100%;font-family:inherit;font-weight:700;font-size:16px;padding:11px 12px 11px 26px;border:1px solid var(--line2);border-radius:10px;background:#fff;color:var(--ink);outline:none;transition:.18s}
-.am-f.am-age{flex:0 0 78px}.am-f.am-age .am-in input{padding-left:12px}
+.am-f.am-age{flex:0 0 104px}.am-f.am-age .am-in input{padding-left:12px}
 .am-in input:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(39,81,63,.1)}
 .am-more{margin-top:13px;background:none;border:0;font-family:inherit;font-size:12.5px;font-weight:700;color:var(--green2);cursor:pointer;padding:0;text-align:left}
 .am-more:hover{text-decoration:underline}
@@ -318,6 +321,8 @@ em{font-style:italic;color:var(--brass)}
 .hero .fresh{color:rgba(246,241,231,.62)}
 .hero .hinstall{color:var(--brass3)}
 .hero .hinstall:hover{border-bottom-color:var(--brass3)}
+.hero .hessentials{color:#f3efe6;border-color:rgba(243,239,230,.32)}
+.hero .hessentials:hover{border-color:var(--brass3);color:#fff;background:rgba(255,255,255,.06)}
 .hero .btn-ghost{background:rgba(255,255,255,.08);color:#f6f1e7;border-color:rgba(246,241,231,.3)}
 .hero .btn-ghost:hover{background:rgba(255,255,255,.15);border-color:rgba(246,241,231,.55)}
 /* decorative photo band (atmosphere only — no action/CTA) */
@@ -342,7 +347,7 @@ em{font-style:italic;color:var(--brass)}
     <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="mg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2c5743"/><stop offset=".55" stop-color="#1b3a2d"/><stop offset="1" stop-color="#0f231a"/></linearGradient><linearGradient id="mb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e3c98f"/><stop offset="1" stop-color="#b08d57"/></linearGradient></defs><rect x="1" y="1" width="38" height="38" rx="11" fill="url(#mg)"/><rect x="4.5" y="4.5" width="31" height="31" rx="7.5" fill="none" stroke="#cda86a" stroke-opacity=".4"/><path d="M10 29 L20 10 L30 29" fill="none" stroke="url(#mb)" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/><path d="M14.2 22 H25.8" stroke="#cda86a" stroke-width="2.4" stroke-linecap="round"/><circle cx="20" cy="10" r="2" fill="#e3c98f"/></svg>
     <span class="bw"><b>Adam Phang</b><span>Singapore Property</span></span>
   </div>
-  <nav class="links"><a href="#tools">Tools</a><a href="notes/">Weekly Blog</a><a href="#why">Work with me</a><a href="install.html">Add to phone</a><a href="#talk">Contact</a></nav>
+  <nav class="links"><a href="essentials/">The Essentials</a><a href="#tools">Tools</a><a href="notes/">Weekly Blog</a><a href="#why">Work with me</a><a href="install.html">Add to phone</a><a href="#talk">Contact</a></nav>
   <a class="btn navbtn" href="https://wa.me/6583219747">Let's talk <span class="arr">→</span></a>
   <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
     <svg class="ic-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -350,6 +355,7 @@ em{font-style:italic;color:var(--brass)}
   </button>
 </div>
 <div class="mobile-menu" id="mobileMenu">
+  <a href="essentials/">The Essentials</a>
   <a href="#tools">Tools</a>
   <a href="notes/">Weekly Blog</a>
   <a href="#why">Work with me</a>
@@ -365,6 +371,7 @@ em{font-style:italic;color:var(--brass)}
     <p class="lead rv">Buying, selling, or just working things out — value any home, run the real numbers, and find the right area, all in one place. Free, no sign-up. You decide; I'm a message away when you want a hand.</p>
     <div class="cta rv"><a class="btn brass" href="tools/afford.html">See what you can afford <span class="arr">→</span></a><a class="btn-ghost" href="#tools">All free tools</a></div>
     <p class="covers rv">Affordability · home values · stamp duty · schools · selling — <b>all free, all here.</b></p>
+    <a class="hessentials rv" href="essentials/">New to property? Understand the essentials in plain English →</a>
     <div class="fresh rv"><span class="dot"></span>Live · built on official URA data · refreshed weekly</div>
     <a class="hinstall rv" href="install.html">📲 Add this hub to your phone — one tap to every tool</a>
   </div>
@@ -374,18 +381,16 @@ em{font-style:italic;color:var(--brass)}
       <div class="am-seg" id="amType"><button class="on" data-t="private">Condo</button><button data-t="hdb">HDB</button></div>
     </div>
     <div class="am-fields">
-      <label class="am-f"><span>Your monthly income</span><div class="am-in"><i>$</i><input id="amIncome" inputmode="numeric" value="10,000"></div></label>
+      <label class="am-f"><span>Monthly income <em class="am-hint">combine both if buying together</em></span><div class="am-in"><i>$</i><input id="amIncome" inputmode="numeric" value="10,000"></div></label>
       <div class="am-row">
-        <label class="am-f"><span>Savings (cash + CPF)</span><div class="am-in"><i>$</i><input id="amSav" inputmode="numeric" value="300,000"></div></label>
-        <label class="am-f am-age"><span>Age</span><div class="am-in"><input id="amAge" inputmode="numeric" value="35"></div></label>
+        <label class="am-f"><span>Savings <em class="am-hint">cash + CPF</em></span><div class="am-in"><i>$</i><input id="amSav" inputmode="numeric" value="300,000"></div></label>
+        <label class="am-f am-age"><span>Oldest buyer's age <em class="am-hint">sets loan length</em></span><div class="am-in"><input id="amAge" inputmode="numeric" value="35"></div></label>
       </div>
     </div>
     <button class="am-more" id="amMore" aria-expanded="false">+ Fine-tune <span style="opacity:.7;font-weight:600">(debts · CPF · loan length)</span></button>
     <div class="am-extra" id="amExtra">
-      <div class="am-row">
-        <label class="am-f"><span>Existing monthly debts</span><div class="am-in"><i>$</i><input id="amDebts" inputmode="numeric" value="0"></div></label>
-        <label class="am-f"><span>Of savings, CPF</span><div class="am-in"><i>$</i><input id="amCpf" inputmode="numeric" value="0"></div></label>
-      </div>
+      <label class="am-f"><span>Existing monthly debts <em class="am-hint">car, other loans, card minimums</em></span><div class="am-in"><i>$</i><input id="amDebts" inputmode="numeric" value="0"></div></label>
+      <label class="am-f"><span>Of your savings, how much is CPF? <em class="am-hint">the rest is treated as cash</em></span><div class="am-in"><i>$</i><input id="amCpf" inputmode="numeric" value="0"></div></label>
       <label class="am-f"><span>Housing grant <a href="tools/grants.html" style="color:var(--green2);font-weight:700">find →</a></span><div class="am-in"><i>$</i><input id="amGrant" inputmode="numeric" value="0"></div></label>
       <label class="am-f"><span>Loan length — <b id="amTenV">25 years</b></span><input type="range" id="amTen" min="5" max="30" step="1" value="25"></label>
     </div>
@@ -409,8 +414,8 @@ em{font-style:italic;color:var(--brass)}
       <h3>I'm buying</h3><p>See what you can afford, value any home, and find the areas that fit — before you fall for the wrong one.</p><span class="go">Start buying <i>→</i></span></a>
     <a class="rcard rv" href="#tools" data-f="sell"><div class="ic"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#27513f" stroke-width="1.7" stroke-linecap="round"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/><circle cx="12" cy="11" r="1.4"/></svg></div>
       <h3>I'm selling</h3><p>What it's worth, when you can sell penalty-free, and what you'll actually walk away with — upfront.</p><span class="go">Start selling <i>→</i></span></a>
-    <a class="rcard rv" href="#tools" data-f="explore"><div class="ic"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#27513f" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
-      <h3>Just exploring</h3><p>Read the guides, watch the market, play with the tools. No pressure, no sign-up — learn at your pace.</p><span class="go">Explore <i>→</i></span></a>
+    <a class="rcard rv" href="essentials/#exploring"><div class="ic"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#27513f" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+      <h3>Just exploring</h3><p>New to all this? Start with the essentials — how it works, in plain English — then play with the tools at your pace.</p><span class="go">Understand the essentials <i>→</i></span></a>
   </div>
 </div></section>
 

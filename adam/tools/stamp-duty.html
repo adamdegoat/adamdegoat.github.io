@@ -41,6 +41,7 @@ input:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(39,81,63,.1)}
 .opt:hover{border-color:var(--ink3)}
 .opt.on{background:var(--green);color:#f4efe6;border-color:var(--green)}
 .opt small{display:block;font-size:11px;font-weight:500;opacity:.7;margin-top:2px}
+label small{display:block;font-size:11.5px;font-weight:500;color:var(--ink3);margin:-4px 0 9px;line-height:1.45}
 /* result */
 .res{margin-top:8px;background:linear-gradient(150deg,var(--green2),var(--green3));color:#f3efe6;border-radius:18px;padding:26px;position:relative;overflow:hidden}
 .res .fr{position:absolute;inset:13px;border:1px solid rgba(227,201,143,.22);border-radius:12px}
@@ -86,7 +87,7 @@ input:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(39,81,63,.1)}
       <span>$</span><input type="text" id="price" inputmode="numeric" placeholder="1,500,000" value="1,500,000">
     </div>
     <div class="field">
-      <label>Who's buying?</label>
+      <label>Who's buying?<small>Your residency sets the extra duty (ABSD). If buying jointly, the highest-duty owner's status applies to the whole purchase.</small></label>
       <div class="opts" id="who">
         <div class="opt on" data-w="SC">Singapore Citizen</div>
         <div class="opt" data-w="SPR">PR</div>
@@ -94,7 +95,7 @@ input:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(39,81,63,.1)}
       </div>
     </div>
     <div class="field" style="margin-bottom:6px">
-      <label>Is this your…</label>
+      <label>Is this your…<small>Count every home you (and your spouse) already own or part-own — that's what decides the ABSD tier, not just homes in your name.</small></label>
       <div class="opts" id="count">
         <div class="opt on" data-c="1">1st home</div>
         <div class="opt" data-c="2">2nd home</div>
