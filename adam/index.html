@@ -255,6 +255,39 @@ em{font-style:italic;color:var(--brass)}
  .lp-v{font-size:22px}
 }
 @media(max-width:560px){.lp-grid{grid-template-columns:1fr}.tools{grid-template-columns:1fr}}
+/* ===== dark hero + deeper greige body + architectural column lines ===== */
+:root{--bg:#ece5d3}
+.topo{background-image:repeating-linear-gradient(90deg,rgba(27,58,45,.05) 0 1px,transparent 1px 150px)}
+.nav.scrolled{background:rgba(236,229,211,.86)}
+.mobile-menu.open{background:rgba(236,229,211,.97)!important}
+/* nav over the dark hero = light; reverts to ink once scrolled onto the light body */
+.nav .brand b{color:#f6f1e7}
+.nav .brand .bw span{color:rgba(246,241,231,.6)}
+.nav .links a{color:rgba(246,241,231,.82)}
+.nav .links a:hover{color:#fff}
+.nav .btn{background:transparent;border-color:rgba(246,241,231,.42);color:#f6f1e7}
+.nav .btn:hover{background:rgba(255,255,255,.12)}
+.nav .menu-toggle{background:rgba(255,255,255,.12);border-color:rgba(246,241,231,.42);color:#f6f1e7}
+.nav.scrolled .brand b{color:var(--ink)}
+.nav.scrolled .brand .bw span{color:var(--ink3)}
+.nav.scrolled .links a{color:var(--ink2)}
+.nav.scrolled .btn{background:var(--green);border-color:var(--green);color:#f5f1e8}
+.nav.scrolled .btn:hover{background:var(--green3)}
+.nav.scrolled .menu-toggle{background:rgba(255,255,255,.55);border-color:var(--line2);color:var(--ink)}
+/* the dark hero */
+.hero{background:linear-gradient(165deg,#2c5743 0%,#1b3a2d 55%,#0f231a 100%);position:relative;z-index:1;padding-top:96px}
+.hero .eyebrow{color:var(--brass3)}
+.hero .eyebrow::before{background:var(--brass3)}
+.hero h1{color:#f6f1e7}
+.hero h1 em{color:var(--brass3)}
+.hero .lead{color:rgba(246,241,231,.84)}
+.hero .covers{color:rgba(246,241,231,.6)}
+.hero .covers b{color:rgba(246,241,231,.92)}
+.hero .fresh{color:rgba(246,241,231,.62)}
+.hero .hinstall{color:var(--brass3)}
+.hero .hinstall:hover{border-bottom-color:var(--brass3)}
+.hero .btn-ghost{background:rgba(255,255,255,.08);color:#f6f1e7;border-color:rgba(246,241,231,.3)}
+.hero .btn-ghost:hover{background:rgba(255,255,255,.15);border-color:rgba(246,241,231,.55)}
 </style></head>
 <body>
 <div class="prog" id="prog"></div>
@@ -421,7 +454,9 @@ document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 document.querySelectorAll('.router,.tools').forEach(g=>[...g.children].forEach((c,i)=>c.style.transitionDelay=(i*90)+'ms'));
 // nav + scroll progress + subtle parallax
 const nav=document.getElementById('nav'),prog=document.getElementById('prog'),panel=document.querySelector('.portrait');
-addEventListener('scroll',()=>{const y=scrollY;nav.classList.toggle('scrolled',y>8);
+let heroH=(document.querySelector('.hero')||{}).offsetHeight||600;
+addEventListener('resize',()=>{heroH=(document.querySelector('.hero')||{}).offsetHeight||600;});
+addEventListener('scroll',()=>{const y=scrollY;nav.classList.toggle('scrolled',y>heroH-80);
   prog.style.width=(y/(document.body.scrollHeight-innerHeight)*100)+'%';
   if(panel&&y<900)panel.style.transform=`translateY(${y*-0.04}px)`;
 },{passive:true});
