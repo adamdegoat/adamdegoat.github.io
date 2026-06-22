@@ -254,7 +254,7 @@ em{font-style:italic;color:var(--brass)}
  .mobile-menu .mm-install{color:var(--green2);font-weight:700;border-bottom:0;margin-top:6px}
  .mobile-menu .mm-cta{margin-top:12px;text-align:center;background:linear-gradient(135deg,var(--brass3),var(--brass));color:#241a0d;border-radius:30px;padding:14px;font-weight:700;border-bottom:0}
  .sec-h{flex-direction:column;align-items:flex-start}
- .about-in{grid-template-columns:1fr;gap:30px}.about-in .portrait{max-width:300px;margin:0 auto}
+ .about-in{grid-template-columns:1fr;gap:30px}.about-in .portrait{width:100%;max-width:320px;margin:0 auto;aspect-ratio:auto;min-height:300px}
  .lp-v{font-size:22px}
 }
 @media(max-width:560px){.lp-grid{grid-template-columns:1fr}.tools .tool{flex-basis:100%;max-width:100%}}
@@ -264,15 +264,18 @@ em{font-style:italic;color:var(--brass)}
 .nav.scrolled{background:rgba(236,229,211,.86)}
 .mobile-menu.open{background:rgba(236,229,211,.97)!important}
 /* nav over the dark hero = light; reverts to ink once scrolled onto the light body */
-.nav .brand b{color:#f6f1e7}
-.nav .brand .bw span{color:rgba(246,241,231,.6)}
+.nav:not(.scrolled){background:linear-gradient(180deg,rgba(8,20,14,.42),rgba(8,20,14,0))}
+.nav .brand b{color:#fefbf4;text-shadow:0 1px 16px rgba(0,0,0,.35)}
+.nav .brand .bw span{color:rgba(254,251,244,.78)}
+.nav .brand .mark{filter:drop-shadow(0 3px 10px rgba(0,0,0,.45))}
 .nav .links a{color:rgba(246,241,231,.82)}
 .nav .links a:hover{color:#fff}
 .nav .btn{background:transparent;border-color:rgba(246,241,231,.42);color:#f6f1e7}
 .nav .btn:hover{background:rgba(255,255,255,.12)}
 .nav .menu-toggle{background:rgba(255,255,255,.12);border-color:rgba(246,241,231,.42);color:#f6f1e7}
-.nav.scrolled .brand b{color:var(--ink)}
+.nav.scrolled .brand b{color:var(--ink);text-shadow:none}
 .nav.scrolled .brand .bw span{color:var(--ink3)}
+.nav.scrolled .brand .mark{filter:drop-shadow(0 4px 10px rgba(15,35,26,.18))}
 .nav.scrolled .links a{color:var(--ink2)}
 .nav.scrolled .btn{background:var(--green);border-color:var(--green);color:#f5f1e8}
 .nav.scrolled .btn:hover{background:var(--green3)}
@@ -298,6 +301,13 @@ em{font-style:italic;color:var(--brass)}
 .pb-ov2{position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,18,8,.42),rgba(26,18,8,.5))}
 .pb-tx{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 26px;color:#f6f1e7;font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(20px,2.6vw,30px);line-height:1.25;letter-spacing:-.01em}
 @media(max-width:560px){.photoband{height:220px}}
+/* about block — data showcase panel (replaces portrait) */
+.databox .ctr,.databox .mono,.databox .ph,.databox .tagpill{display:none}
+.databox .db{position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;justify-content:center;gap:16px;padding:34px 32px;color:#f3efe6}
+.databox .db-mark{width:34px;height:34px;margin-bottom:2px}
+.databox .db-row b{font-family:var(--serif);font-weight:600;font-size:clamp(28px,3.2vw,36px);line-height:1;display:block;color:#f6f1e7}
+.databox .db-row span{font-size:12px;color:rgba(243,239,230,.66);font-weight:600;margin-top:5px;display:block;line-height:1.35}
+.databox .db-src{margin-top:8px;font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--brass3)}
 </style></head>
 <body>
 <div class="prog" id="prog"></div>
@@ -418,27 +428,21 @@ em{font-style:italic;color:var(--brass)}
 <section class="sec" id="why"><div class="wrap">
   <div class="pov rv"><div class="sheen"></div><div class="frame"></div>
     <div class="about-in">
-      <!-- Portrait: when your photo is ready, add class "has-photo" to this div and drop <img class="photo" src="adam.jpg" alt="Adam Phang"> just below the glow. -->
-      <div class="portrait">
+      <div class="portrait databox">
         <div class="glow"></div>
-        <svg class="ctr" viewBox="0 0 400 500" preserveAspectRatio="none" fill="none" stroke="rgba(227,201,143,.24)" stroke-width="1.3">
-          <path d="M-20 150 Q120 90 220 170 T440 210"/><path d="M-20 210 Q120 150 220 230 T440 270"/>
-          <path d="M-20 270 Q120 210 220 290 T440 330"/><path d="M-20 360 Q120 300 220 380 T440 420"/>
-          <path d="M-20 430 Q120 370 220 450 T440 490"/></svg>
-        <div class="mono"><span>A</span></div>
-        <span class="ph">Portrait · coming</span>
         <div class="frame"></div>
-        <div class="tagpill"><div class="k">Adam Phang</div><div class="v">Your property,<br>figured out.</div></div>
+        <div class="db">
+          <svg class="db-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M10 30 L20 9 L30 30" stroke="#e3c98f" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/><path d="M14 22.5 H26" stroke="#e3c98f" stroke-width="2.4" stroke-linecap="round"/><circle cx="20" cy="9" r="2" fill="#e3c98f"/></svg>
+          <div class="db-row"><b class="count" data-to="137" data-suf="k+">0</b><span>official URA caveats behind every figure</span></div>
+          <div class="db-row"><b>$0</b><span>to use every tool — no sign-up</span></div>
+          <div class="db-row"><b>Weekly</b><span>data, refreshed from official sources</span></div>
+          <div class="db-src">URA · HDB · OneMap</div>
+        </div>
       </div>
       <div>
         <span class="eyebrow">Work with me</span>
         <h2>Hi, I'm Adam. Most agents give you a <em>pitch</em> — I give you the <em>data.</em></h2>
         <p class="sub">I built every tool on this page so you can check the numbers yourself, before anyone tries to sell you anything. No hype, no pressure, nothing I can't stand behind — just official records laid out plainly, and an agent who'd rather you be sure than sold. When you want a real person in your corner, I'm one message away.</p>
-        <div class="stats">
-          <div class="stat"><b class="count" data-to="137" data-suf="k+">0</b><span>official URA caveats</span></div>
-          <div class="stat"><b>$0</b><span>to use every tool</span></div>
-          <div class="stat"><b>Weekly</b><span>data, kept current</span></div>
-        </div>
       </div>
     </div>
   </div>
