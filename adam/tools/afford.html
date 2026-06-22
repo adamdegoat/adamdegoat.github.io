@@ -113,6 +113,7 @@ input[type=range]{flex:1;accent-color:var(--green2)}
       <label>Loan length</label>
       <div class="range"><input type="range" id="tenure" min="10" max="30" step="1" value="25"><span class="rv" id="tenrv">25 years</span></div>
     </div>
+    <div class="field"><label>Remaining lease <span style="font-weight:500;color:var(--ink3)">— optional</span><small>Only for an <b>older</b> home. Leave blank for a new or freehold one. On a short lease, the rules cut how much CPF and loan you can use.</small></label><input type="text" class="plain" id="lease" inputmode="numeric" placeholder="e.g. 65 years"></div>
   </div>
 
   <div class="res" id="res"><div class="fr"></div>
@@ -162,33 +163,43 @@ function loanFromMonthly(m,years,rate){const r=(rate||R.stress)/12,n=years*12;if
 function monthlyFromLoan(loan,years,rate){const r=rate/12,n=years*12;if(loan<=0)return 0;return loan*r/(1-Math.pow(1+r,-n));}
 
 function compute(inp){
-  const {income,debts,cash,cpf,years,age,type,loanType}=inp;
+  const {income,debts,cash,cpf,years,age,type,loanType,lease}=inp;
   const cfg=PTYPE[type]||PTYPE.private;
   const hdbLoan = (loanType==='hdb' && type==='hdb');   // HDB concessionary loan, HDB flats only
   const sr = hdbLoan ? R.stressHdb : R.stress;          // stress-tested at 3% (HDB) vs 4% (bank)
+  // lease decay: a short remaining lease caps usable CPF, loan tenure & LTV (CPF rule = covers buyer to age 95)
+  let cpfUse=cpf, yearsEff=years, leaseShort=false, leaseBlock=false;
+  if(lease>0){
+    if(lease<20){ leaseBlock=true; }            // no CPF and no loan below 20 years left
+    else{
+      const to95=Math.max(1, 95-age);
+      if(lease<to95){ cpfUse=cpf*(lease/to95); leaseShort=true; }   // pro-rated CPF
+      yearsEff=Math.min(years, Math.max(5, lease-20));              // loan must leave ≥20 yrs of lease
+    }
+  }
   const tdsrRoom=Math.max(0, income*R.tdsr - debts);
   const maxMonthly = cfg.msr ? Math.min(tdsrRoom, income*R.msr) : tdsrRoom;
-  const loanByIncome = loanFromMonthly(maxMonthly, years, sr);
-  // bank loan: LTV drops to 55% if loan runs past age 65 OR tenure exceeds the cap. HDB loan: flat 75%, no min cash.
-  const reduced = !hdbLoan && ((years > cfg.maxTen) || (age + years > 65));
+  const loanByIncome = leaseBlock ? 0 : loanFromMonthly(maxMonthly, yearsEff, sr);
+  // bank loan: LTV drops to 55% if loan runs past age 65, tenure exceeds the cap, or a short lease. HDB loan: flat 75%, no min cash.
+  const reduced = (!hdbLoan && ((yearsEff > cfg.maxTen) || (age + yearsEff > 65))) || leaseShort;
   const ltv = reduced ? R.ltvReduced : R.ltv;
   const minCash = hdbLoan ? R.minCashHdb : (reduced ? R.minCashReduced : R.minCash);
-  const dpFrac = 1-ltv, savings=cash+cpf;
+  const dpFrac = 1-ltv, savings=cash+cpfUse;
   const priceByIncome = loanByIncome/ltv;
   const priceBySavings = savings/dpFrac;
   const priceByCash = minCash>0 ? cash/minCash : Infinity;
   const maxPrice = Math.max(0, Math.min(priceByIncome, priceBySavings, priceByCash));
   const loan = Math.min(ltv*maxPrice, loanByIncome);
   const downpay = maxPrice - loan;
-  const cashPortion = Math.max(minCash*maxPrice, downpay - cpf);
+  const cashPortion = Math.max(minCash*maxPrice, downpay - cpfUse);
   const cpfPortion = Math.max(0, downpay - cashPortion);
-  const monthlyStress = monthlyFromLoan(loan, years, sr);
+  const monthlyStress = monthlyFromLoan(loan, yearsEff, sr);
   const duty = bsd(maxPrice), legal=3000;
   const cashUpfront = cashPortion + duty + legal;
   let limit='income';
   if(priceBySavings<=priceByIncome && priceBySavings<=priceByCash) limit='savings';
   else if(priceByCash<priceByIncome && priceByCash<priceBySavings) limit='cash';
-  return {maxPrice,loan,downpay,cashPortion,cpfPortion,monthlyStress,duty,cashUpfront,maxMonthly,limit,reduced,ltv,minCash,msr:cfg.msr,maxTen:cfg.maxTen,sr,hdbLoan};
+  return {maxPrice,loan,downpay,cashPortion,cpfPortion,monthlyStress,duty,cashUpfront,maxMonthly,limit,reduced,ltv,minCash,msr:cfg.msr,maxTen:cfg.maxTen,sr,hdbLoan,leaseShort,leaseBlock,yearsEff,cpfUse};
 }
 
 function calc(){
@@ -196,12 +207,13 @@ function calc(){
   if(ptype!=='hdb') loan='bank';
   $('#tenrv').textContent=$('#tenure').value+' years';
   const age=num('age')||35;
-  const r=compute({income:num('income'),debts:num('debts'),cash:num('cash'),cpf:num('cpf')+num('grant'),years:+$('#tenure').value,age:age,type:ptype,loanType:loan});
+  const r=compute({income:num('income'),debts:num('debts'),cash:num('cash'),cpf:num('cpf')+num('grant'),years:+$('#tenure').value,age:age,type:ptype,loanType:loan,lease:num('lease')});
   if(!(r.maxPrice>0)){
     $('#tot').textContent='—';$('#totsub').textContent='';$('#rows').innerHTML='';$('#flag').style.display='none';$('#note').innerHTML='';
     const inc=num('income'),cash=num('cash');
     let m;
-    if(inc<=0) m='Enter your monthly income to see what you can afford.';
+    if(r.leaseBlock) m='<b>That lease is too short to finance.</b> With under ~20 years left, banks won’t lend and CPF can’t be used — these homes are effectively cash-only. Tell me the exact lease and I’ll work out the cash price.';
+    else if(inc<=0) m='Enter your monthly income to see what you can afford.';
     else if(r.maxMonthly<=0) m='<b>Your existing monthly debts already use up the borrowing limit.</b> Banks cap all your debt repayments at '+Math.round(R.tdsr*100)+'% of your income — clearing some debt, or a higher/combined income, would unlock a budget.';
     else if(cash<=0) m='<b>You’ll need some cash to start.</b> At least '+Math.round(R.minCash*100)+'% of the price must be paid in cash — CPF can’t cover that part.';
     else m='With these numbers there isn’t a workable budget yet — try a longer loan, more savings, or message me and we’ll look at it together.';
@@ -222,8 +234,11 @@ function calc(){
   // reduced-LTV flag (the important honesty bit)
   if(r.reduced){
     $('#flag').style.display='block';
-    const why = (age+(+$('#tenure').value)>65) ? `the loan would run past age 65` : `the loan is longer than ${r.maxTen} years`;
-    $('#flag').innerHTML=`⚠️ Because ${why}, banks cap your loan at <b>${Math.round(r.ltv*100)}%</b> (not 75%) — so you need a much bigger down payment. A shorter loan, or buying younger, lifts this.`;
+    const why = r.leaseShort ? `the remaining lease won’t cover you to age 95`
+              : (age+r.yearsEff>65) ? `the loan would run past age 65`
+              : `the loan is longer than ${r.maxTen} years`;
+    const extra = r.leaseShort ? ` On a short lease your usable CPF is also pro-rated down, so the real budget is lower.` : ` A shorter loan, or buying younger, lifts this.`;
+    $('#flag').innerHTML=`⚠️ Because ${why}, banks cap your loan at <b>${Math.round(r.ltv*100)}%</b> (not 75%) — so you need a much bigger down payment.${extra}`;
   } else $('#flag').style.display='none';
   // binding constraint
   let L='';
@@ -232,10 +247,10 @@ function calc(){
   else L=`<b>Your cash is the limit here.</b> At least ${Math.round(r.minCash*100)}% of the price must be paid in cash (CPF can’t cover that part).`;
   $('#limit').innerHTML=L;
   $('#note').innerHTML=`This uses the real rules: a bank can lend up to <b>${Math.round(R.tdsr*100)}% of your income for all debts</b>${r.msr?` and, for an HDB flat or new EC, the home loan alone can’t exceed <b>${Math.round(R.msr*100)}%</b>`:''} — stress-tested at <b>${r.sr*100}%</b>${r.hdbLoan?' (the HDB-loan rate; no minimum cash needed)':''} even though real rates are usually lower.`;
-  $('#disc').innerHTML='Indicative only — not financial advice. Assumes a <b>bank loan</b> and your <b>first home</b>. Your loan and CPF only stretch up to the bank’s valuation — if you buy <b>above</b> valuation, the extra is cash on top of these figures. CPF use is also capped at valuation and you may keep a buffer in your OA, so treat the CPF figure as a maximum. If your income is mainly commission or self-employed, banks count only about <b>70%</b> of it — your real figure would be lower. A precise number depends on your credit and the bank’s valuation. Rules as of '+R.as_of+'. Always confirm with a banker.';
+  $('#disc').innerHTML='Indicative only — not financial advice. Assumes a <b>bank loan</b> and your <b>first home</b>. Your loan and CPF only stretch up to the bank’s valuation — if you buy <b>above</b> valuation, the extra is cash on top of these figures. CPF use is also capped at valuation and you may keep a buffer in your OA, so treat the CPF figure as a maximum. If your income is mainly commission or self-employed, banks count only about <b>70%</b> of it — your real figure would be lower. For an <b>older home</b>, a short remaining lease cuts how much CPF and loan you can use (CPF needs the lease to cover you to age 95). HDB buyers using CPF also pay a small <b>Home Protection Scheme</b> premium from their OA. A precise number depends on your credit and the bank’s valuation. Rules as of '+R.as_of+'. Always confirm with a banker.';
 }
 
-['income','debts','cash','cpf','grant','age'].forEach(id=>$('#'+id).addEventListener('input',e=>{const raw=e.target.value.replace(/[^0-9]/g,'');e.target.value=raw?(id==='age'?raw:Number(raw).toLocaleString('en-US')):'';calc();}));
+['income','debts','cash','cpf','grant','age','lease'].forEach(id=>$('#'+id).addEventListener('input',e=>{const raw=e.target.value.replace(/[^0-9]/g,'');e.target.value=raw?((id==='age'||id==='lease')?raw:Number(raw).toLocaleString('en-US')):'';calc();}));
 $('#tenure').addEventListener('input',calc);
 document.querySelectorAll('#ptype .opt').forEach(o=>o.onclick=()=>{document.querySelectorAll('#ptype .opt').forEach(x=>x.classList.remove('on'));o.classList.add('on');ptype=o.dataset.p;const mt=PTYPE[ptype].maxTen;$('#tenure').max=mt;if(+$('#tenure').value>mt)$('#tenure').value=mt;calc();});
 document.querySelectorAll('#ltype .opt').forEach(o=>o.onclick=()=>{document.querySelectorAll('#ltype .opt').forEach(x=>x.classList.remove('on'));o.classList.add('on');loan=o.dataset.l;calc();});
