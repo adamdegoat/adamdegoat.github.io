@@ -98,6 +98,32 @@ em{font-style:italic;color:var(--brass)}
 .livepanel{position:relative;background:linear-gradient(165deg,#fffefc,#f2ede1);border:1px solid var(--line2);border-radius:22px;padding:24px;box-shadow:0 22px 60px rgba(25,21,18,.11);overflow:hidden;
  transform:translateY(40px) scale(.98);opacity:0;transition:opacity 1s var(--ease) .25s,transform 1s var(--ease) .25s}
 .loaded .livepanel{transform:none;opacity:1}
+/* hero mini affordability tool */
+.afford-mini .am-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:15px;position:relative}
+.am-title{font-family:var(--serif);font-weight:600;font-size:18px}
+.am-seg{display:flex;background:rgba(27,58,45,.07);border-radius:9px;padding:2px}
+.am-seg button{border:0;background:none;font-family:inherit;font-size:12px;font-weight:700;color:var(--ink2);padding:6px 13px;border-radius:7px;cursor:pointer;transition:.16s}
+.am-seg button.on{background:var(--green);color:#f4efe6}
+.am-fields,.am-extra{display:flex;flex-direction:column;gap:11px;position:relative}
+.am-row{display:flex;gap:10px}.am-row .am-f{flex:1}
+.am-f>span{display:block;font-size:11px;font-weight:700;color:var(--ink2);margin-bottom:5px}
+.am-in{position:relative}
+.am-in i{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-style:normal;color:var(--ink3);font-weight:600;font-size:14px}
+.am-in input{width:100%;font-family:inherit;font-weight:700;font-size:16px;padding:11px 12px 11px 26px;border:1px solid var(--line2);border-radius:10px;background:#fff;color:var(--ink);outline:none;transition:.18s}
+.am-f.am-age{flex:0 0 78px}.am-f.am-age .am-in input{padding-left:12px}
+.am-in input:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(39,81,63,.1)}
+.am-more{margin-top:13px;background:none;border:0;font-family:inherit;font-size:12.5px;font-weight:700;color:var(--green2);cursor:pointer;padding:0;text-align:left}
+.am-more:hover{text-decoration:underline}
+.am-extra{display:none;margin-top:12px}.am-extra.open{display:flex}
+.am-extra input[type=range]{width:100%;accent-color:var(--green2);margin-top:2px}
+.am-note{font-size:11px;color:var(--ink3);line-height:1.4;margin-top:11px;position:relative}
+.am-result{margin-top:16px;background:linear-gradient(150deg,var(--green2),var(--green3));color:#f3efe6;border-radius:14px;padding:16px 18px;position:relative}
+.am-rk{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--brass3)}
+.am-budget{font-family:var(--serif);font-weight:600;font-size:34px;line-height:1;margin:5px 0 5px}
+.am-rsub{font-size:12px;color:rgba(243,239,230,.82)}
+.am-cta{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;background:linear-gradient(135deg,var(--brass3),var(--brass));color:#241a0d;font-weight:700;font-size:13.5px;padding:12px;border-radius:11px;position:relative;transition:.2s var(--ease)}
+.am-cta:hover{transform:translateY(-2px);filter:brightness(1.04)}
+.am-cta i{font-style:normal;transition:.2s var(--ease)}.am-cta:hover i{transform:translateX(4px)}
 .livepanel::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(360px 220px at 90% -12%,rgba(150,140,110,.07),transparent 62%)}
 .lp-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;position:relative}
 .lp-live{display:inline-flex;align-items:center;gap:8px;font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--green2)}
@@ -342,37 +368,33 @@ em{font-style:italic;color:var(--brass)}
     <div class="fresh rv"><span class="dot"></span>Live · built on official URA data · refreshed weekly</div>
     <a class="hinstall rv" href="install.html">📲 Add this hub to your phone — one tap to every tool</a>
   </div>
-  <aside class="livepanel">
-    <div class="lp-head">
-      <span class="lp-live"><span class="dot"></span>Live market</span>
-      <span class="lp-upd" id="lpUpd">updating…</span>
+  <aside class="livepanel afford-mini">
+    <div class="am-head">
+      <span class="am-title">What can I afford?</span>
+      <div class="am-seg" id="amType"><button class="on" data-t="private">Condo</button><button data-t="hdb">HDB</button></div>
     </div>
-    <div class="lp-grid">
-      <div class="lp-stat">
-        <div class="lp-k">Typical HDB flat</div>
-        <div class="lp-v" id="lpHdbV">—</div>
-        <div class="lp-sub" id="lpHdbT">resale</div>
-        <svg class="spark" id="lpHdbSpark" viewBox="0 0 120 28" preserveAspectRatio="none"></svg>
-      </div>
-      <div class="lp-stat">
-        <div class="lp-k">Typical condo</div>
-        <div class="lp-v" id="lpPvtV">—</div>
-        <div class="lp-sub" id="lpPvtT">private</div>
-        <svg class="spark" id="lpPvtSpark" viewBox="0 0 120 28" preserveAspectRatio="none"></svg>
+    <div class="am-fields">
+      <label class="am-f"><span>Your monthly income</span><div class="am-in"><i>$</i><input id="amIncome" inputmode="numeric" value="10,000"></div></label>
+      <div class="am-row">
+        <label class="am-f"><span>Savings (cash + CPF)</span><div class="am-in"><i>$</i><input id="amSav" inputmode="numeric" value="300,000"></div></label>
+        <label class="am-f am-age"><span>Age</span><div class="am-in"><input id="amAge" inputmode="numeric" value="35"></div></label>
       </div>
     </div>
-    <p class="lp-say">That's what people are paying right now. What <em>you</em> can buy comes down to your budget — find out free:</p>
-    <div class="lp-ctas">
-      <a class="lp-cta pri" href="tools/afford.html"><span class="st">★</span> What can I afford? <i>→</i></a>
-      <a class="lp-cta sec" href="tools/value.html">Value a home <i>→</i></a>
+    <button class="am-more" id="amMore" aria-expanded="false">+ Fine-tune <span style="opacity:.7;font-weight:600">(debts · CPF · loan length)</span></button>
+    <div class="am-extra" id="amExtra">
+      <div class="am-row">
+        <label class="am-f"><span>Existing monthly debts</span><div class="am-in"><i>$</i><input id="amDebts" inputmode="numeric" value="0"></div></label>
+        <label class="am-f"><span>Of savings, CPF</span><div class="am-in"><i>$</i><input id="amCpf" inputmode="numeric" value="0"></div></label>
+      </div>
+      <label class="am-f"><span>Loan length — <b id="amTenV">25 years</b></span><input type="range" id="amTen" min="5" max="30" step="1" value="25"></label>
     </div>
-    <div class="lp-tools">
-      <span class="lbl">More free tools</span>
-      <a href="tools/eligibility.html">Can I buy it?</a>
-      <a href="tools/stamp-duty.html">Stamp duty</a>
-      <a href="tools/schools.html">Schools nearby</a>
-      <a href="tools/sell.html">Selling?</a>
+    <div class="am-result">
+      <div class="am-rk">You could look up to</div>
+      <div class="am-budget" id="amBudget">—</div>
+      <div class="am-rsub" id="amSub"></div>
     </div>
+    <p class="am-note" id="amNote"></p>
+    <a class="am-cta" href="tools/afford.html">Full breakdown &amp; stamp duty <i>→</i></a>
   </aside>
 </div></section>
 
@@ -491,43 +513,60 @@ fetch('ticker.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{
   document.getElementById('tick').innerHTML=(items.map(item).join('')).repeat(2);
 }).catch(()=>{document.querySelector('.ticker').style.display='none';});
 
-// live market panel — real medians + sparklines from the same data the tools use
+// hero mini affordability tool — same lending rules as the full Afford tool
 (function(){
   const g=id=>document.getElementById(id);
-  const BAKED={built:'2026-06-20',overall:{
-    hdb:{median_price:630000,median_psf:605,months:[{psf:602},{psf:611},{psf:610},{psf:603},{psf:606},{psf:605},{psf:607},{psf:603},{psf:608},{psf:606},{psf:604},{psf:602}]},
-    private:{median_price:1648000,median_psf:1720,months:[{psf:1676},{psf:1690},{psf:1705},{psf:1720},{psf:1735},{psf:1742},{psf:1758},{psf:1749},{psf:1766},{psf:1772},{psf:1781},{psf:1793}]}},
-    private_segments:[{seg:'CCR',median_psf:2200},{seg:'RCR',median_psf:1957},{seg:'OCR',median_psf:1517}]};
-  const moneyShort=n=>n>=1e6?'$'+(n/1e6).toFixed(2).replace(/0$/,'')+'M':'$'+Math.round(n/1000)+'k';
-  function spark(el,vals){
-    if(!el||!vals||vals.length<2)return;
-    const w=120,h=28,p=3,mn=Math.min(...vals),mx=Math.max(...vals),rng=(mx-mn)||1;
-    const pts=vals.map((v,i)=>[p+i*(w-2*p)/(vals.length-1), h-p-(v-mn)/rng*(h-2*p)]);
-    const line=pts.map((q,i)=>(i?'L':'M')+q[0].toFixed(1)+' '+q[1].toFixed(1)).join(' ');
-    const area=line+` L${(w-p).toFixed(1)} ${h-p} L${p} ${h-p} Z`;
-    const up=vals[vals.length-1]>=vals[0],col=up?'#2e9e6b':'#c0623f',last=pts[pts.length-1];
-    el.innerHTML=`<path d="${area}" fill="${col}" opacity=".10"/><path d="${line}" fill="none" stroke="${col}" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="2.1" fill="${col}"/>`;
+  if(!g('amBudget'))return;
+  let R={tdsr:.55,msr:.30,stress:.04,ltv:.75,ltvReduced:.55,minCash:.05,minCashReduced:.10};
+  const PT={private:{msr:false,maxTen:30},hdb:{msr:true,maxTen:25}};
+  let type='private', extraOpen=false;
+  const num=id=>parseFloat((g(id).value||'').replace(/[^0-9.]/g,''))||0;
+  const fmtM=n=>n>=1e6?'$'+(n/1e6).toFixed(2).replace(/0+$/,'').replace(/\.$/,'')+'M':'$'+Math.round(n/1000)+'k';
+  const loanFromMonthly=(m,y)=>{const r=R.stress/12,n=y*12;return m<=0?0:m*(1-Math.pow(1+r,-n))/r;};
+  const autoTen=age=>Math.max(5,Math.min(PT[type].maxTen,65-age));
+  function calc(){
+    const income=num('amIncome'),sav=num('amSav'),age=num('amAge')||35;
+    const debts=extraOpen?num('amDebts'):0, cpf=extraOpen?Math.min(num('amCpf'),sav):0;
+    const cash=sav-cpf, cfg=PT[type];
+    const years=extraOpen?(+g('amTen').value):autoTen(age);
+    const tdsrRoom=Math.max(0,income*R.tdsr-debts);
+    const maxMonthly=cfg.msr?Math.min(tdsrRoom,income*R.msr):tdsrRoom;
+    const loanByIncome=loanFromMonthly(maxMonthly,years);
+    const reduced=(years>cfg.maxTen)||(age+years>65);
+    const ltv=reduced?R.ltvReduced:R.ltv, minCash=reduced?R.minCashReduced:R.minCash;
+    const dpFrac=1-ltv, savings=cash+cpf;
+    const priceByIncome=loanByIncome/ltv, priceBySavings=dpFrac>0?savings/dpFrac:0, priceByCash=minCash>0?cash/minCash:0;
+    const maxPrice=Math.max(0,Math.min(priceByIncome,priceBySavings,priceByCash));
+    const loan=Math.min(ltv*maxPrice,loanByIncome), downpay=maxPrice-loan;
+    if(!(maxPrice>0)){g('amBudget').textContent='—';g('amSub').textContent='Enter your income & savings to see your budget.';}
+    else{g('amBudget').textContent='~'+fmtM(maxPrice);
+      g('amSub').innerHTML='loan ~'+fmtM(loan)+' · you put down ~'+fmtM(downpay)+(reduced?' · 55% loan (age/tenure)':'');}
+    g('amNote').innerHTML = type==='hdb'
+      ? 'First-timer? CPF housing grants (up to ~$120k) add on top — not counted here. Stamp duty extra.'
+      : 'Estimate — bank loan, first home. Stamp duty &amp; monthly repayment in the full breakdown.';
+    window.__heroAfford={maxPrice,loan,downpay,years,reduced};
   }
-  const SEGLBL={CCR:'Prime',RCR:'City fringe',OCR:'Suburbs'};
-  function trend(ms){
-    const v=(ms||[]).slice(-12).map(m=>m.psf); if(v.length<2) return '';
-    const p=(v[v.length-1]-v[0])/v[0]*100;
-    if(Math.abs(p)<2) return 'holding steady';
-    return (p>0?'up ':'down ')+Math.abs(Math.round(p))+'% over the year';
-  }
-  function render(d){
-    try{
-      const hdb=d.overall.hdb,pvt=d.overall.private;
-      g('lpHdbV').textContent=moneyShort(hdb.median_price);
-      g('lpPvtV').textContent=moneyShort(pvt.median_price);
-      g('lpHdbT').textContent=['resale',trend(hdb.months)].filter(Boolean).join(' · ');
-      g('lpPvtT').textContent=['private',trend(pvt.months)].filter(Boolean).join(' · ');
-      spark(g('lpHdbSpark'),hdb.months.slice(-12).map(m=>m.psf));
-      spark(g('lpPvtSpark'),pvt.months.slice(-12).map(m=>m.psf));
-      if(d.built){const dt=new Date(d.built);if(!isNaN(dt))g('lpUpd').textContent='updated '+dt.toLocaleDateString('en-SG',{month:'short',year:'numeric'});}
-    }catch(e){}
-  }
-  fetch('/caveat/data/pulse.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(render).catch(()=>render(BAKED));
+  g('amType').querySelectorAll('button').forEach(b=>b.onclick=()=>{
+    type=b.dataset.t; g('amType').querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+    const s=g('amTen'); s.max=PT[type].maxTen; if(+s.value>PT[type].maxTen)s.value=PT[type].maxTen; g('amTenV').textContent=s.value+' years'; calc();
+  });
+  g('amMore').onclick=()=>{
+    extraOpen=!extraOpen; g('amExtra').classList.toggle('open',extraOpen); g('amMore').setAttribute('aria-expanded',extraOpen);
+    g('amMore').firstChild.textContent = extraOpen?'– Hide fine-tune ':'+ Fine-tune ';
+    if(extraOpen){g('amTen').value=autoTen(num('amAge')||35); g('amTenV').textContent=g('amTen').value+' years';}
+    calc();
+  };
+  ['amIncome','amSav','amDebts','amCpf'].forEach(id=>g(id).addEventListener('input',e=>{const raw=e.target.value.replace(/[^0-9]/g,'');e.target.value=raw?Number(raw).toLocaleString('en-US'):'';calc();}));
+  g('amAge').addEventListener('input',e=>{e.target.value=e.target.value.replace(/[^0-9]/g,'').slice(0,2);calc();});
+  g('amTen').addEventListener('input',()=>{g('amTenV').textContent=g('amTen').value+' years';calc();});
+  fetch('/caveat/data/rates.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{
+    if(d.financing){const f=d.financing;R.tdsr=f.tdsr_pct/100;R.msr=f.msr_pct/100;R.stress=f.stress_rate_pct/100;
+      if(f.ltv&&f.ltv.bank)R.ltv=f.ltv.bank['1']/100;
+      if(f.ltv&&f.ltv.bank_reduced)R.ltvReduced=f.ltv.bank_reduced['1']/100;
+      if(f.min_cash_pct){R.minCash=f.min_cash_pct.ltv75/100;R.minCashReduced=f.min_cash_pct.ltv55/100;}}
+    calc();
+  }).catch(()=>{});
+  calc();
 })();
 
 // audience filter — classify tools by who they're for (Buying / Selling / Exploring)
