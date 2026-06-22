@@ -1,0 +1,15 @@
+{
+  "name": "Adam Phang · Singapore Property",
+  "short_name": "Adam Phang",
+  "description": "Everything for your Singapore home move — value homes, check what you can afford, stamp duty, schools and more. Free.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f6f3ea",
+  "theme_color": "#1b3a2d",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

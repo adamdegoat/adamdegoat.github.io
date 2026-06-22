@@ -1,0 +1,39 @@
+// Adam Phang hub — service worker (offline shell + installable PWA)
+const CACHE = 'adamhub-v1';
+const CORE = [
+  'index.html',
+  'tools/afford.html', 'tools/value.html', 'tools/stamp-duty.html',
+  'tools/schools.html', 'tools/sell.html', 'install.html',
+  'manifest.json', 'icons/icon-192.png', 'icons/icon-512.png'
+];
+
+self.addEventListener('install', e => {
+  e.waitUntil(caches.open(CACHE).then(c => c.addAll(CORE)).then(() => self.skipWaiting()));
+});
+
+self.addEventListener('activate', e => {
+  e.waitUntil(
+    caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k))))
+      .then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener('fetch', e => {
+  const r = e.request;
+  if (r.method !== 'GET') return;
+  const u = new URL(r.url);
+  // live market/rates data — always try the network first, fall back to cache
+  if (u.pathname.includes('/caveat/data/')) {
+    e.respondWith(fetch(r).then(resp => {
+      const cc = resp.clone(); caches.open(CACHE).then(c => c.put(r, cc)); return resp;
+    }).catch(() => caches.match(r)));
+    return;
+  }
+  // everything else — cache first, then network (and cache same-origin responses)
+  e.respondWith(
+    caches.match(r).then(hit => hit || fetch(r).then(resp => {
+      if (u.origin === location.origin) { const cc = resp.clone(); caches.open(CACHE).then(c => c.put(r, cc)); }
+      return resp;
+    }).catch(() => r.mode === 'navigate' ? caches.match('index.html') : undefined))
+  );
+});
