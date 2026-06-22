@@ -1,10 +1,10 @@
 // Adam Phang hub — service worker (offline shell + installable PWA)
-const CACHE = 'adamhub-v5';
+const CACHE = 'adamhub-v6';
 const CORE = [
   'index.html',
   'tools/afford.html', 'tools/value.html', 'tools/stamp-duty.html',
   'tools/schools.html', 'tools/sell.html', 'install.html',
-  'manifest.json', 'icons/icon-192.png', 'icons/icon-512.png'
+  'manifest.json', 'icons/icon-192.png', 'icons/icon-512.png', 'img/heartland.jpg'
 ];
 
 self.addEventListener('install', e => {
