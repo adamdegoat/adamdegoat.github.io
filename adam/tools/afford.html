@@ -92,6 +92,10 @@ input[type=range]{flex:1;accent-color:var(--green2)}
       <label>What are you buying?<small>HDB flats and new ECs have a stricter cap — the loan alone can't exceed 30% of your income.</small></label>
       <div class="opts" id="ptype"><div class="opt on" data-p="private">Private / condo</div><div class="opt" data-p="hdb">HDB flat</div><div class="opt" data-p="ec">New EC</div></div>
     </div>
+    <div class="field" id="loanF" style="display:none">
+      <label>Which loan?<small>An HDB loan is stress-tested at 3% (banks use 4%) and needs no minimum cash — so your budget can come out differently.</small></label>
+      <div class="opts" id="ltype"><div class="opt on" data-l="bank">Bank loan</div><div class="opt" data-l="hdb">HDB loan</div></div>
+    </div>
     <div class="field money">
       <label>Your gross monthly income<small>Before CPF. Combine both incomes if buying together.</small></label>
       <span class="pre">$</span><input type="text" id="income" inputmode="numeric" value="10,000">
@@ -133,10 +137,12 @@ input[type=range]{flex:1;accent-color:var(--green2)}
 
 <script>
 // verified fallback (mirror of caveat/data/rates.json financing block)
-let R={tdsr:.55,msr:.30,stress:.04,ltv:.75,ltvReduced:.55,minCash:.05,minCashReduced:.10,
+let R={tdsr:.55,msr:.30,stress:.04,stressHdb:.03,ltv:.75,ltvReduced:.55,minCash:.05,minCashReduced:.10,minCashHdb:0,
        bsd:[[180000,1],[360000,2],[1000000,3],[1500000,4],[3000000,5],[null,6]],as_of:"14 Jun 2026"};
 fetch('https://adamdegoat.github.io/caveat/data/rates.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{
   if(d.financing){const f=d.financing;R.tdsr=f.tdsr_pct/100;R.msr=f.msr_pct/100;R.stress=f.stress_rate_pct/100;
+    if(f.hdb_loan_stress_rate_pct!=null)R.stressHdb=f.hdb_loan_stress_rate_pct/100;
+    if(f.hdb_loan_min_cash_pct!=null)R.minCashHdb=f.hdb_loan_min_cash_pct/100;
     if(f.ltv&&f.ltv.bank)R.ltv=f.ltv.bank['1']/100;
     if(f.ltv&&f.ltv.bank_reduced)R.ltvReduced=f.ltv.bank_reduced['1']/100;
     if(f.min_cash_pct){R.minCash=f.min_cash_pct.ltv75/100;R.minCashReduced=f.min_cash_pct.ltv55/100;}}
@@ -149,44 +155,48 @@ const $=s=>document.querySelector(s);
 const num=id=>parseFloat(($('#'+id).value||'').replace(/[^0-9.]/g,''))||0;
 const fmt=n=>'$'+Math.round(n).toLocaleString('en-US');
 const fmtM=n=>n>=1e6?'$'+(n/1e6).toFixed(2).replace(/0$/,'')+'M':'$'+Math.round(n/1000)+'k';
-let ptype='private';
+let ptype='private', loan='bank';
 
 function bsd(price){let prev=0,t=0;for(const[u,r] of R.bsd){const cap=(u==null)?price:Math.min(price,u);if(cap>prev){t+=(cap-prev)*r/100;prev=cap;}if(u!=null&&price<=u)break;}return t;}
-function loanFromMonthly(m,years){const r=R.stress/12,n=years*12;if(m<=0)return 0;return m*(1-Math.pow(1+r,-n))/r;}
+function loanFromMonthly(m,years,rate){const r=(rate||R.stress)/12,n=years*12;if(m<=0)return 0;return m*(1-Math.pow(1+r,-n))/r;}
 function monthlyFromLoan(loan,years,rate){const r=rate/12,n=years*12;if(loan<=0)return 0;return loan*r/(1-Math.pow(1+r,-n));}
 
 function compute(inp){
-  const {income,debts,cash,cpf,years,age,type}=inp;
+  const {income,debts,cash,cpf,years,age,type,loanType}=inp;
   const cfg=PTYPE[type]||PTYPE.private;
+  const hdbLoan = (loanType==='hdb' && type==='hdb');   // HDB concessionary loan, HDB flats only
+  const sr = hdbLoan ? R.stressHdb : R.stress;          // stress-tested at 3% (HDB) vs 4% (bank)
   const tdsrRoom=Math.max(0, income*R.tdsr - debts);
   const maxMonthly = cfg.msr ? Math.min(tdsrRoom, income*R.msr) : tdsrRoom;
-  const loanByIncome = loanFromMonthly(maxMonthly, years);
-  // LTV drops to 55% if loan runs past age 65 OR tenure exceeds the cap
-  const reduced = (years > cfg.maxTen) || (age + years > 65);
+  const loanByIncome = loanFromMonthly(maxMonthly, years, sr);
+  // bank loan: LTV drops to 55% if loan runs past age 65 OR tenure exceeds the cap. HDB loan: flat 75%, no min cash.
+  const reduced = !hdbLoan && ((years > cfg.maxTen) || (age + years > 65));
   const ltv = reduced ? R.ltvReduced : R.ltv;
-  const minCash = reduced ? R.minCashReduced : R.minCash;
+  const minCash = hdbLoan ? R.minCashHdb : (reduced ? R.minCashReduced : R.minCash);
   const dpFrac = 1-ltv, savings=cash+cpf;
   const priceByIncome = loanByIncome/ltv;
   const priceBySavings = savings/dpFrac;
-  const priceByCash = cash/minCash;
+  const priceByCash = minCash>0 ? cash/minCash : Infinity;
   const maxPrice = Math.max(0, Math.min(priceByIncome, priceBySavings, priceByCash));
   const loan = Math.min(ltv*maxPrice, loanByIncome);
   const downpay = maxPrice - loan;
   const cashPortion = Math.max(minCash*maxPrice, downpay - cpf);
   const cpfPortion = Math.max(0, downpay - cashPortion);
-  const monthlyStress = monthlyFromLoan(loan, years, R.stress);
+  const monthlyStress = monthlyFromLoan(loan, years, sr);
   const duty = bsd(maxPrice), legal=3000;
   const cashUpfront = cashPortion + duty + legal;
   let limit='income';
   if(priceBySavings<=priceByIncome && priceBySavings<=priceByCash) limit='savings';
   else if(priceByCash<priceByIncome && priceByCash<priceBySavings) limit='cash';
-  return {maxPrice,loan,downpay,cashPortion,cpfPortion,monthlyStress,duty,cashUpfront,maxMonthly,limit,reduced,ltv,minCash,msr:cfg.msr,maxTen:cfg.maxTen};
+  return {maxPrice,loan,downpay,cashPortion,cpfPortion,monthlyStress,duty,cashUpfront,maxMonthly,limit,reduced,ltv,minCash,msr:cfg.msr,maxTen:cfg.maxTen,sr,hdbLoan};
 }
 
 function calc(){
+  $('#loanF').style.display = ptype==='hdb' ? 'block' : 'none';
+  if(ptype!=='hdb') loan='bank';
   $('#tenrv').textContent=$('#tenure').value+' years';
   const age=num('age')||35;
-  const r=compute({income:num('income'),debts:num('debts'),cash:num('cash'),cpf:num('cpf')+num('grant'),years:+$('#tenure').value,age:age,type:ptype});
+  const r=compute({income:num('income'),debts:num('debts'),cash:num('cash'),cpf:num('cpf')+num('grant'),years:+$('#tenure').value,age:age,type:ptype,loanType:loan});
   if(!(r.maxPrice>0)){
     $('#tot').textContent='—';$('#totsub').textContent='';$('#rows').innerHTML='';$('#flag').style.display='none';$('#note').innerHTML='';
     const inc=num('income'),cash=num('cash');
@@ -205,7 +215,7 @@ function calc(){
     ['Home price','the ceiling for your search','~'+fmt(r.maxPrice)],
     ['Loan you’d take','about '+Math.round(r.ltv*100)+'% of the price','~'+fmt(r.loan)],
     ['You put down','cash ~'+fmt(r.cashPortion)+' + CPF ~'+fmt(r.cpfPortion),'~'+fmt(r.downpay)],
-    ['Monthly repayment','tested at '+(R.stress*100)+'% — your actual will be lower','~'+fmt(r.monthlyStress)],
+    ['Monthly repayment','tested at '+(r.sr*100)+'% — your actual will be lower','~'+fmt(r.monthlyStress)],
     ['Cash needed upfront','min cash + stamp duty + legal','~'+fmt(r.cashUpfront)],
   ];
   $('#rows').innerHTML=rows.map(x=>`<div class="row"><span class="k">${x[0]}<small>${x[1]}</small></span><span class="v">${x[2]}</span></div>`).join('');
@@ -221,13 +231,14 @@ function calc(){
   else if(r.limit==='savings') L=`<b>Your savings are the limit here.</b> You could borrow more, but the down payment needs cash + CPF you don’t have yet. Building savings raises your ceiling fastest.`;
   else L=`<b>Your cash is the limit here.</b> At least ${Math.round(r.minCash*100)}% of the price must be paid in cash (CPF can’t cover that part).`;
   $('#limit').innerHTML=L;
-  $('#note').innerHTML=`This uses the real rules: a bank can lend up to <b>${Math.round(R.tdsr*100)}% of your income for all debts</b>${r.msr?` and, for an HDB flat or new EC, the home loan alone can’t exceed <b>${Math.round(R.msr*100)}%</b>`:''} — stress-tested at <b>${R.stress*100}%</b> even though real rates are usually lower.`;
+  $('#note').innerHTML=`This uses the real rules: a bank can lend up to <b>${Math.round(R.tdsr*100)}% of your income for all debts</b>${r.msr?` and, for an HDB flat or new EC, the home loan alone can’t exceed <b>${Math.round(R.msr*100)}%</b>`:''} — stress-tested at <b>${r.sr*100}%</b>${r.hdbLoan?' (the HDB-loan rate; no minimum cash needed)':''} even though real rates are usually lower.`;
   $('#disc').innerHTML='Indicative only — not financial advice. Assumes a <b>bank loan</b> and your <b>first home</b>. Your loan and CPF only stretch up to the bank’s valuation — if you buy <b>above</b> valuation, the extra is cash on top of these figures. CPF use is also capped at valuation and you may keep a buffer in your OA, so treat the CPF figure as a maximum. If your income is mainly commission or self-employed, banks count only about <b>70%</b> of it — your real figure would be lower. A precise number depends on your credit and the bank’s valuation. Rules as of '+R.as_of+'. Always confirm with a banker.';
 }
 
 ['income','debts','cash','cpf','grant','age'].forEach(id=>$('#'+id).addEventListener('input',e=>{const raw=e.target.value.replace(/[^0-9]/g,'');e.target.value=raw?(id==='age'?raw:Number(raw).toLocaleString('en-US')):'';calc();}));
 $('#tenure').addEventListener('input',calc);
 document.querySelectorAll('#ptype .opt').forEach(o=>o.onclick=()=>{document.querySelectorAll('#ptype .opt').forEach(x=>x.classList.remove('on'));o.classList.add('on');ptype=o.dataset.p;const mt=PTYPE[ptype].maxTen;$('#tenure').max=mt;if(+$('#tenure').value>mt)$('#tenure').value=mt;calc();});
+document.querySelectorAll('#ltype .opt').forEach(o=>o.onclick=()=>{document.querySelectorAll('#ltype .opt').forEach(x=>x.classList.remove('on'));o.classList.add('on');loan=o.dataset.l;calc();});
 window.__afford={compute,loanFromMonthly,monthlyFromLoan,bsd,R:()=>R};
 calc();
 </script>

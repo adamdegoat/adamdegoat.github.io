@@ -118,6 +118,8 @@
     "tdsr_pct": 55,
     "msr_pct": 30,
     "stress_rate_pct": 4.0,
+    "hdb_loan_stress_rate_pct": 3.0,
+    "hdb_loan_min_cash_pct": 0,
     "variable_income_haircut_pct": 30,
     "ltv": {
       "bank": {
