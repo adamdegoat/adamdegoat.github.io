@@ -17,7 +17,7 @@
  --serif:'Fraunces',Georgia,serif;--sans:'Schibsted Grotesk',system-ui,sans-serif;--ease:cubic-bezier(.22,.7,.2,1)}
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
-body::before{content:"";position:fixed;inset:-20%;z-index:-2;pointer-events:none;background:radial-gradient(620px 460px at 88% -6%,rgba(176,141,87,.13),transparent 60%),radial-gradient(540px 440px at -4% 10%,rgba(28,58,46,.07),transparent 58%)}
+body::before{content:"";position:fixed;inset:-20%;z-index:-2;pointer-events:none;background:radial-gradient(620px 460px at 88% -6%,rgba(150,140,110,.07),transparent 60%),radial-gradient(540px 440px at -4% 10%,rgba(28,58,46,.07),transparent 58%)}
 .topo{position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(27,58,45,.07) 1.1px,transparent 1.2px);background-size:28px 28px}
 a{color:inherit;text-decoration:none}
 .bar{height:72px;display:flex;align-items:center;border-bottom:1px solid var(--line)}
@@ -32,12 +32,12 @@ a{color:inherit;text-decoration:none}
 h1{font-family:var(--serif);font-weight:600;font-size:clamp(30px,5vw,42px);letter-spacing:-.025em;margin:12px 0 0;line-height:1.05}
 .sub{font-size:17px;color:var(--ink2);margin:14px auto 0;max-width:520px}
 .why{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:24px 0 0}
-.why span{font-size:12.5px;font-weight:600;color:var(--ink2);background:#fffdf8;border:1px solid var(--line);border-radius:30px;padding:8px 14px}
+.why span{font-size:12.5px;font-weight:600;color:var(--ink2);background:#fffefc;border:1px solid var(--line);border-radius:30px;padding:8px 14px}
 .installbtn{display:none;margin:28px auto 0;font-family:inherit;font-weight:700;font-size:15px;padding:15px 28px;border:0;border-radius:40px;background:linear-gradient(135deg,var(--brass3),var(--brass));color:#241a0d;cursor:pointer;box-shadow:0 12px 28px rgba(176,141,87,.34);transition:.2s var(--ease)}
 .installbtn:hover{transform:translateY(-2px)}
 .installbtn.show{display:block}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:40px 0 0}
-.card{background:#fffdf8;border:1px solid var(--line);border-radius:20px;padding:26px 24px;box-shadow:0 10px 30px rgba(25,21,18,.05)}
+.card{background:#fffefc;border:1px solid var(--line);border-radius:20px;padding:26px 24px;box-shadow:0 10px 30px rgba(25,21,18,.05)}
 .card h2{font-family:var(--serif);font-weight:600;font-size:20px;display:flex;align-items:center;gap:9px;margin-bottom:16px}
 .card h2 svg{width:22px;height:22px;flex:none}
 ol{list-style:none;counter-reset:s}
@@ -53,7 +53,7 @@ ol li b{color:var(--ink)}
 .foot{padding:34px 0 70px;text-align:center}.foot a{font-size:14px;font-weight:700;color:var(--green2)}
 @media(max-width:560px){.cards{grid-template-columns:1fr}}
 /* dark bar + deeper greige body + column lines (match homepage) */
-:root{--bg:#ece5d3}
+:root{--bg:#eae8e1}
 .topo{background-image:repeating-linear-gradient(90deg,rgba(27,58,45,.045) 0 1px,transparent 1px 150px),repeating-linear-gradient(0deg,rgba(27,58,45,.045) 0 1px,transparent 1px 150px)}
 .bar{background:linear-gradient(165deg,#2c5743,#1b3a2d);border-bottom:0}
 .bar .b{color:#f6f1e7}
