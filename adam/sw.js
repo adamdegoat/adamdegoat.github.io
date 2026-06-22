@@ -1,9 +1,9 @@
 // Adam Phang hub — service worker (offline shell + installable PWA)
-const CACHE = 'adamhub-v8';
+const CACHE = 'adamhub-v9';
 const CORE = [
   'index.html',
   'tools/afford.html', 'tools/value.html', 'tools/stamp-duty.html',
-  'tools/schools.html', 'tools/sell.html', 'install.html',
+  'tools/schools.html', 'tools/sell.html', 'tools/eligibility.html', 'install.html',
   'manifest.json', 'icons/icon-192.png', 'icons/icon-512.png', 'img/heartland.jpg'
 ];
 
