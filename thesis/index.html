@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta name="description" content="Thesis — investment-grade property research for Singapore. Every condo project graded A–F on official caveats (relative value, mean-reversion, yield, liquidity, supply), plus a live new-launch feed showing how every launch is priced &amp; selling. Part of Groundwork.">
+<meta name="description" content="Thesis — factual property research for Singapore. Every condo project's numbers from official caveats: how it's priced versus comparable condos nearby, price-cycle timing, yield, liquidity, tenure and incoming supply — plus a live new-launch feed. Indicative analysis, not financial advice. Part of Groundwork.">
 <title>Thesis · SG Property Research</title>
 <meta name="theme-color" content="#0d1521">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d1521'/%3E%3Cpath d='M7 22 L13 13 L18 18 L25 9' stroke='%231fc18f' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='25' cy='9' r='2.2' fill='%23cda64e'/%3E%3C/svg%3E">
@@ -114,6 +114,12 @@ select.f{background:var(--panel);border:1px solid var(--line);border-radius:10px
 .g.B{background:rgba(58,127,192,.11);color:#2f6aa6;border:1px solid rgba(58,127,192,.3)}
 .g.C{background:rgba(192,132,24,.12);color:#9a6a10;border:1px solid rgba(192,132,24,.3)}
 .g.D{background:rgba(207,83,73,.11);color:#b33f36;border:1px solid rgba(207,83,73,.3)}
+/* factual value chip (replaces letter grade) */
+.vchip{display:inline-block;font-family:var(--sans);font-weight:700;font-size:11px;padding:5px 11px;border-radius:20px;white-space:nowrap;background:var(--panel2);color:var(--ink2);border:1px solid var(--line)}
+.vchip.pos{background:rgba(15,157,118,.12);color:#0b7d5e;border-color:rgba(15,157,118,.3)}
+.vchip.neg{background:rgba(207,83,73,.1);color:#b33f36;border-color:rgba(207,83,73,.28)}
+.vchip.warn{background:rgba(192,132,24,.12);color:#9a6a10;border-color:rgba(192,132,24,.3)}
+.gg.vchip{font-size:13px;padding:7px 14px}
 /* deep-dive panel */
 .ov{position:fixed;inset:0;background:rgba(6,10,16,.72);backdrop-filter:blur(4px);z-index:60;display:none;justify-content:flex-end}
 .ov.show{display:flex}
@@ -280,7 +286,7 @@ select.f{background:var(--panel);border:1px solid var(--line);border-radius:10px
 
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-let D=null,TAB='research',SORT={k:'score',dir:-1},FILT={q:'',seg:'',grade:'',upreg:'',lview:'feed',lold:false},CMP=[];
+let D=null,TAB='research',SORT={k:'discount',dir:-1},FILT={q:'',seg:'',grade:'',upreg:'',lview:'feed',lold:false},CMP=[];
 const TABS=[['research','▦','Research'],['launches','◆','New launches'],['upcoming','◇','Upcoming'],['compare','⇄','Compare'],['method','📐','Methodology']];
 const median=arr=>{const a=arr.filter(x=>x!=null&&!isNaN(x)).slice().sort((x,y)=>x-y);return a.length?a[Math.floor(a.length/2)]:null;};
 const FACS=['value','timing','liquidity','yield','tenure','supply'];
@@ -296,6 +302,13 @@ function valuePhrase(p){
   return `priced <b>in line</b> with comparable condos within 1.5km (~$${(p.peer_ref||0).toLocaleString()} psf around it)`;
 }
 const gletter=g=>g[0];
+// factual value chip (replaces the old A–F letter badge) — neutral, sourced, relative
+function valChip(p){
+  if(p.value_flag)return `<span class="vchip warn">⚠ different product</span>`;
+  if(p.discount>=2)return `<span class="vchip pos">${p.discount}% below nearby</span>`;
+  if(p.discount<=-2)return `<span class="vchip neg">${-p.discount}% above nearby</span>`;
+  return `<span class="vchip">in line w/ nearby</span>`;
+}
 const tc=s=>(s||'').toLowerCase().replace(/\b([a-z])/g,(m,c)=>c.toUpperCase());
 const fmtP=n=>n>=1e6?'$'+(n/1e6).toFixed(2)+'m':'$'+Math.round(n/1e3)+'k';
 const sg=v=>v>=0?'pos':'neg';
@@ -328,7 +341,7 @@ function init(){
   $('#dataTag').innerHTML=`<b>${D.n_projects}</b> projects · <b>${D.n_launches}</b> launches<br>official caveats · ${D.as_of.slice(0,2)}’${D.as_of.slice(2)} · predicts at ${D.backtest?D.backtest.ic:'—'} (0=random)`;
   $('#tabs').innerHTML=TABS.map(t=>`<div class="tab ${t[0]===TAB?'on':''}" data-t="${t[0]}"><span>${t[1]}</span>${t[2]}${t[0]==='compare'?` <span id="cmpN" class="chip" style="display:none"></span>`:''}</div>`).join('');
   $('#tabs').onclick=e=>{const t=e.target.closest('.tab');if(t){TAB=t.dataset.t;render();}};
-  $('#foot').innerHTML=`Thesis. Research from official URA caveats (${D.window_months}-month window, as of ${D.as_of.slice(0,2)}’${D.as_of.slice(2)}). Indicative analysis, not financial advice — the agent verifies. Grades reflect relative value, mean-reversion, yield, liquidity, tenure &amp; supply risk; they are probabilities, not guarantees.`;
+  $('#foot').innerHTML=`Thesis. Facts compiled from official URA caveats (${D.window_months}-month window, as of ${D.as_of.slice(0,2)}’${D.as_of.slice(2)}). Indicative analysis only — <b>not financial advice</b>; verify independently before any decision. All figures are relative and point-in-time, and the property market can move against any past pattern.`;
   render();
   // deep-link from Caveat: ?p=PROJECT opens that project's thesis
   const pq=new URLSearchParams(location.search).get('p');
@@ -344,31 +357,30 @@ function render(){
 const VIEWS={
  research(){
   const bt=D.backtest||{};
-  const buys=D.projects.filter(p=>['A+','A','A-'].includes(p.grade)).length;
+  const below=D.projects.filter(p=>!p.value_flag&&p.discount>=2).length;
   let rows=D.projects.filter(p=>(!FILT.q||p.project.toLowerCase().includes(FILT.q.toLowerCase())||distName(p.district).toLowerCase().includes(FILT.q.toLowerCase()))
-    &&(!FILT.seg||p.seg===FILT.seg)&&(!FILT.grade||gletter(p.grade)===FILT.grade));
+    &&(!FILT.seg||p.seg===FILT.seg));
   rows=rows.slice().sort((a,b)=>{let x=a[SORT.k],y=b[SORT.k];if(typeof x==='string')return SORT.dir*x.localeCompare(y);return SORT.dir*((x??-999)-(y??-999));});
   const segOpts=['','CCR','RCR','OCR'].map(s=>`<option value="${s}">${s||'All segments'}</option>`).join('');
-  const grOpts=['','A','B','C','D'].map(s=>`<option value="${s}">${s?s+'-grade':'All grades'}</option>`).join('');
   return `<div class="hero">
-    <h1 class="serif">Which projects are a <em>smart buy</em> — and why.</h1>
-    <p>Every Singapore condo, graded on official sale records: is it priced below similar condos nearby, where it sits in the price cycle, what it rents for, how easily it sells, freehold vs leasehold, and how much new competition is coming. Click any project to see the full reasoning.</p></div>
+    <h1 class="serif">Every Singapore condo, <em>by the numbers.</em></h1>
+    <p>Pulled from official sale records: how each project is priced versus similar condos nearby, where it sits in the price cycle, what it rents for, how often it trades, freehold vs leasehold, and how much new supply is coming. The facts — you decide. Click any project for the full breakdown.</p></div>
    <div class="kpis">
-     <div class="kpi"><div class="k">Projects graded</div><div class="v">${D.n_projects}</div><div class="s">${buys} are top-grade (A-tier)</div></div>
-     <div class="kpi"><div class="k">Proven edge</div><div class="v pos">+${bt.spread}%</div><div class="s">value signal: top vs bottom over ${bt.fwd_months} months (backtested)</div></div>
-     <div class="kpi"><div class="k">How well it predicts</div><div class="v">${bt.ic}</div><div class="s">0 = coin-flip · higher = sharper</div></div>
-     <div class="kpi"><div class="k">The strategy</div><div class="v" style="font-size:16px;color:var(--green)">Buy the value</div><div class="s">cheap + recently-dipped beats chasing the hot ones</div></div>
+     <div class="kpi"><div class="k">Projects covered</div><div class="v">${D.n_projects}</div><div class="s">${below} priced below comparable condos nearby</div></div>
+     <div class="kpi"><div class="k">Value signal (backtested)</div><div class="v pos">+${bt.spread}%</div><div class="s">cheapest vs priciest, over the next ${bt.fwd_months} months</div></div>
+     <div class="kpi"><div class="k">Signal strength</div><div class="v">${bt.ic}</div><div class="s">0 = coin-flip · higher = sharper</div></div>
+     <div class="kpi"><div class="k">What the data shows</div><div class="v" style="font-size:16px;color:var(--green)">Laggards mean-revert</div><div class="s">historically, cheap + recently-dipped has outperformed the hot ones</div></div>
    </div>
    ${bestBlock()}
    <div class="ctrls">
      <div class="search"><input id="q" placeholder="Search a project or district (e.g. One-North, D05)…" value="${FILT.q}"></div>
-     <select class="f" id="fseg">${segOpts}</select><select class="f" id="fgrade">${grOpts}</select>
+     <select class="f" id="fseg">${segOpts}</select>
    </div>
    <div style="overflow-x:auto"><table class="tbl"><thead><tr>
-     ${[['grade','Grade'],['project','Project'],['seg','Region'],['psf','$ / sqft'],['discount','vs nearby'],['mom','6mo trend'],['yield','Yield'],['txns','Sales'],['score','Score']].map(c=>`<th class="${['psf','discount','mom','yield','txns','score'].includes(c[0])?'r':''} ${['seg','yield'].includes(c[0])?'hide-sm':''}" data-k="${c[0]}">${c[1]}${SORT.k===c[0]?(SORT.dir<0?' ▾':' ▴'):''}</th>`).join('')}
+     ${[['project','Project'],['seg','Region'],['psf','$ / sqft'],['discount','vs nearby'],['mom','6mo trend'],['yield','Yield'],['txns','Sales'],['score','Standing']].map(c=>`<th class="${['psf','discount','mom','yield','txns','score'].includes(c[0])?'r':''} ${['seg','yield'].includes(c[0])?'hide-sm':''}" data-k="${c[0]}">${c[1]}${SORT.k===c[0]?(SORT.dir<0?' ▾':' ▴'):''}</th>`).join('')}
    </tr></thead><tbody>${rows.slice(0,200).map(rowHtml).join('')}</tbody></table>
    ${rows.length>200?`<div class="empty" style="padding:20px">Showing top 200 of ${rows.length}. Refine with search/filters.</div>`:''}</div>
-   <div class="legend"><b>How to read this:</b> <span><b>$ / sqft</b> = its typical price per square foot</span><span><b>vs nearby</b> = how that compares to similar condos within 1.5km (<span class="pos">green = cheaper</span>, a good sign)</span><span><b>6mo trend</b> = price change over the last 6 months</span><span><b>Score</b> = overall 0–100 grade across all 6 factors</span></div>`;
+   <div class="legend"><b>How to read this:</b> <span><b>$ / sqft</b> = its typical price per square foot</span><span><b>vs nearby</b> = how that compares to similar condos within 1.5km (<span class="pos">green = cheaper</span>)</span><span><b>6mo trend</b> = price change over the last 6 months</span><span><b>Standing</b> = a relative 0–100 position vs comparable projects across the six factors — a ranking, not a recommendation</span></div>`;
  },
  launches(){
   const reg=FILT.upreg||'', view=FILT.lview||'feed';
@@ -417,15 +429,14 @@ const VIEWS={
  },
  compare(){
   if(!CMP.length)return `<div class="hero"><h1 class="serif">Compare, <em>head to head</em>.</h1>
-    <p>Add projects from the Research tab (the ⇄ button on any project) to line them up side by side — grades, value, the full factor breakdown.</p></div>
+    <p>Add projects from the Research tab (the ⇄ button on any project) to line them up side by side — pricing, value vs nearby, and the full factor breakdown.</p></div>
     <div class="empty"><div class="b serif">No projects added yet</div>Open any project → "Add to compare". Up to 3.</div>`;
   const ps=CMP.map(n=>D.projects.find(p=>p.project===n)).filter(Boolean);
   return `<div class="hero"><h1 class="serif">Head to head</h1><p>${ps.length} project${ps.length>1?'s':''} compared, side by side. <button onclick="CMP=[];render()" style="color:var(--gold);font-size:13px">Clear all</button></p></div>
    <div class="cmp-scroll"><div class="cmp-grid">
    ${ps.map(p=>`<div class="cmp-col">
-     <div class="cmp-hd"><span class="g ${gletter(p.grade)}">${p.grade}</span><div><div class="cmp-nm">${tc(p.project)}</div><div class="cmp-sub">${distName(p.district)} · ${p.seg} · ${p.fh?'Freehold':'Leasehold'}</div></div></div>
-     <div class="cmp-verdict">${p.verdict}</div>
-     <div class="cmp-rows">${[['Grade score','out of 100',p.score],['Price / sqft','typical unit','$'+p.psf.toLocaleString()],['vs nearby condos','same class, 1.5km',p.value_flag?'n/a':(p.discount>0?p.discount+'% cheaper':p.discount<0?(-p.discount)+'% pricier':'in line')],['Price trend','last 6 months',(p.mom==null?'—':(p.mom>0?'+':'')+p.mom+'%')],['Rental yield','gross',p.yield?p.yield+'%':'—'],['Recent sales','ease of exit',p.txns]].map(m=>`<div class="cmp-row"><span class="cr-k">${m[0]}<small>${m[1]}</small></span><span class="cr-v mono">${m[2]}</span></div>`).join('')}</div>
+     <div class="cmp-hd">${valChip(p)}<div><div class="cmp-nm">${tc(p.project)}</div><div class="cmp-sub">${distName(p.district)} · ${p.seg} · ${p.fh?'Freehold':'Leasehold'}</div></div></div>
+     <div class="cmp-rows">${[['Standing','relative, /100',p.score],['Price / sqft','typical unit','$'+p.psf.toLocaleString()],['vs nearby condos','same class, 1.5km',p.value_flag?'n/a':(p.discount>0?p.discount+'% cheaper':p.discount<0?(-p.discount)+'% pricier':'in line')],['Price trend','last 6 months',(p.mom==null?'—':(p.mom>0?'+':'')+p.mom+'%')],['Rental yield','gross',p.yield?p.yield+'%':'—'],['Recent sales','ease of exit',p.txns]].map(m=>`<div class="cmp-row"><span class="cr-k">${m[0]}<small>${m[1]}</small></span><span class="cr-v mono">${m[2]}</span></div>`).join('')}</div>
      ${p.spark&&p.spark.length>=4?`<div class="cmp-spk"><div class="cmp-spk-h">Price trend · ${D.window_months}mo</div>${sparkSVG(p.spark)}</div>`:''}
      <div class="cmp-fac">${FACS.map(f=>`<div class="cmp-fr"><span class="cf-l" title="${FDESC[f]}">${flab(f)}</span><div class="track"><div class="fill" style="width:${p.pct[f]}%;background:${barCol(p.pct[f])}"></div></div><span class="cf-v">${p.pct[f]}</span></div>`).join('')}</div>
      <button class="cmp-rm" onclick="CMP=CMP.filter(x=>x!=='${p.project.replace(/'/g,"\\'")}');render()">Remove</button>
@@ -434,8 +445,8 @@ const VIEWS={
  },
  method(){
   const bt=D.backtest||{},W=D.weights,mw=Math.max(...Object.values(W));
-  return `<div class="hero"><h1 class="serif">How the <em>grade</em> is built.</h1>
-    <p>Deterministic and explainable — no black box, no AI guesswork. Six factors from official caveats, each percentile-ranked within its market segment (CCR / RCR / OCR), combined into a 0–100 score and an A–F grade.</p></div>
+  return `<div class="hero"><h1 class="serif">How <em>the numbers</em> work.</h1>
+    <p>Deterministic and explainable — no black box, no AI guesswork. Six factors from official caveats, each percentile-ranked within its market segment (CCR / RCR / OCR), combined into a relative 0–100 standing. It's a ranking from public data, not a buy/sell recommendation.</p></div>
    <div class="panel" style="margin-top:18px"><h2>The six factors</h2>
      <div class="bars" style="margin-top:10px">${Object.entries(W).map(([f,w])=>`<div class="bar-row"><div class="lab" title="${FDESC[f]}">${flab(f)}</div><div class="track"><div class="fill" style="width:${w/mw*100}%;background:linear-gradient(90deg,var(--green-d),var(--green))"></div></div><div class="val">${Math.round(w*100)}%</div></div>`).join('')}</div>
      <div class="facnote" style="margin-top:12px">${FACS.map(f=>`<b>${flab(f)}</b> — ${FDESC[f]}.`).join(' ')}</div>
@@ -448,10 +459,10 @@ const VIEWS={
        <div class="kpi"><div class="k">Top vs bottom spread</div><div class="v pos">+${bt.spread}%</div><div class="s">over the next ${bt.fwd_months} months</div></div>
        <div class="kpi"><div class="k">Projects tested</div><div class="v">${bt.n}</div><div class="s">with enough history</div></div>
      </div>
-     <div class="note" style="margin-top:14px;font-size:12px;color:var(--ink3)">What's validated is the <b>price signal</b> — relative value &amp; mean-reversion — which drives roughly the value + timing weight of the grade. Yield, liquidity, tenure and supply are quality/risk filters, not separately return-tested (they're point-in-time, so they can't be).</div>
+     <div class="note" style="margin-top:14px;font-size:12px;color:var(--ink3)">What's validated is the <b>price signal</b> — relative value &amp; mean-reversion — which drives roughly the value + timing weight of the standing. Yield, liquidity, tenure and supply are quality/risk filters, not separately return-tested (they're point-in-time, so they can't be).</div>
      <div class="flag-w" style="margin-top:16px">⚠ Honest limit: only ~${D.window_months} months of caveat history exists, so this is a <b>short-window</b> validation over one market period — directionally strong, but not a multi-cycle proof. The mean-reversion edge was powerful here; it's re-checked every week as new data arrives.</div></div>`:''}
    <div class="panel"><h2>🔁 How it stays current</h2>
-     <div class="note">Every week the engine pulls the latest caveats, <b>re-scores every project</b> and <b>re-runs this backtest</b>, so both the grades and the validation stay current as the market moves. The factor weights are <b>deliberately held fixed</b> — with only ~${D.window_months} months of history, auto-tuning them would just curve-fit one market period rather than learn anything real. They'll be revisited as more data accrues. The point isn't a model that secretly changes on you; it's the same transparent rules, re-checked against fresh outcomes every week.</div></div>`;
+     <div class="note">Every week the engine pulls the latest caveats, <b>re-scores every project</b> and <b>re-runs this backtest</b>, so both the numbers and the validation stay current as the market moves. The factor weights are <b>deliberately held fixed</b> — with only ~${D.window_months} months of history, auto-tuning them would just curve-fit one market period rather than learn anything real. They'll be revisited as more data accrues. The point isn't a model that secretly changes on you; it's the same transparent rules, re-checked against fresh outcomes every week.</div></div>`;
  }
 };
 
@@ -459,7 +470,7 @@ function barCol(p){return p>=66?'var(--green)':p>=40?'var(--blue)':p>=25?'var(--
 function gcol(g){return ({A:'#0b7d5e',B:'#2f6aa6',C:'#9a6a10',D:'#b33f36',F:'#b33f36'})[gletter(g)]||'var(--ink)';}
 function rowHtml(p){
   const dc=p.discount>0?'pos':p.discount<0?'neg':'';
-  return `<tr data-p="${esc(p.project)}"><td><span class="g ${gletter(p.grade)}">${p.grade}</span></td>
+  return `<tr data-p="${esc(p.project)}">
    <td><span class="pn">${p.project}<small>${p.street?tc(p.street)+' · ':''}${distName(p.district)}${p.fh?' · FH':''}</small></span></td>
    <td class="hide-sm"><span class="chip">${p.seg}</span></td>
    <td class="r">$${p.psf}</td>
@@ -467,7 +478,7 @@ function rowHtml(p){
    <td class="r ${sg(p.mom)}">${p.mom==null?'—':(p.mom>0?'+':'')+p.mom+'%'}</td>
    <td class="r hide-sm">${p.yield?p.yield+'%':'—'}</td>
    <td class="r">${p.txns}</td>
-   <td class="r" style="color:${gcol(p.grade)};font-weight:700">${p.score}</td></tr>`;
+   <td class="r" style="color:var(--ink2);font-weight:700">${p.score}</td></tr>`;
 }
 function launchRow(l){
   const cls=l.assess.includes('Keenly')?'ok':l.assess.includes('Typical')?'mid':l.assess.includes('Steep')?'steep':l.assess.includes('Premium')?'hi':'';
@@ -519,11 +530,11 @@ function bestHook(p){
   return parts.join(' · ');
 }
 function bestBlock(){
-  const best=D.projects.filter(p=>['A+','A','A-'].includes(p.grade)&&!p.value_flag).slice(0,3);
+  const best=D.projects.filter(p=>!p.value_flag&&p.discount>=2).sort((a,b)=>b.discount-a.discount).slice(0,3);
   if(best.length<3)return '';
-  return `<div class="bestrow"><div class="best-h">⭐ Best value right now <span>top-graded projects priced below the condos around them — click any to see why</span></div>
+  return `<div class="bestrow"><div class="best-h">📉 Priced furthest below nearby comparables <span>projects trading at the biggest discount to similar condos around them — click any for the breakdown</span></div>
    <div class="best-cards">${best.map(p=>`<div class="best-c" data-p="${esc(p.project)}">
-     <div class="best-top"><span class="g ${gletter(p.grade)}">${p.grade}</span><span class="best-n">${tc(p.project)}</span></div>
+     <div class="best-top">${valChip(p)}<span class="best-n">${tc(p.project)}</span></div>
      <div class="best-sub">${p.street?tc(p.street)+', ':''}${distName(p.district)} · ${p.seg}</div>
      <div class="best-hook">${bestHook(p)}</div>
      <div class="best-go">See the full breakdown →</div>
@@ -575,7 +586,7 @@ function openDD(name){
   const p=D.projects.find(x=>x.project===name);if(!p)return;
   const tv='https://www.google.com/search?q='+encodeURIComponent(p.project+' condo singapore');
   const cav='https://adamdegoat.github.io/caveat/?p='+encodeURIComponent(p.project);
-  $('#dd').innerHTML=`<div class="dd-head"><span class="gg g ${gletter(p.grade)}">${p.grade}</span>
+  $('#dd').innerHTML=`<div class="dd-head"><span class="gg vchip ${p.value_flag?'warn':(p.discount>=2?'pos':p.discount<=-2?'neg':'')}">${p.value_flag?'⚠ different product':(p.discount>=2?p.discount+'% below nearby':p.discount<=-2?(-p.discount)+'% above nearby':'in line w/ nearby')}</span>
     <div class="tt">${p.project}<small>${p.street?tc(p.street)+' · ':''}${distName(p.district)} · ${p.seg} · ${p.fh?'Freehold':'Leasehold'}</small></div>
     <span class="x" onclick="closeDD()">✕</span></div>
    <div class="dd-body">
@@ -583,8 +594,8 @@ function openDD(name){
      ${p.value_flag?`<div class="flag-w">⚠ This project's PSF sits unusually far from nearby projects — likely a <b>different product</b> (older or much larger units), so we don't score it on relative value. Verify the comparable set before quoting it.</div>`:''}
      ${(()=>{const rn=window.RESEARCH&&window.RESEARCH.notes&&window.RESEARCH.notes[p.project];return rn?`<div class="sect">Field research <span style="color:var(--ink3);text-transform:none;letter-spacing:0;font-weight:400">· AI-assisted · ${window.RESEARCH.asof||''}</span></div>
      <div class="research"><p>${rn.note}</p>${rn.sources&&rn.sources.length?`<div class="rsrc">${rn.sources.map(s=>/^https?:/.test(s)?`<a href="${s}" target="_blank">${s.replace(/^https?:\/\/(www\.)?/,'').split('/')[0]} ↗</a>`:`<span>${s}</span>`).join('')}</div>`:''}<div class="rdisc">${window.RESEARCH.disclaimer||'AI-assisted research — verify before quoting.'}</div></div>`:''})()}
-     <div class="sect">What drives the grade</div>
-     <div class="facnote">Each bar is this project's rank from <b>0 to 100</b> against other ${p.seg} projects — <b>higher is better</b>. The % on the right is how much that factor counts toward the overall grade.</div>
+     <div class="sect">How it compares to nearby projects</div>
+     <div class="facnote">Each bar is this project's relative position from <b>0 to 100</b> against other ${p.seg} projects on that factor. The % on the right is how much that factor weighs in its overall <b>standing</b> — a relative ranking from official data, not a recommendation.</div>
      ${FACS.map(f=>`<div class="facrow"><div class="fl" title="${FDESC[f]}">${flab(f)}</div><div class="ft"><i style="width:${p.pct[f]}%;background:${barCol(p.pct[f])}"></i></div><div class="fv">${p.pct[f]}</div><div class="fw">${Math.round(D.weights[f]*100)}%</div></div>`).join('')}
      ${p.spark&&p.spark.length>=4?`<div class="sect">Price trend <span style="color:var(--ink3);text-transform:none;letter-spacing:0;font-weight:400">· median PSF over ${D.window_months} months</span></div>${sparkSVG(p.spark)}`:''}
      <div class="sect">The numbers</div>
@@ -601,7 +612,7 @@ function openDD(name){
        <button class="actbtn gold" onclick="addCmp('${name.replace(/'/g,"\\'")}')">⇄ Add to compare</button>
        <a class="actbtn" href="${tv}" target="_blank">Look up ↗</a>
      </div>
-     <div class="dd-cross">Caveat prices a specific unit here · Thesis grades the project. Two halves of the same call.</div>
+     <div class="dd-cross">Caveat prices a specific unit here · Thesis shows the project's numbers. Two halves of the same picture.</div>
    </div>`;
   $('#ov').classList.add('show');
 }
@@ -634,7 +645,7 @@ document.addEventListener('click',e=>{
   if(tr){openDD(tr.dataset.p);return;}
 });
 document.addEventListener('input',e=>{if(e.target.id==='q'){FILT.q=e.target.value;const a=$('#app');const inp=e.target;const pos=inp.selectionStart;render();const ni=$('#q');if(ni){ni.focus();ni.setSelectionRange(pos,pos);}}});
-document.addEventListener('change',e=>{if(e.target.id==='fseg'){FILT.seg=e.target.value;render();}if(e.target.id==='fgrade'){FILT.grade=e.target.value;render();}});
+document.addEventListener('change',e=>{if(e.target.id==='fseg'){FILT.seg=e.target.value;render();}});
 function esc(s){return String(s).replace(/"/g,'&quot;');}
 </script>
 <!-- INSTALL GUIDE -->
@@ -644,10 +655,10 @@ function esc(s){return String(s).replace(/"/g,'&quot;');}
     <div class="th-head">
       <img src="icon-192.png" alt="Thesis">
       <h2>Add Thesis to your phone</h2>
-      <p>Install once — pull up any project's A–F grade and the live launch feed in seconds.</p>
+      <p>Install once — pull up any project's numbers and the live launch feed in seconds.</p>
     </div>
     <div class="th-feats">
-      <div class="th-feat"><div class="fi">🎓</div><b>A–F on every project</b><span>Graded on official caveats</span></div>
+      <div class="th-feat"><div class="fi">📊</div><b>The numbers on every project</b><span>From official caveats</span></div>
       <div class="th-feat"><div class="fi">📈</div><b>Live launch feed</b><span>How each launch is priced &amp; selling</span></div>
       <div class="th-feat"><div class="fi">📶</div><b>Opens like an app</b><span>Fullscreen, no browser bars</span></div>
       <div class="th-feat"><div class="fi">🆓</div><b>Free · official data</b><span>URA caveats · no login</span></div>
