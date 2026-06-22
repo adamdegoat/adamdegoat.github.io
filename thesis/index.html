@@ -481,7 +481,7 @@ function rowHtml(p){
    <td class="r" style="color:var(--ink2);font-weight:700">${p.score}</td></tr>`;
 }
 function launchRow(l){
-  const cls=l.assess.includes('Keenly')?'ok':l.assess.includes('Typical')?'mid':l.assess.includes('Steep')?'steep':l.assess.includes('Premium')?'hi':'';
+  const cls=l.assess.includes('Below')?'ok':l.assess.includes('Around')?'mid':l.assess.includes('Well above')?'hi':l.assess.includes('Above')?'steep':'';
   const pc=l.premium==null?'—':(l.premium>0?'+':'')+l.premium+'%';
   const pcl=l.premium==null?'':l.premium<=12?'pos':l.premium>=35?'neg':'';
   const s=launchStatus(l.last);
@@ -498,7 +498,7 @@ function launchRow(l){
 function launchCard(l){
   const s=launchStatus(l.last);
   const pc=l.premium==null?'—':(l.premium>0?'+':'')+l.premium+'%';
-  const cls=l.assess.includes('Keenly')?'ok':l.assess.includes('Typical')?'mid':l.assess.includes('Steep')?'steep':l.assess.includes('Premium')?'hi':'';
+  const cls=l.assess.includes('Below')?'ok':l.assess.includes('Around')?'mid':l.assess.includes('Well above')?'hi':l.assess.includes('Above')?'steep':'';
   return `<div class="lcard">
     <div class="lc-top"><div class="lc-name">${l.project}<small>${distName(l.district)} · ${distArea(l.district)} · ${l.seg}</small></div><span class="lstat ${s[1]}">${s[0]}</span></div>
     <div class="lc-row">
@@ -514,7 +514,7 @@ function launchCard(l){
 function launchTake(l){
   const r=l.premium, u=(l.txns||0).toLocaleString(), st=launchStatus(l.last)[0].replace('● ','').toLowerCase();
   if(r==null) return `Priced at $${l.launch_psf} psf — ${u} units sold, ${st}.`;
-  const w=r<=18?`keenly priced for a new launch at ${r}% over resale`:r<=45?`a ${r}% premium over area resale — typical for a new launch`:r<=60?`a top-end ${r}% premium over resale`:`a steep ${r}% over resale — it needs a strong story`;
+  const w=r<=18?`${r}% over resale — below the typical new-launch premium`:r<=45?`a ${r}% premium over area resale — around typical for a new launch`:r<=60?`a ${r}% premium over resale — above the typical new-launch premium`:`${r}% over resale — well above the typical new-launch premium`;
   return `At $${l.launch_psf} psf it's ${w} (resale ~$${l.resale_psf||'—'}) — ${u} units sold, ${st}.`;
 }
 
