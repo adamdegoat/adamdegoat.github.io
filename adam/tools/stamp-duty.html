@@ -149,16 +149,21 @@ function calc(){
   if(ar>0) rows.push(['Additional Stamp Duty', ar+'% — '+(who==='SC'?'2nd+ home':who==='SPR'?'PR':'foreigner'), fmt(a)]);
   else rows.push(['Additional Stamp Duty','none for this profile','$0']);
   $('#rows').innerHTML = price>0 ? rows.map(r=>`<div class="row"><span class="k">${r[0]}<small>${r[1]}</small></span><span class="v">${r[2]}</span></div>`).join('') : '';
-  // plain note
+  // plain note — profile-accurate
   let n='';
   if(price>0){
     n=`<b>Buyer's Stamp Duty</b> is the basic tax everyone pays when buying a home — it steps up with the price. `;
-    if(ar>0) n+=`<b>Additional Buyer's Stamp Duty (ABSD)</b> is an extra ${ar}% on top, because this isn't a Singapore Citizen's first home. `;
-    else n+=`There's no extra ABSD here — a citizen's first home only pays the basic duty. `;
+    if(ar>0){
+      let why = who==='SC' ? `because this isn't your first home` :
+                who==='SPR' ? `because PRs pay additional duty${count!=='1'?` (more from the second home)`:``}` :
+                `because foreign buyers pay additional duty`;
+      n+=`<b>Additional Buyer's Stamp Duty (ABSD)</b> adds ${ar}% on top, ${why}. `;
+    } else n+=`There's no extra ABSD here — a Singapore Citizen's first home pays only the basic duty. `;
     n+=`Both are due within 14 days of signing.`;
+    if(who==='Foreigner') n+=`<br><br><b>Note:</b> some nationalities are taxed at citizen rates under trade agreements — US citizens, and citizens &amp; PRs of Iceland, Liechtenstein, Norway and Switzerland. If that's you, message me to check.`;
   }
   $('#note').innerHTML=n;
-  $('#disc').innerHTML='Indicative estimate only — not financial advice. Stamp duty is charged on the <b>higher of the price or the home\'s market valuation</b>. Final duties are determined by IRAS. Rates as of '+RATES.as_of+'.';
+  $('#disc').innerHTML='Indicative estimate only — not financial advice. Stamp duty is charged on the <b>higher of the price or the home\'s market valuation</b>. For couples with different profiles, the higher ABSD rate applies. Final duties are determined by IRAS. Rates as of '+RATES.as_of+'.';
 }
 
 // thousand-separator as you type

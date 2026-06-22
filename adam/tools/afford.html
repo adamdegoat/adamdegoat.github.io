@@ -169,7 +169,18 @@ function calc(){
   $('#tenrv').textContent=$('#tenure').value+' years';
   const age=num('age')||35;
   const r=compute({income:num('income'),debts:num('debts'),cash:num('cash'),cpf:num('cpf'),years:+$('#tenure').value,age:age,type:ptype});
-  if(!(r.maxPrice>0)){$('#tot').textContent='—';$('#totsub').textContent='';$('#rows').innerHTML='';$('#flag').style.display='none';$('#limit').innerHTML='';$('#note').innerHTML='';return;}
+  if(!(r.maxPrice>0)){
+    $('#tot').textContent='—';$('#totsub').textContent='';$('#rows').innerHTML='';$('#flag').style.display='none';$('#note').innerHTML='';
+    const inc=num('income'),cash=num('cash');
+    let m;
+    if(inc<=0) m='Enter your monthly income to see what you can afford.';
+    else if(r.maxMonthly<=0) m='<b>Your existing monthly debts already use up the borrowing limit.</b> Banks cap all your debt repayments at '+Math.round(R.tdsr*100)+'% of your income — clearing some debt, or a higher/combined income, would unlock a budget.';
+    else if(cash<=0) m='<b>You’ll need some cash to start.</b> At least '+Math.round(R.minCash*100)+'% of the price must be paid in cash — CPF can’t cover that part.';
+    else m='With these numbers there isn’t a workable budget yet — try a longer loan, more savings, or message me and we’ll look at it together.';
+    $('#limit').innerHTML=m;
+    $('#disc').innerHTML='Indicative only — not financial advice. Always confirm with a banker.';
+    return;
+  }
   $('#tot').textContent='~'+fmtM(r.maxPrice);
   $('#totsub').textContent='the most you should look at — many buyers aim a bit below this for breathing room';
   const rows=[
