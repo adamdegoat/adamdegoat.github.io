@@ -54,6 +54,9 @@ input:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(39,81,63,.1)}
 .rows .r .n{font-weight:600;color:var(--ink)}
 .rows .r .v{font-weight:700;font-family:var(--serif);font-size:17px;color:var(--green2);white-space:nowrap}
 .rows .none{padding:16px 18px;font-size:14px;color:var(--ink3)}
+.levy{margin-top:14px;background:#fdf0ec;border:1px solid #f0cdbf;border-radius:12px;padding:15px 17px;font-size:13.5px;color:#7a3b27;line-height:1.55}
+.levy .lt{font-weight:800;font-size:14.5px;color:#9a3f23;display:flex;justify-content:space-between;gap:12px;margin-bottom:5px}
+.levy .lnet{margin-top:9px;padding-top:9px;border-top:1px solid #f0cdbf;font-weight:600;color:#5a2c1c}
 .notes{margin-top:14px;background:#fff8e9;border:1px solid #ecdcb4;border-radius:12px;padding:14px 16px;font-size:13px;color:#6b5526;line-height:1.55}
 .notes li{list-style:none;padding-left:16px;position:relative;margin:5px 0}
 .notes li::before{content:"•";position:absolute;left:2px;color:var(--brass)}
@@ -79,6 +82,8 @@ input:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(39,81,63,.1)}
   <div class="card">
     <div class="field"><label>Have you taken a housing subsidy before?<small>A "first-timer" has never received an HDB/CPF housing grant or subsidised flat.</small></label>
       <div class="opts" id="timer"><div class="opt on" data-v="first">First-timer</div><div class="opt" data-v="second">Taken one before</div></div></div>
+    <div class="field hide" id="firstFlatF"><label>Your first subsidised flat was a…<small>Second-timers pay a <b>resale levy</b> when buying another subsidised flat. It's based on this first flat.</small></label>
+      <div class="opts" id="firstFlat"><div class="opt" data-v="2room">2-room</div><div class="opt on" data-v="3room">3-room</div><div class="opt" data-v="4room">4-room</div><div class="opt" data-v="5room">5-room</div><div class="opt" data-v="exec">Executive</div></div></div>
     <div class="field"><label>Who's buying?</label>
       <div class="opts" id="house"><div class="opt on" data-v="couple">Couple (both SC)</div><div class="opt" data-v="scpr">SC + PR</div><div class="opt" data-v="single">Single (SC, 35+)</div></div></div>
     <div class="field"><label>What are you buying?</label>
@@ -93,6 +98,7 @@ input:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(39,81,63,.1)}
   <div class="res" id="res">
     <div class="tot"><div class="tk">You could get about</div><div class="tv" id="totV">—</div><div class="ts" id="totS"></div></div>
     <div class="rows" id="rows"></div>
+    <div class="levy hide" id="levyBox"></div>
     <ul class="notes" id="notes"></ul>
   </div>
 
@@ -109,7 +115,9 @@ input:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(39,81,63,.1)}
 const $=s=>document.querySelector(s);
 const num=id=>parseFloat(($('#'+id).value||'').replace(/[^0-9.]/g,''))||0;
 const money=n=>'$'+Math.round(n).toLocaleString('en-US');
-let timer='first',house='couple',buy='resale',size='small',prox='none';
+let timer='first',house='couple',buy='resale',size='small',prox='none',firstFlat='3room';
+// HDB resale levy — fixed amounts, first subsidised flat sold on/after 3 Mar 2006
+const LEVY={'2room':15000,'3room':30000,'4room':40000,'5room':45000,'exec':50000};
 // verified 2026 EHG tables — [income upper bound, grant]
 const EHG_FAM=[[1500,120000],[2000,110000],[2500,105000],[3000,95000],[3500,90000],[4000,80000],[4500,70000],[5000,65000],[5500,55000],[6000,50000],[6500,40000],[7000,30000],[7500,25000],[8000,20000],[8500,10000],[9000,5000]];
 const EHG_SIN=[[750,60000],[1000,55000],[1250,52500],[1500,47500],[1750,45000],[2000,40000],[2250,35000],[2500,32500],[2750,27500],[3000,25000],[3250,20000],[3500,15000],[3750,12500],[4000,10000],[4250,5000],[4500,2500]];
@@ -155,24 +163,45 @@ function compute(){
   }
   if(timer==='second' && buy!=='ec') notes.push('Upgrading from a subsidised 2- or 3-room flat? You may also qualify for the $15k Step-Up Grant (income ≤ $7,000) — ask me to check.');
   if(buy==='bto' && (prox!=='none')) notes.push('Proximity & Family grants are for resale flats, not BTO.');
-  return {out,total,notes};
+  // resale levy — owed by second-timers buying another SUBSIDISED flat
+  let levy=0, levyWhy='';
+  if(timer==='second'){
+    if(buy==='bto'){ levy=LEVY[firstFlat]||0; levyWhy='on a new BTO flat'; }
+    else if(buy==='ec'){ levy=LEVY[firstFlat]||0; levyWhy='on a new EC from the developer'; }
+    else if(buy==='resale' && total>0){ levy=LEVY[firstFlat]||0; levyWhy='because you’re taking a grant on a resale flat'; }
+    else if(buy==='resale'){ notes.push('Buying a resale flat <b>without</b> taking any grant? No resale levy is due.'); }
+  }
+  return {out,total,notes,levy,levyWhy};
 }
 
 function render(){
   // show/hide context fields
   $('#sizeF').classList.toggle('hide', buy!=='resale');
   $('#proxF').classList.toggle('hide', buy!=='resale');
+  $('#firstFlatF').classList.toggle('hide', timer!=='second');
   const r=compute();
   $('#totV').textContent = r.total>0 ? '~'+money(r.total) : '$0';
   $('#totS').textContent = r.total>0 ? 'into your CPF, to help pay for the home' : 'no grants for this combination — see the notes';
   $('#rows').innerHTML = r.out.length
     ? r.out.map(g=>`<div class="r"><span class="n">${g[0]}</span><span class="v">${money(g[1])}</span></div>`).join('')
     : '<div class="none">No grants apply to these answers.</div>';
+  // resale levy callout
+  const lb=$('#levyBox');
+  if(r.levy>0){
+    let net = r.total - r.levy;
+    let netLine = r.total>0
+      ? `Net picture: <b>${money(r.total)}</b> of grants into your CPF, minus a <b>${money(r.levy)}</b> levy = <b>${net>=0?'+':'−'}${money(Math.abs(net))}</b> overall.`
+      : `This is a cash cost on top of the flat — it can be paid from your sale proceeds, not borrowed.`;
+    lb.innerHTML = `<div class="lt"><span>Resale levy you'll owe</span><span>−${money(r.levy)}</span></div>`
+      +`<div>As a second-timer, you pay a resale levy ${r.levyWhy} — based on your first ${firstFlat.replace('room','-room').replace('exec','Executive')} flat. It's <b>not a grant and not financeable</b>.</div>`
+      +`<div class="lnet">${netLine}</div>`;
+    lb.classList.remove('hide');
+  } else lb.classList.add('hide');
   $('#notes').innerHTML = r.notes.map(n=>`<li>${n}</li>`).join('');
   $('#notes').style.display = r.notes.length?'block':'none';
 }
 function wire(group,set){document.querySelectorAll('#'+group+' .opt').forEach(o=>o.onclick=()=>{document.querySelectorAll('#'+group+' .opt').forEach(x=>x.classList.remove('on'));o.classList.add('on');set(o.dataset.v);render();});}
-wire('timer',v=>timer=v); wire('house',v=>house=v); wire('buy',v=>buy=v); wire('size',v=>size=v); wire('prox',v=>prox=v);
+wire('timer',v=>timer=v); wire('house',v=>house=v); wire('buy',v=>buy=v); wire('size',v=>size=v); wire('prox',v=>prox=v); wire('firstFlat',v=>firstFlat=v);
 $('#income').addEventListener('input',e=>{const raw=e.target.value.replace(/[^0-9]/g,'');e.target.value=raw?Number(raw).toLocaleString('en-US'):'';render();});
 window.__grants={compute};
 render();
