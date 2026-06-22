@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-22T21:00:00.320536+08:00",
+  "updated": "2026-06-22T23:30:00.201608+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -302,12 +302,6 @@
       "priority": true
     },
     {
-      "title": "Jean Silva believe’s he’s 'next one in line' for UFC title shot",
-      "link": "https://www.sherdog.com/news/news/Jean-Silva-believes-hes-next-one-in-line-for-UFC-title-shot-201587",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
       "title": "Michael Chandler is ‘not a UFC-level guy’ if you ask one retired fan favorite: “He shouldn’t be the star that he is”",
       "link": "https://www.bjpenn.com/mma-news/ufc/michael-chandler-is-not-a-ufc-level-guy-if-you-ask-one-retired-fan-favorite-he-shouldnt-be-the-star-that-he-is/?utm_source=rss&utm_medium=rss&utm_campaign=michael-chandler-is-not-a-ufc-level-guy-if-you-ask-one-retired-fan-favorite-he-shouldnt-be-the-star-that-he-is",
       "source": "BJPenn",
@@ -330,6 +324,12 @@
       "link": "https://www.bjpenn.com/mma-news/stella-hemetsberger/stella-hemetsberger-has-certain-prediction-for-her-teammates-one-world-title-fight-on-friday/?utm_source=rss&utm_medium=rss&utm_campaign=stella-hemetsberger-has-certain-prediction-for-her-teammates-one-world-title-fight-on-friday",
       "source": "BJPenn",
       "priority": true
+    },
+    {
+      "title": "Dana White reacts to UFC White House ratings with global numbers still to come: ‘It’s the biggest thing that we’ve ever done’",
+      "link": "https://www.mmafighting.com/ufc/495698/dana-white-reacts-to-ufc-white-house-ratings-with-global-numbers-still-to-come-its-the-biggest-thing-that-weve-ever-done",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "‘You’re not going to lay a glove on me’: Conor McGregor, Max Holloway trade insults in first face-to-face showdown ahead of UFC 329",
@@ -356,27 +356,27 @@
       "priority": false
     },
     {
-      "title": "Roundtable: Is Ciryl Gane the UFC’s dirtiest fighter?",
-      "link": "https://www.mmafighting.com/latest-news/495432/roundtable-is-ciryl-gane-the-ufcs-dirtiest-fighter",
-      "source": "MMA Fighting",
+      "title": "Dana White teases even bigger UFC White House ratings to come: ‘The global number is massive’",
+      "link": "https://www.mmamania.com/ufc-white-house-2026-fight-card-start-time-full-results-dana-white-conor-mcgregor-cbs-mma/452533/dana-white-teases-even-bigger-ufc-white-house-ratings-to-come-the-global-number-is-massive",
+      "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "UFC Vegas 119 post-fight show: Reaction to Manel Kape’s revenge knockout of Kyoji Horiguchi",
-      "link": "https://www.mmafighting.com/ufc/495693/ufc-vegas-119-post-fight-show-reaction-to-manel-kapes-revenge-knockout-of-kyoji-horiguchi",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Uh-oh. Ian Machado Garry wants to beat Islam Makhachev ‘in his own world’ at UFC 330",
+      "title": "Uh-oh! Ian Machado Garry wants to beat Islam Makhachev ‘in his own world’ at UFC 330",
       "link": "https://www.mmamania.com/ufc-news/452529/uh-oh-ian-machado-garry-wants-to-beat-islam-makhachev-in-his-own-world-at-ufc-330",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
+      "title": "Rookie Report Card: Grading all Octagon newcomers UFC Vegas 119 post-mortem",
+      "link": "https://www.mmamania.com/ufc-results/452114/rookie-report-card-grading-all-octagon-newcomers-ufc-vegas-119-post-mortem",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Fiziev vs Torres headlines Sunday—get ready for UFC's next blockbuster matchup.",
-    "prefight": "Fiziev and Torres ignite the octagon in a lightweight main event showdown Sunday.",
-    "results": "Manel Kape batters Kyoji Horiguchi into a round 3 TKO with devastating punches."
+    "week": "Fiziev's lightning-fast striking clashes with Torres' wrestling prowess Sunday—lightweight fireworks incoming.",
+    "prefight": "Fiziev and Torres battle in an explosive main event showdown Sunday.",
+    "results": "Manel Kape battered Horiguchi into oblivion in round three with a vicious punching barrage, TKO."
   }
 }
