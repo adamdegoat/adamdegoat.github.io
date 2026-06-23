@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-23T09:00:00.198255+08:00",
+  "updated": "2026-06-23T13:00:00.209245+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -326,12 +326,6 @@
       "priority": true
     },
     {
-      "title": "Manel Kape thinks he earned UFC title shot after revenge KO over Kyoji Horguchi: “It was enough”",
-      "link": "https://www.bjpenn.com/mma-news/ufc/manel-kape-thinks-he-earned-ufc-title-shot-after-revenge-ko-over-kyoji-horguchi-it-was-enough/?utm_source=rss&utm_medium=rss&utm_campaign=manel-kape-thinks-he-earned-ufc-title-shot-after-revenge-ko-over-kyoji-horguchi-it-was-enough",
-      "source": "BJPenn",
-      "priority": true
-    },
-    {
       "title": "Dricus du Plessis opens as massive favorite over Kamaru Usman in UFC Oklahoma City main event",
       "link": "https://www.mmafighting.com/ufc/495722/dricus-du-plessis-opens-as-massive-favorite-over-kamaru-usman-in-ufc-oklahoma-city-main-event",
       "source": "MMA Fighting",
@@ -368,6 +362,12 @@
       "priority": false
     },
     {
+      "title": "Too quick? UFC White House’s Bo Nickal makes super fast turnaround, draws 2026 NCAA champ for Aug. 2026 date",
+      "link": "https://www.mmamania.com/raf-wrestling-schedule-cards-live-results/452625/too-quick-ufc-white-houses-bo-nickal-makes-super-fast-turnaround-draws-2026-ncaa-champ-for-aug-2026-date",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
       "title": "Pic: UFC legend Dustin Poirier’s bloodshot-eyed mugshot surfaces after ‘public drunk’ charge",
       "link": "https://www.mmamania.com/latest-news/452615/pic-ufc-legend-dustin-poiriers-bloodshot-eyed-mugshot-surfaces-after-public-drunk-charge",
       "source": "MMA Mania",
@@ -375,8 +375,8 @@
     }
   ],
   "hooks": {
-    "week": "Lightweight showdown Sunday: Fiziev vs Torres at midnight — don't sleep on this one.",
-    "prefight": "Fiziev and Torres ignite Sunday—pure striking excellence in this elite lightweight clash.",
-    "results": "Kape dominates Horiguchi, finishing with punches in round three TKO."
+    "week": "Fight week is here—Fiziev vs Torres this Sunday for a statement victory.",
+    "prefight": "Fiziev versus Torres ignites Sunday midnight SGT in the ultimate main event showdown.",
+    "results": "Manel Kape stops Kyoji Horiguchi via round 3 TKO punches in the main event."
   }
 }
