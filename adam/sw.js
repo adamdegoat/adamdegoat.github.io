@@ -1,5 +1,5 @@
 // Adam Phang hub — service worker (offline shell + installable PWA)
-const CACHE = 'adamhub-v28';
+const CACHE = 'adamhub-v29';
 const CORE = [
   'index.html', 'essentials/index.html',
   'tools/afford.html', 'tools/value.html', 'tools/stamp-duty.html',

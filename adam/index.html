@@ -246,6 +246,9 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .tool.feat .ti2{background:linear-gradient(140deg,var(--green2),var(--green3));border-color:transparent;stroke:var(--brass3);color:var(--brass3)}
 .tool .badge{display:none;position:absolute;top:-10px;left:18px;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#241a0d;background:linear-gradient(135deg,var(--brass3),var(--brass));padding:5px 11px;border-radius:20px;box-shadow:0 5px 14px rgba(176,141,87,.42)}
 .tool.feat .badge{display:inline-block}
+.tool .badge2{display:none;position:absolute;top:-10px;left:18px;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--green2);background:#fffefc;border:1px solid var(--line2);padding:5px 11px;border-radius:20px;box-shadow:0 4px 12px rgba(25,21,18,.07)}
+.tool.feat2 .badge2{display:inline-block}
+.tool.feat2{border-color:var(--brass)}
 
 /* weekly blog */
 .notes{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
@@ -452,7 +455,7 @@ html.menu-open,html.menu-open body{overflow:hidden}
     <a class="tool feat rv" data-aud="buy sell explore" href="tools/value.html"><span class="badge">★ Most useful</span><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#27513f" stroke-width="1.6" stroke-linecap="round"><path d="M17 4H7v10l11 11 10-10z"/><circle cx="12" cy="9" r="1.6"/></svg><h4>Value a home</h4><p>Any condo or HDB, valued on real transactions — with an honest confidence range.</p><span class="free">Free</span></a>
     <a class="tool rv" data-aud="buy" href="tools/stamp-duty.html"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#27513f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="4" width="16" height="24" rx="2"/><path d="M12 11h8M12 16h8M12 21h5"/></svg><h4>Stamp duty</h4><p>The tax you'll pay on a home — buyer's stamp duty plus any extra, to the dollar.</p><span class="free">Free</span></a>
     <a class="tool rv" data-aud="buy explore" href="tools/schools.html"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#27513f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5 3 11l13 6 10-4.6V19"/><path d="M8 14v5c0 1.7 3.6 3 8 3s8-1.3 8-3v-5"/></svg><h4>Homes near a school</h4><p>Pick a primary school — see the condos within 1km and 2km for P1 registration priority.</p><span class="free">Free</span></a>
-    <a class="tool rv" data-aud="sell" href="tools/sell.html"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#27513f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 27V5"/><path d="M21 9c0-2.2-2.2-3.5-5-3.5S11 6.8 11 9s2.2 3.2 5 3.7 5 1.5 5 3.8-2.2 3.5-5 3.5-5-1.3-5-3.5"/></svg><h4>Selling? Your net proceeds</h4><p>See your Seller's Stamp Duty (if any) and exactly what you pocket after loan, CPF and costs.</p><span class="free">Free</span></a>
+    <a class="tool rv" data-aud="sell" href="tools/sell.html"><span class="badge2">Next step</span><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#27513f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 27V5"/><path d="M21 9c0-2.2-2.2-3.5-5-3.5S11 6.8 11 9s2.2 3.2 5 3.7 5 1.5 5 3.8-2.2 3.5-5 3.5-5-1.3-5-3.5"/></svg><h4>Selling? Your net proceeds</h4><p>See your Seller's Stamp Duty (if any) and exactly what you pocket after loan, CPF and costs.</p><span class="free">Free</span></a>
     <a class="tool rv" data-aud="buy explore" href="tools/eligibility.html"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#27513f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3l11 4v8c0 7-5 11-11 14-6-3-11-7-11-14V7z"/><path d="M11 16l4 4 7-8"/></svg><h4>Can I buy it?</h4><p>HDB, EC or condo — check if you're even eligible (citizenship, income, lock-in) before you fall for it.</p><span class="free">Free</span></a>
     <a class="tool rv" data-aud="buy explore" href="tools/grants.html"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#27513f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="13" width="22" height="14" rx="2"/><path d="M5 17h22M16 13v14"/><path d="M16 13c-1.8-3.6-7-3.4-7-.6 0 1.8 3.6 1.4 7 .6z"/><path d="M16 13c1.8-3.6 7-3.4 7-.6 0 1.8-3.6 1.4-7 .6z"/></svg><h4>What grants can I get?</h4><p>First-timer? See your likely CPF housing grants — EHG, Family, Proximity — and how much, free.</p><span class="free">Free</span></a>
   </div>
@@ -615,14 +618,18 @@ const LEDE={
 };
 // which tool wears the ★ per audience: buyers start with their budget; everyone else → valuation (universal, both sides, best lead magnet)
 const FEAT={all:'tools/value.html',explore:'tools/value.html',sell:'tools/value.html',buy:'tools/afford.html'};
+// sellers get a soft "next step" cue on net-proceeds (value first → then what you pocket)
+const FEAT2={sell:'tools/sell.html'};
 function applyFilter(aud,scroll){
   aud=LEDE[aud]?aud:'all';
-  const featHref=FEAT[aud]||FEAT.all;
+  const featHref=FEAT[aud]||FEAT.all, feat2Href=FEAT2[aud];
   document.querySelectorAll('.tool').forEach(t=>{
     const show=aud==='all'||(t.dataset.aud||'').split(' ').includes(aud);
     t.style.display=show?'':'none';
     if(show)t.classList.add('in'); // never leave a filtered-in card stuck pre-reveal
-    t.classList.toggle('feat',show&&t.getAttribute('href')===featHref);
+    const href=t.getAttribute('href');
+    t.classList.toggle('feat',show&&href===featHref);
+    t.classList.toggle('feat2',show&&!!feat2Href&&href===feat2Href);
   });
   document.querySelectorAll('.fpill').forEach(p=>p.classList.toggle('on',p.dataset.f===aud));
   const lede=document.getElementById('toolsLede'); if(lede)lede.textContent=LEDE[aud];
