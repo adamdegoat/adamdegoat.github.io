@@ -323,11 +323,12 @@ const CMA = (() => {
     // rental + gross yield (if the project has enough recent leases)
     try {
       const rd = (await C.rentals())[p[0]];  // [median_rent_psf, median_rent, n_leases, trend]
-      if (rd) {
-        const estRent = Math.round(rd[0] * area * C.SQM_SQF);
+      const sqft = (area > 0) ? area * C.SQM_SQF : r.area_sqf;  // fall back to the engine's typical-unit area when floor area is left blank
+      if (rd && sqft > 0 && r.estimate_price > 0) {
+        const estRent = Math.round(rd[0] * sqft);
         r.rental = { est_rent: estRent, n: rd[2], trend: rd[3],
           yield: +(estRent * 12 / r.estimate_price * 100).toFixed(1),
-          basis: `recent leases in ${Narrative.titleCase(p[0])}` };
+          basis: `recent leases in ${Narrative.titleCase(p[0])}${r.area_assumed ? ', typical unit' : ''}` };
       }
     } catch (e) {}
     // amenities + subject location from any same-project caveat's coords
