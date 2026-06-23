@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta name="description" content="Atlas — every Singapore property rule, policy, number and deal playbook in one searchable field reference. Built on official IRAS, HDB, CPF, MAS & URA sources.">
+<title>Atlas · SG Property Field Reference</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230f9d76'/%3E%3Cstop offset='1' stop-color='%23b88a2e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='8' y='8' width='16' height='16' rx='4' transform='rotate(45 16 16)' fill='url(%23g)'/%3E%3C/svg%3E">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#101a2b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Atlas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Spectral:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#10151f;--ink-2:#384256;--ink-3:#6b7587;--line:#e7e4dd;--line-2:#efece6;
+  --paper:#f7f5f1;--paper-2:#fbfaf7;--card:#fff;
+  --brand:#0f9d76;--brand-d:#0b7d5e;--brand-wash:#e8f5ef;--gold:#b88a2e;--gold-wash:#f7efdc;
+  --navy:#101a2b;--navy-2:#1a2740;--amber:#c98a16;--amber-wash:#fbf0d8;--red:#c0392b;--red-wash:#fbeae8;
+  --shadow:0 4px 14px rgba(16,21,31,.07),0 2px 4px rgba(16,21,31,.04);
+  --shadow-lg:0 24px 60px rgba(16,21,31,.16),0 8px 20px rgba(16,21,31,.07);
+  --r:16px;--r-lg:22px;--sans:'Libre Franklin',system-ui,-apple-system,sans-serif;--serif:'Spectral',Georgia,serif;--mono:ui-monospace,'SF Mono',Menlo,monospace;--maxw:880px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;letter-spacing:-.005em;
+  background-image:radial-gradient(680px 480px at 88% -6%,rgba(184,138,46,.12),transparent 60%),radial-gradient(600px 500px at 8% -4%,rgba(15,157,118,.09),transparent 58%);background-attachment:fixed}
+h1,h2,h3,h4{margin:0;letter-spacing:-.022em;line-height:1.12;font-weight:700}
+p{margin:0}a{text-decoration:none;color:var(--brand-d);font-weight:600}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.serif{font-family:var(--serif);font-weight:500;font-style:italic}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:12px;padding:12px 20px;
+  background:rgba(251,250,247,.86);backdrop-filter:blur(14px) saturate(1.3);border-bottom:1px solid var(--line)}
+.navback{font-size:13px;font-weight:700;color:var(--ink-3);padding:7px 12px;border-radius:30px;border:1px solid var(--line);white-space:nowrap;transition:.18s}
+.navback:hover{color:var(--brand-d);border-color:var(--brand);background:rgba(15,157,118,.06)}
+.brand{display:flex;align-items:center;gap:9px}
+.dia{width:14px;height:14px;border-radius:4px;background:linear-gradient(135deg,var(--brand),var(--gold));transform:rotate(45deg);box-shadow:0 2px 9px rgba(15,157,118,.4)}
+.bm{font-family:var(--serif);font-weight:600;font-size:21px;color:var(--ink)}
+.bsub{font-size:10.5px;color:var(--ink-3);font-weight:700;text-transform:uppercase;letter-spacing:.12em}
+.sp{margin-left:auto}
+.btn{display:inline-flex;align-items:center;gap:7px;border-radius:30px;font-weight:700;font-size:13px;padding:8px 15px;transition:.18s;border:0;cursor:pointer;font-family:inherit}
+.btn-p{background:linear-gradient(135deg,var(--brand),var(--brand-d));color:#fff;box-shadow:0 6px 16px rgba(15,157,118,.30)}
+.btn-p:hover{transform:translateY(-1px)}
+.install{background:var(--card);border:1px solid var(--line);color:var(--ink-2);font-size:12.5px;font-weight:700;padding:8px 13px;border-radius:30px;cursor:pointer;font-family:inherit}
+.install:hover{border-color:var(--brand);color:var(--ink)}
+@media(max-width:560px){.bsub{display:none}.install{padding:8px 11px}}
+
+/* hero */
+.hero{text-align:center;padding:40px 0 12px}
+.eyebrow{font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:var(--brand-d);margin-bottom:11px}
+.hero h1{font-size:40px;letter-spacing:-.035em;margin:0 auto 12px;max-width:15ch}
+.hero h1 em{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--brand-d)}
+.hero .sub{font-size:16px;color:var(--ink-2);max-width:54ch;margin:0 auto}
+@media(max-width:560px){.hero h1{font-size:31px}.hero{padding:28px 0 8px}}
+
+/* search + controls (sticky) */
+.controls{position:sticky;top:57px;z-index:30;background:linear-gradient(180deg,var(--paper) 72%,rgba(247,245,241,0));padding:16px 0 10px}
+.searchbox{position:relative;max-width:620px;margin:0 auto}
+.searchbox svg{position:absolute;left:17px;top:50%;transform:translateY(-50%);width:18px;height:18px;stroke:var(--ink-3);fill:none;stroke-width:2}
+#q{width:100%;padding:15px 44px 15px 46px;border:1px solid var(--line);border-radius:14px;background:var(--card);font-family:inherit;font-size:15.5px;color:var(--ink);box-shadow:var(--shadow);outline:none;transition:.18s}
+#q:focus{border-color:var(--brand);box-shadow:0 0 0 4px var(--brand-wash)}
+#clr{position:absolute;right:13px;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:50%;border:0;background:var(--line-2);color:var(--ink-3);cursor:pointer;display:none;font-size:14px;line-height:1}
+.chips{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin:13px auto 0;max-width:760px}
+.chip{font-size:12.5px;font-weight:700;color:var(--ink-2);background:var(--card);border:1px solid var(--line);border-radius:30px;padding:6px 13px;cursor:pointer;transition:.15s;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+.chip:hover{border-color:var(--brand)}
+.chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.chip .ct{font-family:var(--mono);font-size:10.5px;opacity:.7}
+.kdot{width:7px;height:7px;border-radius:50%;background:var(--brand);display:inline-block}
+.kdot.play{background:var(--gold)}
+
+main{padding:6px 0 40px}
+.grpttl{display:flex;align-items:baseline;gap:10px;margin:30px 0 12px;padding-top:6px}
+.grpttl h2{font-size:15px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);font-weight:800}
+.grpttl .gc{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.grpttl .ln{flex:1;height:1px;background:var(--line)}
+
+/* cards */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);margin-bottom:10px;overflow:hidden}
+.card>summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;align-items:center;gap:12px;user-select:none}
+.card>summary::-webkit-details-marker{display:none}
+.card .tt{font-size:16px;font-weight:700;color:var(--ink);flex:1}
+.card .tag{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:4px 9px;border-radius:20px;white-space:nowrap}
+.tag.ref{background:var(--brand-wash);color:var(--brand-d)}
+.tag.play{background:var(--gold-wash);color:#8a6516}
+.tag.warn{background:var(--red-wash);color:var(--red)}
+.chev{flex:none;width:18px;height:18px;stroke:var(--ink-3);fill:none;stroke-width:2.2;transition:.2s}
+.card[open] .chev{transform:rotate(180deg)}
+.card .body{padding:2px 18px 17px;font-size:14.5px;color:var(--ink-2);line-height:1.6}
+.card .body p{margin:0 0 10px}
+.card .body ul,.card .body ol{margin:0 0 10px;padding-left:20px}
+.card .body li{margin:5px 0}
+.card .body b,.card .body strong{color:var(--ink);font-weight:700}
+.card .body h4{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);margin:14px 0 7px}
+.steps{list-style:none;padding:0!important;counter-reset:s;margin:4px 0 12px!important}
+.steps>li{counter-increment:s;position:relative;padding:0 0 0 38px;margin:0 0 14px!important;min-height:26px}
+.steps>li::before{content:counter(s);position:absolute;left:0;top:-1px;width:26px;height:26px;border-radius:50%;background:var(--brand-wash);color:var(--brand-d);font-weight:800;font-size:13px;display:grid;place-items:center;font-family:var(--mono)}
+.tbl{width:100%;border-collapse:collapse;margin:4px 0 12px;font-size:13.5px}
+.tbl th,.tbl td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line-2)}
+.tbl th{font-weight:800;color:var(--ink);font-size:12px;text-transform:uppercase;letter-spacing:.04em;background:var(--paper-2)}
+.tbl td:not(:first-child){font-variant-numeric:tabular-nums}
+.tbl tr:last-child td{border-bottom:0}
+.note{background:var(--amber-wash);border-radius:10px;padding:10px 13px;font-size:13px;color:#7a5a12;margin:4px 0 10px}
+.note.flag{background:var(--red-wash);color:var(--red)}
+.note b{color:inherit!important}
+.src{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:6px;padding-top:11px;border-top:1px solid var(--line-2);font-size:12px;color:var(--ink-3)}
+.src .vd{display:inline-flex;align-items:center;gap:6px;font-weight:600}
+.src .vdot{width:6px;height:6px;border-radius:50%;background:var(--brand)}
+.src a{font-size:12px}
+.xlink{display:inline-flex;gap:5px;flex-wrap:wrap;margin-top:2px}
+.xlink a{font-size:12px;font-weight:700;background:var(--brand-wash);padding:3px 9px;border-radius:20px}
+
+.empty{text-align:center;color:var(--ink-3);padding:50px 20px;font-size:15px}
+.discbar{background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:12px;padding:13px 16px;font-size:12.5px;color:var(--ink-3);margin:18px auto 0;max-width:var(--maxw);line-height:1.55}
+.askcta{background:var(--navy);color:#fff;border-radius:var(--r-lg);padding:30px 28px;text-align:center;margin:26px 0 0;position:relative;overflow:hidden}
+.askcta::after{content:"";position:absolute;inset:0;background:radial-gradient(420px 220px at 88% 0,rgba(15,157,118,.3),transparent 65%);pointer-events:none}
+.askcta h3{font-size:21px;font-family:var(--serif);font-weight:600;margin-bottom:7px;position:relative}
+.askcta p{font-size:14px;color:#aab8c9;max-width:46ch;margin:0 auto 16px;position:relative}
+.askcta .btn{position:relative}
+footer{text-align:center;color:var(--ink-3);font-size:12.5px;padding:30px 0 50px}
+footer .fb{display:inline-flex;align-items:center;gap:8px;margin-bottom:8px;color:var(--ink-2);font-weight:600}
+.modal{position:fixed;inset:0;background:rgba(16,21,31,.55);display:none;place-items:center;z-index:90;padding:20px}
+.modal.on{display:grid}
+.sheet{background:#fff;border-radius:18px;max-width:380px;width:100%;padding:24px;box-shadow:var(--shadow-lg)}
+.sheet h3{font-size:19px;margin-bottom:10px}
+.sheet ol{padding-left:18px;font-size:14px;color:var(--ink-2);line-height:1.7}
+.sheet .x{float:right;border:0;background:var(--line-2);width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:15px;color:var(--ink-3)}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="navback" href="https://adamdegoat.github.io/realestate/">← Groundwork</a>
+  <a class="brand" href="#top"><span class="dia"></span><span class="bm">Atlas</span><span class="bsub">SG Property Reference</span></a>
+  <span class="sp"></span>
+  <button class="install" id="install">📲 Install</button>
+</nav>
+
+<header class="hero wrap" id="top">
+  <div class="eyebrow">Singapore Property Field Reference</div>
+  <h1>Every rule, number &amp; <em>deal step</em> — on hand</h1>
+  <p class="sub">The agent's quick reference: stamp duty, financing, CPF, HDB &amp; EC rules, the numbers, and the deal playbooks — searchable in one tap, every figure sourced and dated.</p>
+</header>
+
+<div class="controls">
+  <div class="wrap">
+    <div class="searchbox">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input id="q" type="search" autocomplete="off" placeholder="Search — ABSD, MOP, decoupling, buy HDB, LTV, diplomatic clause…">
+      <button id="clr" aria-label="clear">✕</button>
+    </div>
+    <div class="chips" id="chips"></div>
+  </div>
+</div>
+
+<main class="wrap"><div id="out"></div>
+  <div class="discbar">Atlas is an indicative field reference compiled from official sources (IRAS, HDB, CPF, MAS, URA, SLA) and verified as dated on each card. Rules change — always confirm a client's exact situation against the live official page and the relevant professional (banker / conveyancing lawyer / HDB). Not financial or legal advice.</div>
+  <div class="askcta">
+    <h3>A number raising a question?</h3>
+    <p>Every figure here is a guide. For the smartest structure on a real deal — timing, financing, ABSD — have a quick chat with Adam.</p>
+    <a class="btn btn-p" target="_blank" rel="noopener" href="https://wa.me/6583219747?text=Hi%20Adam%2C%20a%20quick%20question%20from%20the%20Atlas%20reference.">💬 WhatsApp Adam →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fb"><span class="dia"></span>Atlas — Tool 06 of Groundwork</div>
+    <p>Built by Adam Phang · sourced from official Singapore government data.</p>
+  </div>
+</footer>
+
+<div class="modal" id="guide"><div class="sheet">
+  <button class="x" onclick="document.getElementById('guide').classList.remove('on')">✕</button>
+  <h3>Add Atlas to your phone</h3>
+  <ol id="guideSteps"></ol>
+</div></div>
+
+<script>
+var UPD = "Jun 2026";
+// kind: 'ref' | 'play' | 'warn'(shown as ref but flagged) ; grp = category
+var DATA = [
+/* ─────────── STAMP DUTY ─────────── */
+{grp:"Stamp Duty",kind:"ref",title:"Buyer's Stamp Duty (BSD)",tags:"bsd buyer purchase tax residential rates bands",
+ body:`<p>Paid by every buyer, on the <b>higher of price or market value</b>. Residential rates (since 15 Feb 2023):</p>
+ <table class="tbl"><tr><th>Portion of price / value</th><th>Rate</th></tr>
+ <tr><td>First $180,000</td><td>1%</td></tr><tr><td>Next $180,000</td><td>2%</td></tr><tr><td>Next $640,000</td><td>3%</td></tr>
+ <tr><td>Next $500,000</td><td>4%</td></tr><tr><td>Next $1,500,000</td><td>5%</td></tr><tr><td>Above $3,000,000</td><td>6%</td></tr></table>
+ <p>Quick checks: $1M → <b>$24,600</b> · $1.5M → <b>$44,600</b> · $3M → <b>$119,600</b>.</p>
+ <p><b>Non-residential</b> differs: 1% / 2% / 3% / then 5% above $1.5M (tops out at 5%). <b>Payable within 14 days</b> of signing.</p>`,
+ src:"IRAS — Buyer's Stamp Duty",url:"https://www.iras.gov.sg/taxes/stamp-duty/for-property/buying-or-acquiring-property/buyer's-stamp-duty-(bsd)"},
+
+{grp:"Stamp Duty",kind:"ref",title:"Additional Buyer's Stamp Duty (ABSD) — full matrix",tags:"absd additional cooling foreigner pr citizen entity trustee second third",
+ body:`<p>On top of BSD, by buyer profile &amp; how many residential properties they'll own (since 27 Apr 2023). For <b>joint buyers of mixed profiles, the highest rate applies to the whole price</b>.</p>
+ <table class="tbl"><tr><th>Profile</th><th>1st</th><th>2nd</th><th>3rd+</th></tr>
+ <tr><td>Singapore Citizen</td><td>0%</td><td>20%</td><td>30%</td></tr>
+ <tr><td>Singapore PR</td><td>5%</td><td>30%</td><td>35%</td></tr>
+ <tr><td>Foreigner</td><td>60%</td><td>60%</td><td>60%</td></tr>
+ <tr><td>Entity / company</td><td>65%</td><td>65%</td><td>65%</td></tr>
+ <tr><td>Trustee (living trust)</td><td>65%</td><td>65%</td><td>65%</td></tr></table>
+ <p><b>Payable within 14 days</b> of signing. See the remissions card for the married-couple refund &amp; FTA exemptions.</p>`,
+ src:"IRAS — ABSD",url:"https://www.iras.gov.sg/taxes/stamp-duty/for-property/buying-or-acquiring-property/additional-buyer's-stamp-duty-(absd)"},
+
+{grp:"Stamp Duty",kind:"ref",title:"ABSD remissions & refunds (married couple, FTA, developers)",tags:"absd remission refund married couple fta free trade developer trust",
+ body:`<h4>Married-couple refund</h4>
+ <p>Buying a 2nd property jointly, refundable if: couple includes ≥1 SC · property in <b>both names only</b> · neither owned &gt;1 home at the 2nd purchase · <b>first home sold within 6 months</b> of buying the 2nd (or its TOP/CSC if uncompleted) · stay married. <b>Claim within 6 months</b> of selling the first.</p>
+ <h4>FTA nationals — treated as Singapore Citizens (0% 1st)</h4>
+ <p><b>Nationals of the USA</b>; and <b>nationals & PRs of</b> Iceland, Liechtenstein, Norway, Switzerland. Claimed at stamping with proof.</p>
+ <h4>Housing developers</h4>
+ <p>Entity 65% = 35% remittable upfront + <b>5% non-remittable</b>; the 35% is clawed back with 5% p.a. interest unless the project is built &amp; all units sold within 5 years.</p>`,
+ src:"IRAS — ABSD remissions",url:"https://www.iras.gov.sg/taxes/stamp-duty/for-property/appeals-refunds-reliefs-and-remissions/common-stamp-duty-remissions-and-reliefs-for-property"},
+
+{grp:"Stamp Duty",kind:"ref",title:"Seller's Stamp Duty (SSD)",tags:"ssd seller selling holding period flip 4 years",
+ body:`<p>Paid by sellers who sell within the holding period. <b>Changed 4 Jul 2025</b> — period extended to 4 years and rates raised. The regime depends on the <b>purchase date</b> of the property you're selling:</p>
+ <table class="tbl"><tr><th>Held for</th><th>Bought on/after 4 Jul 2025</th><th>Bought 11 Mar 2017–3 Jul 2025</th></tr>
+ <tr><td>Up to 1 yr</td><td>16%</td><td>12%</td></tr><tr><td>&gt;1–2 yrs</td><td>12%</td><td>8%</td></tr>
+ <tr><td>&gt;2–3 yrs</td><td>8%</td><td>4%</td></tr><tr><td>&gt;3–4 yrs</td><td>4%</td><td>0%</td></tr>
+ <tr><td>More than 4 yrs</td><td>0%</td><td>0%</td></tr></table>`,
+ src:"IRAS — Seller's Stamp Duty",url:"https://www.iras.gov.sg/taxes/stamp-duty/for-property/selling-or-disposing-property/seller's-stamp-duty-(ssd)-for-residential-property"},
+
+{grp:"Stamp Duty",kind:"ref",title:"Rental / lease stamp duty",tags:"rental lease tenancy stamp duty tenant 0.4%",
+ body:`<p><b>0.4% of the total rent</b> over the lease term (tenant pays). Leases over 4 years (or indefinite) are charged on 0.4% × 4 × Average Annual Rent. <b>Exempt if Average Annual Rent ≤ $1,000.</b> Payable within 14 days of signing (in SG).</p>`,
+ src:"IRAS — Renting a property",url:"https://www.iras.gov.sg/taxes/stamp-duty/for-property/renting-a-property"},
+
+/* ─────────── FINANCING ─────────── */
+{grp:"Financing",kind:"ref",title:"Loan-to-Value (LTV) limits + minimum cash",tags:"ltv loan to value downpayment cash 75% bank borrow second third reduced",
+ body:`<p>Maximum a bank will lend, by how many home loans the borrower has:</p>
+ <table class="tbl"><tr><th>Loan</th><th>Standard LTV</th><th>Reduced LTV</th><th>Min. cash</th></tr>
+ <tr><td>1st</td><td>75%</td><td>55%</td><td>5% (75%) / 10% (55%)</td></tr>
+ <tr><td>2nd</td><td>45%</td><td>25%</td><td>25%</td></tr>
+ <tr><td>3rd+</td><td>35%</td><td>15%</td><td>25%</td></tr></table>
+ <p><b>Reduced LTV applies</b> when the loan tenure exceeds 30 yrs (private) / 25 yrs (HDB), <b>or</b> the loan runs past age 65. At 75% LTV: 25% down, of which <b>min 5% cash</b>, rest cash/CPF.</p>
+ <div class="note"><b>HDB concessionary loan: 75% LTV</b> (cut from 80% on 20 Aug 2024 — many old guides still wrongly say 80%).</div>`,
+ src:"MAS — Loan tenure & LTV limits",url:"https://www.mas.gov.sg/regulation/explainers/new-housing-loans/loan-tenure-and-loan-to-value-limits"},
+
+{grp:"Financing",kind:"ref",title:"TDSR 55% & MSR 30%",tags:"tdsr msr debt servicing ratio income 55 30 affordability",
+ body:`<p><b>TDSR — 55%</b> of gross monthly income is the cap for <b>all</b> monthly debt (the new home loan + car/personal/student loans + credit-card minimums).</p>
+ <p><b>MSR — 30%</b> of gross income is the cap for the <b>property loan alone</b>, and applies <b>only to HDB flats and new ECs</b> (not private). Both apply to an HDB/EC purchase — the lower result binds.</p>`,
+ src:"MAS — MSR & TDSR rules",url:"https://www.mas.gov.sg/regulation/explainers/new-housing-loans/msr-and-tdsr-rules"},
+
+{grp:"Financing",kind:"ref",title:"Stress-test rate & income haircut",tags:"stress test rate floor 4% 3% variable income commission haircut 30%",
+ body:`<ul><li>Loans are assessed at a <b>medium-term floor rate</b>, whichever is higher than the actual rate: <b>4.0%</b> (private property) / <b>3.0%</b> (HDB concessionary loan).</li>
+ <li><b>Variable income</b> — commission, bonus, allowances and <b>rental income</b> count at only <b>70%</b> (a 30% haircut) toward TDSR/MSR.</li></ul>`,
+ src:"MAS — Macroprudential policies",url:"https://www.mas.gov.sg/publications/macroprudential-policies-in-singapore"},
+
+{grp:"Financing",kind:"ref",title:"Maximum loan tenure",tags:"loan tenure maximum 35 30 25 years age",
+ body:`<table class="tbl"><tr><th>Loan</th><th>Max tenure</th></tr>
+ <tr><td>Private property (bank loan)</td><td>35 years</td></tr>
+ <tr><td>HDB flat (bank loan)</td><td>30 years</td></tr>
+ <tr><td>HDB concessionary loan</td><td>25 years</td></tr></table>
+ <p>Exceeding the cap, or a loan running past the borrower's age 65, triggers the <b>reduced LTV</b> tier.</p>`,
+ src:"MAS — Loan tenure & LTV limits",url:"https://www.mas.gov.sg/regulation/explainers/new-housing-loans/loan-tenure-and-loan-to-value-limits"},
+
+/* ─────────── CPF ─────────── */
+{grp:"CPF",kind:"ref",title:"CPF for property — Valuation & Withdrawal Limits",tags:"cpf oa ordinary account valuation limit withdrawal limit vl wl 120% brs basic retirement sum",
+ body:`<ul><li><b>Valuation Limit (VL)</b> = the <b>lower of price or valuation</b> at purchase. CPF OA can be used up to the VL with no extra conditions.</li>
+ <li><b>Withdrawal Limit (WL)</b> = <b>120% of VL</b> (bank-loan purchases). To use CPF <b>beyond the VL</b> (up to 120%), each owner must have set aside their <b>Basic Retirement Sum (BRS)</b>. Below BRS → can't draw past VL.</li>
+ <li>Minimum <b>5% cash</b> down at 75% LTV; the rest of the 25% can be CPF OA and/or cash.</li></ul>`,
+ src:"CPF — Using CPF for your home",url:"https://www.cpf.gov.sg/member/infohub/educational-resources/how-much-cpf-savings-you-can-use-for-your-home-purchase"},
+
+{grp:"CPF",kind:"ref",title:"CPF & remaining lease (the age-95 rule)",tags:"cpf lease remaining age 95 prorate old flat short lease",
+ body:`<p>How much CPF (and loan) you can use depends on the lease covering the <b>youngest buyer</b> to age 95:</p>
+ <ul><li>Lease covers youngest owner to <b>95</b> → full CPF use, up to the Valuation Limit.</li>
+ <li>Lease does <b>not</b> reach 95 but is <b>≥ 20 years</b> → CPF use is <b>pro-rated</b>.</li>
+ <li>Remaining lease <b>under 20 years</b> → <b>no CPF</b>, and generally not loanable.</li></ul>`,
+ src:"CPF — Usage rules for properties",url:"https://www.cpf.gov.sg/member/infohub/educational-resources/cpf-usage-rules-for-properties"},
+
+/* ─────────── HDB ─────────── */
+{grp:"HDB",kind:"ref",title:"Minimum Occupation Period (MOP)",tags:"mop minimum occupation period 5 years 10 plus prime sell",
+ body:`<ul><li><b>Standard flats: 5 years</b> from key collection (occupied, before you can sell on the open market or buy private property).</li>
+ <li><b>Plus & Prime flats: 10 years</b> — under the new flat classification framework, from the <b>Oct 2024 BTO exercise</b> onward.</li></ul>`,
+ src:"HDB — Standard/Plus/Prime",url:"https://www.hdb.gov.sg/residential/buying-a-flat/finding-a-flat/standard-plus-and-prime-housing-models"},
+
+{grp:"HDB",kind:"ref",title:"HDB buyer eligibility schemes",tags:"eligibility scheme public family fiance single 35 joint singles non-citizen spouse",
+ body:`<ul><li><b>Public Scheme</b> — with a family nucleus (spouse / children / parents / siblings).</li>
+ <li><b>Fiancé/Fiancée Scheme</b> — engaged couple; collect flat after marriage.</li>
+ <li><b>Single Singapore Citizen Scheme</b> — unmarried/divorced/widowed SC, <b>aged ≥35</b>, alone.</li>
+ <li><b>Joint Singles Scheme</b> — up to 4 single SCs aged ≥35 together.</li>
+ <li><b>Non-Citizen Spouse / Family Scheme</b> — SC buying with a PR/foreigner spouse or parents/children.</li></ul>`,
+ src:"HDB — Flat & grant eligibility",url:"https://www.hdb.gov.sg/residential/buying-a-flat/understanding-your-eligibility-and-housing-loan-options/flat-and-grant-eligibility"},
+
+{grp:"HDB",kind:"ref",title:"Income ceilings",tags:"income ceiling 14000 21000 7000 16000 ec bto resale singles extended",
+ body:`<table class="tbl"><tr><th>Buyer</th><th>Monthly income ceiling</th></tr>
+ <tr><td>Family (BTO / resale)</td><td>$14,000</td></tr>
+ <tr><td>Extended / multi-gen family</td><td>$21,000</td></tr>
+ <tr><td>Singles (35+ scheme)</td><td>$7,000</td></tr>
+ <tr><td>Executive Condo (EC)</td><td>$16,000</td></tr></table>`,
+ src:"HDB — Income guidelines",url:"https://www.hdb.gov.sg/residential/buying-a-flat/understanding-your-eligibility-and-housing-loan-options/application-for-an-hdb-flat-eligibility-hfe-letter/income-guidelines"},
+
+{grp:"HDB",kind:"ref",title:"EIP & SPR quota",tags:"eip ethnic integration policy spr quota block neighbourhood race chinese malay indian",
+ body:`<p>The <b>Ethnic Integration Policy</b> caps each ethnic group's share <b>per block and per neighbourhood</b>; a separate <b>SPR quota</b> caps non-Malaysian PR households. A buyer's household must be within <b>both</b> quotas for that block at resale-application time.</p>
+ <div class="note">Check the live figure on HDB's <b>"Check EIP / SPR Quota"</b> e-service (also shown on each Flat Portal listing) — <b>updated on the 1st of each month</b>.</div>`,
+ src:"HDB — EIP/SPR quota checker",url:"https://services2.hdb.gov.sg/webapp/BB29ETHN/BB29STREET"},
+
+{grp:"HDB",kind:"ref",title:"HFE letter (HDB Flat Eligibility)",tags:"hfe hdb flat eligibility letter hle loan validity 9 months",
+ body:`<p>One upfront letter confirming eligibility to buy, the <b>CPF grants</b> you qualify for, and your <b>HDB loan</b> amount. It <b>replaced the HLE letter</b> and the old separate checks (since 9 May 2023). <b>Validity: 9 months.</b></p>
+ <div class="note"><b>Must be valid before</b> a buyer can be granted an OTP or submit a resale application — get it first.</div>`,
+ src:"HDB — HFE letter",url:"https://www.hdb.gov.sg/residential/buying-a-flat/understanding-your-eligibility-and-housing-loan-options/application-for-an-hdb-flat-eligibility-hfe-letter"},
+
+{grp:"HDB",kind:"ref",title:"CPF housing grants (resale)",tags:"grant ehg enhanced family resale proximity phg step up singles 120000 80000 amount",
+ body:`<h4>Enhanced CPF Housing Grant (EHG)</h4>
+ <p>Families up to <b>$120,000</b> (income ceiling $9,000/mo) · Singles up to <b>$60,000</b> (ceiling $4,500). First-timers, BTO or resale. Raised 20 Aug 2024.</p>
+ <h4>CPF Housing Grant — resale (Family)</h4>
+ <p><b>$80,000</b> (≤4-room) / <b>$50,000</b> (5-room+). SC/PR couple −$10,000. Singles: <b>$40,000 / $25,000</b>.</p>
+ <h4>Proximity Housing Grant (PHG)</h4>
+ <p>Living <b>with</b> parents/child: $30,000 (family) / $15,000 (single). Within <b>4 km</b>: $20,000 / $10,000. <b>No income ceiling.</b></p>
+ <h4>Step-Up Grant</h4>
+ <p><b>$15,000</b> — second-timer families upgrading a 2/3-room subsidised flat to a larger flat (ceiling $7,000).</p>`,
+ src:"CPF — Guide to EHG & PHG",url:"https://www.cpf.gov.sg/member/infohub/educational-resources/a-guide-to-enhanced-cpf-housing-and-proximity-grant"},
+
+{grp:"HDB",kind:"ref",title:"Resale levy",tags:"resale levy second subsidised flat 15000 40000 amount upgrade",
+ body:`<p>Payable when you take a <b>second</b> housing subsidy (e.g. a second BTO or new EC), based on the first subsidised flat sold:</p>
+ <table class="tbl"><tr><th>First flat type</th><th>Levy</th></tr>
+ <tr><td>2-room</td><td>$15,000</td></tr><tr><td>3-room</td><td>$30,000</td></tr><tr><td>4-room</td><td>$40,000</td></tr>
+ <tr><td>5-room</td><td>$45,000</td></tr><tr><td>Executive</td><td>$50,000</td></tr><tr><td>Executive Condo</td><td>$55,000</td></tr></table>`,
+ src:"HDB — Resale levy",url:"https://www.hdb.gov.sg/residential/buying-a-flat/conditions-after-buying/resale-levy"},
+
+{grp:"HDB",kind:"ref",title:"Private-property owners buying resale HDB — wait-out",tags:"wait out 15 month 30 month private property owner downgrade senior exemption",
+ body:`<ul><li><b>15 months</b> after disposing of <b>all</b> private property before buying a <b>non-subsidised</b> resale flat (no grant / no HDB loan).</li>
+ <li><b>30 months</b> if you want a <b>CPF grant or an HDB loan</b>.</li>
+ <li><b>Exempt:</b> Singapore Citizens (and spouse) <b>aged ≥55</b> moving to a <b>4-room or smaller</b> resale flat.</li></ul>
+ <p>Clock runs from the legal completion date of the private-property sale. Effective 30 Sep 2022.</p>`,
+ src:"HDB — Conditions after buying",url:"https://www.hdb.gov.sg/residential/buying-a-flat/conditions-after-buying"},
+
+{grp:"HDB",kind:"warn",title:"Plus & Prime resale restrictions",tags:"plus prime resale restriction income ceiling subsidy clawback rent whole flat 10 year mop",
+ body:`<p>Plus &amp; Prime flats (Oct 2024 framework) carry tighter resale rules an agent must screen for:</p>
+ <ul><li><b>10-year MOP</b> (vs 5 for Standard).</li>
+ <li><b>Resale buyers must meet an income ceiling</b> (~$14,000/mo household) — Standard flats have none.</li>
+ <li><b>Subsidy clawback</b> — a % of the resale price returns to HDB on sale.</li>
+ <li><b>The whole flat can never be rented out</b> (room rental still allowed); owner-occupation only.</li></ul>`,
+ src:"HDB — Standard/Plus/Prime",url:"https://www.hdb.gov.sg/residential/buying-a-flat/finding-a-flat/standard-plus-and-prime-housing-models"},
+
+/* ─────────── EXECUTIVE CONDO ─────────── */
+{grp:"Executive Condo",kind:"ref",title:"EC eligibility",tags:"ec executive condo eligibility income 16000 family nucleus citizen first timer",
+ body:`<ul><li><b>Family nucleus required</b> (Public / Fiancé / Joint Singles 35+ scheme); at least one <b>Singapore Citizen</b>, rest SC or PR. No all-PR or solo-under-35 buyers.</li>
+ <li><b>Income ceiling: $16,000/mo</b> household.</li>
+ <li>Must not own other property (or dispose within 6 months of key collection); private-property ex-owners face wait-out rules.</li></ul>`,
+ src:"HDB — EC eligibility",url:"https://www.hdb.gov.sg/residential/buying-a-flat/executive-condominium/eligibility"},
+
+{grp:"Executive Condo",kind:"ref",title:"EC MOP & privatisation (two regimes)",tags:"ec mop privatisation 5 10 15 year 8 may 2026 dps deferred sell foreigner",
+ body:`<table class="tbl"><tr><th></th><th>Old (tender before 8 May 2026)</th><th>New (8 May 2026 on)</th></tr>
+ <tr><td>MOP</td><td>5 years</td><td>10 years</td></tr>
+ <tr><td>Full privatisation</td><td>10 yrs from TOP</td><td>15 yrs from TOP</td></tr>
+ <tr><td>Deferred Payment</td><td>Allowed (if offered)</td><td>Abolished</td></tr></table>
+ <h4>Who you can sell to</h4>
+ <ul><li><b>During MOP</b> — can't sell, can't rent whole unit, can't buy another home.</li>
+ <li><b>After MOP, before privatisation</b> — sell only to <b>Singapore Citizens & PRs</b>.</li>
+ <li><b>At full privatisation</b> — fully private; sell to <b>anyone, incl. foreigners</b>.</li></ul>
+ <div class="note">Confirm a specific EC's regime by its <b>land-tender date</b>.</div>`,
+ src:"HDB — EC buying procedure",url:"https://www.hdb.gov.sg/residential/buying-a-flat/executive-condominium"},
+
+{grp:"Executive Condo",kind:"ref",title:"EC grant & resale levy",tags:"ec grant family 30000 income ceiling 12000 resale levy",
+ body:`<p><b>Family Grant</b> for a new EC (first-timers): up to <b>$30,000</b> (SC/SC) / $20,000 (SC/PR). <b>Grant</b> income ceiling <b>$12,000</b> (tapers; full grant ≤$10,000) — note this is lower than the $16,000 <b>buying</b> ceiling.</p>
+ <p><b>Resale levy</b> applies if you previously took a housing subsidy — same fixed amounts as the HDB resale-levy table.</p>
+ <div class="note flag"><b>Verify before quoting:</b> exact EC grant dollar tiers are revised periodically — check the live HDB page.</div>`,
+ src:"HDB — EC CPF grants",url:"https://www.hdb.gov.sg/residential/buying-a-flat/executive-condominium/cpf-housing-grants"},
+
+/* ─────────── PROPERTY TAX ─────────── */
+{grp:"Property Tax",kind:"ref",title:"Property tax — owner-occupier",tags:"property tax owner occupier annual value av rates bands rebate 2026",
+ body:`<p>On the <b>Annual Value (AV)</b> — the estimated annual market rent. Owner-occupier bands (from 1 Jan 2025):</p>
+ <table class="tbl"><tr><th>Annual Value</th><th>Rate</th></tr>
+ <tr><td>First $12,000</td><td>0%</td></tr><tr><td>$12k–$40k</td><td>4%</td></tr><tr><td>$40k–$50k</td><td>6%</td></tr>
+ <tr><td>$50k–$75k</td><td>10%</td></tr><tr><td>$75k–$85k</td><td>14%</td></tr><tr><td>$85k–$100k</td><td>20%</td></tr>
+ <tr><td>$100k–$140k</td><td>26%</td></tr><tr><td>Above $140k</td><td>32%</td></tr></table>
+ <div class="note">One-off <b>2026 rebate</b>: 15% on owner-occupied HDB, 10% (capped $500) on owner-occupied private.</div>`,
+ src:"IRAS — Property tax rates",url:"https://www.iras.gov.sg/taxes/property-tax/property-owners/property-tax-rates"},
+
+{grp:"Property Tax",kind:"ref",title:"Property tax — non-owner-occupier (rented / investment)",tags:"property tax non owner occupier investment rented landlord rates",
+ body:`<table class="tbl"><tr><th>Annual Value</th><th>Rate</th></tr>
+ <tr><td>First $30,000</td><td>12%</td></tr><tr><td>$30k–$45k</td><td>20%</td></tr>
+ <tr><td>$45k–$60k</td><td>28%</td></tr><tr><td>Above $60,000</td><td>36%</td></tr></table>`,
+ src:"IRAS — Property tax rates",url:"https://www.iras.gov.sg/taxes/property-tax/property-owners/property-tax-rates"},
+
+/* ─────────── ELIGIBILITY & RESTRICTIONS ─────────── */
+{grp:"Eligibility & Restrictions",kind:"ref",title:"Foreigner / PR / entity — what they can buy",tags:"foreigner pr permanent resident entity company landed condo restricted residential property act sla ldu sentosa",
+ body:`<table class="tbl"><tr><th>Buyer</th><th>Can buy</th></tr>
+ <tr><td><b>Foreigner</b></td><td>Private <b>non-landed</b> (condo/apartment) freely. <b>Landed/vacant land needs SLA Land Dealings (LDU) approval</b>; Sentosa Cove landed = fast-track exception. <b>No HDB resale.</b></td></tr>
+ <tr><td><b>PR</b></td><td>HDB resale only as a <b>family nucleus, after holding PR ≥3 years</b> (not the Single Citizen scheme). Landed needs LDU approval.</td></tr>
+ <tr><td><b>Entity</b></td><td>Residential = <b>65% ABSD</b> + Residential Property Act clearance.</td></tr></table>`,
+ src:"SLA — Residential Property Act / LDU",url:"https://www.sla.gov.sg/property-management/residential-property-act"},
+
+{grp:"Eligibility & Restrictions",kind:"warn",title:"Decoupling & the 99-to-1 / trust ABSD trap",tags:"decoupling 99 to 1 part purchase absd avoidance trust clawback iras surcharge s33a",
+ body:`<p><b>Decoupling</b> (private only — HDB decoupling is effectively banned since Apr 2016): one co-owner sells their share to the other, freeing a party to buy the next property at a lower ABSD tier. Costs: <b>BSD on the transferred share</b>, legal/refinancing fees, and the buying-back party must refund their <b>CPF used + accrued interest</b> on that share.</p>
+ <div class="note flag"><b>IRAS clawback warning:</b> contrived <b>99-to-1</b> (buy 100%, then sell 1% to add a co-owner so they qualify for a loan) is treated as <b>tax avoidance under Stamp Duties Act s.33A</b> — IRAS recovers the avoided ABSD <b>plus a 50% surcharge</b>. Property held on <b>trust</b> also attracts <b>ABSD (Trust) 65%</b> (since 9 May 2022; refund possible for an identifiable beneficiary).</div>`,
+ src:"IRAS — ABSD",url:"https://www.iras.gov.sg/taxes/stamp-duty/for-property/buying-or-acquiring-property/additional-buyer's-stamp-duty-(absd)"},
+
+/* ─────────── KEY DEADLINES ─────────── */
+{grp:"Key Deadlines",kind:"ref",title:"Key deadlines & deposit caps",tags:"deadline stamp duty 14 days 30 otp 21 option fee exercise 1% 5% completion refund 6 months",
+ body:`<table class="tbl"><tr><th>Event</th><th>Window</th></tr>
+ <tr><td>Stamp duty (BSD/ABSD) payable</td><td>14 days of signing (30 if signed overseas)</td></tr>
+ <tr><td>HDB Intent to Sell → granting OTP</td><td>wait at least 7 days</td></tr>
+ <tr><td>HDB resale OTP option period</td><td>21 days</td></tr>
+ <tr><td>HDB option + exercise fee (deposit)</td><td>≤ $5,000 total (option ≤ $1,000)</td></tr>
+ <tr><td>Private resale OTP option fee</td><td>1% (exercise typ. within 14 days → 5%)</td></tr>
+ <tr><td>New launch booking → S&P delivered</td><td>within 14 days</td></tr>
+ <tr><td>New launch exercise S&P</td><td>within 3 weeks (→ 20%)</td></tr>
+ <tr><td>ABSD married-couple refund — sell 1st home</td><td>within 6 months of 2nd purchase</td></tr></table>`,
+ src:"IRAS — Paying stamp duty",url:"https://www.iras.gov.sg/taxes/stamp-duty/for-property/paying-stamp-duty"},
+
+/* ═══════════ DEAL PLAYBOOKS ═══════════ */
+{grp:"Deal Playbooks",kind:"play",title:"Buy an HDB resale flat",tags:"playbook buy hdb resale steps process otp valuation cov completion",
+ body:`<ol class="steps">
+ <li>Buyer registers <b>Intent to Buy</b> and gets a valid <b>HFE letter</b> (eligibility, grants, loan amount; 9-mo validity).</li>
+ <li>Check eligibility: citizenship/scheme · <b>EIP & SPR quota</b> for the block · income ceiling (for grants) · 15/30-mo private-property wait-out.</li>
+ <li>Find the flat, negotiate price — <b>blind to official valuation</b>.</li>
+ <li>Seller grants the <b>OTP</b> — option fee ≤ $1,000; <b>21-day</b> option period.</li>
+ <li>Buyer submits a <b>Request for Value</b> (HDB valuation) — needed for loan/CPF. Any price above valuation = <b>COV, payable in cash</b>.</li>
+ <li>Buyer <b>exercises</b> within 21 days (option + exercise fee ≤ $5,000).</li>
+ <li><b>Both parties submit</b> their resale-application portions on the HDB portal (within 7 days of each other).</li>
+ <li>HDB verifies; both <b>acknowledge documents</b>; approval letter issued.</li>
+ <li><b>Completion appointment</b> at HDB — balance paid, keys handed over. ~8 weeks from a complete application.</li></ol>
+ <div class="xlink"><a href="https://www.hdb.gov.sg/residential/buying-a-flat/buying-procedure-for-resale-flats">HDB resale procedure ↗</a></div>`,
+ src:"HDB — Buying procedure (resale)",url:"https://www.hdb.gov.sg/residential/buying-a-flat/buying-procedure-for-resale-flats"},
+
+{grp:"Deal Playbooks",kind:"play",title:"Sell an HDB resale flat",tags:"playbook sell hdb resale intent to sell mop otp completion levy",
+ body:`<ol class="steps">
+ <li>Confirm the <b>MOP is met</b> and eligibility to sell.</li>
+ <li>Register <b>Intent to Sell</b> — then wait <b>at least 7 days</b> before granting an OTP.</li>
+ <li>Price the flat off recent transactions; market it.</li>
+ <li>Grant the <b>OTP</b> (option fee ≤ $1,000; 21-day period).</li>
+ <li>Buyer requests valuation and <b>exercises</b>.</li>
+ <li>Submit the <b>seller's portion</b> of the resale application.</li>
+ <li>HDB approval → completion. <b>Resale levy</b> applies if/when you next take a housing subsidy.</li></ol>`,
+ src:"HDB — Selling a flat",url:"https://www.hdb.gov.sg/residential/selling-a-flat"},
+
+{grp:"Deal Playbooks",kind:"play",title:"Buy a private resale (condo / landed)",tags:"playbook buy private resale condo otp 1% exercise conveyancing lawyer completion ipa",
+ body:`<ol class="steps">
+ <li>Confirm budget — <b>TDSR</b>, ABSD count; get a loan <b>In-Principle Approval (IPA)</b>.</li>
+ <li>Due diligence — viewings, comparables, tenure, condition.</li>
+ <li>Negotiate; buyer pays <b>1% option fee</b> → seller grants the <b>OTP</b>.</li>
+ <li>Appoint a <b>conveyancing lawyer</b>.</li>
+ <li><b>Exercise</b> within the option period (commonly 14 days) — top up to <b>5%</b> total.</li>
+ <li>Pay <b>BSD (+ ABSD) within 14 days</b> of exercise.</li>
+ <li>Lawyers handle the S&P, title, and mortgage + CPF drawdown.</li>
+ <li><b>Completion ~8–12 weeks</b> — balance (~95%) paid, vacant possession / keys.</li></ol>
+ <div class="note">Agent coordinates buyer ↔ seller ↔ both law firms ↔ banker; the lawyers do the conveyancing, not the agent.</div>`,
+ src:"IRAS / conveyancing process",url:"https://www.iras.gov.sg/taxes/stamp-duty/for-property/paying-stamp-duty"},
+
+{grp:"Deal Playbooks",kind:"play",title:"Buy a new-launch condo (from developer)",tags:"playbook new launch condo developer booking fee 5% progressive payment schedule top csc deferred",
+ body:`<ol class="steps">
+ <li>Register interest / <b>e-application & balloting</b> (cheque + documents).</li>
+ <li><b>Booking day</b> — pay <b>5% booking fee</b>; developer issues the OTP.</li>
+ <li>Developer delivers the <b>S&P within 14 days</b>.</li>
+ <li><b>Exercise the S&P within 3 weeks</b> — top up to <b>20%</b>.</li>
+ <li>Pay <b>BSD (+ ABSD) within 14 days</b>.</li>
+ <li><b>Progressive payments</b> by construction milestone (below) — or a Deferred Payment Scheme where offered.</li>
+ <li><b>TOP</b> (keys, 25%) → <b>CSC</b> (final 15%).</li></ol>
+ <h4>Normal progressive payment schedule</h4>
+ <table class="tbl"><tr><th>Stage</th><th>%</th><th>Cumulative</th></tr>
+ <tr><td>Booking (OTP)</td><td>5%</td><td>5%</td></tr><tr><td>Exercise S&P</td><td>15%</td><td>20%</td></tr>
+ <tr><td>Foundation</td><td>10%</td><td>30%</td></tr><tr><td>Concrete framework</td><td>10%</td><td>40%</td></tr>
+ <tr><td>Brick walls</td><td>5%</td><td>45%</td></tr><tr><td>Roofing/ceiling</td><td>5%</td><td>50%</td></tr>
+ <tr><td>Doors/windows, wiring, plaster</td><td>5%</td><td>55%</td></tr><tr><td>Car park, roads, drains</td><td>5%</td><td>60%</td></tr>
+ <tr><td><b>TOP</b> (keys)</td><td>25%</td><td>85%</td></tr><tr><td><b>CSC</b> (legal completion)</td><td>15%</td><td>100%</td></tr></table>`,
+ src:"New-launch buying process",url:"https://new-condo-launch.sg/singapore-new-launch-condo-buying-process-2026-step-by-step-guide/"},
+
+{grp:"Deal Playbooks",kind:"play",title:"Sell a private property",tags:"playbook sell private condo landed ssd otp completion cpf refund accrued interest",
+ body:`<ol class="steps">
+ <li>Check <b>SSD</b> — holding period (4-yr regime if bought on/after 4 Jul 2025).</li>
+ <li>Price and market the property.</li>
+ <li>Grant the <b>OTP</b> (buyer pays 1%); negotiate terms.</li>
+ <li>Buyer <b>exercises</b> (to 5%); appoint a conveyancing lawyer.</li>
+ <li>Conveyancing → <b>completion ~8–12 weeks</b>. Discharge the mortgage; your <b>CPF used + accrued interest refunds to your OA</b> for the next purchase.</li></ol>`,
+ src:"IRAS — Seller's Stamp Duty",url:"https://www.iras.gov.sg/taxes/stamp-duty/for-property/selling-or-disposing-property/seller's-stamp-duty-(ssd)-for-residential-property"},
+
+{grp:"Deal Playbooks",kind:"play",title:"Rental — landlord & tenant",tags:"playbook rental tenancy landlord tenant loi deposit diplomatic clause minimum stay foreign pass stamp duty",
+ body:`<ol class="steps">
+ <li>Market the unit; vet the tenant.</li>
+ <li><b>Letter of Intent (LOI)</b> + good-faith deposit.</li>
+ <li><b>Check the tenant's status</b> — a foreigner needs a valid pass (work/student/dependant) with validity ≥ the lease; the landlord must not house illegal immigrants. <b>HDB whole-flat rental needs HDB approval</b> + non-citizen quota + occupancy cap.</li>
+ <li><b>Tenancy Agreement</b> — security deposit norm <b>1 month's rent per year</b> of lease; <b>diplomatic clause</b> (typically after 12 months, 2 months' notice); minimum stay <b>private 3 months / HDB 6 months</b>.</li>
+ <li>Tenant pays <b>stamp duty (0.4% of total rent)</b> within 14 days.</li>
+ <li>Inventory list + handover.</li></ol>`,
+ src:"URA / HDB — Renting out",url:"https://www.ura.gov.sg/Corporate/Property/Residential/Renting-Property"},
+
+{grp:"Deal Playbooks",kind:"play",title:"Upgrader sequencing (HDB → private, etc.)",tags:"playbook upgrader sell first buy first bridging loan absd refund cpf accrued interest tdsr wait out",
+ body:`<ul><li><b>Sell-first vs buy-first</b> — buy-first means paying <b>ABSD upfront</b>, reclaimed within 6 months if a married couple sells the first home (strict clock).</li>
+ <li><b>Bridging loan</b> covers the downpayment gap until the sale completes.</li>
+ <li>On sale, your <b>CPF used + accrued interest</b> refunds to your OA — available for the next purchase.</li>
+ <li>Moving <b>private → HDB</b>? The <b>15/30-month wait-out</b> applies.</li>
+ <li><b>Re-run TDSR</b> on the new loan — the existing mortgage counts until the old place is sold.</li></ul>`,
+ src:"CPF / MAS — refunds & TDSR",url:"https://www.cpf.gov.sg/member/infohub/educational-resources/cpf-usage-rules-for-properties"}
+];
+
+/* ---------- render ---------- */
+var GROUPS = [];
+DATA.forEach(function(d){ if(GROUPS.indexOf(d.grp)<0) GROUPS.push(d.grp); d._s=(d.title+' '+d.tags+' '+d.body.replace(/<[^>]+>/g,' ')).toLowerCase(); });
+var view='all', grp='all', qv='';
+var $=function(s){return document.querySelector(s)};
+
+function chipHtml(){
+  var refN=DATA.filter(function(d){return d.kind!=='play'}).length;
+  var playN=DATA.filter(function(d){return d.kind==='play'}).length;
+  var h='<button class="chip'+(view==='all'&&grp==='all'?' on':'')+'" data-v="all" data-g="all">All <span class="ct">'+DATA.length+'</span></button>';
+  h+='<button class="chip'+(view==='ref'?' on':'')+'" data-v="ref" data-g="all"><span class="kdot"></span>Reference <span class="ct">'+refN+'</span></button>';
+  h+='<button class="chip'+(view==='play'?' on':'')+'" data-v="play" data-g="all"><span class="kdot play"></span>Playbooks <span class="ct">'+playN+'</span></button>';
+  GROUPS.forEach(function(g){ if(g==='Deal Playbooks')return;
+    h+='<button class="chip'+(grp===g?' on':'')+'" data-v="all" data-g="'+g+'">'+g+'</button>'; });
+  return h;
+}
+function render(){
+  var out=$('#out'), items=DATA.filter(function(d){
+    if(view==='ref'&&d.kind==='play')return false;
+    if(view==='play'&&d.kind!=='play')return false;
+    if(grp!=='all'&&d.grp!==grp)return false;
+    if(qv&&d._s.indexOf(qv)<0)return false;
+    return true;
+  });
+  if(!items.length){ out.innerHTML='<div class="empty">No match for "<b>'+qv+'</b>". Try a shorter term — e.g. ABSD, MOP, CPF, OTP.</div>'; return; }
+  var html='', curG=null, open=(qv.length>=2);
+  GROUPS.forEach(function(g){
+    var gi=items.filter(function(d){return d.grp===g});
+    if(!gi.length)return;
+    html+='<div class="grpttl"><h2>'+g+'</h2><span class="gc">'+gi.length+'</span><span class="ln"></span></div>';
+    gi.forEach(function(d){
+      var tag=d.kind==='play'?'<span class="tag play">Playbook</span>':d.kind==='warn'?'<span class="tag warn">Watch out</span>':'<span class="tag ref">Reference</span>';
+      html+='<details class="card"'+(open?' open':'')+'><summary>'+
+        '<span class="tt">'+d.title+'</span>'+tag+
+        '<svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></summary>'+
+        '<div class="body">'+d.body+
+        '<div class="src"><span class="vd"><span class="vdot"></span>Verified '+UPD+'</span><a href="'+d.url+'" target="_blank" rel="noopener">'+d.src+' ↗</a></div></div></details>';
+    });
+  });
+  out.innerHTML=html;
+}
+function setChips(){ $('#chips').innerHTML=chipHtml(); }
+$('#chips').addEventListener('click',function(e){ var b=e.target.closest('.chip'); if(!b)return;
+  view=b.dataset.v; grp=b.dataset.g; setChips(); render(); window.scrollTo({top:0,behavior:'smooth'}); });
+$('#q').addEventListener('input',function(e){ qv=e.target.value.trim().toLowerCase(); $('#clr').style.display=qv?'block':'none'; render(); });
+$('#clr').addEventListener('click',function(){ $('#q').value=''; qv=''; this.style.display='none'; render(); $('#q').focus(); });
+setChips(); render();
+
+/* ---------- install ---------- */
+var deferred=null;
+window.addEventListener('beforeinstallprompt',function(e){ e.preventDefault(); deferred=e; });
+function openGuide(){
+  var ios=/iphone|ipad|ipod/i.test(navigator.userAgent);
+  $('#guideSteps').innerHTML = ios
+    ? '<li>Tap the <b>Share</b> icon in Safari.</li><li>Scroll and tap <b>Add to Home Screen</b>.</li><li>Tap <b>Add</b> — Atlas opens like an app.</li>'
+    : '<li>Open the browser <b>menu</b> (⋮).</li><li>Tap <b>Install app</b> / <b>Add to Home screen</b>.</li><li>Confirm — Atlas opens like an app.</li>';
+  $('#guide').classList.add('on');
+}
+$('#install').addEventListener('click',function(){
+  if(deferred){ deferred.prompt(); deferred.userChoice.then(function(){deferred=null;}); } else { openGuide(); }
+});
+if('serviceWorker' in navigator){ window.addEventListener('load',function(){ navigator.serviceWorker.register('sw.js').catch(function(){}); }); }
+</script>
+</body>
+</html>
