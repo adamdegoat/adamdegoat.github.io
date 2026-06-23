@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-22T23:30:00.201608+08:00",
+  "updated": "2026-06-23T09:00:00.198255+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -290,15 +290,33 @@
   },
   "news": [
     {
-      "title": "Manel Kape takes aim at Joshua Van ahead of potential title fight: ‘He’s my kid and I can’t wait to take his diaper’",
-      "link": "https://www.mmafighting.com/ufc/495685/manel-kape-takes-aim-at-joshua-van-ahead-of-potential-title-fight-hes-my-kid-and-i-cant-wait-to-take-his-diaper",
-      "source": "MMA Fighting",
+      "title": "Alex Pereira ‘afraid’ to make UFC return, teases retirement in wake of Herb Dean scandal",
+      "link": "https://www.mmamania.com/ufc-news/452584/alex-pereira-afraid-make-ufc-return-teases-retirement-herb-dean-scandal",
+      "source": "MMA Mania",
+      "priority": true
+    },
+    {
+      "title": "UFC officially launches Meta-based rankings system",
+      "link": "https://www.sherdog.com/news/news/UFC-officially-launches-Metabased-rankings-system-201615",
+      "source": "Sherdog",
       "priority": true
     },
     {
       "title": "Islam Makhachev: Usman Nurmagomedov will take pay cut by signing with UFC",
       "link": "https://www.sherdog.com/news/news/Islam-Makhachev-Usman-Nurmagomedov-will-take-pay-cut-by-signing-with-UFC-201597",
       "source": "Sherdog",
+      "priority": true
+    },
+    {
+      "title": "Alex Pereira considering retirement amidst Herb Dean UFC White House controversy",
+      "link": "https://www.bjpenn.com/mma-news/alex-pereira/alex-pereira-retirement-herb-dean-ufc-white-house-controversy/?utm_source=rss&utm_medium=rss&utm_campaign=alex-pereira-retirement-herb-dean-ufc-white-house-controversy",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
+      "title": "Georges St-Pierre thinks Justin Gaethje should retire after storybook result at UFC Freedom 250: “He did it all”",
+      "link": "https://www.bjpenn.com/mma-news/ufc/georges-st-pierre-thinks-justin-gaethje-should-retire-after-storybook-result-at-ufc-freedom-250-he-did-it-all/?utm_source=rss&utm_medium=rss&utm_campaign=georges-st-pierre-thinks-justin-gaethje-should-retire-after-storybook-result-at-ufc-freedom-250-he-did-it-all",
+      "source": "BJPenn",
       "priority": true
     },
     {
@@ -314,16 +332,34 @@
       "priority": true
     },
     {
-      "title": "Lack of UFC return option may cause ex-UFC vet to retire and vacate Oktagon MMA belt",
-      "link": "https://www.bjpenn.com/mma-news/ufc/lack-of-ufc-return-option-may-cause-ex-ufc-vet-to-retire-and-vacate-oktagon-mma-belt/?utm_source=rss&utm_medium=rss&utm_campaign=lack-of-ufc-return-option-may-cause-ex-ufc-vet-to-retire-and-vacate-oktagon-mma-belt",
-      "source": "BJPenn",
-      "priority": true
+      "title": "Dricus du Plessis opens as massive favorite over Kamaru Usman in UFC Oklahoma City main event",
+      "link": "https://www.mmafighting.com/ufc/495722/dricus-du-plessis-opens-as-massive-favorite-over-kamaru-usman-in-ufc-oklahoma-city-main-event",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
-      "title": "Stella Hemetsberger has ‘certain’ prediction for her teammate’s ONE World Title fight on Friday",
-      "link": "https://www.bjpenn.com/mma-news/stella-hemetsberger/stella-hemetsberger-has-certain-prediction-for-her-teammates-one-world-title-fight-on-friday/?utm_source=rss&utm_medium=rss&utm_campaign=stella-hemetsberger-has-certain-prediction-for-her-teammates-one-world-title-fight-on-friday",
-      "source": "BJPenn",
-      "priority": true
+      "title": "On To the Next One: Matches to make after UFC Vegas 119",
+      "link": "https://www.mmafighting.com/ufc/495717/on-to-the-next-one-matches-to-make-after-ufc-vegas-119",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "UFC 330: Surging welterweight finisher faces hometown veteran on Islam Makhachev vs. Ian Machado Garry fight card",
+      "link": "https://www.mmafighting.com/ufc/495726/ufc-330-surging-welterweight-finisher-faces-hometown-veteran-on-islam-makhachev-vs-ian-machado-garry-fight-card",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Georges St-Pierre: Conor McGregor must put himself in ‘hell zone’ to have successful comeback at UFC 329",
+      "link": "https://www.mmafighting.com/ufc/495796/georges-st-pierre-conor-mcgregor-must-put-himself-in-hell-zone-to-have-successful-comeback-at-ufc-329",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Ian Machado Garry vows to dethrone Islam Makhachev at UFC 330: ‘I’m going to bounce him on his skull’",
+      "link": "https://www.mmafighting.com/ufc/495789/ian-machado-garry-vows-to-dethrone-islam-makhachev-at-ufc-330-im-going-to-bounce-him-on-his-skull",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "Dana White reacts to UFC White House ratings with global numbers still to come: ‘It’s the biggest thing that we’ve ever done’",
@@ -332,51 +368,15 @@
       "priority": false
     },
     {
-      "title": "‘You’re not going to lay a glove on me’: Conor McGregor, Max Holloway trade insults in first face-to-face showdown ahead of UFC 329",
-      "link": "https://www.mmafighting.com/ufc/494714/youre-not-going-to-lay-a-glove-on-me-conor-mcgregor-max-holloway-trade-insults-in-first-face-to-face-showdown-ahead-of-ufc-329",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Trevor Wittman reveals UFC reached out about potentially using his glove design; Dana White responds",
-      "link": "https://www.mmafighting.com/ufc/495550/trevor-wittman-reveals-ufc-reached-out-about-potentially-using-his-glove-design",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Matt Brown argues Michael Chandler ‘clearly not a UFC level guy’ anymore after latest loss at UFC White House",
-      "link": "https://www.mmafighting.com/ufc/495534/matt-brown-argues-michael-chandler-clearly-not-a-ufc-level-guy-anymore-after-latest-loss-at-ufc-white-house",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "‘I stopped him twice that night’: Justin Gaethje doubles down on Ilia Topuria not deserving rematch after UFC White House",
-      "link": "https://www.mmafighting.com/ufc/495642/i-stopped-him-twice-that-night-justin-gaethje-doubles-down-on-ilia-topuria-not-deserving-rematch-after-ufc-white-house",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Dana White teases even bigger UFC White House ratings to come: ‘The global number is massive’",
-      "link": "https://www.mmamania.com/ufc-white-house-2026-fight-card-start-time-full-results-dana-white-conor-mcgregor-cbs-mma/452533/dana-white-teases-even-bigger-ufc-white-house-ratings-to-come-the-global-number-is-massive",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "Uh-oh! Ian Machado Garry wants to beat Islam Makhachev ‘in his own world’ at UFC 330",
-      "link": "https://www.mmamania.com/ufc-news/452529/uh-oh-ian-machado-garry-wants-to-beat-islam-makhachev-in-his-own-world-at-ufc-330",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "Rookie Report Card: Grading all Octagon newcomers UFC Vegas 119 post-mortem",
-      "link": "https://www.mmamania.com/ufc-results/452114/rookie-report-card-grading-all-octagon-newcomers-ufc-vegas-119-post-mortem",
+      "title": "Pic: UFC legend Dustin Poirier’s bloodshot-eyed mugshot surfaces after ‘public drunk’ charge",
+      "link": "https://www.mmamania.com/latest-news/452615/pic-ufc-legend-dustin-poiriers-bloodshot-eyed-mugshot-surfaces-after-public-drunk-charge",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Fiziev's lightning-fast striking clashes with Torres' wrestling prowess Sunday—lightweight fireworks incoming.",
-    "prefight": "Fiziev and Torres battle in an explosive main event showdown Sunday.",
-    "results": "Manel Kape battered Horiguchi into oblivion in round three with a vicious punching barrage, TKO."
+    "week": "Lightweight showdown Sunday: Fiziev vs Torres at midnight — don't sleep on this one.",
+    "prefight": "Fiziev and Torres ignite Sunday—pure striking excellence in this elite lightweight clash.",
+    "results": "Kape dominates Horiguchi, finishing with punches in round three TKO."
   }
 }
