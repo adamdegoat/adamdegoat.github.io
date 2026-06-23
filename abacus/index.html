@@ -226,7 +226,9 @@ var RULES={
   // SSD residential — by completed-year band [yr1,yr2,...]
   ssdNew:[.16,.12,.08,.04],     // bought on/after 4 Jul 2025 (4-year regime)
   ssdOld:[.12,.08,.04],         // bought 11 Mar 2017 – 3 Jul 2025 (3-year regime)
-  tdsr:.55, msr:.30, stress:.04, cpfOA:.025,
+  tdsr:.55, msr:.30, stress:.04, stressHdb:.03, cpfOA:.025,
+  // HDB resale levy — fixed amount by first subsidised flat type (second-timers buying another subsidised flat)
+  resaleLevy:{'2room':15000,'3room':30000,'4room':40000,'5room':45000,'executive':50000,'ec':55000},
   // Property tax — owner-occupier (from 1 Jan 2025) & non-owner-occupier (from 1 Jan 2024) — [bandWidth, rate]
   ptOO:[[12000,0],[28000,.04],[10000,.06],[25000,.10],[10000,.14],[15000,.20],[40000,.26],[Infinity,.32]],
   ptNOO:[[30000,.12],[15000,.20],[15000,.28],[Infinity,.36]],
@@ -280,7 +282,8 @@ var CALCS=[
    var who=g('who'),buy=g('buy'),income=g('income'),ft=g('ft'),big=g('size')==='big',prox=g('prox'),
        single=who==='single',pr=who==='scpr';
    if(ft==='no')return{head:['Estimated grants','See note'],rows:[],
-     notes:[['warn','The EHG and Family Grant are for <b>first-timers</b>. As a second-timer you may still qualify for a <b>Step-Up</b> ($15,000) or <b>Half-Housing Grant</b> — confirm with HDB.']]};
+     notes:[['warn','The EHG and Family Grant are for <b>first-timers</b>. As a second-timer you may still qualify for a <b>Step-Up</b> ($15,000) or <b>Half-Housing Grant</b> — confirm with HDB.'],
+       ['warn','You’ll also owe a <b>resale levy</b> when buying another subsidised flat (new BTO/EC, or a resale taken with a grant): '+money(RULES.resaleLevy['2room'])+' (2-room) up to '+money(RULES.resaleLevy.ec)+' (EC), based on your first flat — paid in cash, not financeable.']]};
    var rows=[],total=0;
    function add(n,v,s){if(v>0){rows.push([n,money(v),s]);total+=v;}}
    if(buy==='HDB_BTO'||buy==='HDB_RESALE'){var e=ehgAmt(income,single);add('Enhanced CPF Housing Grant (EHG)',e,single?'singles tier · ≤'+money(GRANTS.ehgSingleCeiling):'income-tiered · ≤'+money(GRANTS.ehgCeiling));}
@@ -321,11 +324,11 @@ var CALCS=[
    {k:'debts',l:'Existing monthly repayments',t:'money',opt:1,ph:'car, loans, cards'},
    {t:'sec',l:'Savings'},
    {k:'cash',l:'Cash available',t:'money',d:300000},
-   {k:'cpf',l:'CPF available',t:'money',d:150000,hint:'your Ordinary Account (OA) savings'},
+   {k:'cpf',l:'CPF you can use',t:'money',d:150000,hint:'Your CPF Ordinary Account (OA) balance you’ll put toward this home — covers the downpayment, stamp duty & price, but not the cash-only portion.'},
    {t:'sec',l:'The property'},
    {k:'profile',l:'You are a',t:'select',o:[['SC','Singapore Citizen'],['PR','Permanent Resident'],['FR','Foreigner']],d:'SC'},
    {k:'owned',l:'Properties you already own',t:'select',o:OWNED,d:'0'},
-   {k:'type',l:'Property type',t:'select',o:[['PRIV','Private condo'],['EC','Executive Condo']],d:'PRIV'},
+   {k:'type',l:'Property type',t:'select',o:[['PRIV','Private condo'],['HDB','HDB flat'],['EC','Executive Condo']],d:'PRIV'},
    {k:'remlease',l:'Remaining lease (years)',t:'num',opt:1,ph:'leasehold only — blank = freehold/new'},
    {k:'grant',l:'Housing grant',t:'money',opt:1,ph:'EC/HDB first-timer — added to CPF'}],
  compute:function(g){
@@ -334,7 +337,8 @@ var CALCS=[
    var gross=income+co;
    var jointAge=(co>0&&coage>0)?((age*income+coage*co)/(income+co)):null;
    var effAge=jointAge!=null?jointAge:age;
-   var tenure=Math.max(5,Math.min(30,Math.round(65-effAge)));
+   var maxTen=(type==='HDB')?25:30;
+   var tenure=Math.max(5,Math.min(maxTen,Math.round(65-effAge)));
    var youngest=(co>0&&coage>0)?Math.min(age,coage):age, cpfEff=cpf, leaseNote=null;
    if(remlease>0){var need95=Math.max(1,95-youngest);
      tenure=Math.min(tenure,Math.max(5,Math.floor(remlease-20)));
@@ -342,9 +346,9 @@ var CALCS=[
      else if(remlease<need95){cpfEff=cpf*(remlease/need95);leaseNote='prorate';}
      else leaseNote='ok';}
    cpfEff+=grant;
-   var fullLTV=(tenure<=30)&&(effAge+tenure<=65);
+   var fullLTV=(tenure<=maxTen)&&(effAge+tenure<=65);
    var ltv=fullLTV?.75:.55, minCashRate=fullLTV?.05:.10;
-   var maxM=RULES.tdsr*gross-debts; if(type==='EC')maxM=Math.min(maxM,RULES.msr*gross); maxM=Math.max(0,maxM);
+   var maxM=RULES.tdsr*gross-debts; if(type==='EC'||type==='HDB')maxM=Math.min(maxM,RULES.msr*gross); maxM=Math.max(0,maxM);
    var maxLoan=loanFromPmt(maxM,RULES.stress,tenure), priceFromLoan=maxLoan/ltv;
    var aR=absdRate(prof,owned);
    function need(P){return (1-ltv)*P+bsd(P)+P*aR;}
@@ -362,12 +366,60 @@ var CALCS=[
    if(jointAge!=null)notes.push(['i','Two borrowers: ages blended by income into an <b>IWAA of '+Math.round(effAge)+'</b>, which sets the '+tenure+'-yr max tenure — the rule banks actually use.']);
    if(type==='EC'&&gross>16000)notes.push(['warn','Household income above the <b>$16,000</b> EC ceiling — an EC likely isn’t available.']);
    notes.push(['i','Loan &amp; CPF are capped at the bank’s <b>valuation</b> — buying <b>above</b> valuation means the gap is extra cash on top of these figures.']);
+   notes.push(['i','<b>“CPF you can use”</b> is your CPF Ordinary Account going toward this home — it pays the downpayment, stamp duty and price, but <b>not</b> the minimum-cash portion above. Whatever CPF you use is <b>repaid to your CPF with 2.5% accrued interest when you sell</b> (it lowers your cash proceeds later, but isn’t lost).']);
+   if(owned>=1)notes.push(['warn','Buying a <b>second property</b>: before your CPF OA can be used here, you must first set aside the <b>Basic Retirement Sum</b> in CPF — so not all of your OA may be available. Confirm your usable amount on the CPF website.']);
+   else notes.push(['i','For your <b>first home</b> you can use your full OA toward it (up to valuation) — but it’s wise to keep a small CPF buffer rather than draining it to zero.']);
    if(remlease>0){
      if(leaseNote==='warn')notes.push(['warn','A remaining lease under <b>20 years</b> can’t be paid with CPF and is hard to finance — treat this budget as indicative only.']);
      else if(leaseNote==='prorate')notes.push(['warn','The lease doesn’t cover the youngest buyer (age '+youngest+') to <b>95</b>, so <b>CPF use is pro-rated</b> and loan tenure is capped by the lease — lowering this budget. Confirm exact limits with your bank &amp; CPF.']);
      else notes.push(['i','The lease covers the youngest buyer to 95 — full CPF and loan available.']);
    }
    return{head:['Your estimated budget',money(budget)],rows:rows,notes:notes};}},
+
+{id:'upgrade',persona:'buyer',accent:'brand',icon:'🔼',name:'HDB → Condo Upgrade',blurb:'Selling your flat to buy a condo: how much your flat frees up, the sell-first vs buy-first paths side by side, the stamp duty, the loan you’ll qualify for, and the real cash gap.',
+ fields:[
+   {t:'sec',l:'Your current flat'},
+   {k:'val',l:'Estimated flat value',t:'money',d:650000},
+   {k:'oloan',l:'Outstanding home loan',t:'money',opt:1,ph:'0 if fully paid'},
+   {k:'save',l:'Cash + CPF savings on hand',t:'money',opt:1,ph:'on top of sale proceeds'},
+   {t:'sec',l:'The condo'},
+   {k:'price',l:'Target condo price',t:'money',d:1600000},
+   {k:'income',l:'Combined gross monthly income',t:'money',d:14000},
+   {k:'mop',l:'Met your 5-year MOP?',t:'select',o:[['Y','Yes — free to sell'],['N','Not yet']],d:'Y'}],
+ compute:function(g){
+   var val=g('val'),oloan=g('oloan'),save=g('save'),price=g('price'),income=g('income'),mop=g('mop');
+   if(!(val>0)||!(price>0))return{head:['Enter your flat value and the target condo price','—'],rows:[]};
+   if(oloan>val)return{head:['Check your figures','—'],rows:[],notes:[['warn','Your outstanding loan is larger than the flat value.']]};
+   var sellCost=Math.round(val*0.02*1.09+2500);
+   var available=(val-oloan-sellCost)+save;
+   var b=bsd(price);
+   function path(absdPct,ltv){
+     var absd=Math.round(price*absdPct),loanAmt=Math.round(price*ltv);
+     var inst=loanAmt>0?pmt(loanAmt,RULES.stress,25):0,tdsrCap=income*RULES.tdsr;
+     return{absd:absd,absdPct:absdPct,loanAmt:loanAmt,ltv:ltv,inst:Math.round(inst),tdsrOK:income?inst<=tdsrCap:null,cashNeeded:Math.round(price+b+absd-loanAmt-available)};}
+   var sell=path(absdRate('SC',0),.75);                 // sold flat → only property → no ABSD, 75% loan
+   var buy=path(absdRate('SC',1),oloan>0?.45:.75);      // keep flat → 2nd property ABSD, 45% loan if HDB loan still on
+   var cashCell=function(p){return p.cashNeeded>0?'<b style="color:var(--red-d)">'+money(p.cashNeeded)+'</b> more':'<b style="color:var(--brand-d)">'+money(-p.cashNeeded)+'</b> spare';};
+   var instCell=function(p){return money(p.inst)+(p.tdsrOK===false?'<small style="color:var(--red-d)"> over TDSR</small>':p.tdsrOK?'<small style="color:var(--brand-d)"> fits TDSR</small>':'');};
+   var t='<tr><td>ABSD</td><td class="r">'+(sell.absd?money(sell.absd):'—')+'</td><td class="r">'+money(buy.absd)+'<small> refundable*</small></td></tr>'+
+     '<tr><td>Buyer’s stamp duty</td><td class="r">'+money(b)+'</td><td class="r">'+money(b)+'</td></tr>'+
+     '<tr><td>Max loan</td><td class="r">'+money(sell.loanAmt)+'<small> 75%</small></td><td class="r">'+money(buy.loanAmt)+'<small> '+Math.round(buy.ltv*100)+'%</small></td></tr>'+
+     '<tr><td>Monthly instalment</td><td class="r">'+instCell(sell)+'</td><td class="r">'+instCell(buy)+'</td></tr>'+
+     '<tr class="tot"><td>Extra cash needed</td><td class="r">'+cashCell(sell)+'</td><td class="r">'+cashCell(buy)+'</td></tr>';
+   var notes=[];
+   if(mop==='N')notes.push(['warn','You must complete your <b>5-year MOP</b> before you can sell the flat or buy private property — these figures assume MOP is met.']);
+   notes.push(['i','<b>Sell first</b> is usually cheaper: your condo becomes your only property, so <b>no ABSD</b>. The trade-off is you may need interim housing between selling and moving in.']);
+   notes.push(['i','<b>Buy first, keep HDB</b> needs the 20% ABSD upfront (*<b>refundable</b> if you sell the flat within 6 months) and a smaller 2nd-property loan — more cash, but no gap between homes.']);
+   notes.push(['i','“Funds your flat frees up” is <b>after ~2% agent commission (+GST) and ~$2,500 legal</b>. The CPF you used on the flat (plus 2.5% accrued interest) is refunded to your CPF and can fund the condo downpayment — so it nets out here.']);
+   notes.push(['i','The <b>15-month wait-out</b> rule does <b>not</b> apply when upgrading from HDB to private. HDB has no Seller’s Stamp Duty, but selling the new condo within <b>4 years</b> triggers SSD (16/12/8/4%).']);
+   return{head:['Funds your flat frees up',money(available)],
+     rows:[['Sale value',money(val),''],
+           ['↳ less selling costs','-'+money(sellCost),'~2% agent (+GST) + ~$2.5k legal'],
+           ['↳ less outstanding loan',oloan?'-'+money(oloan):'—',''],
+           ['+ savings on hand',save?money(save):'—',''],
+           ['__tot','Funds available for the condo',money(available)]],
+     table:{cols:['','Sell first','Buy first, keep HDB'],html:t},
+     notes:notes};}},
 
 {id:'progressive',persona:'buyer',accent:'brand',icon:'🏗️',name:'Progressive Payment',blurb:'For a new launch under construction — exactly what you pay at each stage, from cash to loan, and when the monthly kicks in.',
  fields:[
@@ -595,7 +647,7 @@ var GLOSSARY={
 };
 var CALC_TERMS={
   grants:['ehg','phg'],
-  stampduty:['bsd','absd'], afford:['tdsr','msr','ltv','iwaa','cpfoa','stress'], progressive:['buc','ltv','otp'],
+  stampduty:['bsd','absd'], afford:['tdsr','msr','ltv','iwaa','cpfoa','stress'], upgrade:['absd','ltv','tdsr','ssd','mop'], progressive:['buc','ltv','otp'],
   mortgage:['stress'], proceeds:['cpfoa','accrued'], ssd:['ssd','otp'], decoupling:['decoupling','absd','bsd'],
   yield:['netyield'], refi:['lockin'], proptax:['av','oo','noo'], mop:['mop'], rentalsd:['aar']
 };
@@ -663,6 +715,26 @@ function runCalc(){
 $('scrim').addEventListener('click',function(e){if(e.target.id==='scrim')closeCalc();});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&CUR)closeCalc();});
 renderTabs();renderGrid();
+
+/* Keep rules in sync with the single source (caveat/data/rates.json) so Abacus can't drift
+   when SG rules change. Overrides in place; hardcoded values above stay as the offline fallback. */
+function loadRates(){
+  fetch('https://adamdegoat.github.io/caveat/data/rates.json',{cache:'no-store'})
+   .then(function(r){return r.json();}).then(function(d){
+    try{
+      if(d.bsd&&d.bsd.tiers&&d.bsd.tiers.length){var prev=0,out=[];d.bsd.tiers.forEach(function(t){var up=(t.upto==null)?Infinity:t.upto;out.push([up===Infinity?Infinity:(up-prev),t.rate/100]);prev=up;});RULES.bsd=out;}
+      if(d.absd){var m={SC:'SC',PR:'SPR',FR:'Foreigner',ENT:'Entity'};Object.keys(m).forEach(function(k){var s=d.absd[m[k]];if(s)RULES.absd[k]=[(+s['1']||0)/100,(+s['2']||+s['1']||0)/100,(+s['3']||+s['2']||0)/100];});}
+      if(d.ssd&&d.ssd.tiers)RULES.ssdNew=d.ssd.tiers.filter(function(t){return t.rate>0;}).map(function(t){return t.rate/100;});
+      if(d.ssd&&d.ssd.grandfathered_pre_2025_07_04&&d.ssd.grandfathered_pre_2025_07_04.tiers)RULES.ssdOld=d.ssd.grandfathered_pre_2025_07_04.tiers.filter(function(t){return t.rate>0;}).map(function(t){return t.rate/100;});
+      if(d.financing){var f=d.financing;if(f.tdsr_pct)RULES.tdsr=f.tdsr_pct/100;if(f.msr_pct)RULES.msr=f.msr_pct/100;if(f.stress_rate_pct)RULES.stress=f.stress_rate_pct/100;if(f.hdb_loan_stress_rate_pct!=null)RULES.stressHdb=f.hdb_loan_stress_rate_pct/100;}
+      if(d.hdb&&d.hdb.mop_years){if(d.hdb.mop_years.standard)RULES.mopYears=d.hdb.mop_years.standard;if(d.hdb.mop_years.plus)RULES.mopYearsPP=d.hdb.mop_years.plus;}
+      if(d.hdb&&d.hdb.income_ceiling){var ic=d.hdb.income_ceiling;if(ic.family)GRANTS.familyCeiling=ic.family;if(ic.single)GRANTS.singlesCeiling=ic.single;} // note: NOT ec — rates.json ec=16k is the purchase ceiling, GRANTS.ecCeiling=12k is the grant-taper ceiling
+      if(d.resale_levy&&d.resale_levy.fixed)RULES.resaleLevy=d.resale_levy.fixed;
+      if(CUR&&typeof runCalc==='function'){runCalc();} // refresh an open calc with synced figures
+    }catch(e){/* malformed data → keep hardcoded fallbacks */}
+  }).catch(function(){/* offline → keep hardcoded fallbacks */});
+}
+loadRates();
 </script>
 <!-- INSTALL GUIDE -->
 <div class="ab-modal" id="abGuide">
