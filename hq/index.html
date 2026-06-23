@@ -112,7 +112,7 @@ footer{padding:22px 0 40px;text-align:center;color:var(--ink-4);font-size:11px;l
       <li><span class="k">world_doctor</span><span>Per-world health check before each push · auto-fixes + flags contradictions</span></li>
       <li><span class="k">Launch generator</span><span>Say <b>“new launch: [name]”</b> → fresh research + standalone microsite on the <b>newlaunches</b> account</span></li>
       <li><span class="k">Worlds cron</span><span>Each world auto-cycles <b>5×/day</b> (07:00 / 11:30 / 15:00 / 18:30 / 22:30) + oracle midnight</span></li>
-      <li><span class="k">Traders cron</span><span>Apex &amp; Helm <b>06:00</b> daily · Riptide hourly</span></li>
+      <li><span class="k">Traders cron</span><span>Apex &amp; Helm <b>06:00</b> daily</span></li>
       <li><span class="k">UFC engine</span><span>Refreshes <b>4×/day</b> · posts Wed preview / Sat card / results-when-final to Telegram · self-updating site</span></li>
     </ul>
   </div>
@@ -149,7 +149,6 @@ var GROUPS=[
  {t:"📈 AI Traders",d:"paper / research engines",items:[
    P("Apex","US stock A+..F grader",SITE+"/apex/",MAIN+"/apex","live","06:00 SGT daily",[{l:"🤖 Bot",u:"https://t.me/Adamapexbot"}]),
    P("Helm","Multi-asset paper engine",SITE+"/helm/",MAIN+"/helm","live","06:00 daily"),
-   P("Riptide","BTC/ETH trend engine",SITE+"/riptide/",GH+"/riptide","live","hourly cron"),
  ]},
  {t:"🛠️ SG Tools & Business",d:"",items:[
    P("Bloom","Enrichment class finder",SITE+"/bloom-enrichment/",GH+"/bloom-enrichment","live"),
