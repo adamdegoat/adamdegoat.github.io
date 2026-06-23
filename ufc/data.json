@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-23T21:00:00.331178+08:00",
+  "updated": "2026-06-23T23:30:00.154233+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -290,8 +290,8 @@
   },
   "news": [
     {
-      "title": "Alex Pereira ‘afraid’ to make UFC return, teases retirement in wake of Herb Dean scandal",
-      "link": "https://www.mmamania.com/ufc-news/452584/alex-pereira-afraid-make-ufc-return-teases-retirement-herb-dean-scandal",
+      "title": "Dricus Du Plessis pans Kamaru Usman for fight delay: ‘You didn’t want to sign the contract’",
+      "link": "https://www.mmamania.com/ufc-news/452675/dricus-du-plessis-pans-kamaru-usman-for-fight-delay-you-didnt-want-to-sign-the-contract",
       "source": "MMA Mania",
       "priority": true
     },
@@ -320,6 +320,18 @@
       "priority": true
     },
     {
+      "title": "The Ultimate Fighter 34’s Melissa Amaya won’t shy away from mental health battle: ‘I felt like I was losing my mind’",
+      "link": "https://www.mmafighting.com/ufc/495768/the-ultimate-fighter-34s-melissa-amaya-wont-shy-away-from-mental-health-battle-i-felt-like-i-was-losing-my-mind",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Matt Brown reacts to Ronda Rousey, Jake Paul celebrating bigger ratings than UFC White House card",
+      "link": "https://www.mmafighting.com/ufc/495861/matt-brown-reacts-to-ronda-rousey-jake-paul-celebrating-bigger-ratings-than-ufc-white-house-card",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "Dricus du Plessis opens as massive favorite over Kamaru Usman in UFC Oklahoma City main event",
       "link": "https://www.mmafighting.com/ufc/495722/dricus-du-plessis-opens-as-massive-favorite-over-kamaru-usman-in-ufc-oklahoma-city-main-event",
       "source": "MMA Fighting",
@@ -344,15 +356,9 @@
       "priority": false
     },
     {
-      "title": "Ian Machado Garry vows to dethrone Islam Makhachev at UFC 330: ‘I’m going to bounce him on his skull’",
-      "link": "https://www.mmafighting.com/ufc/495789/ian-machado-garry-vows-to-dethrone-islam-makhachev-at-ufc-330-im-going-to-bounce-him-on-his-skull",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Dana White reacts to UFC White House ratings with global numbers still to come: ‘It’s the biggest thing that we’ve ever done’",
-      "link": "https://www.mmafighting.com/ufc/495698/dana-white-reacts-to-ufc-white-house-ratings-with-global-numbers-still-to-come-its-the-biggest-thing-that-weve-ever-done",
-      "source": "MMA Fighting",
+      "title": "New Meta UFC ranking system was made with A.I. but doesn’t use A.I. – ‘It’s a mathematical model’",
+      "link": "https://www.mmamania.com/ufc-mma-rankings/452686/new-meta-ufc-ranking-system-was-made-with-a-i-but-doesnt-use-a-i-its-a-mathematical-model",
+      "source": "MMA Mania",
       "priority": false
     },
     {
@@ -366,17 +372,11 @@
       "link": "https://www.mmamania.com/raf-wrestling-schedule-cards-live-results/452625/too-quick-ufc-white-houses-bo-nickal-makes-super-fast-turnaround-draws-2026-ncaa-champ-for-aug-2026-date",
       "source": "MMA Mania",
       "priority": false
-    },
-    {
-      "title": "Pic: UFC legend Dustin Poirier’s bloodshot-eyed mugshot surfaces after ‘public drunk’ charge",
-      "link": "https://www.mmamania.com/latest-news/452615/pic-ufc-legend-dustin-poiriers-bloodshot-eyed-mugshot-surfaces-after-public-drunk-charge",
-      "source": "MMA Mania",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "Fiziev takes on Torres this Sunday for an explosive showdown at midnight SGT.",
-    "prefight": "Lightweight fireworks explode as Fiziev and Torres collide in epic fashion Sunday.",
-    "results": "Kape overwhelms Horiguchi with devastating third-round punch barrage, TKO finish."
+    "week": "Fiziev versus Torres ignites the octagon this Sunday at midnight Singapore time.",
+    "prefight": "Main event mayhem: Fiziev and Torres clash in an epic octagon battle.",
+    "results": "Manel Kape TKOs Kyoji Horiguchi with punches in round three."
   }
 }
