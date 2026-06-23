@@ -319,7 +319,7 @@ var CALCS=[
    {k:'age',l:'Your age',t:'num',d:35},
    {k:'coage',l:'Co-borrower age',t:'num',opt:1,ph:'if buying together'},
    {t:'sec',l:'Monthly income'},
-   {k:'income',l:'Your gross monthly income',t:'money',d:8000},
+   {k:'income',l:'Your gross monthly income',t:'money',d:10000},
    {k:'coincome',l:'Co-borrower income',t:'money',opt:1,ph:'optional'},
    {k:'debts',l:'Existing monthly repayments',t:'money',opt:1,ph:'car, loans, cards'},
    {t:'sec',l:'Savings'},
@@ -330,6 +330,7 @@ var CALCS=[
    {k:'owned',l:'Properties you already own',t:'select',o:OWNED,d:'0'},
    {k:'type',l:'Property type',t:'select',o:[['PRIV','Private condo'],['HDB','HDB flat'],['EC','Executive Condo']],d:'PRIV'},
    {k:'remlease',l:'Remaining lease (years)',t:'num',opt:1,ph:'leasehold only — blank = freehold/new'},
+   {k:'tenure',l:'Loan length (years)',t:'num',d:25,hint:'longer = bigger budget but more total interest'},
    {k:'grant',l:'Housing grant',t:'money',opt:1,ph:'EC/HDB first-timer — added to CPF'}],
  compute:function(g){
    var age=g('age')||35,coage=g('coage'),income=g('income'),co=g('coincome'),debts=g('debts'),
@@ -338,7 +339,7 @@ var CALCS=[
    var jointAge=(co>0&&coage>0)?((age*income+coage*co)/(income+co)):null;
    var effAge=jointAge!=null?jointAge:age;
    var maxTen=(type==='HDB')?25:30;
-   var tenure=Math.max(5,Math.min(maxTen,Math.round(65-effAge)));
+   var tenure=Math.max(5,Math.min(maxTen,g('tenure')||25));
    var youngest=(co>0&&coage>0)?Math.min(age,coage):age, cpfEff=cpf, leaseNote=null;
    if(remlease>0){var need95=Math.max(1,95-youngest);
      tenure=Math.min(tenure,Math.max(5,Math.floor(remlease-20)));
@@ -354,16 +355,16 @@ var CALCS=[
    function need(P){return (1-ltv)*P+bsd(P)+P*aR;}
    var lo=0,hi=30000000;for(var k=0;k<46;k++){var m=(lo+hi)/2;if(cash>=minCashRate*m-1&&cash+cpfEff>=need(m)-1)lo=m;else hi=m;}
    var priceFromCash=lo, budget=Math.min(priceFromLoan,priceFromCash), limit=priceFromLoan<=priceFromCash?'loan':'cash';
-   var P=budget,loan=ltv*P,down=P-loan,minCash=minCashRate*P,b=bsd(P),a=Math.floor(P*aR),upfront=down+b+a,monthly=pmt(loan,0.03,tenure);
+   var P=budget,loan=ltv*P,down=P-loan,minCash=minCashRate*P,b=bsd(P),a=Math.floor(P*aR),upfront=down+b+a,monthly=pmt(loan,RULES.stress,tenure);
    var rows=[['Bank loan',money(loan),pct(ltv,0)+' LTV · '+tenure+'-yr tenure'],
      ['Downpayment',money(down),pct(1-ltv,0)+' (cash + CPF)'],
      ['↳ minimum in cash',money(minCash),pct(minCashRate,0)+' must be cash'],
      ['Buyer’s Stamp Duty',money(b),''],
      ['ABSD',a?money(a):'$0',aR?pct(aR,0):'first property'],
      ['__tot','Cash + CPF needed upfront',money(upfront)],
-     ['Est. monthly repayment',money(monthly),'~3% p.a. (tested at 4%)']];
+     ['Est. monthly repayment',money(monthly),'tested at '+(RULES.stress*100)+'% — your actual will be lower']];
    var notes=[[limit==='loan'?'i':'i',limit==='loan'?'Your <b>income</b> sets this ceiling under the 55% TDSR rule.':'Your <b>cash &amp; CPF</b> set this ceiling — your income could support a larger loan.']];
-   if(jointAge!=null)notes.push(['i','Two borrowers: ages blended by income into an <b>IWAA of '+Math.round(effAge)+'</b>, which sets the '+tenure+'-yr max tenure — the rule banks actually use.']);
+   if(jointAge!=null)notes.push(['i','Two borrowers: ages blended by income into an <b>IWAA of '+Math.round(effAge)+'</b> — used for the age-65 loan rule (the basis banks actually use).']);
    if(type==='EC'&&gross>16000)notes.push(['warn','Household income above the <b>$16,000</b> EC ceiling — an EC likely isn’t available.']);
    notes.push(['i','Loan &amp; CPF are capped at the bank’s <b>valuation</b> — buying <b>above</b> valuation means the gap is extra cash on top of these figures.']);
    notes.push(['i','<b>“CPF you can use”</b> is your CPF Ordinary Account going toward this home — it pays the downpayment, stamp duty and price, but <b>not</b> the minimum-cash portion above. Whatever CPF you use is <b>repaid to your CPF with 2.5% accrued interest when you sell</b> (it lowers your cash proceeds later, but isn’t lost).']);
