@@ -282,4 +282,5 @@ function rowHTML(k,sub,v){return `<div class="row"><span class="k">${k}${sub?`<s
 ['hsize','storey','csize','floor'].forEach(id=>$('#'+id).addEventListener('input',e=>{e.target.value=e.target.value.replace(/[^0-9]/g,'');}));
 window.__value={run};
 </script>
+<script>/* smart back: return to the previous in-site page */(function(){try{var r=document.referrer;if(!r)return;var u=new URL(r);if(u.origin!==location.origin||u.href===location.href)return;document.querySelectorAll("a.back").forEach(function(b){if(b.textContent.trim().charAt(0)!=="←")return;b.addEventListener("click",function(e){e.preventDefault();history.back();});b.textContent="← Back";});}catch(e){}})();</script>
 </body></html>

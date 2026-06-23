@@ -81,4 +81,5 @@ a{color:inherit}
 var p=document.getElementById('prog'),d=document.documentElement;
 addEventListener('scroll',function(){p.style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%'},{passive:true});
 </script>
+<script>/* smart back: return to the previous in-site page */(function(){try{var r=document.referrer;if(!r)return;var u=new URL(r);if(u.origin!==location.origin||u.href===location.href)return;document.querySelectorAll('a.back').forEach(function(b){if(b.textContent.trim().charAt(0)!=='←')return;b.addEventListener('click',function(e){e.preventDefault();history.back();});b.textContent='← Back';});}catch(e){}})();</script>
 </body></html>

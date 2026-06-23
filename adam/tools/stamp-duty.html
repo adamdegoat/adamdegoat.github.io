@@ -195,4 +195,5 @@ document.querySelectorAll('#count .opt').forEach(o=>o.onclick=()=>{document.quer
 window.__calc={bsd,absdRate:()=>absdRate(),set:(w,c)=>{who=w;count=c;}};
 calc();
 </script>
+<script>/* smart back: return to the previous in-site page */(function(){try{var r=document.referrer;if(!r)return;var u=new URL(r);if(u.origin!==location.origin||u.href===location.href)return;document.querySelectorAll("a.back").forEach(function(b){if(b.textContent.trim().charAt(0)!=="←")return;b.addEventListener("click",function(e){e.preventDefault();history.back();});b.textContent="← Back";});}catch(e){}})();</script>
 </body></html>
