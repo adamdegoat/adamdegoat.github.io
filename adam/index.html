@@ -421,7 +421,7 @@ html.menu-open,html.menu-open body{overflow:hidden}
       <div class="am-rsub" id="amSub"></div>
     </div>
     <p class="am-note" id="amNote"></p>
-    <a class="am-cta" href="tools/afford.html">Full breakdown &amp; stamp duty <i>→</i></a>
+    <a class="am-cta" id="amCta" href="tools/afford.html">Full breakdown &amp; stamp duty <i>→</i></a>
   </aside>
 </div></section>
 
@@ -564,6 +564,17 @@ fetch('ticker.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{
   const fmtM=n=>n>=1e6?'$'+(n/1e6).toFixed(2).replace(/0+$/,'').replace(/\.$/,'')+'M':'$'+Math.round(n/1000)+'k';
   const loanFromMonthly=(m,y)=>{const r=R.stress/12,n=y*12;return m<=0?0:m*(1-Math.pow(1+r,-n))/r;};
   const autoTen=age=>Math.max(5,Math.min(PT[type].maxTen,65-age));
+  function syncCta(){
+    const a=g('amCta'); if(!a)return;
+    const sav=num('amSav'), cpf=extraOpen?Math.min(num('amCpf'),sav):0;
+    const q=new URLSearchParams({
+      t:type, inc:num('amIncome'), age:num('amAge')||35,
+      cash:Math.max(0,sav-cpf), cpf:cpf,
+      debts:extraOpen?num('amDebts'):0, grant:extraOpen?num('amGrant'):0,
+      ten:extraOpen?(+g('amTen').value):autoTen(num('amAge')||35)
+    });
+    a.href='tools/afford.html?'+q.toString();
+  }
   function calc(){
     const income=num('amIncome'),sav=num('amSav'),age=num('amAge')||35;
     const debts=extraOpen?num('amDebts'):0, cpf=extraOpen?Math.min(num('amCpf'),sav):0, grant=extraOpen?num('amGrant'):0;
@@ -585,6 +596,7 @@ fetch('ticker.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{
       ? 'First-timer? CPF housing grants (up to ~$120k) add on top — not counted here. Stamp duty extra.'
       : 'Estimate — bank loan, first home. Stamp duty &amp; monthly repayment in the full breakdown.';
     window.__heroAfford={maxPrice,loan,downpay,years,reduced};
+    syncCta();
   }
   g('amType').querySelectorAll('button').forEach(b=>b.onclick=()=>{
     type=b.dataset.t; g('amType').querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
