@@ -9,30 +9,35 @@
 :root{--bg:#f6f3ea;--ink:#191512;--ink2:#4f4840;--ink3:#988e7e;--line:#e7e0d2;--line2:#dbd1bf;--green:#1b3a2d;--green2:#27513f;--green3:#0f231a;--brass:#b08d57;--brass2:#cda86a;--brass3:#e3c98f;--serif:'Fraunces',Georgia,serif;--sans:'Plus Jakarta Sans',system-ui,sans-serif;--ease:cubic-bezier(.22,.7,.2,1)}
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased}
-body::before{content:"";position:fixed;inset:-20%;z-index:-2;pointer-events:none;background:radial-gradient(620px 460px at 88% -6%,rgba(176,141,87,.13),transparent 60%),radial-gradient(540px 440px at -4% 10%,rgba(28,58,46,.07),transparent 58%)}
 body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opacity:.04;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 a{color:inherit}
-.bar{height:72px;display:flex;align-items:center;border-bottom:1px solid var(--line)}
-.bar .wrap{max-width:720px;margin:0 auto;padding:0 26px;display:flex;align-items:center;gap:14px;width:100%}
-.bar .b{font-family:var(--serif);font-weight:600;font-size:20px}
-.bar .back{margin-left:auto;font-size:13.5px;font-weight:600;color:var(--ink2)}
-.art{max-width:680px;margin:0 auto;padding:56px 26px 30px}
-.kick{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);display:inline-flex;align-items:center;gap:10px}
-.kick::before{content:"";width:22px;height:1.5px;background:var(--brass)}
-.meta{font-size:13px;color:var(--ink3);font-weight:600;margin-top:18px}
-h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5vw,48px);line-height:1.04;letter-spacing:-.025em;margin:14px 0 0}
+.prog{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--brass),var(--brass3));z-index:60;transition:width .12s linear}
+.top{position:relative;overflow:hidden;background:radial-gradient(720px 420px at 82% -40%,rgba(227,201,143,.20),transparent 60%),linear-gradient(155deg,var(--green2),var(--green3));color:#f3efe6}
+.top .sheen{position:absolute;top:-60%;left:-30%;width:55%;height:240%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.06),transparent);transform:rotate(8deg);animation:sweep 9s ease-in-out infinite;pointer-events:none}
+@keyframes sweep{0%,100%{left:-40%}50%{left:130%}}
+.nav{max-width:720px;margin:0 auto;padding:22px 26px 0;display:flex;align-items:center;gap:14px;position:relative;z-index:2}
+.nav .b{font-family:var(--serif);font-weight:600;font-size:19px;color:#f6efe1}
+.nav .back{margin-left:auto;font-size:13px;font-weight:600;color:rgba(243,239,230,.72)}
+.hero{max-width:720px;margin:0 auto;padding:40px 26px 54px;position:relative;z-index:2}
+.kick{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--brass3);display:inline-flex;align-items:center;gap:10px}
+.kick::before{content:"";width:22px;height:1.5px;background:var(--brass3)}
+.hero h1{font-family:var(--serif);font-weight:500;color:#f7f1e4;font-size:clamp(33px,5.1vw,50px);line-height:1.06;letter-spacing:-.025em;margin:16px 0 0}
+.hero .meta{font-size:13px;color:rgba(243,239,230,.62);font-weight:600;margin-top:20px;letter-spacing:.02em}
+.art{max-width:680px;margin:0 auto;padding:48px 26px 30px}
 .art p{font-size:18px;color:var(--ink2);margin-top:22px}
-.art p strong{color:var(--ink);font-weight:600}
+.art p:first-of-type{margin-top:0}
+.art p strong{color:var(--ink);font-weight:700}
 .art p a{color:var(--green2);font-weight:600;border-bottom:1px solid rgba(176,141,87,.55);transition:.2s}
 .art p a:hover{border-bottom-color:var(--green2)}
+.lead{font-size:20px!important;color:var(--ink)!important}
+.lead::first-letter{font-family:var(--serif);float:left;font-weight:600;color:var(--green2);font-size:64px;line-height:.74;padding:8px 12px 0 0}
+.pull{font-family:var(--serif);font-style:italic;font-size:25px;line-height:1.35;color:var(--green2);border-left:3px solid var(--brass);padding:6px 0 6px 22px;margin:32px 0}
 .rel{margin:34px 0 0;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .rel .rl{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
 .rel a{font-size:13.5px;font-weight:700;color:var(--green2);background:#fffdf8;border:1px solid var(--line);border-radius:30px;padding:9px 16px;transition:.2s}
 .rel a:hover{border-color:var(--green2);transform:translateY(-1px)}
-.lead{font-size:20px!important;color:var(--ink)!important}
-.pull{font-family:var(--serif);font-style:italic;font-size:25px;line-height:1.35;color:var(--green2);border-left:3px solid var(--brass);padding:6px 0 6px 22px;margin:32px 0}
-.cta{margin:40px 0 0;background:linear-gradient(150deg,var(--green2),var(--green3));color:#f3efe6;border-radius:20px;padding:30px;position:relative;overflow:hidden}
-.cta .f{position:absolute;inset:14px;border:1px solid rgba(227,201,143,.25);border-radius:13px}
+.cta{margin:42px 0 0;background:linear-gradient(150deg,var(--green2),var(--green3));color:#f3efe6;border-radius:20px;padding:30px;position:relative;overflow:hidden}
+.cta .f{position:absolute;inset:14px;border:1px solid rgba(227,201,143,.25);border-radius:13px;pointer-events:none}
 .cta h3{font-family:var(--serif);font-weight:500;font-size:23px;position:relative}
 .cta p{font-size:15px;color:rgba(243,239,230,.8);margin-top:8px;position:relative}
 .cta .btns{display:flex;gap:11px;margin-top:18px;flex-wrap:wrap;position:relative}
@@ -46,25 +51,34 @@ h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5vw,48px);line-
 .foot a{font-size:14px;font-weight:700;color:var(--green2)}
 </style></head>
 <body>
-<header class="bar"><div class="wrap"><span class="b">Adam Phang</span><a class="back" href="../index.html">← Back to home</a></div></header>
+<div class="prog" id="prog"></div>
+<header class="top"><span class="sheen"></span>
+  <nav class="nav"><a class="b" href="../index.html">Adam Phang</a><a class="back" href="./">← All posts</a></nav>
+  <div class="hero">
+    <span class="kick">Weekly Blog</span>
+    <h1>Your property budget has three parts. Most buyers only count one.</h1>
+    <div class="meta">22 June 2026 · 1-min read · by Adam Phang</div>
+  </div>
+</header>
 <article class="art">
-  <span class="kick">Weekly Blog</span>
-  <div class="meta">22 June 2026 · 1-min read · by Adam Phang</div>
-  <h1>Your property budget has three parts. Most buyers only count one.</h1>
   <p class="lead">I've watched buyers spend weeks falling for a home they couldn't actually afford — because they started browsing before working out three numbers. Sort these first, and you'll only ever look at places you can truly buy.</p>
-<p><strong>1 — What a bank will actually lend you.</strong> Your budget isn't just your savings; it's your savings plus what a bank will lend. That loan is capped by a rule based on how much of your monthly income already goes to repaying debt. So every car loan, credit-card balance or instalment you carry shrinks what you can borrow — clear those first and your budget quietly grows. <a href="../tools/afford.html">Work out your max loan →</a></p>
+<p><strong>1 — What a bank will actually lend you.</strong> Your budget isn't just your savings; it's your savings plus what a bank will lend. That loan is capped by a rule based on how much of your monthly income already goes to repaying debt. So every car loan, credit-card balance or instalment you carry shrinks what you can borrow — clear those first and your budget quietly grows. <a href="https://adamdegoat.github.io/abacus/">Work out your max loan →</a></p>
 <p><strong>2 — The cash and CPF you'll need upfront.</strong> The down payment comes from two pockets: cash, and your CPF savings (the money set aside from your pay each month). For a bank loan, part of it must be paid in cash — CPF can cover much of the rest, but not all of it. If your cash savings are thin, this is the number that decides what's realistic for you.</p>
 <div class="pull">Stamp duty and legal fees come out of your savings — not your loan.</div>
-<p><strong>3 — The costs on top of the price.</strong> Stamp duty is a government charge worked out on the higher of the price or the home's valuation, and it adds up fast. Add legal fees and a realistic renovation budget, and the cash you need on day one is well above the down payment alone. <a href="../tools/stamp-duty.html">Estimate your stamp duty →</a></p>
-<p>Work out all three — your loan limit, your upfront cash, and the costs on top — before you open a single listing. Prefer it figured out for you in a few questions? <a href="../tools/afford.html">Map your full budget →</a></p>
-  <div class="rel"><span class="rl">Tools for this</span><a href="../tools/value.html">Value a home →</a> <a href="../tools/afford.html">Run the numbers →</a></div>
+<p><strong>3 — The costs on top of the price.</strong> Stamp duty is a government charge worked out on the higher of the price or the home's valuation, and it adds up fast. Add legal fees and a realistic renovation budget, and the cash you need on day one is well above the down payment alone. <a href="https://adamdegoat.github.io/abacus/">Estimate your stamp duty →</a></p>
+<p>Work out all three — your loan limit, your upfront cash, and the costs on top — before you open a single listing. Prefer it figured out for you in a few questions? <a href="https://adamdegoat.github.io/compass/">Map your full budget →</a></p>
+  <div class="rel"><span class="rl">Tools for this</span><a href="https://adamdegoat.github.io/caveat/">Value a home →</a> <a href="https://adamdegoat.github.io/abacus/">Run the numbers →</a></div>
   <div class="cta"><div class="f"></div>
     <h3>Wondering what this means for your own situation?</h3>
     <p>Check any home's value for free — or just message me and I'll walk you through it, no pressure.</p>
-    <div class="btns"><a class="p" href="../tools/value.html">Value a home →</a><a class="g" href="https://wa.me/6583219747">Ask Adam →</a></div>
+    <div class="btns"><a class="p" href="https://adamdegoat.github.io/caveat/">Value a home →</a><a class="g" href="https://wa.me/6583219747">Ask Adam →</a></div>
   </div>
   <p class="src"><b>Sources:</b> <a href="https://www.cpf.gov.sg/member/infohub/educational-resources/using-cpf-savings-to-buy-a-home" target="_blank" rel="noopener">CPF Board — Using Your CPF to Buy a Home</a> · <a href="https://www.hdb.gov.sg/residential/buying-a-flat/financing-a-flat-purchase" target="_blank" rel="noopener">HDB — Financing a Flat Purchase</a> · <a href="https://www.mas.gov.sg" target="_blank" rel="noopener">MAS — Total Debt Servicing Ratio</a></p>
   <p class="disc">General guidance to help you understand how it works — not financial advice, and your own situation can differ. For your specifics, check with your banker or a lawyer.</p>
 </article>
 <div class="foot"><a href="./">← All posts</a></div>
+<script>
+var p=document.getElementById('prog'),d=document.documentElement;
+addEventListener('scroll',function(){p.style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%'},{passive:true});
+</script>
 </body></html>
