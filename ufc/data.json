@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-23T13:00:00.209245+08:00",
+  "updated": "2026-06-23T21:00:00.331178+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -320,12 +320,6 @@
       "priority": true
     },
     {
-      "title": "Michael Chandler is ‘not a UFC-level guy’ if you ask one retired fan favorite: “He shouldn’t be the star that he is”",
-      "link": "https://www.bjpenn.com/mma-news/ufc/michael-chandler-is-not-a-ufc-level-guy-if-you-ask-one-retired-fan-favorite-he-shouldnt-be-the-star-that-he-is/?utm_source=rss&utm_medium=rss&utm_campaign=michael-chandler-is-not-a-ufc-level-guy-if-you-ask-one-retired-fan-favorite-he-shouldnt-be-the-star-that-he-is",
-      "source": "BJPenn",
-      "priority": true
-    },
-    {
       "title": "Dricus du Plessis opens as massive favorite over Kamaru Usman in UFC Oklahoma City main event",
       "link": "https://www.mmafighting.com/ufc/495722/dricus-du-plessis-opens-as-massive-favorite-over-kamaru-usman-in-ufc-oklahoma-city-main-event",
       "source": "MMA Fighting",
@@ -362,6 +356,12 @@
       "priority": false
     },
     {
+      "title": "Andre Fili frustrated by illegal blows at UFC Vegas 119: ‘I wanted and deserved the chance to keep fighting’",
+      "link": "https://www.mmamania.com/ufc-news/452646/andre-fili-frustrated-by-illegal-blows-at-ufc-vegas-119-i-wanted-and-deserved-the-chance-to-keep-fighting",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
       "title": "Too quick? UFC White House’s Bo Nickal makes super fast turnaround, draws 2026 NCAA champ for Aug. 2026 date",
       "link": "https://www.mmamania.com/raf-wrestling-schedule-cards-live-results/452625/too-quick-ufc-white-houses-bo-nickal-makes-super-fast-turnaround-draws-2026-ncaa-champ-for-aug-2026-date",
       "source": "MMA Mania",
@@ -375,8 +375,8 @@
     }
   ],
   "hooks": {
-    "week": "Fight week is here—Fiziev vs Torres this Sunday for a statement victory.",
-    "prefight": "Fiziev versus Torres ignites Sunday midnight SGT in the ultimate main event showdown.",
-    "results": "Manel Kape stops Kyoji Horiguchi via round 3 TKO punches in the main event."
+    "week": "Fiziev takes on Torres this Sunday for an explosive showdown at midnight SGT.",
+    "prefight": "Lightweight fireworks explode as Fiziev and Torres collide in epic fashion Sunday.",
+    "results": "Kape overwhelms Horiguchi with devastating third-round punch barrage, TKO finish."
   }
 }
