@@ -36,12 +36,13 @@ a{color:inherit;text-decoration:none}
 /* hero — compact, lets the designs lead */
 .hero{padding:clamp(22px,3vw,34px) 0 22px;display:flex;justify-content:space-between;align-items:center;gap:28px 44px;flex-wrap:wrap;border-bottom:1.5px solid var(--ink)}
 .herL{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
-.issue{font-weight:800;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:7px}
-.mast{font-family:Fraunces;font-weight:900;font-size:clamp(46px,6.5vw,84px);line-height:.86;letter-spacing:-.02em}
+.issue{display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.issue::before{content:"";width:22px;height:2px;background:var(--accent)}
+.mast{font-family:Fraunces;font-weight:900;font-size:clamp(46px,6.5vw,84px);line-height:.84;letter-spacing:-.025em}
 .mast .o{color:var(--accent)}
-.lead{max-width:440px}
-.lead p{font-family:Fraunces;font-style:italic;font-weight:400;font-size:clamp(17px,1.9vw,21px);line-height:1.3;color:#3a2c1d}
-.lead .sm{font-style:normal;font-size:13.5px;color:var(--soft);margin-top:8px;line-height:1.5;font-weight:500}
+.lead{max-width:430px;border-left:2px solid var(--accent);padding-left:22px}
+.lead p{font-family:Fraunces;font-style:italic;font-weight:400;font-size:clamp(17px,1.9vw,21px);line-height:1.32;color:#3a2c1d}
+.lead .sm{font-style:normal;font-size:13.5px;color:var(--soft);margin-top:9px;line-height:1.5;font-weight:500}
 /* section heads */
 .shead{display:flex;align-items:baseline;gap:18px;border-top:3px solid var(--ink);padding-top:24px;margin-bottom:30px;flex-wrap:wrap}
 .shead h2{font-family:Fraunces;font-weight:900;font-size:clamp(34px,5vw,54px);letter-spacing:-.01em}
@@ -54,8 +55,8 @@ a{color:inherit;text-decoration:none}
 .imgwrap{position:relative;background:#111;line-height:0}
 .imgwrap img{width:100%;display:block}
 .ribbon{position:absolute;top:15px;left:15px;background:var(--accent);color:#fff;font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:8px;box-shadow:0 6px 14px #0003;z-index:2}
-.meta{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
-.tagrow{display:flex;gap:8px;margin-bottom:11px;flex-wrap:wrap}
+.meta{padding:15px 16px 16px;display:flex;flex-direction:column;flex:1}
+.tagrow{display:flex;gap:8px;margin-bottom:0;flex-wrap:wrap}
 .tg{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:30px;background:#f0e3c8;color:#6b5331}
 .cap{font-size:14.5px;line-height:1.5;color:#4a3a28;font-weight:500;flex:1}
 .btns{display:flex;gap:10px;margin-top:16px}
@@ -65,9 +66,13 @@ a{color:inherit;text-decoration:none}
 .btn.cp{background:#fff;border:1.5px solid var(--ink);color:var(--ink)}
 .btn.cp.done{background:#1b3a2d;color:#fff;border-color:#1b3a2d}
 .btn.sh{display:block;width:100%;background:var(--accent);color:#fff;border:none;margin-bottom:10px}
-.btn.sh.done{background:#1b3a2d}
 .pacts{width:100%;max-width:290px;margin-top:14px}
 .pcard .tagrow{margin-top:16px}
+/* light recent-card actions */
+.actrow{display:flex;gap:8px;margin-top:14px;align-items:stretch}
+.actrow .btn.sh{display:inline-flex;align-items:center;justify-content:center;width:auto;flex:1;margin-bottom:0;font-size:14px;padding:11px 0}
+.ib{flex:none;width:46px;display:grid;place-items:center;border-radius:14px;border:1.5px solid var(--ink);background:#fff;color:var(--ink);font-weight:800;font-size:18px;cursor:pointer;text-decoration:none;font-family:inherit;transition:transform .12s}
+.ib:active{transform:scale(.93)}
 /* phone-in-IG featured cards */
 .pcard{display:flex;flex-direction:column;align-items:center}
 .phone{width:100%;max-width:290px;background:#0d0d0f;border-radius:40px;padding:8px;box-shadow:0 30px 60px #1c140d33;position:relative}
@@ -246,100 +251,95 @@ link in bio
   <section id="recent" class="recent"><div class="shead"><h2>Recent drops</h2><span class="subnote">the last few weeks</span></div><div class="rwrap"><div class="rgrid"><article class="card">
   <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-c-pulse.png" alt="Market Pulse — Clementi"></div>
   <div class="meta"><div class="tagrow"><span class="tg">Market Pulse</span><span class="tg">Clementi</span></div>
-    <p class="cap">Resale flats in Clementi just clocked 713 sales last year.</p>
-    <button class="btn sh" data-img="posts/2026-06-24-c-pulse.png" data-cap="Resale flats in Clementi just clocked 713 sales last year.
+    <div class="actrow">
+      <button class="btn sh" data-img="posts/2026-06-24-c-pulse.png" data-cap="Resale flats in Clementi just clocked 713 sales last year.
 Median sitting at $598k, up 3.9% over twelve months.
 Steady demand, mature estate, schools everywhere. People want in.
 Thinking of selling? This is a good window.
 link in bio
-#clementi #clementiresale #hdbresale #singaporeproperty #propertysg #sghomes">↗ Share to Instagram</button>
-    <div class="btns">
-      <a class="btn dl" href="posts/2026-06-24-c-pulse.png" download>↓ Save</a>
-      <button class="btn cp" data-cap="Resale flats in Clementi just clocked 713 sales last year.
+#clementi #clementiresale #hdbresale #singaporeproperty #propertysg #sghomes">↗ Share</button>
+      <a class="ib" href="posts/2026-06-24-c-pulse.png" download title="Save image">↓</a>
+      <button class="ib cp" data-cap="Resale flats in Clementi just clocked 713 sales last year.
 Median sitting at $598k, up 3.9% over twelve months.
 Steady demand, mature estate, schools everywhere. People want in.
 Thinking of selling? This is a good window.
 link in bio
-#clementi #clementiresale #hdbresale #singaporeproperty #propertysg #sghomes">⧉ Caption</button>
+#clementi #clementiresale #hdbresale #singaporeproperty #propertysg #sghomes" title="Copy caption">⧉</button>
     </div></div></article><article class="card">
   <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-c-affordable.png" alt="Most affordable flats — Ang Mo Kio"></div>
   <div class="meta"><div class="tagrow"><span class="tg">Most Affordable</span><span class="tg">Ang Mo Kio</span></div>
-    <p class="cap">amk resale flats still the value play if you want in.</p>
-    <button class="btn sh" data-img="posts/2026-06-24-c-affordable.png" data-cap="amk resale flats still the value play if you want in.
+    <div class="actrow">
+      <button class="btn sh" data-img="posts/2026-06-24-c-affordable.png" data-cap="amk resale flats still the value play if you want in.
 real volume, real transactions, median sitting around $517k.
 not glam, but your money goes further here.
 link in bio
-#singaporeproperty #propertysg #angmokio #resaleflat #hdbresale #sghomes">↗ Share to Instagram</button>
-    <div class="btns">
-      <a class="btn dl" href="posts/2026-06-24-c-affordable.png" download>↓ Save</a>
-      <button class="btn cp" data-cap="amk resale flats still the value play if you want in.
+#singaporeproperty #propertysg #angmokio #resaleflat #hdbresale #sghomes">↗ Share</button>
+      <a class="ib" href="posts/2026-06-24-c-affordable.png" download title="Save image">↓</a>
+      <button class="ib cp" data-cap="amk resale flats still the value play if you want in.
 real volume, real transactions, median sitting around $517k.
 not glam, but your money goes further here.
 link in bio
-#singaporeproperty #propertysg #angmokio #resaleflat #hdbresale #sghomes">⧉ Caption</button>
+#singaporeproperty #propertysg #angmokio #resaleflat #hdbresale #sghomes" title="Copy caption">⧉</button>
     </div></div></article><article class="card">
   <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-c-faceoff.png" alt="Clementi vs Geylang"></div>
   <div class="meta"><div class="tagrow"><span class="tg">Area Face-off</span><span class="tg">Clementi vs Geylang</span></div>
-    <p class="cap">Clementi or Geylang? </p>
-    <button class="btn sh" data-img="posts/2026-06-24-c-faceoff.png" data-cap="Clementi or Geylang? 
+    <div class="actrow">
+      <button class="btn sh" data-img="posts/2026-06-24-c-faceoff.png" data-cap="Clementi or Geylang? 
 
 Clementi flats sit at $598k and are climbing 3.9% a year. Geylang is $580k and softer at -5.9%, so there's room to bargain. Different plays, both real.
 
 link in bio.
 
-#singaporeproperty #clementi #hdbresale #propertysg #sgproperty">↗ Share to Instagram</button>
-    <div class="btns">
-      <a class="btn dl" href="posts/2026-06-24-c-faceoff.png" download>↓ Save</a>
-      <button class="btn cp" data-cap="Clementi or Geylang? 
+#singaporeproperty #clementi #hdbresale #propertysg #sgproperty">↗ Share</button>
+      <a class="ib" href="posts/2026-06-24-c-faceoff.png" download title="Save image">↓</a>
+      <button class="ib cp" data-cap="Clementi or Geylang? 
 
 Clementi flats sit at $598k and are climbing 3.9% a year. Geylang is $580k and softer at -5.9%, so there's room to bargain. Different plays, both real.
 
 link in bio.
 
-#singaporeproperty #clementi #hdbresale #propertysg #sgproperty">⧉ Caption</button>
+#singaporeproperty #clementi #hdbresale #propertysg #sgproperty" title="Copy caption">⧉</button>
     </div></div></article><article class="card">
   <div class="imgwrap"><img loading="lazy" src="posts/2026-06-25-y3-yield.png" alt="HDB vs condo rental yield"></div>
   <div class="meta"><div class="tagrow"><span class="tg">Rental Yield</span><span class="tg">HDB vs Condo</span></div>
-    <p class="cap">link in bio means I just write the caption. Let me produce it.</p>
-    <button class="btn sh" data-img="posts/2026-06-25-y3-yield.png" data-cap="link in bio means I just write the caption. Let me produce it.
+    <div class="actrow">
+      <button class="btn sh" data-img="posts/2026-06-25-y3-yield.png" data-cap="link in bio means I just write the caption. Let me produce it.
 
 HDB flats yield about 6.1% gross rent islandwide vs 3.6% for private condos.Everyone wants the shiny condo. The numbers laugh at that.
 HDB flats pull about 6.1% gross rent. Condos sit at 3.6%.
 Yes, the smaller flat is the bigger earner.
 
 link in bio
-#singaporeproperty #propertysg #hdb #rentalyield #condo #sgrealestate">↗ Share to Instagram</button>
-    <div class="btns">
-      <a class="btn dl" href="posts/2026-06-25-y3-yield.png" download>↓ Save</a>
-      <button class="btn cp" data-cap="link in bio means I just write the caption. Let me produce it.
+#singaporeproperty #propertysg #hdb #rentalyield #condo #sgrealestate">↗ Share</button>
+      <a class="ib" href="posts/2026-06-25-y3-yield.png" download title="Save image">↓</a>
+      <button class="ib cp" data-cap="link in bio means I just write the caption. Let me produce it.
 
 HDB flats yield about 6.1% gross rent islandwide vs 3.6% for private condos.Everyone wants the shiny condo. The numbers laugh at that.
 HDB flats pull about 6.1% gross rent. Condos sit at 3.6%.
 Yes, the smaller flat is the bigger earner.
 
 link in bio
-#singaporeproperty #propertysg #hdb #rentalyield #condo #sgrealestate">⧉ Caption</button>
+#singaporeproperty #propertysg #hdb #rentalyield #condo #sgrealestate" title="Copy caption">⧉</button>
     </div></div></article><article class="card">
   <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-c-net.png" alt="Net proceeds when you sell"></div>
   <div class="meta"><div class="tagrow"><span class="tg">Net Proceeds</span><span class="tg">Selling</span></div>
-    <p class="cap">$1.65M sale, real numbers I ran for a client.</p>
-    <button class="btn sh" data-img="posts/2026-06-24-c-net.png" data-cap="$1.65M sale, real numbers I ran for a client.
+    <div class="actrow">
+      <button class="btn sh" data-img="posts/2026-06-24-c-net.png" data-cap="$1.65M sale, real numbers I ran for a client.
 After loan, CPF refund and fees, you keep about $879k. example figures, yours will differ.
 Want your own breakdown before you list? I'll do the math.
 link in bio
-#singaporeproperty #propertysg #sgrealestate #sellsmart #sghome">↗ Share to Instagram</button>
-    <div class="btns">
-      <a class="btn dl" href="posts/2026-06-24-c-net.png" download>↓ Save</a>
-      <button class="btn cp" data-cap="$1.65M sale, real numbers I ran for a client.
+#singaporeproperty #propertysg #sgrealestate #sellsmart #sghome">↗ Share</button>
+      <a class="ib" href="posts/2026-06-24-c-net.png" download title="Save image">↓</a>
+      <button class="ib cp" data-cap="$1.65M sale, real numbers I ran for a client.
 After loan, CPF refund and fees, you keep about $879k. example figures, yours will differ.
 Want your own breakdown before you list? I'll do the math.
 link in bio
-#singaporeproperty #propertysg #sgrealestate #sellsmart #sghome">⧉ Caption</button>
+#singaporeproperty #propertysg #sgrealestate #sellsmart #sghome" title="Copy caption">⧉</button>
     </div></div></article><article class="card">
   <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-c-schools.png" alt="Homes near Haig Girls'"></div>
   <div class="meta"><div class="tagrow"><span class="tg">School Finder</span><span class="tg">1km</span></div>
-    <p class="cap">Affordable.</p>
-    <button class="btn sh" data-img="posts/2026-06-24-c-schools.png" data-cap="Affordable.
+    <div class="actrow">
+      <button class="btn sh" data-img="posts/2026-06-24-c-schools.png" data-cap="Affordable.
 
 Some parents chase the dream school for years.
 
@@ -349,10 +349,9 @@ Want the list before the next launch crowd does?
 
 link in bio
 
-#singaporeproperty #propertysg #sji #primaryone #1kmrule #districtproperty">↗ Share to Instagram</button>
-    <div class="btns">
-      <a class="btn dl" href="posts/2026-06-24-c-schools.png" download>↓ Save</a>
-      <button class="btn cp" data-cap="Affordable.
+#singaporeproperty #propertysg #sji #primaryone #1kmrule #districtproperty">↗ Share</button>
+      <a class="ib" href="posts/2026-06-24-c-schools.png" download title="Save image">↓</a>
+      <button class="ib cp" data-cap="Affordable.
 
 Some parents chase the dream school for years.
 
@@ -362,7 +361,7 @@ Want the list before the next launch crowd does?
 
 link in bio
 
-#singaporeproperty #propertysg #sji #primaryone #1kmrule #districtproperty">⧉ Caption</button>
+#singaporeproperty #propertysg #sji #primaryone #1kmrule #districtproperty" title="Copy caption">⧉</button>
     </div></div></article></div><span class="rfade"></span></div><div class="rhint">swipe for more →</div></section>
   <section id="how" class="how">
     <div class="shead"><h2>How it works</h2></div>
@@ -385,29 +384,21 @@ link in bio
 <div class="foot"><div class="wrap"><b>Press</b><span>The content studio of Adam Phang · <a href="https://adamdegoat.github.io/adam/" style="color:#e3c98f">adamdegoat.github.io/adam</a> · new every Monday 04:00 SGT</span></div></div>
 <div class="toast" id="toast">Caption copied ✓</div>
 <script>
-document.querySelectorAll('.btn.cp').forEach(function(b){b.addEventListener('click',function(){
-  var t=b.getAttribute('data-cap').replace(/&quot;/g,'"');
-  navigator.clipboard.writeText(t).then(function(){
-    b.classList.add('done');b.textContent='✓ Copied';
-    var to=document.getElementById('toast');to.classList.add('show');
-    setTimeout(function(){b.classList.remove('done');b.textContent='⧉ Copy caption';to.classList.remove('show')},1900);
-  });
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(window._t);window._t=setTimeout(function(){t.classList.remove('show');t.textContent='Caption copied ✓';},2300);}
+document.querySelectorAll('.cp').forEach(function(b){b.addEventListener('click',function(){
+  navigator.clipboard.writeText(b.getAttribute('data-cap').replace(/&quot;/g,'"')).then(function(){toast('Caption copied ✓');});
 });});
 async function shareCard(b){
   var cap=b.getAttribute('data-cap').replace(/&quot;/g,'"');
   try{await navigator.clipboard.writeText(cap);}catch(e){}
-  var url=b.getAttribute('data-img'),done='✓ Caption copied';
+  var url=b.getAttribute('data-img');
   try{
-    var r=await fetch(url),bl=await r.blob();
-    var f=new File([bl],'press.png',{type:'image/png'});
-    if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],text:cap});}
-    else{var a=document.createElement('a');a.href=url;a.download=url.split('/').pop();document.body.appendChild(a);a.click();a.remove();done='✓ Saved + caption copied';}
+    var r=await fetch(url),bl=await r.blob(),f=new File([bl],'press.png',{type:'image/png'});
+    if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],text:cap});toast('Caption copied — now pick Instagram');}
+    else{var a=document.createElement('a');a.href=url;a.download=url.split('/').pop();document.body.appendChild(a);a.click();a.remove();toast('Image saved + caption copied');}
   }catch(e){}
-  b.classList.add('done');var o=b.textContent;b.textContent=done;
-  var to=document.getElementById('toast');to.textContent='Caption copied — now pick Instagram';to.classList.add('show');
-  setTimeout(function(){b.classList.remove('done');b.textContent=o;to.textContent='Caption copied ✓';to.classList.remove('show');},2600);
 }
-document.querySelectorAll('.btn.sh').forEach(function(b){b.addEventListener('click',function(){shareCard(b)})});
+document.querySelectorAll('.sh').forEach(function(b){b.addEventListener('click',function(){shareCard(b)})});
 var dp;window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();dp=e;var ib=document.getElementById('installBtn');ib.style.display='block';ib.onclick=function(){dp.prompt()}});
 if('serviceWorker' in navigator){addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}
 </script>
