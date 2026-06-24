@@ -22,11 +22,25 @@ a{color:inherit}
 @keyframes npl{0%{box-shadow:0 0 0 0 rgba(127,212,160,.5)}70%{box-shadow:0 0 0 8px rgba(127,212,160,0)}100%{box-shadow:0 0 0 0 rgba(127,212,160,0)}}
 .hero h1{font-family:var(--serif);font-weight:500;color:#f7f1e4;font-size:clamp(31px,4.8vw,46px);line-height:1.08;letter-spacing:-.025em;margin:15px 0 0}
 .hero .meta{font-size:13px;color:rgba(243,239,230,.62);font-weight:600;margin-top:18px}
-.strip{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
-.chip{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:30px;padding:7px 13px;color:#f3efe6}
-.chip .a{font-weight:800}.chip.up .a{color:#7fd4a0}.chip.down .a{color:#e9a982}.chip.flat .a{color:#e3c98f}
-.chip .v{opacity:.72;font-weight:600}
+.hclimate{font-family:var(--serif);font-style:italic;font-size:clamp(17px,2.3vw,20px);line-height:1.4;color:#efe7d4;margin-top:20px;max-width:40ch}
 .art{max-width:680px;margin:0 auto;padding:44px 26px 30px}
+/* "at a glance" detail block — the signals + areas, on the post page */
+.glance{display:grid;grid-template-columns:1fr 1fr;gap:22px 34px;background:linear-gradient(168deg,#fffdf8,#f3eee1);border:1px solid var(--line2);border-radius:18px;padding:26px 28px;margin-bottom:36px}
+.g-lab{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#a99a7c;margin-bottom:13px;display:block}
+.g-sig{display:flex;align-items:center;gap:12px;padding:9px 0;border-top:1px solid var(--line)}
+.g-sig:first-of-type{border-top:0}
+.g-ar{flex:none;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:12px;font-weight:800}
+.g-ar.up{background:rgba(47,125,79,.12);color:var(--up)}.g-ar.down{background:rgba(180,89,47,.12);color:var(--dn)}.g-ar.flat{background:rgba(107,98,83,.12);color:var(--ink3)}
+.g-nm{font-weight:700;font-size:14px;color:var(--ink);min-width:118px}
+.g-st{font-weight:700;font-size:13.5px}.g-st.up{color:var(--up)}.g-st.down{color:var(--dn)}.g-st.flat{color:var(--ink2)}
+.g-sub{margin-left:auto;font-size:12px;color:var(--ink3);text-align:right}
+.g-moving{display:flex;flex-direction:column;gap:8px}
+.g-mv{padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:#fffefb}
+.g-tag{font-weight:800;font-size:13px;display:inline-flex;align-items:center;gap:6px}
+.g-mv.up .g-tag{color:var(--up)}.g-mv.down .g-tag{color:var(--dn)}
+.g-pct{font-variant-numeric:tabular-nums}
+.g-why{display:block;font-size:12.5px;color:var(--ink2);margin-top:3px}
+@media(max-width:620px){.glance{grid-template-columns:1fr;gap:20px}.g-sub{font-size:11px}}
 .art p{font-size:18px;color:var(--ink2);margin-top:22px}
 .art p:first-of-type{margin-top:0}
 .art p strong{color:var(--ink);font-weight:700}
@@ -56,17 +70,18 @@ a{color:inherit}
     <span class="kick"><span class="d"></span>Market Pulse</span>
     <h1>Condo prices are climbing. The heartland is split. Here's where the market's actually moving.</h1>
     <div class="meta">20 June 2026 · 1-min read · by Adam Phang</div>
-    <div class="strip"><span class="chip flat"><span class="a">→</span> HDB resale <span class="v">steady</span></span><span class="chip up"><span class="a">▲</span> Condos <span class="v">rising</span></span><span class="chip down"><span class="a">▼</span> City centre <span class="v">cooling</span></span><span class="chip up"><span class="a">▲</span> Clementi <span class="v">+3.9%</span></span><span class="chip up"><span class="a">▲</span> Bukit Merah <span class="v">+3.2%</span></span><span class="chip down"><span class="a">▼</span> Geylang <span class="v">-5.9%</span></span></div>
+    <p class="hclimate">Condo prices are rising — led by the suburbs and the areas just outside the city. HDB resale is holding steady. The priciest central areas have cooled a little.</p>
   </div>
 </header>
 <article class="art">
-  <p class="lead-p">Condo prices have been rising over the past few months and the trend is still going. HDB resale is a quieter story. Prices there have been flat for three months straight, steady but not moving much. What makes this week interesting is that the priciest central areas are actually cooling, down around 2.4%, while the suburbs are holding up better. This is not one market doing one thing. It is a few different stories depending on exactly where you look.</p>
+  <div class="glance"><div class="g-col"><span class="g-lab">The signals</span><div class="g-sig"><span class="g-ar flat">→</span><span class="g-nm">Resale flats</span><span class="g-st flat">Steady</span><span class="g-sub">prices flat the last 3 months</span></div><div class="g-sig"><span class="g-ar up">▲</span><span class="g-nm">Condos</span><span class="g-st up">Rising</span><span class="g-sub">prices up over recent months</span></div><div class="g-sig"><span class="g-ar down">▼</span><span class="g-nm">City-centre condos</span><span class="g-st down">Cooling</span><span class="g-sub">-2.4% while the suburbs rise</span></div></div><div class="g-col"><span class="g-lab">Resale flats moving the most</span><div class="g-moving"><div class="g-mv up"><span class="g-tag">▲ Clementi <span class="g-pct">+3.9%</span></span><span class="g-why">lots of buyers — sellers hold the cards</span></div><div class="g-mv up"><span class="g-tag">▲ Bukit Merah <span class="g-pct">+3.2%</span></span><span class="g-why">central, prices still climbing</span></div><div class="g-mv down"><span class="g-tag">▼ Geylang <span class="g-pct">-5.9%</span></span><span class="g-why">prices easing — more room to negotiate</span></div></div></div></div>
+  <p class="lead-p">Condo prices have been climbing steadily over the past few months, so that part of the market is genuinely moving up. HDB resale has been much calmer, basically flat for three months now. What makes this week interesting is that even within condos, the picture is split. The priciest central areas of Singapore are actually cooling, down around 2.4%, while the suburbs are holding up well. In HDB resale, three towns tell three very different stories: Clementi is up 3.9%, Bukit Merah is up 3.2%, and Geylang is down 5.9%. This is not one market moving together. It is many small markets sharing the same island.</p>
 
-<div class="pull">Same island, very different markets right now.</div>
+<div class="pull">Your result this month depends more on your specific town than on the market overall.</div>
 
-<p>If you are looking at condos, the central areas are worth a closer look right now. Prices are easing there, which means you have more room to negotiate than you would have had a few months back. The suburbs are steadier, so sellers there are less likely to move on price. For HDB buyers, the town you are targeting really changes the picture. Clementi has moved up 3.9% and Bukit Merah is up 3.2%, so you are paying noticeably more than before in those areas. Geylang is a different story altogether. Prices there have dropped 5.9%. If the location works for you and your family, there is real value to find right now.</p>
+<p>If you are buying a condo, the city centre is giving you a bit more breathing room right now. Prices there are easing, so the pressure is lower than it was. In the suburbs, prices are still rising, so if you have found something you like, there is less reason to wait and see. For HDB buyers, the town matters a lot right now. Clementi and Bukit Merah are moving up, and sellers there are not in a rush to budge on price. Geylang has come off quite a bit, which means there is real value there if the location works for your family.</p>
 
-<p>If you are selling a condo in the central areas, price it carefully and honestly. The market there is cooling and buyers can see the same numbers you can. In the suburbs you are in better shape, demand is holding up and you have more pricing power to work with. For HDB sellers, your specific town matters far more than any headline figure. Clementi and Bukit Merah sellers are seeing genuine demand, with prices moving in your favour. If you are in Geylang, you will need to price sharper to get something done. The takeaway is simple: the ones who sell well this month are the ones who understand their street, not just the market in general.</p>
+<p>If you are selling, a suburban condo is in a good spot. Demand is still there and prices are rising, so you have room to hold your price. A city centre unit needs to be priced sharper because buyers in that market have more options and they know it. For HDB sellers, Clementi and Bukit Merah owners are sitting pretty right now. In Geylang, the numbers say you need to price realistically to get a deal done. Wherever you are, the honest takeaway this week is simple: location is doing more work than the overall market is.</p>
   <div class="rel"><span class="rl">Tools for this</span><a href="../tools/value.html">Value a home →</a> <a href="../tools/afford.html">See what you can afford →</a></div>
   <div class="cta">
     <h3>Want this read for your own home or block?</h3>
