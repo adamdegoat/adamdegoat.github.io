@@ -10,7 +10,7 @@
 <meta name="theme-color" content="#101a2b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Spectral:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800;900&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#10151f;--ink-2:#384256;--ink-3:#6b7587;--line:#e7e4dd;--line-2:#efece6;
@@ -159,9 +159,36 @@ footer .disc{font-size:12px;max-width:70ch;margin:14px auto 0;line-height:1.6}
   .approach{padding:36px 24px}.h2{font-size:30px}
 }
 @media(max-width:520px){.hero h1{font-size:34px}.bsub{display:none}.nav{padding:13px 16px;gap:9px}.nav .bm{display:none}.wrap{padding:0 16px}}
+
+/* === elevated hub: editorial hero + craft kit === */
+.grain{position:fixed;inset:0;z-index:40;pointer-events:none;opacity:.045;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero{text-align:left;padding:60px 0 54px;overflow:visible}
+.hero::before{display:none}
+.hero .wrap{display:grid;grid-template-columns:1.12fr .88fr;gap:58px;align-items:center}
+.eyebrow2{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:800;text-transform:uppercase;letter-spacing:.16em;color:var(--brand-d);margin-bottom:22px}
+.eyebrow2::before{content:"";width:24px;height:2px;background:var(--brand)}
+.hero h1{font-size:68px;font-weight:800;line-height:1.0;letter-spacing:-.04em;max-width:13ch;margin:0 0 24px;text-align:left}
+.hero h1 em{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--brand-d)}
+.hero .sub{font-size:18.5px;color:var(--ink-2);max-width:46ch;margin:0 0 30px;text-align:left}
+.hero .row{justify-content:flex-start}
+.hero .byline{text-align:left;margin:24px 0 0}
+.hero .freshline{margin-top:24px}
+.panel{background:linear-gradient(165deg,#fff,#fbf8f1);border:1px solid var(--line);border-radius:22px;box-shadow:0 30px 70px rgba(16,21,31,.10);overflow:hidden}
+.panel .ph{display:flex;align-items:center;justify-content:space-between;padding:17px 26px;border-bottom:1px solid var(--line-2);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.panel .ph .live{display:flex;align-items:center;gap:8px;color:var(--brand-d)}
+.panel .ph .live i{width:8px;height:8px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px var(--brand-wash)}
+.st{display:flex;align-items:baseline;justify-content:space-between;padding:19px 26px;border-bottom:1px solid var(--line-2)}
+.st:last-child{border-bottom:0}
+.st .n{font-family:var(--serif);font-weight:600;font-size:44px;line-height:.9;letter-spacing:-.02em;color:var(--ink);font-variant-numeric:tabular-nums}
+.st .n .u{font-size:.42em;font-weight:600;color:#946d1f;margin-left:.04em;font-family:var(--sans)}
+.st .l{font-size:13px;font-weight:600;color:var(--ink-3);text-align:right;max-width:15ch}
+.h2{font-family:var(--serif);font-weight:600;letter-spacing:-.022em}
+.h2 em{font-style:italic;color:var(--brand-d)}
+@media(max-width:880px){.hero .wrap{grid-template-columns:1fr;gap:32px}.hero h1{font-size:46px}.panel{max-width:540px}}
 </style>
 </head>
 <body>
+<div class="grain"></div>
 <nav class="nav">
   <a class="navback" href="https://adamdegoat.github.io/">← All projects</a>
   <a class="brand" href="#top"><span class="dia"></span><span class="bm">Groundwork</span><span class="bsub">by Adam Phang</span></a>
@@ -170,27 +197,24 @@ footer .disc{font-size:12px;max-width:70ch;margin:14px auto 0;line-height:1.6}
 
 <header class="hero" id="top">
   <div class="wrap">
-    <div class="kick"><span class="dot"></span>A Singapore property agent's toolkit</div>
-    <h1>Smarter tools for <em>Singapore</em> property</h1>
-    <p class="sub">Price every listing right, spot the smart buys, run every deal to the finish line — and put the right number in front of any client. <b>Caveat</b> values the market, <b>Thesis</b> finds the smart buys, <b>Steward</b> runs your live deals, <b>Abacus</b> does every property calculation, <b>Compass</b> maps any buyer's whole journey, <b>Atlas</b> keeps every rule, number &amp; deal step on hand, and <b>Press</b> turns the week's real data into ready-to-post content that brings clients in. One toolkit, built for Singapore.</p>
-    <p class="byline">— Adam Phang</p>
-    <div class="row">
-      <a class="btn btn-p" href="#tools">See the toolkit ↓</a>
-      <a class="btn btn-g" href="https://adamdegoat.github.io/caveat/">Open Caveat →</a>
-      <a class="btn btn-g" href="https://adamdegoat.github.io/thesis/">Open Thesis →</a>
-      <a class="btn btn-g" href="https://adamdegoat.github.io/steward/">Open Steward →</a>
-      <a class="btn btn-g" href="https://adamdegoat.github.io/abacus/">Open Abacus →</a>
-      <a class="btn btn-g" href="https://adamdegoat.github.io/compass/">Open Compass →</a>
-      <a class="btn btn-g" href="https://adamdegoat.github.io/atlas/">Open Atlas →</a>
-      <a class="btn btn-g" href="https://adamdegoat.github.io/press/">Open Press →</a>
+    <div>
+      <div class="eyebrow2">Singapore property intelligence</div>
+      <h1>The agent's <em>edge</em>, built on real data.</h1>
+      <p class="sub">Seven tools that price every listing, find the smart buys, run a deal to completion, answer any client on the spot — and bring new ones in. All on official URA, HDB &amp; OneMap data.</p>
+      <div class="row">
+        <a class="btn btn-p" href="#tools">See the toolkit ↓</a>
+        <a class="btn btn-g" href="https://adamdegoat.github.io/caveat/">Open Caveat →</a>
+      </div>
+      <p class="byline">— Adam Phang, Singapore property agent</p>
+      <div class="freshline"><span class="fdot"></span>Caveat &amp; Thesis auto-refresh from official URA &amp; HDB data <b>every Saturday</b> · next refresh <b id="nextref">—</b></div>
     </div>
-    <div class="stats">
-      <div class="stat"><div class="n">58,000+</div><div class="l">official sale transactions</div></div>
-      <div class="stat"><div class="n">106,464</div><div class="l">rental contracts</div></div>
-      <div class="stat"><div class="n">1,125</div><div class="l">amenities mapped</div></div>
-      <div class="stat"><div class="n">Weekly</div><div class="l">auto-refreshed</div></div>
+    <div class="panel">
+      <div class="ph"><span>Built on official data</span><span class="live"><i></i>Live</span></div>
+      <div class="st"><div class="n">58,000<span class="u">+</span></div><div class="l">official sale transactions</div></div>
+      <div class="st"><div class="n">106,464</div><div class="l">rental contracts</div></div>
+      <div class="st"><div class="n">1,125</div><div class="l">amenities mapped</div></div>
+      <div class="st"><div class="n">Weekly</div><div class="l">auto-refreshed from source</div></div>
     </div>
-    <div class="freshline"><span class="fdot"></span>Caveat &amp; Thesis auto-refresh from official URA &amp; HDB data <b>every Saturday</b> · next refresh <b id="nextref">—</b></div>
   </div>
 </header>
 
