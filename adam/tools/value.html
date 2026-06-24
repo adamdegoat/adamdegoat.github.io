@@ -85,6 +85,7 @@ table.comps td b{color:var(--ink);font-weight:700}
 .cstreet{display:block;font-size:11.5px;color:var(--ink3);margin-top:2px;font-weight:500}
 .cpr{font-weight:800;color:var(--green2)}
 .comps-note{font-size:12px;color:var(--ink3);margin-top:10px;line-height:1.5}
+@media(max-width:560px){.comps .hide-sm{display:none}table.comps{min-width:0}table.comps th,table.comps td{padding:11px 12px}}
 .disc{font-size:12.5px;color:var(--ink3);margin-top:20px;border-top:1px solid var(--line);padding-top:18px;line-height:1.6}.disc b{color:var(--ink2)}
 .cta{margin:24px 0 0;display:flex;gap:11px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;padding:13px 22px;border-radius:30px}
@@ -369,10 +370,10 @@ function renderComps(kind,comps){
     const left=kind==='hdb'
       ? `<b>Blk ${c.block||'—'}</b>${c.storey_mid?` <span class="cflr">#${String(c.storey_mid).padStart(2,'0')}</span>`:''}<span class="cstreet">${title(c.street||'')}</span>`
       : `${c.floor_mid?`<b>#${String(c.floor_mid).padStart(2,'0')}</b>`:'<b>—</b>'}<span class="cstreet">${title(c.street||'')}</span>`;
-    return `<tr><td>${left}</td><td class="cnum cflr">${when}</td><td class="cnum">${sf?sf.toLocaleString()+' sf':'—'}</td><td class="cnum">$${Math.round(c.psf)}</td><td class="cnum cpr">${fmtM(c.price)}</td></tr>`;
+    return `<tr><td>${left}</td><td class="cnum cflr">${when}</td><td class="cnum hide-sm">${sf?sf.toLocaleString()+' sf':'—'}</td><td class="cnum hide-sm">$${Math.round(c.psf)}</td><td class="cnum cpr">${fmtM(c.price)}</td></tr>`;
   }).join('');
   w.innerHTML=`<div class="comps-h"><b>The recent sales behind this number</b><span>${comps.length} comparable${comps.length===1?'':'s'} used · newest first</span></div>
-    <div class="comps-scroll"><table class="comps"><thead><tr><th>${kind==='hdb'?'Block &amp; floor':'Unit'}</th><th class="cnum">Sold</th><th class="cnum">Size</th><th class="cnum">$psf</th><th class="cnum">Price</th></tr></thead><tbody>${body}</tbody></table></div>
+    <div class="comps-scroll"><table class="comps"><thead><tr><th>${kind==='hdb'?'Block &amp; floor':'Unit'}</th><th class="cnum">Sold</th><th class="cnum hide-sm">Size</th><th class="cnum hide-sm">$psf</th><th class="cnum">Price</th></tr></thead><tbody>${body}</tbody></table></div>
     <p class="comps-note">These are the actual transacted prices the estimate is built from${kind==='hdb'?'':', in this project'}. Newer and closer sales count more. Floor (#) is the band mid-point.</p>`;
 }
 
