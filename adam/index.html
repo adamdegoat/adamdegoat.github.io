@@ -14,7 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#f6f3ea;--bg2:#f1ece0;--ink:#191512;--ink2:#5a5248;--ink3:#988e7e;--line:#e7e0d2;--line2:#dbd1bf;
+:root{--bg:#f6f3ea;--bg2:#f1ece0;--ink:#191512;--ink2:#5a5248;--ink3:#6b6253;--line:#e7e0d2;--line2:#dbd1bf;
  --green:#1b3a2d;--green2:#27513f;--green3:#0f231a;--brass:#b08d57;--brass2:#cda86a;--brass3:#e3c98f;
  --serif:'Fraunces',Georgia,serif;--sans:'Schibsted Grotesk',system-ui,sans-serif;
  --sh1:0 2px 8px rgba(25,21,18,.05);--sh2:0 24px 50px rgba(25,21,18,.10),0 6px 16px rgba(25,21,18,.05);
@@ -448,7 +448,7 @@ body::before{animation:none}
 /* trim remaining idle GPU: kill the forever-sweeping sheen; drop nav blur on mobile */
 .pov .sheen{display:none}
 @media(max-width:768px){.nav.scrolled{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(236,229,211,.97)}}
-</style>
+:focus-visible{outline:2.5px solid #b08d57;outline-offset:2px;border-radius:3px}.eyebrow,.kick,.free,.rdate,.note .date,.lp-k,.tool .free{color:#8f6a2c}</style>
 <noscript><style>.rv{opacity:1!important;transform:none!important}.livepanel,.portrait{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
@@ -792,15 +792,17 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
 /* parallax on treated imagery + skyline draw-in */
 (function(){
   const hb=document.querySelector('.hero-bg'),pbi=document.querySelector('.pb-img'),pband=document.querySelector('.photoband');
+  // parallax only on real desktop pointers — on phones/touch it lags (re-compositing a filtered image every frame) and isn't worth it
+  const PX = matchMedia('(min-width:1024px) and (hover:hover)').matches && !matchMedia('(prefers-reduced-motion:reduce)').matches;
   let ticking=false;
   function px(){
+    if(!PX){ticking=false;return;}
     const y=scrollY;
-    if(hb&&y<1300)hb.style.transform='translateY('+(y*0.12).toFixed(1)+'px) scale(1.08)';
-    if(pbi&&pband){const r=pband.getBoundingClientRect();const o=(((r.top+r.height/2)-innerHeight/2)*-0.05).toFixed(1);pbi.style.transform='translateY('+o+'px) scale(1.12)';}
+    if(hb&&y<1300)hb.style.transform='translateY('+(y*0.10).toFixed(1)+'px) scale(1.05)';
+    if(pbi&&pband){const r=pband.getBoundingClientRect();const o=(((r.top+r.height/2)-innerHeight/2)*-0.045).toFixed(1);pbi.style.transform='translateY('+o+'px) scale(1.09)';}
     ticking=false;
   }
-  addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(px);ticking=true;}},{passive:true});
-  addEventListener('resize',px); px();
+  if(PX){ addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(px);ticking=true;}},{passive:true}); addEventListener('resize',px); px(); }
   const sk=document.getElementById('skyline');
   if(sk){const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){sk.classList.add('drawn');o.disconnect();}}),{threshold:.25});o.observe(sk);}
 })();
