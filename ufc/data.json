@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-24T21:00:00.257552+08:00",
+  "updated": "2026-06-24T23:30:00.231728+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -338,6 +338,12 @@
       "priority": true
     },
     {
+      "title": "Charles Oliveira wants Justin Gaethje rematch to settle unfinished business, unify UFC, BMF belts",
+      "link": "https://www.mmafighting.com/ufc/495780/charles-oliveira-wants-justin-gaethje-rematch-to-settle-unfinished-business-unify-ufc-bmf-belts",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "Dustin Poirier public intoxication arrest video shows erratic, threatening behavior from former UFC fighter",
       "link": "https://www.mmafighting.com/latest-news/496086/dustin-poirier-public-intoxication-arrest-video-shows-erratic-threatening-behavior-from-former-ufc-fighter",
       "source": "MMA Fighting",
@@ -356,27 +362,21 @@
       "priority": false
     },
     {
-      "title": "Daniel Cormier explains why fewer and fewer American wrestlers are transitioning to MMA these days",
-      "link": "https://www.mmafighting.com/ufc/495882/daniel-cormier-explains-why-fewer-and-fewer-american-wrestlers-are-transitioning-to-mma-these-days",
-      "source": "MMA Fighting",
+      "title": "UFC Baku main card odds, breakdowns and predictions | X-Factor",
+      "link": "https://www.mmamania.com/ufc-odds/452702/ufc-baku-main-card-odds-breakdowns-and-predictions-x-factor",
+      "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "The Ultimate Fighter 34’s Melissa Amaya won’t shy away from mental health battle: ‘I felt like I was losing my mind’",
-      "link": "https://www.mmafighting.com/ufc/495768/the-ultimate-fighter-34s-melissa-amaya-wont-shy-away-from-mental-health-battle-i-felt-like-i-was-losing-my-mind",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Donald Trump lauds UFC White House athletes as ‘strongest, toughest men on Earth’",
-      "link": "https://www.mmamania.com/ufc-white-house-2026-fight-card-start-time-full-results-dana-white-conor-mcgregor-cbs-mma/452788/donald-trump-lauds-ufc-white-house-athletes-as-strongest-toughest-men-on-earth",
+      "title": "Josh Hokit aiming for two more fights and ‘a four million dollar’ 2026 despite White House controversy",
+      "link": "https://www.mmamania.com/ufc-news/452823/josh-hokit-aiming-for-two-more-fights-and-a-four-million-dollar-2026-despite-white-house-controversy",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Fiziev clashes with Torres this Sunday at midnight SGT—don't sleep on it.",
-    "prefight": "Fiziev and Torres clash in a lightweight striking war this Sunday.",
-    "results": "Manel Kape destroys Horiguchi with a punishing round 3 TKO to claim main event victory."
+    "week": "Striking showdown: Fiziev vs Torres Sunday midnight SGT—prime time action incoming.",
+    "prefight": "Two striking titans collide—Fiziev vs Torres Sunday midnight SGT.",
+    "results": "Kape unleashed a barrage of punches to finish Horiguchi in round three."
   }
 }
