@@ -219,6 +219,7 @@ function calc(){
     } else n+=`There's no extra ABSD here — a Singapore Citizen's first home pays only the basic duty. `;
     n+=`Both are due within 14 days of signing.`;
     if(who==='Foreigner') n+=`<br><br><b>Note:</b> some nationalities are taxed at citizen rates under trade agreements — US citizens, and citizens &amp; PRs of Iceland, Liechtenstein, Norway and Switzerland. If that's you, message me to check.`;
+    if(who==='SC' && count!=='1') n+=`<br><br><b>Upgrading as a married couple?</b> If you're buying your next home before selling your current one, you pay this ABSD upfront — but a married couple with at least one Singapore Citizen can claim it back in full, as long as you sell the first home within 6 months of buying the second (for a completed property). Worth planning the timing with me before you commit.`;
   }
   $('#note').innerHTML=n;
   $('#disc').innerHTML='Indicative estimate only — not financial advice. Stamp duty is charged on the <b>higher of the price or the home\'s market valuation</b>. For couples with different profiles, the higher ABSD rate applies. Final duties are determined by IRAS. Rates as of '+RATES.as_of+'.';

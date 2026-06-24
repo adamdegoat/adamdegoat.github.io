@@ -269,7 +269,7 @@ function calc(){
     ['Loan you’d take','about '+Math.round(r.ltv*100)+'% of the price','~'+fmt(r.loan)],
     ['You put down','cash ~'+fmt(r.cashPortion)+' + CPF ~'+fmt(r.cpfPortion),'~'+fmt(r.downpay)],
     ['Monthly repayment','tested at '+(r.sr*100)+'% — your actual will be lower','~'+fmt(r.monthlyStress)],
-    ['Cash needed upfront','min cash + stamp duty + legal','~'+fmt(r.cashUpfront)],
+    ['Cash needed upfront','min cash + stamp duty + ~$3k legal/fees allowance','~'+fmt(r.cashUpfront)],
   ];
   $('#rows').innerHTML=rows.map(x=>`<div class="row"><span class="k">${x[0]}<small>${x[1]}</small></span><span class="v">${x[2]}</span></div>`).join('');
   // reduced-LTV flag (the important honesty bit)

@@ -104,9 +104,19 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
       <label>Do you own — or sold in the last ~2.5 years — a private property?</label>
       <div class="opts" id="owns"><div class="opt on" data-v="no">No</div><div class="opt" data-v="yes">Yes</div></div>
     </div>
-    <div class="field money">
-      <label>Household monthly income<small>Only matters for a new EC (there's a $16,000 ceiling). Leave as is otherwise.</small></label>
+    <div class="field money" id="incomeField" style="display:none">
+      <label>Household monthly income<small>New ECs have a $16,000 income ceiling.</small></label>
       <span class="pre">$</span><input type="text" id="income" inputmode="numeric" value="12,000">
+    </div>
+    <div id="waitFields" style="display:none">
+      <div class="field">
+        <label>Will you take an HDB loan or a CPF housing grant?<small>This sets your wait-out — 15 months without, 30 months with.</small></label>
+        <div class="opts" id="finance"><div class="opt on" data-v="no">No</div><div class="opt" data-v="yes">Yes</div></div>
+      </div>
+      <div class="field">
+        <label>A Singapore Citizen aged 55+, buying a 4-room or smaller flat?<small>If yes, you're exempt from the wait-out entirely.</small></label>
+        <div class="opts" id="senior"><div class="opt on" data-v="no">No</div><div class="opt" data-v="yes">Yes</div></div>
+      </div>
     </div>
   </div>
 
@@ -150,7 +160,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
 <script>
 const $=s=>document.querySelector(s);
 const num=id=>parseFloat(($('#'+id).value||'').replace(/[^0-9.]/g,''))||0;
-let ptype='hdb', status='sc', owns='no';
+let ptype='hdb', status='sc', owns='no', finance='no', senior='no';
 const CHECK='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#27513f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
 const WARN='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#b0883a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>';
 const NO='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#a23f28" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg>';
@@ -179,16 +189,26 @@ function compute(){
     } else {
       if(status==='pr'){
         v='cond'; vk='Only with the right partner'; vh='A PR can\'t buy a resale flat alone.';
-        P.push([WARN,'You\'ll need to buy <b>with another PR</b> (each of you a PR for at least <b>3 years</b>) or <b>with a Singapore Citizen</b> — forming a recognised family nucleus.']);
+        P.push([WARN,'You can only buy <b>with a Singapore Citizen</b>, or <b>with another PR — and both of you must have held PR for at least 3 years</b>. Either way you need a recognised family nucleus.']);
         P.push([CHECK,'As a PR your first home carries <b>5% ABSD</b> (refundable only in limited cases).']);
       } else {
         vk='You\'re eligible'; vh='Yes — as a Singapore Citizen you can buy a resale flat.';
         P.push([CHECK,'With a family, or <b>on your own from age 35</b> (singles scheme).']);
         P.push([CHECK,'<b>No income ceiling</b> to buy a resale flat — income limits only apply to HDB loans (≤$14,000 for families) and grants.']);
       }
-      if(ownPriv) P.push([WARN,'Because you own / recently sold private property: you must <b>sell your private home first</b>, then serve a <b>15-month wait</b> before buying a (non-subsidised) resale flat — or <b>30 months</b> if you take an HDB loan or a housing grant. Seniors 55+ downsizing to a 4-room or smaller flat are exempt.']);
-      else P.push([CHECK,'You can\'t own a flat and a private property at the same time (beyond a short grace period).']);
-      P.push([WARN,'After buying, there\'s a <b>5-year Minimum Occupation Period</b> — you can\'t sell it or buy private property until then.']);
+      if(ownPriv){
+        v='cond'; vk='Eligible — but sell &amp; wait first';
+        if(status==='sc' && senior==='yes'){
+          P.push([CHECK,'<b>Good news:</b> a Singapore Citizen aged 55+ buying a 4-room-or-smaller resale flat is <b>exempt from the wait-out</b>. You still sell your private property first, but there\'s no waiting period after that.']);
+        } else if(finance==='yes'){
+          P.push([WARN,'You own / recently sold private property: <b>sell it first</b>, then serve a <b>30-month wait</b> before you can buy — because you\'re taking an HDB loan or a CPF housing grant.']);
+        } else {
+          P.push([WARN,'You own / recently sold private property: <b>sell it first</b>, then serve a <b>15-month wait</b> before you can buy (a non-subsidised resale flat, with no HDB loan or grant).']);
+        }
+      } else {
+        P.push([CHECK,'You can\'t own a flat and a private property at the same time (beyond a short grace period).']);
+      }
+      P.push([WARN,'After buying, there\'s a <b>5-year Minimum Occupation Period</b> — you can\'t sell it or buy private property until then. <b>Plus / Prime</b> flats have a 10-year MOP.']);
     }
   }
 
@@ -212,7 +232,12 @@ function compute(){
   return {v, vk, vh, points:P};
 }
 
+function toggleFields(){
+  $('#incomeField').style.display = ptype==='ec' ? '' : 'none';
+  $('#waitFields').style.display = (ptype==='hdb' && owns==='yes' && status!=='foreigner') ? '' : 'none';
+}
 function render(){
+  toggleFields();
   const r=compute();
   const vd=$('#verdict'); vd.className='verdict '+r.v;
   $('#vk').textContent=r.vk; $('#vh').innerHTML=r.vh;
@@ -223,6 +248,8 @@ function pick(group,val){ document.querySelectorAll('#'+group+' .opt').forEach(o
 document.querySelectorAll('#ptype .opt').forEach(o=>o.onclick=()=>{ptype=o.dataset.v;pick('ptype',ptype);render();});
 document.querySelectorAll('#status .opt').forEach(o=>o.onclick=()=>{status=o.dataset.v;pick('status',status);render();});
 document.querySelectorAll('#owns .opt').forEach(o=>o.onclick=()=>{owns=o.dataset.v;pick('owns',owns);render();});
+document.querySelectorAll('#finance .opt').forEach(o=>o.onclick=()=>{finance=o.dataset.v;pick('finance',finance);render();});
+document.querySelectorAll('#senior .opt').forEach(o=>o.onclick=()=>{senior=o.dataset.v;pick('senior',senior);render();});
 $('#income').addEventListener('input',e=>{const raw=e.target.value.replace(/[^0-9]/g,'');e.target.value=raw?Number(raw).toLocaleString('en-US'):'';render();});
 window.__elig={compute};
 render();

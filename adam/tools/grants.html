@@ -175,6 +175,7 @@ function compute(){
       else notes.push('Your income is above the EHG ceiling ('+money(ceil)+'/mo), so no EHG.');
     } else notes.push('EHG is for first-timers only.');
   }
+  if(buy==='resale') notes.push('On an older resale flat, grants can be <b>pro-rated</b> if the remaining lease won\'t cover the youngest buyer to age 95 — so a short-lease flat may give you less than the figure above. Send me the exact unit and I\'ll check.');
   // Family Grant — resale only, first-timers
   if(buy==='resale' && timer==='first'){
     const ceil=single?7000:14000;
