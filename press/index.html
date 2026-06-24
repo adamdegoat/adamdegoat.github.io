@@ -64,6 +64,31 @@ a{color:inherit;text-decoration:none}
 .btn.dl{background:var(--ink);color:var(--bg)}
 .btn.cp{background:#fff;border:1.5px solid var(--ink);color:var(--ink)}
 .btn.cp.done{background:#1b3a2d;color:#fff;border-color:#1b3a2d}
+/* phone-in-IG featured cards */
+.pcard{display:flex;flex-direction:column;align-items:center}
+.phone{width:100%;max-width:342px;background:#0d0d0f;border-radius:42px;padding:9px;box-shadow:0 30px 60px #1c140d33;position:relative}
+.island{position:absolute;top:18px;left:50%;transform:translateX(-50%);width:86px;height:24px;background:#000;border-radius:18px;z-index:5}
+.screen{background:#fff;border-radius:34px;overflow:hidden}
+.sbar{display:flex;justify-content:space-between;align-items:center;padding:11px 20px 6px;font-size:12px;font-weight:700;color:#0d0d0f}
+.igh{display:flex;align-items:center;gap:9px;padding:8px 11px}
+.av{width:32px;height:32px;border-radius:50%;background:linear-gradient(45deg,#feda75,#d62976,#962fbf);padding:2px;flex:none}
+.av i{display:flex;width:100%;height:100%;border-radius:50%;background:linear-gradient(150deg,#1b3a2d,#0f231b);align-items:center;justify-content:center;font-family:Fraunces;font-weight:900;font-size:17px;color:#e3c98f;font-style:normal}
+.who{display:flex;flex-direction:column;gap:3px}
+.uname{height:9px;width:88px;background:#3a3a3a;border-radius:3px;filter:blur(3px);opacity:.85}
+.loc{height:7px;width:56px;background:#bdbdbd;border-radius:3px;filter:blur(2.5px)}
+.igh .more{margin-left:auto;font-weight:800;color:#222;letter-spacing:2px}
+.pimg img{width:100%;display:block}
+.acts{display:flex;gap:15px;padding:11px 13px 5px;font-size:21px}
+.acts .save{margin-left:auto}
+.likes{padding:1px 13px}
+.lk{display:block;height:9px;width:130px;background:#3a3a3a;border-radius:3px;filter:blur(3px);opacity:.8}
+.pcap{padding:5px 13px 3px;font-size:12.5px;line-height:1.45;color:#1a1a1a}
+.pcap .u{display:inline-block;height:9px;width:74px;background:#3a3a3a;border-radius:3px;filter:blur(3px);vertical-align:middle;margin-right:5px;opacity:.85}
+.pcap .more2{color:#8e8e8e}
+.pcap .tags{color:#274d8a;display:block;margin-top:2px}
+.ptime{padding:5px 13px 13px;font-size:10px;color:#9a9a9a;text-transform:uppercase;letter-spacing:.04em}
+.pcard .tagrow{margin:16px 0 0;display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.pcard .btns{margin-top:12px;width:100%;max-width:342px;display:flex;gap:10px}
 /* recent drops */
 .recent{margin-top:64px}
 /* how to — compact */
@@ -115,43 +140,61 @@ a{color:inherit;text-decoration:none}
   </div>
   <section id="drop">
     <div class="shead"><h2>This week's drop</h2><span class="newpill">● 3 New</span><span class="subnote">Suggested: post one Mon · Wed · Fri</span></div>
-    <div class="grid"><article class="card">
-  <div class="imgwrap"><span class="ribbon">New</span><img loading="lazy" src="posts/2026-06-24-w2-grants.png" alt="Housing grants you may be missing"></div>
-  <div class="meta"><div class="tagrow"><span class="tg">Grants</span><span class="tg">CPF</span></div>
-    <p class="cap">Most buyers never check this. 👀</p>
-    <div class="btns">
-      <a class="btn dl" href="posts/2026-06-24-w2-grants.png" download>↓ Download</a>
-      <button class="btn cp" data-cap="Most buyers never check this. 👀
+    <div class="grid"><article class="pcard">
+  <div class="phone"><div class="island"></div><div class="screen">
+    <div class="sbar"><span>9:41</span><span>●●● 📶 🔋</span></div>
+    <div class="igh"><div class="av"><i>A</i></div><div class="who"><span class="uname"></span><span class="loc"></span></div><span class="more">⋯</span></div>
+    <div class="pimg"><img loading="lazy" src="posts/2026-06-24-w2-grants.png" alt="Housing grants you may be missing"></div>
+    <div class="acts"><span>♡</span><span>💬</span><span>➤</span><span class="save">🔖</span></div>
+    <div class="likes"><span class="lk"></span></div>
+    <div class="pcap"><span class="u"></span>Most buyers never check this. 👀 <span class="more2">… more</span><span class="tags">#singaporeproperty #hdbgrants #firsthome</span></div>
+    <div class="ptime">2 hours ago</div>
+  </div></div>
+  <div class="tagrow"><span class="tg">Grants</span><span class="tg">CPF</span></div>
+  <div class="btns"><a class="btn dl" href="posts/2026-06-24-w2-grants.png" download>↓ Download</a>
+    <button class="btn cp" data-cap="Most buyers never check this. 👀
 
 A first-timer family can get up to $80k from the CPF Housing Grant, before EHG, Proximity or EC grants stack on top. That's real money toward your flat.
 
 link in bio.
 
-#singaporeproperty #hdbgrants #firsthome #bto #sgproperty #propertysg">⧉ Copy caption</button>
-    </div></div></article><article class="card">
-  <div class="imgwrap"><span class="ribbon">New</span><img loading="lazy" src="posts/2026-06-24-w2-myth.png" alt="Property myth vs fact"></div>
-  <div class="meta"><div class="tagrow"><span class="tg">Myth vs Fact</span><span class="tg">Tip</span></div>
-    <p class="cap">Myth: the price you offer is the price you can borrow on.</p>
-    <div class="btns">
-      <a class="btn dl" href="posts/2026-06-24-w2-myth.png" download>↓ Download</a>
-      <button class="btn cp" data-cap="Myth: the price you offer is the price you can borrow on.
+#singaporeproperty #hdbgrants #firsthome #bto #sgproperty #propertysg">⧉ Copy caption</button></div>
+</article><article class="pcard">
+  <div class="phone"><div class="island"></div><div class="screen">
+    <div class="sbar"><span>9:41</span><span>●●● 📶 🔋</span></div>
+    <div class="igh"><div class="av"><i>A</i></div><div class="who"><span class="uname"></span><span class="loc"></span></div><span class="more">⋯</span></div>
+    <div class="pimg"><img loading="lazy" src="posts/2026-06-24-w2-myth.png" alt="Property myth vs fact"></div>
+    <div class="acts"><span>♡</span><span>💬</span><span>➤</span><span class="save">🔖</span></div>
+    <div class="likes"><span class="lk"></span></div>
+    <div class="pcap"><span class="u"></span>Myth: the price you offer is the price you can borrow on. <span class="more2">… more</span><span class="tags">#singaporeproperty #propertysg #homeloan</span></div>
+    <div class="ptime">2 hours ago</div>
+  </div></div>
+  <div class="tagrow"><span class="tg">Myth vs Fact</span><span class="tg">Tip</span></div>
+  <div class="btns"><a class="btn dl" href="posts/2026-06-24-w2-myth.png" download>↓ Download</a>
+    <button class="btn cp" data-cap="Myth: the price you offer is the price you can borrow on.
 Not true. Your loan and CPF only stretch to the bank's valuation.
 Offer above it and that gap comes straight out of your own pocket.
 Know the valuation before you sign anything.
 link in bio
-#singaporeproperty #propertysg #homeloan #cpf #buyinghome #valuation">⧉ Copy caption</button>
-    </div></div></article><article class="card">
-  <div class="imgwrap"><span class="ribbon">New</span><img loading="lazy" src="posts/2026-06-24-w2-schools.png" alt="Homes near Chij (Katong) Primary"></div>
-  <div class="meta"><div class="tagrow"><span class="tg">School Finder</span><span class="tg">1km</span></div>
-    <p class="cap">Want CHIJ Katong for your kid? Address matters more than luck.</p>
-    <div class="btns">
-      <a class="btn dl" href="posts/2026-06-24-w2-schools.png" download>↓ Download</a>
-      <button class="btn cp" data-cap="Want CHIJ Katong for your kid? Address matters more than luck.
+#singaporeproperty #propertysg #homeloan #cpf #buyinghome #valuation">⧉ Copy caption</button></div>
+</article><article class="pcard">
+  <div class="phone"><div class="island"></div><div class="screen">
+    <div class="sbar"><span>9:41</span><span>●●● 📶 🔋</span></div>
+    <div class="igh"><div class="av"><i>A</i></div><div class="who"><span class="uname"></span><span class="loc"></span></div><span class="more">⋯</span></div>
+    <div class="pimg"><img loading="lazy" src="posts/2026-06-24-w2-schools.png" alt="Homes near Chij (Katong) Primary"></div>
+    <div class="acts"><span>♡</span><span>💬</span><span>➤</span><span class="save">🔖</span></div>
+    <div class="likes"><span class="lk"></span></div>
+    <div class="pcap"><span class="u"></span>Want CHIJ Katong for your kid? Address matters more than luck. <span class="more2">… more</span><span class="tags">#chijkatong #p1priority #katonghomes</span></div>
+    <div class="ptime">2 hours ago</div>
+  </div></div>
+  <div class="tagrow"><span class="tg">School Finder</span><span class="tg">1km</span></div>
+  <div class="btns"><a class="btn dl" href="posts/2026-06-24-w2-schools.png" download>↓ Download</a>
+    <button class="btn cp" data-cap="Want CHIJ Katong for your kid? Address matters more than luck.
 129+ homes sit inside 1km, P1 priority in hand.
 Pick the right one now, before someone else does.
 link in bio
-#chijkatong #p1priority #katonghomes #singaporeproperty #propertysg">⧉ Copy caption</button>
-    </div></div></article></div>
+#chijkatong #p1priority #katonghomes #singaporeproperty #propertysg">⧉ Copy caption</button></div>
+</article></div>
   </section>
   <section id="recent" class="recent"><div class="shead"><h2>Recent drops</h2><span class="subnote">the last few weeks</span></div><div class="grid"><article class="card">
   <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-w1-stamp.png" alt="Stamp duty — ABSD on a second home"></div>
