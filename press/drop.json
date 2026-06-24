@@ -1,40 +1,76 @@
 {
   "current": {
-    "issue": 1,
+    "issue": 2,
     "built": "2026-06-24",
     "week_of": "24 June 2026",
     "posts": [
       {
-        "id": "pulse",
+        "id": "stamp",
         "tag": [
-          "Market Pulse",
-          "Clementi"
+          "Stamp Duty",
+          "ABSD"
         ],
-        "caption": "Sellers are quietly winning in Clementi \ud83d\udcc8\n\nThe median resale flat there is now $598k \u2014 up 3.9% over the year, across 713 sales. If you're holding here, you've got leverage. If you're buying, move with your eyes open.\n\nThe full read on what it means for your move is on the site \u2014 link in bio.\n\n#singaporeproperty #clementi #hdbresale #sgpropertymarket #propertysg #sghome",
-        "alt": "Market Pulse \u2014 Clementi",
-        "file": "2026-06-24-pulse.png"
+        "caption": "Buying a second home? Don't forget the ABSD. \ud83d\ude2c\n\nOn a $1.65M purchase, a Singapore citizen pays about $330k in Additional Buyer's Stamp Duty \u2014 on top of the price. Most people only find out when it's too late.\n\nWork out your exact stamp duty, free \u2014 link in bio.\n\n#singaporeproperty #absd #stampduty #propertyinvestment #sgproperty #propertysg",
+        "alt": "Stamp duty \u2014 ABSD on a second home",
+        "file": "2026-06-24-stamp.png"
       },
       {
-        "id": "grants",
+        "id": "net",
         "tag": [
-          "Grants",
-          "CPF"
+          "Net Proceeds",
+          "Selling"
         ],
-        "caption": "You might be leaving money on the table. \ud83d\udc40\n\nFirst-timer families can receive up to $80k from the CPF Housing Grant alone \u2014 and that's before EHG, Proximity or EC grants stack on top. Most buyers never check what they actually qualify for.\n\nCheck your grants in 30 seconds, free \u2014 link in bio.\n\n#singaporeproperty #hdbgrants #firsthome #bto #sgproperty #propertysg",
-        "alt": "Housing grants you may be missing",
-        "file": "2026-06-24-grants.png"
+        "caption": "Selling for $1.65M? Here's what actually lands in your pocket. \ud83d\udc47\n\nAfter your outstanding loan, your CPF refund (with accrued interest) and agent + legal fees, you'd walk away with about $879k \u2014 not $1.65M. Know your real number before you list.\n\nFree net-proceeds tool \u2014 link in bio.\n\n(Example figures \u2014 your own numbers will differ.)\n\n#singaporeproperty #sellingyourhome #cpf #propertysg #sgproperty",
+        "alt": "Net proceeds when you sell",
+        "file": "2026-06-24-net.png"
       },
       {
-        "id": "schools",
+        "id": "myth",
         "tag": [
-          "School Finder",
-          "1km"
+          "Myth vs Fact",
+          "Tip"
         ],
-        "caption": "Want priority at Haig Girls'? \ud83d\udccd\n\nLive within 1km and your child gets first dibs in the P1 ballot \u2014 and right now 169+ homes qualify. See every one, and check any school, free.\n\nFind homes near any school \u2014 link in bio.\n\n#singaporeproperty #primaryschool #sgparents #p1registration #propertysg #sghome",
-        "alt": "Homes near Haig Girls'",
-        "file": "2026-06-24-schools.png"
+        "caption": "Myth: \"Everyone pays extra stamp duty when they buy.\"\n\nA Singapore citizen pays 0% ABSD on their first home. It only starts from your second property.\n\nKnow the real rules before you start house-hunting.\n\nSee what you actually need, free \u2014 link in bio.\n\n#singaporeproperty #propertytips #homebuying101 #sgproperty #propertysg",
+        "alt": "Property myth vs fact",
+        "file": "2026-06-24-myth.png"
       }
     ]
   },
-  "archive": []
+  "archive": [
+    {
+      "week_of": "24 June 2026",
+      "posts": [
+        {
+          "id": "pulse",
+          "tag": [
+            "Market Pulse",
+            "Clementi"
+          ],
+          "caption": "Sellers are quietly winning in Clementi \ud83d\udcc8\n\nThe median resale flat there is now $598k \u2014 up 3.9% over the year, across 713 sales. If you're holding here, you've got leverage. If you're buying, move with your eyes open.\n\nThe full read on what it means for your move is on the site \u2014 link in bio.\n\n#singaporeproperty #clementi #hdbresale #sgpropertymarket #propertysg #sghome",
+          "alt": "Market Pulse \u2014 Clementi",
+          "file": "2026-06-24-pulse.png"
+        },
+        {
+          "id": "grants",
+          "tag": [
+            "Grants",
+            "CPF"
+          ],
+          "caption": "You might be leaving money on the table. \ud83d\udc40\n\nFirst-timer families can receive up to $80k from the CPF Housing Grant alone \u2014 and that's before EHG, Proximity or EC grants stack on top. Most buyers never check what they actually qualify for.\n\nCheck your grants in 30 seconds, free \u2014 link in bio.\n\n#singaporeproperty #hdbgrants #firsthome #bto #sgproperty #propertysg",
+          "alt": "Housing grants you may be missing",
+          "file": "2026-06-24-grants.png"
+        },
+        {
+          "id": "schools",
+          "tag": [
+            "School Finder",
+            "1km"
+          ],
+          "caption": "Want priority at Haig Girls'? \ud83d\udccd\n\nLive within 1km and your child gets first dibs in the P1 ballot \u2014 and right now 169+ homes qualify. See every one, and check any school, free.\n\nFind homes near any school \u2014 link in bio.\n\n#singaporeproperty #primaryschool #sgparents #p1registration #propertysg #sghome",
+          "alt": "Homes near Haig Girls'",
+          "file": "2026-06-24-schools.png"
+        }
+      ]
+    }
+  ]
 }
