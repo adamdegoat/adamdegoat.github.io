@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-24T13:00:00.238790+08:00",
+  "updated": "2026-06-24T21:00:00.257552+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -368,15 +368,15 @@
       "priority": false
     },
     {
-      "title": "Matt Brown reacts to Ronda Rousey, Jake Paul celebrating bigger ratings than UFC White House card",
-      "link": "https://www.mmafighting.com/ufc/495861/matt-brown-reacts-to-ronda-rousey-jake-paul-celebrating-bigger-ratings-than-ufc-white-house-card",
-      "source": "MMA Fighting",
+      "title": "Donald Trump lauds UFC White House athletes as ‘strongest, toughest men on Earth’",
+      "link": "https://www.mmamania.com/ufc-white-house-2026-fight-card-start-time-full-results-dana-white-conor-mcgregor-cbs-mma/452788/donald-trump-lauds-ufc-white-house-athletes-as-strongest-toughest-men-on-earth",
+      "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Lightweight war erupts Sunday when Fiziev faces Torres—fight week's main event is set.",
-    "prefight": "Fiziev and Torres clash Sunday in an absolute must-watch main event showdown.",
-    "results": "Manel Kape delivers round 3 TKO victory over Kyoji Horiguchi."
+    "week": "Fiziev clashes with Torres this Sunday at midnight SGT—don't sleep on it.",
+    "prefight": "Fiziev and Torres clash in a lightweight striking war this Sunday.",
+    "results": "Manel Kape destroys Horiguchi with a punishing round 3 TKO to claim main event victory."
   }
 }
