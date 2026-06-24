@@ -448,7 +448,20 @@ body::before{animation:none}
 /* trim remaining idle GPU: kill the forever-sweeping sheen; drop nav blur on mobile */
 .pov .sheen{display:none}
 @media(max-width:768px){.nav.scrolled{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(236,229,211,.97)}}
-:focus-visible{outline:2.5px solid #b08d57;outline-offset:2px;border-radius:3px}.eyebrow,.kick,.free,.rdate,.note .date,.lp-k,.tool .free{color:#8f6a2c}</style>
+:focus-visible{outline:2.5px solid #b08d57;outline-offset:2px;border-radius:3px}.eyebrow,.kick,.free,.rdate,.note .date,.lp-k,.tool .free{color:#8f6a2c}
+/* showcase photo band (option B): let the colour pop, honest card + link to valuation */
+.photoband{height:444px}
+.pb-scrim{display:none}
+.pb-ht{opacity:.05}
+.photoband::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(234,232,225,.6),transparent 16%),linear-gradient(0deg,rgba(234,232,225,.55),transparent 15%)}
+.pb-cap{position:absolute;left:0;right:0;bottom:0;z-index:3;padding-bottom:32px}
+.pb-card{display:inline-block;background:rgba(247,244,236,.94);border:1px solid rgba(25,21,18,.08);border-radius:16px;padding:20px 26px;max-width:380px;box-shadow:0 18px 44px rgba(15,35,26,.24);transition:transform .25s,box-shadow .25s}
+.pb-card:hover{transform:translateY(-3px);box-shadow:0 26px 56px rgba(15,35,26,.3)}
+.pb-card .pb-k{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#8f6a2c;display:block}
+.pb-card .pb-h{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:24px;line-height:1.12;color:#191512;display:block;margin-top:8px;letter-spacing:-.01em}
+.pb-card .pb-go{display:inline-flex;align-items:center;gap:7px;margin-top:13px;font-size:13.5px;font-weight:700;color:#27513f}
+.pb-card .pb-go i{font-style:normal;transition:transform .25s}.pb-card:hover .pb-go i{transform:translateX(5px)}
+@media(max-width:560px){.photoband{height:340px}.pb-card{display:block;max-width:none}}</style>
 <noscript><style>.rv{opacity:1!important;transform:none!important}.livepanel,.portrait{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
@@ -562,11 +575,10 @@ body::before{animation:none}
 </div></section>
 
 <section class="photoband">
-  <img class="pb-img" src="img/heartland.jpg" alt="A Singapore neighbourhood" loading="lazy" decoding="async">
+  <img class="pb-img" src="img/heartland.jpg" alt="A colourful Singapore HDB neighbourhood" loading="lazy" decoding="async">
 
   <div class="pb-ht"></div>
-  <div class="pb-scrim"></div>
-  <div class="pb-cap wrap"><span class="pb-kick">Home values</span><h3>Same block, same year — yet two units sell <em>$120k apart.</em></h3></div>
+  <div class="pb-cap wrap"><a class="pb-card" href="tools/value.html"><span class="pb-k">Home values</span><span class="pb-h">No two homes are worth the same.</span><span class="pb-go">See what yours is worth <i>→</i></span></a></div>
 </section>
 
 <section class="sec" id="notes"><div class="wrap">
