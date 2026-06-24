@@ -453,7 +453,9 @@ body::before{animation:none}
 .photoband{height:444px}
 .pb-scrim{display:none}
 .pb-ht{opacity:.05}
-.photoband::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(234,232,225,.6),transparent 16%),linear-gradient(0deg,rgba(234,232,225,.55),transparent 15%)}
+.photoband::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(234,232,225,.5),transparent 8%),linear-gradient(0deg,rgba(234,232,225,.42),transparent 8%)}
+/* showcase: lift the photo above the site grain so the colour is clean (no dots/texture) */
+.photoband{position:relative;z-index:10}
 .pb-cap{position:absolute;left:0;right:0;bottom:0;z-index:3;padding-bottom:32px}
 .pb-card{display:inline-block;background:rgba(247,244,236,.94);border:1px solid rgba(25,21,18,.08);border-radius:16px;padding:20px 26px;max-width:380px;box-shadow:0 18px 44px rgba(15,35,26,.24);transition:transform .25s,box-shadow .25s}
 .pb-card:hover{transform:translateY(-3px);box-shadow:0 26px 56px rgba(15,35,26,.3)}
@@ -576,9 +578,6 @@ body::before{animation:none}
 
 <section class="photoband">
   <img class="pb-img" src="img/heartland.jpg" alt="A colourful Singapore HDB neighbourhood" loading="lazy" decoding="async">
-
-  <div class="pb-ht"></div>
-  <div class="pb-cap wrap"><a class="pb-card" href="tools/value.html"><span class="pb-k">Home values</span><span class="pb-h">No two homes are worth the same.</span><span class="pb-go">See what yours is worth <i>→</i></span></a></div>
 </section>
 
 <section class="sec" id="notes"><div class="wrap">
