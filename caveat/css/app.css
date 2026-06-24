@@ -546,3 +546,14 @@ body.dark .modal,body.dark .deck,body.dark .elig-card,body.dark .panel{backgroun
   .deck,.elig-card{box-shadow:none;border:1px solid #ccc}
   .route{display:none!important}.route.active{display:block!important}
 }
+
+/* ===== craft kit — visual polish only (no logic / markup / IDs touched) ===== */
+body::after{content:"";position:fixed;inset:0;z-index:55;pointer-events:none;opacity:.042;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.appbar{background:rgba(251,250,247,.82);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3)}
+.panel{background:linear-gradient(168deg,#ffffff,#fbf8f1);box-shadow:0 12px 36px rgba(16,21,31,.075),0 2px 6px rgba(16,21,31,.04)}
+.estimate{background:radial-gradient(700px 300px at 0% 0%,var(--brand-wash) 0,transparent 62%)}
+.est-main .est-label{letter-spacing:.16em;color:var(--brand-d)}
+.estimate .est-figure{font-size:56px;letter-spacing:-.035em;font-variant-numeric:tabular-nums;line-height:.95}
+.comps th{letter-spacing:.08em}
+.deck-section h4,.panel h3.panel-title{letter-spacing:.14em}
