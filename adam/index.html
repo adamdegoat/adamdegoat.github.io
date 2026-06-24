@@ -237,16 +237,16 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .sec-h h2{font-family:var(--serif);font-weight:600;font-size:clamp(30px,3.4vw,40px);letter-spacing:-.022em;line-height:1.04;margin-top:12px}
 .sec-h p{color:var(--ink2);font-size:15px;max-width:380px}
 .router{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.rcard{position:relative;background:#fffefc;border:1px solid var(--line);border-radius:22px;padding:30px 28px 26px;overflow:hidden;box-shadow:0 6px 22px rgba(25,21,18,.05);transition:transform .38s var(--ease),box-shadow .38s var(--ease),border-color .38s}
+.rcard{position:relative;background:#fffefc;border:1px solid var(--line);border-radius:18px;padding:20px 22px 17px;overflow:hidden;box-shadow:0 6px 22px rgba(25,21,18,.05);transition:transform .38s var(--ease),box-shadow .38s var(--ease),border-color .38s}
 .rcard::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--brass2),var(--brass));transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
 .rcard:hover{transform:translateY(-8px);box-shadow:0 28px 60px rgba(25,21,18,.16),0 0 36px rgba(176,141,87,.3),inset 0 0 0 1px rgba(227,201,143,.4);border-color:var(--brass2)}
 .rcard:hover::after{transform:scaleX(1)}
-.rcard .ic{position:relative;width:58px;height:58px;border-radius:17px;background:linear-gradient(140deg,var(--green2),var(--green3));display:flex;align-items:center;justify-content:center;margin-bottom:20px;box-shadow:0 12px 26px rgba(15,35,26,.26);transition:transform .38s var(--ease),box-shadow .38s}
-.rcard .ic svg{stroke:var(--brass3);transition:.38s var(--ease)}
+.rcard .ic{position:relative;width:44px;height:44px;border-radius:13px;background:linear-gradient(140deg,var(--green2),var(--green3));display:flex;align-items:center;justify-content:center;margin-bottom:13px;box-shadow:0 10px 22px rgba(15,35,26,.24);transition:transform .38s var(--ease),box-shadow .38s}
+.rcard .ic svg{width:21px;height:21px;stroke:var(--brass3);transition:.38s var(--ease)}
 .rcard:hover .ic{transform:translateY(-3px) scale(1.07) rotate(-4deg);box-shadow:0 18px 34px rgba(15,35,26,.32),0 0 26px rgba(227,201,143,.6)}
-.rcard h3{font-family:var(--serif);font-weight:600;font-size:25px;margin:0 0 10px;letter-spacing:-.01em}
-.rcard p{font-size:14px;color:var(--ink2);line-height:1.55;min-height:66px}
-.rcard .go{font-size:13.5px;font-weight:700;color:var(--green2);display:inline-flex;align-items:center;gap:7px;margin-top:10px}
+.rcard h3{font-family:var(--serif);font-weight:600;font-size:20px;margin:0 0 6px;letter-spacing:-.01em}
+.rcard p{font-size:13.5px;color:var(--ink2);line-height:1.5;min-height:0}
+.rcard .go{font-size:13px;font-weight:700;color:var(--green2);display:inline-flex;align-items:center;gap:7px;margin-top:9px}
 .rcard .go i{font-style:normal;transition:.25s var(--ease)}.rcard:hover .go i{transform:translateX(6px)}
 
 /* tools */
@@ -321,13 +321,22 @@ html.menu-open,html.menu-open body{overflow:hidden}
 
 @media(max-width:880px){
  .wrap{padding:0 22px}.hero-in{grid-template-columns:1fr;gap:34px}.portrait{max-width:400px}
- .router{grid-template-columns:1fr}.tools .tool{flex-basis:calc(50% - 8px);max-width:calc(50% - 8px)}.links{display:none}.navbtn{display:none}.pov{padding:34px 24px}
+ .tools .tool{flex-basis:calc(50% - 8px);max-width:calc(50% - 8px)}.links{display:none}.navbtn{display:none}.pov{padding:34px 24px}
  .menu-toggle{display:flex}
  .sec-h{flex-direction:column;align-items:flex-start}
  .about-in{grid-template-columns:1fr;gap:30px}.about-in .portrait{width:100%;max-width:320px;margin:0 auto;aspect-ratio:auto;min-height:300px}
  .lp-v{font-size:22px}
 }
 @media(max-width:560px){.lp-grid{grid-template-columns:1fr}.tools .tool{flex-basis:100%;max-width:100%}}
+/* router: 3 compact cards across (icon + label) on tablet-portrait + phones — instead of tall stacked ones */
+@media(max-width:760px){
+ .router{grid-template-columns:repeat(3,1fr);gap:9px}
+ .rcard{padding:15px 7px 13px;text-align:center;border-radius:14px}
+ .rcard .ic{width:38px;height:38px;margin:0 auto 9px;border-radius:11px}
+ .rcard .ic svg{width:18px;height:18px}
+ .rcard h3{font-size:13px;margin:0;line-height:1.18}
+ .rcard p,.rcard .go{display:none}
+}
 /* ===== dark hero + deeper greige body + architectural column lines ===== */
 :root{--bg:#eae8e1}
 .topo{background-image:repeating-linear-gradient(90deg,rgba(27,58,45,.045) 0 1px,transparent 1px 150px),repeating-linear-gradient(0deg,rgba(27,58,45,.045) 0 1px,transparent 1px 150px)}
