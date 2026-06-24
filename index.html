@@ -108,6 +108,11 @@ a{color:inherit;text-decoration:none}
 /* — Groundwork hero: premium effects (showcase card) — */
 .feat-hero::before{height:4px;animation:heroGlow 4s ease-in-out infinite}
 @keyframes heroGlow{0%,100%{box-shadow:0 0 9px -1px var(--accent)}50%{box-shadow:0 0 19px 2px var(--accent)}}
+/* flagship card — same size as the rest, but it pops (gold ring + glowing bar + badge) */
+.feat-flagship{box-shadow:0 8px 26px rgba(176,141,87,.20),0 0 0 1.5px rgba(176,141,87,.5)}
+.feat-flagship::before{height:4px;animation:heroGlow 4s ease-in-out infinite}
+.feat-flagship:hover{transform:translateY(-7px);box-shadow:0 30px 58px rgba(176,141,87,.28),0 0 0 1.5px rgba(176,141,87,.7)}
+.feat-flag{position:absolute;top:12px;left:12px;z-index:4;font-size:10.5px;font-weight:800;letter-spacing:.04em;color:#241a0d;background:linear-gradient(135deg,#e3c98f,#b08d57);padding:5px 11px;border-radius:30px;box-shadow:0 4px 12px rgba(176,141,87,.45)}
 .feat-hero:hover{transform:translateY(-8px);box-shadow:0 32px 66px rgba(176,141,87,.22),0 0 0 1.5px rgba(176,141,87,.45)}
 .feat-hero .feat-shot::before{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;
   background:linear-gradient(115deg,transparent 36%,rgba(255,255,255,.5) 50%,transparent 64%);transform:translateX(-135%)}
@@ -240,19 +245,17 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
   </div>
   <div class="featured">
 
-    <a class="feat r feat-hero" href="https://adamdegoat.github.io/adam/" style="--accent:#b08d57;--wash:rgba(176,141,87,.1)">
-      <div class="feat-shot"><img src="assets/feat/adam.jpg?v=1" alt="Adam Phang — everything for your Singapore home move, in one place" loading="lazy" width="820" height="519"><span class="feat-live">Live</span></div>
-      <div class="feat-main">
-        <span class="feat-no">01</span>
-        <div class="feat-top"><span class="feat-ic">🏠</span><span class="feat-metric">Free · official URA data</span></div>
-        <div class="feat-body">
-          <h2>Adam Phang</h2>
-          <div class="essence">Your Singapore home move, in one place.</div>
-          <p>My customer-facing property hub — the first place clients land. Value any HDB or condo on real, recent transactions with the <b>comparable sales shown</b>, see what you can afford under the real lending rules, estimate stamp duty and grants, and check eligibility. Plus a weekly <b>Market Pulse</b> — an honest read on what the market's actually doing — and the <b>Essentials</b>, a plain-English walkthrough of how buying and selling really work. Free, no sign-up; built on the same official data behind Groundwork.</p>
-          <div class="feat-tags"><span>Value · Afford · Stamp duty · Grants</span><span>Weekly Market Pulse</span><span>Official data</span></div>
-        </div>
-        <span class="feat-cta">Visit the hub <span class="arr">→</span></span>
+    <a class="feat r feat-flagship" href="https://adamdegoat.github.io/adam/" style="--accent:#b08d57;--wash:rgba(176,141,87,.12)">
+      <div class="feat-shot"><img src="assets/feat/adam.jpg?v=1" alt="Adam Phang — everything for your Singapore home move, in one place" loading="lazy" width="820" height="519"><span class="feat-flag">★ Flagship</span><span class="feat-live">Live</span></div>
+      <span class="feat-no">01</span>
+      <div class="feat-top"><span class="feat-ic">🏠</span><span class="feat-metric">Free · official URA data</span></div>
+      <div class="feat-body">
+        <h2>Adam Phang</h2>
+        <div class="essence">Your Singapore home move, in one place.</div>
+        <p>My customer-facing property hub — the first place clients land. Value any HDB or condo on real recent sales with the <b>comparable transactions shown</b>, see what you can truly afford, estimate stamp duty and grants, and check eligibility. Plus a weekly <b>Market Pulse</b> and the <b>Essentials</b> — a plain-English walkthrough of how buying &amp; selling really work. Free, no sign-up.</p>
+        <div class="feat-tags"><span>Value · Afford · Stamp duty · Grants</span><span>Market Pulse</span><span>Official data</span></div>
       </div>
+      <span class="feat-cta">Visit the hub <span class="arr">→</span></span>
     </a>
 
     <a class="feat r" href="https://adamdegoat.github.io/realestate/" style="--accent:var(--green);--wash:rgba(15,157,118,.1)">
@@ -307,7 +310,7 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
       <span class="feat-cta">Open the engine <span class="arr">→</span></span>
     </a>
 
-    <a class="feat r feat-solo" href="https://adamdegoat.github.io/helm/" style="--accent:#2ad6c5;--wash:rgba(42,214,197,.12)">
+    <a class="feat r" href="https://adamdegoat.github.io/helm/" style="--accent:#2ad6c5;--wash:rgba(42,214,197,.12)">
       <div class="feat-shot"><img src="assets/feat/helm.jpg?v=1" alt="Helm — a systematic multi-asset paper portfolio, validated out-of-sample" loading="lazy" width="1280" height="810"><span class="feat-live">Live</span></div>
       <span class="feat-no">06</span>
       <div class="feat-top"><span class="feat-ic">🧭</span><span class="feat-metric">Sharpe 1.19 · validated OOS</span></div>
