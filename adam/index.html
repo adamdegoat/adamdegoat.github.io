@@ -193,15 +193,49 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .portrait img.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:2}
 .portrait.has-photo .mono,.portrait.has-photo .ph,.portrait.has-photo .ctr,.portrait.has-photo .glow{display:none}
 
-/* ticker */
-.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.35);overflow:hidden;white-space:nowrap;padding:13px 0}
-.ticker .track{display:inline-flex;gap:38px;animation:tick 95s linear infinite;will-change:transform}
-.ticker:hover .track{animation-play-state:paused}
-@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.ti{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:600;color:var(--ink2)}
-.ti b{font-family:var(--serif);color:var(--ink)}
-.ti .u{color:#2e9e6b;font-weight:700}.ti .d{color:#c0623f;font-weight:700}
-.ti .lbl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:800}
+/* ── Market Pulse band (weekly market read; replaces the old ticker) ── */
+.pulse{position:relative;background:linear-gradient(168deg,#fffdf8,#f3eee1);border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);padding:30px 0 32px;overflow:hidden}
+.pulse::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#b08d57,#e3c98f,#b08d57)}
+.pulse::after{content:"";position:absolute;top:-40%;right:-6%;width:380px;height:380px;background:radial-gradient(circle,rgba(176,141,87,.10),transparent 65%);pointer-events:none}
+.pulse .wrap{position:relative;z-index:1}
+.p-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.pulse .kick{font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#8f6a2c;display:inline-flex;align-items:center;gap:10px}
+.pulse .kick::before{content:"";width:24px;height:1.5px;background:#8f6a2c}
+.pulse .live{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;font-weight:700;color:var(--ink3);margin-left:14px}
+.pulse .live .dot{width:7px;height:7px;border-radius:50%;background:#2f7d4f;animation:plz 2.4s infinite}
+@keyframes plz{0%{box-shadow:0 0 0 0 rgba(47,125,79,.45)}70%{box-shadow:0 0 0 7px rgba(47,125,79,0)}100%{box-shadow:0 0 0 0 rgba(47,125,79,0)}}
+.p-full{font-size:13.5px;font-weight:700;color:var(--green2);white-space:nowrap}
+.climate{font-family:var(--serif);font-weight:500;font-size:clamp(20px,2.5vw,27px);line-height:1.22;letter-spacing:-.01em;color:var(--ink);margin:15px 0 22px;max-width:32ch}
+.climate b{font-weight:600;color:var(--green2)}
+.p-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:26px 40px;align-items:start}
+.p-grid .lab{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#a99a7c;margin-bottom:13px;display:block}
+.sigs{display:flex;flex-direction:column;gap:11px}
+.sig{display:flex;align-items:center;gap:13px;background:#fffefb;border:1px solid var(--line);border-radius:13px;padding:12px 15px}
+.sig .ar{flex:none;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-size:14px;font-weight:800}
+.ar.up{background:rgba(47,125,79,.12);color:#2f7d4f}.ar.down{background:rgba(180,89,47,.12);color:#b4592f}.ar.flat{background:rgba(107,98,83,.12);color:var(--ink3)}
+.sig .nm{font-weight:700;font-size:14.5px;color:var(--ink);min-width:96px}
+.sig .st{font-weight:700;font-size:14px}
+.st.up{color:#2f7d4f}.st.down{color:#b4592f}.st.flat{color:var(--ink2)}
+.sig .sub{margin-left:auto;font-size:12.5px;color:var(--ink3);text-align:right}
+.moving{display:flex;flex-direction:column;gap:9px}
+.mv{display:flex;align-items:baseline;gap:11px;padding:11px 15px;border-radius:12px;border:1px solid var(--line);background:#fffefb}
+.mv .tag{font-weight:800;font-size:13px;display:inline-flex;align-items:center;gap:6px;min-width:118px}
+.mv.up .tag{color:#2f7d4f}.mv.down .tag{color:#b4592f}
+.mv .pct{font-variant-numeric:tabular-nums;font-weight:800;opacity:.85}
+.mv .why{font-size:13px;color:var(--ink2)}
+.pulse .take{margin-top:24px;border-top:1px dashed var(--line2);padding-top:20px;display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
+.pulse .take p{font-size:15px;color:var(--ink2);max-width:62ch;line-height:1.5}
+.pulse .take p b{color:var(--green2);font-weight:700}
+.pulse .cta{flex:none;background:linear-gradient(135deg,#e3c98f,#b08d57);color:#241a0d;font-weight:700;font-size:14.5px;padding:14px 22px;border-radius:40px;white-space:nowrap;box-shadow:0 10px 24px rgba(176,141,87,.28)}
+.pulse .cta:hover{transform:translateY(-1px)}
+@media(max-width:760px){
+  .p-grid{grid-template-columns:1fr;gap:22px}
+  .climate{font-size:21px;margin:13px 0 18px;max-width:none}
+  .sig .sub{display:none}
+  .mv{flex-wrap:wrap;gap:3px 11px}.mv .tag{min-width:auto}.mv .why{flex-basis:100%}
+  .pulse .take{flex-direction:column;align-items:stretch}.pulse .cta{text-align:center}
+  .p-head{align-items:flex-start}
+}
 
 /* sections */
 .sec{padding:62px 0}
@@ -475,7 +509,7 @@ body::before{animation:none}
     <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="mg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2c5743"/><stop offset=".55" stop-color="#1b3a2d"/><stop offset="1" stop-color="#0f231a"/></linearGradient><linearGradient id="mb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#efd9a6"/><stop offset="1" stop-color="#c39a5b"/></linearGradient></defs><rect x="1" y="1" width="38" height="38" rx="11" fill="url(#mg)"/><text x="19.5" y="29.5" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-weight="500" font-size="27" fill="url(#mb)">A</text><circle cx="29" cy="13.5" r="2" fill="#e3c98f"/></svg>
     <span class="bw"><b>Adam Phang</b><span>Singapore Property</span></span>
   </div>
-  <nav class="links"><a href="essentials/">The Essentials</a><a href="#tools">Tools</a><a href="notes/">Weekly Blog</a><a href="#why">Work with me</a><a href="install.html">Add to phone</a><a href="#talk">Contact</a></nav>
+  <nav class="links"><a href="essentials/">The Essentials</a><a href="#tools">Tools</a><a href="notes/">Market Pulse</a><a href="#why">Work with me</a><a href="install.html">Add to phone</a><a href="#talk">Contact</a></nav>
   <a class="btn navbtn" href="https://wa.me/6583219747">Let's talk <span class="arr">→</span></a>
   <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
     <svg class="ic-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -485,7 +519,7 @@ body::before{animation:none}
 <div class="mobile-menu" id="mobileMenu">
   <a class="mm" href="essentials/"><span class="mm-n">01</span><span><span class="mm-t">The Essentials</span><span class="mm-d">What every property term actually means</span></span><span class="mm-ar">→</span></a>
   <a class="mm" href="#tools"><span class="mm-n">02</span><span><span class="mm-t">Tools</span><span class="mm-d">Value, budget, stamp duty, grants &amp; more</span></span><span class="mm-ar">→</span></a>
-  <a class="mm" href="notes/"><span class="mm-n">03</span><span><span class="mm-t">Weekly Blog</span><span class="mm-d">My read on the market, weekly</span></span><span class="mm-ar">→</span></a>
+  <a class="mm" href="notes/"><span class="mm-n">03</span><span><span class="mm-t">Market Pulse</span><span class="mm-d">My read on the market, weekly</span></span><span class="mm-ar">→</span></a>
   <a class="mm" href="#why"><span class="mm-n">04</span><span><span class="mm-t">Work with me</span><span class="mm-d">How Adam helps you buy or sell</span></span><span class="mm-ar">→</span></a>
   <a class="mm" href="#talk"><span class="mm-n">05</span><span><span class="mm-t">Contact</span><span class="mm-d">Get in touch, no pressure</span></span><span class="mm-ar">→</span></a>
   <div class="mm-foot">
@@ -539,7 +573,21 @@ body::before{animation:none}
   </aside>
 </div></section>
 
-<div class="ticker"><div class="track" id="tick"></div></div>
+<!--PULSE-START--><section class="pulse"><div class="wrap">
+  <div class="p-head">
+    <div><span class="kick">Market Pulse</span><span class="live"><span class="dot"></span>Week of 20 Jun 2026 · official URA + HDB data</span></div>
+    <a class="p-full" href="notes/market-pulse-20-jun-2026.html">Read the full pulse →</a>
+  </div>
+  <h2 class="climate">Condo prices are rising — led by the suburbs and the areas just outside the city. HDB resale is holding steady. The priciest central areas have cooled a little.</h2>
+  <div class="p-grid">
+    <div class="col-l"><span class="lab">The signals</span><div class="sigs"><div class="sig"><span class="ar flat">→</span><span class="nm">HDB resale</span><span class="st flat">Steady</span><span class="sub">prices flat the last 3 months</span></div><div class="sig"><span class="ar up">▲</span><span class="nm">Condos</span><span class="st up">Rising</span><span class="sub">prices up over recent months</span></div><div class="sig"><span class="ar down">▼</span><span class="nm">City centre</span><span class="st down">Cooling</span><span class="sub">-2.4% while the suburbs rise</span></div></div></div>
+    <div class="col-r"><span class="lab">Moving now</span><div class="moving"><div class="mv up"><span class="tag">▲ Clementi <span class="pct">+3.9%</span></span><span class="why">lots of buyers — sellers hold the cards</span></div><div class="mv up"><span class="tag">▲ Bukit Merah <span class="pct">+3.2%</span></span><span class="why">central, prices still climbing</span></div><div class="mv down"><span class="tag">▼ Geylang <span class="pct">-5.9%</span></span><span class="why">prices easing — more room to negotiate</span></div></div></div>
+  </div>
+  <div class="take">
+    <p><b>Adam's take —</b> If you're selling a flat in a busy area like Clementi, Bukit Merah, you've got the upper hand right now. Buying? The areas where prices are easing are where the value is. Want me to read your exact block?</p>
+    <a class="cta" href="tools/value.html">What's your home worth today? →</a>
+  </div>
+</div></section><!--PULSE-END-->
 
 <section class="sec"><div class="wrap">
   <div class="sec-h"><div><span class="eyebrow rv">Start here</span><h2 class="rv">What brings you here?</h2></div>
@@ -581,10 +629,10 @@ body::before{animation:none}
 </section>
 
 <section class="sec" id="notes"><div class="wrap">
-  <div class="sec-h"><div><span class="eyebrow rv">Weekly Blog</span><h2 class="rv">What I'm seeing in the market.</h2><svg class="hl" viewBox="0 0 188 15" preserveAspectRatio="none" aria-hidden="true"><path d="M4 9 C 48 4, 140 4, 184 8"/></svg></div>
-    <p class="rv">A short read most weeks — what's caught my eye, and what it could mean for your next move.</p></div>
+  <div class="sec-h"><div><span class="eyebrow rv">Guides</span><h2 class="rv">Property, explained simply.</h2><svg class="hl" viewBox="0 0 188 15" preserveAspectRatio="none" aria-hidden="true"><path d="M4 9 C 48 4, 140 4, 184 8"/></svg></div>
+    <p class="rv">The timeless stuff worth knowing, explained the way I'd talk you through it over kopi. Read one whenever you're weighing a move. For this week's market read, see the Market Pulse up top.</p></div>
   <div class="notes"><!--FN-LIST-START--><a class="note rv" href="notes/your-real-property-budget-three-numbers.html"><div class="date">22 June 2026</div><h3>Your property budget has three parts. Most buyers only count one.</h3><p>Before you open a single listing, three numbers decide what you can actually spend. The one that trips people up isn't the price tag.</p><span class="go">Read it <i>→</i></span></a><!--FN-LIST-END--><a class="note cta rv" href="install.html"><div class="date">Never miss one</div><h3>Get new reads on your phone.</h3><p>Add the hub to your home screen and each week's piece lands with you automatically — no sign-up, no spam.</p><span class="go">Add to phone <i>→</i></span></a></div>
-  <a class="notes-all rv" href="notes/">Read all notes <span>→</span></a>
+  <a class="notes-all rv" href="notes/">Read the blog <span>→</span></a>
 </div></section>
 
 <section class="sec" id="why"><div class="wrap">
@@ -690,15 +738,6 @@ addEventListener('scroll',()=>{const y=scrollY;nav.classList.toggle('scrolled',y
 // counters
 const cio=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){const el=e.target,to=+el.dataset.to,suf=el.dataset.suf||'';let t0=null;const step=ts=>{if(!t0)t0=ts;const p=Math.min(1,(ts-t0)/1200);el.textContent=Math.round(to*(1-Math.pow(1-p,3)))+suf;if(p<1)requestAnimationFrame(step);};requestAnimationFrame(step);cio.unobserve(el);}});});
 document.querySelectorAll('.count').forEach(el=>cio.observe(el));
-// ticker — real recent sales, plain English (from ticker.json)
-fetch('ticker.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{
-  const items=(j.items||[]);
-  if(!items.length){document.querySelector('.ticker').style.display='none';return;}
-  const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
-  const item=x=>`<span class="ti"><span class="lbl">Just sold</span> a ${esc(x.what)} in ${esc(x.place)} · <b>${esc(x.price)}</b></span>`;
-  document.getElementById('tick').innerHTML=(items.map(item).join('')).repeat(2);
-}).catch(()=>{document.querySelector('.ticker').style.display='none';});
-
 // hero mini affordability tool — same lending rules as the full Afford tool
 (function(){
   const g=id=>document.getElementById(id);
