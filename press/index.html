@@ -91,6 +91,9 @@ a{color:inherit;text-decoration:none}
 .pcard .btns{margin-top:12px;width:100%;max-width:342px;display:flex;gap:10px}
 /* recent drops */
 .recent{margin-top:64px}
+.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.rwrap{position:relative}
+.rfade,.rhint{display:none}
 /* how to — compact */
 .how{margin-top:56px}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
@@ -122,6 +125,12 @@ a{color:inherit;text-decoration:none}
   .nav{gap:12px}
   .status{font-size:11px;padding:7px 11px;white-space:normal;text-align:right;line-height:1.3}
   .mast{font-size:clamp(44px,13vw,84px)}
+  /* recent drops become a horizontal swipe row on mobile */
+  .rgrid{display:flex;grid-template-columns:none;overflow-x:auto;gap:14px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:2px 2px 10px;scrollbar-width:none}
+  .rgrid::-webkit-scrollbar{display:none}
+  .rgrid>.card{flex:0 0 80%;scroll-snap-align:start}
+  .rfade{display:block;position:absolute;top:0;right:0;width:52px;height:100%;background:linear-gradient(90deg,rgba(241,232,214,0),var(--bg));pointer-events:none}
+  .rhint{display:block;text-align:right;font-size:13px;font-weight:800;color:var(--accent);margin-top:6px;letter-spacing:.02em}
 }
 @media(max-width:560px){.steps{grid-template-columns:1fr}.subnote{margin-left:0;width:100%}}
 </style></head>
@@ -144,61 +153,64 @@ a{color:inherit;text-decoration:none}
   <div class="phone"><div class="island"></div><div class="screen">
     <div class="sbar"><span>9:41</span><span>●●● 📶 🔋</span></div>
     <div class="igh"><div class="av"><i>A</i></div><div class="who"><span class="uname"></span><span class="loc"></span></div><span class="more">⋯</span></div>
-    <div class="pimg"><img loading="lazy" src="posts/2026-06-24-w0-yield.png" alt="HDB vs condo rental yield"></div>
+    <div class="pimg"><img loading="lazy" src="posts/2026-06-24-w2-stamp.png" alt="Stamp duty — ABSD on a second home"></div>
     <div class="acts"><span>♡</span><span>💬</span><span>➤</span><span class="save">🔖</span></div>
     <div class="likes"><span class="lk"></span></div>
-    <div class="pcap"><span class="u"></span>link in bio means I just write the caption. Let me produce it. <span class="more2">… more</span><span class="tags">#singaporeproperty #propertysg #hdb</span></div>
+    <div class="pcap"><span class="u"></span>Affordable second home? Let's talk reality. <span class="more2">… more</span><span class="tags">#singaporeproperty #propertysg #absd</span></div>
     <div class="ptime">2 hours ago</div>
   </div></div>
-  <div class="tagrow"><span class="tg">Rental Yield</span><span class="tg">HDB vs Condo</span></div>
-  <div class="btns"><a class="btn dl" href="posts/2026-06-24-w0-yield.png" download>↓ Download</a>
-    <button class="btn cp" data-cap="link in bio means I just write the caption. Let me produce it.
+  <div class="tagrow"><span class="tg">Stamp Duty</span><span class="tg">ABSD</span></div>
+  <div class="btns"><a class="btn dl" href="posts/2026-06-24-w2-stamp.png" download>↓ Download</a>
+    <button class="btn cp" data-cap="Affordable second home? Let's talk reality.
 
-HDB flats yield about 6.1% gross rent islandwide vs 3.6% for private condos.Everyone wants the shiny condo. The numbers laugh at that.
-HDB flats pull about 6.1% gross rent. Condos sit at 3.6%.
-Yes, the smaller flat is the bigger earner.
+A citizen buying a 2nd home at $1.65M pays 20% ABSD.
+
+That's about $330k cash, on top of the price. Plan for it before you fall in love with the place.
 
 link in bio
-#singaporeproperty #propertysg #hdb #rentalyield #condo #sgrealestate">⧉ Copy caption</button></div>
+
+#singaporeproperty #propertysg #absd #secondproperty #sghomebuyer">⧉ Copy caption</button></div>
 </article><article class="pcard">
   <div class="phone"><div class="island"></div><div class="screen">
     <div class="sbar"><span>9:41</span><span>●●● 📶 🔋</span></div>
     <div class="igh"><div class="av"><i>A</i></div><div class="who"><span class="uname"></span><span class="loc"></span></div><span class="more">⋯</span></div>
-    <div class="pimg"><img loading="lazy" src="posts/2026-06-24-w0-faceoff.png" alt="Clementi vs Geylang"></div>
+    <div class="pimg"><img loading="lazy" src="posts/2026-06-24-w1-value.png" alt="What a flat in Tampines is worth"></div>
     <div class="acts"><span>♡</span><span>💬</span><span>➤</span><span class="save">🔖</span></div>
     <div class="likes"><span class="lk"></span></div>
-    <div class="pcap"><span class="u"></span>Clementi or Geylang? <span class="more2">… more</span><span class="tags">#singaporeproperty #clementi #hdbresale</span></div>
+    <div class="pcap"><span class="u"></span>taking the guesswork out of your Tampines flat <span class="more2">… more</span><span class="tags">#singaporeproperty #propertysg #tampines</span></div>
     <div class="ptime">2 hours ago</div>
   </div></div>
-  <div class="tagrow"><span class="tg">Area Face-off</span><span class="tg">Clementi vs Geylang</span></div>
-  <div class="btns"><a class="btn dl" href="posts/2026-06-24-w0-faceoff.png" download>↓ Download</a>
-    <button class="btn cp" data-cap="Clementi or Geylang? 
-
-Clementi flats sit at $598k and are climbing 3.9% a year. Geylang is $580k and softer at -5.9%, so there's room to bargain. Different plays, both real.
-
-link in bio.
-
-#singaporeproperty #clementi #hdbresale #propertysg #sgproperty">⧉ Copy caption</button></div>
+  <div class="tagrow"><span class="tg">Home Value</span><span class="tg">Comps</span></div>
+  <div class="btns"><a class="btn dl" href="posts/2026-06-24-w1-value.png" download>↓ Download</a>
+    <button class="btn cp" data-cap="taking the guesswork out of your Tampines flat
+a typical 4-room resale sits around $710k right now
+that figure comes from 2478 actual sales this year, not wishful asking prices
+know your number before you list
+link in bio
+#singaporeproperty #propertysg #tampines #hdbresale #4roomflat #sghomes">⧉ Copy caption</button></div>
 </article><article class="pcard">
   <div class="phone"><div class="island"></div><div class="screen">
     <div class="sbar"><span>9:41</span><span>●●● 📶 🔋</span></div>
     <div class="igh"><div class="av"><i>A</i></div><div class="who"><span class="uname"></span><span class="loc"></span></div><span class="more">⋯</span></div>
-    <div class="pimg"><img loading="lazy" src="posts/2026-06-24-w0-affordable.png" alt="Most affordable flats — Ang Mo Kio"></div>
+    <div class="pimg"><img loading="lazy" src="posts/2026-06-24-w2-myth.png" alt="Property myth vs fact"></div>
     <div class="acts"><span>♡</span><span>💬</span><span>➤</span><span class="save">🔖</span></div>
     <div class="likes"><span class="lk"></span></div>
-    <div class="pcap"><span class="u"></span>amk resale flats still the value play if you want in. <span class="more2">… more</span><span class="tags">#singaporeproperty #propertysg #angmokio</span></div>
+    <div class="pcap"><span class="u"></span>Myth: the price you offer is the price you can borrow on. <span class="more2">… more</span><span class="tags">#singaporeproperty #propertysg #homeloan</span></div>
     <div class="ptime">2 hours ago</div>
   </div></div>
-  <div class="tagrow"><span class="tg">Most Affordable</span><span class="tg">Ang Mo Kio</span></div>
-  <div class="btns"><a class="btn dl" href="posts/2026-06-24-w0-affordable.png" download>↓ Download</a>
-    <button class="btn cp" data-cap="amk resale flats still the value play if you want in.
-real volume, real transactions, median sitting around $517k.
-not glam, but your money goes further here.
+  <div class="tagrow"><span class="tg">Myth vs Fact</span><span class="tg">Tip</span></div>
+  <div class="btns"><a class="btn dl" href="posts/2026-06-24-w2-myth.png" download>↓ Download</a>
+    <button class="btn cp" data-cap="Myth: the price you offer is the price you can borrow on.
+
+Not true. Your loan and CPF only stretch to the bank's valuation.
+Offer above it and that gap comes straight out of your own pocket.
+
 link in bio
-#singaporeproperty #propertysg #angmokio #resaleflat #hdbresale #sghomes">⧉ Copy caption</button></div>
+
+#singaporeproperty #propertysg #homeloan #cpf #bankvaluation #buyersg">⧉ Copy caption</button></div>
 </article></div>
   </section>
-  <section id="recent" class="recent"><div class="shead"><h2>Recent drops</h2><span class="subnote">the last few weeks</span></div><div class="grid"><article class="card">
+  <section id="recent" class="recent"><div class="shead"><h2>Recent drops</h2><span class="subnote">the last few weeks</span></div><div class="rwrap"><div class="rgrid"><article class="card">
   <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-w1-pulse.png" alt="Market Pulse — Clementi"></div>
   <div class="meta"><div class="tagrow"><span class="tg">Market Pulse</span><span class="tg">Clementi</span></div>
     <p class="cap">Resale flats in Clementi just clocked 713 sales last year.</p>
@@ -211,17 +223,54 @@ Thinking of selling? This is a good window.
 link in bio
 #clementi #clementiresale #hdbresale #singaporeproperty #propertysg #sghomes">⧉ Copy caption</button>
     </div></div></article><article class="card">
-  <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-w1-value.png" alt="What a flat in Tampines is worth"></div>
-  <div class="meta"><div class="tagrow"><span class="tg">Home Value</span><span class="tg">Comps</span></div>
-    <p class="cap">taking the guesswork out of your Tampines flat</p>
+  <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-w0-affordable.png" alt="Most affordable flats — Ang Mo Kio"></div>
+  <div class="meta"><div class="tagrow"><span class="tg">Most Affordable</span><span class="tg">Ang Mo Kio</span></div>
+    <p class="cap">amk resale flats still the value play if you want in.</p>
     <div class="btns">
-      <a class="btn dl" href="posts/2026-06-24-w1-value.png" download>↓ Download</a>
-      <button class="btn cp" data-cap="taking the guesswork out of your Tampines flat
-a typical 4-room resale sits around $710k right now
-that figure comes from 2478 actual sales this year, not wishful asking prices
-know your number before you list
+      <a class="btn dl" href="posts/2026-06-24-w0-affordable.png" download>↓ Download</a>
+      <button class="btn cp" data-cap="amk resale flats still the value play if you want in.
+real volume, real transactions, median sitting around $517k.
+not glam, but your money goes further here.
 link in bio
-#singaporeproperty #propertysg #tampines #hdbresale #4roomflat #sghomes">⧉ Copy caption</button>
+#singaporeproperty #propertysg #angmokio #resaleflat #hdbresale #sghomes">⧉ Copy caption</button>
+    </div></div></article><article class="card">
+  <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-w0-faceoff.png" alt="Clementi vs Geylang"></div>
+  <div class="meta"><div class="tagrow"><span class="tg">Area Face-off</span><span class="tg">Clementi vs Geylang</span></div>
+    <p class="cap">Clementi or Geylang? </p>
+    <div class="btns">
+      <a class="btn dl" href="posts/2026-06-24-w0-faceoff.png" download>↓ Download</a>
+      <button class="btn cp" data-cap="Clementi or Geylang? 
+
+Clementi flats sit at $598k and are climbing 3.9% a year. Geylang is $580k and softer at -5.9%, so there's room to bargain. Different plays, both real.
+
+link in bio.
+
+#singaporeproperty #clementi #hdbresale #propertysg #sgproperty">⧉ Copy caption</button>
+    </div></div></article><article class="card">
+  <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-w0-yield.png" alt="HDB vs condo rental yield"></div>
+  <div class="meta"><div class="tagrow"><span class="tg">Rental Yield</span><span class="tg">HDB vs Condo</span></div>
+    <p class="cap">link in bio means I just write the caption. Let me produce it.</p>
+    <div class="btns">
+      <a class="btn dl" href="posts/2026-06-24-w0-yield.png" download>↓ Download</a>
+      <button class="btn cp" data-cap="link in bio means I just write the caption. Let me produce it.
+
+HDB flats yield about 6.1% gross rent islandwide vs 3.6% for private condos.Everyone wants the shiny condo. The numbers laugh at that.
+HDB flats pull about 6.1% gross rent. Condos sit at 3.6%.
+Yes, the smaller flat is the bigger earner.
+
+link in bio
+#singaporeproperty #propertysg #hdb #rentalyield #condo #sgrealestate">⧉ Copy caption</button>
+    </div></div></article><article class="card">
+  <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-net.png" alt="Net proceeds when you sell"></div>
+  <div class="meta"><div class="tagrow"><span class="tg">Net Proceeds</span><span class="tg">Selling</span></div>
+    <p class="cap">$1.65M sale, real numbers I ran for a client.</p>
+    <div class="btns">
+      <a class="btn dl" href="posts/2026-06-24-net.png" download>↓ Download</a>
+      <button class="btn cp" data-cap="$1.65M sale, real numbers I ran for a client.
+After loan, CPF refund and fees, you keep about $879k. example figures, yours will differ.
+Want your own breakdown before you list? I'll do the math.
+link in bio
+#singaporeproperty #propertysg #sgrealestate #sellsmart #sghome">⧉ Copy caption</button>
     </div></div></article><article class="card">
   <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-w1-schools.png" alt="Homes near St. Joseph's Institution Junior"></div>
   <div class="meta"><div class="tagrow"><span class="tg">School Finder</span><span class="tg">1km</span></div>
@@ -239,47 +288,7 @@ Want the list before the next launch crowd does?
 link in bio
 
 #singaporeproperty #propertysg #sji #primaryone #1kmrule #districtproperty">⧉ Copy caption</button>
-    </div></div></article><article class="card">
-  <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-w2-stamp.png" alt="Stamp duty — ABSD on a second home"></div>
-  <div class="meta"><div class="tagrow"><span class="tg">Stamp Duty</span><span class="tg">ABSD</span></div>
-    <p class="cap">Affordable second home? Let's talk reality.</p>
-    <div class="btns">
-      <a class="btn dl" href="posts/2026-06-24-w2-stamp.png" download>↓ Download</a>
-      <button class="btn cp" data-cap="Affordable second home? Let's talk reality.
-
-A citizen buying a 2nd home at $1.65M pays 20% ABSD.
-
-That's about $330k cash, on top of the price. Plan for it before you fall in love with the place.
-
-link in bio
-
-#singaporeproperty #propertysg #absd #secondproperty #sghomebuyer">⧉ Copy caption</button>
-    </div></div></article><article class="card">
-  <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-w2-grants.png" alt="Housing grants you may be missing"></div>
-  <div class="meta"><div class="tagrow"><span class="tg">Grants</span><span class="tg">CPF</span></div>
-    <p class="cap">First-timer families, listen up.</p>
-    <div class="btns">
-      <a class="btn dl" href="posts/2026-06-24-w2-grants.png" download>↓ Download</a>
-      <button class="btn cp" data-cap="First-timer families, listen up.
-The CPF Housing Grant can give you up to $80k.
-And that's before EHG, Proximity or EC perks stack on top.
-link in bio
-#singaporeproperty #propertysg #cpfgrant #bto #firsthome #hdbgrant">⧉ Copy caption</button>
-    </div></div></article><article class="card">
-  <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-w2-myth.png" alt="Property myth vs fact"></div>
-  <div class="meta"><div class="tagrow"><span class="tg">Myth vs Fact</span><span class="tg">Tip</span></div>
-    <p class="cap">Myth: the price you offer is the price you can borrow on.</p>
-    <div class="btns">
-      <a class="btn dl" href="posts/2026-06-24-w2-myth.png" download>↓ Download</a>
-      <button class="btn cp" data-cap="Myth: the price you offer is the price you can borrow on.
-
-Not true. Your loan and CPF only stretch to the bank's valuation.
-Offer above it and that gap comes straight out of your own pocket.
-
-link in bio
-
-#singaporeproperty #propertysg #homeloan #cpf #bankvaluation #buyersg">⧉ Copy caption</button>
-    </div></div></article></div></section>
+    </div></div></article></div><span class="rfade"></span></div><div class="rhint">swipe for more →</div></section>
   <section id="how" class="how">
     <div class="shead"><h2>How it works</h2></div>
     <div class="steps">
