@@ -10,22 +10,33 @@
 html{scroll-behavior:smooth}html,body{overflow-x:hidden}
 body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased}
 body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opacity:.04;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-a{color:inherit}
+a{color:inherit;text-decoration:none}
 .prog{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--brass),var(--brass3));z-index:60;transition:width .12s linear}
-.top{position:relative;overflow:hidden;background:radial-gradient(720px 420px at 82% -40%,rgba(227,201,143,.20),transparent 60%),linear-gradient(155deg,var(--green2),var(--green3));color:#f3efe6}
+.top{position:relative;overflow:hidden;background:radial-gradient(760px 440px at 80% -36%,rgba(227,201,143,.22),transparent 60%),linear-gradient(155deg,#27513f,#0f231a);color:#f3efe6;border-bottom:1px solid rgba(227,201,143,.30)}
+.top::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.top .sheen{position:absolute;top:-60%;left:-30%;width:55%;height:240%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.06),transparent);transform:rotate(8deg);animation:sweep 9s ease-in-out infinite;pointer-events:none}
+@keyframes sweep{0%,100%{left:-45%}50%{left:130%}}
 .nav{max-width:720px;margin:0 auto;padding:22px 26px 0;display:flex;align-items:center;gap:14px;position:relative;z-index:2}
-.nav .b{font-family:var(--serif);font-weight:600;font-size:19px;color:#f6efe1}
-.nav .back{margin-left:auto;font-size:13px;font-weight:600;color:rgba(243,239,230,.72)}
-.hero{max-width:720px;margin:0 auto;padding:34px 26px 46px;position:relative;z-index:2}
+.nav .b{font-family:var(--serif);font-weight:600;font-size:19px;color:#f6efe1;display:flex;align-items:center;gap:9px}
+.nav .b .mk{width:30px;height:30px;flex:none}
+.nav .back{margin-left:auto;font-size:13px;font-weight:600;color:rgba(243,239,230,.72);transition:color .2s}
+.nav .back:hover{color:#f3efe6}
+.hero{max-width:720px;margin:0 auto;padding:32px 26px 48px;position:relative;z-index:2}
 .kick{font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--brass3);display:inline-flex;align-items:center;gap:9px}
 .kick .d{width:8px;height:8px;border-radius:50%;background:#7fd4a0;box-shadow:0 0 0 0 rgba(127,212,160,.6);animation:npl 2.2s infinite}
 @keyframes npl{0%{box-shadow:0 0 0 0 rgba(127,212,160,.5)}70%{box-shadow:0 0 0 8px rgba(127,212,160,0)}100%{box-shadow:0 0 0 0 rgba(127,212,160,0)}}
 .hero h1{font-family:var(--serif);font-weight:500;color:#f7f1e4;font-size:clamp(31px,4.8vw,46px);line-height:1.08;letter-spacing:-.025em;margin:15px 0 0}
-.hero .meta{font-size:13px;color:rgba(243,239,230,.62);font-weight:600;margin-top:18px}
-.hclimate{font-family:var(--serif);font-style:italic;font-size:clamp(17px,2.3vw,20px);line-height:1.4;color:#efe7d4;margin-top:20px;max-width:40ch}
+.h1u{display:block;height:14px;width:min(230px,72%);margin:12px 0 0;overflow:visible}
+.h1u path{fill:none;stroke:var(--brass3);stroke-width:5;stroke-linecap:round;vector-effect:non-scaling-stroke;opacity:.92}
+.hero .meta{font-size:13px;color:rgba(243,239,230,.62);font-weight:600;margin-top:18px;letter-spacing:.02em}
+.hclimate{font-family:var(--serif);font-style:italic;font-size:clamp(17px,2.3vw,20px);line-height:1.4;color:#efe7d4;margin-top:18px;max-width:42ch;padding-left:16px;border-left:2px solid rgba(227,201,143,.5)}
 .art{max-width:680px;margin:0 auto;padding:44px 26px 30px}
+.g-head{display:flex;align-items:baseline;gap:12px;margin-bottom:15px}
+.g-htitle{font-family:var(--serif);font-weight:600;font-size:20px;color:var(--ink)}
+.g-hsub{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brass)}
 /* "at a glance" detail block — the signals + areas, on the post page */
-.glance{display:grid;grid-template-columns:1fr 1fr;gap:22px 34px;background:linear-gradient(168deg,#fffdf8,#f3eee1);border:1px solid var(--line2);border-radius:18px;padding:26px 28px;margin-bottom:36px}
+.glance{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:22px 34px;background:linear-gradient(168deg,#fffefb,#f3eee1);border:1px solid var(--line2);border-radius:18px;padding:28px 28px 26px;margin-bottom:38px;box-shadow:0 16px 38px rgba(25,21,18,.06);overflow:hidden}
+.glance::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brass),var(--brass3),var(--brass))}
 .g-lab{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#a99a7c;margin-bottom:13px;display:block}
 .g-sig{display:flex;align-items:center;gap:12px;padding:9px 0;border-top:1px solid var(--line)}
 .g-sig:first-of-type{border-top:0}
@@ -51,10 +62,11 @@ a{color:inherit}
 .rel{margin:34px 0 0;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .rel .rl{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
 .rel a{font-size:13.5px;font-weight:700;color:var(--green2);background:#fffdf8;border:1px solid var(--line);border-radius:30px;padding:9px 16px}
-.cta{margin:42px 0 0;background:linear-gradient(150deg,var(--green2),var(--green3));color:#f3efe6;border-radius:20px;padding:30px;position:relative;overflow:hidden}
-.cta h3{font-family:var(--serif);font-weight:500;font-size:23px}
-.cta p{font-size:15px;color:rgba(243,239,230,.8);margin-top:8px}
-.cta .btns{display:flex;gap:11px;margin-top:18px;flex-wrap:wrap}
+.cta{margin:44px 0 0;background:radial-gradient(560px 320px at 84% -30%,rgba(227,201,143,.18),transparent 60%),linear-gradient(150deg,var(--green2),var(--green3));color:#f3efe6;border-radius:20px;padding:32px;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;inset:13px;border:1px solid rgba(227,201,143,.26);border-radius:13px;pointer-events:none}
+.cta h3{font-family:var(--serif);font-weight:500;font-size:23px;position:relative}
+.cta p{font-size:15px;color:rgba(243,239,230,.8);margin-top:8px;position:relative}
+.cta .btns{display:flex;gap:11px;margin-top:18px;flex-wrap:wrap;position:relative}
 .cta a{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;padding:12px 20px;border-radius:30px}
 .cta a.p{background:linear-gradient(135deg,var(--brass3),var(--brass));color:#241a0d}
 .cta a.g{background:rgba(255,255,255,.1);color:#f3efe6;border:1px solid rgba(255,255,255,.2)}
@@ -64,16 +76,18 @@ a{color:inherit}
 </style></head>
 <body>
 <div class="prog" id="prog"></div>
-<header class="top">
-  <nav class="nav"><a class="b" href="../index.html">Adam Phang</a><a class="back" href="./">← All pulses</a></nav>
+<header class="top"><span class="sheen"></span>
+  <nav class="nav"><a class="b" href="../index.html"><svg class="mk" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="mg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2c5743"/><stop offset=".55" stop-color="#1b3a2d"/><stop offset="1" stop-color="#0f231a"/></linearGradient><linearGradient id="mb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#efd9a6"/><stop offset="1" stop-color="#c39a5b"/></linearGradient></defs><rect x="1" y="1" width="38" height="38" rx="11" fill="url(#mg)"/><text x="19.5" y="29.5" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-weight="500" font-size="27" fill="url(#mb)">A</text><circle cx="29" cy="13.5" r="2" fill="#e3c98f"/></svg>Adam Phang</a><a class="back" href="./">← All pulses</a></nav>
   <div class="hero">
     <span class="kick"><span class="d"></span>Market Pulse</span>
     <h1>Condo prices are climbing. The heartland is split. Here's where the market's actually moving.</h1>
+    <svg class="h1u" viewBox="0 0 230 14" preserveAspectRatio="none" aria-hidden="true"><path d="M5 9 C 70 3, 165 3, 225 8"/></svg>
     <div class="meta">20 June 2026 · 1-min read · by Adam Phang</div>
     <p class="hclimate">Condo prices are rising — led by the suburbs and the areas just outside the city. HDB resale is holding steady. The priciest central areas have cooled a little.</p>
   </div>
 </header>
 <article class="art">
+  <div class="g-head"><span class="g-htitle">This week at a glance</span><span class="g-hsub">straight from official data</span></div>
   <div class="glance"><div class="g-col"><span class="g-lab">The signals</span><div class="g-sig"><span class="g-ar flat">→</span><span class="g-nm">Resale flats</span><span class="g-st flat">Steady</span><span class="g-sub">prices flat the last 3 months</span></div><div class="g-sig"><span class="g-ar up">▲</span><span class="g-nm">Condos</span><span class="g-st up">Rising</span><span class="g-sub">prices up over recent months</span></div><div class="g-sig"><span class="g-ar down">▼</span><span class="g-nm">City-centre condos</span><span class="g-st down">Cooling</span><span class="g-sub">-2.4% while the suburbs rise</span></div></div><div class="g-col"><span class="g-lab">Resale flats moving the most</span><div class="g-moving"><div class="g-mv up"><span class="g-tag">▲ Clementi <span class="g-pct">+3.9%</span></span><span class="g-why">lots of buyers — sellers hold the cards</span></div><div class="g-mv up"><span class="g-tag">▲ Bukit Merah <span class="g-pct">+3.2%</span></span><span class="g-why">central, prices still climbing</span></div><div class="g-mv down"><span class="g-tag">▼ Geylang <span class="g-pct">-5.9%</span></span><span class="g-why">prices easing — more room to negotiate</span></div></div></div></div>
   <p class="lead-p">Condo prices have been climbing steadily over the past few months, so that part of the market is genuinely moving up. HDB resale has been much calmer, basically flat for three months now. What makes this week interesting is that even within condos, the picture is split. The priciest central areas of Singapore are actually cooling, down around 2.4%, while the suburbs are holding up well. In HDB resale, three towns tell three very different stories: Clementi is up 3.9%, Bukit Merah is up 3.2%, and Geylang is down 5.9%. This is not one market moving together. It is many small markets sharing the same island.</p>
 
