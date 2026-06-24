@@ -74,6 +74,13 @@ a{color:inherit;text-decoration:none}
 .install p{font-size:14.5px;color:#bcd3c2;margin-top:8px;max-width:560px;line-height:1.55}
 .install b{color:#e3c98f}
 #installBtn{background:linear-gradient(135deg,#e3c98f,#b08d57);color:#241a0d;font-weight:800;font-size:15px;padding:14px 24px;border-radius:30px;border:none;cursor:pointer;white-space:nowrap}
+.biobar{margin-top:24px;background:var(--panel);border:1.5px dashed var(--accent);border-radius:18px;padding:26px 32px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.biolab{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.biobar h3{font-family:Fraunces;font-weight:600;font-size:23px;margin:8px 0 6px}
+.biobar p{font-size:14.5px;color:var(--soft);line-height:1.5;font-weight:500;max-width:560px}
+.biobar code{display:inline-block;margin-top:12px;background:#f0e3c8;color:#1c140d;font-family:ui-monospace,Menlo,monospace;font-size:15px;font-weight:700;padding:9px 15px;border-radius:8px}
+.biocopy{background:var(--ink);color:var(--bg);font-weight:800;font-size:15px;padding:14px 24px;border-radius:30px;border:none;cursor:pointer;white-space:nowrap}
+.biocopy.done{background:#1b3a2d}
 /* archive */
 .arch{margin-top:78px}
 .archrow{display:flex;gap:16px;overflow-x:auto;padding-bottom:10px;scrollbar-width:thin}
@@ -158,6 +165,12 @@ Find homes near any school — link in bio.
       <div class="step"><div class="n">3</div><h4>Copy the caption</h4><p>Tap <b>Copy caption</b> — the hook, the value, hashtags and your link line are ready to paste.</p></div>
       <div class="step"><div class="n">4</div><h4>Post to Instagram</h4><p>Paste, post, done. Space the three across the week (Mon / Wed / Fri works well).</p></div>
     </div>
+    <div class="biobar">
+      <div><span class="biolab">⚑ One-time setup</span><h3>Set your Instagram bio link</h3>
+        <p>Posts say "link in bio" — so people tap through to your hub. Set your IG profile link to this once:</p>
+        <code id="bioUrl">adamdegoat.github.io/adam</code></div>
+      <button class="biocopy" data-bio="https://adamdegoat.github.io/adam/">⧉ Copy link</button>
+    </div>
     <div class="install">
       <div><h3>Add Press to your phone</h3><p>Install it like an app for one-tap access. <b>iPhone:</b> open in Safari → Share → <b>Add to Home Screen</b>. <b>Android:</b> Chrome menu → <b>Install app</b>.</p></div>
       <button id="installBtn" style="display:none">↓ Install Press</button>
@@ -168,7 +181,7 @@ Find homes near any school — link in bio.
     <div class="archrow"><span class="empty">Past drops will collect here, week by week.</span></div>
   </section>
 </div>
-<div class="foot"><div class="wrap"><b>Press</b><span>The content studio of Adam Phang · adamphang.sg · new every Monday 04:00 SGT</span></div></div>
+<div class="foot"><div class="wrap"><b>Press</b><span>The content studio of Adam Phang · <a href="https://adamdegoat.github.io/adam/" style="color:#e3c98f">adamdegoat.github.io/adam</a> · new every Monday 04:00 SGT</span></div></div>
 <div class="toast" id="toast">Caption copied ✓</div>
 <script>
 document.querySelectorAll('.btn.cp').forEach(function(b){b.addEventListener('click',function(){
@@ -179,6 +192,9 @@ document.querySelectorAll('.btn.cp').forEach(function(b){b.addEventListener('cli
     setTimeout(function(){b.classList.remove('done');b.textContent='⧉ Copy caption';to.classList.remove('show')},1900);
   });
 });});
+document.querySelectorAll('.biocopy').forEach(function(b){b.addEventListener('click',function(){
+  navigator.clipboard.writeText(b.getAttribute('data-bio')).then(function(){
+    b.classList.add('done');b.textContent='✓ Copied';setTimeout(function(){b.classList.remove('done');b.textContent='⧉ Copy link'},1900);});});});
 var dp;window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();dp=e;var ib=document.getElementById('installBtn');ib.style.display='block';ib.onclick=function(){dp.prompt()}});
 if('serviceWorker' in navigator){addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}
 </script>
