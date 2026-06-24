@@ -71,7 +71,25 @@ input:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(39,81,63,.1)}
 .bar .b{color:#f6f1e7}
 .bar .back{color:rgba(246,241,231,.82)}
 .bar .back:hover{color:#fff}
-body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opacity:.045;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}.hl-i{display:block;height:14px;width:172px;margin-top:11px;overflow:visible}.hl-i path{fill:none;stroke:#cda86a;stroke-width:5;stroke-linecap:round;vector-effect:non-scaling-stroke}</style></head>
+body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opacity:.045;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}.hl-i{display:block;height:14px;width:172px;margin-top:11px;overflow:visible}.hl-i path{fill:none;stroke:#cda86a;stroke-width:5;stroke-linecap:round;vector-effect:non-scaling-stroke}.more{margin:40px auto 10px}
+.ask{background:linear-gradient(150deg,#1b3a2d,#0f231a);color:#f3efe6;border-radius:20px;padding:30px 32px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.ask-tx{flex:1;min-width:230px}
+.ask-k{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#e3c98f}
+.ask-h{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:25px;margin:8px 0 0;line-height:1.12;display:inline-block;position:relative}
+.ask-tx p{font-size:14.5px;color:rgba(243,239,230,.8);margin-top:12px;line-height:1.55}
+.ask-btn{flex:none;background:linear-gradient(135deg,#e3c98f,#b08d57);color:#241a0d;font-weight:700;font-size:15px;padding:15px 24px;border-radius:40px;white-space:nowrap;transition:.2s}
+.ask-btn:hover{transform:translateY(-2px)}
+.ask .hl-i path{stroke:#e3c98f}
+.mtools{margin-top:28px}
+.mt-lbl{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#988e7e;margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.mt-lbl::after{content:"";flex:1;height:1px;background:#dbd1bf}
+.mt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.mt-grid a{display:block;background:#fffefc;border:1px solid #dbd1bf;border-radius:14px;padding:15px 16px;transition:.2s}
+.mt-grid a:hover{border-color:#27513f;transform:translateY(-3px);box-shadow:0 12px 26px rgba(25,21,18,.08)}
+.mt-grid a b{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:15.5px;color:#191512;display:block}
+.mt-grid a span{font-size:12.5px;color:#988e7e;margin-top:2px;display:block}
+@media(max-width:680px){.mt-grid{grid-template-columns:1fr 1fr}.ask{padding:24px}}
+@media(max-width:420px){.mt-grid{grid-template-columns:1fr}}</style></head>
 <body>
 <div class="topo" aria-hidden="true"></div>
 <header class="bar"><div class="wrap"><span class="b"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="mg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2c5743"/><stop offset=".55" stop-color="#1b3a2d"/><stop offset="1" stop-color="#0f231a"/></linearGradient><linearGradient id="mb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#efd9a6"/><stop offset="1" stop-color="#c39a5b"/></linearGradient></defs><rect x="1" y="1" width="38" height="38" rx="11" fill="url(#mg)"/><circle cx="20" cy="20.6" r="13.8" fill="none" stroke="#cda86a" stroke-width="1.2"/><text x="20" y="25.4" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-weight="600" font-size="15" fill="url(#mb)">AP</text><path d="M20 4.6 l1 2.1 2.3 .3 -1.7 1.6 .4 2.3 -2 -1.1 -2 1.1 .4 -2.3 -1.7 -1.6 2.3 -.3z" fill="#e3c98f"/></svg>Adam Phang</span><a class="back" href="../index.html#tools">← Back to tools</a></div></header>
@@ -123,6 +141,29 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
 
   <p class="disc" id="disc"></p>
 </div>
+<section class="more wrap">
+  <div class="ask">
+    <div class="ask-tx">
+      <span class="ask-k">Not sure about your situation?</span>
+      <h3 class="ask-h">Get a straight answer from Adam.<svg class="hl-i" viewBox="0 0 172 14" preserveAspectRatio="none" aria-hidden="true"><path d="M4 9 C 44 4, 128 4, 168 8"/></svg></h3>
+      <p>Every number here is a guide. For your exact case &mdash; financing, timing, the smartest move &mdash; have a quick chat. No pressure, no sales script.</p>
+    </div>
+    <a class="ask-btn" target="_blank" rel="noopener" href="https://wa.me/6583219747?text=Hi%20Adam%2C%20I%20was%20using%20your%20tools%20and%20have%20a%20question.">&#128172; WhatsApp Adam &rarr;</a>
+  </div>
+  <div class="mtools">
+    <div class="mt-lbl">More free tools</div>
+    <div class="mt-grid">
+      <a href="afford.html" data-self="afford"><b>What can I afford?</b><span>Your real budget</span></a>
+      <a href="value.html" data-self="value"><b>Value a home</b><span>What it&rsquo;s worth</span></a>
+      <a href="stamp-duty.html" data-self="stamp-duty"><b>Stamp duty &amp; ABSD</b><span>What you&rsquo;ll pay</span></a>
+      <a href="grants.html" data-self="grants"><b>Find your grant</b><span>CPF housing grants</span></a>
+      <a href="schools.html" data-self="schools"><b>Homes near a school</b><span>1km / 2km finder</span></a>
+      <a href="sell.html" data-self="sell"><b>Net sale proceeds</b><span>What you pocket</span></a>
+      <a href="eligibility.html" data-self="eligibility"><b>Can I buy it?</b><span>Eligibility check</span></a>
+    </div>
+  </div>
+  <script>(function(){var c=location.pathname.split('/').pop().replace('.html','');document.querySelectorAll('.mt-grid a').forEach(function(a){if(a.dataset.self===c)a.style.display='none';});})();</script>
+</section>
 <div class="foot wrap"><a href="../index.html">← Back to Adam Phang</a></div>
 
 <script>

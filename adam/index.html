@@ -445,6 +445,9 @@ html.menu-open,html.menu-open body{overflow:hidden}
 /* battery/heat: stop the always-on full-screen mesh from repainting forever (gradient stays, drift off) */
 body::before{animation:none}
 .ticker .track{animation-duration:150s}
+/* trim remaining idle GPU: kill the forever-sweeping sheen; drop nav blur on mobile */
+.pov .sheen{display:none}
+@media(max-width:768px){.nav.scrolled{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(236,229,211,.97)}}
 </style>
 <noscript><style>.rv{opacity:1!important;transform:none!important}.livepanel,.portrait{opacity:1!important;transform:none!important}</style></noscript>
 </head>
