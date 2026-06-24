@@ -68,6 +68,23 @@ input:focus,select:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(39
 .err{margin-top:18px;background:#fff8e9;border:1px solid #ecdcb4;border-radius:12px;padding:14px 16px;font-size:14px;color:#6b5526;line-height:1.55;display:none}
 .err.on{display:block}
 .note{font-size:13px;color:var(--ink2);margin-top:18px;line-height:1.6}.note b{color:var(--ink)}
+/* comparables table — the real recent sales behind the estimate */
+.comps-wrap{margin-top:18px}.comps-wrap:empty{display:none}
+.comps-h{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:11px}
+.comps-h b{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:18.5px;color:var(--ink)}
+.comps-h span{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#a99a7c}
+.comps-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:14px;background:#fffefc;box-shadow:0 12px 30px rgba(25,21,18,.05)}
+table.comps{width:100%;border-collapse:collapse;font-size:13.5px;min-width:430px}
+table.comps th{text-align:left;font-size:10.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:#a99a7c;padding:11px 14px;border-bottom:1px solid var(--line2);background:#faf7ef}
+table.comps td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--ink2);vertical-align:top}
+table.comps tbody tr:last-child td{border-bottom:0}
+table.comps tbody tr:hover{background:#faf8f2}
+table.comps td b{color:var(--ink);font-weight:700}
+.comps .cnum{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.cflr{color:var(--ink3);font-weight:600}
+.cstreet{display:block;font-size:11.5px;color:var(--ink3);margin-top:2px;font-weight:500}
+.cpr{font-weight:800;color:var(--green2)}
+.comps-note{font-size:12px;color:var(--ink3);margin-top:10px;line-height:1.5}
 .disc{font-size:12.5px;color:var(--ink3);margin-top:20px;border-top:1px solid var(--line);padding-top:18px;line-height:1.6}.disc b{color:var(--ink2)}
 .cta{margin:24px 0 0;display:flex;gap:11px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;padding:13px 22px;border-radius:30px}
@@ -117,11 +134,14 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
 
     <!-- HDB inputs -->
     <div id="hdbInputs">
-      <div class="two">
-        <div class="field"><label>Town</label><select id="town"><option value="">Select town…</option></select></div>
-        <div class="field"><label>Flat type</label><select id="ftype"><option value="">Pick town first…</option></select></div>
+      <div class="field search"><label>Your address<small>Just start typing your street, then pick it from the list.</small></label>
+        <input type="text" id="addr" autocomplete="off" placeholder="e.g. Ang Mo Kio Ave 3">
+        <div class="ac" id="addrac"></div>
       </div>
-      <div class="field"><label>Street <span style="font-weight:500;color:var(--ink3)">— optional, sharpens it a lot</span><small>Pick your street to value against nearby blocks instead of the whole town.</small></label><select id="street"><option value="">Whole town (less precise)</option></select></div>
+      <div class="two">
+        <div class="field"><label>Block <span style="font-weight:500;color:var(--ink3)">— optional</span><small>Values your exact block.</small></label><input type="text" id="block" placeholder="e.g. 314"></div>
+        <div class="field"><label>Flat type</label><select id="ftype"><option value="">Pick your street first…</option></select></div>
+      </div>
       <div class="two">
         <div class="field"><label>Floor area <span style="font-weight:500;color:var(--ink3)">— optional</span><small>In sqft. Leave blank for a typical unit.</small></label><input type="text" id="hsize" inputmode="numeric" placeholder="e.g. 990"></div>
         <div class="field"><label>Storey <span style="font-weight:500;color:var(--ink3)">— optional</span><small>Roughly which floor</small></label><input type="text" id="storey" inputmode="numeric" placeholder="e.g. 10"></div>
@@ -150,6 +170,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
     <span class="chip" id="conf"><span class="dot"></span><span id="conftxt"></span></span>
     <div class="rows" id="rows"></div>
   </div>
+  <div class="comps-wrap" id="compsWrap"></div>
   <div class="err" id="err"></div>
   <p class="note" id="note"></p>
 
@@ -209,6 +230,7 @@ const num=id=>parseFloat(($('#'+id).value||'').replace(/[^0-9.]/g,''))||0;
 const fmt=n=>'$'+Math.round(n).toLocaleString('en-US');
 const fmtM=n=>n>=1e6?'$'+(n/1e6).toFixed(2).replace(/0$/,'')+'M':'$'+Math.round(n/1000)+'k';
 let mode='hdb', IDX=null, projSel=null, projList=[], cur=-1, STREETS={};
+let STREET_LIST=[], addrTown='', addrStreet='', addrList=[], acur=-1;
 // plain-English area names (no district codes) + plain segment labels
 const AREAS={1:'City Centre',2:'Tanjong Pagar',3:'Queenstown / Tiong Bahru',4:'Sentosa / Harbourfront',5:'Clementi / West Coast',6:'City Hall',7:'Bugis / Beach Road',8:'Little India',9:'Orchard',10:'Bukit Timah / Holland',11:'Novena / Newton',12:'Toa Payoh / Balestier',13:'Macpherson / Potong Pasir',14:'Geylang / Paya Lebar',15:'East Coast (Katong)',16:'Bedok / Upper East Coast',17:'Changi / Loyang',18:'Tampines / Pasir Ris',19:'Serangoon / Hougang',20:'Bishan / Ang Mo Kio',21:'Upper Bukit Timah',22:'Jurong',23:'Bukit Panjang / Choa Chu Kang',24:'Tengah / Lim Chu Kang',25:'Woodlands',26:'Upper Thomson',27:'Yishun / Sembawang',28:'Seletar / Yio Chu Kang'};
 const area=d=>AREAS[parseInt(d,10)]||('District '+d);
@@ -218,13 +240,9 @@ const segPlain=s=>SEGP[s]||s;
 // graceful guard if the engine failed to load
 if(typeof Engines==='undefined'){ $('#go').disabled=true; $('#err').classList.add('on'); $('#err').textContent='Valuation engine is loading — please refresh in a moment.'; }
 
-Caveat.index().then(d=>{
-  IDX=d;
-  const ts=Object.keys(d.hdb_towns).sort();
-  $('#town').innerHTML='<option value="">Select town…</option>'+ts.map(t=>`<option value="${t}">${title(t)}</option>`).join('');
-}).catch(()=>{ $('#err').classList.add('on'); $('#err').textContent='Couldn’t load property data — please refresh.'; });
-// street → town map (for the optional street dropdown)
-Caveat.getJSON('hdb_streets.json').then(t=>{ t.rows.forEach(([st,tn])=>{(STREETS[tn]=STREETS[tn]||[]).push(st);}); }).catch(()=>{});
+Caveat.index().then(d=>{ IDX=d; }).catch(()=>{ $('#err').classList.add('on'); $('#err').textContent='Couldn’t load property data — please refresh.'; });
+// flat street list for the address search (street → town behind the scenes)
+Caveat.getJSON('hdb_streets.json').then(t=>{ t.rows.forEach(([st,tn])=>{ STREET_LIST.push({s:st,t:tn}); (STREETS[tn]=STREETS[tn]||[]).push(st); }); }).catch(()=>{});
 
 function title(s){return (s||'').toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());}
 
@@ -236,13 +254,33 @@ document.querySelectorAll('#mode .opt').forEach(o=>o.onclick=()=>{
   $('#res').classList.remove('on');$('#err').classList.remove('on');$('#note').innerHTML='';
 });
 
-// HDB: populate flat types + streets on town change
-$('#town').addEventListener('change',()=>{
-  const t=$('#town').value, fts=(IDX&&IDX.hdb_towns[t])||[];
-  $('#ftype').innerHTML=fts.length?fts.map(f=>`<option value="${f}">${title(f)}</option>`).join(''):'<option value="">No data</option>';
-  const sts=(STREETS[t]||[]).slice().sort();
-  $('#street').innerHTML='<option value="">Whole town (less precise)</option>'+sts.map(s=>`<option value="${s}">${title(s)}</option>`).join('');
+// HDB address autocomplete: type a street → pick → resolves the town + flat types behind the scenes
+$('#addr').addEventListener('input',e=>{
+  const v=e.target.value.trim().toUpperCase(); addrTown=''; addrStreet=''; acur=-1;
+  $('#ftype').innerHTML='<option value="">Pick your street first…</option>';
+  if(v.length<2||!STREET_LIST.length){$('#addrac').classList.remove('on');return;}
+  addrList=STREET_LIST.filter(o=>o.s.includes(v)).slice(0,8);
+  renderAddrAc();
 });
+function renderAddrAc(){
+  const ac=$('#addrac');
+  if(!addrList.length){ac.innerHTML='<div class="meta" style="cursor:default">No matching street — try fewer words.</div>';ac.classList.add('on');return;}
+  ac.innerHTML=addrList.map((o,i)=>`<div data-i="${i}" class="${i===acur?'hl':''}">${title(o.s)} <span class="meta">· ${title(o.t)}</span></div>`).join('');
+  ac.classList.add('on');
+  ac.querySelectorAll('div[data-i]').forEach(el=>el.onclick=()=>pickAddr(addrList[+el.dataset.i]));
+}
+function pickAddr(o){
+  addrStreet=o.s; addrTown=o.t; $('#addr').value=title(o.s); $('#addrac').classList.remove('on');
+  const fts=(IDX&&IDX.hdb_towns[o.t])||[];
+  $('#ftype').innerHTML=fts.length?fts.map(f=>`<option value="${f}">${title(f)}</option>`).join(''):'<option value="">No data</option>';
+}
+$('#addr').addEventListener('keydown',e=>{
+  if(!addrList.length)return;
+  if(e.key==='ArrowDown'){acur=Math.min(acur+1,addrList.length-1);renderAddrAc();e.preventDefault();}
+  else if(e.key==='ArrowUp'){acur=Math.max(acur-1,0);renderAddrAc();e.preventDefault();}
+  else if(e.key==='Enter'){pickAddr(addrList[acur>=0?acur:0]);e.preventDefault();}
+});
+$('#block').addEventListener('input',e=>{e.target.value=e.target.value.toUpperCase().replace(/[^0-9A-Z]/g,'').slice(0,5);});
 
 // Condo autocomplete
 $('#proj').addEventListener('input',e=>{
@@ -265,24 +303,24 @@ $('#proj').addEventListener('keydown',e=>{
   else if(e.key==='ArrowUp'){cur=Math.max(cur-1,0);renderAc();e.preventDefault();}
   else if(e.key==='Enter'){pickProj(projList[cur>=0?cur:0]);e.preventDefault();}
 });
-document.addEventListener('click',e=>{if(!e.target.closest('.search'))$('#projac').classList.remove('on');});
+document.addEventListener('click',e=>{if(!e.target.closest('.search')){$('#projac').classList.remove('on');$('#addrac').classList.remove('on');}});
 
 // run valuation
 $('#go').addEventListener('click',run);
 async function run(){
-  $('#err').classList.remove('on');$('#res').classList.remove('on');$('#note').innerHTML='';
+  $('#err').classList.remove('on');$('#res').classList.remove('on');$('#note').innerHTML='';$('#compsWrap').innerHTML='';
   $('#go').disabled=true;$('#go').textContent='Valuing…';
   try{
     let r, subj, rows, label;
     if(mode==='hdb'){
-      const town=$('#town').value, ft=$('#ftype').value;
-      if(!town){throw new Error('Pick a town.');}
+      const town=addrTown, ft=$('#ftype').value;
+      if(!town||!addrStreet){throw new Error('Type your street and pick it from the list.');}
       if(!ft){throw new Error('Pick a flat type.');}
       rows=await Caveat.hdbTown(town);
-      const street=$('#street').value||null;
-      subj={flat_type:ft, town, street, area_sqm:sqm(num('hsize')), storey_mid:num('storey')||null};
+      const block=($('#block').value||'').trim()||null;
+      subj={flat_type:ft, town, street:addrStreet, block, area_sqm:sqm(num('hsize')), storey_mid:num('storey')||null};
       r=Engines.hdbEstimate(rows,subj);
-      label=street?`${title(ft)} · ${title(street)}`:`${title(ft)} · ${title(town)}`;
+      label=block?`${title(ft)} · Blk ${block} ${title(addrStreet)}`:`${title(ft)} · ${title(addrStreet)}`;
     } else {
       if(!projSel){ const typed=$('#proj').value.trim().toUpperCase(); projSel=IDX&&IDX.condo_projects.find(p=>p[0]===typed); }
       if(!projSel){throw new Error('Pick a project from the list.');}
@@ -312,6 +350,7 @@ function render(r,label,subj){
     rowHTML('Based on',`${r.n_comps} recent sale${r.n_comps===1?'':'s'} · ${title(r.scope||'')}`,''),
   ].join('');
   $('#rows').innerHTML=html;
+  renderComps(mode,r.comps);
   const cTxt={High:'lots of recent, similar sales nearby — this is a solid estimate',
     Medium:'a fair number of comparable sales — a reasonable guide',
     Lower:'fewer or more varied sales, so treat this as a rough guide'}[r.confidence]||'';
@@ -319,6 +358,23 @@ function render(r,label,subj){
   $('#res').classList.add('on');$('#res').scrollIntoView({behavior:'smooth',block:'start'});
 }
 function rowHTML(k,sub,v){return `<div class="row"><span class="k">${k}${sub?`<small>${sub}</small>`:''}</span>${v?`<span class="v">${v}</span>`:''}</div>`;}
+
+function mLabel(y){y=String(y);if(y.length===4){const mo=['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+y.slice(2)]||'';return mo+" '"+y.slice(0,2);}return y;}
+function renderComps(kind,comps){
+  const w=$('#compsWrap');
+  if(!comps||!comps.length){w.innerHTML='';return;}
+  const shown=comps.slice().sort((a,b)=>String(b.yymm).localeCompare(String(a.yymm))).slice(0,10);
+  const body=shown.map(c=>{
+    const sf=Math.round((c.area_sqm||0)*SQF), when=mLabel(c.yymm);
+    const left=kind==='hdb'
+      ? `<b>Blk ${c.block||'—'}</b>${c.storey_mid?` <span class="cflr">#${String(c.storey_mid).padStart(2,'0')}</span>`:''}<span class="cstreet">${title(c.street||'')}</span>`
+      : `${c.floor_mid?`<b>#${String(c.floor_mid).padStart(2,'0')}</b>`:'<b>—</b>'}<span class="cstreet">${title(c.street||'')}</span>`;
+    return `<tr><td>${left}</td><td class="cnum cflr">${when}</td><td class="cnum">${sf?sf.toLocaleString()+' sf':'—'}</td><td class="cnum">$${Math.round(c.psf)}</td><td class="cnum cpr">${fmtM(c.price)}</td></tr>`;
+  }).join('');
+  w.innerHTML=`<div class="comps-h"><b>The recent sales behind this number</b><span>${comps.length} comparable${comps.length===1?'':'s'} used · newest first</span></div>
+    <div class="comps-scroll"><table class="comps"><thead><tr><th>${kind==='hdb'?'Block &amp; floor':'Unit'}</th><th class="cnum">Sold</th><th class="cnum">Size</th><th class="cnum">$psf</th><th class="cnum">Price</th></tr></thead><tbody>${body}</tbody></table></div>
+    <p class="comps-note">These are the actual transacted prices the estimate is built from${kind==='hdb'?'':', in this project'}. Newer and closer sales count more. Floor (#) is the band mid-point.</p>`;
+}
 
 ['hsize','storey','csize','floor'].forEach(id=>$('#'+id).addEventListener('input',e=>{e.target.value=e.target.value.replace(/[^0-9]/g,'');}));
 window.__value={run};

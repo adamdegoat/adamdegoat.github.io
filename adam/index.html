@@ -61,6 +61,8 @@ em{font-style:italic;color:var(--brass)}
 .btn:hover{background:var(--green3);transform:translateY(-2px);box-shadow:0 14px 28px rgba(27,58,45,.3)}
 .btn.brass{background:linear-gradient(135deg,var(--brass3),var(--brass));border-color:var(--brass);color:#241a0d;box-shadow:0 10px 26px rgba(176,141,87,.32)}
 .btn.brass:hover{box-shadow:0 18px 38px rgba(176,141,87,.42);transform:translateY(-2px)}
+.btn.brass-out{background:rgba(227,201,143,.08);border:1.5px solid var(--brass2);color:var(--brass3);box-shadow:none}
+.btn.brass-out:hover{background:rgba(227,201,143,.16);border-color:var(--brass3);transform:translateY(-2px)}
 .btn .arr{transition:transform .25s var(--ease)}.btn:hover .arr{transform:translateX(4px)}
 /* mobile menu */
 .menu-toggle{display:none;margin-left:auto;width:44px;height:44px;align-items:center;justify-content:center;background:rgba(255,255,255,.55);border:1px solid var(--line2);border-radius:11px;cursor:pointer;color:var(--ink);-webkit-tap-highlight-color:transparent;position:relative;z-index:61;transition:.25s var(--ease)}
@@ -124,6 +126,10 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .am-seg button.on{background:var(--green);color:#f4efe6}
 .am-fields,.am-extra{display:flex;flex-direction:column;gap:11px;position:relative}
 .am-row{display:flex;gap:10px}.am-row .am-f{flex:1}
+.am-cpft{background:none;border:0;color:var(--green2);font-weight:700;font-size:11.5px;cursor:pointer;padding:0;text-align:left;align-self:flex-start;margin-top:-3px}
+.am-cpft:hover{text-decoration:underline}
+.am-cpfhint{background:#eef3ef;border:1px solid #d6e2da;border-radius:11px;padding:11px 13px;font-size:11.5px;color:var(--ink2);line-height:1.5;display:flex;flex-direction:column;gap:4px;margin-top:-4px}
+.am-cpfhint[hidden]{display:none}.am-cpfhint b{color:var(--green);font-weight:700}.am-cpfhint .ch{font-weight:800;color:var(--green)}
 .am-f>span{display:block;font-size:11px;font-weight:700;color:var(--ink2);margin-bottom:5px}
 .am-hint{display:block;font-style:normal;font-weight:500;font-size:10px;color:var(--ink3);margin-top:1px;line-height:1.3}
 .am-in{position:relative}
@@ -141,6 +147,8 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .am-budget{font-family:var(--serif);font-weight:600;font-size:34px;line-height:1;margin:5px 0 5px}
 .am-rsub{font-size:12px;color:rgba(243,239,230,.82)}
 .am-cta{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;background:linear-gradient(135deg,var(--brass3),var(--brass));color:#241a0d;font-weight:700;font-size:13.5px;padding:12px;border-radius:11px;position:relative;transition:.2s var(--ease)}
+.am-sell{display:block;text-align:center;margin-top:9px;font-size:12px;font-weight:600;color:var(--ink3);transition:color .2s}
+.am-sell:hover{color:var(--green2)}.am-sell i{font-style:normal}
 .am-cta:hover{transform:translateY(-2px);filter:brightness(1.04)}
 .am-cta i{font-style:normal;transition:.2s var(--ease)}.am-cta:hover i{transform:translateX(4px)}
 .livepanel::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(360px 220px at 90% -12%,rgba(150,140,110,.07),transparent 62%)}
@@ -520,7 +528,7 @@ body::before{animation:none}
     <span class="eyebrow rv">Everything for your Singapore home move — in one place</span>
     <h1><span class="ln"><i>The numbers,</i></span><span class="ln"><i>the knowledge,</i></span><span class="ln"><i>and <em>the agent.<svg class="uline" viewBox="0 0 300 22" preserveAspectRatio="none" aria-hidden="true"><path d="M5 14 C 84 5, 218 5, 296 11"/></svg></em></i></span></h1>
     <p class="lead rv">Buying, selling, or just working things out — value any home, run the real numbers, and find the right area, all in one place. Free, no sign-up. You decide; I'm a message away when you want a hand.</p>
-    <div class="cta rv"><a class="btn brass" href="tools/afford.html">See what you can afford <span class="arr">→</span></a><a class="btn-ghost" href="#tools">All free tools</a></div>
+    <div class="cta rv"><a class="btn brass" href="tools/afford.html">See what you can afford <span class="arr">→</span></a><a class="btn brass-out" href="tools/value.html">Value a home <span class="arr">→</span></a></div>
     <p class="covers rv">Affordability · home values · stamp duty · schools · selling — <b>all free, all here.</b></p>
     <a class="hessentials rv" href="essentials/">New to property? Start with the essentials →</a>
     <div class="fresh rv"><span class="dot"></span>Live · built on official URA data · refreshed weekly</div>
@@ -534,14 +542,16 @@ body::before{animation:none}
     <div class="am-fields">
       <label class="am-f"><span>Monthly income <em class="am-hint">combine both if buying together</em></span><div class="am-in"><i>$</i><input id="amIncome" inputmode="numeric" value="10,000"></div></label>
       <div class="am-row">
-        <label class="am-f"><span>Savings <em class="am-hint">cash + CPF</em></span><div class="am-in"><i>$</i><input id="amSav" inputmode="numeric" value="300,000"></div></label>
-        <label class="am-f am-age"><span>Oldest buyer's age <em class="am-hint">sets loan length</em></span><div class="am-in"><input id="amAge" inputmode="numeric" value="35"></div></label>
+        <label class="am-f"><span>Cash savings</span><div class="am-in"><i>$</i><input id="amCash" inputmode="numeric" value="150,000"></div></label>
+        <label class="am-f"><span>CPF (OA) savings</span><div class="am-in"><i>$</i><input id="amCpf" inputmode="numeric" value="150,000"></div></label>
       </div>
+      <button type="button" class="am-cpft" id="amCpfT">ⓘ Using your CPF — quick rules</button>
+      <div class="am-cpfhint" id="amCpfHint" hidden><b>Quick CPF rules:</b><span><span class="ch">·</span> Only your <b>Ordinary Account</b> counts — not Special or Medisave.</span><span><span class="ch">·</span> At least <b>5% of the price must be cash</b> (bank loan) — CPF can't cover that bit.</span><span><span class="ch">·</span> On <b>older, short-lease flats</b> CPF use is reduced — and none if under 20 years lease left.</span></div>
+      <label class="am-f am-age"><span>Oldest buyer's age <em class="am-hint">sets loan length</em></span><div class="am-in"><input id="amAge" inputmode="numeric" value="35"></div></label>
     </div>
-    <button class="am-more" id="amMore" aria-expanded="false">+ Fine-tune <span style="opacity:.7;font-weight:600">(debts · CPF · loan length)</span></button>
+    <button class="am-more" id="amMore" aria-expanded="false">+ Fine-tune <span style="opacity:.7;font-weight:600">(debts · grant · loan length)</span></button>
     <div class="am-extra" id="amExtra">
       <label class="am-f"><span>Existing monthly debts <em class="am-hint">car, other loans, card minimums</em></span><div class="am-in"><i>$</i><input id="amDebts" inputmode="numeric" value="0"></div></label>
-      <label class="am-f"><span>Of your savings, how much is CPF? <em class="am-hint">the rest is treated as cash</em></span><div class="am-in"><i>$</i><input id="amCpf" inputmode="numeric" value="0"></div></label>
       <label class="am-f"><span>Housing grant <a href="tools/grants.html" style="color:var(--green2);font-weight:700">find →</a></span><div class="am-in"><i>$</i><input id="amGrant" inputmode="numeric" value="0"></div></label>
       <label class="am-f"><span>Loan length — <b id="amTenV">25 years</b></span><input type="range" id="amTen" min="5" max="30" step="1" value="25"></label>
     </div>
@@ -552,6 +562,7 @@ body::before{animation:none}
     </div>
     <p class="am-note" id="amNote"></p>
     <a class="am-cta" id="amCta" href="tools/afford.html">Full breakdown &amp; stamp duty <i>→</i></a>
+    <a class="am-sell" href="tools/value.html">Selling instead? See your home's worth on real data <i>→</i></a>
   </aside>
 </div></section>
 
@@ -717,19 +728,18 @@ document.querySelectorAll('.count').forEach(el=>cio.observe(el));
   const autoTen=age=>Math.max(5,Math.min(PT[type].maxTen,65-age));
   function syncCta(){
     const a=g('amCta'); if(!a)return;
-    const sav=num('amSav'), cpf=extraOpen?Math.min(num('amCpf'),sav):0;
     const q=new URLSearchParams({
       t:type, inc:num('amIncome'), age:num('amAge')||35,
-      cash:Math.max(0,sav-cpf), cpf:cpf,
+      cash:num('amCash'), cpf:num('amCpf'),
       debts:extraOpen?num('amDebts'):0, grant:extraOpen?num('amGrant'):0,
       ten:extraOpen?(+g('amTen').value):autoTen(num('amAge')||35)
     });
     a.href='tools/afford.html?'+q.toString();
   }
   function calc(){
-    const income=num('amIncome'),sav=num('amSav'),age=num('amAge')||35;
-    const debts=extraOpen?num('amDebts'):0, cpf=extraOpen?Math.min(num('amCpf'),sav):0, grant=extraOpen?num('amGrant'):0;
-    const cash=sav-cpf, cfg=PT[type];
+    const income=num('amIncome'),age=num('amAge')||35;
+    const cash=num('amCash'), cpf=num('amCpf'), debts=extraOpen?num('amDebts'):0, grant=extraOpen?num('amGrant'):0;
+    const cfg=PT[type];
     const years=extraOpen?(+g('amTen').value):autoTen(age);
     const tdsrRoom=Math.max(0,income*R.tdsr-debts);
     const maxMonthly=cfg.msr?Math.min(tdsrRoom,income*R.msr):tdsrRoom;
@@ -759,7 +769,8 @@ document.querySelectorAll('.count').forEach(el=>cio.observe(el));
     if(extraOpen){g('amTen').value=autoTen(num('amAge')||35); g('amTenV').textContent=g('amTen').value+' years';}
     calc();
   };
-  ['amIncome','amSav','amDebts','amCpf','amGrant'].forEach(id=>g(id).addEventListener('input',e=>{const raw=e.target.value.replace(/[^0-9]/g,'');e.target.value=raw?Number(raw).toLocaleString('en-US'):'';calc();}));
+  ['amIncome','amCash','amCpf','amDebts','amGrant'].forEach(id=>g(id).addEventListener('input',e=>{const raw=e.target.value.replace(/[^0-9]/g,'');e.target.value=raw?Number(raw).toLocaleString('en-US'):'';calc();}));
+  g('amCpfT').onclick=()=>{const h=g('amCpfHint');h.hidden=!h.hidden;};
   g('amAge').addEventListener('input',e=>{e.target.value=e.target.value.replace(/[^0-9]/g,'').slice(0,2);calc();});
   g('amTen').addEventListener('input',()=>{g('amTenV').textContent=g('amTen').value+' years';calc();});
   fetch('/caveat/data/rates.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{
