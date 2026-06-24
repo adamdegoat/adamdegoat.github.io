@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-23T23:30:00.154233+08:00",
+  "updated": "2026-06-24T09:00:00.332505+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -290,9 +290,27 @@
   },
   "news": [
     {
+      "title": "UFC Oklahoma City: Du Plessis vs. Usman officially adds 8 new fights",
+      "link": "https://www.mmafighting.com/ufc/496032/ufc-oklahoma-city-du-plessis-vs-usman-officially-adds-8-new-fights",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
+      "title": "Israel Adesanya admits ‘ego’ keeping him from UFC retirement — ‘I know what I can do still’",
+      "link": "https://www.mmamania.com/ufc-news/452709/israel-adesanya-ego-keeping-him-ufc-retirement-know-what-i-can-do-mma",
+      "source": "MMA Mania",
+      "priority": true
+    },
+    {
       "title": "Dricus Du Plessis pans Kamaru Usman for fight delay: ‘You didn’t want to sign the contract’",
       "link": "https://www.mmamania.com/ufc-news/452675/dricus-du-plessis-pans-kamaru-usman-for-fight-delay-you-didnt-want-to-sign-the-contract",
       "source": "MMA Mania",
+      "priority": true
+    },
+    {
+      "title": "Dricus Du Plessis: Kamaru Usman was reluctant to sign contract for UFC Oklahoma City",
+      "link": "https://www.sherdog.com/news/news/Dricus-Du-Plessis-Kamaru-Usman-was-reluctant-to-sign-contract-for-UFC-Oklahoma-City-201625",
+      "source": "Sherdog",
       "priority": true
     },
     {
@@ -302,9 +320,15 @@
       "priority": true
     },
     {
-      "title": "Islam Makhachev: Usman Nurmagomedov will take pay cut by signing with UFC",
-      "link": "https://www.sherdog.com/news/news/Islam-Makhachev-Usman-Nurmagomedov-will-take-pay-cut-by-signing-with-UFC-201597",
-      "source": "Sherdog",
+      "title": "Dustin Poirier attributes recent arrest to UFC retirement: ‘Alcohol isn’t the answer’",
+      "link": "https://www.bjpenn.com/mma-news/dustin-poirier/dustin-poirier-attributes-arrest-ufc-retirement-alcohol/?utm_source=rss&utm_medium=rss&utm_campaign=dustin-poirier-attributes-arrest-ufc-retirement-alcohol",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
+      "title": "Aslamjon Ortikov carries his family’s sacrifice into ONE World Title fight on Friday",
+      "link": "https://www.bjpenn.com/mma-news/aslamjon-ortikov/aslamjon-ortikov-carries-his-familys-sacrifice-into-one-world-title-fight-on-friday/?utm_source=rss&utm_medium=rss&utm_campaign=aslamjon-ortikov-carries-his-familys-sacrifice-into-one-world-title-fight-on-friday",
+      "source": "BJPenn",
       "priority": true
     },
     {
@@ -314,10 +338,28 @@
       "priority": true
     },
     {
-      "title": "Georges St-Pierre thinks Justin Gaethje should retire after storybook result at UFC Freedom 250: “He did it all”",
-      "link": "https://www.bjpenn.com/mma-news/ufc/georges-st-pierre-thinks-justin-gaethje-should-retire-after-storybook-result-at-ufc-freedom-250-he-did-it-all/?utm_source=rss&utm_medium=rss&utm_campaign=georges-st-pierre-thinks-justin-gaethje-should-retire-after-storybook-result-at-ufc-freedom-250-he-did-it-all",
-      "source": "BJPenn",
-      "priority": true
+      "title": "Dustin Poirier public intoxication arrest video shows erratic, threatening behavior from former UFC fighter",
+      "link": "https://www.mmafighting.com/latest-news/496086/dustin-poirier-public-intoxication-arrest-video-shows-erratic-threatening-behavior-from-former-ufc-fighter",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Christian Strong told The Ultimate Fighter 34 producers he’d fight ‘with one f*cking leg’ to stay on show",
+      "link": "https://www.mmafighting.com/ufc/495802/christian-strong-told-the-ultimate-fighter-34-producers-hed-fight-with-one-fcking-leg-to-stay-on-show",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Dricus du Plessis a fan of Josh Hokit, but warns offensive UFC White House comment is ‘going to cost him’",
+      "link": "https://www.mmafighting.com/ufc/496013/dricus-du-plessis-a-fan-of-josh-hokit-but-warns-offensive-ufc-white-house-comment-is-going-to-cost-him",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Daniel Cormier explains why fewer and fewer American wrestlers are transitioning to MMA these days",
+      "link": "https://www.mmafighting.com/ufc/495882/daniel-cormier-explains-why-fewer-and-fewer-american-wrestlers-are-transitioning-to-mma-these-days",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "The Ultimate Fighter 34’s Melissa Amaya won’t shy away from mental health battle: ‘I felt like I was losing my mind’",
@@ -330,53 +372,11 @@
       "link": "https://www.mmafighting.com/ufc/495861/matt-brown-reacts-to-ronda-rousey-jake-paul-celebrating-bigger-ratings-than-ufc-white-house-card",
       "source": "MMA Fighting",
       "priority": false
-    },
-    {
-      "title": "Dricus du Plessis opens as massive favorite over Kamaru Usman in UFC Oklahoma City main event",
-      "link": "https://www.mmafighting.com/ufc/495722/dricus-du-plessis-opens-as-massive-favorite-over-kamaru-usman-in-ufc-oklahoma-city-main-event",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "On To the Next One: Matches to make after UFC Vegas 119",
-      "link": "https://www.mmafighting.com/ufc/495717/on-to-the-next-one-matches-to-make-after-ufc-vegas-119",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "UFC 330: Surging welterweight finisher faces hometown veteran on Islam Makhachev vs. Ian Machado Garry fight card",
-      "link": "https://www.mmafighting.com/ufc/495726/ufc-330-surging-welterweight-finisher-faces-hometown-veteran-on-islam-makhachev-vs-ian-machado-garry-fight-card",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Georges St-Pierre: Conor McGregor must put himself in ‘hell zone’ to have successful comeback at UFC 329",
-      "link": "https://www.mmafighting.com/ufc/495796/georges-st-pierre-conor-mcgregor-must-put-himself-in-hell-zone-to-have-successful-comeback-at-ufc-329",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "New Meta UFC ranking system was made with A.I. but doesn’t use A.I. – ‘It’s a mathematical model’",
-      "link": "https://www.mmamania.com/ufc-mma-rankings/452686/new-meta-ufc-ranking-system-was-made-with-a-i-but-doesnt-use-a-i-its-a-mathematical-model",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "Andre Fili frustrated by illegal blows at UFC Vegas 119: ‘I wanted and deserved the chance to keep fighting’",
-      "link": "https://www.mmamania.com/ufc-news/452646/andre-fili-frustrated-by-illegal-blows-at-ufc-vegas-119-i-wanted-and-deserved-the-chance-to-keep-fighting",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "Too quick? UFC White House’s Bo Nickal makes super fast turnaround, draws 2026 NCAA champ for Aug. 2026 date",
-      "link": "https://www.mmamania.com/raf-wrestling-schedule-cards-live-results/452625/too-quick-ufc-white-houses-bo-nickal-makes-super-fast-turnaround-draws-2026-ncaa-champ-for-aug-2026-date",
-      "source": "MMA Mania",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "Fiziev versus Torres ignites the octagon this Sunday at midnight Singapore time.",
-    "prefight": "Main event mayhem: Fiziev and Torres clash in an epic octagon battle.",
-    "results": "Manel Kape TKOs Kyoji Horiguchi with punches in round three."
+    "week": "Fiziev versus Torres drops Sunday at midnight SGT—lightweight chaos incoming.",
+    "prefight": "Lightweight fireworks ignite as Fiziev battles Torres Sunday at midnight.",
+    "results": "Manel Kape stops Kyoji Horiguchi in round 3 via punching TKO."
   }
 }
