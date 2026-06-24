@@ -47,34 +47,31 @@ a{color:inherit;text-decoration:none}
 .top .place{--accent:var(--green);font-size:12.5px;color:var(--ink-2);font-weight:600;text-transform:uppercase;letter-spacing:.14em;display:inline-flex;align-items:center;gap:8px}
 .top .place .avail{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 var(--green);animation:pulse 2.2s infinite}
 
-/* hero — centered, with logo emblem + orbit motif */
-.hero{padding:30px 0 48px;text-align:center;position:relative}
-.hero-bg{position:absolute;left:50%;top:-30px;transform:translateX(-50%);width:min(880px,118vw);z-index:0;
-  pointer-events:none;color:var(--terra);opacity:.13}
-.hero::after{content:"";position:absolute;left:50%;top:-10px;transform:translateX(-50%);width:660px;max-width:108vw;height:480px;z-index:0;
-  pointer-events:none;background:radial-gradient(closest-side,rgba(255,255,255,.72),transparent 72%)}
-.hero .emblem,.hero .ey,.hero h1,.hero .lede,.hero .cred,.hero .stats{position:relative;z-index:1}
-.emblem{width:86px;height:86px;margin:0 auto 24px}
-.emblem svg{width:100%;height:100%;display:block;overflow:visible}
-.emblem .orbit{transform-origin:40px 40px;animation:spin 18s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.hero .ey{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.28em;color:var(--ink-3);margin-bottom:20px}
-.hero h1{font-family:var(--serif);font-size:clamp(40px,6.2vw,74px);font-weight:400;max-width:17ch;margin:0 auto;letter-spacing:-.022em}
-.hero .lede{font-size:19px;color:var(--ink-2);max-width:50ch;margin:26px auto 0}
-.hero .cred{font-size:15px;color:var(--ink-2);max-width:62ch;margin:15px auto 0}
-.hero .cred b{font-weight:600;color:var(--ink)}
-.stats{display:inline-flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 30px;margin:36px auto 0;
-  padding:18px 30px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.5);backdrop-filter:blur(4px)}
-.stats .st{display:flex;flex-direction:column;gap:3px;align-items:center}
-.stats .st b{font-family:var(--serif);font-size:26px;font-weight:500;line-height:1;color:var(--ink);letter-spacing:-.01em}
-.stats .st small{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.13em;color:var(--ink-3)}
-.stats .sep{width:1px;height:36px;background:var(--line)}
+/* hero — asymmetric, left-set, editorial */
+.hero{padding:42px 0 26px;position:relative}
+.hero .ey{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.26em;color:var(--ink-3);display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.hero .ey::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent);max-width:360px}
+.hero h1{font-family:var(--serif);font-size:clamp(44px,8.4vw,106px);font-weight:400;line-height:.99;letter-spacing:-.03em;margin:0;max-width:15ch}
+.hero h1 .it{color:var(--terra);font-style:italic}
+.hero h1 .alive{color:var(--green);font-family:var(--serif);font-style:italic}
+.hrule{display:block;margin:30px 0 0;width:min(560px,84%);height:16px;overflow:visible}
+.hrule path{fill:none;stroke:var(--terra);stroke-width:2.4;stroke-linecap:round;opacity:.72}
+.hfoot{display:grid;grid-template-columns:1.5fr 1fr;gap:54px;margin-top:40px;align-items:start}
+.hfoot .credo{font-size:18px;color:var(--ink-2);max-width:46ch}
+.hfoot .credo b{color:var(--ink);font-weight:600}
+.hledger{display:flex;flex-direction:column;border-top:1px solid var(--line);margin:0;padding:0}
+.hledger li{list-style:none;display:flex;justify-content:space-between;gap:18px;padding:11px 0;border-bottom:1px solid var(--line-2);font-size:13.5px}
+.hledger .k{color:var(--ink-3);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:11px}
+.hledger .v{color:var(--ink);font-weight:500;text-align:right}
+.hledger .v b{font-family:var(--serif);font-weight:500;font-size:16px}
 
-.sec-head{text-align:center;margin:64px 0 0}
-.sec-head .t{display:inline-flex;align-items:center;gap:13px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.24em;color:var(--accent,#c2703d)}
-.sec-head .t::before,.sec-head .t::after{content:"";width:34px;height:1px;background:currentColor;opacity:.45}
-.sec-head .h{font-family:var(--serif);font-size:clamp(26px,3.4vw,33px);font-weight:400;color:var(--ink);margin-top:11px;letter-spacing:-.012em}
-.sec-head .c{display:block;font-size:13.5px;color:var(--ink-3);font-weight:500;margin-top:7px}
+/* section header — numbered, left-aligned, editorial */
+.sec-head{margin:88px 0 0;display:grid;grid-template-columns:auto 1fr;column-gap:26px;align-items:baseline}
+.sec-head .num{grid-column:1;grid-row:1/4;align-self:center;font-family:var(--serif);font-weight:300;font-size:clamp(50px,7vw,88px);line-height:.78;color:var(--accent,#c2703d);letter-spacing:-.04em}
+.sec-head .t{grid-column:2;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.2em;color:var(--ink-3);margin:0 0 5px}
+.sec-head .h{grid-column:2;font-family:var(--serif);font-size:clamp(26px,3.5vw,38px);font-weight:400;color:var(--ink);letter-spacing:-.02em;line-height:1.05}
+.sec-head .c{grid-column:2;font-size:14px;color:var(--ink-2);margin-top:5px}
+.sec-head::after{content:"";grid-column:1/-1;height:1px;background:var(--line);margin-top:22px}
 .about-lede{text-align:center;font-size:17px;color:var(--ink-2);max-width:58ch;margin:20px auto 0;line-height:1.64}
 .about-lede b{font-weight:600;color:var(--ink)}
 
@@ -149,7 +146,7 @@ a{color:inherit;text-decoration:none}
 .feat:hover .feat-cta .arr{transform:translateX(5px)}
 
 /* MORE WORK grid */
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
 .mcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;
   display:flex;flex-direction:column;transition:.2s;position:relative;overflow:hidden}
 .mcard::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:3px;border-radius:0 3px 3px 0;
@@ -194,12 +191,16 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
 .foot .meta{font-size:13px;color:var(--ink-3)}
 
 @media(max-width:920px){.featured{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){
+  .hfoot{grid-template-columns:1fr;gap:26px}
+  .sec-head{column-gap:18px}.sec-head .num{font-size:46px}
+}
 @media(max-width:620px){
+  .wrap{padding:0 22px}
   .featured,.grid{grid-template-columns:1fr}
   .feat-solo{grid-column:auto;justify-self:auto;width:auto}
-  .hero{padding:24px 0 24px}.top{padding:18px 20px}
-  .stats{display:flex;flex-wrap:wrap;justify-content:center;gap:20px 24px;width:100%;padding:20px 14px}
-  .stats .sep{display:none}
+  .hero{padding:30px 0 18px}.top{padding:18px 0}
+  .hero h1{font-size:clamp(40px,11vw,52px)}
 }
 </style>
 </head>
@@ -211,37 +212,27 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
 </div>
 
 <header class="hero wrap">
-  <svg class="hero-bg" viewBox="0 0 880 560" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
-    <circle cx="440" cy="150" r="78"/><circle cx="440" cy="150" r="138"/><circle cx="440" cy="150" r="208"/>
-    <circle cx="440" cy="150" r="290"/><circle cx="440" cy="150" r="384"/>
-  </svg>
-  <div class="emblem r" style="animation-delay:.02s" aria-hidden="true">
-    <svg viewBox="0 0 80 80">
-      <circle cx="40" cy="40" r="30" fill="none" stroke="var(--ink)" stroke-width="1.5"/>
-      <circle cx="40" cy="40" r="20.5" fill="none" stroke="var(--line)" stroke-width="1.5"/>
-      <circle cx="40" cy="40" r="6.5" fill="var(--terra)"/>
-      <g class="orbit"><circle cx="40" cy="10" r="4" fill="var(--rose)"/></g>
-    </svg>
-  </div>
-  <div class="ey r" style="animation-delay:.08s">Adam Phang · Selected work 2026</div>
-  <h1 class="r" style="animation-delay:.12s">I build things that are <span class="it">useful</span> — and a few that are <span class="it">alive</span>.</h1>
-  <p class="lede r" style="animation-delay:.22s">I design and ship software end-to-end — from the data layer to the interface.</p>
-  <p class="cred r" style="animation-delay:.30s">For businesses I've built <b>research &amp; intelligence systems</b>, an internal <b>operations &amp; CRM portal</b>, lead-generation tools and trading engines. Everything below is my own — real, running, and built on real data.</p>
-  <div class="stats r" style="animation-delay:.40s">
-    <span class="st"><b>10</b><small>Live projects</small></span>
-    <span class="sep"></span>
-    <span class="st"><b>Official</b><small>Real &amp; live data</small></span>
-    <span class="sep"></span>
-    <span class="st"><b>End&#8209;to&#8209;end</b><small>Designed + built solo</small></span>
+  <div class="ey r" style="animation-delay:.06s">Adam Phang · Selected work 2026</div>
+  <h1 class="r" style="animation-delay:.12s">I build things that are <span class="it">useful</span>, and a few that are <span class="alive">alive</span>.</h1>
+  <svg class="hrule r" style="animation-delay:.34s" viewBox="0 0 560 16" preserveAspectRatio="none" aria-hidden="true"><path d="M3 11 C 90 3, 180 14, 270 7 S 460 3, 557 9"/></svg>
+  <div class="hfoot r" style="animation-delay:.40s">
+    <p class="credo">I design and build software <b>end-to-end</b> — research &amp; intelligence systems and operations tools for businesses, plus my own data products and living simulations. Everything below is real: used, running, and built to last past launch.</p>
+    <ul class="hledger">
+      <li><span class="k">Currently</span><span class="v">Adam's property hub</span></li>
+      <li><span class="k">Shipped</span><span class="v"><b>10</b> projects, all live</span></li>
+      <li><span class="k">Process</span><span class="v">Design → build → ship, solo</span></li>
+      <li><span class="k">Based</span><span class="v">Singapore</span></li>
+    </ul>
   </div>
 </header>
 
 <main class="wrap">
   <!-- FEATURED -->
   <div class="sec-head" id="featured" style="--accent:var(--terra)">
-    <span class="t">Featured</span>
-    <div class="h">Five flagships, built to be used daily</div>
-    <span class="c">All live · running on real, official data</span>
+    <span class="num">01</span>
+    <span class="t">Flagships</span>
+    <div class="h">Built to be used daily.</div>
+    <span class="c">Six products and worlds — real data, real users, running on their own.</span>
   </div>
   <div class="featured">
 
@@ -327,9 +318,10 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
 
   <!-- MORE WORK -->
   <div class="sec-head" style="--accent:var(--rose)">
-    <span class="t">More work</span>
-    <div class="h">Products, systems &amp; tools</div>
-    <span class="c">Trading engines, research systems, local tools &amp; more</span>
+    <span class="num">02</span>
+    <span class="t">Products</span>
+    <div class="h">Systems, tools &amp; smaller builds</div>
+    <span class="c">Trading engines, research systems, local tools &amp; more.</span>
   </div>
   <div class="grid">
 
@@ -368,8 +360,9 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
   </div>
 
   <div class="sec-head" id="about" style="--accent:var(--green)">
-    <span class="t">How I work</span>
-    <div class="h">A one-person studio, end to end</div>
+    <span class="num">03</span>
+    <span class="t">Studio</span>
+    <div class="h">A one-person studio, end to end.</div>
   </div>
   <p class="about-lede">I take an idea from the raw <b>data layer</b> to a finished, polished interface — research, design, build, ship, and keep it running. No team to coordinate and no fluff: <b>real, official data</b>, fast iteration, and products that stay live long after launch — not demos.</p>
 
