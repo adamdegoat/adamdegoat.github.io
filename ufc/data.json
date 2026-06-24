@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-24T09:00:00.332505+08:00",
+  "updated": "2026-06-24T13:00:00.238790+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -296,15 +296,21 @@
       "priority": true
     },
     {
+      "title": "UFC’s Dustin Poirier pleads for help after alarming body cam arrest video released – ‘Alcohol isn’t the answer’",
+      "link": "https://www.mmamania.com/latest-news/452761/ufcs-dustin-poirier-pleads-for-help-after-alarming-body-cam-arrest-video-released-alcohol-isnt-the-answer",
+      "source": "MMA Mania",
+      "priority": true
+    },
+    {
       "title": "Israel Adesanya admits ‘ego’ keeping him from UFC retirement — ‘I know what I can do still’",
       "link": "https://www.mmamania.com/ufc-news/452709/israel-adesanya-ego-keeping-him-ufc-retirement-know-what-i-can-do-mma",
       "source": "MMA Mania",
       "priority": true
     },
     {
-      "title": "Dricus Du Plessis pans Kamaru Usman for fight delay: ‘You didn’t want to sign the contract’",
-      "link": "https://www.mmamania.com/ufc-news/452675/dricus-du-plessis-pans-kamaru-usman-for-fight-delay-you-didnt-want-to-sign-the-contract",
-      "source": "MMA Mania",
+      "title": "PFL signs former UFC bantamweight contender",
+      "link": "https://www.sherdog.com/news/news/PFL-signs-former-UFC-bantamweight-contender-201626",
+      "source": "Sherdog",
       "priority": true
     },
     {
@@ -328,12 +334,6 @@
     {
       "title": "Aslamjon Ortikov carries his family’s sacrifice into ONE World Title fight on Friday",
       "link": "https://www.bjpenn.com/mma-news/aslamjon-ortikov/aslamjon-ortikov-carries-his-familys-sacrifice-into-one-world-title-fight-on-friday/?utm_source=rss&utm_medium=rss&utm_campaign=aslamjon-ortikov-carries-his-familys-sacrifice-into-one-world-title-fight-on-friday",
-      "source": "BJPenn",
-      "priority": true
-    },
-    {
-      "title": "Alex Pereira considering retirement amidst Herb Dean UFC White House controversy",
-      "link": "https://www.bjpenn.com/mma-news/alex-pereira/alex-pereira-retirement-herb-dean-ufc-white-house-controversy/?utm_source=rss&utm_medium=rss&utm_campaign=alex-pereira-retirement-herb-dean-ufc-white-house-controversy",
       "source": "BJPenn",
       "priority": true
     },
@@ -375,8 +375,8 @@
     }
   ],
   "hooks": {
-    "week": "Fiziev versus Torres drops Sunday at midnight SGT—lightweight chaos incoming.",
-    "prefight": "Lightweight fireworks ignite as Fiziev battles Torres Sunday at midnight.",
-    "results": "Manel Kape stops Kyoji Horiguchi in round 3 via punching TKO."
+    "week": "Lightweight war erupts Sunday when Fiziev faces Torres—fight week's main event is set.",
+    "prefight": "Fiziev and Torres clash Sunday in an absolute must-watch main event showdown.",
+    "results": "Manel Kape delivers round 3 TKO victory over Kyoji Horiguchi."
   }
 }
