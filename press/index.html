@@ -13,8 +13,9 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#f1e8d6;--ink:#1c140d;--soft:#7a6248;--line:#1c140d;--accent:#c25a38;--panel:#fffaf0;--gold:#b08d57}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:'Schibsted Grotesk',sans-serif;position:relative;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);font-family:'Schibsted Grotesk',sans-serif;position:relative;overflow-x:hidden;width:100%;max-width:100%;-webkit-font-smoothing:antialiased}
+*{min-width:0}
 body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.06;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1320px;margin:0 auto;padding:0 clamp(20px,5vw,64px)}
@@ -65,25 +66,18 @@ a{color:inherit;text-decoration:none}
 .btn.cp.done{background:#1b3a2d;color:#fff;border-color:#1b3a2d}
 /* recent drops */
 .recent{margin-top:64px}
-/* how to */
-.how{margin-top:78px}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.step{background:var(--panel);border:1.5px solid #e3d4b4;border-radius:16px;padding:26px 22px;position:relative}
-.step .n{font-family:Fraunces;font-weight:900;font-size:46px;color:var(--accent);line-height:.9}
-.step h4{font-size:18px;font-weight:800;margin:12px 0 7px}
-.step p{font-size:14.5px;color:var(--soft);line-height:1.5;font-weight:500}
+/* how to — compact */
+.how{margin-top:56px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.step{background:var(--panel);border:1.5px solid #e3d4b4;border-radius:14px;padding:16px 16px;position:relative}
+.step .n{font-family:Fraunces;font-weight:900;font-size:32px;color:var(--accent);line-height:.9}
+.step h4{font-size:15px;font-weight:800;margin:8px 0 4px}
+.step p{font-size:12.5px;color:var(--soft);line-height:1.45;font-weight:500}
 .install{margin-top:24px;background:linear-gradient(150deg,#1b3a2d,#0f231b);color:#eef3ee;border-radius:18px;padding:30px 32px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
 .install h3{font-family:Fraunces;font-weight:600;font-size:24px;color:#fff}
 .install p{font-size:14.5px;color:#bcd3c2;margin-top:8px;max-width:560px;line-height:1.55}
 .install b{color:#e3c98f}
 #installBtn{background:linear-gradient(135deg,#e3c98f,#b08d57);color:#241a0d;font-weight:800;font-size:15px;padding:14px 24px;border-radius:30px;border:none;cursor:pointer;white-space:nowrap}
-.biobar{margin-top:24px;background:var(--panel);border:1.5px dashed var(--accent);border-radius:18px;padding:26px 32px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-.biolab{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
-.biobar h3{font-family:Fraunces;font-weight:600;font-size:23px;margin:8px 0 6px}
-.biobar p{font-size:14.5px;color:var(--soft);line-height:1.5;font-weight:500;max-width:560px}
-.biobar code{display:inline-block;margin-top:12px;background:#f0e3c8;color:#1c140d;font-family:ui-monospace,Menlo,monospace;font-size:15px;font-weight:700;padding:9px 15px;border-radius:8px}
-.biocopy{background:var(--ink);color:var(--bg);font-weight:800;font-size:15px;padding:14px 24px;border-radius:30px;border:none;cursor:pointer;white-space:nowrap}
-.biocopy.done{background:#1b3a2d}
 /* archive */
 .arch{margin-top:78px}
 .archrow{display:flex;gap:16px;overflow-x:auto;padding-bottom:10px;scrollbar-width:thin}
@@ -100,7 +94,9 @@ a{color:inherit;text-decoration:none}
   .grid{grid-template-columns:1fr;gap:22px}
   .steps{grid-template-columns:1fr 1fr}
   .hero{align-items:flex-start}.lead{padding-bottom:0}
-  .status{font-size:12px;padding:7px 12px}
+  .nav{gap:12px}
+  .status{font-size:11px;padding:7px 11px;white-space:normal;text-align:right;line-height:1.3}
+  .mast{font-size:clamp(44px,13vw,84px)}
 }
 @media(max-width:560px){.steps{grid-template-columns:1fr}.subnote{margin-left:0;width:100%}}
 </style></head>
@@ -241,12 +237,6 @@ link in bio
       <div class="step"><div class="n">3</div><h4>Copy the caption</h4><p>Tap <b>Copy caption</b> — the hook, the value, hashtags and your link line are ready to paste.</p></div>
       <div class="step"><div class="n">4</div><h4>Post to Instagram</h4><p>Paste, post, done. Space the three across the week (Mon / Wed / Fri works well).</p></div>
     </div>
-    <div class="biobar">
-      <div><span class="biolab">⚑ One-time setup</span><h3>Set your Instagram bio link</h3>
-        <p>Posts say "link in bio" — so people tap through to your hub. Set your IG profile link to this once:</p>
-        <code id="bioUrl">adamdegoat.github.io/adam</code></div>
-      <button class="biocopy" data-bio="https://adamdegoat.github.io/adam/">⧉ Copy link</button>
-    </div>
     <div class="install">
       <div><h3>Add Press to your phone</h3><p>Install it like an app for one-tap access. <b>iPhone:</b> open in Safari → Share → <b>Add to Home Screen</b>. <b>Android:</b> Chrome menu → <b>Install app</b>.</p></div>
       <button id="installBtn" style="display:none">↓ Install Press</button>
@@ -268,9 +258,6 @@ document.querySelectorAll('.btn.cp').forEach(function(b){b.addEventListener('cli
     setTimeout(function(){b.classList.remove('done');b.textContent='⧉ Copy caption';to.classList.remove('show')},1900);
   });
 });});
-document.querySelectorAll('.biocopy').forEach(function(b){b.addEventListener('click',function(){
-  navigator.clipboard.writeText(b.getAttribute('data-bio')).then(function(){
-    b.classList.add('done');b.textContent='✓ Copied';setTimeout(function(){b.classList.remove('done');b.textContent='⧉ Copy link'},1900);});});});
 var dp;window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();dp=e;var ib=document.getElementById('installBtn');ib.style.display='block';ib.onclick=function(){dp.prompt()}});
 if('serviceWorker' in navigator){addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}
 </script>
