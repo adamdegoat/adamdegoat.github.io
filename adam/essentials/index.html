@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Essentials — Singapore property, from the ground up · Adam Phang</title>
-<meta name="description" content="New to Singapore property? The essentials, from the ground up — buying your first home, upgrading, selling, or just learning how it all works. By Adam Phang.">
+<title>The Essentials — how Singapore property actually works · Adam Phang</title>
+<meta name="description" content="New to Singapore property? Learn how buying and selling actually work — the step-by-step process for condos and HDB flats, plus straight-talking tips. By Adam Phang.">
 <meta name="theme-color" content="#1b3a2d">
 <link rel="manifest" href="../manifest.json">
 <link rel="apple-touch-icon" href="../icons/icon-180.png">
@@ -22,47 +22,84 @@ body::before{content:"";position:fixed;inset:-20%;z-index:-2;pointer-events:none
 .topo{position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:repeating-linear-gradient(90deg,rgba(27,58,45,.045) 0 1px,transparent 1px 150px),repeating-linear-gradient(0deg,rgba(27,58,45,.045) 0 1px,transparent 1px 150px)}
 a{color:inherit;text-decoration:none}
 .bar{height:72px;display:flex;align-items:center;background:linear-gradient(165deg,#2c5743,#1b3a2d)}
-.bar .wrap{max-width:840px;margin:0 auto;padding:0 24px;display:flex;align-items:center;width:100%}
+.bar .wrap{max-width:880px;margin:0 auto;padding:0 24px;display:flex;align-items:center;width:100%}
 .bar .b{font-family:var(--serif);font-weight:600;font-size:20px;display:inline-flex;align-items:center;gap:9px;color:#f6f1e7}.bar .b .mark{width:30px;height:30px;flex:none}
 .bar .back{margin-left:auto;font-size:13.5px;font-weight:600;color:rgba(246,241,231,.82)}.bar .back:hover{color:#fff}
-.wrap{max-width:840px;margin:0 auto;padding:0 24px}
-.head{padding:52px 0 4px}
-.kick{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--brass)}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+.head{padding:50px 0 4px}
+.kick{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#8f6a2c}
 h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5.4vw,52px);letter-spacing:-.025em;margin:13px 0 0;line-height:1.04}
-.sub{font-size:17.5px;color:var(--ink2);margin-top:15px;max-width:580px}
+.sub{font-size:17.5px;color:var(--ink2);margin-top:15px;max-width:600px}
+.hl-i{display:block;height:14px;width:172px;margin-top:11px;overflow:visible}.hl-i path{fill:none;stroke:#cda86a;stroke-width:5;stroke-linecap:round;vector-effect:non-scaling-stroke}
 
-/* tabs */
-.tabs{position:sticky;top:0;z-index:5;margin:30px 0 0;padding:14px 0 12px;background:linear-gradient(var(--bg) 72%,rgba(234,232,225,0));backdrop-filter:blur(2px)}
+/* main tabs */
+.tabs{position:sticky;top:0;z-index:5;margin:28px 0 0;padding:14px 0 12px;background:linear-gradient(var(--bg) 72%,rgba(234,232,225,0));backdrop-filter:blur(2px)}
 .tabrow{display:flex;gap:8px;flex-wrap:wrap}
-.tab{font-weight:700;font-size:13.5px;padding:11px 15px;border:1px solid var(--line2);border-radius:30px;background:#fffefc;color:var(--ink2);cursor:pointer;transition:.18s var(--ease);display:inline-flex;align-items:center;gap:7px}
+.tab{font-weight:700;font-size:13.5px;padding:11px 16px;border:1px solid var(--line2);border-radius:30px;background:#fffefc;color:var(--ink2);cursor:pointer;transition:.18s var(--ease);display:inline-flex;align-items:center;gap:7px}
 .tab:hover{border-color:var(--ink3);transform:translateY(-1px)}
 .tab.on{background:var(--green);color:#f4efe6;border-color:var(--green)}
-.tab .e{font-size:14px}
-
-/* panels */
+.tab .e{font-size:15px}
 .panel{display:none;animation:fade .4s var(--ease)}
 .panel.on{display:block}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.lede{font-size:16.5px;color:var(--ink2);margin:8px 0 24px;max-width:600px}
+.lede{font-size:16.5px;color:var(--ink2);margin:6px 0 18px;max-width:620px}
 .lede b{color:var(--ink)}
-.step{display:flex;gap:18px;background:#fffefc;border:1px solid var(--line);border-radius:18px;padding:22px 24px;margin-bottom:14px;box-shadow:0 10px 30px rgba(25,21,18,.05);transition:transform .25s var(--ease),box-shadow .25s,border-color .25s}
-.step:hover{transform:translateY(-2px);box-shadow:0 18px 44px rgba(25,21,18,.08);border-color:var(--line2)}
-.num{flex:none;width:34px;height:34px;border-radius:50%;background:linear-gradient(150deg,var(--green2),var(--green3));color:var(--brass3);font-family:var(--serif);font-weight:600;font-size:16px;display:flex;align-items:center;justify-content:center}
-.st-b h3{font-family:var(--serif);font-weight:600;font-size:21px;letter-spacing:-.01em;margin:3px 0 7px;line-height:1.15}
-.st-b p{font-size:15px;color:var(--ink2);margin-bottom:4px}
-.st-b p b{color:var(--ink)}
-.toollink{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:700;color:var(--green2);margin-top:11px;background:rgba(27,58,45,.05);border:1px solid var(--line);border-radius:30px;padding:7px 13px;transition:.18s}
-.toollink:hover{background:#fff;border-color:var(--green2);transform:translateY(-1px)}
-.toollink + .toollink{margin-left:8px}
-.trap{border-color:#ecdcb4;background:#fffaf0}
-.trap .num{background:linear-gradient(150deg,#c79a3e,#9a7320)}
-.tag{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#8a6a1e;background:#f4e6c4;border-radius:6px;padding:2px 7px;margin-bottom:7px}
-.tip{font-size:14.5px;color:var(--ink2);background:#eef3ef;border:1px solid #d6e2da;border-radius:13px;padding:15px 18px;margin:6px 0 2px;line-height:1.55}
-.tip b{color:var(--green)}
+
+/* segment (which journey) */
+.seg{display:inline-flex;flex-wrap:wrap;gap:5px;margin:4px 0 8px;background:#fffefc;border:1px solid var(--line2);border-radius:40px;padding:5px}
+.seg button{font-weight:700;font-size:13px;padding:9px 15px;border:0;border-radius:30px;background:transparent;color:var(--ink2);cursor:pointer;transition:.18s}
+.seg button.on{background:var(--green);color:#f4efe6}
+
+/* progress meter */
+.meter{display:flex;align-items:center;gap:13px;margin:18px 0 26px;background:linear-gradient(168deg,#fffefb,#f3eee1);border:1px solid var(--line2);border-radius:14px;padding:13px 18px}
+.meter .ml{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#a99a7c;white-space:nowrap}
+.meter .mb{flex:1;height:7px;border-radius:6px;background:#e2dac9;overflow:hidden;position:relative}
+.meter .mf{position:absolute;inset:0;background:linear-gradient(90deg,var(--brass),var(--brass3))}
+.meter .mv{font-size:13px;font-weight:800;color:var(--green2);white-space:nowrap}
+
+/* journey timeline */
+.journey{position:relative;margin-top:4px}
+.journey::before{content:"";position:absolute;left:27px;top:16px;bottom:36px;width:2px;background:linear-gradient(var(--brass3),var(--brass) 38%,var(--line2))}
+.jstep{position:relative;display:flex;gap:20px;padding-bottom:18px}
+.jnode{flex:none;width:56px;height:56px;border-radius:50%;background:linear-gradient(150deg,var(--green2),var(--green3));display:grid;place-items:center;box-shadow:0 8px 20px rgba(15,35,26,.22);position:relative;z-index:2}
+.jnode svg{width:26px;height:26px;stroke:#e3c98f;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.jnode .n{position:absolute;top:-6px;right:-6px;width:22px;height:22px;border-radius:50%;background:var(--brass3);color:#241a0d;font-family:var(--serif);font-weight:600;font-size:12px;display:grid;place-items:center;border:2px solid var(--bg)}
+.jcard{flex:1;min-width:0;background:#fffefc;border:1px solid var(--line);border-radius:16px;padding:18px 22px;box-shadow:0 10px 28px rgba(25,21,18,.05);transition:transform .25s var(--ease),box-shadow .25s,border-color .25s}
+.jcard:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(25,21,18,.09);border-color:var(--line2)}
+.jstage{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#a99a7c}
+.jcard h3{font-family:var(--serif);font-weight:600;font-size:20px;letter-spacing:-.01em;margin:5px 0 7px;line-height:1.18}
+.jcard p{font-size:14.5px;color:var(--ink2)}
+.jcard p b{color:var(--ink)}
+.jmeta{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px;align-items:center}
+.pay{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:800;color:#7a5a16;background:#f6ead0;border:1px solid #e8d4a6;border-radius:30px;padding:6px 12px}
+.pay.none{color:var(--ink3);background:#eef1ee;border-color:#dde4dd}
+.when{font-size:12.5px;font-weight:700;color:var(--ink3)}
+.tool{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--green2);background:rgba(27,58,45,.05);border:1px solid var(--line);border-radius:30px;padding:6px 12px;margin-left:auto}
+.tool:hover{background:#fff;border-color:var(--green2)}
+.jnote{display:flex;gap:12px;align-items:flex-start;background:#fffaf0;border:1px solid #ecdcb4;border-radius:14px;padding:14px 16px;margin-top:6px;font-size:14px;color:#6b5526;line-height:1.55}
+.jnote b{color:#7a5a16}.jnote .i{flex:none;font-size:16px}
+
+/* TIPS */
+.tipgrid{display:flex;flex-direction:column;gap:11px;margin-top:6px}
+.tip{background:#fffefc;border:1px solid var(--line);border-radius:15px;overflow:hidden;transition:border-color .2s,box-shadow .25s}
+.tip[open]{border-color:var(--line2);box-shadow:0 14px 36px rgba(25,21,18,.07)}
+.tip summary{list-style:none;cursor:pointer;padding:18px 22px;display:flex;align-items:center;gap:14px}
+.tip summary::-webkit-details-marker{display:none}
+.tip .tnum{flex:none;font-family:var(--serif);font-weight:600;font-size:15px;color:var(--brass);width:26px}
+.tip .tt{flex:1;font-family:var(--serif);font-weight:600;font-size:18.5px;letter-spacing:-.01em;line-height:1.2;color:var(--ink)}
+.tip .tx{flex:none;width:26px;height:26px;border-radius:50%;border:1px solid var(--line2);display:grid;place-items:center;color:var(--green2);font-size:17px;transition:.25s var(--ease)}
+.tip[open] .tx{transform:rotate(45deg);background:var(--green);color:#f4efe6;border-color:var(--green)}
+.tip .tbody{padding:0 22px 20px 62px}
+.tip .tbody p{font-size:14.8px;color:var(--ink2);margin-top:10px}
+.tip .tbody p:first-child{margin-top:0}
+.tip .tbody b{color:var(--ink)}
+.tip .tbody .takeaway{margin-top:13px;font-size:14px;color:var(--green);background:#eef3ef;border:1px solid #d6e2da;border-radius:11px;padding:11px 15px;font-weight:600}
+.tip .tbody a.tl{color:var(--green2);font-weight:700;border-bottom:1px solid rgba(176,141,87,.5)}
+@media(max-width:600px){.tip .tbody{padding:0 20px 18px 20px}.tip .tt{font-size:17px}}
 
 /* glossary */
-.gloss{margin-top:46px;padding-top:8px;border-top:1px solid var(--line2)}
-.gloss .gk{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--brass)}
+.gloss{margin-top:48px;padding-top:8px;border-top:1px solid var(--line2)}
+.gloss .gk{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#8f6a2c}
 .gloss h2{font-family:var(--serif);font-weight:600;font-size:clamp(26px,3.6vw,34px);letter-spacing:-.02em;margin:11px 0 6px}
 .gloss .gsub{font-size:15.5px;color:var(--ink2);max-width:560px;margin-bottom:22px}
 .terms{display:grid;grid-template-columns:1fr 1fr;gap:13px}
@@ -73,7 +110,7 @@ h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5.4vw,52px);let
 .term p .you{display:block;margin-top:6px;color:var(--ink);font-weight:600;font-size:13.3px}
 
 /* cta */
-.cta{margin:42px 0 0;background:linear-gradient(150deg,var(--green2),var(--green3));border-radius:20px;padding:30px 30px;color:#f3efe6;position:relative;overflow:hidden}
+.cta{margin:46px 0 0;background:radial-gradient(560px 320px at 84% -30%,rgba(227,201,143,.16),transparent 60%),linear-gradient(150deg,var(--green2),var(--green3));border-radius:20px;padding:32px 30px;color:#f3efe6;position:relative;overflow:hidden}
 .cta .fr{position:absolute;inset:13px;border:1px solid rgba(227,201,143,.22);border-radius:12px;pointer-events:none}
 .cta h2{font-family:var(--serif);font-weight:600;font-size:26px;position:relative;margin-bottom:8px}
 .cta p{font-size:15px;color:rgba(243,239,230,.8);position:relative;max-width:480px}
@@ -83,9 +120,9 @@ h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5.4vw,52px);let
 .btn.g{background:rgba(255,255,255,.08);border:1px solid rgba(243,239,230,.28);color:#f3efe6}
 .foot{padding:34px 0 72px}.foot a{font-size:14px;font-weight:700;color:var(--green2)}
 .disc{font-size:12.5px;color:var(--ink3);margin-top:24px;line-height:1.6}
-
-@media(max-width:680px){.terms{grid-template-columns:1fr}.step{padding:20px}.head{padding:40px 0 4px}}
-body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opacity:.045;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}.hl-i{display:block;height:14px;width:172px;margin-top:11px;overflow:visible}.hl-i path{fill:none;stroke:#cda86a;stroke-width:5;stroke-linecap:round;vector-effect:non-scaling-stroke}:focus-visible{outline:2.5px solid #b08d57;outline-offset:2px;border-radius:3px}.eyebrow,.kick,.free,.rdate,.note .date,.lp-k,.tool .free{color:#8f6a2c}</style></head>
+@media(max-width:680px){.terms{grid-template-columns:1fr}.jstep{gap:15px}.journey::before{left:23px}.jnode{width:48px;height:48px}.jnode svg{width:22px;height:22px}.tool{margin-left:0}.head{padding:38px 0 4px}}
+body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opacity:.045;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+:focus-visible{outline:2.5px solid #b08d57;outline-offset:2px;border-radius:3px}.eyebrow,.kick,.gk{color:#8f6a2c}</style></head>
 <body>
 <div class="topo" aria-hidden="true"></div>
 <header class="bar"><div class="wrap"><a class="b" href="../index.html"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="mg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2c5743"/><stop offset=".55" stop-color="#1b3a2d"/><stop offset="1" stop-color="#0f231a"/></linearGradient><linearGradient id="mb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#efd9a6"/><stop offset="1" stop-color="#c39a5b"/></linearGradient></defs><rect x="1" y="1" width="38" height="38" rx="11" fill="url(#mg)"/><text x="19.5" y="29.5" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-weight="500" font-size="27" fill="url(#mb)">A</text><circle cx="29" cy="13.5" r="2" fill="#e3c98f"/></svg>Adam Phang</a><a class="back" href="../index.html">← Back to home</a></div></header>
@@ -93,96 +130,204 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
 <div class="wrap">
   <div class="head">
     <span class="kick">The Essentials</span>
-    <h1>Singapore property,<br>from the ground up.</h1><svg class="hl-i" viewBox="0 0 172 14" preserveAspectRatio="none" aria-hidden="true"><path d="M4 9 C 44 4, 128 4, 168 8"/></svg>
-    <p class="sub">No script, no pressure. Pick where you are, and I'll walk you through what matters — in the order it actually happens.</p>
+    <h1>How property actually works.</h1><svg class="hl-i" viewBox="0 0 172 14" preserveAspectRatio="none" aria-hidden="true"><path d="M4 9 C 44 4, 128 4, 168 8"/></svg>
+    <p class="sub">New to all this? Start here. See exactly how buying and selling happen, step by step, and pick up the things that quietly cost people money. No jargon you can't follow, no sales pitch.</p>
   </div>
 
   <div class="tabs"><div class="tabrow" id="tabrow">
-    <button class="tab on" data-t="first-home"><span class="e">🏠</span>Buying my first home</button>
-    <button class="tab" data-t="upgrading"><span class="e">🔑</span>Upgrading</button>
-    <button class="tab" data-t="selling"><span class="e">💰</span>Selling</button>
-    <button class="tab" data-t="exploring"><span class="e">🧭</span>Just exploring</button>
+    <button class="tab on" data-t="buying"><span class="e">🏠</span>How buying works</button>
+    <button class="tab" data-t="selling"><span class="e">💰</span>How selling works</button>
+    <button class="tab" data-t="tips"><span class="e">💡</span>Tips worth knowing</button>
   </div></div>
 
-  <!-- FIRST HOME -->
-  <section class="panel on" id="first-home">
-    <p class="lede">Buying your first place. Here's the order to do it in — and the free tool for each step. <b>Do all this before you fall for a listing.</b></p>
-    <div class="step"><div class="num">1</div><div class="st-b"><h3>Can I even buy this?</h3><p>Different homes have different rules. HDB flats and new ECs check your <b>citizenship, income and whether you already own property</b>. Private condos are open to almost anyone — but foreigners pay heavy extra duty. Check before you fall in love.</p><a class="toollink" href="../tools/eligibility.html">Can I buy it? →</a></div></div>
-    <div class="step"><div class="num">2</div><div class="st-b"><h3>What can I actually afford?</h3><p>Your budget isn't the price tag. Three things cap it: how much a <b>bank will lend</b> (from your income), how much you've <b>saved</b> (cash + CPF), and how much of that is <b>actual cash</b>. The lowest of the three is your real ceiling.</p><a class="toollink" href="../tools/afford.html">What can I afford? →</a><a class="toollink" href="../notes/your-real-property-budget-three-numbers.html">The 3 numbers →</a></div></div>
-    <div class="step"><div class="num">3</div><div class="st-b"><h3>What it costs upfront</h3><p>On top of the down payment, you'll pay <b>stamp duty</b> (a government tax on the price) and legal fees — in cash. Knowing the figure early stops a nasty surprise at signing.</p><a class="toollink" href="../tools/stamp-duty.html">Stamp duty calculator →</a></div></div>
-    <div class="step"><div class="num">4</div><div class="st-b"><h3>Free money you might be owed</h3><p>First-timers can claim <b>CPF housing grants</b> — often tens of thousands — paid straight toward your flat. Most people underclaim because they never check.</p><a class="toollink" href="../tools/grants.html">What grants can I get? →</a></div></div>
-    <div class="step"><div class="num">5</div><div class="st-b"><h3>Picking the right area</h3><p>Got young kids? Living <b>within 1km of a primary school</b> gives priority at P1 registration. See exactly which homes qualify.</p><a class="toollink" href="../tools/schools.html">Homes near a school →</a></div></div>
-  </section>
-
-  <!-- UPGRADING -->
-  <section class="panel" id="upgrading">
-    <p class="lede">Selling your current home to buy a bigger or private one. This path has <b>traps a first-timer never sees</b> — get the order right and they cost you nothing.</p>
-    <div class="step"><div class="num">1</div><div class="st-b"><h3>What's your current place worth?</h3><p>Your budget for the next home starts with the <b>equity in this one</b>. Get an honest value before you start dreaming about the upgrade.</p><a class="toollink" href="../tools/value.html">Value a home →</a></div></div>
-    <div class="step"><div class="num">2</div><div class="st-b"><h3>What you'll actually walk away with</h3><p>After paying off the loan and <b>refunding your CPF — with accrued interest</b> — the cash in hand is usually less than people expect. That's your real down payment for the next one.</p><a class="toollink" href="../tools/sell.html">Your net proceeds →</a></div></div>
-    <div class="step trap"><div class="num">!</div><div class="st-b"><span class="tag">The big trap</span><h3>Buy first, and you pay ABSD upfront</h3><p>If you buy the new home <b>before</b> selling the old one, you'll have two properties for a moment — so you pay <b>Additional Buyer's Stamp Duty</b> (a large sum) upfront, and only claim it back if you sell the first within the timeline. Selling first, or sequencing it right, avoids tying up that cash.</p><a class="toollink" href="../tools/stamp-duty.html">See the ABSD figure →</a></div></div>
-    <div class="step"><div class="num">4</div><div class="st-b"><h3>Can you still get the loan?</h3><p>On a <b>second property the bank lends less</b> and wants more cash down. Re-run your budget on the new place — don't assume it's the same as your first.</p><a class="toollink" href="../tools/afford.html">What can I afford? →</a></div></div>
-    <div class="step"><div class="num">5</div><div class="st-b"><h3>On an HDB right now?</h3><p>You must finish your <b>Minimum Occupation Period</b> (usually 5 years living in it) before you can sell or buy a private property.</p><a class="toollink" href="../tools/eligibility.html">Check eligibility →</a></div></div>
+  <!-- BUYING -->
+  <section class="panel on" id="buying">
+    <p class="lede">The whole journey, from "I like this one" to keys in your hand. <b>Pick what you're buying</b> — the steps change a fair bit between them.</p>
+    <div class="seg" id="buyseg">
+      <button class="on" data-j="resale-condo">Resale condo</button>
+      <button data-j="new-launch">New launch condo</button>
+      <button data-j="hdb-resale">Resale HDB</button>
+      <button data-j="bto">BTO (new HDB)</button>
+    </div>
+    <div class="meter"><span class="ml">Start to finish</span><div class="mb"><div class="mf"></div></div><span class="mv" id="buymeter"></span></div>
+    <div class="journey" id="buymount"></div>
   </section>
 
   <!-- SELLING -->
   <section class="panel" id="selling">
-    <p class="lede">Selling and not buying again — downsizing, cashing out, or just moving on. Three things to know.</p>
-    <div class="step"><div class="num">1</div><div class="st-b"><h3>What's it worth?</h3><p>Price it on <b>real recent transactions</b>, not a hopeful number. An honest range gets you a faster, cleaner sale.</p><a class="toollink" href="../tools/value.html">Value a home →</a></div></div>
-    <div class="step"><div class="num">2</div><div class="st-b"><h3>What you actually pocket</h3><p>Your sale price, minus the <b>outstanding loan</b>, your <b>CPF refund (used + accrued interest)</b>, agent fee and legal. The number left over is often a surprise — see it before you commit.</p><a class="toollink" href="../tools/sell.html">Your net proceeds →</a></div></div>
-    <div class="step trap"><div class="num">!</div><div class="st-b"><span class="tag">Watch the clock</span><h3>Are you selling too early?</h3><p>Sell a <b>private</b> home within 3 years of buying and you pay <b>Seller's Stamp Duty</b> — a penalty that shrinks each year. HDB flats don't have this, but they do have the 5-year occupation rule instead.</p><a class="toollink" href="../tools/sell.html">Check if SSD applies →</a></div></div>
+    <p class="lede">Selling up — to upgrade, downsize, or cash out. <b>Pick what you're selling</b>, and watch the timing traps near the end.</p>
+    <div class="seg" id="sellseg">
+      <button class="on" data-j="sell-condo">Selling a condo</button>
+      <button data-j="sell-hdb">Selling an HDB</button>
+    </div>
+    <div class="meter"><span class="ml">Start to finish</span><div class="mb"><div class="mf"></div></div><span class="mv" id="sellmeter"></span></div>
+    <div class="journey" id="sellmount"></div>
   </section>
 
-  <!-- EXPLORING -->
-  <section class="panel" id="exploring">
-    <p class="lede">No timeline — you just want to understand how it all works. Five minutes here and the rest of the site makes sense.</p>
-    <div class="step"><div class="num">1</div><div class="st-b"><h3>The three kinds of home</h3><p><b>HDB</b> — public, subsidised, with rules on who can buy. <b>Executive Condo (EC)</b> — a hybrid that starts with HDB-style rules and turns fully private after 10 years. <b>Private condo / landed</b> — open market, anyone can buy (foreigners pay heavy extra duty).</p></div></div>
-    <div class="step"><div class="num">2</div><div class="st-b"><h3>Lease vs freehold</h3><p>Most homes here sit on a <b>99-year lease</b> — a clock that matters, because the home's value and how much loan/CPF you can use both shrink as the lease runs down (<b>"lease decay"</b>). Freehold never expires.</p></div></div>
-    <div class="step"><div class="num">3</div><div class="st-b"><h3>Why all the rules?</h3><p>The stamp duties and loan limits — the <b>"cooling measures"</b> — exist to keep prices in check and stop people over-borrowing. They're the reason your budget is smaller than your bank balance suggests.</p></div></div>
-    <div class="step"><div class="num">4</div><div class="st-b"><h3>Play with the data</h3><p>Value any condo or HDB on real transactions, or map the homes around any primary school — free, no sign-up.</p><a class="toollink" href="../tools/value.html">Value a home →</a><a class="toollink" href="../tools/schools.html">Homes near a school →</a></div></div>
-    <div class="step"><div class="num">5</div><div class="st-b"><h3>Watch the market</h3><p>A short read most weeks — what's caught my eye, and what it could mean for your next move.</p><a class="toollink" href="../notes/">Read the blog →</a></div></div>
+  <!-- TIPS -->
+  <section class="panel" id="tips">
+    <p class="lede">The things I wish every buyer knew before they started. <b>Tap any one</b> to open it.</p>
+    <div class="tipgrid" id="tipgrid"></div>
   </section>
 
-  <!-- GLOSSARY -->
+  <!-- GLOSSARY (always useful, shown under every tab) -->
   <section class="gloss">
     <span class="gk">For everyone</span>
     <h2>The words you'll keep hearing.</h2>
-    <p class="gsub">Every term the tools throw at you — translated once, with what it actually means for you.</p>
+    <p class="gsub">Every term the tools and agents throw at you — translated once, with what it actually means for you.</p>
     <div class="terms">
+      <div class="term"><div class="t">OTP <span>— Option to Purchase</span></div><p>The little contract that <b>reserves the home for you</b> for about two weeks while you sort your loan. You pay a small fee for it.<span class="you">Once you "exercise" it, the deal is firm.</span></p></div>
       <div class="term"><div class="t">TDSR <span>— the loan cap</span></div><p>Banks won't let <b>all</b> your monthly repayments add up to more than 55% of your income.<span class="you">More income or less debt → bigger budget.</span></p></div>
       <div class="term"><div class="t">MSR <span>— HDB &amp; EC only</span></div><p>A tighter cap: your <b>home loan alone</b> can't exceed 30% of your income.<span class="you">Why HDB budgets feel smaller than condo ones.</span></p></div>
-      <div class="term"><div class="t">LTV <span>— how much they lend</span></div><p>The most a bank will lend — usually <b>75%</b> of the price on your first loan. You find the other 25%.<span class="you">Drops to 55% if the loan runs past age 65 or 30 years — and lower still (around 45%) on a second home loan.</span></p></div>
+      <div class="term"><div class="t">LTV <span>— how much they lend</span></div><p>The most a bank will lend — usually <b>75%</b> of the price on your first loan. You find the other 25%.<span class="you">Drops to 55% if the loan runs past age 65 or 30 years — lower still on a second home loan.</span></p></div>
       <div class="term"><div class="t">Stress test</div><p>Banks check you could still pay if rates jumped to about <b>4%</b>, even though you'll likely pay less.<span class="you">It's why the "safe" loan feels conservative — that's the point.</span></p></div>
-      <div class="term"><div class="t">BSD <span>— Buyer's Stamp Duty</span></div><p>A tax <b>everyone</b> pays on the purchase price, roughly 1–6% depending on price.<span class="you">Budget for it in cash, on top of the down payment.</span></p></div>
+      <div class="term"><div class="t">BSD <span>— Buyer's Stamp Duty</span></div><p>A tax <b>everyone</b> pays on the price, roughly 1–6% depending on how much the home costs.<span class="you">Budget for it in cash, on top of the down payment.</span></p></div>
       <div class="term"><div class="t">ABSD <span>— Additional Buyer's Stamp Duty</span></div><p>Extra duty if it's <b>not your first home</b>, or you're a PR/foreigner. Can be very large.<span class="you">The single biggest cost surprise when upgrading.</span></p></div>
-      <div class="term"><div class="t">SSD <span>— Seller's Stamp Duty</span></div><p>A penalty for selling a <b>private</b> home within 3 years of buying it.<span class="you">Hold past 3 years and it's zero.</span></p></div>
+      <div class="term"><div class="t">SSD <span>— Seller's Stamp Duty</span></div><p>A penalty for selling a <b>private</b> home within a few years of buying it.<span class="you">Hold past the window and it's zero.</span></p></div>
       <div class="term"><div class="t">CPF + accrued interest</div><p>You can use CPF for a home, but on selling you must <b>put back what you used plus the interest</b> it would have earned.<span class="you">It quietly eats into your cash proceeds.</span></p></div>
       <div class="term"><div class="t">Valuation gap</div><p>A bank only lends, and CPF only applies, up to <b>its own valuation</b> of the home.<span class="you">Pay above valuation and the difference is cash on top.</span></p></div>
       <div class="term"><div class="t">Minimum cash</div><p>At least <b>5% of the price</b> must be paid in actual cash — CPF can't cover this part.<span class="you">The first real cash hurdle to clear.</span></p></div>
       <div class="term"><div class="t">MOP <span>— Minimum Occupation Period</span></div><p>Usually <b>5 years</b> you must live in an HDB before you can sell it or buy private.<span class="you">Sets the earliest you can upgrade.</span></p></div>
       <div class="term"><div class="t">Lease decay</div><p>A 99-year home slowly <b>loses value</b> — and loan/CPF eligibility — as the lease counts down.<span class="you">Matters most on older flats and for resale.</span></p></div>
+      <div class="term"><div class="t">HFE <span>— HDB Flat Eligibility</span></div><p>An online letter from HDB that confirms <b>what you can buy, borrow, and claim in grants</b> before you start.<span class="you">Your first step for any HDB purchase.</span></p></div>
     </div>
   </section>
 
   <div class="cta"><div class="fr"></div>
     <h2>Still not sure where you stand?</h2>
-    <p>That's normal — and exactly what I'm here for. Tell me your situation and I'll point you to the right next step. No obligation.</p>
+    <p>That's completely normal — and exactly what I'm here for. Tell me your situation and I'll point you to the right next step. No obligation.</p>
     <div class="btns"><a class="btn p" href="https://wa.me/6583219747">Ask Adam →</a><a class="btn g" href="../index.html#tools">Browse the tools</a></div>
   </div>
 
-  <p class="disc">Quick summaries to get you oriented — not financial or legal advice, and rules change. Always confirm the specifics with a banker, lawyer, or with me before you commit.</p>
+  <p class="disc">Plain-language summaries to get you oriented — not financial or legal advice, and the rules change. Always confirm the specifics with a banker, lawyer, HDB, or with me before you commit.</p>
 </div>
 <div class="foot wrap"><a href="../index.html">← Back to Adam Phang</a></div>
 
 <script>
-var tabs=document.querySelectorAll('.tab'),panels=document.querySelectorAll('.panel'),valid={'first-home':1,'upgrading':1,'selling':1,'exploring':1};
-function show(t,push){if(!valid[t])t='first-home';
-  tabs.forEach(function(b){b.classList.toggle('on',b.dataset.t===t);});
-  panels.forEach(function(p){p.classList.toggle('on',p.id===t);});
-  if(push&&history.replaceState)history.replaceState(null,'','#'+t);
+/* ── icon paths ── */
+var IC={
+ home:'<path d="M3 10.5 12 4l9 6.5"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-5h4v5"/>',
+ search:'<circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/>',
+ doc:'<path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 16.5h4"/>',
+ pen:'<path d="M3 21h18"/><path d="M5 18 16 7l3 3L8 21l-4 1z"/><path d="m14 9 3 3"/>',
+ receipt:'<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/>',
+ key:'<circle cx="8" cy="14" r="4"/><path d="m11 11 8-8 2 2-2 2 2 2-3 2"/>',
+ bank:'<path d="M3 9 12 4l9 5"/><path d="M5 10v8M9 10v8M15 10v8M19 10v8"/><path d="M3 20h18"/>',
+ ballot:'<rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="9" cy="9" r="1.1"/><circle cx="15" cy="15" r="1.1"/><circle cx="15" cy="9" r="1.1"/><circle cx="9" cy="15" r="1.1"/>',
+ cal:'<rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 9.5h16M8 3v4M16 3v4"/>',
+ file:'<path d="M4 5h6l2 2h8v12H4z"/><path d="M9 13h7"/>',
+ coins:'<ellipse cx="9" cy="7" rx="5" ry="2.4"/><path d="M4 7v5c0 1.3 2.2 2.4 5 2.4s5-1.1 5-2.4V7"/><path d="M10 16.6c.9 1 2.8 1.8 5 1.8 2.8 0 5-1.1 5-2.4v-5"/>',
+ tag:'<path d="M3 12V4h8l9 9-8 8z"/><circle cx="7.5" cy="7.5" r="1.4"/>'
+};
+function svg(n){return '<svg viewBox="0 0 24 24">'+(IC[n]||'')+'</svg>';}
+
+/* ── journeys ── */
+var J={
+ 'resale-condo':{meta:'6 steps · about 3 months',steps:[
+   {ic:'home',s:'Before you view',t:'Sort your real budget',d:'Get a bank\'s <b>In-Principle Approval</b> so you know exactly what you can borrow. Your real budget is the lowest of three things: what the bank lends, what you\'ve saved, and how much of that is actual cash.',pay:'Nothing to pay yet',none:1,tool:['What can I afford?','../tools/afford.html']},
+   {ic:'search',s:'The hunt',t:'Find it and agree a price',d:'View units, check what similar ones <b>actually sold for</b> (not the hopeful asking price), and negotiate with the seller.',pay:'Nothing to pay yet',none:1,tool:['Value a home','../tools/value.html']},
+   {ic:'doc',s:'Locking it in',t:'Get the Option to Purchase',d:'You pay a small booking fee and the seller hands you the <b>Option to Purchase</b>. For about two weeks, they can\'t sell it to anyone else while you finalise your loan.',pay:'Pay 1% now',when:'~14-day window'},
+   {ic:'pen',s:'Committing',t:'Exercise the option',d:'Within that window you sign to confirm and pay the rest of the deposit, with a lawyer handling the paperwork. Now it\'s a <b>firm deal on both sides</b>.',pay:'Pay another 4% (5% total)'},
+   {ic:'receipt',s:'The taxman',t:'Pay your stamp duty',d:'Within 14 days you pay <b>Buyer\'s Stamp Duty</b> to the government — plus extra duty (ABSD) if it isn\'t your first home. This is cash, on top of your deposit, so know the figure early.',pay:'Stamp duty · cash',tool:['Estimate stamp duty','../tools/stamp-duty.html']},
+   {ic:'key',s:'Keys in hand',t:'Completion',d:'About 10–12 weeks later your <b>loan and CPF kick in</b>, you pay the balance, the lawyers complete the sale, and the home is officially yours.',pay:'Balance + your keys 🔑',when:'~10–12 weeks later'}
+ ]},
+ 'new-launch':{meta:'6 steps · pay as it\'s built',steps:[
+   {ic:'home',s:'Before the showflat',t:'Sort your budget first',d:'Same starting point: get your <b>In-Principle Approval</b> so you know your ceiling before you get swept up at a glossy showflat.',pay:'Nothing to pay yet',none:1,tool:['What can I afford?','../tools/afford.html']},
+   {ic:'tag',s:'Booking day',t:'Book a unit at the showflat',d:'Pick your unit and pay the <b>booking fee</b> to secure it. The developer issues you the Option to Purchase.',pay:'Pay 5% (mostly cash)',when:'on booking'},
+   {ic:'doc',s:'The contract',t:'Sign the Sale & Purchase Agreement',d:'A few weeks later the developer sends the <b>S&P Agreement</b>. You sign it, and pay your stamp duty within 14 days. By now you\'ve put down about 20%.',pay:'Stamp duty + balance of 20%',tool:['Estimate stamp duty','../tools/stamp-duty.html']},
+   {ic:'bank',s:'As it goes up',t:'Progressive payments',d:'You pay in <b>stages as the building is constructed</b> — foundation, frame, walls, and so on. Your bank loan disburses to match, so the monthly repayment also builds up gradually.',pay:'By stages',when:'over 2–4 years'},
+   {ic:'key',s:'Move-in',t:'Collect keys at TOP',d:'When the project gets its <b>Temporary Occupation Permit</b>, it\'s ready to live in. You collect your keys and can move in or rent it out.',pay:'Most of the price paid by now',when:'TOP'},
+   {ic:'receipt',s:'Wrapping up',t:'Final completion (CSC)',d:'About a year after TOP the project gets its <b>Certificate of Statutory Completion</b> and the final slice of payment is made. Fully done.',pay:'Final ~15%',when:'~1 year after TOP'}
+ ]},
+ 'hdb-resale':{meta:'6 steps · about 8–12 weeks',steps:[
+   {ic:'file',s:'Step zero',t:'Get your HFE letter',d:'Apply on the HDB portal for an <b>HDB Flat Eligibility letter</b>. It confirms in one go what you can buy, how much HDB will lend, and which grants you qualify for.',pay:'Nothing to pay yet',none:1,tool:['Check eligibility','../tools/eligibility.html']},
+   {ic:'search',s:'The hunt',t:'Find a flat and get the Option',d:'View flats, agree a price, and pay the <b>Option Fee</b> (up to $1,000) for the Option to Purchase.',pay:'Option fee · up to $1,000',tool:['Value a flat','../tools/value.html']},
+   {ic:'doc',s:'Committing',t:'Exercise and apply to HDB',d:'Within the window you pay the rest of the deposit (up to $5,000 total), then <b>both you and the seller submit the resale application</b> to HDB.',pay:'Deposit · up to $5,000'},
+   {ic:'receipt',s:'HDB checks',t:'Approval, valuation & stamp duty',d:'HDB confirms everyone\'s eligible, values the flat, and approves the sale. You pay your <b>stamp duty</b> around here too.',pay:'Stamp duty · cash',tool:['Estimate stamp duty','../tools/stamp-duty.html']},
+   {ic:'coins',s:'Watch for this',t:'Pay any cash-over-valuation',d:'If you agreed a price <b>above HDB\'s valuation</b>, the difference must be paid in cash, on top of everything else. Loan and CPF only stretch to the valuation.',pay:'Cash, only if above valuation',when:'if it applies'},
+   {ic:'key',s:'Keys in hand',t:'Completion appointment',d:'At the HDB completion appointment your <b>loan, CPF and grants</b> all apply, you pay the balance, and you collect the keys. Your 5-year stay clock (MOP) starts now.',pay:'Balance + your keys 🔑'}
+ ]},
+ 'bto':{meta:'6 steps · about 3–4 years',steps:[
+   {ic:'file',s:'Step zero',t:'Check you qualify, then apply',d:'Make sure you tick the boxes (citizen, within the income ceiling, first-timer perks), then <b>apply when a launch opens</b>.',pay:'Nothing to pay yet',none:1,tool:['Check eligibility','../tools/eligibility.html']},
+   {ic:'ballot',s:'The luck part',t:'Ballot and book',d:'If your <b>queue number</b> gets called, you go down to pick a unit and pay the Option Fee to book it.',pay:'Option fee',when:'when your number is called'},
+   {ic:'doc',s:'Signing on',t:'Sign the lease agreement',d:'A few months later you sign the <b>Agreement for Lease</b>, pay the downpayment, and settle the stamp duty.',pay:'Downpayment + stamp duty',tool:['What grants can I get?','../tools/grants.html']},
+   {ic:'cal',s:'The wait',t:'It gets built',d:'Now you wait, usually <b>3 to 4 years</b>, while it\'s constructed. You pay nothing more in the meantime.',pay:'Nothing meanwhile',none:1,when:'3–4 years'},
+   {ic:'key',s:'Keys in hand',t:'Collect your keys',d:'When it\'s ready, your <b>loan and CPF kick in</b> for the final payment and you collect the keys to a brand-new home.',pay:'Balance + your keys 🔑'},
+   {ic:'home',s:'The rule after',t:'Live in it (MOP)',d:'You must <b>live there for 5 years</b> — the Minimum Occupation Period — before you can sell it or buy a private property.',pay:'5-year stay',none:1}
+ ]},
+ 'sell-condo':{meta:'5 steps · about 3 months',steps:[
+   {ic:'tag',s:'First move',t:'Know what it\'s worth',d:'Price it on <b>real recent sales</b> in your project, not a hopeful number. An honest range gets you a faster, cleaner sale.',pay:'',none:1,tool:['Value a home','../tools/value.html']},
+   {ic:'search',s:'Going to market',t:'List it and find a buyer',d:'Engage an agent, market the unit, and field offers. Good photos and the right price do most of the work.',pay:'',none:1},
+   {ic:'doc',s:'Offer accepted',t:'Grant the Option',d:'You accept an offer; the buyer pays <b>1%</b> and you give them the Option to Purchase. They\'ve got about two weeks to confirm.',pay:'You receive 1%',when:'~14-day window'},
+   {ic:'pen',s:'Firm deal',t:'Buyer exercises',d:'The buyer pays the rest of the deposit and the sale is locked in on both sides.',pay:'You receive 4% more'},
+   {ic:'coins',s:'Cashing out',t:'Completion & your proceeds',d:'About 10–12 weeks later you pay off your <b>remaining loan</b>, refund your <b>CPF with accrued interest</b>, settle agent and legal fees, and pocket what\'s left. If you bought under a few years ago, check Seller\'s Stamp Duty first.',pay:'Net cash to you',tool:['Your net proceeds','../tools/sell.html']}
+ ]},
+ 'sell-hdb':{meta:'5 steps · about 8–12 weeks',steps:[
+   {ic:'cal',s:'First, the rule',t:'Confirm you can sell',d:'You must have finished your <b>5-year Minimum Occupation Period</b> before you\'re allowed to sell.',pay:'',none:1,tool:['Check eligibility','../tools/eligibility.html']},
+   {ic:'tag',s:'Pricing',t:'Value it and list',d:'Price on <b>recent resale transactions</b> for your block and flat type, then put it on the market.',pay:'',none:1,tool:['Value a flat','../tools/value.html']},
+   {ic:'doc',s:'Offer accepted',t:'Grant the Option',d:'The buyer pays the <b>Option Fee</b> and you grant them the Option to Purchase.',pay:'You receive the option fee'},
+   {ic:'file',s:'Through HDB',t:'Submit the resale application',d:'Both sides submit the resale application; HDB <b>values the flat and approves</b> the sale.',pay:'',none:1},
+   {ic:'coins',s:'Cashing out',t:'Completion appointment',d:'At the HDB appointment your <b>loan is settled and your CPF is refunded with accrued interest</b>. What\'s left is your cash proceeds.',pay:'Net cash to you',tool:['Your net proceeds','../tools/sell.html']}
+ ]}
+};
+
+function renderJourney(mount,meterEl,id){
+ var j=J[id];if(!j)return;
+ meterEl.textContent=j.meta;
+ var h='';
+ j.steps.forEach(function(st,i){
+   var tool=st.tool?'<a class="tool" href="'+st.tool[1]+'">'+st.tool[0]+' →</a>':'';
+   var pay=st.pay?'<span class="pay'+(st.none?' none':'')+'">'+st.pay+'</span>':'';
+   var when=st.when?'<span class="when">'+st.when+'</span>':'';
+   h+='<div class="jstep"><div class="jnode"><span class="n">'+(i+1)+'</span>'+svg(st.ic)+'</div>'+
+      '<div class="jcard"><span class="jstage">'+st.s+'</span><h3>'+st.t+'</h3><p>'+st.d+'</p>'+
+      '<div class="jmeta">'+pay+when+tool+'</div></div></div>';
+ });
+ mount.innerHTML=h;
+}
+
+/* ── tips library ── */
+var TIPS=[
+ {t:'Your real budget has three parts — most people count one',b:'<p>The price tag isn\'t your budget. Three things decide what you can actually spend, and the <b>lowest of the three</b> is your real ceiling: how much a <b>bank will lend</b> you (capped by your income), how much you\'ve <b>saved</b> in cash and CPF, and how much of that saving is <b>actual cash</b> (since a slice of every purchase must be paid in cash, not CPF).</p><p>People fixate on the loan and forget the cash. That\'s how you fall for a place you can\'t actually close on.</p><div class="takeaway">Work out all three before you view anything. <a class="tl" href="../tools/afford.html">The afford tool does it for you →</a></div>'},
+ {t:'The costs that catch buyers out, beyond the price',b:'<p>On top of the down payment, budget for: <b>stamp duty</b> (a government tax on the price, paid in cash), <b>legal fees</b>, a <b>valuation fee</b>, and — if you\'re upgrading — possibly <b>ABSD</b>, which can be a very large sum. Then there\'s <b>renovation</b>, and on a resale flat, any <b>cash-over-valuation</b>.</p><div class="takeaway">Add roughly 3–5% of the price for the "extras" and keep it in cash, separate from your down payment.</div>'},
+ {t:'Renting vs buying — the honest way to decide',b:'<p>Forget "rent is dead money" — owning has its own dead money (interest, stamp duty, agent fees, the CPF interest you owe yourself back). The real question is <b>how long you\'ll stay</b> and <b>how settled your life is</b>. Buy when you\'ll hold for many years and want to put down roots; rent when your job, family plans, or finances are still moving.</p><div class="takeaway">Short, uncertain horizon → renting is often the smarter money move, not the lazy one.</div>'},
+ {t:'BTO vs resale flat — waiting vs buying now',b:'<p><b>BTO</b> is cheaper and comes with the biggest grants, but you ballot for it, wait 3–4 years, and you\'re tied in for 5 years after. <b>Resale</b> lets you move in now, pick the exact location and a bigger or higher floor, and skip the wait — but you pay more, and older flats have less lease left.</p><div class="takeaway">In a hurry or fussy about location → resale. Patient and want to save the most → BTO.</div>'},
+ {t:'Condo vs HDB — what you\'re really choosing',b:'<p>An HDB flat is <b>subsidised public housing</b> with rules on who can buy and when you can sell, but it\'s far better value per dollar and the grants help a lot. A <b>condo</b> buys you facilities, fewer restrictions, and the chance of stronger price growth — but you pay a big premium for the lifestyle, and the maintenance fees never stop.</p><div class="takeaway">You\'re mostly paying for facilities and flexibility. Be honest about whether you\'ll use the pool.</div>'},
+ {t:'What to check before you fall for a place',b:'<p>Beyond the photos: <b>how much lease is left</b> (it caps your loan and CPF, and the next buyer\'s too), the <b>floor and facing</b> (afternoon sun and noise are real), what <b>similar units actually sold for</b>, the <b>monthly maintenance fee</b>, and whether anything nearby is about to be built that blocks the view.</p><div class="takeaway">View it twice — once in the day, once in the evening. The place can feel very different.</div>'},
+ {t:'Why the cheapest unit isn\'t the best deal',b:'<p>The cheapest unit in a project is usually cheap <b>for a reason</b> — a low floor, a west-facing afternoon-sun unit, a spot over the rubbish bay, or a shorter lease. You feel it when you try to sell: the same things that got you a discount get you a discount from the next buyer too.</p><div class="takeaway">A fair price on a good unit beats a "steal" on a flawed one. Resale value remembers.</div>'},
+ {t:'New launch vs resale condo — what your money buys',b:'<p>A <b>new launch</b> means progressive payments (lighter at the start), a brand-new place, and a wait of a few years — but you\'re buying off a showflat, not the real thing. A <b>resale</b> condo you can walk through, rent out from day one, and you see exactly what you get — but you pay the full amount sooner and it\'s not new.</p><div class="takeaway">Want it now and no surprises → resale. Happy to wait and pay in stages → new launch.</div>'},
+ {t:'Buying with your partner — sort this out first',b:'<p>Decide early: <b>whose name(s)</b> the home goes under, and how you\'d split it if life changes. Putting it in one name only can keep the other person\'s "first-timer" status free for a future second property (and dodge a big ABSD bill) — but it has trade-offs for CPF use and protection.</p><div class="takeaway">This decision is hard to undo later and can cost tens of thousands. Talk it through (with me, if useful) before you commit.</div>'},
+ {t:'What "leasehold" and lease decay really mean',b:'<p>Most homes here sit on a <b>99-year lease</b> — a clock that matters. As it runs down, the home\'s <b>value falls</b> and buyers can use <b>less loan and CPF</b> on it, which shrinks your future buyer pool. <b>Freehold</b> never expires, which is why it costs more.</p><div class="takeaway">On an older flat, always ask how many years are left — it quietly drives both price and how easily you\'ll resell.</div>'},
+ {t:'How much cash you actually need upfront',b:'<p>You can\'t do it all with CPF. At least <b>5% of the price must be actual cash</b>, and your <b>stamp duty and legal fees are cash</b> too. On a resale flat, any amount above HDB\'s valuation is also cash. People get caught not by the down payment, but by the cash slices stacked on top of it.</p><div class="takeaway">Map your cash separately from your CPF before you start. Running short at completion is the worst time to find out.</div>'},
+ {t:'Upgrading: should you sell first or buy first?',b:'<p><b>Buy first</b> and for a moment you own two homes — so you pay <b>ABSD</b> (a large sum) upfront, and only claim it back if you sell the old one within the timeline. <b>Sell first</b> and you skip the ABSD cash crunch, but you may need somewhere to stay in between. Getting the order and timing right can save you a five-figure sum.</p><div class="takeaway">This is the single most expensive thing to get wrong when upgrading. Plan the sequence early. <a class="tl" href="../tools/stamp-duty.html">See the ABSD figure →</a></div>'},
+ {t:'The CPF "accrued interest" trap when you sell',b:'<p>Using CPF for your home isn\'t free money. When you sell, you must <b>return everything you took out, plus the interest it would have earned</b> sitting in your CPF (around 2.5% a year, compounding). On a home held many years, that\'s a big number — and it comes out of your sale proceeds, not thin air.</p><div class="takeaway">Your cash-in-hand after selling is often far less than "sale price minus loan". Check the real number before you count on it. <a class="tl" href="../tools/sell.html">Your net proceeds →</a></div>'}
+];
+(function(){
+ var g=document.getElementById('tipgrid'),h='';
+ TIPS.forEach(function(tp,i){
+   h+='<details class="tip"><summary><span class="tnum">'+(i+1<10?'0':'')+(i+1)+'</span><span class="tt">'+tp.t+'</span><span class="tx">+</span></summary><div class="tbody">'+tp.b+'</div></details>';
+ });
+ g.innerHTML=h;
+})();
+
+/* ── wiring ── */
+var buyMount=document.getElementById('buymount'),buyMeter=document.getElementById('buymeter');
+var sellMount=document.getElementById('sellmount'),sellMeter=document.getElementById('sellmeter');
+renderJourney(buyMount,buyMeter,'resale-condo');
+renderJourney(sellMount,sellMeter,'sell-condo');
+function wireSeg(seg,fn){seg.querySelectorAll('button').forEach(function(b){b.onclick=function(){seg.querySelectorAll('button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');fn(b.dataset.j);};});}
+wireSeg(document.getElementById('buyseg'),function(id){renderJourney(buyMount,buyMeter,id);});
+wireSeg(document.getElementById('sellseg'),function(id){renderJourney(sellMount,sellMeter,id);});
+
+var tabs=document.querySelectorAll('.tab'),panels=document.querySelectorAll('.panel'),valid={buying:1,selling:1,tips:1};
+function show(t,push){if(!valid[t])t='buying';
+ tabs.forEach(function(b){b.classList.toggle('on',b.dataset.t===t);});
+ panels.forEach(function(p){p.classList.toggle('on',p.id===t);});
+ if(push&&history.replaceState)history.replaceState(null,'','#'+t);
 }
 tabs.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.t,true);document.querySelector('.tabs').scrollIntoView({behavior:'smooth',block:'start'});});});
 window.addEventListener('hashchange',function(){show(location.hash.replace('#',''),false);});
 show(location.hash.replace('#',''),false);
 </script>
-<script>/* smart back: return to the previous in-site page */(function(){try{var r=document.referrer;if(!r)return;var u=new URL(r);if(u.origin!==location.origin||u.href===location.href)return;document.querySelectorAll("a.back").forEach(function(b){if(b.textContent.trim().charAt(0)!=="←")return;b.addEventListener("click",function(e){e.preventDefault();history.back();});b.textContent="← Back";});}catch(e){}})();</script>
+<script>/* smart back */(function(){try{var r=document.referrer;if(!r)return;var u=new URL(r);if(u.origin!==location.origin||u.href===location.href)return;document.querySelectorAll("a.back").forEach(function(b){if(b.textContent.trim().charAt(0)!=="←")return;b.addEventListener("click",function(e){e.preventDefault();history.back();});b.textContent="← Back";});}catch(e){}})();</script>
 </body></html>
