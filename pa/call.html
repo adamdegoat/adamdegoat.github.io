@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Talk to PA</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#07080d;--txt:#eef0f7;--mut:#8b8fa6;--a1:#6d7bff;--a2:#27d3ee;
+    --grad:linear-gradient(110deg,#6d7bff,#27d3ee);--green:#34d399;--rose:#fb7185;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--txt);
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:24px;-webkit-font-smoothing:antialiased}
+  body::before{content:"";position:fixed;inset:0;z-index:-1;
+    background:radial-gradient(700px 500px at 50% 0%,rgba(109,123,255,.18),transparent 60%),var(--bg)}
+  .mark{width:48px;height:48px;border-radius:13px;background:var(--grad);display:flex;align-items:center;
+    justify-content:center;font-weight:900;color:#06121a;font-size:20px;margin-bottom:24px}
+  h1{font-size:30px;font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+  p.sub{color:var(--mut);font-size:15px;max-width:380px;margin-bottom:48px}
+
+  .orb{width:180px;height:180px;border-radius:50%;border:none;cursor:pointer;position:relative;
+    background:var(--grad);color:#06121a;font-weight:800;font-size:17px;
+    display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;
+    box-shadow:0 20px 60px rgba(109,123,255,.4);transition:transform .15s}
+  .orb:active{transform:scale(.96)}
+  .orb .ic{font-size:38px}
+  .orb.live{background:linear-gradient(110deg,#fb7185,#f59e0b);box-shadow:0 20px 60px rgba(251,113,133,.45)}
+  .orb.live::after,.orb.speaking::after{content:"";position:absolute;inset:-10px;border-radius:50%;
+    border:2px solid rgba(255,255,255,.5);animation:ring 1.4s infinite}
+  @keyframes ring{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.25);opacity:0}}
+
+  .status{margin-top:34px;font-size:15px;color:var(--mut);min-height:24px;font-weight:500}
+  .status b{color:var(--txt)}
+  .hint{margin-top:40px;font-size:13px;color:#5c6075;max-width:340px}
+  .err{color:var(--rose);font-size:13px;margin-top:16px;max-width:360px}
+  a.back{margin-top:40px;color:var(--mut);font-size:13px;text-decoration:none}
+  a.back:hover{color:var(--txt)}
+</style>
+</head>
+<body>
+  <div class="mark">PA</div>
+  <h1>Talk to PA</h1>
+  <p class="sub">Adam's AI property assistant. Tap the button, allow your mic, and have a real conversation.</p>
+
+  <button class="orb" id="orb">
+    <span class="ic" id="ic">🎙️</span>
+    <span id="label">Tap to talk</span>
+  </button>
+
+  <div class="status" id="status">Ready when you are.</div>
+  <div class="err" id="err"></div>
+  <div class="hint">Works best in Chrome or Safari. You'll be asked to allow your microphone — that's just so PA can hear you.</div>
+  <a class="back" href="index.html">← Back to PA</a>
+
+<script type="module">
+  import Vapi from "https://esm.sh/@vapi-ai/web@2";
+  const PUBLIC_KEY = "966ba4ad-6800-4c40-a00d-3a6b06083e98";
+  const ASSISTANT_ID = "c24db4fc-3a7d-4912-a5bf-781575211bb9";
+
+  const vapi = new Vapi(PUBLIC_KEY);
+  const orb = document.getElementById('orb');
+  const ic = document.getElementById('ic');
+  const label = document.getElementById('label');
+  const status = document.getElementById('status');
+  const err = document.getElementById('err');
+  let active = false, connecting = false;
+
+  orb.onclick = async () => {
+    err.textContent = '';
+    if (active || connecting) { vapi.stop(); return; }
+    connecting = true;
+    status.innerHTML = '<b>Connecting…</b>';
+    ic.textContent = '⏳'; label.textContent = 'Connecting';
+    try { await vapi.start(ASSISTANT_ID); }
+    catch(e){ connecting=false; status.textContent='Ready when you are.';
+      ic.textContent='🎙️'; label.textContent='Tap to talk';
+      err.textContent = 'Could not start the call: ' + (e?.message || e); }
+  };
+
+  vapi.on('call-start', () => { active=true; connecting=false;
+    orb.classList.add('live'); ic.textContent='⏹'; label.textContent='End call';
+    status.innerHTML='<b>Connected</b> — say hello 👋'; });
+  vapi.on('call-end', () => { active=false; connecting=false;
+    orb.classList.remove('live','speaking'); ic.textContent='🎙️'; label.textContent='Tap to talk';
+    status.textContent='Call ended. Tap to talk again.'; });
+  vapi.on('speech-start', () => { orb.classList.add('speaking'); status.innerHTML='<b>PA is speaking…</b>'; });
+  vapi.on('speech-end', () => { orb.classList.remove('speaking'); if(active) status.innerHTML='<b>Listening…</b>'; });
+  vapi.on('error', (e) => { err.textContent = 'Error: ' + (e?.message || JSON.stringify(e));
+    active=false; connecting=false; orb.classList.remove('live','speaking');
+    ic.textContent='🎙️'; label.textContent='Tap to talk'; status.textContent='Ready when you are.'; });
+</script>
+</body>
+</html>
