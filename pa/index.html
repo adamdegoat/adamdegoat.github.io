@@ -33,6 +33,10 @@
     background-image:linear-gradient(rgba(233,231,224,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(233,231,224,.022) 1px,transparent 1px);
     background-size:46px 46px;mask-image:radial-gradient(900px 700px at 70% 0%,#000,transparent 75%)}
   .logomark{width:30px;height:30px;flex:0 0 auto;border-radius:9px;box-shadow:0 4px 14px rgba(216,178,124,.28)}
+  .brand .bname{font-weight:600;letter-spacing:.04em}
+  .brand .by{font-size:11px;color:var(--mut);font-weight:400;letter-spacing:.02em;border-left:1px solid var(--line);padding-left:10px;margin-left:2px}
+  .brand .by::before{content:"";}
+  @media(max-width:480px){.brand .by{display:none}}
 
   nav{position:sticky;top:0;z-index:40;background:rgba(11,12,16,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line2)}
   nav .wrap{display:flex;align-items:center;height:56px;gap:24px}
@@ -106,7 +110,8 @@
       <path d="M10.8 20a12.8 12.8 0 0 1 18.4 0" stroke="#2c2008" stroke-width="2.2" stroke-linecap="round" opacity=".5"/>
       <defs><linearGradient id="lg" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#ecce99"/><stop offset="1" stop-color="#cba56e"/></linearGradient></defs>
     </svg>
-    <span>PA</span>
+    <span class="bname">PA</span>
+    <span class="by">designed by Adam</span>
   </a>
   <div class="nav-sp"></div>
   <a href="try.html" class="ghost">Try PA</a>
@@ -178,8 +183,8 @@
 </div></div>
 
 <footer><div class="wrap" style="display:flex;justify-content:space-between;width:100%;flex-wrap:wrap;gap:8px">
-  <span>PA — AI calling &amp; messaging assistant</span>
-  <span>For Singapore property agents · private demo</span>
+  <span>PA — AI calling &amp; messaging assistant · private demo</span>
+  <span>Designed by <b class="serif" style="color:var(--warm);font-weight:500">Adam</b> · Singapore</span>
 </div></footer>
 
 </body>
