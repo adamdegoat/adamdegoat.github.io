@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PA — Your AI Property Assistant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#07080d; --bg2:#0c0e17; --surf:rgba(255,255,255,.035); --line:rgba(255,255,255,.09);
+    --txt:#eef0f7; --mut:#8b8fa6; --dim:#5c6075;
+    --a1:#6d7bff; --a2:#27d3ee; --grad:linear-gradient(110deg,#6d7bff,#27d3ee);
+    --green:#34d399; --amber:#fbbf24; --rose:#fb7185;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--bg);color:var(--txt);
+    line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;z-index:-2;
+    background:
+      radial-gradient(800px 500px at 78% -5%,rgba(109,123,255,.18),transparent 60%),
+      radial-gradient(700px 500px at 8% 8%,rgba(39,211,238,.10),transparent 55%),
+      var(--bg);
+  }
+  body::after{ /* subtle grain */
+    content:"";position:fixed;inset:0;z-index:-1;opacity:.035;pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  a{color:inherit;text-decoration:none}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(18px);background:rgba(7,8,13,.6);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:18px;letter-spacing:-.02em}
+  .mark{width:34px;height:34px;border-radius:10px;background:var(--grad);display:flex;align-items:center;justify-content:center;
+    font-weight:900;color:#06121a;font-size:15px;box-shadow:0 6px 20px rgba(109,123,255,.35)}
+  .nlinks{display:flex;gap:30px;font-size:14px;color:var(--mut);font-weight:500}
+  .nlinks a:hover{color:var(--txt)}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;padding:10px 18px;border-radius:11px;cursor:pointer;border:none;transition:.18s}
+  .btn-p{background:var(--grad);color:#06121a;box-shadow:0 8px 24px rgba(109,123,255,.3)}
+  .btn-p:hover{transform:translateY(-1px);box-shadow:0 12px 30px rgba(109,123,255,.42)}
+  .btn-g{background:var(--surf);color:var(--txt);border:1px solid var(--line)}
+  .btn-g:hover{border-color:rgba(255,255,255,.25)}
+  @media(max-width:760px){.nlinks{display:none}}
+
+  /* hero */
+  .hero{padding:84px 0 40px;text-align:center}
+  .pill{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:#c7ccea;
+    border:1px solid var(--line);background:var(--surf);padding:7px 15px;border-radius:30px;margin-bottom:26px}
+  .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green)}
+  h1{font-size:clamp(38px,6vw,66px);line-height:1.04;font-weight:900;letter-spacing:-.035em;margin-bottom:22px}
+  .sub{font-size:clamp(16px,2.2vw,20px);color:var(--mut);max-width:620px;margin:0 auto 34px;font-weight:400}
+  .cta{display:flex;gap:13px;justify-content:center;flex-wrap:wrap}
+  .btn-lg{padding:14px 26px;font-size:15.5px;border-radius:13px}
+  .trust{display:flex;gap:36px;justify-content:center;margin-top:54px;flex-wrap:wrap}
+  .trust div{text-align:center}
+  .trust b{display:block;font-size:30px;font-weight:800;letter-spacing:-.02em}
+  .trust span{font-size:13px;color:var(--dim);font-weight:500}
+
+  /* dashboard mock */
+  .mock{margin:64px auto 0;max-width:1000px;border:1px solid var(--line);border-radius:20px;overflow:hidden;
+    background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));
+    box-shadow:0 40px 120px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.03)}
+  .mock-top{display:flex;align-items:center;gap:8px;padding:14px 18px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.02)}
+  .tdot{width:11px;height:11px;border-radius:50%;background:#2a2d3e}
+  .mock-title{margin-left:14px;font-size:13px;color:var(--mut);font-weight:600}
+  .mock-body{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;padding:22px}
+  @media(max-width:760px){.mock-body{grid-template-columns:1fr}}
+  .stat{background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:16px}
+  .stat .k{font-size:12px;color:var(--mut);font-weight:600;display:flex;align-items:center;gap:7px}
+  .stat .v{font-size:30px;font-weight:800;letter-spacing:-.02em;margin-top:6px}
+  .stat .v small{font-size:14px;color:var(--green);font-weight:600}
+  .col-span{grid-column:1/-1}
+  .panel{background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .panel h4{font-size:13px;color:var(--mut);font-weight:600;margin-bottom:14px;letter-spacing:.02em;text-transform:uppercase}
+  .lead{display:flex;align-items:center;gap:13px;padding:11px 0;border-top:1px solid rgba(255,255,255,.06)}
+  .lead:first-of-type{border-top:none}
+  .lav{width:38px;height:38px;border-radius:10px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#06121a}
+  .lead .nm{font-weight:600;font-size:14.5px}
+  .lead .ds{font-size:12.5px;color:var(--mut)}
+  .lead .meta{margin-left:auto;text-align:right}
+  .badge{font-size:11px;font-weight:700;padding:4px 9px;border-radius:7px}
+  .b-hot{background:rgba(251,113,133,.15);color:var(--rose)}
+  .b-warm{background:rgba(251,191,36,.15);color:var(--amber)}
+  .b-new{background:rgba(52,211,153,.15);color:var(--green)}
+  .ago{font-size:11px;color:var(--dim);margin-top:3px}
+
+  /* chat bubble preview inside mock */
+  .chat{display:flex;flex-direction:column;gap:8px}
+  .cb{max-width:85%;padding:9px 12px;border-radius:12px;font-size:13.5px;line-height:1.4}
+  .cb.in{background:#1a1d2b;align-self:flex-start;border-top-left-radius:3px}
+  .cb.out{background:linear-gradient(110deg,#3a44b8,#1f8fa3);align-self:flex-end;border-top-right-radius:3px;color:#eef}
+
+  /* sections */
+  section{padding:84px 0}
+  .eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--a2);margin-bottom:14px;text-align:center}
+  h2{font-size:clamp(28px,4vw,42px);font-weight:800;letter-spacing:-.03em;text-align:center;line-height:1.1}
+  .lead-p{font-size:17px;color:var(--mut);text-align:center;max-width:560px;margin:16px auto 0}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:54px}
+  @media(max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+  @media(max-width:480px){.steps{grid-template-columns:1fr}}
+  .step{background:var(--surf);border:1px solid var(--line);border-radius:16px;padding:24px;position:relative}
+  .step .n{width:34px;height:34px;border-radius:10px;background:var(--grad);color:#06121a;font-weight:800;
+    display:flex;align-items:center;justify-content:center;margin-bottom:15px;font-size:15px}
+  .step h3{font-size:16.5px;font-weight:700;margin-bottom:7px}
+  .step p{font-size:13.5px;color:var(--mut)}
+
+  /* features */
+  .feat{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:54px}
+  @media(max-width:860px){.feat{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.feat{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
+    border:1px solid var(--line);border-radius:16px;padding:26px;transition:.2s}
+  .card:hover{border-color:rgba(109,123,255,.4);transform:translateY(-3px)}
+  .ic{width:46px;height:46px;border-radius:12px;background:rgba(109,123,255,.13);border:1px solid rgba(109,123,255,.25);
+    display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px}
+  .card h3{font-size:18px;font-weight:700;margin-bottom:9px}
+  .card p{font-size:14px;color:var(--mut)}
+
+  /* benefits */
+  .ben{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:50px}
+  @media(max-width:760px){.ben{grid-template-columns:1fr}}
+  .brow{display:flex;gap:16px;align-items:flex-start;background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .chk{width:26px;height:26px;border-radius:8px;background:rgba(52,211,153,.15);color:var(--green);flex:0 0 auto;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}
+  .brow b{font-size:15.5px;font-weight:700;display:block;margin-bottom:4px}
+  .brow span{font-size:13.5px;color:var(--mut)}
+
+  /* compliance strip */
+  .strip{background:linear-gradient(110deg,rgba(109,123,255,.1),rgba(39,211,238,.06));border:1px solid var(--line);
+    border-radius:20px;padding:40px;margin-top:20px;text-align:center}
+  .strip h3{font-size:22px;font-weight:800;margin-bottom:10px}
+  .strip p{color:var(--mut);max-width:600px;margin:0 auto;font-size:15px}
+
+  /* cost */
+  .cost{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:50px}
+  @media(max-width:680px){.cost{grid-template-columns:1fr}}
+  .pcard{background:var(--surf);border:1px solid var(--line);border-radius:18px;padding:30px}
+  .pcard.hi{border-color:rgba(109,123,255,.5);box-shadow:0 0 40px rgba(109,123,255,.12)}
+  .pcard .tag{font-size:13px;font-weight:700;color:var(--a2);text-transform:uppercase;letter-spacing:.05em}
+  .pcard .price{font-size:38px;font-weight:900;letter-spacing:-.02em;margin:10px 0 4px}
+  .pcard .price small{font-size:15px;color:var(--mut);font-weight:500}
+  .pcard ul{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:10px}
+  .pcard li{font-size:14px;color:var(--mut);display:flex;gap:10px;align-items:flex-start}
+  .pcard li::before{content:"✓";color:var(--green);font-weight:800}
+
+  /* final cta */
+  .final{text-align:center;padding:90px 0}
+  .final h2{margin-bottom:18px}
+
+  footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:var(--dim);font-size:13px}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo"><div class="mark">PA</div> PA</div>
+    <div class="nlinks">
+      <a href="#how">How it works</a>
+      <a href="#does">What it does</a>
+      <a href="#helps">For agents</a>
+      <a href="#cost">Cost</a>
+    </div>
+    <button class="btn btn-p">Book a demo</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="pill"><span class="dot"></span> Always on · replies in seconds · PDPA-safe</div>
+    <h1>Your AI property assistant<br>that <span class="grad">never misses a lead</span></h1>
+    <p class="sub">PA answers your WhatsApp and phone 24/7, talks to clients like a real Singapore agent, answers the hard questions with real data — and hands you only the warm ones.</p>
+    <div class="cta">
+      <a href="app.html" class="btn btn-p btn-lg">See the live dashboard →</a>
+      <button class="btn btn-g btn-lg">Watch the demo</button>
+    </div>
+    <div class="trust">
+      <div><b class="grad">&lt;5s</b><span>Reply time, any hour</span></div>
+      <div><b class="grad">24/7</b><span>Never sleeps, never off</span></div>
+      <div><b class="grad">100%</b><span>Leads answered</span></div>
+      <div><b class="grad">EN</b><span>+ Mandarin ready</span></div>
+    </div>
+
+    <!-- dashboard mock -->
+    <div class="mock">
+      <div class="mock-top">
+        <div class="tdot"></div><div class="tdot"></div><div class="tdot"></div>
+        <div class="mock-title">PA · Lead Dashboard</div>
+      </div>
+      <div class="mock-body">
+        <div class="stat"><div class="k">📥 New leads today</div><div class="v">14 <small>▲ 6</small></div></div>
+        <div class="stat"><div class="k">🔥 Qualified by PA</div><div class="v">9</div></div>
+        <div class="stat"><div class="k">📅 Viewings booked</div><div class="v">5</div></div>
+
+        <div class="panel">
+          <h4>Live pipeline</h4>
+          <div class="lead">
+            <div class="lav" style="background:#fb7185">JT</div>
+            <div><div class="nm">Jason Tan</div><div class="ds">Condo · Bishan · own-stay</div></div>
+            <div class="meta"><span class="badge b-hot">HOT</span><div class="ago">2 min ago</div></div>
+          </div>
+          <div class="lead">
+            <div class="lav" style="background:#fbbf24">ML</div>
+            <div><div class="nm">May Lim</div><div class="ds">HDB resale · Punggol</div></div>
+            <div class="meta"><span class="badge b-warm">WARM</span><div class="ago">18 min ago</div></div>
+          </div>
+          <div class="lead">
+            <div class="lav" style="background:#34d399">RK</div>
+            <div><div class="nm">Ravi K.</div><div class="ds">Investment · D19</div></div>
+            <div class="meta"><span class="badge b-new">NEW</span><div class="ago">31 min ago</div></div>
+          </div>
+        </div>
+
+        <div class="panel col-span" style="grid-column:span 2">
+          <h4>PA · live conversation — Jason Tan</h4>
+          <div class="chat">
+            <div class="cb in">hi is the bishan 3 bedder still available? is the price fair?</div>
+            <div class="cb out">Hi Jason! 🙂 Yes it's available. Good question — recent 3-bedders there have gone around $2.1–2.2k psf, so it's fairly priced. Own-stay or investment?</div>
+            <div class="cb in">own stay. i have a hdb also, kena absd?</div>
+            <div class="cb out">Keeping the HDB, this'd be your 2nd property — so 20% ABSD as a citizen. Adam can run the exact numbers with you. Want me to set up a viewing this weekend?</div>
+            <div class="cb in">ok can, saturday</div>
+            <div class="cb out">Done — I'll get Adam to confirm a Saturday slot 👍 May I take your number?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="how">
+  <div class="wrap">
+    <div class="eyebrow">How it works</div>
+    <h2>One brain. Every channel.</h2>
+    <p class="lead-p">A lead can reach you any way — PA handles them all the same: instantly, intelligently, on-brand.</p>
+    <div class="steps">
+      <div class="step reveal"><div class="n">1</div><h3>Lead arrives</h3><p>Someone WhatsApps or calls your number — from a listing, an ad, or your site. Any hour.</p></div>
+      <div class="step reveal"><div class="n">2</div><h3>PA talks to them</h3><p>It understands what they want, answers naturally, and pulls real valuations &amp; ABSD figures on the spot.</p></div>
+      <div class="step reveal"><div class="n">3</div><h3>PA qualifies</h3><p>Budget, area, timeline, buy/sell/rent — captured naturally and logged to your dashboard.</p></div>
+      <div class="step reveal"><div class="n">4</div><h3>You get the warm lead</h3><p>The moment someone's serious, PA books the viewing and hands you the lead with the full chat.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="does" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="eyebrow">What it does</div>
+    <h2>A whole front desk, in one assistant</h2>
+    <div class="feat">
+      <div class="card reveal"><div class="ic">💬</div><h3>WhatsApp, 24/7</h3><p>Replies to every message in seconds — answering, qualifying, booking — while you sleep, drive, or close other deals.</p></div>
+      <div class="card reveal"><div class="ic">📞</div><h3>Real phone calls</h3><p>Answers and makes calls in a natural Singaporean voice. Holds a real conversation, handles interruptions.</p></div>
+      <div class="card reveal"><div class="ic">📊</div><h3>Real data, not guesses</h3><p>Runs instant valuations and ABSD / affordability sums from live transaction data — so it's never wrong.</p></div>
+      <div class="card reveal"><div class="ic">🗂️</div><h3>Lead CRM</h3><p>Every conversation captured, sorted into a pipeline, with reminders and read-tracking on what you send.</p></div>
+      <div class="card reveal"><div class="ic">🛡️</div><h3>PDPA compliance built in</h3><p>Checks consent &amp; the Do-Not-Call registry before any outreach. It can't contact who it shouldn't.</p></div>
+      <div class="card reveal"><div class="ic">🤝</div><h3>Smart handoff</h3><p>Knows its limits — anything needing your licensed judgment, it routes straight to you with context.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="helps">
+  <div class="wrap">
+    <div class="eyebrow">For agents</div>
+    <h2>The deals you're losing — recovered</h2>
+    <p class="lead-p">Most leads don't go cold because they're bad. They go cold because nobody replied fast enough.</p>
+    <div class="ben">
+      <div class="brow reveal"><div class="chk">✓</div><div><b>Never miss another lead</b><span>11pm enquiry? Answered at 11pm. The first agent to reply usually wins — PA is always first.</span></div></div>
+      <div class="brow reveal"><div class="chk">✓</div><div><b>Only talk to serious buyers</b><span>PA filters the tyre-kickers and hands you pre-qualified, viewing-ready leads with the full context.</span></div></div>
+      <div class="brow reveal"><div class="chk">✓</div><div><b>Answer the hard questions instantly</b><span>“What's it worth?” “Will I kena ABSD?” — answered correctly on the spot, with real numbers.</span></div></div>
+      <div class="brow reveal"><div class="chk">✓</div><div><b>Work your whole database</b><span>PA follows up your past clients and warm leads on schedule — the calls you never have time to make.</span></div></div>
+      <div class="brow reveal"><div class="chk">✓</div><div><b>Scale yourself</b><span>Handle 100 conversations at once without hiring. PA is your tireless second self.</span></div></div>
+      <div class="brow reveal"><div class="chk">✓</div><div><b>Stay on the right side of the law</b><span>Built-in consent &amp; DNC checks protect your CEA licence by design — not as an afterthought.</span></div></div>
+    </div>
+
+    <div class="strip reveal">
+      <h3>🛡️ Built compliant for Singapore agents</h3>
+      <p>PA only contacts your own clients and consented leads, scrubs against the Do-Not-Call registry, always identifies itself as your assistant, and offers an opt-out. Peace of mind for your licence, baked in.</p>
+    </div>
+  </div>
+</section>
+
+<section id="cost" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="eyebrow">Cost</div>
+    <h2>Costs less than one lost deal</h2>
+    <p class="lead-p">Almost nothing to run. One closed lead pays for years.</p>
+    <div class="cost">
+      <div class="pcard hi reveal">
+        <div class="tag">Core · WhatsApp</div>
+        <div class="price">~$40<small>/month</small></div>
+        <ul>
+          <li>Inbound WhatsApp replies are free</li>
+          <li>24/7 AI assistant, grounded in real data</li>
+          <li>Lead dashboard &amp; pipeline</li>
+          <li>Compliance gatekeeper</li>
+        </ul>
+      </div>
+      <div class="pcard reveal">
+        <div class="tag">Add-on · Voice</div>
+        <div class="price">+usage<small> ~$0.10–0.15/min</small></div>
+        <ul>
+          <li>Natural Singaporean voice</li>
+          <li>Answers &amp; makes real calls</li>
+          <li>Follow-ups &amp; viewing reminders</li>
+          <li>Same brain, same data</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Stop replying late.<br><span class="grad">Start closing more.</span></h2>
+    <p class="lead-p" style="margin-bottom:30px">See PA answer your toughest client questions — live.</p>
+    <button class="btn btn-p btn-lg">Book a demo →</button>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">PA · AI Property Assistant — built for Singapore agents · Demo build</div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%6*60)+'ms';io.observe(el)});
+</script>
+</body>
+</html>

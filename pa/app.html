@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PA · Lead Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#07080d;--bg2:#0c0e17;--surf:rgba(255,255,255,.035);--line:rgba(255,255,255,.09);
+    --txt:#eef0f7;--mut:#8b8fa6;--dim:#5c6075;
+    --a1:#6d7bff;--a2:#27d3ee;--grad:linear-gradient(110deg,#6d7bff,#27d3ee);
+    --green:#34d399;--amber:#fbbf24;--rose:#fb7185;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;-webkit-font-smoothing:antialiased}
+  body::before{content:"";position:fixed;inset:0;z-index:-1;
+    background:radial-gradient(800px 500px at 80% -5%,rgba(109,123,255,.16),transparent 60%),
+      radial-gradient(700px 500px at 5% 5%,rgba(39,211,238,.09),transparent 55%),var(--bg)}
+  .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  header{display:flex;align-items:center;gap:14px;padding:16px 26px;border-bottom:1px solid var(--line);
+    backdrop-filter:blur(16px);background:rgba(7,8,13,.6);position:sticky;top:0;z-index:10}
+  .mark{width:34px;height:34px;border-radius:10px;background:var(--grad);display:flex;align-items:center;justify-content:center;
+    font-weight:900;color:#06121a;font-size:15px}
+  header b{font-size:17px;font-weight:800;letter-spacing:-.02em}
+  header .sub{font-size:12.5px;color:var(--mut)}
+  .live{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--green);font-weight:600}
+  .live .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);animation:pl 1.6s infinite}
+  @keyframes pl{0%,100%{opacity:1}50%{opacity:.35}}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:26px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+  @media(max-width:640px){.stats{grid-template-columns:1fr}}
+  .stat{background:var(--surf);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+  .stat .k{font-size:12.5px;color:var(--mut);font-weight:600;display:flex;gap:8px;align-items:center}
+  .stat .v{font-size:36px;font-weight:800;letter-spacing:-.02em;margin-top:4px}
+
+  .layout{display:grid;grid-template-columns:1fr 420px;gap:20px;align-items:start}
+  @media(max-width:920px){.layout{grid-template-columns:1fr}}
+  .panel{background:var(--surf);border:1px solid var(--line);border-radius:18px;padding:8px}
+  .phead{display:flex;align-items:center;justify-content:space-between;padding:14px 16px 10px}
+  .phead h3{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut);font-weight:700}
+
+  .lead{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:13px;cursor:pointer;transition:.15s}
+  .lead:hover{background:rgba(255,255,255,.04)}
+  .lead.sel{background:rgba(109,123,255,.1);outline:1px solid rgba(109,123,255,.35)}
+  .lav{width:44px;height:44px;border-radius:12px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;
+    font-weight:700;font-size:15px;color:#06121a}
+  .lmain{flex:1;min-width:0}
+  .lmain .nm{font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px}
+  .lmain .ds{font-size:12.5px;color:var(--mut);margin-top:2px}
+  .lmain .lm{font-size:12.5px;color:var(--dim);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:380px}
+  .rmeta{text-align:right;flex:0 0 auto}
+  .badge{font-size:10.5px;font-weight:800;padding:4px 9px;border-radius:7px;letter-spacing:.03em}
+  .b-hot{background:rgba(251,113,133,.16);color:var(--rose)}
+  .b-warm{background:rgba(251,191,36,.16);color:var(--amber)}
+  .b-new{background:rgba(52,211,153,.16);color:var(--green)}
+  .ago{font-size:11px;color:var(--dim);margin-top:6px}
+
+  .empty{text-align:center;padding:60px 20px;color:var(--mut)}
+  .empty .big{font-size:42px;margin-bottom:14px}
+  .empty b{color:var(--txt);font-weight:700}
+
+  /* transcript */
+  .convo{position:sticky;top:90px}
+  .convo .phead{border-bottom:1px solid var(--line);margin-bottom:6px}
+  .chat{padding:12px;display:flex;flex-direction:column;gap:8px;max-height:62vh;overflow-y:auto}
+  .cb{max-width:86%;padding:9px 12px;border-radius:13px;font-size:13.5px;line-height:1.45;white-space:pre-wrap}
+  .cb.in{background:#1a1d2b;align-self:flex-start;border-top-left-radius:3px}
+  .cb.out{background:linear-gradient(110deg,#3a44b8,#1f8fa3);align-self:flex-end;border-top-right-radius:3px;color:#eef}
+  .cv-empty{padding:50px 20px;text-align:center;color:var(--dim);font-size:13.5px}
+  .chips{display:flex;gap:7px;flex-wrap:wrap;padding:0 14px 12px}
+  .chip{font-size:11.5px;color:var(--mut);background:rgba(255,255,255,.04);border:1px solid var(--line);padding:4px 10px;border-radius:20px}
+  .chip b{color:var(--txt)}
+</style>
+</head>
+<body>
+<header>
+  <div class="mark">PA</div>
+  <div><b>Lead Dashboard</b><div class="sub">PA · AI Property Assistant</div></div>
+  <div class="live"><span class="dot"></span> Live</div>
+</header>
+
+<div class="wrap">
+  <div class="stats">
+    <div class="stat"><div class="k">📥 Total leads</div><div class="v" id="s-total">0</div></div>
+    <div class="stat"><div class="k">🔥 Hot</div><div class="v grad" id="s-hot">0</div></div>
+    <div class="stat"><div class="k">✅ Qualified by PA</div><div class="v" id="s-q">0</div></div>
+  </div>
+
+  <div class="layout">
+    <div class="panel">
+      <div class="phead"><h3>Live pipeline</h3><span class="ago" id="updated"></span></div>
+      <div id="list"></div>
+    </div>
+
+    <div class="panel convo">
+      <div class="phead"><h3 id="cv-title">Conversation</h3></div>
+      <div id="chips" class="chips"></div>
+      <div id="chat" class="chat"><div class="cv-empty">Select a lead to see the full WhatsApp conversation PA handled.</div></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const AV=['#fb7185','#fbbf24','#34d399','#6d7bff','#27d3ee','#a78bfa','#f472b6'];
+function initials(n){return (n||'?').split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();}
+function ago(t){const s=(Date.now()-new Date(t))/1000;
+  if(s<60)return'just now';if(s<3600)return Math.floor(s/60)+' min ago';
+  if(s<86400)return Math.floor(s/3600)+' hr ago';return Math.floor(s/86400)+' d ago';}
+function desc(l){return [l.intent&&l.intent[0].toUpperCase()+l.intent.slice(1),l.ptype,l.area].filter(Boolean).join(' · ')||'New enquiry';}
+
+const BASE='https://prix-assigned-fibre-journey.trycloudflare.com';
+let selected=null, lastSig='';
+async function load(){
+  try{
+    const r=await fetch(BASE+'/leads'); const d=await r.json();
+    document.getElementById('s-total').textContent=d.stats.total;
+    document.getElementById('s-hot').textContent=d.stats.hot;
+    document.getElementById('s-q').textContent=d.stats.qualified;
+    document.getElementById('updated').textContent='updated '+new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',second:'2-digit'});
+    const list=document.getElementById('list');
+    if(!d.leads.length){list.innerHTML='<div class="empty"><div class="big">📭</div><b>No leads yet</b><br>Message PA on WhatsApp — leads appear here live.</div>';return;}
+    const sig=d.leads.map(l=>l.id+l.t+l.status).join('|');
+    if(sig===lastSig)return; lastSig=sig;
+    list.innerHTML='';
+    d.leads.forEach((l,i)=>{
+      const row=document.createElement('div'); row.className='lead'+(l.id===selected?' sel':''); row.dataset.id=l.id;
+      row.innerHTML=`<div class="lav" style="background:${AV[i%AV.length]}">${initials(l.name)}</div>
+        <div class="lmain"><div class="nm">${l.name}</div><div class="ds">${desc(l)}${l.budget?' · '+l.budget:''}</div>
+        <div class="lm">${l.last||''}</div></div>
+        <div class="rmeta"><span class="badge b-${l.status}">${l.status.toUpperCase()}</span><div class="ago">${ago(l.t)}</div></div>`;
+      row.onclick=()=>openThread(l);
+      list.appendChild(row);
+    });
+  }catch(e){}
+}
+async function openThread(l){
+  selected=l.id;
+  document.querySelectorAll('.lead').forEach(r=>r.classList.toggle('sel',r.dataset.id===l.id));
+  document.getElementById('cv-title').textContent=l.name;
+  document.getElementById('chips').innerHTML=
+    [['Intent',l.intent],['Type',l.ptype],['Area',l.area],['Budget',l.budget],['Status',l.status]]
+    .filter(x=>x[1]).map(x=>`<span class="chip">${x[0]}: <b>${x[1]}</b></span>`).join('');
+  const chat=document.getElementById('chat'); chat.innerHTML='<div class="cv-empty">Loading…</div>';
+  const r=await fetch(BASE+'/thread?id='+encodeURIComponent(l.id)); const d=await r.json();
+  chat.innerHTML='';
+  d.transcript.forEach(m=>{const b=document.createElement('div');
+    b.className='cb '+(m.role==='user'?'in':'out'); b.textContent=m.content; chat.appendChild(b);});
+  chat.scrollTop=chat.scrollHeight;
+}
+load(); setInterval(load,4000);
+</script>
+</body>
+</html>
