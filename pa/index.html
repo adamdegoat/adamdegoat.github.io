@@ -3,223 +3,153 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PA — AI assistant for property agents</title>
+<title>PA — AI calling & messaging assistant for property agents</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#0b0c10; --ink2:#101218; --line:rgba(233,231,224,.10); --line2:rgba(233,231,224,.06);
-    --txt:#edece6; --mut:#9a9b96; --dim:#63645f;
-    --acc:#8c9bff; --acc-soft:rgba(140,155,255,.12);
-    --warm:#d8b27c;
+    --ink:#0b0c10; --line:rgba(233,231,224,.11); --line2:rgba(233,231,224,.06);
+    --txt:#edece6; --mut:#9a9b96; --dim:#63645f; --acc:#8c9bff; --warm:#d8b27c;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{background:var(--ink);color:var(--txt);font-family:'Inter',system-ui,sans-serif;
-    line-height:1.6;-webkit-font-smoothing:antialiased;font-size:16px}
+  body{background:var(--ink);color:var(--txt);font-family:'Inter',system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;font-size:15.5px}
   .serif{font-family:'Fraunces',Georgia,serif;font-weight:500;letter-spacing:-.01em}
-  .wrap{max-width:1020px;margin:0 auto;padding:0 28px}
+  .wrap{max-width:940px;margin:0 auto;padding:0 26px}
   a{color:inherit;text-decoration:none}
-  .acc{color:var(--acc)}
 
-  nav{position:sticky;top:0;z-index:40;background:rgba(11,12,16,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line2)}
-  nav .wrap{display:flex;align-items:center;height:62px;gap:28px}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:.04em;font-size:15px}
-  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--acc);box-shadow:0 0 12px var(--acc)}
+  nav{position:sticky;top:0;z-index:40;background:rgba(11,12,16,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line2)}
+  nav .wrap{display:flex;align-items:center;height:56px;gap:24px}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:.04em;font-size:14.5px}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 11px var(--acc)}
   .nav-sp{flex:1}
-  .nav-links{display:flex;gap:26px;font-size:14px;color:var(--mut)}
-  .nav-links a:hover{color:var(--txt)}
-  .ghost{font-size:13.5px;color:var(--txt);border:1px solid var(--line);padding:8px 15px;border-radius:8px;transition:.15s}
+  .ghost{font-size:13px;color:var(--txt);border:1px solid var(--line);padding:7px 14px;border-radius:8px;transition:.15s}
   .ghost:hover{border-color:var(--acc);color:var(--acc)}
-  @media(max-width:680px){.nav-links{display:none}}
 
-  .hero{padding:78px 0 50px;border-bottom:1px solid var(--line2)}
-  .kicker{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:22px;
-    display:flex;align-items:center;gap:10px}
-  .kicker::before{content:"";width:24px;height:1px;background:var(--warm)}
-  h1{font-size:clamp(30px,4.6vw,50px);line-height:1.08;font-weight:500;max-width:14ch;margin-bottom:22px}
-  .hero p{font-size:clamp(16px,2vw,18.5px);color:var(--mut);max-width:50ch;margin-bottom:32px}
-  .actions{display:flex;gap:11px;flex-wrap:wrap;align-items:center}
-  .btn{display:inline-flex;align-items:center;gap:8px;font-size:14.5px;font-weight:500;padding:11px 19px;border-radius:9px;transition:.15s;cursor:pointer;border:1px solid transparent}
+  .hero{padding:54px 0 40px}
+  .kicker{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--mut);margin-bottom:16px;display:flex;align-items:center;gap:9px}
+  .kicker::before{content:"";width:22px;height:1px;background:var(--warm)}
+  h1{font-size:clamp(28px,4.2vw,44px);line-height:1.07;font-weight:500;max-width:16ch;margin-bottom:16px}
+  .hero p{font-size:clamp(15px,1.9vw,17.5px);color:var(--mut);max-width:54ch;margin-bottom:24px}
+  .actions{display:flex;gap:10px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:500;padding:10px 17px;border-radius:9px;transition:.15s;cursor:pointer;border:1px solid transparent}
   .btn-pri{background:var(--txt);color:var(--ink);font-weight:600}
-  .btn-pri:hover{background:#fff;transform:translateY(-1px)}
+  .btn-pri:hover{background:#fff}
   .btn-sec{border-color:var(--line);color:var(--txt)}
   .btn-sec:hover{border-color:var(--acc);color:var(--acc)}
-  .hero-meta{margin-top:30px;font-size:13px;color:var(--dim);display:flex;gap:18px;flex-wrap:wrap}
-  .hero-meta span{display:flex;align-items:center;gap:7px}
-  .hero-meta i{width:5px;height:5px;border-radius:50%;background:var(--warm);display:inline-block}
 
-  section{padding:72px 0;border-bottom:1px solid var(--line2)}
-  .lead-in{display:grid;grid-template-columns:200px 1fr;gap:40px;align-items:start}
-  @media(max-width:720px){.lead-in{grid-template-columns:1fr;gap:18px}}
-  .sec-label{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);padding-top:6px}
-  .sec-label .no{color:var(--warm);font-family:'Fraunces',serif;font-size:15px;margin-right:8px}
-  .sec-head{font-size:clamp(23px,3vw,31px);font-weight:500;line-height:1.18;max-width:20ch}
-  .sec-sub{color:var(--mut);font-size:16px;margin-top:14px;max-width:54ch}
+  section{padding:40px 0;border-top:1px solid var(--line2)}
+  .label{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:18px}
+  .label .no{color:var(--warm);font-family:'Fraunces',serif;font-size:14px;margin-right:7px}
 
-  .steps{margin-top:14px}
-  .stp{display:grid;grid-template-columns:46px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--line2)}
-  .stp:first-child{border-top:none}
-  .stp .n{font-family:'Fraunces',serif;font-size:20px;color:var(--warm)}
-  .stp h4{font-size:17px;font-weight:600;margin-bottom:5px}
-  .stp p{color:var(--mut);font-size:15px;max-width:60ch}
+  /* two ways — columns, no heavy boxes */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+  @media(max-width:680px){.two{grid-template-columns:1fr;gap:26px}}
+  .way h3{font-size:18px;font-weight:600;margin-bottom:7px;display:flex;align-items:center;gap:9px}
+  .way h3 svg{width:19px;height:19px;stroke:var(--acc);stroke-width:1.6;fill:none}
+  .way .role{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--warm);margin-bottom:11px}
+  .way p{color:var(--mut);font-size:14.5px;margin-bottom:9px}
+  .way ul{list-style:none;margin-top:4px}
+  .way li{color:var(--mut);font-size:14px;padding:4px 0 4px 17px;position:relative}
+  .way li::before{content:"";position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:var(--acc)}
 
-  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line2);border:1px solid var(--line2);border-radius:14px;overflow:hidden;margin-top:8px}
-  @media(max-width:720px){.grid3{grid-template-columns:1fr}}
-  .cell{background:var(--ink);padding:26px}
-  .cell svg{width:26px;height:26px;stroke:var(--acc);stroke-width:1.5;fill:none;margin-bottom:16px}
-  .cell h4{font-size:16.5px;font-weight:600;margin-bottom:7px}
-  .cell p{color:var(--mut);font-size:14.5px}
-  .cell .live{font-size:11.5px;color:var(--warm);letter-spacing:.06em;text-transform:uppercase;margin-top:14px;display:inline-block}
+  /* connect band — single compact box */
+  .band{border:1px solid var(--line);border-radius:13px;padding:22px 24px;background:linear-gradient(180deg,rgba(140,155,255,.05),transparent)}
+  .band h3{font-size:17px;font-weight:600;margin-bottom:8px}
+  .band p{color:var(--mut);font-size:14.5px;max-width:70ch}
+  .band b{color:var(--txt);font-weight:600}
+  .pre{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--warm);border:1px solid var(--line);padding:4px 10px;border-radius:20px;margin-bottom:13px}
 
-  .future{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
-  @media(max-width:680px){.future{grid-template-columns:1fr}}
-  .fcard{border:1px solid var(--line);border-radius:13px;padding:24px;background:linear-gradient(180deg,rgba(255,255,255,.018),transparent)}
-  .fcard .tag{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-bottom:12px}
-  .fcard h4{font-size:17.5px;font-weight:600;margin-bottom:8px}
-  .fcard h4 .serif{color:var(--acc)}
-  .fcard p{color:var(--mut);font-size:14.5px}
+  /* next — tight inline list, no boxes */
+  .next{display:grid;grid-template-columns:1fr 1fr;gap:8px 34px}
+  @media(max-width:680px){.next{grid-template-columns:1fr}}
+  .nx{display:flex;gap:11px;padding:9px 0;border-top:1px solid var(--line2);font-size:14.5px;color:var(--mut)}
+  .nx b{color:var(--txt);font-weight:600}
+  .nx .d{color:var(--warm);font-family:'Fraunces',serif;flex:0 0 auto}
 
-  .close{padding:84px 0;text-align:left}
-  .close h2{font-size:clamp(26px,3.4vw,38px);font-weight:500;line-height:1.15;max-width:18ch;margin-bottom:26px}
-  footer{padding:30px 0;border-top:1px solid var(--line2);color:var(--dim);font-size:13px}
-
-  .reveal{opacity:0;transform:translateY(16px);transition:.7s cubic-bezier(.2,.7,.2,1)}
-  .reveal.in{opacity:1;transform:none}
+  .close{padding:46px 0 56px;border-top:1px solid var(--line2)}
+  .close h2{font-size:clamp(22px,3vw,30px);font-weight:500;margin-bottom:18px}
+  footer{padding:22px 0;border-top:1px solid var(--line2);color:var(--dim);font-size:12.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="wrap">
-    <div class="brand"><span class="dot"></span> PA</div>
-    <div class="nav-sp"></div>
-    <div class="nav-links">
-      <a href="#how">How it works</a>
-      <a href="#does">What it does</a>
-      <a href="#next">What's next</a>
-    </div>
-    <a href="try.html" class="ghost">Chat with PA</a>
-  </div>
-</nav>
+<nav><div class="wrap">
+  <div class="brand"><span class="dot"></span> PA</div>
+  <div class="nav-sp"></div>
+  <a href="try.html" class="ghost">Chat with PA</a>
+</div></nav>
 
-<header class="hero">
-  <div class="wrap">
-    <div class="kicker">AI assistant · built for Singapore property agents</div>
-    <h1 class="serif">An assistant that answers every lead, the moment it arrives.</h1>
-    <p>PA handles your WhatsApp and your phone around the clock — answering like a real agent, qualifying who's serious, and handing you only the people worth your time.</p>
-    <div class="actions">
-      <a href="try.html" class="btn btn-pri">Chat with PA</a>
-      <a href="call.html" class="btn btn-sec">Talk to PA</a>
-      <a href="app.html" class="btn btn-sec">Live dashboard</a>
-    </div>
-    <div class="hero-meta">
-      <span><i></i> Replies in seconds, any hour</span>
-      <span><i></i> Real Singapore property rules</span>
-      <span><i></i> Hands you only warm leads</span>
-    </div>
+<header class="hero"><div class="wrap">
+  <div class="kicker">AI calling &amp; messaging assistant · for property agents</div>
+  <h1 class="serif">Answers every lead who messages. Calls every prospect for you.</h1>
+  <p>PA replies to people who WhatsApp you and captures the lead, and calls out to your prospects automatically — replacing missed messages and hours of manual cold-calling.</p>
+  <div class="actions">
+    <a href="try.html" class="btn btn-pri">Chat with PA</a>
+    <a href="call.html" class="btn btn-sec">Talk to PA</a>
+    <a href="app.html" class="btn btn-sec">Live dashboard</a>
   </div>
-</header>
+</div></header>
 
-<section id="how">
-  <div class="wrap lead-in">
-    <div class="sec-label"><span class="no">01</span>How it works</div>
-    <div>
-      <div class="sec-head serif">One assistant sits between your leads and you — and does the first hour of work.</div>
-      <div class="steps">
-        <div class="stp reveal"><div class="n">i</div><div><h4>A lead reaches out</h4><p>Someone messages or calls your number — from a listing, an ad, your name card. Day or night, it gets answered immediately.</p></div></div>
-        <div class="stp reveal"><div class="n">ii</div><div><h4>PA understands and answers</h4><p>It works out what they actually want and replies naturally, with the correct property facts — ABSD, stamp duty, loan limits, MOP.</p></div></div>
-        <div class="stp reveal"><div class="n">iii</div><div><h4>It qualifies and records</h4><p>Budget, area, timeline, buy or rent — captured in conversation and logged to your dashboard as the lead develops.</p></div></div>
-        <div class="stp reveal"><div class="n">iv</div><div><h4>You step in for the close</h4><p>The moment someone's serious, PA hands them to you with the full conversation — so you spend your time only on real buyers.</p></div></div>
-      </div>
+<section><div class="wrap">
+  <div class="label"><span class="no">01</span>The two jobs it does</div>
+  <div class="two">
+    <div class="way">
+      <div class="role">Inbound · live now</div>
+      <h3><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.5 8.5 8.5 0 0 1-4-1L3 20l1-3.8A8.5 8.5 0 1 1 21 11.5z"/></svg> When someone messages you</h3>
+      <p>PA answers on WhatsApp in seconds, day or night — so you never lose a lead to a slow reply.</p>
+      <ul>
+        <li>Answers their property questions correctly</li>
+        <li>Qualifies them — budget, area, intent</li>
+        <li>Saves every lead to your dashboard</li>
+      </ul>
+    </div>
+    <div class="way">
+      <div class="role">Outbound · the goal</div>
+      <h3><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.6a16 16 0 0 0 6 6l1.2-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg> When you want to reach out</h3>
+      <p>PA calls your prospects for you — to introduce a launch, follow up, or warm them up — instead of you dialling one by one.</p>
+      <ul>
+        <li>Calls in a real Singaporean voice</li>
+        <li>Pitches, answers questions, gauges interest</li>
+        <li>Logs who's keen for you to close</li>
+      </ul>
     </div>
   </div>
-</section>
+</div></section>
 
-<section id="does">
-  <div class="wrap lead-in">
-    <div class="sec-label"><span class="no">02</span>What it does today</div>
-    <div>
-      <div class="sec-head serif">A full front desk, working three channels at once.</div>
-      <div class="grid3">
-        <div class="cell reveal">
-          <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-9 8.5 8.5 8.5 0 0 1-4-1L3 20l1-3.8A8.5 8.5 0 1 1 21 11.5z"/></svg>
-          <h4>WhatsApp, around the clock</h4>
-          <p>Answers, qualifies and books over WhatsApp in seconds — while you sleep, drive, or work another deal.</p>
-          <span class="live">● Live now</span>
-        </div>
-        <div class="cell reveal">
-          <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.6a16 16 0 0 0 6 6l1.2-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>
-          <h4>Real phone calls</h4>
-          <p>Picks up and holds a natural conversation in a real Singaporean voice — handling interruptions like a person.</p>
-          <span class="live">● Live now</span>
-        </div>
-        <div class="cell reveal">
-          <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l3-4 3 2 4-6"/></svg>
-          <h4>One live dashboard</h4>
-          <p>Every conversation captured, sorted hot to cold, with the full chat — so nothing slips through the cracks.</p>
-          <span class="live">● Live now</span>
-        </div>
-      </div>
-      <p class="sec-sub">Under the hood, PA never sleeps, never forgets a conversation, and never quotes a number it can't stand behind — anything that needs your licence, it routes straight to you.</p>
-    </div>
+<section><div class="wrap">
+  <div class="label"><span class="no">02</span>How it becomes yours</div>
+  <div class="band">
+    <span class="pre">This page is a live demo</span>
+    <h3>Right now you're testing PA on a demo line.</h3>
+    <p>When it's set up for you, PA plugs straight into <b>your own WhatsApp number</b> and <b>your lead list or CRM</b>. From then on it replies to your real clients automatically, and <b>calls the leads in your system</b> for you — on its own. Nothing changes in how you work; PA just does the first hour for you.</p>
   </div>
-</section>
+</div></section>
 
-<section id="next">
-  <div class="wrap lead-in">
-    <div class="sec-label"><span class="no">03</span>Where it's heading</div>
-    <div>
-      <div class="sec-head serif">Today it answers. Next, it works on its own.</div>
-      <div class="sec-sub">PA already replies, qualifies and hands off. The same brain is built to go further — turning a busy inbox into an assistant that runs your follow-up for you.</div>
-      <div class="future">
-        <div class="fcard reveal">
-          <div class="tag">Outbound · coming</div>
-          <h4>Calls your leads <span class="serif">by itself</span></h4>
-          <p>Rings your warm leads and past clients to follow up and book viewings — on a schedule, without you lifting a finger.</p>
-        </div>
-        <div class="fcard reveal">
-          <div class="tag">Nurture · coming</div>
-          <h4>Replies and follows up <span class="serif">on its own</span></h4>
-          <p>Keeps conversations warm across days — checking back in, answering questions, nudging toward a viewing, on chat and by voice.</p>
-        </div>
-        <div class="fcard reveal">
-          <div class="tag">Data · coming</div>
-          <h4>Plugged into <span class="serif">your own numbers</span></h4>
-          <p>Pulls real transacted prices to give an instant, honest valuation — not a rough guess — the moment a client asks.</p>
-        </div>
-        <div class="fcard reveal">
-          <div class="tag">Compliant by design</div>
-          <h4>Outreach that stays <span class="serif">on the right side</span></h4>
-          <p>Only ever contacts people who've agreed — consent and Do-Not-Call checks built in, so your licence is never at risk.</p>
-        </div>
-      </div>
-    </div>
+<section><div class="wrap">
+  <div class="label"><span class="no">03</span>Where it's heading</div>
+  <div class="next">
+    <div class="nx"><span class="d">i</span><span><b>Auto follow-up calls</b> — rings your warm leads on a schedule, hands-free.</span></div>
+    <div class="nx"><span class="d">ii</span><span><b>Multi-day nurture</b> — keeps prospects warm across chat and voice.</span></div>
+    <div class="nx"><span class="d">iii</span><span><b>Real valuations</b> — quotes actual transacted prices, not guesses.</span></div>
+    <div class="nx"><span class="d">iv</span><span><b>Compliant outreach</b> — consent &amp; Do-Not-Call checks built in.</span></div>
   </div>
-</section>
+</div></section>
 
-<div class="close">
-  <div class="wrap">
-    <h2 class="serif">See how PA answers — try it yourself.</h2>
-    <div class="actions">
-      <a href="try.html" class="btn btn-pri">Chat with PA</a>
-      <a href="call.html" class="btn btn-sec">Talk to PA</a>
-      <a href="app.html" class="btn btn-sec">Live dashboard</a>
-    </div>
+<div class="close"><div class="wrap">
+  <h2 class="serif">See how PA answers — try it yourself.</h2>
+  <div class="actions">
+    <a href="try.html" class="btn btn-pri">Chat with PA</a>
+    <a href="call.html" class="btn btn-sec">Talk to PA</a>
+    <a href="app.html" class="btn btn-sec">Live dashboard</a>
   </div>
-</div>
+</div></div>
 
-<footer>
-  <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px">
-    <span>PA — AI assistant for property agents</span>
-    <span>Built for Singapore · private preview</span>
-  </div>
-</footer>
+<footer><div class="wrap" style="display:flex;justify-content:space-between;width:100%;flex-wrap:wrap;gap:8px">
+  <span>PA — AI calling &amp; messaging assistant</span>
+  <span>For Singapore property agents · private demo</span>
+</div></footer>
 
-<script>
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.18});
-  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*70)+'ms';io.observe(el)});
-</script>
 </body>
 </html>
