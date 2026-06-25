@@ -210,6 +210,12 @@ footer .rates{font-size:11px;color:var(--ink-4);max-width:74ch;margin:8px auto 0
 .ab-steps li::before{content:counter(s);position:absolute;left:0;top:10px;width:30px;height:30px;border-radius:50%;background:var(--brand-wash);border:1px solid var(--brand);color:var(--brand-d);font-weight:800;font-size:13px;display:grid;place-items:center}
 .ab-got{width:100%;margin-top:20px;padding:13px;background:var(--brand);color:#fff;border:0;border-radius:12px;font-weight:700;font-size:15px;cursor:pointer}
 .ab-hidden{display:none!important}
+/* ===== craft kit — visual polish only (no logic / markup / IDs touched) ===== */
+body::after{content:"";position:fixed;inset:0;z-index:55;pointer-events:none;opacity:.04;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.panel{background:linear-gradient(168deg,#ffffff,#fbf8f1);font-variant-numeric:tabular-nums}
+.eyebrow{letter-spacing:.16em}
+@media(min-width:721px){.hero h1{font-size:46px;letter-spacing:-.035em}.panel{box-shadow:0 18px 50px rgba(16,21,31,.10),0 4px 12px rgba(16,21,31,.05)}}
 </style>
 </head>
 <body>
