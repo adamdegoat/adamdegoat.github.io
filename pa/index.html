@@ -34,8 +34,9 @@
   .hero p{font-size:clamp(15px,1.9vw,17.5px);color:var(--mut);max-width:54ch;margin-bottom:24px}
   .actions{display:flex;gap:10px;flex-wrap:wrap}
   .btn{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:500;padding:10px 17px;border-radius:9px;transition:.15s;cursor:pointer;border:1px solid transparent}
-  .btn-pri{background:var(--txt);color:var(--ink);font-weight:600}
-  .btn-pri:hover{background:#fff}
+  .btn-gold{background:linear-gradient(180deg,#e7c794,#d8b27c);color:#2c2008;font-weight:600;
+    border-radius:999px;border:1px solid rgba(216,178,124,.5);box-shadow:0 6px 22px rgba(216,178,124,.26)}
+  .btn-gold:hover{transform:translateY(-1px);box-shadow:0 10px 30px rgba(216,178,124,.42)}
   .btn-sec{border-color:var(--line);color:var(--txt)}
   .btn-sec:hover{border-color:var(--acc);color:var(--acc)}
 
@@ -78,7 +79,7 @@
 <nav><div class="wrap">
   <div class="brand"><span class="dot"></span> PA</div>
   <div class="nav-sp"></div>
-  <a href="try.html" class="ghost">Chat with PA</a>
+  <a href="try.html" class="ghost">Try PA</a>
 </div></nav>
 
 <header class="hero"><div class="wrap">
