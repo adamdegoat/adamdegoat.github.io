@@ -196,36 +196,38 @@ footer .disc{font-size:12px;max-width:70ch;margin:14px auto 0;line-height:1.6}
 </nav>
 
 <style>
-/* === compact redesign: smaller hero + card grids === */
-.hero{padding:44px 0 34px !important;text-align:left}
+/* === compact redesign v2: small hero + polished cards === */
+.hero{padding:28px 0 22px !important;text-align:left}
 .hero::before{display:none}
 .hero .wrap{display:block !important;grid-template-columns:none !important;gap:0 !important}
-.hero h1{font-size:clamp(33px,5vw,50px) !important;max-width:20ch;margin:0 0 15px !important;line-height:1.04}
-.hero .sub{font-size:16.5px !important;max-width:60ch !important;margin:0 0 22px !important}
+.hero .eyebrow2{margin-bottom:14px}
+.hero h1{font-size:clamp(25px,3.4vw,37px) !important;max-width:24ch;margin:0 0 10px !important;line-height:1.06;text-align:left}
+.hero .sub{font-size:14.5px !important;max-width:60ch !important;margin:0 0 16px !important;text-align:left}
 .hero .row{justify-content:flex-start}
-.hero-stats{display:flex;gap:30px;flex-wrap:wrap;margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
-.hero-stats .hs b{font-family:var(--serif);font-size:23px;font-weight:600;color:var(--ink);display:block;line-height:1}
-.hero-stats .hs span{font-size:11.5px;color:var(--ink-3);font-weight:600;margin-top:4px;display:block}
-.hero .freshline{margin-top:20px}
-section.block{padding:42px 0}
-.lead{margin-bottom:26px}
+.hero .btn{padding:11px 20px;font-size:14px}
+.hero-stats{display:flex;gap:22px;flex-wrap:wrap;margin-top:16px;padding-top:13px;border-top:1px solid var(--line)}
+.hero-stats .hs b{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--ink);display:block;line-height:1}
+.hero-stats .hs span{font-size:10.5px;color:var(--ink-3);font-weight:600;margin-top:3px;display:block}
+.hero .freshline{margin-top:14px;font-size:11.5px}
+section.block{padding:38px 0}
+.lead{margin-bottom:24px}
 
-/* featured (Adam + PA) */
+/* featured (Adam + PA) — image-led, enticing */
 .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 @media(max-width:760px){.feature-grid{grid-template-columns:1fr}}
-.fcard2{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--card);box-shadow:var(--shadow);transition:.18s}
-.fcard2:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
-.fc-top{padding:24px 26px 20px;color:#fff;position:relative;overflow:hidden}
-.fc-top::after{content:"";position:absolute;inset:0;background:radial-gradient(300px 150px at 85% 0,rgba(255,255,255,.14),transparent 70%);pointer-events:none}
-.fc-top.adam{background:linear-gradient(150deg,#101a2b,#1f3050)}
-.fc-top.pa{background:linear-gradient(150deg,#241a06,#6b5320)}
-.fc-tag{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;opacity:.85}
-.fc-top h3{font-family:var(--serif);font-size:27px;font-weight:600;margin:8px 0 5px}
-.fc-ess{font-size:14px;opacity:.86}
-.fc-body{padding:21px 26px;display:flex;flex-direction:column;gap:13px;flex:1}
-.fc-body p{font-size:14.5px;color:var(--ink-2);line-height:1.55}
-.fc-go{margin-top:auto;font-weight:700;font-size:14px;color:var(--brand-d)}
-.fcard2:hover .fc-go{color:var(--brand)}
+.fcard2{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--card);box-shadow:var(--shadow);transition:.22s cubic-bezier(.2,.7,.2,1)}
+.fcard2:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--brand)}
+.fc-shot{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--navy)}
+.fc-shot img{width:100%;height:100%;object-fit:cover;object-position:top left;transition:.5s cubic-bezier(.2,.7,.2,1)}
+.fcard2:hover .fc-shot img{transform:scale(1.05)}
+.fc-shot::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(16,21,31,.45))}
+.fc-badge{position:absolute;top:13px;left:13px;z-index:2;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#fff;background:rgba(16,21,31,.55);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.22);padding:5px 11px;border-radius:30px}
+.fc-badge.gold{background:rgba(110,83,32,.7)}
+.fc-body{padding:20px 24px 22px;display:flex;flex-direction:column;gap:7px;flex:1}
+.fc-body h3{font-family:var(--serif);font-size:25px;font-weight:600;margin:0}
+.fc-ess{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--gold)}
+.fc-body p{font-size:13.8px;color:var(--ink-2);line-height:1.55;margin:3px 0 6px}
+.fc-cta{align-self:flex-start;margin-top:auto}
 
 /* tool cards */
 .tool-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
@@ -246,18 +248,18 @@ section.block{padding:42px 0}
   <div class="wrap">
     <div class="eyebrow2">Singapore property intelligence</div>
     <h1>Everything for Singapore property, <em>in one place</em>.</h1>
-    <p class="sub">A complete toolkit for the modern agent — price any listing, find the smart buys, run a deal to completion, answer any client, bring new leads in, and now let AI work them for you. All on official URA, HDB &amp; OneMap data.</p>
+    <p class="sub">Price any listing, find the smart buys, run a deal to completion, answer any client — and now let AI work your leads. All on official URA, HDB &amp; OneMap data.</p>
     <div class="row">
       <a class="btn btn-p" href="#featured">See everything ↓</a>
       <a class="btn btn-g" href="https://adamdegoat.github.io/pa/">Meet PA →</a>
     </div>
     <div class="hero-stats">
-      <div class="hs"><b>58,000+</b><span>official sale transactions</span></div>
+      <div class="hs"><b>58,000+</b><span>sale transactions</span></div>
       <div class="hs"><b>106,464</b><span>rental contracts</span></div>
       <div class="hs"><b>1,125</b><span>amenities mapped</span></div>
-      <div class="hs"><b>Weekly</b><span>auto-refreshed from source</span></div>
+      <div class="hs"><b>Weekly</b><span>auto-refreshed</span></div>
     </div>
-    <div class="freshline"><span class="fdot"></span>Caveat &amp; Thesis auto-refresh from official URA &amp; HDB data <b>every Saturday</b> · next refresh <b id="nextref">—</b></div>
+    <div class="freshline"><span class="fdot"></span>Auto-refreshed from official URA &amp; HDB data <b>every Saturday</b> · next <b id="nextref">—</b></div>
   </div>
 </header>
 
@@ -265,28 +267,24 @@ section.block{padding:42px 0}
   <div class="wrap">
     <div class="eyebrow">Start here</div>
     <h2 class="h2">For your clients, <em>and for you</em></h2>
-    <p class="lead">The two front-line products — one where your clients land, one that works your leads while you're busy.</p>
+    <p class="lead">Two front-line products — one where your clients land, one that works your leads while you're busy.</p>
     <div class="feature-grid">
       <a class="fcard2" href="https://adamdegoat.github.io/adam/">
-        <div class="fc-top adam">
-          <div class="fc-tag">★ Where clients land</div>
+        <div class="fc-shot"><img src="../assets/feat/adam.jpg" alt="Adam Phang — the customer-facing property hub" loading="lazy"><span class="fc-badge">★ Where clients land</span></div>
+        <div class="fc-body">
           <h3>Adam Phang</h3>
           <div class="fc-ess">Your clients' first stop.</div>
-        </div>
-        <div class="fc-body">
-          <p>The customer-facing hub buyers and sellers land on. They value any HDB or condo on real recent sales, see what they can truly afford, estimate stamp duty and grants, and check eligibility — plus a weekly Market Pulse. Free, no sign-up. It makes you look like the most data-driven agent they've met.</p>
-          <span class="fc-go">Visit the hub →</span>
+          <p>The hub buyers and sellers land on — value any home on real sales, see what they can afford, check stamp duty, grants &amp; eligibility, with a weekly Market Pulse. Free, no sign-up. It makes you the most data-driven agent they've met.</p>
+          <span class="btn btn-p fc-cta">Visit the hub →</span>
         </div>
       </a>
       <a class="fcard2" href="https://adamdegoat.github.io/pa/">
-        <div class="fc-top pa">
-          <div class="fc-tag">New · AI assistant</div>
+        <div class="fc-shot"><img src="../assets/feat/pa.png" alt="PA — an AI assistant that answers and calls your leads" loading="lazy"><span class="fc-badge gold">New · AI assistant</span></div>
+        <div class="fc-body">
           <h3>PA</h3>
           <div class="fc-ess">An assistant that works your leads.</div>
-        </div>
-        <div class="fc-body">
-          <p>Answers every lead who WhatsApps you, qualifies them and files them on a live dashboard, and calls your prospects for you in a real Singaporean voice. It replaces missed messages and manual cold-calling — so no lead goes cold while you're showing a unit or closing another deal.</p>
-          <span class="fc-go">Meet PA →</span>
+          <p>Answers every lead who WhatsApps you, qualifies them onto a live dashboard, and calls your prospects for you in a real Singaporean voice. No lead goes cold while you're showing a unit or closing another deal.</p>
+          <span class="btn btn-p fc-cta">Meet PA →</span>
         </div>
       </a>
     </div>
