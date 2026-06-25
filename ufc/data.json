@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-25T09:00:00.329025+08:00",
+  "updated": "2026-06-25T13:00:00.296393+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -302,6 +302,12 @@
       "priority": true
     },
     {
+      "title": "UFC 330’s Ian Garry signs with Dana White’s enemy ahead of first title fight",
+      "link": "https://www.mmamania.com/latest-news/452912/ufc-330s-ian-garry-signs-with-dana-whites-enemy-ahead-of-first-title-fight",
+      "source": "MMA Mania",
+      "priority": true
+    },
+    {
       "title": "Cris Cyborg’s retirement fight announced, collides with just-cut UFC fighter at PFL Tampa",
       "link": "https://www.mmamania.com/professional-fighters-league-pfl/452903/cris-cyborgs-retirement-fight-announced-collides-with-just-cut-ufc-fighter-at-pfl-tampa",
       "source": "MMA Mania",
@@ -366,17 +372,11 @@
       "link": "https://www.mmafighting.com/ufc/495780/charles-oliveira-wants-justin-gaethje-rematch-to-settle-unfinished-business-unify-ufc-bmf-belts",
       "source": "MMA Fighting",
       "priority": false
-    },
-    {
-      "title": "‘Mystic Mac’ is back! UFC 329’s Conor McGregor predicts ‘spectacular’ demolition of Max Holloway – ‘I just have to touch him’",
-      "link": "https://www.mmamania.com/latest-news/452909/mystic-mac-is-back-ufc-329s-conor-mcgregor-predicts-spectacular-demolition-of-max-holloway-i-just-have-to-touch-him",
-      "source": "MMA Mania",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "Fiziev and Torres clash Sunday at midnight—bring your A-game for this one.",
-    "prefight": "Fiziev and Torres clash Sunday—two elite lightweights settling the score.",
-    "results": "Manel Kape TKO'd Kyoji Horiguchi with devastating punches in round three."
+    "week": "Fiziev and Torres collide Sunday midnight—elite lightweight strikers ready for war.",
+    "prefight": "Two warriors collide this Sunday—Fiziev vs Torres for main event immortality.",
+    "results": "Kape dismantles Horiguchi, forcing a round-three TKO via relentless punch combinations."
   }
 }
