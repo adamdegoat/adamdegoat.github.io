@@ -130,6 +130,12 @@ footer .fb{display:inline-flex;align-items:center;gap:8px;margin-bottom:8px;colo
 .sheet h3{font-size:19px;margin-bottom:10px}
 .sheet ol{padding-left:18px;font-size:14px;color:var(--ink-2);line-height:1.7}
 .sheet .x{float:right;border:0;background:var(--line-2);width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:15px;color:var(--ink-3)}
+/* ===== craft kit — visual polish only (no logic / markup / IDs touched) ===== */
+body::after{content:"";position:fixed;inset:0;z-index:55;pointer-events:none;opacity:.04;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.card{background:linear-gradient(168deg,#ffffff,#fbf8f1)}
+.eyebrow{letter-spacing:.16em}
+@media(min-width:561px){.hero h1{font-size:48px;letter-spacing:-.04em}}
 </style>
 </head>
 <body>
