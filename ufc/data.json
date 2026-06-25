@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-24T23:30:00.231728+08:00",
+  "updated": "2026-06-25T09:00:00.329025+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -290,21 +290,33 @@
   },
   "news": [
     {
-      "title": "UFC Oklahoma City: Du Plessis vs. Usman officially adds 8 new fights",
-      "link": "https://www.mmafighting.com/ufc/496032/ufc-oklahoma-city-du-plessis-vs-usman-officially-adds-8-new-fights",
+      "title": "Cris Cyborg books retirement fight vs. Ketlen Vieira at PFL Tampa",
+      "link": "https://www.mmafighting.com/pfl/496065/cris-cyborg-books-retirement-fight-vs-ketlen-vieira-at-pfl-tampa",
       "source": "MMA Fighting",
       "priority": true
     },
     {
-      "title": "UFC’s Dustin Poirier pleads for help after alarming body cam arrest video released – ‘Alcohol isn’t the answer’",
-      "link": "https://www.mmamania.com/latest-news/452761/ufcs-dustin-poirier-pleads-for-help-after-alarming-body-cam-arrest-video-released-alcohol-isnt-the-answer",
+      "title": "Ian Machado Garry signs with Eddie Hearn ahead of title fight at UFC 330",
+      "link": "https://www.mmafighting.com/ufc/496202/ian-machado-garry-signs-with-eddie-hearn-ahead-of-title-fight-at-ufc-330",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
+      "title": "Cris Cyborg’s retirement fight announced, collides with just-cut UFC fighter at PFL Tampa",
+      "link": "https://www.mmamania.com/professional-fighters-league-pfl/452903/cris-cyborgs-retirement-fight-announced-collides-with-just-cut-ufc-fighter-at-pfl-tampa",
       "source": "MMA Mania",
       "priority": true
     },
     {
-      "title": "Israel Adesanya admits ‘ego’ keeping him from UFC retirement — ‘I know what I can do still’",
-      "link": "https://www.mmamania.com/ufc-news/452709/israel-adesanya-ego-keeping-him-ufc-retirement-know-what-i-can-do-mma",
+      "title": "Opening fight canceled, Gable Steveson dumped on Prelims in latest UFC 329 fight card update — ‘Breaks my heart’",
+      "link": "https://www.mmamania.com/ufc-news/452861/opening-fight-canceled-gable-steveson-dumped-prelims-latest-ufc-329-fight-card-update-breaks-my-heart",
       "source": "MMA Mania",
+      "priority": true
+    },
+    {
+      "title": "Title challenger signs with Eddie Hearn ahead of UFC 330 main event",
+      "link": "https://www.sherdog.com/news/news/Title-challenger-signs-with-Eddie-Hearn-ahead-of-UFC-330-main-event-201641",
+      "source": "Sherdog",
       "priority": true
     },
     {
@@ -316,12 +328,6 @@
     {
       "title": "Dricus Du Plessis: Kamaru Usman was reluctant to sign contract for UFC Oklahoma City",
       "link": "https://www.sherdog.com/news/news/Dricus-Du-Plessis-Kamaru-Usman-was-reluctant-to-sign-contract-for-UFC-Oklahoma-City-201625",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "UFC officially launches Meta-based rankings system",
-      "link": "https://www.sherdog.com/news/news/UFC-officially-launches-Metabased-rankings-system-201615",
       "source": "Sherdog",
       "priority": true
     },
@@ -338,45 +344,39 @@
       "priority": true
     },
     {
+      "title": "No Bets Barred: Can Rafael Fiziev give Azerbaijan reason to celebrate at UFC Baku?",
+      "link": "https://www.mmafighting.com/latest-news/496227/no-bets-barred-can-rafael-fiziev-give-azerbaijan-reason-to-celebrate-at-ufc-baku",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Dana White shares stance on UFC and Pride Nights: ‘I’m assuming we have some gay fighters’",
+      "link": "https://www.mmafighting.com/ufc/496179/dana-white-shares-stance-on-ufc-and-pride-nights-im-assuming-we-have-some-gay-fighters",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Josh Hokit doubles down on controversial UFC White House comments: ‘You’ll never hear me backtrack from what I say’",
+      "link": "https://www.mmafighting.com/ufc/496068/josh-hokit-doubles-down-on-controversial-comments-youll-never-hear-me-backtrack-from-what-i-say",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "Charles Oliveira wants Justin Gaethje rematch to settle unfinished business, unify UFC, BMF belts",
       "link": "https://www.mmafighting.com/ufc/495780/charles-oliveira-wants-justin-gaethje-rematch-to-settle-unfinished-business-unify-ufc-bmf-belts",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "Dustin Poirier public intoxication arrest video shows erratic, threatening behavior from former UFC fighter",
-      "link": "https://www.mmafighting.com/latest-news/496086/dustin-poirier-public-intoxication-arrest-video-shows-erratic-threatening-behavior-from-former-ufc-fighter",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Christian Strong told The Ultimate Fighter 34 producers he’d fight ‘with one f*cking leg’ to stay on show",
-      "link": "https://www.mmafighting.com/ufc/495802/christian-strong-told-the-ultimate-fighter-34-producers-hed-fight-with-one-fcking-leg-to-stay-on-show",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Dricus du Plessis a fan of Josh Hokit, but warns offensive UFC White House comment is ‘going to cost him’",
-      "link": "https://www.mmafighting.com/ufc/496013/dricus-du-plessis-a-fan-of-josh-hokit-but-warns-offensive-ufc-white-house-comment-is-going-to-cost-him",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "UFC Baku main card odds, breakdowns and predictions | X-Factor",
-      "link": "https://www.mmamania.com/ufc-odds/452702/ufc-baku-main-card-odds-breakdowns-and-predictions-x-factor",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "Josh Hokit aiming for two more fights and ‘a four million dollar’ 2026 despite White House controversy",
-      "link": "https://www.mmamania.com/ufc-news/452823/josh-hokit-aiming-for-two-more-fights-and-a-four-million-dollar-2026-despite-white-house-controversy",
+      "title": "‘Mystic Mac’ is back! UFC 329’s Conor McGregor predicts ‘spectacular’ demolition of Max Holloway – ‘I just have to touch him’",
+      "link": "https://www.mmamania.com/latest-news/452909/mystic-mac-is-back-ufc-329s-conor-mcgregor-predicts-spectacular-demolition-of-max-holloway-i-just-have-to-touch-him",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Striking showdown: Fiziev vs Torres Sunday midnight SGT—prime time action incoming.",
-    "prefight": "Two striking titans collide—Fiziev vs Torres Sunday midnight SGT.",
-    "results": "Kape unleashed a barrage of punches to finish Horiguchi in round three."
+    "week": "Fiziev and Torres clash Sunday at midnight—bring your A-game for this one.",
+    "prefight": "Fiziev and Torres clash Sunday—two elite lightweights settling the score.",
+    "results": "Manel Kape TKO'd Kyoji Horiguchi with devastating punches in round three."
   }
 }
