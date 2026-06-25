@@ -195,211 +195,156 @@ footer .disc{font-size:12px;max-width:70ch;margin:14px auto 0;line-height:1.6}
   <a class="btn btn-p cta" href="#tools">The toolkit ↓</a>
 </nav>
 
+<style>
+/* === compact redesign: smaller hero + card grids === */
+.hero{padding:44px 0 34px !important;text-align:left}
+.hero::before{display:none}
+.hero .wrap{display:block !important;grid-template-columns:none !important;gap:0 !important}
+.hero h1{font-size:clamp(33px,5vw,50px) !important;max-width:20ch;margin:0 0 15px !important;line-height:1.04}
+.hero .sub{font-size:16.5px !important;max-width:60ch !important;margin:0 0 22px !important}
+.hero .row{justify-content:flex-start}
+.hero-stats{display:flex;gap:30px;flex-wrap:wrap;margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
+.hero-stats .hs b{font-family:var(--serif);font-size:23px;font-weight:600;color:var(--ink);display:block;line-height:1}
+.hero-stats .hs span{font-size:11.5px;color:var(--ink-3);font-weight:600;margin-top:4px;display:block}
+.hero .freshline{margin-top:20px}
+section.block{padding:42px 0}
+.lead{margin-bottom:26px}
+
+/* featured (Adam + PA) */
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:760px){.feature-grid{grid-template-columns:1fr}}
+.fcard2{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--card);box-shadow:var(--shadow);transition:.18s}
+.fcard2:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.fc-top{padding:24px 26px 20px;color:#fff;position:relative;overflow:hidden}
+.fc-top::after{content:"";position:absolute;inset:0;background:radial-gradient(300px 150px at 85% 0,rgba(255,255,255,.14),transparent 70%);pointer-events:none}
+.fc-top.adam{background:linear-gradient(150deg,#101a2b,#1f3050)}
+.fc-top.pa{background:linear-gradient(150deg,#241a06,#6b5320)}
+.fc-tag{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;opacity:.85}
+.fc-top h3{font-family:var(--serif);font-size:27px;font-weight:600;margin:8px 0 5px}
+.fc-ess{font-size:14px;opacity:.86}
+.fc-body{padding:21px 26px;display:flex;flex-direction:column;gap:13px;flex:1}
+.fc-body p{font-size:14.5px;color:var(--ink-2);line-height:1.55}
+.fc-go{margin-top:auto;font-weight:700;font-size:14px;color:var(--brand-d)}
+.fcard2:hover .fc-go{color:var(--brand)}
+
+/* tool cards */
+.tool-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+@media(max-width:860px){.tool-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.tool-grid{grid-template-columns:1fr}}
+.tcard{display:flex;flex-direction:column;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:21px 22px;box-shadow:var(--shadow);transition:.18s}
+.tcard:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--brand)}
+.tc-h{display:flex;align-items:center;gap:10px}
+.tc-name{font-family:var(--serif);font-size:20px;font-weight:600}
+.tc-live{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--brand-d);background:var(--brand-wash);border-radius:20px;padding:3px 8px;margin-left:auto}
+.tc-d{font-size:13.5px;color:var(--ink-2);line-height:1.5}
+.tc-use{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--gold);line-height:1.4}
+.tc-go{margin-top:auto;font-weight:700;font-size:13px;color:var(--brand-d);padding-top:5px}
+.tcard:hover .tc-go{color:var(--brand)}
+</style>
+
 <header class="hero" id="top">
   <div class="wrap">
-    <div>
-      <div class="eyebrow2">Singapore property intelligence</div>
-      <h1>The agent's <em>edge</em>, built on real data.</h1>
-      <p class="sub">Seven tools that price every listing, find the smart buys, run a deal to completion, answer any client on the spot — and bring new ones in. All on official URA, HDB &amp; OneMap data.</p>
-      <div class="row">
-        <a class="btn btn-p" href="#tools">See the toolkit ↓</a>
-        <a class="btn btn-g" href="https://adamdegoat.github.io/caveat/">Open Caveat →</a>
-      </div>
-      <p class="byline">— Adam Phang, Singapore property agent</p>
-      <div class="freshline"><span class="fdot"></span>Caveat &amp; Thesis auto-refresh from official URA &amp; HDB data <b>every Saturday</b> · next refresh <b id="nextref">—</b></div>
+    <div class="eyebrow2">Singapore property intelligence</div>
+    <h1>Everything for Singapore property, <em>in one place</em>.</h1>
+    <p class="sub">A complete toolkit for the modern agent — price any listing, find the smart buys, run a deal to completion, answer any client, bring new leads in, and now let AI work them for you. All on official URA, HDB &amp; OneMap data.</p>
+    <div class="row">
+      <a class="btn btn-p" href="#featured">See everything ↓</a>
+      <a class="btn btn-g" href="https://adamdegoat.github.io/pa/">Meet PA →</a>
     </div>
-    <div class="panel">
-      <div class="ph"><span>Built on official data</span><span class="live"><i></i>Live</span></div>
-      <div class="st"><div class="n">58,000<span class="u">+</span></div><div class="l">official sale transactions</div></div>
-      <div class="st"><div class="n">106,464</div><div class="l">rental contracts</div></div>
-      <div class="st"><div class="n">1,125</div><div class="l">amenities mapped</div></div>
-      <div class="st"><div class="n">Weekly</div><div class="l">auto-refreshed from source</div></div>
+    <div class="hero-stats">
+      <div class="hs"><b>58,000+</b><span>official sale transactions</span></div>
+      <div class="hs"><b>106,464</b><span>rental contracts</span></div>
+      <div class="hs"><b>1,125</b><span>amenities mapped</span></div>
+      <div class="hs"><b>Weekly</b><span>auto-refreshed from source</span></div>
     </div>
+    <div class="freshline"><span class="fdot"></span>Caveat &amp; Thesis auto-refresh from official URA &amp; HDB data <b>every Saturday</b> · next refresh <b id="nextref">—</b></div>
   </div>
 </header>
 
-<section class="block" id="tools">
+<section class="block" id="featured">
   <div class="wrap">
-    <div class="eyebrow">Inside Groundwork</div>
-    <h2 class="h2">The toolkit</h2>
-    <p class="lead">Seven tools today — each earning its place by removing a real bottleneck in an agent's day, from pricing a listing to guiding a buyer to the keys to showing up online — with more in the works.</p>
-
-    <!-- Tool 01 -->
-    <div class="tool">
-      <div class="tool-head"><span class="tnum">01</span><span class="tname">Caveat</span><span class="sp"></span><span class="badge-live"><span class="pulse"></span>Live now · installable app</span></div>
-      <div class="flag">
-        <div class="ft-media">
-          <div class="browser">
-            <div class="bar"><i></i><i></i><i></i><span class="u">adamdegoat.github.io/caveat</span></div>
-            <img src="assets/caveat-preview.jpeg" alt="Caveat valuation deck" loading="lazy">
-          </div>
+    <div class="eyebrow">Start here</div>
+    <h2 class="h2">For your clients, <em>and for you</em></h2>
+    <p class="lead">The two front-line products — one where your clients land, one that works your leads while you're busy.</p>
+    <div class="feature-grid">
+      <a class="fcard2" href="https://adamdegoat.github.io/adam/">
+        <div class="fc-top adam">
+          <div class="fc-tag">★ Where clients land</div>
+          <h3>Adam Phang</h3>
+          <div class="fc-ess">Your clients' first stop.</div>
         </div>
-        <div class="ft-body">
-          <span class="badge-live"><span class="pulse"></span>Valuation &amp; market intelligence</span>
-          <h3>Everything an agent needs, in one app</h3>
-          <p class="desc">A five-tool co-pilot built on 58,000 official sale transactions, 106,000 rental contracts and OneMap — every number is real and the working is shown, so you can defend it to a client.</p>
-          <ul class="feat">
-            <li><span class="ic">📊</span><span><b>Valuation</b> — comparable price band, an interactive map, nearby amenities, rental yield &amp; a written summary (HDB &amp; condo; landed + new-launch reference too).</span></li>
-            <li><span class="ic">📈</span><span><b>Market terminal</b> — live median prices, PSF momentum, the rental market &amp; gross yields, by town and region.</span></li>
-            <li><span class="ic">🧮</span><span><b>Affordability &amp; stamp duty</b> — ABSD, BSD, loan headroom, with every rate verified and the working shown.</span></li>
-            <li><span class="ic">📍</span><span><b>Prospecting</b> — what just sold in your farm area, with a warm outreach message drafted for each.</span></li>
-          </ul>
-          <a class="btn btn-p" href="https://adamdegoat.github.io/caveat/">Open Caveat →</a>
+        <div class="fc-body">
+          <p>The customer-facing hub buyers and sellers land on. They value any HDB or condo on real recent sales, see what they can truly afford, estimate stamp duty and grants, and check eligibility — plus a weekly Market Pulse. Free, no sign-up. It makes you look like the most data-driven agent they've met.</p>
+          <span class="fc-go">Visit the hub →</span>
         </div>
-      </div>
-    </div>
-
-    <!-- Tool 02 -->
-    <div class="tool">
-      <div class="tool-head"><span class="tnum">02</span><span class="tname">Thesis</span><span class="sp"></span><span class="badge-live"><span class="pulse"></span>Live now · research engine</span></div>
-      <div class="flag rev">
-        <div class="ft-media">
-          <div class="browser">
-            <div class="bar"><i></i><i></i><i></i><span class="u">adamdegoat.github.io/thesis</span></div>
-            <img src="assets/thesis-preview.jpeg" alt="Thesis property research engine" loading="lazy">
-          </div>
+      </a>
+      <a class="fcard2" href="https://adamdegoat.github.io/pa/">
+        <div class="fc-top pa">
+          <div class="fc-tag">New · AI assistant</div>
+          <h3>PA</h3>
+          <div class="fc-ess">An assistant that works your leads.</div>
         </div>
-        <div class="ft-body">
-          <span class="badge-live"><span class="pulse"></span>Official-data research</span>
-          <h3>Every condo, by the numbers</h3>
-          <p class="desc">Every Singapore condo project's numbers from official caveats — how it's priced versus comparable condos nearby, its price-cycle timing, yield, liquidity, tenure and incoming supply — with the <b>value signal backtested</b> against what prices actually did. Caveat tells you what a unit's worth; Thesis shows you the project's numbers. <b>Indicative analysis, not financial advice.</b></p>
-          <ul class="feat">
-            <li><span class="ic">🎯</span><span><b>Value vs nearby</b> — whether a project's price per sqft sits below the comparable condos right around it, with the reference price shown so you can defend it.</span></li>
-            <li><span class="ic">◆</span><span><b>Launches — selling now &amp; coming next</b> — every current launch with the <b>resale comps behind its premium</b>, plus an <b>Upcoming</b> watchlist of not-yet-launched projects, each benchmarked against real resale.</span></li>
-            <li><span class="ic">🔬</span><span><b>Field research</b> — a weekly agent adds plain-English notes (MRT, supply, developer, en-bloc) with <b>sources</b> on the top projects — clearly marked to verify.</span></li>
-            <li><span class="ic">🏆</span><span><b>Backtested &amp; honest</b> — the value signal behind the numbers is tested against what prices actually did (a short, one-period window, stated plainly), and re-validated every week.</span></li>
-          </ul>
-          <a class="btn btn-p" href="https://adamdegoat.github.io/thesis/">Open Thesis →</a>
+        <div class="fc-body">
+          <p>Answers every lead who WhatsApps you, qualifies them and files them on a live dashboard, and calls your prospects for you in a real Singaporean voice. It replaces missed messages and manual cold-calling — so no lead goes cold while you're showing a unit or closing another deal.</p>
+          <span class="fc-go">Meet PA →</span>
         </div>
-      </div>
-    </div>
-
-    <!-- Tool 03 -->
-    <div class="tool">
-      <div class="tool-head"><span class="tnum">03</span><span class="tname">Steward</span><span class="sp"></span><span class="badge-live"><span class="pulse"></span>Live now · deal pipeline</span></div>
-      <div class="flag">
-        <div class="ft-media">
-          <div class="browser">
-            <div class="bar"><i></i><i></i><i></i><span class="u">adamdegoat.github.io/steward</span></div>
-            <img src="assets/steward-preview.jpeg" alt="Steward deal pipeline dashboard" loading="lazy">
-          </div>
-        </div>
-        <div class="ft-body">
-          <span class="badge-live"><span class="pulse"></span>Transactions &amp; deadlines</span>
-          <h3>Win the deal — then never miss a step</h3>
-          <p class="desc">Caveat and Thesis help you win the client; Steward gets the deal to completion. It tracks every live transaction — HDB, private &amp; rental — and computes each statutory deadline from your dates, so an OTP expiry or stamp-duty cut-off never slips through the cracks.</p>
-          <ul class="feat">
-            <li><span class="ic">⏱️</span><span><b>SG deadline engine</b> — enter one date (OTP granted, exercised, TA signed) and every downstream deadline — option expiry, exercise, stamp duty, completion — appears with a live countdown.</span></li>
-            <li><span class="ic">📋</span><span><b>This-week dashboard</b> — every action across all your concurrent deals, sorted by urgency, the most pressing first — so juggling two or three clients never means a dropped follow-up.</span></li>
-            <li><span class="ic">✅</span><span><b>Stage-gated checklists</b> — the right steps for each transaction type, from OTP to keys, so nothing gets skipped.</span></li>
-            <li><span class="ic">🛡️</span><span><b>Compliance &amp; commission</b> — CDD/AML reminders, 5-year record-keeping prompts, and expected-vs-received commission tracked per deal.</span></li>
-          </ul>
-          <a class="btn btn-p" href="https://adamdegoat.github.io/steward/">Open Steward →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tool 04 -->
-    <div class="tool">
-      <div class="tool-head"><span class="tnum">04</span><span class="tname">Abacus</span><span class="sp"></span><span class="badge-live"><span class="pulse"></span>Live now · calculator suite</span></div>
-      <div class="flag rev">
-        <div class="ft-media">
-          <div class="browser">
-            <div class="bar"><i></i><i></i><i></i><span class="u">adamdegoat.github.io/abacus</span></div>
-            <img src="assets/abacus-preview.jpeg" alt="Abacus Singapore property calculator suite" loading="lazy">
-          </div>
-        </div>
-        <div class="ft-body">
-          <span class="badge-live"><span class="pulse"></span>Every number, done right</span>
-          <h3>The calculators clients actually ask for</h3>
-          <p class="desc">Fourteen free Singapore property calculators, grouped for buyers, sellers and investors — every figure on the real MAS &amp; IRAS rules, with the working shown. Hand a client a number they can trust, on the spot.</p>
-          <ul class="feat">
-            <li><span class="ic">🏠</span><span><b>Buyers</b> — HDB/EC grants, stamp duty (BSD + ABSD), affordability (with joint-borrower IWAA), progressive payment, monthly repayment, buy-vs-rent &amp; rental stamp duty.</span></li>
-            <li><span class="ic">💰</span><span><b>Sellers</b> — the cash you <i>actually</i> pocket after the CPF refund + 2.5% accrued interest, Seller's Stamp Duty, and a 5-year MOP checker.</span></li>
-            <li><span class="ic">📈</span><span><b>Investors</b> — decoupling vs ABSD, rental yield, property tax, and refinancing break-even.</span></li>
-            <li><span class="ic">✓</span><span><b>Verified</b> — every formula tested against official IRAS worked examples; rates current to the 2025 SSD &amp; property-tax changes.</span></li>
-          </ul>
-          <a class="btn btn-p" href="https://adamdegoat.github.io/abacus/">Open Abacus →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tool 05 -->
-    <div class="tool">
-      <div class="tool-head"><span class="tnum">05</span><span class="tname">Compass</span><span class="sp"></span><span class="badge-live"><span class="pulse"></span>Live now · installable app</span></div>
-      <div class="flag">
-        <div class="ft-media">
-          <div class="browser">
-            <div class="bar"><i></i><i></i><i></i><span class="u">adamdegoat.github.io/compass</span></div>
-            <img src="assets/compass-preview.jpeg" alt="Compass personalised home-buying roadmap" loading="lazy">
-          </div>
-        </div>
-        <div class="ft-body">
-          <span class="badge-live"><span class="pulse"></span>The whole buyer journey</span>
-          <h3>A buyer's entire purchase, on one page</h3>
-          <p class="desc">Caveat, Thesis &amp; Steward win and run the deal; Compass turns a nervous first-timer into a confident client. A few plain-English questions become a personalised roadmap they can print and share — and your name rides along on every copy.</p>
-          <ul class="feat">
-            <li><span class="ic">✅</span><span><b>Eligibility, up front</b> — whether they can even buy that HDB / EC / condo / landed, with the blocker spelled out before anyone wastes time.</span></li>
-            <li><span class="ic">💰</span><span><b>Budget &amp; full upfront cash</b> — what they can afford under TDSR/MSR &amp; LTV, then every dollar of downpayment, BSD, ABSD and legal needed.</span></li>
-            <li><span class="ic">🗓️</span><span><b>Timeline &amp; checklist</b> — OTP to keys for their exact path, plus an action checklist (IPA/HFE, lawyer, insurance) so nothing slips.</span></li>
-            <li><span class="ic">✓</span><span><b>Teaching, not a black box</b> — plain-English "what this means" notes on every step; rates shared with Abacus and watched for changes.</span></li>
-          </ul>
-          <a class="btn btn-p" href="https://adamdegoat.github.io/compass/">Open Compass →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tool 06 -->
-    <div class="tool">
-      <div class="tool-head"><span class="tnum">06</span><span class="tname">Atlas</span><span class="sp"></span><span class="badge-live"><span class="pulse"></span>Live now · installable app</span></div>
-      <div class="flag">
-        <div class="ft-media">
-          <div class="browser">
-            <div class="bar"><i></i><i></i><i></i><span class="u">adamdegoat.github.io/atlas</span></div>
-            <img src="assets/atlas-preview.jpeg" alt="Atlas Singapore property field reference" loading="lazy">
-          </div>
-        </div>
-        <div class="ft-body">
-          <span class="badge-live"><span class="pulse"></span>The rules &amp; numbers, on hand</span>
-          <h3>Every SG property rule, number &amp; deal step</h3>
-          <p class="desc">The other five tools win and run the deal; Atlas is the field reference you keep open beside them. Stamp duty, financing, CPF, HDB &amp; EC rules, the eligibility traps, and step-by-step deal playbooks — all searchable in one tap, every figure sourced and dated.</p>
-          <ul class="feat">
-            <li><span class="ic">🔎</span><span><b>Search anything</b> — ABSD, MOP, decoupling, LTV, diplomatic clause — and get the exact current number with its official source.</span></li>
-            <li><span class="ic">📋</span><span><b>Deal playbooks</b> — buy/sell HDB, private resale, new launch, rental &amp; upgrader — the "what do I do next" steps, in order, with the deadlines.</span></li>
-            <li><span class="ic">⚠️</span><span><b>The traps spelled out</b> — foreigner/PR eligibility, the 99-to-1 ABSD clawback, Plus/Prime resale limits — so you never give costly wrong advice.</span></li>
-            <li><span class="ic">✓</span><span><b>Always current</b> — every figure dated and watched by Policywatch, so a rule change here never catches you out in front of a client.</span></li>
-          </ul>
-          <a class="btn btn-p" href="https://adamdegoat.github.io/atlas/">Open Atlas →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tool 07 -->
-    <div class="tool">
-      <div class="tool-head"><span class="tnum">07</span><span class="tname">Press</span><span class="sp"></span><span class="badge-live"><span class="pulse"></span>Live now · content studio</span></div>
-      <div class="flag rev">
-        <div class="ft-media">
-          <div class="browser">
-            <div class="bar"><i></i><i></i><i></i><span class="u">adamdegoat.github.io/press</span></div>
-            <img src="assets/press-preview.jpeg" alt="Press weekly content studio" loading="lazy">
-          </div>
-        </div>
-        <div class="ft-body">
-          <span class="badge-live"><span class="pulse"></span>Marketing on autopilot</span>
-          <h3>Show up online, without the work</h3>
-          <p class="desc">The other six tools win and run the deal; Press fills the top of the funnel. Every Monday it turns the week's real URA &amp; HDB data into three finished, art-directed Instagram posts — each a ready image plus a written caption — so staying visible never eats your week. Download, copy the caption, post.</p>
-          <ul class="feat">
-            <li><span class="ic">🎨</span><span><b>Three posts a week, auto-built</b> — a rotating set of bold, on-brand designs (market pulse, grants, stamp duty, schools, myth-busters) so the feed never looks samey.</span></li>
-            <li><span class="ic">📊</span><span><b>Real numbers, never made up</b> — every figure comes from the same official data behind Caveat, with example-based posts clearly labelled.</span></li>
-            <li><span class="ic">✍️</span><span><b>Captions written for you</b> — hook, value, hashtags and your link line, ready to copy and paste.</span></li>
-            <li><span class="ic">📲</span><span><b>Installable studio</b> — download images + copy captions from your phone; add it to your home screen like an app.</span></li>
-          </ul>
-          <a class="btn btn-p" href="https://adamdegoat.github.io/press/">Open Press →</a>
-        </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
+
+<section class="block" id="tools">
+  <div class="wrap">
+    <div class="eyebrow">The toolkit</div>
+    <h2 class="h2">Seven tools, <em>one workflow</em></h2>
+    <p class="lead">Each removes a real bottleneck in an agent's day — from pricing a listing, to guiding a buyer to the keys, to showing up online. All built on official URA, HDB &amp; OneMap data.</p>
+    <div class="tool-grid">
+      <a class="tcard" href="https://adamdegoat.github.io/caveat/">
+        <div class="tc-h"><span class="tc-name">Caveat</span><span class="tc-live">● Live</span></div>
+        <div class="tc-d">Prices any HDB or condo on real recent sales, with the comparable transactions shown. Plus a market terminal, affordability &amp; prospecting.</div>
+        <div class="tc-use">Your instant, defensible valuation for any listing.</div>
+        <span class="tc-go">Open Caveat →</span>
+      </a>
+      <a class="tcard" href="https://adamdegoat.github.io/thesis/">
+        <div class="tc-h"><span class="tc-name">Thesis</span><span class="tc-live">● Live</span></div>
+        <div class="tc-d">Scores every condo project from official caveats — value vs nearby, timing, yield, liquidity, tenure &amp; incoming supply.</div>
+        <div class="tc-use">Know which launches are actually worth recommending.</div>
+        <span class="tc-go">Open Thesis →</span>
+      </a>
+      <a class="tcard" href="https://adamdegoat.github.io/steward/">
+        <div class="tc-h"><span class="tc-name">Steward</span><span class="tc-live">● Live</span></div>
+        <div class="tc-d">Runs your live deals — tracking every OTP, stamp-duty and completion deadline from offer to keys.</div>
+        <div class="tc-use">Never miss a date on a transaction again.</div>
+        <span class="tc-go">Open Steward →</span>
+      </a>
+      <a class="tcard" href="https://adamdegoat.github.io/abacus/">
+        <div class="tc-h"><span class="tc-name">Abacus</span><span class="tc-live">● Live</span></div>
+        <div class="tc-d">Fourteen verified Singapore property calculators — ABSD, BSD, loan headroom, grants and more, with every rate checked.</div>
+        <div class="tc-use">Every number you quote a client, correct.</div>
+        <span class="tc-go">Open Abacus →</span>
+      </a>
+      <a class="tcard" href="https://adamdegoat.github.io/compass/">
+        <div class="tc-h"><span class="tc-name">Compass</span><span class="tc-live">● Live</span></div>
+        <div class="tc-d">Turns a few questions into a buyer's whole roadmap — eligibility, budget, cash needed and timeline.</div>
+        <div class="tc-use">Guide any buyer through their move in minutes.</div>
+        <span class="tc-go">Open Compass →</span>
+      </a>
+      <a class="tcard" href="https://adamdegoat.github.io/atlas/">
+        <div class="tc-h"><span class="tc-name">Atlas</span><span class="tc-live">● Live</span></div>
+        <div class="tc-d">The field reference — every SG property rule, number and deal playbook, fully searchable.</div>
+        <div class="tc-use">Answer any client question on the spot.</div>
+        <span class="tc-go">Open Atlas →</span>
+      </a>
+      <a class="tcard" href="https://adamdegoat.github.io/press/">
+        <div class="tc-h"><span class="tc-name">Press</span><span class="tc-live">● Live</span></div>
+        <div class="tc-d">Turns the week's real URA &amp; HDB data into three ready Instagram posts — image plus written caption, every Monday.</div>
+        <div class="tc-use">Stay visible online without the work.</div>
+        <span class="tc-go">Open Press →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 
 <section class="block" style="padding-top:8px">
   <div class="wrap">
