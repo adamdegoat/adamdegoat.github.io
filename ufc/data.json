@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-25T21:00:00.323549+08:00",
+  "updated": "2026-06-25T23:30:00.329053+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -302,6 +302,12 @@
       "priority": true
     },
     {
+      "title": "Former UFC contender Aspen Ladd signs multi-fight deal with BKB Bare Knuckle Boxing",
+      "link": "https://www.mmamania.com/bare-knuckle-boxing-results-rules-ppv/452919/former-ufc-contender-aspen-ladd-signs-multi-fight-deal-with-bkb-bare-knuckle-boxing",
+      "source": "MMA Mania",
+      "priority": true
+    },
+    {
       "title": "UFC 330’s Ian Garry signs with Dana White’s enemy ahead of first title fight",
       "link": "https://www.mmamania.com/latest-news/452912/ufc-330s-ian-garry-signs-with-dana-whites-enemy-ahead-of-first-title-fight",
       "source": "MMA Mania",
@@ -310,12 +316,6 @@
     {
       "title": "Cris Cyborg’s retirement fight announced, collides with just-cut UFC fighter at PFL Tampa",
       "link": "https://www.mmamania.com/professional-fighters-league-pfl/452903/cris-cyborgs-retirement-fight-announced-collides-with-just-cut-ufc-fighter-at-pfl-tampa",
-      "source": "MMA Mania",
-      "priority": true
-    },
-    {
-      "title": "Opening fight canceled, Gable Steveson dumped on Prelims in latest UFC 329 fight card update — ‘Breaks my heart’",
-      "link": "https://www.mmamania.com/ufc-news/452861/opening-fight-canceled-gable-steveson-dumped-prelims-latest-ufc-329-fight-card-update-breaks-my-heart",
       "source": "MMA Mania",
       "priority": true
     },
@@ -375,8 +375,8 @@
     }
   ],
   "hooks": {
-    "week": "Fiziev vs Torres goes live Sunday at midnight SGT.",
-    "prefight": "Fiziev vs Torres ignites the octagon Sunday midnight Singapore: precision striking warfare.",
-    "results": "Manel Kape finishes Horiguchi in round three with a devastating TKO via punches."
+    "week": "Fiziev and Torres clash Sunday—elite striking showcase you cannot miss.",
+    "prefight": "Fiziev vs Torres ignites tomorrow: two lightweights, one unforgettable main event awaits.",
+    "results": "Manel Kape stops Kyoji Horiguchi via punishing third-round TKO."
   }
 }
