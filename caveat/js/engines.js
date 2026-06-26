@@ -199,12 +199,8 @@ const Engines = (() => {
     return { pct, amount: Math.round(price * pct / 100) };
   }
 
-  function ssd(price, heldYears, rates, purchaseISO) {
-    // properties bought before 4 Jul 2025 use the grandfathered 3-year regime; on/after use the 4-year regime
-    const pre = purchaseISO && new Date(purchaseISO) < new Date('2025-07-04');
-    const tiers = (pre && rates.ssd.grandfathered_pre_2025_07_04)
-      ? rates.ssd.grandfathered_pre_2025_07_04.tiers : rates.ssd.tiers;
-    for (const t of tiers) {
+  function ssd(price, heldYears, rates) {
+    for (const t of rates.ssd.tiers) {
       if (t.held_years_upto == null || heldYears <= t.held_years_upto)
         return { pct: t.rate, amount: Math.round(price * t.rate / 100) };
     }

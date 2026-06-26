@@ -1,116 +1,45 @@
 {
-  "as_of": "2026-06-23",
-  "verified": "All figures verified against IRAS, MAS, HDB & CPF on 23 Jun 2026 (added resale levy).",
+  "as_of": "2026-06-14",
+  "verified": "All figures verified against IRAS, MAS, HDB & CPF on 14 Jun 2026. Singapore Budget 2026 made no housing-policy changes. Most recent change: Seller's Stamp Duty revision, 4 Jul 2025.",
   "disclaimer": "Indicative only — Caveat drafts, the agent verifies. Not financial advice; final duties and eligibility are determined by IRAS, MAS, HDB and the buyer's bank.",
   "absd": {
     "note": "Effective 27 Apr 2023. Rate applies to the higher of price or market value.",
-    "SC": {
-      "1": 0,
-      "2": 20,
-      "3": 30
-    },
-    "SPR": {
-      "1": 5,
-      "2": 30,
-      "3": 35
-    },
-    "Foreigner": {
-      "1": 60,
-      "2": 60,
-      "3": 60
-    },
-    "Entity": {
-      "1": 65,
-      "2": 65,
-      "3": 65
-    },
-    "Trustee": {
-      "1": 65,
-      "2": 65,
-      "3": 65
-    },
-    "fta_as_sc": [
-      "United States",
-      "Iceland",
-      "Liechtenstein",
-      "Norway",
-      "Switzerland"
-    ],
+    "SC":         {"1": 0,  "2": 20, "3": 30},
+    "SPR":        {"1": 5,  "2": 30, "3": 35},
+    "Foreigner":  {"1": 60, "2": 60, "3": 60},
+    "Entity":     {"1": 65, "2": 65, "3": 65},
+    "Trustee":    {"1": 65, "2": 65, "3": 65},
+    "fta_as_sc": ["United States", "Iceland", "Liechtenstein", "Norway", "Switzerland"],
     "fta_note": "Under FTAs, nationals of the USA and nationals & PRs of Iceland, Liechtenstein, Norway and Switzerland are taxed at SC rates. Remission is not automatic — it must be applied for.",
     "married_refund_note": "First-timer SC married couples may claim full ABSD refund on a 2nd property if the first is sold within 6 months of purchase (completed property) — no extension."
   },
   "bsd": {
     "note": "Buyer's Stamp Duty, residential, effective 15 Feb 2023.",
     "tiers": [
-      {
-        "upto": 180000,
-        "rate": 1
-      },
-      {
-        "upto": 360000,
-        "rate": 2
-      },
-      {
-        "upto": 1000000,
-        "rate": 3
-      },
-      {
-        "upto": 1500000,
-        "rate": 4
-      },
-      {
-        "upto": 3000000,
-        "rate": 5
-      },
-      {
-        "upto": null,
-        "rate": 6
-      }
+      {"upto": 180000,  "rate": 1},
+      {"upto": 360000,  "rate": 2},
+      {"upto": 1000000, "rate": 3},
+      {"upto": 1500000, "rate": 4},
+      {"upto": 3000000, "rate": 5},
+      {"upto": null,    "rate": 6}
     ]
   },
   "ssd": {
     "note": "Seller's Stamp Duty, residential. The 16/12/8/4 table applies ONLY to property purchased on/after 4 Jul 2025. HDB flats are unaffected (MOP prevents early sale).",
     "tiers": [
-      {
-        "held_years_upto": 1,
-        "rate": 16
-      },
-      {
-        "held_years_upto": 2,
-        "rate": 12
-      },
-      {
-        "held_years_upto": 3,
-        "rate": 8
-      },
-      {
-        "held_years_upto": 4,
-        "rate": 4
-      },
-      {
-        "held_years_upto": null,
-        "rate": 0
-      }
+      {"held_years_upto": 1, "rate": 16},
+      {"held_years_upto": 2, "rate": 12},
+      {"held_years_upto": 3, "rate": 8},
+      {"held_years_upto": 4, "rate": 4},
+      {"held_years_upto": null, "rate": 0}
     ],
     "grandfathered_pre_2025_07_04": {
       "note": "For property purchased 11 Mar 2017 – 3 Jul 2025: 3-year holding period.",
       "tiers": [
-        {
-          "held_years_upto": 1,
-          "rate": 12
-        },
-        {
-          "held_years_upto": 2,
-          "rate": 8
-        },
-        {
-          "held_years_upto": 3,
-          "rate": 4
-        },
-        {
-          "held_years_upto": null,
-          "rate": 0
-        }
+        {"held_years_upto": 1, "rate": 12},
+        {"held_years_upto": 2, "rate": 8},
+        {"held_years_upto": 3, "rate": 4},
+        {"held_years_upto": null, "rate": 0}
       ]
     }
   },
@@ -118,95 +47,24 @@
     "tdsr_pct": 55,
     "msr_pct": 30,
     "stress_rate_pct": 4.0,
-    "hdb_loan_stress_rate_pct": 3.0,
-    "hdb_loan_min_cash_pct": 0,
     "variable_income_haircut_pct": 30,
     "ltv": {
-      "bank": {
-        "1": 75,
-        "2": 45,
-        "3": 35
-      },
-      "bank_reduced": {
-        "1": 55,
-        "2": 25,
-        "3": 15
-      },
+      "bank": {"1": 75, "2": 45, "3": 35},
+      "bank_reduced": {"1": 55, "2": 25, "3": 15},
       "hdb_loan": 75,
       "reduced_note": "Reduced LTV applies if loan tenure exceeds 30yr (private) / 25yr (HDB), or the loan extends beyond the borrower's age of 65."
     },
-    "min_cash_pct": {
-      "ltv75": 5,
-      "ltv55": 10,
-      "second_plus": 25
-    }
+    "min_cash_pct": {"ltv75": 5, "ltv55": 10, "second_plus": 25}
   },
   "hdb": {
-    "income_ceiling": {
-      "family": 14000,
-      "extended": 21000,
-      "single": 7000,
-      "ec": 16000
-    },
+    "income_ceiling": {"family": 14000, "extended": 21000, "single": 7000, "ec": 16000},
     "income_ceiling_note": "Ceilings apply to new flats (BTO/SBF) and to taking an HDB loan or grants. Buying a resale flat outright (cash/bank loan, no grant) has no income ceiling. The $7,000 single ceiling is for the 2-room Flexi / Single Singapore Citizen Scheme.",
-    "mop_years": {
-      "standard": 5,
-      "plus": 10,
-      "prime": 10
-    },
+    "mop_years": {"standard": 5, "plus": 10, "prime": 10},
     "grants_note": "Enhanced CPF Housing Grant (EHG): up to $120k families / $60k singles, tiered by income. Resale CPF Housing Grant (family): $80k for 4-room or smaller, $50k for 5-room or larger (singles get half: $40k / $25k). Proximity Housing Grant (PHG, no income ceiling): families $30k (living with parents/child) or $20k (within 4km); singles $15k (with) or $10k (near). All subject to eligibility.",
     "eip_note": "Ethnic Integration Policy + SPR quotas apply at block and neighbourhood level — verify live on HDB's EIP/SPR e-Service before committing."
   },
-  "resale_levy": {
-    "note": "HDB resale levy — payable when an owner of a FIRST subsidised flat buys a SECOND subsidised flat (new BTO/SBF, new EC from developer, or a resale flat taken WITH a CPF housing grant incl. PHG). NOT payable for a resale flat taken without any grant, or for private property. Fixed amounts apply when the first subsidised flat was sold on/after 3 Mar 2006; a graded percentage applies if sold before that date. Not financeable by the new loan; paid in cash or from sale proceeds.",
-    "fixed": {
-      "2room": 15000,
-      "3room": 30000,
-      "4room": 40000,
-      "5room": 45000,
-      "executive": 50000,
-      "ec": 55000
-    },
-    "fixed_half_singles_grant": {
-      "2room": 7500,
-      "3room": 15000,
-      "4room": 20000,
-      "5room": 22500,
-      "executive": 25000
-    },
-    "pre_2006_pct_household": {
-      "2room": 10,
-      "3room": 20,
-      "4room": 22.5,
-      "5room": 25,
-      "executive": 25
-    },
-    "pre_2006_pct_single": {
-      "3room": 15,
-      "4room": 18.5,
-      "5room": 20,
-      "_verify": "single-grant pre-2006 percentages to confirm against hdb.gov.sg"
-    },
-    "source": "https://www.hdb.gov.sg/residential/buying-a-flat/conditions-after-buying/resale-levy"
-  },
   "process": {
-    "hdb_resale": [
-      "Intent to Sell (>=7 days before OTP)",
-      "Buyer HFE letter",
-      "Resale Checklist (both sides)",
-      "Grant OTP (HDB form, option fee $1-$1,000)",
-      "Request for Value ($120, next working day)",
-      "Exercise within 21 days (deposit <= $5,000)",
-      "Submit Resale Application within 7 days",
-      "HDB acceptance ~28 working days",
-      "Completion ~8 weeks after acceptance"
-    ],
-    "private_resale": [
-      "OTP (1% option fee, ~14-day option)",
-      "Engage conveyancing lawyer + loan/valuation",
-      "Exercise (~4% more, ~5% total)",
-      "BSD + ABSD within 14 days of execution",
-      "Completion typically 8-12 weeks"
-    ]
+    "hdb_resale": ["Intent to Sell (>=7 days before OTP)", "Buyer HFE letter", "Resale Checklist (both sides)", "Grant OTP (HDB form, option fee $1-$1,000)", "Request for Value ($120, next working day)", "Exercise within 21 days (deposit <= $5,000)", "Submit Resale Application within 7 days", "HDB acceptance ~28 working days", "Completion ~8 weeks after acceptance"],
+    "private_resale": ["OTP (1% option fee, ~14-day option)", "Engage conveyancing lawyer + loan/valuation", "Exercise (~4% more, ~5% total)", "BSD + ABSD within 14 days of execution", "Completion typically 8-12 weeks"]
   }
 }
