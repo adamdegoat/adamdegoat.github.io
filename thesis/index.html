@@ -490,6 +490,7 @@ const MON=['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov',
 const SEGN={CCR:['Prime','Core Central — prime / city'],RCR:['City-fringe','Rest of Central — city fringe'],OCR:['Suburban','Outside Central — suburban']};
 const segShort=s=>(SEGN[s]||[s])[0];
 const segLong=s=>(SEGN[s]||[s,s])[1];
+const plainBasis=s=>(s||'same area').replace(/\bCCR\b/g,'Prime').replace(/\bRCR\b/g,'City-fringe').replace(/\bOCR\b/g,'Suburban');
 const fmtm=m=>m>=1000?(m/1000).toFixed(1)+'km':m+'m';
 const walkMin=m=>Math.max(1,Math.round(m/80))+' min walk';
 let MEDY=null;  // median SG condo yield — set on load, used as the plain-English comparison point
@@ -670,7 +671,7 @@ const VIEWS={
   return `<div class="hero compact"><h1 class="serif">Side by side</h1><p>${ps.length} condo${ps.length>1?'s':''} compared. <button onclick="CMP=[];render()" style="color:var(--gold);font-size:13px;font-weight:600">Clear all</button></p></div>
    <div class="cmp-scroll"><div class="cmp-grid">
    ${ps.map(p=>`<div class="cmp-col">
-     <div class="cmp-hd">${valChip(p)}<div><div class="cmp-nm">${tc(p.project)}</div><div class="cmp-sub">${distName(p.district)} · ${p.seg} · ${p.fh?'Freehold':'Leasehold'}</div></div></div>
+     <div class="cmp-hd">${valChip(p)}<div><div class="cmp-nm">${tc(p.project)}</div><div class="cmp-sub">${p.area_name?p.area_name+' · ':''}${distName(p.district)} · ${segShort(p.seg)} · ${p.fh?'Freehold':'Leasehold'}</div></div></div>
      <div class="cmp-rows">${[['Price / sqft','typical unit','$'+p.psf.toLocaleString()],['vs nearby condos','same class, 1.5km',p.value_flag?'n/a':(p.discount>0?p.discount+'% cheaper':p.discount<0?(-p.discount)+'% pricier':'in line')],['6-month trend','median psf',(p.mom==null?'—':(p.mom>0?'+':'')+p.mom+'%')],['Rental yield','gross',p.yield?p.yield+'%':'—'],['Recent sales','last '+D.window_months+'mo',p.txns],['Tenure','',p.fh?'Freehold':'Leasehold']].map(m=>`<div class="cmp-row"><span class="cr-k">${m[0]}${m[1]?`<small>${m[1]}</small>`:''}</span><span class="cr-v mono">${m[2]}</span></div>`).join('')}</div>
      ${p.spark&&p.spark.length>=2?`<div class="cmp-spk"><div class="cmp-spk-h">Price trend ${trendDelta(p.spark)}</div>${sparkSVG(p.spark,true)}</div>`:''}
      <button class="cmp-rm" onclick="CMP=CMP.filter(x=>x!=='${p.project.replace(/'/g,"\\'")}');render()">Remove</button>
@@ -680,13 +681,15 @@ const VIEWS={
  about(){
   const asof=MON[+D.as_of.slice(2)]+" ’"+D.as_of.slice(0,2);
   const defs=[
-    ['Price per sqft','The typical transacted price per square foot, taken from the median of actual caveats for that condo over the data window.'],
-    ['vs nearby','How the condo\'s price per sqft compares to similar condos within 1.5km of the same class (CCR / RCR / OCR). “Cheaper” or “pricier” is purely a factual gap — not a rating.'],
-    ['6-month trend','The change in the condo\'s median price per sqft over the most recent 6 months.'],
-    ['Price trend chart','The condo\'s median price per sqft month by month across the data window, so you can see the actual path — rising, flat or easing.'],
-    ['Rental yield','Gross annual rent as a percentage of price, from matched rental contracts. Before costs.'],
-    ['Sales','The number of recent transactions — a simple read on how actively the condo trades.'],
-    ['Tenure','Freehold or leasehold, straight from the records.']
+    ['Price per sqft','The typical transacted price per square foot — the median of actual caveats for that condo over the data window.'],
+    ['How it\'s priced','We compare the condo three ways: vs <b>nearby</b> condos within 1.5km (matched on tenure — freehold to freehold, leasehold to leasehold, since freehold trades at a premium in SG), vs its <b>town</b>, and vs its <b>district</b>. “Cheaper / pricier” is a factual gap, not a rating.'],
+    ['Hard to compare','When a condo\'s price sits very far from its neighbours, it\'s usually a different type (much older, or much bigger / smaller units), so we don\'t show a nearby figure — but the town and district comparisons still apply.'],
+    ['Price trend','The condo\'s median price per sqft month by month, so you can see the actual path — rising, flat or easing.'],
+    ['What it rents for','Typical monthly rent and the gross rental yield (annual rent as a % of price, before costs), from matched rental contracts.'],
+    ['Recent sales','The latest actual transactions — date, size, price and psf — straight from the caveats.'],
+    ['What\'s around it','Nearest MRT (with walking time), top schools, parks and hawker centres, by real distance.'],
+    ['Region & tenure','Region is shown plainly — Prime (central), City-fringe, or Suburban. Tenure is freehold or leasehold, from the records.'],
+    ['Map','Every condo plotted by location and coloured by region — tap a dot for its full breakdown.']
   ];
   return `<div class="hero compact"><h1 class="serif">About <em>the data</em>.</h1>
     <p>Plain facts from official records — no scores, no rankings, no predictions. Just the numbers, so you and your client can read them yourselves.</p></div>
@@ -756,7 +759,7 @@ function launchCard(l){
       <div class="lc-m"><div class="lc-k">Last sale</div><div class="lc-v">${ymLabel(l.last)}</div></div>
     </div>
     <div class="lc-take"><span class="assess ${cls}">${l.assess}</span> ${launchTake(l)}</div>
-    ${(l.comps&&l.comps.length)?`<div class="lc-comps"><b>Compared against resale nearby</b> (${l.comp_basis||'same area'}): ${l.comps.slice(0,3).map(c=>`${tc(c.n)} <span class="cmp-psf">$${c.psf.toLocaleString()}</span>`).join(' · ')}</div>`:''}
+    ${(l.comps&&l.comps.length)?`<div class="lc-comps"><b>Compared against resale nearby</b> (${plainBasis(l.comp_basis)}): ${l.comps.slice(0,3).map(c=>`${tc(c.n)} <span class="cmp-psf">$${c.psf.toLocaleString()}</span>`).join(' · ')}</div>`:''}
   </div>`;
 }
 function launchTake(l){
@@ -843,7 +846,7 @@ function upcomingCard(l){
     </div>
     <div class="lc-take">${take}</div>
     ${l.note?`<div class="lc-comps"><b>Note</b>: ${l.note}${l.developer?` · ${l.developer}`:''}</div>`:''}
-    ${(l.comps&&l.comps.length)?`<div class="lc-comps"><b>Resale benchmark</b> (${l.comp_basis||'same area'}): ${l.comps.slice(0,3).map(c=>`${tc(c.n)} <span class="cmp-psf">$${c.psf.toLocaleString()}</span>`).join(' · ')}</div>`:''}
+    ${(l.comps&&l.comps.length)?`<div class="lc-comps"><b>Resale benchmark</b> (${plainBasis(l.comp_basis)}): ${l.comps.slice(0,3).map(c=>`${tc(c.n)} <span class="cmp-psf">$${c.psf.toLocaleString()}</span>`).join(' · ')}</div>`:''}
   </div>`;
 }
 
