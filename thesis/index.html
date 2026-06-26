@@ -520,7 +520,7 @@ const VIEWS={
  research(){
   const q=FILT.q.toLowerCase().trim();
   let rows=D.projects.filter(p=>{
-    if(q&&!(p.project.toLowerCase().includes(q)||distName(p.district).toLowerCase().includes(q)||(p.street||'').toLowerCase().includes(q)||distArea(p.district).toLowerCase().includes(q)))return false;
+    if(q&&!(p.project.toLowerCase().includes(q)||distName(p.district).toLowerCase().includes(q)||(p.street||'').toLowerCase().includes(q)||distArea(p.district).toLowerCase().includes(q)||(p.area_name||'').toLowerCase().includes(q)))return false;
     if(FILT.seg&&p.seg!==FILT.seg)return false;
     if(FILT.district&&String(p.district).padStart(2,'0')!==FILT.district)return false;
     if(FILT.tenure==='fh'&&!p.fh)return false;
@@ -537,7 +537,7 @@ const VIEWS={
   const sortOpts=opt(SORTOPTS,SORT.k+'|'+SORT.dir);
   // live autocomplete suggestions while typing
   const acRows=q?rows.slice(0,8):[];
-  const ac=`<div class="ac ${acRows.length?'show':''}" id="ac">${acRows.map(p=>`<div class="ac-item" data-p="${esc(p.project)}"><span class="ac-n">${tc(p.project)}</span><span class="ac-d">${distName(p.district)} · ${segShort(p.seg)} · $${p.psf.toLocaleString()} psf</span></div>`).join('')}</div>`;
+  const ac=`<div class="ac ${acRows.length?'show':''}" id="ac">${acRows.map(p=>`<div class="ac-item" data-p="${esc(p.project)}"><span class="ac-n">${tc(p.project)}</span><span class="ac-d">${p.area_name?p.area_name+' · ':''}${distName(p.district)} · $${p.psf.toLocaleString()} psf</span></div>`).join('')}</div>`;
   // one-tap popular condos (only when nothing is filtered)
   const anyFilter=FILT.seg||FILT.district||FILT.tenure||FILT.price;
   const POP=['NORMANTON PARK','THE SAIL @ MARINA BAY','PARC CLEMATIS','ONE-NORTH RESIDENCES','BISHAN PARK CONDOMINIUM','THE INTERLACE'];
@@ -661,7 +661,7 @@ function rowHtml(p){
     :`<span class="trend flat">0%</span>`;
   const yb=!p.yield?'lo':p.yield>=4?'hi':p.yield>=3.2?'mid':'lo';
   return `<tr data-p="${esc(p.project)}">
-   <td><span class="pn">${p.project}<small>${p.street?tc(p.street)+' · ':''}${distName(p.district)}${p.fh?' · FH':''}</small></span></td>
+   <td><span class="pn">${p.project}<small>${p.area_name?p.area_name+' · ':''}${distName(p.district)}${p.fh?' · FH':''}</small></span></td>
    <td class="hide-sm"><span class="chip seg-${p.seg}">${segShort(p.seg)}</span></td>
    <td class="r"><b class="psf">$${p.psf.toLocaleString()}</b></td>
    <td class="r">${vs}</td>
