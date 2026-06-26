@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-25T23:30:00.329053+08:00",
+  "updated": "2026-06-26T09:00:00.346971+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -296,27 +296,21 @@
       "priority": true
     },
     {
-      "title": "Ian Machado Garry signs with Eddie Hearn ahead of title fight at UFC 330",
-      "link": "https://www.mmafighting.com/ufc/496202/ian-machado-garry-signs-with-eddie-hearn-ahead-of-title-fight-at-ufc-330",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
-      "title": "Former UFC contender Aspen Ladd signs multi-fight deal with BKB Bare Knuckle Boxing",
-      "link": "https://www.mmamania.com/bare-knuckle-boxing-results-rules-ppv/452919/former-ufc-contender-aspen-ladd-signs-multi-fight-deal-with-bkb-bare-knuckle-boxing",
+      "title": "Michael Morales ‘going to be a replacement’ for Islam-Garry fight, plans to ‘show up and make weight’ for UFC 330",
+      "link": "https://www.mmamania.com/upcoming-ufc-events/453034/michael-morales-replacement-islam-garry-fight-plans-show-up-make-weight-ufc-330",
       "source": "MMA Mania",
       "priority": true
     },
     {
-      "title": "UFC 330’s Ian Garry signs with Dana White’s enemy ahead of first title fight",
-      "link": "https://www.mmamania.com/latest-news/452912/ufc-330s-ian-garry-signs-with-dana-whites-enemy-ahead-of-first-title-fight",
+      "title": "‘Idiot’ Arman may lose UFC title shot (again) after turning down Mateusz Gamrot rematch",
+      "link": "https://www.mmamania.com/ufc-news/452974/idiot-arman-may-lose-ufc-title-shot-again-after-turning-down-mateusz-gamrot-rematch",
       "source": "MMA Mania",
       "priority": true
     },
     {
-      "title": "Cris Cyborg’s retirement fight announced, collides with just-cut UFC fighter at PFL Tampa",
-      "link": "https://www.mmamania.com/professional-fighters-league-pfl/452903/cris-cyborgs-retirement-fight-announced-collides-with-just-cut-ufc-fighter-at-pfl-tampa",
-      "source": "MMA Mania",
+      "title": "PFL San Diego’s Viviane Araujo targets title shot with a win over Liz Carmouche",
+      "link": "https://www.sherdog.com/news/news/PFL-San-Diegos-Viviane-Araujo-targets-title-shot-with-a-win-over-Liz-Carmouche-201644",
+      "source": "Sherdog",
       "priority": true
     },
     {
@@ -338,16 +332,34 @@
       "priority": true
     },
     {
-      "title": "Dustin Poirier attributes recent arrest to UFC retirement: ‘Alcohol isn’t the answer’",
-      "link": "https://www.bjpenn.com/mma-news/dustin-poirier/dustin-poirier-attributes-arrest-ufc-retirement-alcohol/?utm_source=rss&utm_medium=rss&utm_campaign=dustin-poirier-attributes-arrest-ufc-retirement-alcohol",
-      "source": "BJPenn",
-      "priority": true
+      "title": "‘Tito was absolutely, 100% terrified of Chuck Liddell’: Chuck Liddell, Tito Ortiz reflect on epic rivalry in UFC",
+      "link": "https://www.mmafighting.com/ufc/496231/tito-was-absolutely-100-terrified-of-chuck-liddell-chuck-liddell-tito-ortiz-reflect-on-epic-rivalry-in-ufc",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
-      "title": "Aslamjon Ortikov carries his family’s sacrifice into ONE World Title fight on Friday",
-      "link": "https://www.bjpenn.com/mma-news/aslamjon-ortikov/aslamjon-ortikov-carries-his-familys-sacrifice-into-one-world-title-fight-on-friday/?utm_source=rss&utm_medium=rss&utm_campaign=aslamjon-ortikov-carries-his-familys-sacrifice-into-one-world-title-fight-on-friday",
-      "source": "BJPenn",
-      "priority": true
+      "title": "Justin Gaethje lone MMA fighter nominated for 2026 ESPY award",
+      "link": "https://www.mmafighting.com/latest-news/496331/justin-gaethje-lone-mma-fighter-nominated-for-2026-espy-award",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "UFC Baku newcomer Jefferson Nascimento questions why ‘easy money’ Chase Hooper is still on the UFC roster",
+      "link": "https://www.mmafighting.com/ufc/496214/ufc-baku-newcomer-jefferson-nascimento-questions-why-easy-money-chase-hooper-is-still-on-the-ufc-roster",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Between the Links: Reaction to new UFC rankings, Dustin Poirier, Josh Hokit doubles down",
+      "link": "https://www.mmafighting.com/ufc/496237/between-the-links-reaction-to-new-ufc-rankings-dustin-poirier-josh-hokit-doubles-down",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Manuel Torres reacts to Justin Gaethje stopping Ilia Topuria at UFC White House, explains why result ‘went well for me’",
+      "link": "https://www.mmafighting.com/ufc/496303/manuel-torres-reacts-to-justin-gaethje-stopping-ilia-topuria-at-ufc-white-house-explains-why-result-went-well-for-me",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "No Bets Barred: Can Rafael Fiziev give Azerbaijan reason to celebrate at UFC Baku?",
@@ -356,27 +368,15 @@
       "priority": false
     },
     {
-      "title": "Dana White shares stance on UFC and Pride Nights: ‘I’m assuming we have some gay fighters’",
-      "link": "https://www.mmafighting.com/ufc/496179/dana-white-shares-stance-on-ufc-and-pride-nights-im-assuming-we-have-some-gay-fighters",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Josh Hokit doubles down on controversial UFC White House comments: ‘You’ll never hear me backtrack from what I say’",
-      "link": "https://www.mmafighting.com/ufc/496068/josh-hokit-doubles-down-on-controversial-comments-youll-never-hear-me-backtrack-from-what-i-say",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Charles Oliveira wants Justin Gaethje rematch to settle unfinished business, unify UFC, BMF belts",
-      "link": "https://www.mmafighting.com/ufc/495780/charles-oliveira-wants-justin-gaethje-rematch-to-settle-unfinished-business-unify-ufc-bmf-belts",
-      "source": "MMA Fighting",
+      "title": "UFC Baku’s Manuel Torres wants ‘to be feared’ like Mike Tyson – ‘That’s how you become the best’",
+      "link": "https://www.mmamania.com/latest-news/453044/ufc-bakus-manuel-torres-wants-to-be-feared-like-mike-tyson-thats-how-you-become-the-best",
+      "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Fiziev and Torres clash Sunday—elite striking showcase you cannot miss.",
-    "prefight": "Fiziev vs Torres ignites tomorrow: two lightweights, one unforgettable main event awaits.",
-    "results": "Manel Kape stops Kyoji Horiguchi via punishing third-round TKO."
+    "week": "Fiziev and Torres ignite Sunday at midnight SGT—lightweight striking excellence on full display.",
+    "prefight": "Fiziev and Torres clash Sunday - raw power meets elite striking precision.",
+    "results": "Manel Kape unleashes devastating striking to finish Horiguchi via round-3 TKO."
   }
 }
