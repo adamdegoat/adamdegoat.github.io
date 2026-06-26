@@ -416,6 +416,12 @@ select.f{padding:13px 13px;border-radius:13px}
 .cd.warn{background:rgba(192,132,24,.13);color:#9a6a10}
 .cd.none{background:none;min-width:80px}
 .cmphint{font-size:11px;color:var(--ink3);line-height:1.5;margin-top:9px}
+/* launch premium-over-resale pill */
+.prem{display:inline-block;font-family:var(--mono);font-size:12px;font-weight:700;padding:3px 9px;border-radius:7px}
+.prem.good{background:rgba(15,157,118,.13);color:#0b7d5e}
+.prem.mid{background:rgba(58,127,192,.12);color:#2f6aa6}
+.prem.hot{background:rgba(207,83,73,.12);color:#b33f36}
+.prem.flat{background:var(--panel2);color:var(--ink3)}
 </style>
 </head>
 <body>
@@ -569,15 +575,14 @@ const VIEWS={
   const byRec=inReg.slice().sort((a,b)=>(''+b.last).localeCompare(''+a.last)||(b.txns||0)-(a.txns||0));
   const tier=k=>byRec.filter(l=>launchStatus(l.last)[1]===k);
   const tAct=tier('act'),tSel=tier('sel'),tOld=tier('sold');
-  const hero=`<div class="hero"><h1 class="serif">New launches — <em>what's selling, and is the premium fair?</em></h1>
-    <p>Every launched project with real new-sale caveats — <b>freshest activity first</b>, each benchmarked against the area's actual resale. How it's priced, how it's moving, and the resale comps behind every premium.</p></div>
-   <div class="kpis" style="margin-top:20px;grid-template-columns:repeat(3,1fr)">
-     <div class="kpi"><div class="k">Launches in market</div><div class="v">${inReg.length}</div><div class="s">${reg||'all regions'} · real sales</div></div>
+  const hero=`<div class="lede"><b class="serif">New launches</b> — what's selling, and whether the price over resale is fair. Freshest activity first, each benchmarked against the area's real resale.</div>
+   <div class="kpis kpis-sm">
+     <div class="kpi"><div class="k">Launches in market</div><div class="v">${inReg.length}</div><div class="s">${reg?segShort(reg):'all regions'} · real sales</div></div>
      <div class="kpi"><div class="k">Actively selling now</div><div class="v pos">${activeAll.length}</div><div class="s">sold in the last ~2 months</div></div>
-     <div class="kpi"><div class="k">Median premium</div><div class="v">${medPrem>0?'+':''}${medPrem}%</div><div class="s">over comparable resale</div></div>
+     <div class="kpi"><div class="k">Median premium</div><div class="v">${medPrem>0?'+':''}${medPrem}<small>%</small></div><div class="s">over comparable resale</div></div>
    </div>
    <div class="up-chips">
-     ${['','CCR','RCR','OCR'].map(s=>`<button class="up-chip ${reg===s?'on':''}" data-reg="${s}">${s||'All regions'}</button>`).join('')}
+     ${['','CCR','RCR','OCR'].map(s=>`<button class="up-chip ${reg===s?'on':''}" data-reg="${s}">${s?segShort(s):'All regions'}</button>`).join('')}
      <span class="lview"><button class="lview-btn ${view==='feed'?'on':''}" data-v="feed">▦ Feed</button><button class="lview-btn ${view==='table'?'on':''}" data-v="table">≣ Table</button></span>
    </div>`;
   let body;
@@ -595,13 +600,12 @@ const VIEWS={
      ${tSel.length?th('Still selling',tSel.length,'sel')+grid(tSel):''}
      ${tOld.length?`<div class="older-wrap">${FILT.lold?th('Mostly sold · older launches',tOld.length,'sold')+grid(tOld):`<button class="lold-btn">Show ${tOld.length} older / mostly-sold launch${tOld.length===1?'':'es'} ▾</button>`}</div>`:''}`;
   }
-  return hero+body+`<div class="note" style="text-align:center;color:var(--ink3);margin:14px 0 30px">Each launch's PSF is benchmarked against the median of comparable resale in the same area — a price sanity-check on real caveats, not a unit valuation.</div>`;
+  return hero+body+`<div class="note" style="text-align:center;color:var(--ink3);margin:14px 0 30px"><b>vs resale</b> = launch PSF over comparable resale nearby. <span class="prem good" style="font-size:10px;padding:1px 7px">low</span> below the typical new-launch premium (better value) · <span class="prem mid" style="font-size:10px;padding:1px 7px">mid</span> around typical · <span class="prem hot" style="font-size:10px;padding:1px 7px">high</span> well above. A price sanity-check on real caveats, not a unit valuation.</div>`;
  },
  upcoming(){
   const u=D.upcoming||[];
-  const hero=`<div class="hero"><h1 class="serif">Upcoming launches — <em>what's coming, and how it might be priced</em></h1>
-    <p>Projects expected to launch soon — <b>not on sale yet</b>. Because nothing has transacted, every figure here is <b>indicative</b>: we benchmark each one against the <b>real resale prices around it</b> so you can frame the likely premium for a client before the showflat opens.</p></div>
-   <div class="flag-w" style="margin-top:18px">⚠ <b>Indicative only.</b> These aren't selling yet, so prices are estimated from the area's resale — not transactions. Always verify launch dates &amp; pricing with the developer.</div>`;
+  const hero=`<div class="lede"><b class="serif">Upcoming launches</b> — what's coming, not on sale yet. Nothing has transacted, so each figure is <b>indicative</b>, benchmarked against the real resale around it.</div>
+   <div class="flag-w" style="margin-top:12px">⚠ <b>Indicative only.</b> These aren't selling yet, so prices are estimated from the area's resale — not transactions. Always verify launch dates &amp; pricing with the developer.</div>`;
   if(!u.length)return hero+`<div class="empty"><div class="b serif">Watchlist is being built</div>Curated upcoming projects will appear here, each benchmarked against nearby resale.</div>`;
   return hero+`<div class="launch-feed" style="margin-top:18px">${u.map(upcomingCard).join('')}</div>
    <div class="note" style="text-align:center;color:var(--ink3);margin:8px 0 30px">A curated watchlist (kept current weekly), each benchmarked against the median resale of comparable condos in the same area. Indicative framing — not a valuation.</div>`;
@@ -671,28 +675,31 @@ function rowHtml(p){
 }
 function launchRow(l){
   const cls=l.assess.includes('Below')?'ok':l.assess.includes('Around')?'mid':l.assess.includes('Well above')?'hi':l.assess.includes('Above')?'steep':'';
-  const pc=l.premium==null?'—':(l.premium>0?'+':'')+l.premium+'%';
-  const pcl=l.premium==null?'':l.premium<=12?'pos':l.premium>=35?'neg':'';
   const s=launchStatus(l.last);
-  return `<tr><td><span class="pn">${l.project}<small>${distName(l.district)} · ${distArea(l.district)} · ${l.seg}</small></span></td>
+  return `<tr><td><span class="pn">${l.project}<small>${distArea(l.district)} · ${distName(l.district)} · ${segShort(l.seg)}</small></span></td>
    <td class="r">$${l.launch_psf}<div class="sub-r">resale ${l.resale_psf?'$'+l.resale_psf:'—'}</div></td>
-   <td class="r ${pcl}" style="font-weight:700">${pc}</td>
+   <td class="r">${premPill(l.premium)}</td>
    <td class="hide-sm"><span class="assess ${cls}">${l.assess}</span></td>
    <td class="r hide-sm">${(l.txns||0).toLocaleString()}</td>
    <td class="r hide-sm" style="color:var(--ink2)">${ymLabel(l.last)}</td>
    <td><span class="lstat ${s[1]}">${s[0]}</span></td></tr>`;
 }
 
+// premium-over-resale as a colour-coded pill: low premium = better value (green), high = pricey (red)
+function premPill(r){
+  if(r==null) return `<span class="prem flat">—</span>`;
+  const cls=r<=18?'good':r<=45?'mid':'hot';
+  return `<span class="prem ${cls}">${r>0?'+':''}${r}%</span>`;
+}
 // ---- launch radar: informative feed of current launches (no form) ----
 function launchCard(l){
   const s=launchStatus(l.last);
-  const pc=l.premium==null?'—':(l.premium>0?'+':'')+l.premium+'%';
   const cls=l.assess.includes('Below')?'ok':l.assess.includes('Around')?'mid':l.assess.includes('Well above')?'hi':l.assess.includes('Above')?'steep':'';
   return `<div class="lcard">
-    <div class="lc-top"><div class="lc-name">${l.project}<small>${distName(l.district)} · ${distArea(l.district)} · ${l.seg}</small></div><span class="lstat ${s[1]}">${s[0]}</span></div>
+    <div class="lc-top"><div class="lc-name">${l.project}<small>${distArea(l.district)} · ${distName(l.district)} · ${segShort(l.seg)}</small></div><span class="lstat ${s[1]}">${s[0]}</span></div>
     <div class="lc-row">
       <div class="lc-m"><div class="lc-k">Launch $/sqft</div><div class="lc-v">$${l.launch_psf.toLocaleString()}</div></div>
-      <div class="lc-m"><div class="lc-k">vs resale nearby</div><div class="lc-v">${pc}</div></div>
+      <div class="lc-m"><div class="lc-k">vs resale nearby</div><div class="lc-v">${premPill(l.premium)}</div></div>
       <div class="lc-m"><div class="lc-k">Units sold</div><div class="lc-v">${(l.txns||0).toLocaleString()}</div></div>
       <div class="lc-m"><div class="lc-k">Last sale</div><div class="lc-v">${ymLabel(l.last)}</div></div>
     </div>
@@ -775,7 +782,7 @@ function upcomingCard(l){
     ? (l.premium!=null?`At an indicative <b>$${l.est_psf.toLocaleString()} psf</b> it would be <b>${l.premium>0?l.premium+'% above':Math.abs(l.premium)+'% below'}</b> the resale around it (~$${(l.resale_psf||0).toLocaleString()}).`:`Indicative <b>$${l.est_psf.toLocaleString()} psf</b>.`)
     : (l.resale_psf?`Resale nearby runs <b>~$${l.resale_psf.toLocaleString()} psf</b>; new launches in this area have typically opened about <b>${l.typical_premium}% higher</b>, so a first guide is roughly <b>$${(l.expected_psf||0).toLocaleString()} psf</b> — confirm when it launches.`:`No resale benchmark available for this area yet.`);
   return `<div class="lcard">
-    <div class="lc-top"><div class="lc-name">${tc(l.project)}<small>${distName(l.district)} · ${distArea(l.district)} · ${l.seg}</small></div><span class="lstat upc">◇ ${l.expected||'Upcoming'}</span></div>
+    <div class="lc-top"><div class="lc-name">${tc(l.project)}<small>${distArea(l.district)} · ${distName(l.district)} · ${segShort(l.seg)}</small></div><span class="lstat upc">◇ ${l.expected||'Upcoming'}</span></div>
     <div class="lc-row">
       <div class="lc-m"><div class="lc-k">Status</div><div class="lc-v" style="font-size:12px">Not selling yet</div></div>
       <div class="lc-m"><div class="lc-k">Resale nearby</div><div class="lc-v">${l.resale_psf?'$'+l.resale_psf.toLocaleString():'—'}</div></div>
