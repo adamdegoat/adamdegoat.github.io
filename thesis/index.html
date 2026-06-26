@@ -864,11 +864,14 @@ const VIEWS={
 function barCol(p){return p>=66?'var(--green)':p>=40?'var(--blue)':p>=25?'var(--amber)':'var(--red)';}
 function gcol(g){return ({A:'#0b7d5e',B:'#2f6aa6',C:'#9a6a10',D:'#b33f36',F:'#b33f36'})[gletter(g)]||'var(--ink)';}
 function rowHtml(p){
-  const vs=p.value_flag?`<span class="vsp warn" title="Prices too different from nearby to compare fairly — likely a different type">⚠</span>`
+  const thin=p.txns<5;
+  const vs=thin?`<span class="vsp flat" title="Too few recent sales to compare">·</span>`
+    :p.value_flag?`<span class="vsp warn" title="Prices too different from nearby to compare fairly — likely a different type">⚠</span>`
     :p.discount>=2?`<span class="vsp pos">↓${p.discount}%</span>`
     :p.discount<=-2?`<span class="vsp neg">↑${-p.discount}%</span>`
     :`<span class="vsp flat">≈</span>`;
-  const tr=p.mom==null?`<span class="trend flat">—</span>`
+  const tr=thin?`<span class="trend flat" title="Too few recent sales for a trend">·</span>`
+    :p.mom==null?`<span class="trend flat">—</span>`
     :p.mom>0?`<span class="trend up">▲ ${p.mom}%</span>`
     :p.mom<0?`<span class="trend down">▼ ${-p.mom}%</span>`
     :`<span class="trend flat">0%</span>`;
@@ -1012,6 +1015,7 @@ function openDD(name){
   const rent=(p.yield&&p.price)?Math.round(p.price*p.yield/100/12/100)*100:null;
   const yCmp=(p.yield&&MEDY)?(p.yield>=MEDY+0.3?'above':p.yield<=MEDY-0.3?'below':'about in line with'):null;
   const a=p.amen||{};
+  const thin=p.txns<5;   // few recent sales → show what's there, flag it, skip trend/comparison
   // 3-way price comparison: nearby (tenure-matched 1.5km), town/planning-area, postal district
   const cmpRow=(label,sub,ref)=>{
     if(!ref) return '';
@@ -1031,23 +1035,23 @@ function openDD(name){
        ${cmpRow('vs D'+p.district,(distArea(p.district)||'district')+' · '+(p.dist_n||0)+' condos',p.dist_psf)}
      </div>
      <div class="cmphint">Green = this condo is cheaper per sqft than that benchmark; red = pricier. “Nearby” matches tenure (freehold vs leasehold); town &amp; district are the broader median.</div>`;
-  $('#dd').innerHTML=`<div class="dd-head"><span class="gg vchip ${p.value_flag?'warn':(p.discount>=2?'pos':p.discount<=-2?'neg':'')}">${p.value_flag?'⚠ hard to compare':(p.discount>=2?p.discount+'% below nearby':p.discount<=-2?(-p.discount)+'% above nearby':'in line w/ nearby')}</span>
+  $('#dd').innerHTML=`<div class="dd-head"><span class="gg vchip ${thin?'warn':(p.value_flag?'warn':(p.discount>=2?'pos':p.discount<=-2?'neg':''))}">${thin?'⚠ limited data':(p.value_flag?'⚠ hard to compare':(p.discount>=2?p.discount+'% below nearby':p.discount<=-2?(-p.discount)+'% above nearby':'in line w/ nearby'))}</span>
     <div class="tt">${tc(p.project)}<small>${p.street?tc(p.street)+' · ':''}${distName(p.district)} ${distArea(p.district)} · ${segShort(p.seg)} · ${p.fh?'Freehold':'Leasehold'}</small></div>
     <span class="x" onclick="closeDD()">✕</span></div>
    <div class="dd-body">
-     <div class="thesis">${thesis(p)}</div>
-     ${p.value_flag?`<div class="flag-w">⚠ <b>Hard to compare:</b> this condo's prices are very different from the condos around it — usually because it's a different type (much older, or much bigger / smaller units). So we don't show a "cheaper / pricier than nearby" figure for it.</div>`:''}
+     <div class="thesis">${thin?`${tc(p.project)} has had <b>${p.txns} recent sale${p.txns==1?'':'s'}</b> in the last ~${D.window_months} months, at around <b>$${p.psf.toLocaleString()} psf</b>. That's too few to chart a reliable trend or comparison — but here's what actually transacted.`:thesis(p)}</div>
+     ${thin?`<div class="flag-w">⚠ <b>Limited data.</b> Only <b>${p.txns} recent sale${p.txns==1?'':'s'}</b> here, so the figures are indicative — not a reliable median. We don't show a trend or “vs nearby” comparison until there's enough trading. For a precise valuation of a specific unit, use Caveat.</div>`:(p.value_flag?`<div class="flag-w">⚠ <b>Hard to compare:</b> this condo's prices are very different from the condos around it — usually because it's a different type (much older, or much bigger / smaller units). So we don't show a "cheaper / pricier than nearby" figure for it.</div>`:'')}
      <div class="dd-cols"><div class="dd-col">
-     <div class="sect">💰 What it costs</div>
+     <div class="sect">💰 What it costs <span class="secthint">${thin?'· from '+p.txns+' sale'+(p.txns==1?'':'s'):''}</span></div>
      <div class="mgrid">
-       <div class="mc"><div class="k">Typical price / sqft</div><div class="v">$${p.psf.toLocaleString()}</div></div>
-       <div class="mc"><div class="k">A typical unit</div><div class="v">${fmtP(p.price)} <small>~${p.sqft?p.sqft.toLocaleString()+' sqft':p.area+' sqm'}</small></div></div>
+       <div class="mc"><div class="k">${thin?'Price / sqft':'Typical price / sqft'}</div><div class="v">$${p.psf.toLocaleString()}</div></div>
+       <div class="mc"><div class="k">${thin?'A unit':'A typical unit'}</div><div class="v">${fmtP(p.price)} <small>~${p.sqft?p.sqft.toLocaleString()+' sqft':p.area+' sqm'}</small></div></div>
        <div class="mc"><div class="k">Recent price range</div><div class="v">$${(p.psf_lo||0).toLocaleString()}–$${(p.psf_hi||0).toLocaleString()} <small>psf</small></div></div>
        <div class="mc"><div class="k">Unit sizes seen</div><div class="v">${p.sqft_lo?p.sqft_lo.toLocaleString():'—'}–${p.sqft_hi?p.sqft_hi.toLocaleString():'—'} <small>sqft</small></div></div>
      </div>
-     ${pricedBlock}
+     ${thin?'':pricedBlock}
 
-     ${p.spark&&p.spark.length>=2?`<div class="sect sect-row">📈 Price trend ${trendDelta(p.spark)}</div>
+     ${!thin&&p.spark&&p.spark.length>=2?`<div class="sect sect-row">📈 Price trend ${trendDelta(p.spark)}</div>
      <div class="facnote">Median price per sqft from official caveats — ${D.window_months} months to ${MON[+D.as_of.slice(2)]} ’${D.as_of.slice(0,2)}.</div>
      <div class="chartbox">${sparkSVG(p.spark)}</div>`:''}
 
