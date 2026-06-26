@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-26T09:00:00.346971+08:00",
+  "updated": "2026-06-26T13:00:00.219162+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -290,8 +290,8 @@
   },
   "news": [
     {
-      "title": "Cris Cyborg books retirement fight vs. Ketlen Vieira at PFL Tampa",
-      "link": "https://www.mmafighting.com/pfl/496065/cris-cyborg-books-retirement-fight-vs-ketlen-vieira-at-pfl-tampa",
+      "title": "Ex-UFC fighter Aspen Ladd signs with BKB bare-knuckle promotion",
+      "link": "https://www.mmafighting.com/latest-news/496310/ex-ufc-fighter-aspen-ladd-signs-with-bkb-bare-knuckle-promotion",
       "source": "MMA Fighting",
       "priority": true
     },
@@ -368,15 +368,15 @@
       "priority": false
     },
     {
-      "title": "UFC Baku’s Manuel Torres wants ‘to be feared’ like Mike Tyson – ‘That’s how you become the best’",
-      "link": "https://www.mmamania.com/latest-news/453044/ufc-bakus-manuel-torres-wants-to-be-feared-like-mike-tyson-thats-how-you-become-the-best",
+      "title": "Anthony Hernandez vs. Gregory Rodriguez headlines UFC Sacramento on Aug. 22",
+      "link": "https://www.mmamania.com/ufc-fight-announcements/453047/anthony-hernandez-vs-gregory-rodriguez-headlines-ufc-sacramento-on-aug-22",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Fiziev and Torres ignite Sunday at midnight SGT—lightweight striking excellence on full display.",
-    "prefight": "Fiziev and Torres clash Sunday - raw power meets elite striking precision.",
-    "results": "Manel Kape unleashes devastating striking to finish Horiguchi via round-3 TKO."
+    "week": "Fiziev vs Torres Sunday midnight SGT. Lightweight striking showcase incoming this week.",
+    "prefight": "Fiziev clashes with Torres Sunday midnight SGT in pure lightweight striking fireworks.",
+    "results": "Kape smashes Horiguchi with relentless punching, forcing a third-round TKO stoppage."
   }
 }
