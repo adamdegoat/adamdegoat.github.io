@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-26T21:00:00.269822+08:00",
+  "updated": "2026-06-26T23:30:00.188944+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -296,12 +296,6 @@
       "priority": true
     },
     {
-      "title": "Michael Morales ‘going to be a replacement’ for Islam-Garry fight, plans to ‘show up and make weight’ for UFC 330",
-      "link": "https://www.mmamania.com/upcoming-ufc-events/453034/michael-morales-replacement-islam-garry-fight-plans-show-up-make-weight-ufc-330",
-      "source": "MMA Mania",
-      "priority": true
-    },
-    {
       "title": "PFL San Diego’s Viviane Araujo targets title shot with a win over Liz Carmouche",
       "link": "https://www.sherdog.com/news/news/PFL-San-Diegos-Viviane-Araujo-targets-title-shot-with-a-win-over-Liz-Carmouche-201644",
       "source": "Sherdog",
@@ -324,6 +318,30 @@
       "link": "https://www.sherdog.com/news/news/Dricus-Du-Plessis-Kamaru-Usman-was-reluctant-to-sign-contract-for-UFC-Oklahoma-City-201625",
       "source": "Sherdog",
       "priority": true
+    },
+    {
+      "title": "Jon Jones leaves door open for potential UFC return: ‘I’m moving like I never left’",
+      "link": "https://www.mmafighting.com/ufc/496426/jon-jones-leaves-door-open-for-potential-ufc-return-im-moving-like-i-never-left",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "UFC White House’s global audience numbers revealed",
+      "link": "https://www.mmafighting.com/ufc/496424/ufc-white-houses-global-audience-numbers-revealed",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "UFC Baku weigh-in video: Fiziev vs. Torres",
+      "link": "https://www.mmafighting.com/ufc/496351/ufc-baku-weigh-in-video-fiziev-vs-torres",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Morning Report: Sean O’Malley says rematch with Petr Yan is ‘the biggest fight in bantamweight history’",
+      "link": "https://www.mmafighting.com/latest-news/495260/morning-report-sean-omalley-says-rematch-with-petr-yan-is-the-biggest-fight-in-bantamweight-history",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "‘Tito was absolutely, 100% terrified of Chuck Liddell’: Chuck Liddell, Tito Ortiz reflect on epic rivalry in UFC",
@@ -350,33 +368,15 @@
       "priority": false
     },
     {
-      "title": "Manuel Torres reacts to Justin Gaethje stopping Ilia Topuria at UFC White House, explains why result ‘went well for me’",
-      "link": "https://www.mmafighting.com/ufc/496303/manuel-torres-reacts-to-justin-gaethje-stopping-ilia-topuria-at-ufc-white-house-explains-why-result-went-well-for-me",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "No Bets Barred: Can Rafael Fiziev give Azerbaijan reason to celebrate at UFC Baku?",
-      "link": "https://www.mmafighting.com/latest-news/496227/no-bets-barred-can-rafael-fiziev-give-azerbaijan-reason-to-celebrate-at-ufc-baku",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Sean Strickland reveals return timeline, targets third fight in 2026",
-      "link": "https://www.mmamania.com/latest-news/453118/sean-strickland-reveals-return-timeline-targets-third-fight-in-2026",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "UFC Baku early weigh ins results | Fiziev vs. Torres",
-      "link": "https://www.mmamania.com/ufc-weigh-in-video/453078/ufc-baku-early-weigh-ins-results-fiziev-vs-torres",
+      "title": "Live: UFC Baku ceremonial weigh ins video results | Fiziev vs. Torres",
+      "link": "https://www.mmamania.com/ufc-weigh-in-video/453086/live-ufc-baku-ceremonial-weigh-ins-video-results-fiziev-vs-torres-mma",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Fight week ignites Sunday: elite strikers Fiziev and Torres collide.",
-    "prefight": "Main event fireworks: Fiziev's precision meets Torres's power in a lightweight striking showcase.",
-    "results": "Manel Kape overwhelms Kyoji Horiguchi with punches, forcing third-round TKO."
+    "week": "Fiziev vs Torres Sunday midnight SGT—lightweight strikers ready to scrap.",
+    "prefight": "Watch Fiziev's striking masterclass clash with Torres' grappling dominance in Sunday's main event.",
+    "results": "Manel Kape dismantles Horiguchi, TKO via punches in round 3."
   }
 }
