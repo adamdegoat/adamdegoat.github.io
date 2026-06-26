@@ -384,6 +384,10 @@ select.f{padding:13px 13px;border-radius:13px}
   .sortby{flex:1 1 100%;gap:6px}
   .sortby select.f{flex:1}
 }
+/* self-explaining column headers (label + tiny sub-label) */
+.tbl thead th{vertical-align:top;padding-bottom:12px}
+.tbl thead th .thl{display:block}
+.tbl thead th .ths{display:block;font-size:8.5px;font-weight:600;color:var(--ink3);text-transform:none;letter-spacing:.02em;margin-top:3px;opacity:.85}
 </style>
 </head>
 <body>
@@ -524,7 +528,7 @@ const VIEWS={
    ${popRow}
    <div class="tbl-head"><span class="th-count">${rows.length.toLocaleString()} condo${rows.length===1?'':'s'}${ctx}</span><span class="tbl-hint">tap any row for the full breakdown →</span></div>
    <div style="overflow-x:auto"><table class="tbl"><thead><tr>
-     ${[['project','Condo'],['seg','Region'],['psf','$ / sqft'],['discount','vs nearby'],['mom','6mo trend'],['yield','Yield'],['txns','Sales']].map(c=>`<th class="${['psf','discount','mom','yield','txns'].includes(c[0])?'r':''} ${['seg','yield'].includes(c[0])?'hide-sm':''}" data-k="${c[0]}">${c[1]}${SORT.k===c[0]?(SORT.dir<0?' ▾':' ▴'):''}</th>`).join('')}
+     ${[['project','Condo',''],['seg','Region',''],['psf','$ / sqft','typical'],['discount','vs nearby','within 1.5km'],['mom','6mo trend','price psf'],['yield','Yield','rent / year'],['txns','Sales','last '+D.window_months+' mo']].map(c=>`<th class="${['psf','discount','mom','yield','txns'].includes(c[0])?'r':''} ${['seg','yield'].includes(c[0])?'hide-sm':''}" data-k="${c[0]}"><span class="thl">${c[1]}${SORT.k===c[0]?(SORT.dir<0?' ▾':' ▴'):''}</span>${c[2]?`<span class="ths">${c[2]}</span>`:''}</th>`).join('')}
    </tr></thead><tbody>${rows.slice(0,200).map(rowHtml).join('')}</tbody></table>
    ${rows.length>200?`<div class="empty" style="padding:20px">Showing 200 of ${rows.length.toLocaleString()}. Search to narrow down.</div>`:''}</div>
    <div class="legend"><b>How to read this:</b> <span><b>$ / sqft</b> — its typical transacted price per square foot</span><span><b>vs nearby</b> — how that compares to similar condos within 1.5km (<span class="pos">green = cheaper</span>, red = pricier)</span><span><b>6mo trend</b> — change in median price over the last 6 months</span><span><b>Yield</b> — gross annual rent as a % of price</span><span><b>Sales</b> — recent transactions (how actively it trades)</span></div>`;
