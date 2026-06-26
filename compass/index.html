@@ -495,9 +495,12 @@ function budget(){
       isHDBloan=(S.type==='HDB_RESALE'||S.type==='HDB_BTO'),isMSR=(isHDBloan||S.type==='EC');
   var age=num(S.age)||35,coAge=num(S.coAge),coInc=num(S.coIncome);
   var effAge=(S.co!=='none'&&coInc>0&&coAge>0)?((age*num(S.income)+coAge*coInc)/(num(S.income)+coInc)):age;
-  var tenCap=isHDBloan?25:30;
-  var tenure=Math.max(5,Math.min(tenCap,Math.round(65-effAge)));
-  var fullLTV=(effAge+tenure<=65)&&tenure<=tenCap;
+  // MAS: 25 (HDB) / 30 (private) is the full-LTV tenure threshold, NOT the absolute max
+  // (absolute max is 30/35 at a reduced LTV). A max-budget plan uses the longest full-LTV
+  // tenure, so this threshold is the right driver here.
+  var ltvFullTen=isHDBloan?25:30;
+  var tenure=Math.max(5,Math.min(ltvFullTen,Math.round(65-effAge)));
+  var fullLTV=(effAge+tenure<=65)&&tenure<=ltvFullTen;
   var ltvTier=[.75,.45,.35],ltv=ltvTier[Math.min(owned,2)];
   var minCashRate=owned===0?(fullLTV?.05:.10):.25;
   if(!fullLTV&&owned===0)ltv=.55;

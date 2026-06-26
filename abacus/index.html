@@ -345,7 +345,8 @@ var CALCS=[
    var gross=income+co;
    var jointAge=(co>0&&coage>0)?((age*income+coage*co)/(income+co)):null;
    var effAge=jointAge!=null?jointAge:age;
-   var maxTen=(type==='HDB')?25:30;
+   var ltvFullTen=(type==='HDB')?25:30;   // MAS: beyond this, LTV is reduced (not a hard cap)
+   var maxTen=(type==='HDB')?30:35;        // MAS: absolute max bank-loan tenure (HDB 30 / private 35)
    var tenure=Math.max(5,Math.min(maxTen,g('tenure')||25));
    var youngest=(co>0&&coage>0)?Math.min(age,coage):age, cpfEff=cpf, leaseNote=null;
    if(remlease>0){var need95=Math.max(1,95-youngest);
@@ -354,7 +355,7 @@ var CALCS=[
      else if(remlease<need95){cpfEff=cpf*(remlease/need95);leaseNote='prorate';}
      else leaseNote='ok';}
    cpfEff+=grant;
-   var fullLTV=(tenure<=maxTen)&&(effAge+tenure<=65);
+   var fullLTV=(tenure<=ltvFullTen)&&(effAge+tenure<=65);
    var ltv=fullLTV?.75:.55, minCashRate=fullLTV?.05:.10;
    var maxM=RULES.tdsr*gross-debts; if(type==='EC'||type==='HDB')maxM=Math.min(maxM,RULES.msr*gross); maxM=Math.max(0,maxM);
    var maxLoan=loanFromPmt(maxM,RULES.stress,tenure), priceFromLoan=maxLoan/ltv;
