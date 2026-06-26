@@ -12,6 +12,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,500&family=Libre+Franklin:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 <link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -422,6 +424,16 @@ select.f{padding:13px 13px;border-radius:13px}
 .prem.mid{background:rgba(58,127,192,.12);color:#2f6aa6}
 .prem.hot{background:rgba(207,83,73,.12);color:#b33f36}
 .prem.flat{background:var(--panel2);color:var(--ink3)}
+/* ===== map view ===== */
+#map{height:66vh;min-height:430px;width:100%;border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);margin-top:2px;position:relative;z-index:1}
+.leaflet-container{font-family:var(--sans);background:#e9eef4}
+.leaflet-tooltip{font-size:12px;border-radius:8px;border:1px solid var(--line2);box-shadow:var(--shadow);color:var(--ink)}
+.maplegend{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:12px 2px 30px;font-size:12px;color:var(--ink3)}
+.maplegend .mlk{font-weight:700;text-transform:uppercase;letter-spacing:.5px;font-size:10.5px;color:var(--ink3)}
+.maplegend .mld{display:inline-flex;align-items:center;gap:6px;color:var(--ink2);font-weight:600}
+.maplegend .mld i{width:11px;height:11px;border-radius:50%;display:inline-block;border:1.5px solid #fff;box-shadow:0 0 0 1px rgba(16,32,44,.12)}
+.mapcount{font-size:12.5px;color:var(--ink2);font-weight:600;margin-left:auto}
+@media(max-width:720px){.mapcount{margin-left:0;flex:1 1 100%}#map{height:60vh}}
 </style>
 </head>
 <body>
@@ -445,7 +457,7 @@ select.f{padding:13px 13px;border-radius:13px}
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 let D=null,TAB='research',SORT={k:'project',dir:1},FILT={q:'',seg:'',district:'',tenure:'',price:'',grade:'',upreg:'',lview:'feed',lold:false},CMP=[];
-const TABS=[['research','▦','Condos'],['launches','◆','New launches'],['upcoming','◇','Upcoming'],['compare','⇄','Compare'],['about','ⓘ','About']];
+const TABS=[['research','▦','Condos'],['map','🗺','Map'],['launches','◆','New launches'],['upcoming','◇','Upcoming'],['compare','⇄','Compare'],['about','ⓘ','About']];
 const median=arr=>{const a=arr.filter(x=>x!=null&&!isNaN(x)).slice().sort((x,y)=>x-y);return a.length?a[Math.floor(a.length/2)]:null;};
 const FACS=['value','timing','liquidity','yield','tenure','supply'];
 // plain-English factor labels + one-line meanings (override the engine's terse labels for display)
@@ -515,17 +527,34 @@ function init(){
   const pq=new URLSearchParams(location.search).get('p');
   if(pq){const hit=D.projects.find(x=>String(x.project).toUpperCase()===pq.toUpperCase());if(hit)openDD(hit.project);}
 }
+let LMAP=null;
 function render(noScroll){
   $$('.tab').forEach(t=>t.classList.toggle('on',t.dataset.t===TAB));
   $('#app').innerHTML=VIEWS[TAB]();
   const cn=$('#cmpN');if(cn){cn.style.display=CMP.length?'':'none';cn.textContent=CMP.length;}
   if(!noScroll)window.scrollTo({top:0,behavior:'smooth'});
+  if(TAB==='map')setTimeout(initMap,30); else if(LMAP){LMAP.remove();LMAP=null;}
+}
+function initMap(){
+  const el=document.getElementById('map'); if(!el) return;
+  if(typeof L==='undefined'){el.innerHTML='<div style="padding:50px;text-align:center;color:var(--ink3)">Map is loading… refresh if it doesn’t appear.</div>';return;}
+  if(LMAP){LMAP.remove();LMAP=null;}
+  LMAP=L.map(el,{preferCanvas:true,scrollWheelZoom:true}).setView([1.3521,103.8198],11);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:19,attribution:'© OpenStreetMap, © CARTO'}).addTo(LMAP);
+  const segCol={CCR:'#a87d24',RCR:'#3a7fc0',OCR:'#0f9d76'};
+  const rows=(window.MAPROWS||[]).filter(p=>p.lat&&p.lng), pts=[];
+  rows.forEach(p=>{
+    pts.push([p.lat,p.lng]);
+    L.circleMarker([p.lat,p.lng],{radius:5,weight:1.2,color:'#fff',fillColor:segCol[p.seg]||'#888',fillOpacity:.9})
+      .bindTooltip(`<b>${tc(p.project)}</b><br>${p.area_name||distName(p.district)} · $${p.psf.toLocaleString()} psf`,{direction:'top',offset:[0,-3]})
+      .on('click',()=>openDD(p.project)).addTo(LMAP);
+  });
+  if(pts.length)LMAP.fitBounds(pts,{padding:[28,28],maxZoom:15});
 }
 
-const VIEWS={
- research(){
+function filterProjects(){
   const q=FILT.q.toLowerCase().trim();
-  let rows=D.projects.filter(p=>{
+  return D.projects.filter(p=>{
     if(q&&!(p.project.toLowerCase().includes(q)||distName(p.district).toLowerCase().includes(q)||(p.street||'').toLowerCase().includes(q)||distArea(p.district).toLowerCase().includes(q)||(p.area_name||'').toLowerCase().includes(q)))return false;
     if(FILT.seg&&p.seg!==FILT.seg)return false;
     if(FILT.district&&String(p.district).padStart(2,'0')!==FILT.district)return false;
@@ -534,6 +563,11 @@ const VIEWS={
     if(FILT.price){const b=PRICEBANDS[FILT.price];if(b&&(p.psf<b[0]||(b[1]&&p.psf>=b[1])))return false;}
     return true;
   });
+}
+const VIEWS={
+ research(){
+  const q=FILT.q.toLowerCase().trim();
+  let rows=filterProjects();
   rows=rows.slice().sort((a,b)=>{let x=a[SORT.k],y=b[SORT.k];if(typeof x==='string')return SORT.dir*x.localeCompare(y);return SORT.dir*((x??-999)-(y??-999));});
   const opt=(arr,cur)=>arr.map(o=>`<option value="${o[0]}" ${cur===o[0]?'selected':''}>${o[1]}</option>`).join('');
   const segOpts=opt([['','All regions'],['CCR','Prime'],['RCR','City-fringe'],['OCR','Suburban']],FILT.seg);
@@ -566,6 +600,24 @@ const VIEWS={
    </tr></thead><tbody>${rows.slice(0,200).map(rowHtml).join('')}</tbody></table>
    ${rows.length>200?`<div class="empty" style="padding:20px">Showing 200 of ${rows.length.toLocaleString()}. Search to narrow down.</div>`:''}</div>
    <div class="legend"><b>How to read this:</b> <span><b>$ / sqft</b> — its typical transacted price per square foot</span><span><b>vs nearby</b> — how that compares to similar condos within 1.5km (<span class="pos">green = cheaper</span>, red = pricier)</span><span><b>6mo trend</b> — change in median price over the last 6 months</span><span><b>Yield</b> — gross annual rent as a % of price</span><span><b>Sales</b> — recent transactions (how actively it trades)</span></div>`;
+ },
+ map(){
+  const opt=(arr,cur)=>arr.map(o=>`<option value="${o[0]}" ${cur===o[0]?'selected':''}>${o[1]}</option>`).join('');
+  const segOpts=opt([['','All regions'],['CCR','Prime'],['RCR','City-fringe'],['OCR','Suburban']],FILT.seg);
+  const distOpts=opt([['','All districts'],...Object.keys(DISTRICTS).map(d=>[d,`D${d} · ${DISTRICTS[d]}`])],FILT.district);
+  const tenOpts=opt([['','Any tenure'],['fh','Freehold'],['lh','Leasehold']],FILT.tenure);
+  const priceOpts=opt([['','Any price'],['u15','Under $1,500 psf'],['15-20','$1,500–2,000'],['20-25','$2,000–2,500'],['25p','$2,500+ psf']],FILT.price);
+  const rows=filterProjects(); window.MAPROWS=rows;
+  return `<div class="lede"><b class="serif">Map</b> — every condo plotted, coloured by region. Tap a dot for the full breakdown; filter to zoom into an area.</div>
+   <div class="ctrls">
+     <select class="f" id="fdist" title="District">${distOpts}</select>
+     <select class="f" id="fseg" title="Region">${segOpts}</select>
+     <select class="f" id="ften" title="Tenure">${tenOpts}</select>
+     <select class="f" id="fprice" title="Price">${priceOpts}</select>
+     <span class="mapcount">${rows.length.toLocaleString()} condos shown</span>
+   </div>
+   <div id="map"></div>
+   <div class="maplegend"><span class="mlk">Region</span><span class="mld"><i style="background:#a87d24"></i>Prime</span><span class="mld"><i style="background:#3a7fc0"></i>City-fringe</span><span class="mld"><i style="background:#0f9d76"></i>Suburban</span><span style="margin-left:auto;color:var(--ink3)">tap a dot → full condo breakdown</span></div>`;
  },
  launches(){
   const reg=FILT.upreg||'', view=FILT.lview||'feed';
