@@ -123,7 +123,7 @@ select.f{background:var(--panel);border:1px solid var(--line);border-radius:10px
 /* deep-dive panel */
 .ov{position:fixed;inset:0;background:rgba(6,10,16,.6);backdrop-filter:blur(5px);z-index:60;display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:38px 22px}
 .ov.show{display:flex}
-.dd{width:min(900px,100%);margin:auto;background:var(--bg2);border:1px solid var(--line2);border-radius:20px;overflow:hidden;box-shadow:0 40px 110px rgba(6,10,16,.4);animation:pop .22s cubic-bezier(.2,.7,.3,1)}
+.dd{width:min(1140px,100%);margin:auto;background:var(--bg2);border:1px solid var(--line2);border-radius:20px;overflow:hidden;box-shadow:0 40px 110px rgba(6,10,16,.4);animation:pop .22s cubic-bezier(.2,.7,.3,1)}
 @keyframes pop{from{transform:translateY(14px) scale(.985);opacity:0}to{transform:none;opacity:1}}
 .dd-head{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:18px 26px;display:flex;align-items:center;gap:13px;z-index:2}
 .dd-head .gg{font-family:var(--serif);font-weight:600;font-size:26px;padding:6px 13px;border-radius:10px}
@@ -350,8 +350,11 @@ select.f{padding:13px 13px;border-radius:13px}
 .schip{display:inline-block;font-size:12px;color:var(--ink2);background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:6px 10px;margin:0 6px 6px 0}
 .schip b{color:var(--green-d);font-family:var(--mono);font-size:11px;margin-left:3px}
 /* ===== detail report: roomy, centered (desktop) / full-screen (mobile) ===== */
-.dd-body{padding:24px 28px 46px}
-.dd-body .mgrid{grid-template-columns:repeat(4,1fr)}
+.dd-body{padding:22px 30px 44px}
+.dd-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 34px;align-items:start}
+.dd-cols .mgrid{grid-template-columns:1fr 1fr}
+.dd-col>.sect:first-child{margin-top:4px}
+@media(max-width:880px){.dd-cols{grid-template-columns:1fr;gap:0}}
 .dd .dd-head .tt{font-size:23px}
 .dd .mc .v{font-size:18px}
 .dd-body .sect{margin:26px 0 12px}
@@ -413,7 +416,7 @@ const FDESC={value:'cheaper per sqft than comparable condos within 1.5km',timing
 const flab=f=>FLABEL[f]||(D.factor_labels&&D.factor_labels[f])||f;
 // one clear sentence on how a project's $psf compares to the condos around it, with the reference number
 function valuePhrase(p){
-  if(p.value_flag)return `priced unlike the condos around it (different product — verify before quoting)`;
+  if(p.value_flag)return `priced very differently from the condos around it (a different type — hard to compare)`;
   if(p.discount>=2)return `<b>${p.discount}% cheaper per sqft</b> than comparable condos within 1.5km (~$${(p.peer_ref||0).toLocaleString()} psf around it)`;
   if(p.discount<=-2)return `<b>${-p.discount}% pricier per sqft</b> than comparable condos within 1.5km (~$${(p.peer_ref||0).toLocaleString()} psf around it)`;
   return `priced <b>in line</b> with comparable condos within 1.5km (~$${(p.peer_ref||0).toLocaleString()} psf around it)`;
@@ -421,7 +424,7 @@ function valuePhrase(p){
 const gletter=g=>g[0];
 // factual value chip (replaces the old A–F letter badge) — neutral, sourced, relative
 function valChip(p){
-  if(p.value_flag)return `<span class="vchip warn">⚠ different product</span>`;
+  if(p.value_flag)return `<span class="vchip warn">⚠ hard to compare</span>`;
   if(p.discount>=2)return `<span class="vchip pos">${p.discount}% below nearby</span>`;
   if(p.discount<=-2)return `<span class="vchip neg">${-p.discount}% above nearby</span>`;
   return `<span class="vchip">in line w/ nearby</span>`;
@@ -621,7 +624,7 @@ function rowHtml(p){
    <td><span class="pn">${p.project}<small>${p.street?tc(p.street)+' · ':''}${distName(p.district)}${p.fh?' · FH':''}</small></span></td>
    <td class="hide-sm"><span class="chip">${segShort(p.seg)}</span></td>
    <td class="r">$${p.psf}</td>
-   <td class="r ${dc}">${p.value_flag?'<span title="PSF gap too wide to compare reliably — different product" style="color:var(--amber)">⚠</span>':(p.discount>0?'+':'')+p.discount+'%'}</td>
+   <td class="r ${dc}">${p.value_flag?'<span title="Prices too different from nearby condos to compare fairly — likely a different type" style="color:var(--amber)">⚠</span>':(p.discount>0?'+':'')+p.discount+'%'}</td>
    <td class="r ${sg(p.mom)}">${p.mom==null?'—':(p.mom>0?'+':'')+p.mom+'%'}</td>
    <td class="r hide-sm">${p.yield?p.yield+'%':'—'}</td>
    <td class="r">${p.txns}</td></tr>`;
@@ -753,14 +756,14 @@ function openDD(name){
   const rent=(p.yield&&p.price)?Math.round(p.price*p.yield/100/12/100)*100:null;
   const yCmp=(p.yield&&MEDY)?(p.yield>=MEDY+0.3?'above':p.yield<=MEDY-0.3?'below':'about in line with'):null;
   const a=p.amen||{};
-  const vsTxt=p.value_flag?'a different product to the condos around it':(p.discount>=2?`about <b>${p.discount}% cheaper</b> per sqft than similar condos within 1.5km`:p.discount<=-2?`about <b>${-p.discount}% pricier</b> per sqft than similar condos within 1.5km`:`<b>in line</b> with similar condos within 1.5km`);
-  $('#dd').innerHTML=`<div class="dd-head"><span class="gg vchip ${p.value_flag?'warn':(p.discount>=2?'pos':p.discount<=-2?'neg':'')}">${p.value_flag?'⚠ different product':(p.discount>=2?p.discount+'% below nearby':p.discount<=-2?(-p.discount)+'% above nearby':'in line w/ nearby')}</span>
+  const vsTxt=p.value_flag?'so different from the condos around it that a straight price comparison wouldn\'t be fair':(p.discount>=2?`about <b>${p.discount}% cheaper</b> per sqft than similar condos within 1.5km`:p.discount<=-2?`about <b>${-p.discount}% pricier</b> per sqft than similar condos within 1.5km`:`<b>in line</b> with similar condos within 1.5km`);
+  $('#dd').innerHTML=`<div class="dd-head"><span class="gg vchip ${p.value_flag?'warn':(p.discount>=2?'pos':p.discount<=-2?'neg':'')}">${p.value_flag?'⚠ hard to compare':(p.discount>=2?p.discount+'% below nearby':p.discount<=-2?(-p.discount)+'% above nearby':'in line w/ nearby')}</span>
     <div class="tt">${tc(p.project)}<small>${p.street?tc(p.street)+' · ':''}${distName(p.district)} ${distArea(p.district)} · ${segShort(p.seg)} · ${p.fh?'Freehold':'Leasehold'}</small></div>
     <span class="x" onclick="closeDD()">✕</span></div>
    <div class="dd-body">
      <div class="thesis">${thesis(p)}</div>
-     ${p.value_flag?`<div class="flag-w">⚠ This condo's prices sit unusually far from its neighbours — likely a <b>different product</b> (older, or much larger units). Compare like-for-like before quoting.</div>`:''}
-
+     ${p.value_flag?`<div class="flag-w">⚠ <b>Hard to compare:</b> this condo's prices are very different from the condos around it — usually because it's a different type (much older, or much bigger / smaller units). So we don't show a "cheaper / pricier than nearby" figure for it.</div>`:''}
+     <div class="dd-cols"><div class="dd-col">
      <div class="sect">💰 What it costs</div>
      <div class="mgrid">
        <div class="mc"><div class="k">Typical price / sqft</div><div class="v">$${p.psf.toLocaleString()}</div></div>
@@ -777,7 +780,7 @@ function openDD(name){
      ${p.yield?`<div class="sect">🔑 What it rents for</div>
      <div class="rentbox"><div class="rentbig">~$${rent?rent.toLocaleString():'—'}<span>/month</span></div>
        <div class="rentnote">A typical unit rents for around this — roughly a <b>${p.yield}% gross yearly return</b> on its price${yCmp?`, <b>${yCmp}</b> the Singapore condo average of ~${MEDY}%`:''}. Before costs.</div></div>`:''}
-
+     </div><div class="dd-col">
      ${(p.sales&&p.sales.length)?`<div class="sect">🧾 Recent sales <span class="secthint">· actual caveats</span></div>
      <div class="saletbl"><div class="saleh"><span>When</span><span class="r">Size</span><span class="r">Price</span><span class="r">$/sqft</span></div>
        ${p.sales.slice(0,8).map(s=>`<div class="saler"><span>${ymLabel(s.ym)}</span><span class="r">${s.sqft.toLocaleString()} sqft</span><span class="r">${fmtP(s.price)}</span><span class="r">$${s.psf.toLocaleString()}</span></div>`).join('')}</div>`:''}
@@ -795,6 +798,7 @@ function openDD(name){
 
      ${(()=>{const rn=window.RESEARCH&&window.RESEARCH.notes&&window.RESEARCH.notes[p.project];return rn?`<div class="sect">📝 On the ground <span class="secthint">· researched · ${window.RESEARCH.asof||''}</span></div>
      <div class="research"><p>${rn.note}</p>${rn.sources&&rn.sources.length?`<div class="rsrc">${rn.sources.map(s=>/^https?:/.test(s)?`<a href="${s}" target="_blank">${s.replace(/^https?:\/\/(www\.)?/,'').split('/')[0]} ↗</a>`:`<span>${s}</span>`).join('')}</div>`:''}<div class="rdisc">${window.RESEARCH.disclaimer||'Researched from public sources — verify before quoting.'}</div></div>`:''})()}
+     </div></div>
 
      <div class="dd-actions">
        <a class="actbtn primary" href="${cav}">📐 Value a specific unit</a>
@@ -807,8 +811,9 @@ function openDD(name){
 }
 function thesis(p){
   const parts=[];
-  if(!p.value_flag&&p.discount>=2)parts.push(`priced <b>${p.discount}% below</b> comparable condos within 1.5km (which average ~$${(p.peer_ref||0).toLocaleString()} psf)`);
-  else if(!p.value_flag&&p.discount<=-2)parts.push(`priced <b>${-p.discount}% above</b> comparable condos within 1.5km (which average ~$${(p.peer_ref||0).toLocaleString()} psf)`);
+  if(p.value_flag)parts.push(`priced <b>very differently</b> from the condos around it — likely a different type, so it's hard to compare directly`);
+  else if(p.discount>=2)parts.push(`priced <b>${p.discount}% below</b> comparable condos within 1.5km (which average ~$${(p.peer_ref||0).toLocaleString()} psf)`);
+  else if(p.discount<=-2)parts.push(`priced <b>${-p.discount}% above</b> comparable condos within 1.5km (which average ~$${(p.peer_ref||0).toLocaleString()} psf)`);
   else parts.push(`priced <b>in line</b> with comparable condos within 1.5km`);
   if(p.mom!=null)parts.push(`its median price per sqft has ${p.mom>0?'risen':p.mom<0?'eased':'held'} <b>${p.mom>0?'+':''}${p.mom}%</b> over the last 6 months`);
   if(p.yield)parts.push(`it rents at about a <b>${p.yield}% gross yield</b>`);
