@@ -463,12 +463,12 @@ select.f{padding:13px 13px;border-radius:13px}
     <div><div class="nm">Thesis</div><div class="sub">Condo &amp; HDB Research · SG</div></div>
   </div>
   <span class="sp"></span>
-  <button class="thInstall" id="thInstall" onclick="openThGuide()" title="Install Thesis as an app">📲 Install</button>
+  <button class="thInstall" id="thInstall" onclick="openThGuide()" title="Install Thesis as an app">Install</button>
   <div class="datatag" id="dataTag">loading…</div>
 </nav>
 <div class="modebar"><div class="wrap"><div class="modeseg" id="modeseg">
-  <button class="modebtn on" data-mode="condo">🏢 Condos</button>
-  <button class="modebtn" data-mode="hdb">🏠 HDB</button>
+  <button class="modebtn on" data-mode="condo">Condos</button>
+  <button class="modebtn" data-mode="hdb">HDB</button>
 </div></div></div>
 <div class="tabs" id="tabs"></div>
 <div class="wrap"><div class="freshbar" id="freshbar"></div></div>
@@ -480,8 +480,8 @@ select.f{padding:13px 13px;border-radius:13px}
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 let D=null,H=null,MODE='condo',TAB='research',SORT={k:'project',dir:1},HSORT={k:'town',dir:1},FILT={q:'',seg:'',district:'',tenure:'',price:'',town:'',ft:'',mature:'',grade:'',upreg:'',lview:'feed',lold:false},CMP=[];
-const TABS_CONDO=[['research','▦','Condos'],['map','🗺','Map'],['launches','◆','New launches'],['upcoming','◇','Upcoming'],['compare','⇄','Compare'],['about','ⓘ','About']];
-const TABS_HDB=[['hdb','🏠','HDB flats'],['about','ⓘ','About']];
+const TABS_CONDO=[['research','▦','Condos'],['map','◎','Map'],['launches','◆','New launches'],['upcoming','◇','Upcoming'],['compare','⇄','Compare'],['about','ⓘ','About']];
+const TABS_HDB=[['hdb','▦','HDB flats'],['about','ⓘ','About']];
 const tabsFor=()=>MODE==='hdb'?TABS_HDB:TABS_CONDO;
 const median=arr=>{const a=arr.filter(x=>x!=null&&!isNaN(x)).slice().sort((x,y)=>x-y);return a.length?a[Math.floor(a.length/2)]:null;};
 const FACS=['value','timing','liquidity','yield','tenure','supply'];
@@ -673,7 +673,7 @@ function openHDB(town,ft){
      <div class="sect">How active it is</div>
      <div class="readout"><b>${g.txns.toLocaleString()}</b> ${tcFt(g.ft)} flats sold in ${g.town} over the last ${H.window_months} months${g.txns_recent?` (<b>${g.txns_recent}</b> in the last 6)`:''} — ${g.txns>=150?'a very active':g.txns>=40?'a fairly active':'a quieter'} resale market.</div>
      </div></div>
-     <div class="dd-actions"><a class="actbtn primary" href="https://adamdegoat.github.io/caveat/">📐 Value a specific flat in Caveat</a></div>
+     <div class="dd-actions"><a class="actbtn primary" href="https://adamdegoat.github.io/caveat/">Value a specific flat in Caveat</a></div>
      <div class="dd-cross">Caveat values one specific flat · Thesis shows the whole town × flat-type picture.</div>
    </div>`;
   $('#ov').classList.add('show');
@@ -1093,7 +1093,7 @@ function openDD(name){
      </div></div>
 
      <div class="dd-actions">
-       <a class="actbtn primary" href="${cav}">📐 Value a specific unit</a>
+       <a class="actbtn primary" href="${cav}">Value a specific unit</a>
        <button class="actbtn gold" onclick="addCmp('${name.replace(/'/g,"\\'")}')">⇄ Add to compare</button>
        <a class="actbtn" href="${tv}" target="_blank">Search online ↗</a>
      </div>
