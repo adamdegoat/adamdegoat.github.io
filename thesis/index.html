@@ -443,6 +443,16 @@ select.f{padding:13px 13px;border-radius:13px}
 /* HDB recent-sales table (5 columns) */
 .saletbl.hdb .saleh,.saletbl.hdb .saler{grid-template-columns:.72fr 1.7fr .82fr .6fr 1fr}
 .saletbl.hdb .blk{font-family:var(--sans);font-size:11.5px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* ===== compact-but-informative hero ===== */
+.lede2{padding:22px 0 4px}
+.lede2 h1{font-family:var(--serif);font-size:28px;font-weight:600;letter-spacing:-.3px;line-height:1.1;color:var(--ink)}
+.lede2 h1 em{font-style:italic;color:var(--green-d)}
+.lede2 p{font-size:14px;color:var(--ink2);line-height:1.6;margin-top:9px;max-width:670px}
+.lede2 p b{color:var(--ink);font-weight:600}
+.herochips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.herochips span{font-size:11.5px;font-weight:600;color:var(--ink2);background:linear-gradient(180deg,#fff,var(--panel2));border:1px solid var(--line);border-radius:30px;padding:6px 13px;box-shadow:var(--shadow);white-space:nowrap}
+.herochips span b{color:var(--green-d);font-weight:800}
+@media(max-width:560px){.lede2 h1{font-size:23px}.lede2 p{font-size:13.5px}}
 </style>
 </head>
 <body>
@@ -710,7 +720,9 @@ const VIEWS={
   const pop=POP.map(n=>D.projects.find(p=>p.project===n)).filter(Boolean);
   const popRow=(!q&&!anyFilter&&pop.length)?`<div class="poprow"><span class="poplab">Popular:</span>${pop.map(p=>`<button class="popchip" data-p="${esc(p.project)}">${tc(p.project)}</button>`).join('')}</div>`:'';
   const ctx=FILT.district?` in D${FILT.district} · ${DISTRICTS[FILT.district]}`:(q?` matching “${FILT.q}”`:(anyFilter?'':' · official caveats, refreshed weekly'));
-  return `<div class="lede"><b class="serif">Look up any Singapore condo</b> — real prices, trend, rental &amp; what's around it, straight from official caveats.</div>
+  return `<div class="lede2"><h1 class="serif">Every Singapore condo, <em>by the numbers</em>.</h1>
+     <p>Search any condo to see its <b>real transacted prices</b>, how they've moved, rental yield, the nearest MRT &amp; schools — and exactly how it's priced against nearby condos, its town and its district. Straight from official URA caveats. No login, no agent.</p>
+     <div class="herochips"><span><b>${D.n_projects.toLocaleString()}</b> condos</span><span>🏛 official URA data</span><span>↻ refreshed weekly</span><span>✦ free to use</span></div></div>
    <div class="ctrls">
      <div class="search"><span class="si">🔍</span><input id="q" autocomplete="off" placeholder="Search a condo…" value="${FILT.q}">${ac}</div>
      <select class="f" id="fdist" title="District">${distOpts}</select>
@@ -816,7 +828,9 @@ const VIEWS={
   const q=FILT.q.toLowerCase().trim();
   const acRows=q?rows.slice(0,8):[];
   const ac=`<div class="ac ${acRows.length?'show':''}" id="ac">${acRows.map(g=>`<div class="ac-item" data-h="${esc(g.town)}|${esc(g.ft)}"><span class="ac-n">${g.town} · ${tcFt(g.ft)}</span><span class="ac-d">$${g.price.toLocaleString()} · $${g.psf} psf · ${g.lease}y lease</span></div>`).join('')}</div>`;
-  return `<div class="lede"><b class="serif">HDB resale</b> — every town &amp; flat type from official resale data: price, remaining lease, rental yield, recent sales. Tap any row for the full breakdown.</div>
+  return `<div class="lede2"><h1 class="serif">Every HDB town &amp; flat type, <em>by the numbers</em>.</h1>
+     <p>Search a town to see <b>real resale prices</b>, typical <b>remaining lease</b>, rental yield, recent sales block by block — and how it's priced against the islandwide median for the same flat type. Straight from official HDB data.</p>
+     <div class="herochips"><span><b>${H.n_towns}</b> towns</span><span><b>${(H.n_txns/1000).toFixed(0)}k</b> resales</span><span>🏛 official HDB data</span><span>↻ refreshed weekly</span></div></div>
    <div class="ctrls">
      <div class="search"><span class="si">🔍</span><input id="q" autocomplete="off" placeholder="Search a town — e.g. Bishan, Punggol…" value="${FILT.q}">${ac}</div>
      <select class="f" id="ftown" title="Town">${townOpts}</select>
