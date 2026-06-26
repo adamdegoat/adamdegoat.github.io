@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-26T13:00:00.219162+08:00",
+  "updated": "2026-06-26T21:00:00.269822+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -302,12 +302,6 @@
       "priority": true
     },
     {
-      "title": "‘Idiot’ Arman may lose UFC title shot (again) after turning down Mateusz Gamrot rematch",
-      "link": "https://www.mmamania.com/ufc-news/452974/idiot-arman-may-lose-ufc-title-shot-again-after-turning-down-mateusz-gamrot-rematch",
-      "source": "MMA Mania",
-      "priority": true
-    },
-    {
       "title": "PFL San Diego’s Viviane Araujo targets title shot with a win over Liz Carmouche",
       "link": "https://www.sherdog.com/news/news/PFL-San-Diegos-Viviane-Araujo-targets-title-shot-with-a-win-over-Liz-Carmouche-201644",
       "source": "Sherdog",
@@ -368,15 +362,21 @@
       "priority": false
     },
     {
-      "title": "Anthony Hernandez vs. Gregory Rodriguez headlines UFC Sacramento on Aug. 22",
-      "link": "https://www.mmamania.com/ufc-fight-announcements/453047/anthony-hernandez-vs-gregory-rodriguez-headlines-ufc-sacramento-on-aug-22",
+      "title": "Sean Strickland reveals return timeline, targets third fight in 2026",
+      "link": "https://www.mmamania.com/latest-news/453118/sean-strickland-reveals-return-timeline-targets-third-fight-in-2026",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
+      "title": "UFC Baku early weigh ins results | Fiziev vs. Torres",
+      "link": "https://www.mmamania.com/ufc-weigh-in-video/453078/ufc-baku-early-weigh-ins-results-fiziev-vs-torres",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Fiziev vs Torres Sunday midnight SGT. Lightweight striking showcase incoming this week.",
-    "prefight": "Fiziev clashes with Torres Sunday midnight SGT in pure lightweight striking fireworks.",
-    "results": "Kape smashes Horiguchi with relentless punching, forcing a third-round TKO stoppage."
+    "week": "Fight week ignites Sunday: elite strikers Fiziev and Torres collide.",
+    "prefight": "Main event fireworks: Fiziev's precision meets Torres's power in a lightweight striking showcase.",
+    "results": "Manel Kape overwhelms Kyoji Horiguchi with punches, forcing third-round TKO."
   }
 }
