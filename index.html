@@ -134,6 +134,10 @@ a{color:inherit;text-decoration:none}
 .feat-live{font-size:10.5px;font-weight:700;color:var(--accent);display:inline-flex;align-items:center;gap:6px;text-transform:uppercase;letter-spacing:.1em;
   background:var(--card);border:1px solid color-mix(in srgb,var(--accent) 30%,var(--line));border-radius:20px;padding:5px 11px 5px 9px;box-shadow:0 4px 12px rgba(20,18,14,.1)}
 .feat-live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 var(--accent);animation:pulse 2.2s infinite}
+.feat-shot .feat-paused{position:absolute;top:12px;right:12px;z-index:3}
+.feat-paused{font-size:10.5px;font-weight:700;color:#7a7a7a;display:inline-flex;align-items:center;gap:6px;text-transform:uppercase;letter-spacing:.1em;
+  background:var(--card);border:1px solid var(--line);border-radius:20px;padding:5px 11px 5px 9px;box-shadow:0 4px 12px rgba(20,18,14,.1)}
+.feat-paused::before{content:"";width:7px;height:7px;border-radius:50%;background:#a3a3a3}
 @keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 50%,transparent)}70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
 .feat-body{padding:14px 24px 8px;flex:1}
 .feat-body h2{font-family:var(--serif);font-size:27px;font-weight:500;margin-bottom:5px}
@@ -276,13 +280,13 @@ footer{padding:60px 0 56px;margin-top:34px;border-top:1px solid var(--line)}
     </a>
 
     <a class="feat r" href="https://adamdegoat.github.io/neverendingworld/" style="--accent:var(--terra);--wash:rgba(194,112,61,.1)">
-      <div class="feat-shot"><img src="assets/feat/world.jpg?v=1" alt="The Never Ending World — a living archipelago of self-running story-worlds" loading="lazy" width="820" height="519"><span class="feat-live">Live</span></div>
+      <div class="feat-shot"><img src="assets/feat/world.jpg?v=1" alt="The Never Ending World — a living archipelago of self-running story-worlds" loading="lazy" width="820" height="519"><span class="feat-paused">Paused</span></div>
       <span class="feat-no">04</span>
-      <div class="feat-top"><span class="feat-ic">🌏</span><span class="feat-metric">4 living worlds</span></div>
+      <div class="feat-top"><span class="feat-ic">🌏</span><span class="feat-metric">4 worlds · on pause</span></div>
       <div class="feat-body">
         <h2>The Never Ending Story</h2>
         <div class="essence">Worlds that live forever.</div>
-        <p>A living archipelago of self-running story-worlds — a tropical island, a jungle survival, a zombie-city rooftop, an Alaskan homestead. A small cast with memory and fate lives out a fresh chapter several times a day. Hand-illustrated; no two days the same.</p>
+        <p>A living archipelago of self-running story-worlds — a tropical island, a jungle survival, a zombie-city rooftop, an Alaskan homestead. <b>Paused for now</b> — the daily cycles are resting, but each world still holds its last chapter. Hand-illustrated; no two days the same.</p>
         <div class="feat-tags"><span>Living simulation</span><span>Daily cycle</span><span>Hand-illustrated</span></div>
       </div>
       <span class="feat-cta">Enter the worlds <span class="arr">→</span></span>
