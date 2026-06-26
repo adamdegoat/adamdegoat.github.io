@@ -388,6 +388,18 @@ select.f{padding:13px 13px;border-radius:13px}
 .tbl thead th{vertical-align:top;padding-bottom:12px}
 .tbl thead th .thl{display:block}
 .tbl thead th .ths{display:block;font-size:8.5px;font-weight:600;color:var(--ink3);text-transform:none;letter-spacing:.02em;margin-top:3px;opacity:.85}
+/* ===== premium colour — coloured data ===== */
+.tbl td .psf{font-weight:700;color:var(--ink);font-size:13px}
+.vsp,.trend{display:inline-block;font-family:var(--mono);font-size:11.5px;font-weight:700;padding:3px 8px;border-radius:7px;letter-spacing:-.01em;line-height:1.2}
+.vsp.pos,.trend.up{background:rgba(15,157,118,.13);color:#0b7d5e}
+.vsp.neg,.trend.down{background:rgba(207,83,73,.12);color:#b33f36}
+.vsp.flat,.trend.flat{background:var(--panel2);color:var(--ink3)}
+.vsp.warn{background:rgba(192,132,24,.13);color:#9a6a10}
+.yld{font-weight:700}
+.yld.y-hi{color:#0b7d5e}.yld.y-mid{color:var(--ink2)}.yld.y-lo{color:var(--ink3)}
+.chip.seg-CCR{background:rgba(192,132,24,.13);color:#9a6a10;border-color:rgba(192,132,24,.32)}
+.chip.seg-RCR{background:rgba(58,127,192,.12);color:#2f6aa6;border-color:rgba(58,127,192,.3)}
+.chip.seg-OCR{background:rgba(15,157,118,.12);color:#0b7d5e;border-color:rgba(15,157,118,.3)}
 </style>
 </head>
 <body>
@@ -623,14 +635,22 @@ const VIEWS={
 function barCol(p){return p>=66?'var(--green)':p>=40?'var(--blue)':p>=25?'var(--amber)':'var(--red)';}
 function gcol(g){return ({A:'#0b7d5e',B:'#2f6aa6',C:'#9a6a10',D:'#b33f36',F:'#b33f36'})[gletter(g)]||'var(--ink)';}
 function rowHtml(p){
-  const dc=p.discount>0?'pos':p.discount<0?'neg':'';
+  const vs=p.value_flag?`<span class="vsp warn" title="Prices too different from nearby to compare fairly — likely a different type">⚠</span>`
+    :p.discount>=2?`<span class="vsp pos">↓${p.discount}%</span>`
+    :p.discount<=-2?`<span class="vsp neg">↑${-p.discount}%</span>`
+    :`<span class="vsp flat">≈</span>`;
+  const tr=p.mom==null?`<span class="trend flat">—</span>`
+    :p.mom>0?`<span class="trend up">▲ ${p.mom}%</span>`
+    :p.mom<0?`<span class="trend down">▼ ${-p.mom}%</span>`
+    :`<span class="trend flat">0%</span>`;
+  const yb=!p.yield?'lo':p.yield>=4?'hi':p.yield>=3.2?'mid':'lo';
   return `<tr data-p="${esc(p.project)}">
    <td><span class="pn">${p.project}<small>${p.street?tc(p.street)+' · ':''}${distName(p.district)}${p.fh?' · FH':''}</small></span></td>
-   <td class="hide-sm"><span class="chip">${segShort(p.seg)}</span></td>
-   <td class="r">$${p.psf}</td>
-   <td class="r ${dc}">${p.value_flag?'<span title="Prices too different from nearby condos to compare fairly — likely a different type" style="color:var(--amber)">⚠</span>':(p.discount>0?'+':'')+p.discount+'%'}</td>
-   <td class="r ${sg(p.mom)}">${p.mom==null?'—':(p.mom>0?'+':'')+p.mom+'%'}</td>
-   <td class="r hide-sm">${p.yield?p.yield+'%':'—'}</td>
+   <td class="hide-sm"><span class="chip seg-${p.seg}">${segShort(p.seg)}</span></td>
+   <td class="r"><b class="psf">$${p.psf.toLocaleString()}</b></td>
+   <td class="r">${vs}</td>
+   <td class="r">${tr}</td>
+   <td class="r hide-sm"><span class="yld y-${yb}">${p.yield?p.yield+'%':'—'}</span></td>
    <td class="r">${p.txns}</td></tr>`;
 }
 function launchRow(l){
