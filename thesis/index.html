@@ -400,6 +400,22 @@ select.f{padding:13px 13px;border-radius:13px}
 .chip.seg-CCR{background:rgba(192,132,24,.13);color:#9a6a10;border-color:rgba(192,132,24,.32)}
 .chip.seg-RCR{background:rgba(58,127,192,.12);color:#2f6aa6;border-color:rgba(58,127,192,.3)}
 .chip.seg-OCR{background:rgba(15,157,118,.12);color:#0b7d5e;border-color:rgba(15,157,118,.3)}
+/* ===== 3-way price comparison block ===== */
+.cmp3{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);box-shadow:var(--shadow)}
+.cmp3r{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;padding:11px 15px;border-top:1px solid var(--line)}
+.cmp3r:first-child{border-top:0}
+.cmp3r.head{background:linear-gradient(90deg,rgba(15,157,118,.06),var(--panel2))}
+.cmp3r.head .cv{font-weight:800;color:var(--ink);font-size:14px}
+.cl{font-size:13px;color:var(--ink);font-weight:600;line-height:1.25}
+.cl small{display:block;font-size:10.5px;color:var(--ink3);font-weight:500;margin-top:1px}
+.cv{font-family:var(--mono);font-size:13px;color:var(--ink2);white-space:nowrap}
+.cd{font-size:11px;font-weight:700;padding:4px 10px;border-radius:30px;white-space:nowrap;text-align:center;min-width:80px}
+.cd.pos{background:rgba(15,157,118,.13);color:#0b7d5e}
+.cd.neg{background:rgba(207,83,73,.12);color:#b33f36}
+.cd.flat{background:var(--panel2);color:var(--ink3)}
+.cd.warn{background:rgba(192,132,24,.13);color:#9a6a10}
+.cd.none{background:none;min-width:80px}
+.cmphint{font-size:11px;color:var(--ink3);line-height:1.5;margin-top:9px}
 </style>
 </head>
 <body>
@@ -780,7 +796,25 @@ function openDD(name){
   const rent=(p.yield&&p.price)?Math.round(p.price*p.yield/100/12/100)*100:null;
   const yCmp=(p.yield&&MEDY)?(p.yield>=MEDY+0.3?'above':p.yield<=MEDY-0.3?'below':'about in line with'):null;
   const a=p.amen||{};
-  const vsTxt=p.value_flag?'so different from the condos around it that a straight price comparison wouldn\'t be fair':(p.discount>=2?`about <b>${p.discount}% cheaper</b> per sqft than similar condos within 1.5km`:p.discount<=-2?`about <b>${-p.discount}% pricier</b> per sqft than similar condos within 1.5km`:`<b>in line</b> with similar condos within 1.5km`);
+  // 3-way price comparison: nearby (tenure-matched 1.5km), town/planning-area, postal district
+  const cmpRow=(label,sub,ref)=>{
+    if(!ref) return '';
+    const diff=Math.round((ref/p.psf-1)*100);   // >0 = this condo is cheaper than the benchmark
+    const cls=diff>=2?'pos':diff<=-2?'neg':'flat';
+    const txt=diff>=2?diff+'% cheaper':diff<=-2?Math.abs(diff)+'% pricier':'in line';
+    return `<div class="cmp3r"><span class="cl">${label}<small>${sub}</small></span><span class="cv">~$${ref.toLocaleString()}</span><span class="cd ${cls}">${txt}</span></div>`;
+  };
+  const nearbyRow=p.value_flag
+    ? `<div class="cmp3r"><span class="cl">vs nearby<small>within 1.5km</small></span><span class="cv">~$${(p.peer_ref||0).toLocaleString()}</span><span class="cd warn">hard to compare</span></div>`
+    : cmpRow('vs nearby',(p.peer_tenure?p.peer_tenure+' · ':'')+'within 1.5km',p.peer_ref);
+  const pricedBlock=`<div class="sect">📊 How it's priced</div>
+     <div class="cmp3">
+       <div class="cmp3r head"><span class="cl">This condo</span><span class="cv">$${p.psf.toLocaleString()} psf</span><span class="cd none"></span></div>
+       ${nearbyRow}
+       ${cmpRow('vs '+(p.area_name||'the area'),'town · '+(p.area_n||0)+' condos',p.area_psf)}
+       ${cmpRow('vs D'+p.district,(distArea(p.district)||'district')+' · '+(p.dist_n||0)+' condos',p.dist_psf)}
+     </div>
+     <div class="cmphint">Green = this condo is cheaper per sqft than that benchmark; red = pricier. “Nearby” matches tenure (freehold vs leasehold); town &amp; district are the broader median.</div>`;
   $('#dd').innerHTML=`<div class="dd-head"><span class="gg vchip ${p.value_flag?'warn':(p.discount>=2?'pos':p.discount<=-2?'neg':'')}">${p.value_flag?'⚠ hard to compare':(p.discount>=2?p.discount+'% below nearby':p.discount<=-2?(-p.discount)+'% above nearby':'in line w/ nearby')}</span>
     <div class="tt">${tc(p.project)}<small>${p.street?tc(p.street)+' · ':''}${distName(p.district)} ${distArea(p.district)} · ${segShort(p.seg)} · ${p.fh?'Freehold':'Leasehold'}</small></div>
     <span class="x" onclick="closeDD()">✕</span></div>
@@ -795,7 +829,7 @@ function openDD(name){
        <div class="mc"><div class="k">Recent price range</div><div class="v">$${(p.psf_lo||0).toLocaleString()}–$${(p.psf_hi||0).toLocaleString()} <small>psf</small></div></div>
        <div class="mc"><div class="k">Unit sizes seen</div><div class="v">${p.sqft_lo?p.sqft_lo.toLocaleString():'—'}–${p.sqft_hi?p.sqft_hi.toLocaleString():'—'} <small>sqft</small></div></div>
      </div>
-     <div class="readout">Priced ${vsTxt}${p.value_flag?'.':` — they average around $${(p.peer_ref||0).toLocaleString()} psf.`}</div>
+     ${pricedBlock}
 
      ${p.spark&&p.spark.length>=2?`<div class="sect sect-row">📈 Price trend ${trendDelta(p.spark)}</div>
      <div class="facnote">Median price per sqft from official caveats — ${D.window_months} months to ${MON[+D.as_of.slice(2)]} ’${D.as_of.slice(0,2)}.</div>
