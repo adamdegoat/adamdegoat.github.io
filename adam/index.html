@@ -518,10 +518,12 @@ body::before{animation:none}
 @media(min-width:881px){
   .hero-in{grid-template-columns:1.04fr .96fr !important;gap:44px;align-items:center}
   .hero-chat-mount{display:block;min-width:0}
-  .cpanel.inhero{position:static;width:100%;max-width:none;height:480px;min-height:430px;max-height:74vh;opacity:1 !important;visibility:visible !important;transform:none !important;background:rgba(249,246,239,.46);backdrop-filter:blur(13px) saturate(1.15);-webkit-backdrop-filter:blur(13px) saturate(1.15);box-shadow:0 34px 80px rgba(8,20,14,.42),0 0 0 1px rgba(227,201,143,.3),inset 0 1px 0 rgba(255,255,255,.4)}
+  .cpanel.inhero{position:static;width:100%;max-width:none;height:600px;min-height:540px;max-height:86vh;opacity:1 !important;visibility:visible !important;transform:none !important;background:rgba(249,246,239,.46);backdrop-filter:blur(13px) saturate(1.15);-webkit-backdrop-filter:blur(13px) saturate(1.15);box-shadow:0 34px 80px rgba(8,20,14,.42),0 0 0 1px rgba(227,201,143,.3),inset 0 1px 0 rgba(255,255,255,.4)}
   .cpanel.inhero .chead{background:radial-gradient(420px 200px at 88% -30%,rgba(227,201,143,.3),transparent 60%),linear-gradient(150deg,rgba(39,81,63,.92),rgba(15,35,26,.92))}
   .cpanel.inhero .cfoot{background:rgba(255,255,255,.26)}
   .cpanel.inhero .cx{display:none}
+  .cpanel.inhero .cbody{padding:22px 20px 10px;gap:14px}
+  .cpanel.inhero .cmsg{font-size:15px;max-width:90%;padding:12px 16px}
   .cbtn,.cteaser{display:none !important}
 }
 /* single-colour headline — no gold word, no underline squiggle (read as AI) */
@@ -538,6 +540,9 @@ body::before{animation:none}
 .cbtn .cbi svg{width:17px;height:17px}
 .cbtn .cbp{width:8px;height:8px;border-radius:50%;background:#8fe0b0;box-shadow:0 0 0 0 rgba(143,224,176,.6);animation:pulse 2.2s infinite}
 .cbtn.hide{opacity:0;visibility:hidden;transform:translateY(10px) scale(.92);pointer-events:none}
+.cbtn-attn::before{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid var(--brass);opacity:0;pointer-events:none;animation:cbtnRing 2.4s var(--ease) infinite}
+.cbtn-attn::after{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid var(--brass);opacity:0;pointer-events:none;animation:cbtnRing 2.4s var(--ease) infinite;animation-delay:1.2s}
+@keyframes cbtnRing{0%{transform:scale(1);opacity:.5}70%{opacity:0}100%{transform:scale(1.5);opacity:0}}
 html.menu-open .cbtn{opacity:0;visibility:hidden;pointer-events:none}
 @media(max-width:560px){.cbtn{right:16px;bottom:16px;padding:13px;border-radius:50%}.cbtn .cbtxt,.cbtn .cbp{display:none}}
 /* panel */
@@ -1221,7 +1226,7 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
       });
   }
   function open(){
-    panel.classList.add('open');btn.classList.add('hide');
+    panel.classList.add('open');btn.classList.add('hide');btn.classList.remove('cbtn-attn');
     const tz=document.getElementById('cteaser');if(tz)tz.classList.remove('show');
     if(!greeted){greeted=true;
       setTimeout(()=>{botReply("Hi! I'm Aillie, PropSight's property assistant. I can value any HDB or condo on real recent sales, check a project's price trend and rental yield, or work out your budget. What can I help you with?");setChips(SUGGEST);},250);
@@ -1239,7 +1244,8 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
     panel.classList.add('inhero');
     open();
   } else {
-    try{ if(!sessionStorage.getItem('ps_chat_seen')){ setTimeout(()=>{ if(!panel.classList.contains('open'))open(); },1400); sessionStorage.setItem('ps_chat_seen','1'); } }catch(e){}
+    // Mobile: never auto-open. Draw the eye to the launcher with a soft ring + the teaser bubble.
+    btn.classList.add('cbtn-attn');
   }
   form.onsubmit=e=>{e.preventDefault();const v=inp.value.trim();if(!v)return;inp.value='';handle(v);};
   // nudge: rotating input placeholder (only while empty + unfocused)
@@ -1250,7 +1256,7 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
     if(!tz)return;let i=0,dismissed=false,shown=false;
     try{dismissed=sessionStorage.getItem('ps_teaser_x')==='1';}catch(e){}
     const showT=()=>{if(dismissed||panel.classList.contains('open'))return;tzt.textContent=TEASERS[i%TEASERS.length];tz.classList.add('show');shown=true;};
-    setTimeout(showT,4500);
+    setTimeout(showT,2600);
     setInterval(()=>{if(dismissed||!shown||panel.classList.contains('open'))return;i++;tzt.textContent=TEASERS[i%TEASERS.length];},3800);
     tz.addEventListener('click',e=>{if(e.target===tzx)return;tz.classList.remove('show');open();});
     tzx.addEventListener('click',e=>{e.stopPropagation();tz.classList.remove('show');dismissed=true;try{sessionStorage.setItem('ps_teaser_x','1');}catch(e){}});
