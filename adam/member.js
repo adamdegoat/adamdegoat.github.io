@@ -74,6 +74,7 @@
       + '<p class="psj-sub">' + sub + '</p>'
       + '<ul class="psj-perks">'
       + '<li>' + TICK + '<span><b>Full research</b> — every condo &amp; HDB, ranked, compared &amp; tracked.</span></li>'
+      + '<li>' + TICK + '<span><b>More of Aillie</b> — a higher chat limit with your property assistant.</span></li>'
       + '<li>' + TICK + '<span><b>Weekly newsletter</b> — the moves that matter, in plain English.</span></li>'
       + '<li>' + TICK + '<span><b>Telegram channel</b> — live property signals as they happen.</span></li>'
       + '</ul>'
