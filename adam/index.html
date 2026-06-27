@@ -112,8 +112,9 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .hessentials:hover{border-color:var(--brass);transform:translateY(-1px)}
 .fresh{display:inline-flex;align-items:center;gap:9px;margin-top:14px;font-size:12.5px;color:var(--ink3);font-weight:600}
 .fresh .dot{width:8px;height:8px;border-radius:50%;background:#2e9e6b;box-shadow:0 0 0 0 rgba(46,158,107,.5);animation:pulse 2s infinite}
-.hsoon{display:inline-flex;align-items:center;gap:10px;margin-top:14px;font-size:12.5px;font-weight:600;color:var(--ink2);flex-wrap:wrap}
-.hsoon .t{font-size:9.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#241a0d;background:linear-gradient(135deg,var(--brass3),var(--brass));padding:4px 10px;border-radius:20px;white-space:nowrap}
+.hsoon{display:flex;align-items:baseline;gap:9px;margin-top:18px;font-size:13px;font-weight:600;line-height:1.45;max-width:480px}
+.hsoon .hsoon-d{flex:none;width:7px;height:7px;border-radius:50%;background:var(--brass3);position:relative;top:5px;box-shadow:0 0 10px rgba(227,201,143,.65)}
+.hsoon b{color:var(--brass3);font-weight:800}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.45)}}
 
 /* hero live-market panel */
@@ -527,9 +528,8 @@ body::before{animation:none}
 .mhead{margin-bottom:16px;padding-bottom:12px}
 .links{gap:22px}
 /* featured "Research" nav pill — pops as the flagship data tool */
-.links a.navfeat{background:linear-gradient(135deg,var(--brass3),var(--brass));color:#241a0d !important;padding:7px 15px;border-radius:30px;font-weight:800;box-shadow:0 5px 16px rgba(176,141,87,.34);transition:transform .2s var(--ease),box-shadow .2s,filter .2s}
-.links a.navfeat::after{display:none !important}
-.links a.navfeat:hover{filter:brightness(1.06);transform:translateY(-1px);box-shadow:0 9px 22px rgba(176,141,87,.45)}
+.links a.navfeat{position:relative;overflow:visible}
+.links a.navfeat::after{content:"Featured";position:absolute;left:50%;top:-13px;transform:translateX(-50%);font-size:7px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#241a0d;background:linear-gradient(135deg,var(--brass3),var(--brass));padding:2px 6px;border-radius:7px;white-space:nowrap;line-height:1.2;box-shadow:0 2px 7px rgba(176,141,87,.4)}
 /* natural photo (the green/gold AI duotone filter is gone); editorial scrim handles legibility */
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:saturate(.86) contrast(1.05) brightness(.97)}
 .hero-in{grid-template-columns:1fr}
@@ -692,10 +692,10 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
     <p class="lead lead-lg rv">PropSight is the free way to see Singapore property clearly: value any HDB or condo on real recent sales, work out what you can truly afford, and research how any project is really performing. No agent hard-sell, just the real numbers. And Aillie, your property intelligence, is right here — ask her anything.</p>
     <p class="lead lead-sm rv">The free way to see Singapore property clearly — real values, what you can truly afford, and how any project's really doing. And Aillie, your property intelligence, is right here.</p>
     <div class="cta rv"><button class="btn brass" type="button" style="font-family:inherit;cursor:pointer" onclick="window.askAillie&&window.askAillie()">Ask Aillie <span class="arr">→</span></button><a class="btn btn-ghost" href="tools/value.html">Value a home <span class="arr">→</span></a></div>
+    <div class="hsoon rv"><span class="hsoon-d"></span><span><b>Coming soon —</b> a PropSight listings platform, every home with the real numbers built in.</span></div>
     <p class="covers rv">Home values · affordability · stamp duty · grants · schools · selling · eligibility — <b>all free, all here.</b></p>
     <a class="hessentials rv" href="essentials/">New to property? Start with the guide →</a>
     <div class="fresh rv"><span class="dot"></span>Live · built on official URA data · refreshed weekly</div>
-    <div class="hsoon rv"><span class="t">Coming next</span> <span>A PropSight listings platform, every home with the real numbers built in.</span></div>
     <a class="hinstall rv" href="install.html">📲 Add this hub to your phone — one tap to every tool</a>
   </div>
   <aside class="hero-chat-mount" id="heroChatMount" aria-label="Ask Aillie"><div class="chatcue" aria-hidden="true"><b>Ask Aillie anything</b><span>real numbers · free</span></div></aside>
