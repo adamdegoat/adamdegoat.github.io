@@ -213,8 +213,8 @@ section.block{padding:38px 0}
 .lead{margin-bottom:24px}
 
 /* featured (Adam + PA) — image-led, enticing */
-.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-@media(max-width:760px){.feature-grid{grid-template-columns:1fr}}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:900px){.feature-grid{grid-template-columns:1fr}}
 .fcard2{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--card);box-shadow:var(--shadow);transition:.22s cubic-bezier(.2,.7,.2,1)}
 .fcard2:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--brand)}
 .fc-shot{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--navy)}
@@ -266,9 +266,18 @@ section.block{padding:38px 0}
 <section class="block" id="featured">
   <div class="wrap">
     <div class="eyebrow">Start here</div>
-    <h2 class="h2">For your clients, <em>and for you</em></h2>
-    <p class="lead">Two front-line products — one where your clients land, one that works your leads while you're busy.</p>
+    <h2 class="h2">The ones to <em>open first</em></h2>
+    <p class="lead">The research that powers your pitch, the hub where your clients land, and the assistant that works your leads while you're busy.</p>
     <div class="feature-grid">
+      <a class="fcard2" href="https://adamdegoat.github.io/thesis/">
+        <div class="fc-shot"><img src="../assets/feat/thesis.jpg" alt="Thesis — every Singapore condo by the numbers, from official URA caveats" loading="lazy"><span class="fc-badge">★ Featured</span></div>
+        <div class="fc-body">
+          <h3>Thesis</h3>
+          <div class="fc-ess">Every condo, by the numbers.</div>
+          <p>Look up any Singapore condo and see its real numbers from official caveats — price per sqft, how it's moved, rental yield, tenure, and exactly how it's priced against nearby projects. Its value signal is backtested against real prices. Know any project cold before you pitch.</p>
+          <span class="btn btn-p fc-cta">Open Thesis →</span>
+        </div>
+      </a>
       <a class="fcard2" href="https://adamdegoat.github.io/adam/">
         <div class="fc-shot"><img src="../assets/feat/adam.jpg" alt="Adam Phang — the customer-facing property hub" loading="lazy"><span class="fc-badge">★ Where clients land</span></div>
         <div class="fc-body">
