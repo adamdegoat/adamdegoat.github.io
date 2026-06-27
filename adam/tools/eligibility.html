@@ -100,6 +100,14 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
       <label>You are a…</label>
       <div class="opts" id="status"><div class="opt on" data-v="sc">Singapore Citizen</div><div class="opt" data-v="pr">PR</div><div class="opt" data-v="foreigner">Foreigner</div></div>
     </div>
+    <div class="field" id="householdField" style="display:none">
+      <label>Who's buying?</label>
+      <div class="opts" id="household"><div class="opt on" data-v="family">With family / partner</div><div class="opt" data-v="single">On my own</div></div>
+    </div>
+    <div class="field" id="age35Field" style="display:none">
+      <label>Are you 35 or older?<small>A single can buy a resale flat on their own only from age 35.</small></label>
+      <div class="opts" id="age35"><div class="opt on" data-v="yes">Yes</div><div class="opt" data-v="no">No</div></div>
+    </div>
     <div class="field">
       <label>Do you own — or sold in the last ~2.5 years — a private property?</label>
       <div class="opts" id="owns"><div class="opt on" data-v="no">No</div><div class="opt" data-v="yes">Yes</div></div>
@@ -160,7 +168,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
 <script>
 const $=s=>document.querySelector(s);
 const num=id=>parseFloat(($('#'+id).value||'').replace(/[^0-9.]/g,''))||0;
-let ptype='hdb', status='sc', owns='no', finance='no', senior='no';
+let ptype='hdb', status='sc', owns='no', finance='no', senior='no', household='family', age35='yes';
 const CHECK='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#27513f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
 const WARN='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#b0883a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>';
 const NO='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#a23f28" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg>';
@@ -187,28 +195,35 @@ function compute(){
       v='no'; vk='Not allowed'; vh='Foreigners can\'t buy HDB flats.';
       P.push([NO,'HDB flats are public housing — for Singapore Citizens and PRs only. Private property is your route.']);
     } else {
+      let blocked=false;
       if(status==='pr'){
         v='cond'; vk='Only with the right partner'; vh='A PR can\'t buy a resale flat alone.';
         P.push([WARN,'You can only buy <b>with a Singapore Citizen</b>, or <b>with another PR — and both of you must have held PR for at least 3 years</b>. Either way you need a recognised family nucleus.']);
         P.push([CHECK,'As a PR your first home carries <b>5% ABSD</b> (refundable only in limited cases).']);
+      } else if(household==='single' && age35==='no'){
+        blocked=true; v='no'; vk='Not yet'; vh='As a single Singapore Citizen, you can buy a resale flat on your own only from age 35.';
+        P.push([NO,'The <b>Single Singapore Citizen Scheme</b> starts at <b>age 35</b>. Until then, you can buy <b>with a family nucleus</b> (a spouse, or your parents), or look at renting or a private property.']);
+        P.push([CHECK,'Turning 35 soon? You\'ll be able to buy a resale flat on your own then.']);
       } else {
-        vk='You\'re eligible'; vh='Yes — as a Singapore Citizen you can buy a resale flat.';
-        P.push([CHECK,'With a family, or <b>on your own from age 35</b> (singles scheme).']);
+        vk='You\'re eligible'; vh=(household==='single'?'Yes — a single Singapore Citizen aged 35+ can buy a resale flat.':'Yes — as a Singapore Citizen you can buy a resale flat.');
+        P.push([CHECK,household==='single'?'On your own under the <b>singles scheme</b> (age 35+).':'With your family nucleus — a spouse, parents, or children.']);
         P.push([CHECK,'<b>No income ceiling</b> to buy a resale flat — income limits only apply to HDB loans (≤$14,000 for families) and grants.']);
       }
-      if(ownPriv){
-        v='cond'; vk='Eligible — but sell &amp; wait first';
-        if(status==='sc' && senior==='yes'){
-          P.push([CHECK,'<b>Good news:</b> a Singapore Citizen aged 55+ buying a 4-room-or-smaller resale flat is <b>exempt from the wait-out</b>. You still sell your private property first, but there\'s no waiting period after that.']);
-        } else if(finance==='yes'){
-          P.push([WARN,'You own / recently sold private property: <b>sell it first</b>, then serve a <b>30-month wait</b> before you can buy — because you\'re taking an HDB loan or a CPF housing grant.']);
+      if(!blocked){
+        if(ownPriv){
+          v='cond'; vk='Eligible — but sell &amp; wait first';
+          if(status==='sc' && senior==='yes'){
+            P.push([CHECK,'<b>Good news:</b> a Singapore Citizen aged 55+ buying a 4-room-or-smaller resale flat is <b>exempt from the wait-out</b>. You still sell your private property first, but there\'s no waiting period after that.']);
+          } else if(finance==='yes'){
+            P.push([WARN,'You own / recently sold private property: <b>sell it first</b>, then serve a <b>30-month wait</b> before you can buy — because you\'re taking an HDB loan or a CPF housing grant.']);
+          } else {
+            P.push([WARN,'You own / recently sold private property: <b>sell it first</b>, then serve a <b>15-month wait</b> before you can buy (a non-subsidised resale flat, with no HDB loan or grant).']);
+          }
         } else {
-          P.push([WARN,'You own / recently sold private property: <b>sell it first</b>, then serve a <b>15-month wait</b> before you can buy (a non-subsidised resale flat, with no HDB loan or grant).']);
+          P.push([CHECK,'You can\'t own a flat and a private property at the same time (beyond a short grace period).']);
         }
-      } else {
-        P.push([CHECK,'You can\'t own a flat and a private property at the same time (beyond a short grace period).']);
+        P.push([WARN,'After buying, there\'s a <b>5-year Minimum Occupation Period</b> — you can\'t sell it or buy private property until then. <b>Plus / Prime</b> flats have a 10-year MOP.']);
       }
-      P.push([WARN,'After buying, there\'s a <b>5-year Minimum Occupation Period</b> — you can\'t sell it or buy private property until then. <b>Plus / Prime</b> flats have a 10-year MOP.']);
     }
   }
 
@@ -235,6 +250,8 @@ function compute(){
 function toggleFields(){
   $('#incomeField').style.display = ptype==='ec' ? '' : 'none';
   $('#waitFields').style.display = (ptype==='hdb' && owns==='yes' && status!=='foreigner') ? '' : 'none';
+  $('#householdField').style.display = (ptype==='hdb' && status==='sc') ? '' : 'none';
+  $('#age35Field').style.display = (ptype==='hdb' && status==='sc' && household==='single') ? '' : 'none';
 }
 function render(){
   toggleFields();
@@ -247,6 +264,8 @@ function render(){
 function pick(group,val){ document.querySelectorAll('#'+group+' .opt').forEach(o=>o.classList.toggle('on',o.dataset.v===val)); }
 document.querySelectorAll('#ptype .opt').forEach(o=>o.onclick=()=>{ptype=o.dataset.v;pick('ptype',ptype);render();});
 document.querySelectorAll('#status .opt').forEach(o=>o.onclick=()=>{status=o.dataset.v;pick('status',status);render();});
+document.querySelectorAll('#household .opt').forEach(o=>o.onclick=()=>{household=o.dataset.v;pick('household',household);render();});
+document.querySelectorAll('#age35 .opt').forEach(o=>o.onclick=()=>{age35=o.dataset.v;pick('age35',age35);render();});
 document.querySelectorAll('#owns .opt').forEach(o=>o.onclick=()=>{owns=o.dataset.v;pick('owns',owns);render();});
 document.querySelectorAll('#finance .opt').forEach(o=>o.onclick=()=>{finance=o.dataset.v;pick('finance',finance);render();});
 document.querySelectorAll('#senior .opt').forEach(o=>o.onclick=()=>{senior=o.dataset.v;pick('senior',senior);render();});
