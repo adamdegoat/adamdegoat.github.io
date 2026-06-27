@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-27T13:00:00.256175+08:00",
+  "updated": "2026-06-27T21:00:00.277368+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -151,153 +151,157 @@
     "espn_final": false
   },
   "last": {
-    "id": "2468283",
-    "name": "UFC Fight Night 279 Kape vs Horiguchi",
-    "short": "Kape vs Horiguchi",
-    "date_sgt": "2026-06-21T08:00:00+08:00",
-    "when_sgt": "Sun 21 Jun, 8:00 AM SGT",
-    "when_main": "Sun 21 Jun, 8:00 AM SGT",
-    "when_prelims": "Sun 21 Jun, 5:00 AM SGT",
+    "id": "2468284",
+    "name": "UFC Fight Night 280 Fiziev vs Torres",
+    "short": "Fiziev vs Torres",
+    "date_sgt": "2026-06-28T00:00:00+08:00",
+    "when_sgt": "Sun 28 Jun, 12:00 AM SGT",
+    "when_main": "Sun 28 Jun, 12:00 AM SGT",
+    "when_prelims": "Sat 27 Jun, 9:00 PM SGT",
     "has_time": true,
-    "location": "Las Vegas, USA",
-    "highlights": "https://www.youtube.com/results?search_query=UFC%20Fight%20Night%20279%20Kape%20vs%20Horiguchi%20highlights",
-    "desc": "UFC Fight Night: Kape vs. Horiguchi (also known as UFC Fight Night 279 and UFC Vegas 119) was a mixed martial arts event produced by the Ultimate Fighting Championship that took place on June 20, 2026, at the Meta Apex in Enterprise, Nevada, part of the Las Vegas Valley, United States.",
-    "badge": "https://www.thesportsdb.com/images/media/event/thumb/ktlfmk1782032413.jpg",
+    "location": "Baku, Azerbaijan",
+    "highlights": "https://www.youtube.com/results?search_query=UFC%20Fight%20Night%20280%20Fiziev%20vs%20Torres%20highlights",
+    "desc": "UFC Fight Night: Fiziev vs. Torres (also known as UFC Fight Night 280) is an upcoming mixed martial arts event produced by the Ultimate Fighting Championship that is scheduled to take place on June 27, 2026, at the National Gymnastics Arena in Baku, Azerbaijan",
+    "badge": "https://www.thesportsdb.com/images/media/event/thumb/oq891n1782041517.jpg",
     "bouts": [
       {
-        "section": "main",
-        "weight": "Flyweight",
-        "a": "Manel Kape",
-        "b": "Kyoji Horiguchi",
-        "decided": true,
-        "method": "TKO (punches)",
-        "round": "3",
-        "time": "2:42"
+        "section": "prelim",
+        "weight": "Welterweight",
+        "a": "Farman Hasanov",
+        "b": "Eric Nolan",
+        "decided": false,
+        "method": "",
+        "round": "",
+        "time": ""
       },
       {
-        "section": "main",
+        "section": "prelim",
         "weight": "Light Heavyweight",
-        "a": "Navajo Stirling",
-        "b": "Ion Cuțelaba",
-        "decided": true,
-        "method": "TKO (punches)",
-        "round": "2",
-        "time": "3:23"
-      },
-      {
-        "section": "main",
-        "weight": "Featherweight",
-        "a": "Christian Rodriguez",
-        "b": "Hyder Amil",
-        "decided": true,
-        "method": "Technical Submission (guillotine choke)",
-        "round": "1",
-        "time": "3:43"
-      },
-      {
-        "section": "main",
-        "weight": "Featherweight",
-        "a": "Murtazali Magomedov",
-        "b": "Melsik Baghdasaryan",
-        "decided": true,
-        "method": "Submission (twister)",
-        "round": "1",
-        "time": "1:17"
-      },
-      {
-        "section": "main",
-        "weight": "Featherweight",
-        "a": "Vinicius Oliveira",
-        "b": "Andre Fili",
-        "decided": true,
-        "method": "TKO (punches and elbows)",
-        "round": "2",
-        "time": "4:56"
+        "a": "Abdul-Rakhman Yakhyaev",
+        "b": "Julius Walker",
+        "decided": false,
+        "method": "",
+        "round": "",
+        "time": ""
       },
       {
         "section": "prelim",
-        "weight": "Catchweight (129 lb)",
-        "a": "Kevin Borjas",
-        "b": "André Lima",
-        "decided": true,
-        "method": "Decision (unanimous) (30–27, 29–28, 29–28)",
-        "round": "3",
-        "time": "5:00"
-      },
-      {
-        "section": "prelim",
-        "weight": "Women's Bantamweight",
-        "a": "Beatriz Mesquita",
-        "b": "Melissa Mullins",
-        "decided": true,
-        "method": "Submission (armbar)",
-        "round": "1",
-        "time": "3:16"
-      },
-      {
-        "section": "prelim",
-        "weight": "Flyweight",
-        "a": "Mitch Raposo",
-        "b": "Allan Nascimento",
-        "decided": true,
-        "method": "Decision (split) (29–28, 28–29, 29–28)",
-        "round": "3",
-        "time": "5:00"
+        "weight": "Middleweight",
+        "a": "Nursulton Ruziboev",
+        "b": "Andrey Pulyaev",
+        "decided": false,
+        "method": "",
+        "round": "",
+        "time": ""
       },
       {
         "section": "prelim",
         "weight": "Featherweight",
-        "a": "Gastón Bolaños",
-        "b": "Michael Aswell Jr.",
-        "decided": true,
-        "method": "Decision (unanimous) (29–28, 29–28, 29–28)",
-        "round": "3",
-        "time": "5:00"
+        "a": "Kaan Ofli",
+        "b": "Javier Reyes",
+        "decided": false,
+        "method": "",
+        "round": "",
+        "time": ""
       },
       {
         "section": "prelim",
         "weight": "Welterweight",
-        "a": "Levan Chokheli",
-        "b": "Leon Shahbazyan",
-        "decided": true,
-        "method": "TKO (leg kicks and punches)",
-        "round": "1",
-        "time": "0:23"
+        "a": "Daniil Donchenko",
+        "b": "Theodor Berggren",
+        "decided": false,
+        "method": "",
+        "round": "",
+        "time": ""
       },
       {
         "section": "prelim",
-        "weight": "Women's Bantamweight",
-        "a": "Luana Santos",
-        "b": "Karol Rosa",
-        "decided": true,
-        "method": "Decision (unanimous) (30–27, 30–27, 30–27)",
-        "round": "3",
-        "time": "5:00"
+        "weight": "Bantamweight",
+        "a": "Bekzat Almakhan",
+        "b": "Jean Matsumoto",
+        "decided": false,
+        "method": "",
+        "round": "",
+        "time": ""
       },
       {
         "section": "prelim",
-        "weight": "Featherweight",
-        "a": "Shane Collins",
-        "b": "Otari Tanzilovi",
-        "decided": true,
-        "method": "Decision (unanimous) (30–27, 30–27, 30–27)",
-        "round": "3",
-        "time": "5:00"
+        "weight": "Welterweight",
+        "a": "Tahir Abdullayev",
+        "b": "Jefferson Nascimento",
+        "decided": false,
+        "method": "",
+        "round": "",
+        "time": ""
+      },
+      {
+        "section": "main",
+        "weight": "Lightweight",
+        "a": "Rafael Fiziev",
+        "b": "Manuel Torres",
+        "decided": false,
+        "method": "",
+        "round": "",
+        "time": ""
+      },
+      {
+        "section": "main",
+        "weight": "Middleweight",
+        "a": "Sharabutdin Magomedov",
+        "b": "Michel Pereira",
+        "decided": false,
+        "method": "",
+        "round": "",
+        "time": ""
+      },
+      {
+        "section": "main",
+        "weight": "Lightweight",
+        "a": "Nazim Sadykhov",
+        "b": "Matheus Camilo",
+        "decided": false,
+        "method": "",
+        "round": "",
+        "time": ""
+      },
+      {
+        "section": "main",
+        "weight": "Flyweight",
+        "a": "Asu Almabayev",
+        "b": "Charles Johnson",
+        "decided": false,
+        "method": "",
+        "round": "",
+        "time": ""
+      },
+      {
+        "section": "main",
+        "weight": "Middleweight",
+        "a": "Ikram Aliskerov",
+        "b": "Brunno Ferreira",
+        "decided": false,
+        "method": "",
+        "round": "",
+        "time": ""
+      },
+      {
+        "section": "main",
+        "weight": "Middleweight",
+        "a": "Abusupiyan Magomedov",
+        "b": "Michał Oleksiejczuk",
+        "decided": false,
+        "method": "",
+        "round": "",
+        "time": ""
       }
     ],
-    "finished": true,
-    "espn_final": true
+    "finished": false,
+    "espn_final": false
   },
   "news": [
     {
       "title": "27-fight UFC vet Joe Lauzon signs with BKFC, set for debut at Fenway Park",
       "link": "https://www.mmafighting.com/bkfc/496541/27-fight-ufc-vet-joe-lauzon-signs-with-bkfc-set-for-debut-at-fenway-park",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
-      "title": "Daniel Cormier says Arman Tsarukyan has to get next UFC lightweight title shot: ‘Arman essentially made himself undeniable’",
-      "link": "https://www.mmafighting.com/latest-news/496370/daniel-cormier-says-arman-tsarukyan-has-to-get-next-ufc-lightweight-title-shot-arman-essentially-made-himself-undeniable",
       "source": "MMA Fighting",
       "priority": true
     },
@@ -362,21 +366,27 @@
       "priority": false
     },
     {
-      "title": "Never say never! Jon Jones teases Octagon return after training Gable Steveson for UFC 329: ‘Moving like I never left’",
-      "link": "https://www.mmamania.com/latest-news/453219/never-say-never-jon-jones-teases-octagon-return-after-training-gable-steveson-for-ufc-329-moving-like-i-never-left",
+      "title": "UFC Baku start time, full fight card details | Fiziev vs. Torres",
+      "link": "https://www.mmamania.com/ufc-programming/453136/ufc-baku-start-time-full-fight-card-details-fiziev-vs-torres",
       "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "Here’s MMAmania.com’s UFC Baku betting odds ‘Weekend Lock’ … what’s yours?",
-      "link": "https://www.mmamania.com/latest-news/453056/heres-mmamania-coms-ufc-baku-betting-odds-weekend-lock-whats-yours",
+      "title": "Bad decision? Inactive 42-year-old UFC veteran Joe Lauzon inks deal with BKFC, debuts at Fenway Park on Aug. 29",
+      "link": "https://www.mmamania.com/bare-knuckle-boxing-results-rules-ppv/453315/bad-decision-inactive-42-year-old-ufc-veteran-joe-lauzon-inks-deal-with-bkfc-debuts-at-fenway-park-on-aug-29",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
+      "title": "Never say never! Jon Jones teases Octagon return after training Gable Steveson for UFC 329: ‘Moving like I never left’",
+      "link": "https://www.mmamania.com/latest-news/453219/never-say-never-jon-jones-teases-octagon-return-after-training-gable-steveson-for-ufc-329-moving-like-i-never-left",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Sunday at midnight SGT: Fiziev clashes with Torres in what could be fireworks.",
-    "prefight": "Elite lightweights clash Sunday morning as Fiziev and Torres settle it.",
-    "results": "Kape overwhelms Horiguchi with sustained striking, forcing a third-round TKO stoppage."
+    "week": "Fiziev vs Torres tomorrow night—elite lightweight fireworks you won't want to miss.",
+    "prefight": "Explosive lightweight action erupts when Fiziev and Torres clash tomorrow night.",
+    "results": "The dust has settled on another fight night."
   }
 }
