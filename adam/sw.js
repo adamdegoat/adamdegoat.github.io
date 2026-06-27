@@ -1,11 +1,11 @@
 // PropSight hub — service worker (offline shell + installable PWA)
-const CACHE = 'propsight-v91';
+const CACHE = 'propsight-v92';
 const CORE = [
   'index.html', 'essentials/index.html',
   'notes/index.html', 'notes/your-real-property-budget-three-numbers.html',
   'tools/afford.html', 'tools/value.html', 'tools/stamp-duty.html',
   'tools/schools.html', 'tools/sell.html', 'tools/eligibility.html', 'tools/grants.html', 'install.html',
-  'manifest.json', 'icons/icon-192.png', 'icons/icon-512.png', 'img/heartland.jpg', 'img/hero.jpg'
+  'manifest.json', 'icons/icon-192.png', 'icons/icon-512.png', 'img/hero.jpg'
 ];
 
 self.addEventListener('install', e => {
