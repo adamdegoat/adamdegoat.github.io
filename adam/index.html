@@ -1057,7 +1057,7 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
         const cm={High:'High confidence',Medium:'Fair confidence',Lower:'Low confidence'}[r.confidence]||r.confidence;
         const warn = rough ? '<div class="cval-warn">Heads up, not many recent comparable sales here, so this is a rough guide only, not a reliable estimate. For an accurate figure, <a href="https://wa.me/6583219747" target="_blank" rel="noopener">ask us for a proper valuation</a>.</div>' : '';
         res.innerHTML=warn+'<div class="cval-est'+(rough?' rough':'')+'"><div class="rk">'+(rough?'Rough estimate · ':'Estimated value · ')+label+'</div><div class="rv">'+fmtM(r.low)+' – '+fmtM(r.high)+'</div><div class="rs">'+(rough?'treat with caution, limited recent sales':'the likely range, from real recent sales nearby')+'</div></div>'+
-          '<div class="cval-meta"><b>'+cm+'</b> · based on '+r.n_comps+' recent sale'+(r.n_comps===1?'':'s')+' · around '+Math.round(r.estimate_psf).toLocaleString()+' psf.'+(r.area_assumed?' Add your floor area for a tighter range.':'')+'<br><a class="cval-full" href="'+fullURL+'" target="_blank" rel="noopener">See the full breakdown &amp; comparable sales →</a></div>';
+          '<div class="cval-meta"><b>'+cm+'</b> · based on '+r.n_comps+' recent sale'+(r.n_comps===1?'':'s')+' of similar homes · about $'+Math.round(r.estimate_psf).toLocaleString()+' for each square foot.'+(r.area_assumed?' Add your floor area for a tighter range.':'')+'<br><a class="cval-full" href="'+fullURL+'" target="_blank" rel="noopener">See the full breakdown &amp; similar sales →</a></div>';
         res.classList.add('on');
       }catch(e){ err.textContent=e.message||'Something went wrong — try again.'; err.style.display='block'; }
       go.disabled=false;go.textContent='Value it →';
@@ -1071,7 +1071,7 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
   let ready=null, PROJECTS=[], HDB=null, MEDY=null;
   const title=s=>(s||'').toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());
   const SEGP={CCR:'Prime',RCR:'City fringe',OCR:'Suburbs'};
-  const trendTxt=m=>m==null?'too few recent sales for a clear trend':(m>0?'up '+m+'% over 6 months':m<0?'down '+(-m)+'% over 6 months':'flat over 6 months');
+  const trendTxt=m=>m==null?'not enough recent sales to call a trend yet':(m>0?'risen about '+m+'% over the last 6 months':m<0?'eased about '+(-m)+'% over the last 6 months':'stayed flat over the last 6 months');
   function ensureThesis(){
     if(ready)return ready;
     ready=(async()=>{
@@ -1114,19 +1114,19 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
     ftSel.addEventListener('change',()=>{const ft=ftSel.value;if(!ft||!town)return;const g=HDB.groups.find(x=>x.town===town&&x.ft===ft);if(g)renderHDB(g);});
     function renderCondo(p){
       err.style.display='none';
-      const vsn=p.value_flag?'':(p.discount>0?p.discount+'% cheaper than nearby condos':p.discount<0?(-p.discount)+'% pricier than nearby condos':'in line with nearby condos');
-      const rng=(p.psf_lo&&p.psf_hi)?'most sell $'+p.psf_lo.toLocaleString()+'–$'+p.psf_hi.toLocaleString()+' psf':'recent transacted price per sqft';
-      const yld=p.yield?p.yield+'% gross rental yield'+(MEDY?' (SG median ~'+MEDY+'%)':''):'rental yield not available';
-      res.innerHTML='<div class="cval-est"><div class="rk">'+title(p.project)+' · '+(SEGP[p.seg]||p.seg||'')+'</div><div class="rv">~$'+(p.psf?p.psf.toLocaleString():'—')+' psf <span style="font-size:12px;font-weight:500;opacity:.78">typically</span></div><div class="rs">'+rng+'</div></div>'+
-        '<div class="cval-meta">'+(vsn?vsn+'.<br>':'')+'Price trend: <b>'+trendTxt(p.mom)+'</b>.<br>'+yld+'.<br>Tenure: '+(p.fh?'Freehold':'Leasehold')+' · '+(p.txns||0)+' recent sales.<br><a class="cval-full" href="/thesis/?p='+encodeURIComponent(p.project)+'" target="_blank" rel="noopener">See the full research, chart &amp; comparables →</a></div>';
+      const vsn=p.value_flag?'':(p.discount>0?'About '+p.discount+'% cheaper for each square foot than similar condos nearby':p.discount<0?'About '+(-p.discount)+'% pricier for each square foot than similar condos nearby':'Priced about the same as similar condos nearby');
+      const rng=(p.psf_lo&&p.psf_hi)?'most units sell for $'+p.psf_lo.toLocaleString()+'–$'+p.psf_hi.toLocaleString()+' for each square foot':'recent selling price for each square foot';
+      const yld=p.yield?'Rent it out and you’d earn roughly '+p.yield+'% of its value a year in rent'+(MEDY?' (the Singapore average is about '+MEDY+'%)':''):'rental return not available';
+      res.innerHTML='<div class="cval-est"><div class="rk">'+title(p.project)+' · '+(SEGP[p.seg]||p.seg||'')+'</div><div class="rv">~$'+(p.psf?p.psf.toLocaleString():'—')+' <span style="font-size:12px;font-weight:500;opacity:.78">per sq ft</span></div><div class="rs">'+rng+'</div></div>'+
+        '<div class="cval-meta">'+(vsn?vsn+'.<br>':'')+'Prices here have <b>'+trendTxt(p.mom)+'</b>.<br>'+yld+'.<br>'+(p.fh?'It’s <b>freehold</b>, so you own it for good':'It’s <b>leasehold</b>, so you own it for 99 years')+'.<br>Based on '+(p.txns||0)+' recent sales nearby.<br><a class="cval-full" href="/thesis/?p='+encodeURIComponent(p.project)+'" target="_blank" rel="noopener">See the full research, chart &amp; similar sales →</a></div>';
       res.classList.add('on');
     }
     function renderHDB(g){
       err.style.display='none';
-      const yld=g.yield?g.yield+'% gross rental yield':'rental yield not available';
-      const vsN=g.vs_national!=null?(g.vs_national>0?g.vs_national+'% above':g.vs_national<0?(-g.vs_national)+'% below':'in line with')+' the national median for this flat type':'';
-      res.innerHTML='<div class="cval-est"><div class="rk">'+g.town+' · '+title(g.ft)+'</div><div class="rv">~$'+(g.price?g.price.toLocaleString():'—')+' <span style="font-size:12px;font-weight:500;opacity:.78">typically</span></div><div class="rs">about $'+(g.psf?g.psf.toLocaleString():'—')+' psf · typically '+(g.lease||'—')+' years lease left</div></div>'+
-        '<div class="cval-meta">Price trend: <b>'+trendTxt(g.mom)+'</b>.<br>'+yld+'.<br>'+(g.txns||0)+' recent sales'+(vsN?', '+vsN:'')+'.<br><a class="cval-full" href="/thesis/?town='+encodeURIComponent(g.town)+'&ft='+encodeURIComponent(g.ft)+'" target="_blank" rel="noopener">See the full research, blocks &amp; chart →</a></div>';
+      const yld=g.yield?'Rent it out and you’d earn roughly '+g.yield+'% of its value a year in rent':'rental return not available';
+      const vsN=g.vs_national!=null?(g.vs_national>0?g.vs_national+'% above':g.vs_national<0?(-g.vs_national)+'% below':'about the same as')+' the national average for this flat type':'';
+      res.innerHTML='<div class="cval-est"><div class="rk">'+g.town+' · '+title(g.ft)+'</div><div class="rv">~$'+(g.price?g.price.toLocaleString():'—')+' <span style="font-size:12px;font-weight:500;opacity:.78">typically</span></div><div class="rs">about $'+(g.psf?g.psf.toLocaleString():'—')+' for each square foot · usually about '+(g.lease||'—')+' years left on the lease</div></div>'+
+        '<div class="cval-meta">Prices here have <b>'+trendTxt(g.mom)+'</b>.<br>'+yld+'.<br>Based on '+(g.txns||0)+' recent sales'+(vsN?', '+vsN:'')+'.<br><a class="cval-full" href="/thesis/?town='+encodeURIComponent(g.town)+'&ft='+encodeURIComponent(g.ft)+'" target="_blank" rel="noopener">See the full research, blocks &amp; chart →</a></div>';
       res.classList.add('on');
     }
   };
