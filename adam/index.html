@@ -275,7 +275,7 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .tool.feat2{border-color:var(--brass)}
 
 /* weekly blog */
-.notes{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .note.cta{background:linear-gradient(160deg,#fbf6ec,#f1ead9);border-color:var(--line2);display:flex;flex-direction:column;justify-content:center}
 .note.cta .date{color:var(--brass)}
 .note{position:relative;display:block;background:#fffefc;border:1px solid var(--line);border-radius:18px;padding:24px 22px;overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s,border-color .3s}
@@ -505,6 +505,8 @@ body::before{animation:none}
 .hero .lead{font-size:17px;margin-top:18px;max-width:500px;line-height:1.55}
 .hero .cta{margin-top:26px}
 .hero .covers,.hero .hinstall{display:none}
+.lead-sm{display:none}
+@media(max-width:880px){.lead-lg{display:none}.lead-sm{display:block}}
 .mhead{margin-bottom:16px;padding-bottom:12px}
 .links{gap:22px}
 /* featured "Research" nav pill — pops as the flagship data tool */
@@ -664,7 +666,8 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
   <div>
     <span class="eyebrow rv">Free Singapore property intelligence</span>
     <h1><span class="ln"><i>Singapore</i></span><span class="ln"><i>property,</i></span><span class="ln"><i>decoded.</i></span></h1>
-    <p class="lead rv">PropSight is the free way to see Singapore property clearly: value any HDB or condo on real recent sales, work out what you can truly afford, and research how any project is really performing. No agent hard-sell, just the real numbers. And Aillie, our AI guide, is right here — ask her anything.</p>
+    <p class="lead lead-lg rv">PropSight is the free way to see Singapore property clearly: value any HDB or condo on real recent sales, work out what you can truly afford, and research how any project is really performing. No agent hard-sell, just the real numbers. And Aillie, our AI guide, is right here — ask her anything.</p>
+    <p class="lead lead-sm rv">The free way to see Singapore property clearly — real values, what you can truly afford, and how any project's really doing. And Aillie, our AI guide, is right here.</p>
     <div class="cta rv"><button class="btn brass" type="button" style="font-family:inherit;cursor:pointer" onclick="window.askAillie&&window.askAillie()">Ask Aillie <span class="arr">→</span></button><a class="btn btn-ghost" href="tools/value.html">Value a home <span class="arr">→</span></a></div>
     <p class="covers rv">Home values · affordability · stamp duty · grants · schools · selling · eligibility — <b>all free, all here.</b></p>
     <a class="hessentials rv" href="essentials/">New to property? Start with the guide →</a>
