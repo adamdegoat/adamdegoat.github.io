@@ -10,7 +10,9 @@
     ['New Launches', BASE + '/adam/launches/', ''],
     ['Market Pulse', BASE + '/adam/notes/', ''],
     ['Guide', BASE + '/adam/essentials/', ''],
-    ['Contact', 'https://wa.me/6583219747', 'cta']
+    ['Why PropSight', BASE + '/adam/#why', ''],
+    ['Contact', BASE + '/adam/#talk', ''],
+    ["Let's talk", 'https://wa.me/6583219747', 'cta']
   ];
   var p = location.pathname;
   function active(href) {
@@ -30,7 +32,7 @@
 
   var css = '' +
     '.psnav{position:sticky;top:0;z-index:300;background:rgba(247,244,236,.97);border-bottom:1px solid #e7e0d2;font-family:"Schibsted Grotesk",system-ui,sans-serif}' +
-    '.psnav-in{max-width:1180px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;gap:24px}' +
+    '.psnav-in{max-width:1200px;margin:0 auto;padding:0 28px;height:76px;display:flex;align-items:center;gap:20px}' +
     '.psnav-brand{display:flex;align-items:center;gap:9px;text-decoration:none}.psnav-brand .pm{width:34px;height:34px;flex:none;filter:drop-shadow(0 3px 8px rgba(15,35,26,.16))}' +
     '.psnav-brand b{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:20px;color:#191512;letter-spacing:.01em}' +
     '.psnav-links{display:flex;gap:22px;margin-left:auto;align-items:center}' +
@@ -40,7 +42,7 @@
     '.psnav-links a.cta{background:#1b3a2d;color:#f5f1e8;padding:9px 18px;border-radius:30px;font-weight:700}' +
     '.psnav-burger{display:none;margin-left:auto;width:42px;height:42px;border:1px solid #dbd1bf;border-radius:10px;background:rgba(255,255,255,.6);cursor:pointer;align-items:center;justify-content:center}' +
     '.psnav-burger svg{width:22px;height:22px;stroke:#191512;fill:none;stroke-width:2;stroke-linecap:round}' +
-    '.psnav-menu{position:fixed;left:0;right:0;top:64px;bottom:0;z-index:299;background:#f6f3ea;padding:14px 24px 30px;display:none;flex-direction:column;overflow-y:auto}' +
+    '.psnav-menu{position:fixed;left:0;right:0;top:76px;bottom:0;z-index:299;background:#f6f3ea;padding:14px 24px 30px;display:none;flex-direction:column;overflow-y:auto}' +
     '.psnav-menu.open{display:flex}' +
     '.psnav-menu a{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:23px;color:#191512;text-decoration:none;padding:16px 2px;border-bottom:1px solid #e7e0d2}' +
     '@media(max-width:860px){.psnav-links{display:none}.psnav-burger{display:flex}}';
