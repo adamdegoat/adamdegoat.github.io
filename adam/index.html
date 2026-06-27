@@ -261,7 +261,7 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .tool::after{content:"Open →";position:absolute;right:22px;bottom:24px;font-size:12px;font-weight:700;color:var(--green2);opacity:0;transform:translateX(-6px);transition:.3s var(--ease)}
 .tool:hover{transform:translateY(-7px);box-shadow:0 26px 56px rgba(25,21,18,.14);border-color:var(--green2)}
 .tool:hover::after{opacity:1;transform:none}
-.tool .ti2{width:48px;height:48px;padding:12px;border-radius:14px;box-sizing:border-box;background:rgba(27,58,45,.05);border:1px solid var(--line);stroke:var(--green2);color:var(--green2);margin-bottom:16px;transition:.34s var(--ease)}
+.tool .ti2{width:50px;height:50px;padding:12px;border-radius:14px;box-sizing:border-box;background:linear-gradient(145deg,rgba(27,58,45,.08),rgba(176,141,87,.05));border:1px solid rgba(176,141,87,.22);stroke:var(--green2);color:var(--green2);margin-bottom:16px;transition:.34s var(--ease)}
 .tool:hover .ti2{background:linear-gradient(140deg,var(--green2),var(--green3));border-color:transparent;stroke:var(--brass3);color:var(--brass3);transform:translateY(-3px)}
 .tool h4{font-family:var(--serif);font-weight:600;font-size:18.5px;margin-bottom:6px}
 .tool p{font-size:12.5px;color:var(--ink2);line-height:1.5}
@@ -425,8 +425,9 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none}
 .hero-bg svg{width:100%;height:100%;display:block}
 .hero-grad{position:absolute;inset:0;z-index:1;pointer-events:none;background:
- linear-gradient(96deg,rgba(7,19,12,.93) 0 32%,rgba(7,19,12,.55) 56%,rgba(7,19,12,.2)),
- linear-gradient(0deg,rgba(7,19,12,.6),transparent 38%)}
+ linear-gradient(95deg,rgba(9,28,19,.96) 0 34%,rgba(10,30,20,.66) 58%,rgba(11,32,21,.30)),
+ linear-gradient(0deg,rgba(6,18,12,.74),transparent 44%),
+ radial-gradient(120% 90% at 86% 8%,rgba(227,201,143,.16),transparent 46%)}
 .herosun{position:absolute;top:-140px;right:-70px;width:470px;height:470px;border-radius:50%;z-index:1;pointer-events:none;
  background:radial-gradient(circle,rgba(217,172,92,.5),rgba(217,172,92,0) 67%)}
 .mhead{position:relative;z-index:3;display:flex;justify-content:space-between;align-items:center;gap:16px;
@@ -500,9 +501,10 @@ body::before{animation:none}
 /* ═══ PLAINSIGHT v2 — compact hero (showcase more) + Ask PropSight chatbot ═══ */
 .hero{margin-top:-77px;padding-top:140px;padding-bottom:32px}
 .hero .mq{top:77px}
-.hero h1{font-size:clamp(32px,3.9vw,52px) !important;letter-spacing:-.03em}
-.hero .lead{font-size:15.5px;margin-top:14px;max-width:480px}
-.hero .cta{margin-top:19px}
+.hero h1{font-size:clamp(40px,5.2vw,78px) !important;letter-spacing:-.032em}
+.hero .lead{font-size:17px;margin-top:18px;max-width:500px;line-height:1.55}
+.hero .cta{margin-top:26px}
+.hero .covers,.hero .hinstall{display:none}
 .mhead{margin-bottom:16px;padding-bottom:12px}
 .links{gap:22px}
 /* featured "Research" nav pill — pops as the flagship data tool */
@@ -510,7 +512,7 @@ body::before{animation:none}
 .links a.navfeat::after{display:none !important}
 .links a.navfeat:hover{filter:brightness(1.06);transform:translateY(-1px);box-shadow:0 9px 22px rgba(176,141,87,.45)}
 /* natural photo (the green/gold AI duotone filter is gone); editorial scrim handles legibility */
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:saturate(.92) contrast(1.02)}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:saturate(.62) contrast(1.08) brightness(.82)}
 .hero-in{grid-template-columns:1fr}
 .afford-sec .afford-mini{max-width:560px;margin:0 auto}
 /* ── Aillie featured INLINE in the hero (desktop): not a corner pin ── */
@@ -663,7 +665,7 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
     <span class="eyebrow rv">Free Singapore property intelligence</span>
     <h1><span class="ln"><i>Singapore</i></span><span class="ln"><i>property,</i></span><span class="ln"><i>decoded.</i></span></h1>
     <p class="lead rv">PropSight is the free way to see Singapore property clearly: value any HDB or condo on real recent sales, work out what you can truly afford, and research how any project is really performing. No agent hard-sell, just the real numbers. And Aillie, our AI guide, is right here — ask her anything.</p>
-    <div class="cta rv"><button class="btn brass" type="button" style="font-family:inherit;cursor:pointer" onclick="window.askAillie&&window.askAillie()">Ask Aillie <span class="arr">→</span></button><a class="btn brass" href="tools/value.html">Value a home <span class="arr">→</span></a></div>
+    <div class="cta rv"><button class="btn brass" type="button" style="font-family:inherit;cursor:pointer" onclick="window.askAillie&&window.askAillie()">Ask Aillie <span class="arr">→</span></button><a class="btn btn-ghost" href="tools/value.html">Value a home <span class="arr">→</span></a></div>
     <p class="covers rv">Home values · affordability · stamp duty · grants · schools · selling · eligibility — <b>all free, all here.</b></p>
     <a class="hessentials rv" href="essentials/">New to property? Start with the guide →</a>
     <div class="fresh rv"><span class="dot"></span>Live · built on official URA data · refreshed weekly</div>
