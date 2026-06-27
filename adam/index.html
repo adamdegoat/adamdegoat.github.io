@@ -498,12 +498,17 @@ body::before{animation:none}
 .pb-card .pb-go i{font-style:normal;transition:transform .25s}.pb-card:hover .pb-go i{transform:translateX(5px)}
 @media(max-width:560px){.photoband{height:340px}.pb-card{display:block;max-width:none}}
 /* ═══ PLAINSIGHT v2 — compact hero (showcase more) + Ask Plainsight chatbot ═══ */
-.hero{padding-top:56px;padding-bottom:32px}
+.hero{margin-top:-77px;padding-top:140px;padding-bottom:32px}
+.hero .mq{top:77px}
 .hero h1{font-size:clamp(32px,3.9vw,52px) !important;letter-spacing:-.03em}
 .hero .lead{font-size:15.5px;margin-top:14px;max-width:480px}
 .hero .cta{margin-top:19px}
 .mhead{margin-bottom:16px;padding-bottom:12px}
 .links{gap:22px}
+/* featured "Research" nav pill — pops as the flagship data tool */
+.links a.navfeat{background:linear-gradient(135deg,var(--brass3),var(--brass));color:#241a0d !important;padding:7px 15px;border-radius:30px;font-weight:800;box-shadow:0 5px 16px rgba(176,141,87,.34);transition:transform .2s var(--ease),box-shadow .2s,filter .2s}
+.links a.navfeat::after{display:none !important}
+.links a.navfeat:hover{filter:brightness(1.06);transform:translateY(-1px);box-shadow:0 9px 22px rgba(176,141,87,.45)}
 /* natural photo (the green/gold AI duotone filter is gone); editorial scrim handles legibility */
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:saturate(.92) contrast(1.02)}
 .hero-in{grid-template-columns:1fr}
@@ -522,7 +527,7 @@ body::before{animation:none}
 /* single-colour headline — no gold word, no underline squiggle (read as AI) */
 .hero h1 em{color:inherit !important}
 .hero h1 .uline{display:none}
-@media(max-width:880px){.hero{padding-top:52px;padding-bottom:24px}.hero h1{font-size:clamp(30px,7.6vw,42px) !important}}
+@media(max-width:880px){.hero{padding-top:126px;padding-bottom:24px}.hero h1{font-size:clamp(30px,7.6vw,42px) !important}}
 /* launcher */
 .cbtn{position:fixed;right:22px;bottom:22px;z-index:80;display:inline-flex;align-items:center;gap:10px;
  background:linear-gradient(135deg,var(--green2),var(--green3));color:#f4efe6;border:1px solid rgba(227,201,143,.45);
@@ -617,7 +622,7 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
     <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="mg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2c5743"/><stop offset=".55" stop-color="#1b3a2d"/><stop offset="1" stop-color="#0f231a"/></linearGradient><linearGradient id="mb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#efd9a6"/><stop offset="1" stop-color="#c39a5b"/></linearGradient></defs><rect x="1" y="1" width="38" height="38" rx="11" fill="url(#mg)"/><text x="19.5" y="29.5" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-weight="500" font-size="27" fill="url(#mb)">P</text><circle cx="29" cy="13.5" r="2" fill="#e3c98f"/></svg>
     <span class="bw"><b>Plainsight</b><span>Singapore</span></span>
   </div>
-  <nav class="links"><a href="#tools">Tools</a><a href="/thesis/">Research</a><a href="launches/">New Launches</a><a href="notes/">Market Pulse</a><a href="essentials/">Essentials</a><a href="#why">Why Plainsight</a><a href="#talk">Contact</a></nav>
+  <nav class="links"><a href="#tools">Tools</a><a href="/thesis/" class="navfeat">Research</a><a href="launches/">New Launches</a><a href="notes/">Market Pulse</a><a href="essentials/">Guide</a><a href="#why">Why Plainsight</a><a href="#talk">Contact</a></nav>
   <a class="btn navbtn" href="https://wa.me/6583219747">Let's talk <span class="arr">→</span></a>
   <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
     <svg class="ic-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -629,7 +634,7 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
   <a class="mm" href="/thesis/"><span class="mm-n">02</span><span><span class="mm-t">Research</span><span class="mm-d">Look up any condo's real numbers</span></span><span class="mm-ar">→</span></a>
   <a class="mm" href="launches/"><span class="mm-n">03</span><span><span class="mm-t">New Launches</span><span class="mm-d">The launches we're representing</span></span><span class="mm-ar">→</span></a>
   <a class="mm" href="notes/"><span class="mm-n">04</span><span><span class="mm-t">Market Pulse</span><span class="mm-d">Our read on the market, weekly</span></span><span class="mm-ar">→</span></a>
-  <a class="mm" href="essentials/"><span class="mm-n">05</span><span><span class="mm-t">Essentials</span><span class="mm-d">How buying &amp; selling actually works</span></span><span class="mm-ar">→</span></a>
+  <a class="mm" href="essentials/"><span class="mm-n">05</span><span><span class="mm-t">Guide</span><span class="mm-d">How buying &amp; selling actually works</span></span><span class="mm-ar">→</span></a>
   <a class="mm" href="#why"><span class="mm-n">06</span><span><span class="mm-t">Why Plainsight</span><span class="mm-d">How our team helps you buy or sell</span></span><span class="mm-ar">→</span></a>
   <a class="mm" href="#talk"><span class="mm-n">07</span><span><span class="mm-t">Contact</span><span class="mm-d">Get in touch, no pressure</span></span><span class="mm-ar">→</span></a>
   <div class="mm-foot">
@@ -651,7 +656,7 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
     <p class="lead rv">Value any home on real recent sales, see what you can really afford, sort out your stamp duty and grants, or — if you've got little ones — find the homes within 1km of a primary school. Thinking of selling? See what you'd actually walk away with. It's all here, free and no sign-up. Have a good look around; we're a message away whenever you want a hand.</p>
     <div class="cta rv"><a class="btn brass" href="tools/afford.html">See what you can afford <span class="arr">→</span></a><a class="btn brass" href="tools/value.html">Value a home <span class="arr">→</span></a></div>
     <p class="covers rv">Home values · affordability · stamp duty · grants · schools · selling · eligibility — <b>all free, all here.</b></p>
-    <a class="hessentials rv" href="essentials/">New to property? Start with the essentials →</a>
+    <a class="hessentials rv" href="essentials/">New to property? Start with the guide →</a>
     <div class="fresh rv"><span class="dot"></span>Live · built on official URA data · refreshed weekly</div>
     <a class="hinstall rv" href="install.html">📲 Add this hub to your phone — one tap to every tool</a>
   </div>
@@ -700,10 +705,10 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
 </section>
 
 <section class="sec" id="notes"><div class="wrap">
-  <div class="sec-h"><div><span class="eyebrow rv">The Essentials</span><h2 class="rv">New here? Learn how it all works.</h2><svg class="hl" viewBox="0 0 188 15" preserveAspectRatio="none" aria-hidden="true"><path d="M4 9 C 48 4, 140 4, 184 8"/></svg></div>
-    <p class="rv">Never bought before? Don't know your OTP from your ABSD? The Essentials walk you through the whole process, step by step, plus the tips that quietly save people money.</p></div>
+  <div class="sec-h"><div><span class="eyebrow rv">The Guide</span><h2 class="rv">New here? Learn how it all works.</h2><svg class="hl" viewBox="0 0 188 15" preserveAspectRatio="none" aria-hidden="true"><path d="M4 9 C 48 4, 140 4, 184 8"/></svg></div>
+    <p class="rv">Never bought before? Don't know your OTP from your ABSD? Our guide walks you through the whole process, step by step, plus the tips that quietly save people money.</p></div>
   <div class="notes"><a class="note rv" href="essentials/#buying"><div class="date">Step by step</div><h3>How buying actually works</h3><p>The full journey for a condo or HDB — from first viewing to keys in hand — and exactly what you pay at each step.</p><span class="go">See the steps <i>→</i></span></a><a class="note rv" href="essentials/#selling"><div class="date">Step by step</div><h3>How selling works</h3><p>The selling journey end to end, plus the timing traps near the finish line that catch people out.</p><span class="go">See the steps <i>→</i></span></a><a class="note rv" href="essentials/#tips"><div class="date">Tips</div><h3>Tips worth knowing</h3><p>Straight answers to the things every buyer wishes they'd known first — budgets, hidden costs, lease decay and more.</p><span class="go">Read the tips <i>→</i></span></a></div>
-  <a class="notes-all rv" href="essentials/">Open the Essentials <span>→</span></a>
+  <a class="notes-all rv" href="essentials/">Open the Guide <span>→</span></a>
 </div></section>
 
 <section class="sec" id="why"><div class="wrap">
