@@ -1,5 +1,5 @@
-// Plainsight hub — service worker (offline shell + installable PWA)
-const CACHE = 'plainsight-v75';
+// PropSight hub — service worker (offline shell + installable PWA)
+const CACHE = 'propsight-v76';
 const CORE = [
   'index.html', 'essentials/index.html',
   'notes/index.html', 'notes/your-real-property-budget-three-numbers.html',
