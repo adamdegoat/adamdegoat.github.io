@@ -1,4 +1,4 @@
-var CACHE = 'thesis-v25';
+var CACHE = 'thesis-v26';
 var ASSETS = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
 
 self.addEventListener('install', function (e) {
