@@ -65,6 +65,8 @@ em{font-style:italic;color:var(--brass)}
 .btn.brass-out:hover{background:rgba(227,201,143,.16);border-color:var(--brass3);transform:translateY(-2px)}
 .btn .arr{transition:transform .25s var(--ease)}.btn:hover .arr{transform:translateX(4px)}
 /* mobile menu */
+.navjoin{display:inline-flex;align-items:center;gap:7px;margin-left:16px;background:linear-gradient(135deg,var(--brass3),var(--brass));color:#241a0d;font-weight:800;font-size:14px;font-family:inherit;padding:11px 19px;border-radius:40px;border:1px solid var(--brass);box-shadow:0 9px 24px rgba(176,141,87,.36);cursor:pointer;white-space:nowrap;transition:transform .2s var(--ease),box-shadow .2s}
+.navjoin:hover{transform:translateY(-2px);box-shadow:0 15px 32px rgba(176,141,87,.46)}
 .menu-toggle{display:none;margin-left:auto;width:44px;height:44px;align-items:center;justify-content:center;background:rgba(255,255,255,.55);border:1px solid var(--line2);border-radius:11px;cursor:pointer;color:var(--ink);-webkit-tap-highlight-color:transparent;position:relative;z-index:61;transition:.25s var(--ease)}
 .menu-toggle svg{width:22px;height:22px}
 .menu-toggle .ic-close{display:none}
@@ -112,7 +114,10 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .hessentials:hover{border-color:var(--brass);transform:translateY(-1px)}
 .fresh{display:inline-flex;align-items:center;gap:9px;margin-top:14px;font-size:12.5px;color:var(--ink3);font-weight:600}
 .fresh .dot{width:8px;height:8px;border-radius:50%;background:#2e9e6b;box-shadow:0 0 0 0 rgba(46,158,107,.5);animation:pulse 2s infinite}
-.hsoon{display:flex;align-items:baseline;gap:9px;margin-top:18px;font-size:13px;font-weight:600;line-height:1.45;max-width:480px}
+.hperks{display:flex;align-items:baseline;gap:10px;margin-top:20px;font-size:14px;font-weight:600;line-height:1.5;max-width:510px}
+.hperks .hperks-star{flex:none;color:var(--brass3);font-size:15px;position:relative;top:1px}
+.hperks b{color:var(--brass3);font-weight:800}
+.hsoon{display:flex;align-items:baseline;gap:9px;margin-top:14px;font-size:13px;font-weight:600;line-height:1.45;max-width:480px}
 .hsoon .hsoon-d{flex:none;width:7px;height:7px;border-radius:50%;background:var(--brass3);position:relative;top:5px;box-shadow:0 0 10px rgba(227,201,143,.65)}
 .hsoon b{color:var(--brass3);font-weight:800}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.45)}}
@@ -340,6 +345,7 @@ html.menu-open,html.menu-open body{overflow:hidden}
 @media(max-width:880px){
  .wrap{padding:0 22px}.hero-in{grid-template-columns:1fr;gap:34px}.portrait{max-width:400px}
  .tools .tool{flex-basis:calc(50% - 8px);max-width:calc(50% - 8px)}.links{display:none}.navbtn{display:none}.pov{padding:34px 24px}
+ .navjoin{margin-left:auto;font-size:13px;padding:10px 16px}.nav-in .menu-toggle{margin-left:11px}
  .menu-toggle{display:flex}
  .sec-h{flex-direction:column;align-items:flex-start}
  .about-in{grid-template-columns:1fr;gap:30px}.about-in .portrait{width:100%;max-width:320px;margin:0 auto;aspect-ratio:auto;min-height:300px}
@@ -389,6 +395,7 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .hero .covers b{color:rgba(246,241,231,.92)}
 .hero .fresh{color:rgba(246,241,231,.62)}
 .hero .hsoon{color:rgba(246,241,231,.82)}
+.hero .hperks{color:rgba(246,241,231,.94)}
 .hero .hinstall{color:var(--brass3)}
 .hero .hinstall:hover{border-bottom-color:var(--brass3)}
 .hero .hessentials{color:#f3efe6;border-color:rgba(243,239,230,.32)}
@@ -659,6 +666,7 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
 <noscript><style>.rv{opacity:1!important;transform:none!important}.livepanel,.portrait{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
+<script src="/adam/member.js"></script>
 <div class="prog" id="prog"></div>
 <div class="topo" aria-hidden="true"></div>
 
@@ -668,6 +676,7 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
     <span class="bw"><b>PropSight</b><span>Singapore</span></span>
   </div>
   <nav class="links"><a href="#tools">Tools</a><a href="/thesis/" class="navfeat">Research</a><a href="launches/">New Launches</a><a href="notes/">Market Pulse</a><a href="news/" class="navsmart">News</a><a href="essentials/">Guide</a><a href="about/">About us</a><a href="#talk">Contact</a></nav>
+  <button class="navjoin" type="button" onclick="window.PS&&PS.openModal('nav')">Join free</button>
   <a class="btn navbtn" href="https://wa.me/6583219747">Let's talk <span class="arr">→</span></a>
   <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
     <svg class="ic-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -684,8 +693,9 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
   <a class="mm" href="about/"><span class="mm-n">07</span><span><span class="mm-t">About us</span><span class="mm-d">What PropSight is, and everything it does</span></span><span class="mm-ar">→</span></a>
   <a class="mm" href="#talk"><span class="mm-n">08</span><span><span class="mm-t">Contact</span><span class="mm-d">Get in touch, no pressure</span></span><span class="mm-ar">→</span></a>
   <div class="mm-foot">
+    <button class="mm-cta" type="button" style="border:0;font-family:inherit;cursor:pointer;width:100%" onclick="document.getElementById('menuToggle').click();window.PS&&PS.openModal('menu')">Join free →</button>
     <a class="mm-install" href="install.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.5 18.5h3"/></svg>Add to your phone</a>
-    <a class="mm-cta" href="https://wa.me/6583219747">Let's talk →</a>
+    <a class="mm-cta" href="https://wa.me/6583219747" style="background:transparent;color:var(--ink);border:1px solid var(--line2);box-shadow:none">Let's talk →</a>
   </div>
 </div>
 
@@ -701,7 +711,8 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
     <h1><span class="ln"><i>Singapore property,</i></span><span class="ln"><i>decoded.</i></span></h1>
     <p class="lead lead-lg rv">PropSight is the free way to see Singapore property clearly: value any HDB or condo on real recent sales, work out what you can truly afford, and research how any project is really performing. No agent hard-sell, just the real numbers. And Aillie, your property intelligence, is right here — ask her anything.</p>
     <p class="lead lead-sm rv">The free way to see Singapore property clearly — real values, what you can truly afford, and how any project's really doing. And Aillie, your property intelligence, is right here.</p>
-    <div class="cta rv"><button class="btn brass" type="button" style="font-family:inherit;cursor:pointer" onclick="window.askAillie&&window.askAillie()">Ask Aillie <span class="arr">→</span></button><a class="btn btn-ghost" href="tools/value.html">Value a home <span class="arr">→</span></a></div>
+    <div class="cta rv"><button class="btn brass" type="button" style="font-family:inherit;cursor:pointer" onclick="window.PS&&PS.openModal('hero')">Join free <span class="arr">→</span></button><button class="btn brass-out" type="button" style="font-family:inherit;cursor:pointer" onclick="window.askAillie&&window.askAillie()">Ask Aillie <span class="arr">→</span></button><a class="btn btn-ghost" href="tools/value.html">Value a home <span class="arr">→</span></a></div>
+    <p class="hperks rv"><span class="hperks-star" aria-hidden="true">★</span><span><b>Free membership</b> — unlock the full research, a weekly newsletter &amp; live Telegram property signals. <b>Join in 10 seconds.</b></span></p>
     <div class="hsoon rv"><span class="hsoon-d"></span><span><b>Coming soon —</b> a PropSight listings platform, every home with the real numbers built in.</span></div>
     <p class="covers rv">Home values · affordability · stamp duty · grants · schools · selling · eligibility — <b>all free, all here.</b></p>
     <a class="hessentials rv" href="essentials/">New to property? Start with the guide →</a>
