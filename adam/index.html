@@ -528,8 +528,8 @@ body::before{animation:none}
 .mhead{margin-bottom:16px;padding-bottom:12px}
 .links{gap:22px}
 /* featured "Research" nav pill — pops as the flagship data tool */
-.links a.navfeat{display:inline-flex;align-items:center;gap:6px}
-.links a.navfeat::after{content:"Featured";font-size:8px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#241a0d;background:linear-gradient(135deg,var(--brass3),var(--brass));padding:3px 7px;border-radius:20px;line-height:1;box-shadow:0 2px 6px rgba(176,141,87,.34)}
+.links a.navfeat{position:relative}
+.links a.navfeat::before{content:"Featured";position:absolute;left:50%;bottom:calc(100% + 4px);transform:translateX(-50%);display:flex;align-items:center;justify-content:center;height:16px;padding:0 9px;font:800 8px/1 "Schibsted Grotesk",system-ui,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#241a0d;background:linear-gradient(135deg,var(--brass3),var(--brass));border-radius:20px;white-space:nowrap;box-shadow:0 2px 6px rgba(176,141,87,.3)}
 /* natural photo (the green/gold AI duotone filter is gone); editorial scrim handles legibility */
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:saturate(.86) contrast(1.05) brightness(.97)}
 .hero-in{grid-template-columns:1fr}
