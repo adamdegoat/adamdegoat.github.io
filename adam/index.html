@@ -30,7 +30,7 @@ body::before{content:"";position:fixed;inset:-20%;z-index:-2;pointer-events:none
  animation:mesh 22s ease-in-out infinite alternate}
 @keyframes mesh{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(-3%,2%,0) scale(1.08)}}
 /* grain */
-body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opacity:.045;mix-blend-mode:multiply;
+body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opacity:.045;
  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 /* faint dot grid — subtle data/precision texture */
 .topo{position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(27,58,45,.07) 1.1px,transparent 1.2px);background-size:28px 28px}
@@ -46,7 +46,7 @@ em{font-style:italic;color:var(--brass)}
 
 /* nav */
 .nav{position:sticky;top:0;z-index:60;transition:.35s var(--ease);border-bottom:1px solid transparent}
-.nav.scrolled{background:rgba(246,243,234,.82);backdrop-filter:blur(16px) saturate(1.2);border-bottom-color:var(--line);box-shadow:0 1px 0 rgba(255,255,255,.5) inset}
+.nav.scrolled{background:rgba(246,243,234,.86);backdrop-filter:blur(10px) saturate(1.1);border-bottom-color:var(--line);box-shadow:0 1px 0 rgba(255,255,255,.5) inset}
 .nav-in{display:flex;align-items:center;gap:30px;height:76px}
 .brand{display:flex;align-items:center;gap:11px}
 .brand .mark{width:38px;height:38px;flex:none;filter:drop-shadow(0 4px 10px rgba(15,35,26,.18))}
@@ -112,7 +112,7 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .hessentials:hover{border-color:var(--brass);transform:translateY(-1px)}
 .fresh{display:inline-flex;align-items:center;gap:9px;margin-top:14px;font-size:12.5px;color:var(--ink3);font-weight:600}
 .fresh .dot{width:8px;height:8px;border-radius:50%;background:#2e9e6b;box-shadow:0 0 0 0 rgba(46,158,107,.5);animation:pulse 2s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(46,158,107,.45)}70%{box-shadow:0 0 0 9px rgba(46,158,107,0)}100%{box-shadow:0 0 0 0 rgba(46,158,107,0)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.45)}}
 
 /* hero live-market panel */
 .livepanel{position:relative;background:linear-gradient(165deg,#fffefc,#f2ede1);border:1px solid var(--line2);border-radius:22px;padding:24px;box-shadow:0 22px 60px rgba(25,21,18,.11);overflow:hidden;
@@ -208,10 +208,11 @@ html.menu-open,html.menu-open body{overflow:hidden}
     border-bottom:1px solid rgba(227,201,143,.20);cursor:pointer;text-decoration:none}
 .mq-lab{flex:none;display:flex;align-items:center;gap:9px;padding:0 18px 0 clamp(20px,4vw,40px);font-size:11.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#e3c98f}
 .mq-lab .dot{width:8px;height:8px;border-radius:50%;background:#8fe0b0;animation:mqpl 2s infinite}
-@keyframes mqpl{0%{box-shadow:0 0 0 0 rgba(143,224,176,.5)}70%{box-shadow:0 0 0 7px rgba(143,224,176,0)}100%{box-shadow:0 0 0 0 rgba(143,224,176,0)}}
+@keyframes mqpl{0%,100%{transform:scale(1)}50%{transform:scale(1.45)}}
 .mq-div{flex:none;width:1px;background:rgba(227,201,143,.25);margin:11px 0}
 .mq-vp{position:relative;flex:1;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 3%,#000 90%,transparent)}
-.mq-track{position:absolute;top:0;left:0;height:100%;display:inline-flex;align-items:center;white-space:nowrap;animation:mqscroll 58s linear infinite;will-change:transform}
+.mq-track{position:absolute;top:0;left:0;height:100%;display:inline-flex;align-items:center;white-space:nowrap;animation:mqscroll 58s linear infinite}
+.mq-track.paused{animation-play-state:paused}
 .mq:hover .mq-track{animation-play-state:paused}
 @keyframes mqscroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .mq-i{display:inline-block;font-size:14.5px;font-weight:500;color:#efe9da;padding:0 6px;letter-spacing:.005em}
@@ -562,7 +563,30 @@ html.menu-open .cbtn{opacity:0;visibility:hidden;pointer-events:none}
 .cteaser .cqx:hover{background:rgba(0,0,0,.05);color:var(--ink)}
 .cteaser::after{content:"";position:absolute;right:26px;bottom:-7px;width:13px;height:13px;background:#fffdf8;border-right:1px solid var(--line2);border-bottom:1px solid var(--line2);transform:rotate(45deg)}
 html.menu-open .cteaser{opacity:0;visibility:hidden}
-@media(max-width:560px){.cteaser{bottom:74px;right:16px;max-width:194px;font-size:12.5px}}</style>
+@media(max-width:560px){.cteaser{bottom:74px;right:16px;max-width:194px;font-size:12.5px}}
+/* inline valuation card inside the chat (reuses the Caveat engine) */
+.cval{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px;box-shadow:0 3px 12px rgba(25,21,18,.05)}
+.cval-seg{display:flex;background:rgba(27,58,45,.06);border-radius:9px;padding:2px;margin-bottom:10px}
+.cval-seg button{flex:1;border:0;background:none;font-family:var(--sans);font-size:12.5px;font-weight:700;color:var(--ink2);padding:7px;border-radius:7px;cursor:pointer}
+.cval-seg button.on{background:var(--green);color:#f4efe6}
+.cval-f{position:relative;margin-bottom:8px}
+.cval-in,.cval-sel{width:100%;font-family:var(--sans);font-size:13.5px;font-weight:600;padding:10px 12px;border:1px solid var(--line2);border-radius:9px;background:#fff;color:var(--ink);outline:none}
+.cval-in:focus,.cval-sel:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(39,81,63,.1)}
+.cval-ac{position:absolute;top:calc(100% + 3px);left:0;right:0;z-index:5;background:#fff;border:1px solid var(--line2);border-radius:10px;box-shadow:0 14px 30px rgba(25,21,18,.16);max-height:172px;overflow-y:auto;display:none}
+.cval-ac.on{display:block}
+.cval-ac div{padding:9px 12px;font-size:13px;font-weight:600;cursor:pointer;border-bottom:1px solid var(--line)}
+.cval-ac div:hover,.cval-ac div.hl{background:rgba(27,58,45,.06)}
+.cval-ac .m{color:var(--ink3);font-size:11px;font-weight:500}
+.cval-go{width:100%;margin-top:3px;background:linear-gradient(135deg,var(--green2),var(--green3));color:#f3efe6;border:0;border-radius:9px;padding:11px;font-family:var(--sans);font-weight:700;font-size:13.5px;cursor:pointer;transition:.2s}
+.cval-go:hover{filter:brightness(1.08)}.cval-go:disabled{opacity:.5}
+.cval-err{color:#b4452f;font-size:12px;margin-top:8px;font-weight:600}
+.cval-res{margin-top:11px;display:none}.cval-res.on{display:block}
+.cval-est{background:linear-gradient(150deg,var(--green2),var(--green3));color:#f3efe6;border-radius:11px;padding:13px 15px}
+.cval-est .rk{font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--brass3)}
+.cval-est .rv{font-family:var(--serif);font-weight:600;font-size:24px;line-height:1.1;margin:4px 0 3px}
+.cval-est .rs{font-size:11.5px;color:rgba(243,239,230,.85)}
+.cval-meta{font-size:11.5px;color:var(--ink2);margin-top:9px;line-height:1.5}.cval-meta b{color:var(--green2)}
+.cval-full{display:inline-block;margin-top:6px;font-size:12px;font-weight:700;color:var(--green2);border-bottom:1.5px solid var(--brass2)}</style>
 <noscript><style>.rv{opacity:1!important;transform:none!important}.livepanel,.portrait{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
@@ -928,13 +952,96 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
   function px(){
     if(!PX){ticking=false;return;}
     const y=scrollY;
-    if(hb&&y<1300)hb.style.transform='translateY('+(y*0.10).toFixed(1)+'px) scale(1.05)';
+    /* hero-bg parallax removed: transforming the feColorMatrix duotone SVG every scroll frame re-rendered the filter (heat). Hero photo stays static. */
     if(pbi&&pband){const r=pband.getBoundingClientRect();const o=(((r.top+r.height/2)-innerHeight/2)*-0.045).toFixed(1);pbi.style.transform='translateY('+o+'px) scale(1.09)';}
     ticking=false;
   }
   if(PX){ addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(px);ticking=true;}},{passive:true}); addEventListener('resize',px); px(); }
   const sk=document.getElementById('skyline');
   if(sk){const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){sk.classList.add('drawn');o.disconnect();}}),{threshold:.25});o.observe(sk);}
+  // pause the market-pulse marquee when off-screen or the tab is hidden — it was an always-on infinite animation (idle GPU/heat)
+  const mqt=document.querySelector('.mq-track'),mqEl=document.querySelector('.mq');
+  if(mqt&&mqEl&&'IntersectionObserver' in window){new IntersectionObserver(es=>es.forEach(e=>mqt.classList.toggle('paused',!e.isIntersecting)),{threshold:0}).observe(mqEl);}
+  document.addEventListener('visibilitychange',()=>{if(mqt)mqt.classList.toggle('paused',document.hidden);});
+})();
+</script>
+<script>
+/* ─── Inline valuation card for the chat — reuses Caveat's live engine, so numbers match the "Value a home" tool exactly ─── */
+(function(){
+  let ready=null, IDX=null, STREETS=[];
+  const SQF=10.7639;
+  const AREAS={1:'City Centre',2:'Tanjong Pagar',3:'Queenstown / Tiong Bahru',4:'Sentosa / Harbourfront',5:'Clementi / West Coast',6:'City Hall',7:'Bugis / Beach Road',8:'Little India',9:'Orchard',10:'Bukit Timah / Holland',11:'Novena / Newton',12:'Toa Payoh / Balestier',13:'Macpherson / Potong Pasir',14:'Geylang / Paya Lebar',15:'East Coast (Katong)',16:'Bedok / Upper East Coast',17:'Changi / Loyang',18:'Tampines / Pasir Ris',19:'Serangoon / Hougang',20:'Bishan / Ang Mo Kio',21:'Upper Bukit Timah',22:'Jurong',23:'Bukit Panjang / Choa Chu Kang',24:'Tengah / Lim Chu Kang',25:'Woodlands',26:'Upper Thomson',27:'Yishun / Sembawang',28:'Seletar / Yio Chu Kang'};
+  const area=d=>AREAS[parseInt(d,10)]||('District '+d);
+  const title=s=>(s||'').toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());
+  const fmtM=n=>n>=1e6?'$'+(n/1e6).toFixed(2).replace(/0$/,'')+'M':'$'+Math.round(n/1000)+'k';
+  const sqm=sqft=>sqft?sqft/SQF:null;
+  const loadScript=src=>new Promise((res,rej)=>{const s=document.createElement('script');s.src=src;s.onload=res;s.onerror=rej;document.head.appendChild(s);});
+  function ensureEngine(){
+    if(ready)return ready;
+    ready=(async()=>{
+      if(!window.Caveat){
+        const DATA='/caveat/data/',cache={};
+        const getJSON=async p=>{if(cache[p])return cache[p];const r=await fetch(DATA+p,{cache:'no-store'});if(!r.ok)throw new Error('load '+p);const j=await r.json();cache[p]=j;return j;};
+        const expand=t=>{const f=t.fields;return t.rows.map(row=>{const o={};for(let i=0;i<f.length;i++)o[f[i]]=row[i];return o;});};
+        const median=a=>{const s=[...a].sort((x,y)=>x-y);const m=s.length>>1;return s.length%2?s[m]:(s[m-1]+s[m])/2;};
+        const yymmNow=()=>{const d=new Date();return String(d.getFullYear()%100).padStart(2,'0')+String(d.getMonth()+1).padStart(2,'0');};
+        const yymmIdx=s=>+s.slice(0,2)*12+ +s.slice(2);
+        const monthsBetween=(a,b)=>Math.abs(yymmIdx(a)-yymmIdx(b));
+        window.Caveat={getJSON,expand,index:()=>getJSON('index.json'),hdbTown:t=>getJSON('hdb/'+t.replace(/\//g,'-')+'.json').then(expand),condoDistrict:d=>getJSON('condo/D'+d+'.json').then(expand),median,yymmNow,yymmIdx,monthsBetween,SQM_SQF:SQF};
+      }
+      if(typeof Engines==='undefined')await loadScript('/caveat/js/engines.js');
+      IDX=await Caveat.index();
+      const t=await Caveat.getJSON('hdb_streets.json');STREETS=t.rows.map(r=>({s:r[0],t:r[1]}));
+      return true;
+    })().catch(e=>{ready=null;throw e;});
+    return ready;
+  }
+  window.psValueCard=function(mount){
+    ensureEngine().catch(()=>{});
+    const card=document.createElement('div');card.className='cval';
+    card.innerHTML='<div class="cval-seg"><button class="on" data-m="hdb">HDB flat</button><button data-m="condo">Condo</button></div>'+
+      '<div class="cval-f"><input class="cval-in cv-search" placeholder="Type your street…" autocomplete="off"><div class="cval-ac"></div></div>'+
+      '<div class="cv-hdb"><div class="cval-f"><select class="cval-sel cv-ft"><option value="">Pick your street first…</option></select></div></div>'+
+      '<div class="cval-f"><input class="cval-in cv-size" placeholder="Floor area in sqft (optional)" inputmode="numeric"></div>'+
+      '<button class="cval-go cv-go">Value it →</button>'+
+      '<div class="cval-err cv-err" style="display:none"></div><div class="cval-res cv-res"></div>';
+    mount.appendChild(card);
+    const q=s=>card.querySelector(s);
+    let mode='hdb',town='',street='',projSel=null,list=[],cur=-1;
+    const search=q('.cv-search'),ac=q('.cval-ac'),ftWrap=q('.cv-hdb'),ftSel=q('.cv-ft'),sizeI=q('.cv-size'),go=q('.cv-go'),err=q('.cv-err'),res=q('.cv-res');
+    function setMode(m){mode=m;card.querySelectorAll('.cval-seg button').forEach(b=>b.classList.toggle('on',b.dataset.m===m));ftWrap.style.display=m==='hdb'?'':'none';search.placeholder=m==='hdb'?'Type your street…':'Type the condo project…';search.value='';ac.classList.remove('on');town='';street='';projSel=null;}
+    card.querySelectorAll('.cval-seg button').forEach(b=>b.onclick=()=>setMode(b.dataset.m));
+    function showAc(){ if(!list.length){ac.classList.remove('on');return;}
+      ac.innerHTML=list.map((o,i)=>mode==='hdb'?'<div data-i="'+i+'" class="'+(i===cur?'hl':'')+'">'+title(o.s)+' <span class="m">· '+title(o.t)+'</span></div>':'<div data-i="'+i+'" class="'+(i===cur?'hl':'')+'">'+title(o[0])+' <span class="m">· '+area(o[1])+'</span></div>').join('');
+      ac.classList.add('on');
+      ac.querySelectorAll('div[data-i]').forEach(el=>el.onclick=()=>pick(list[+el.dataset.i]));
+    }
+    function pick(o){ if(mode==='hdb'){street=o.s;town=o.t;search.value=title(o.s);const fts=(IDX&&IDX.hdb_towns[o.t])||[];ftSel.innerHTML=fts.length?fts.map(f=>'<option value="'+f+'">'+title(f)+'</option>').join(''):'<option value="">No data</option>';}else{projSel=o;search.value=title(o[0]);} ac.classList.remove('on'); }
+    search.addEventListener('input',async()=>{try{await ensureEngine();}catch(e){err.textContent='Valuation data is loading… try again in a second.';err.style.display='block';return;}
+      const v=search.value.trim().toUpperCase();cur=-1;town='';street='';projSel=null;
+      if(v.length<2){ac.classList.remove('on');return;}
+      if(mode==='hdb'){ftSel.innerHTML='<option value="">Pick your street first…</option>';list=STREETS.filter(o=>o.s.includes(v)).slice(0,7);}
+      else{list=(IDX?IDX.condo_projects.filter(p=>p[0].includes(v)):[]).slice(0,7);}
+      showAc();
+    });
+    go.onclick=async()=>{
+      err.style.display='none';res.classList.remove('on');go.disabled=true;go.textContent='Valuing…';
+      try{ await ensureEngine();
+        let r,label;const size=parseFloat((sizeI.value||'').replace(/[^0-9.]/g,''))||0;
+        if(mode==='hdb'){ if(!town||!street)throw new Error('Type your street and pick it from the list.'); const ft=ftSel.value; if(!ft)throw new Error('Pick a flat type.');
+          const rows=await Caveat.hdbTown(town); r=Engines.hdbEstimate(rows,{flat_type:ft,town,street,block:null,area_sqm:sqm(size),storey_mid:null}); label=title(ft)+' · '+title(street);
+        } else { if(!projSel){const typed=search.value.trim().toUpperCase();projSel=IDX&&IDX.condo_projects.find(p=>p[0]===typed);} if(!projSel)throw new Error('Pick a project from the list.');
+          const p=projSel; const rows=await Caveat.condoDistrict(p[1]); r=Engines.condoEstimate(rows,{project:p[0],district:p[1],seg:p[2],ptype:p[3],tenure_fh:p[4],area_sqm:sqm(size),floor_mid:null}); label=title(p[0])+' · '+area(p[1]);
+        }
+        if(!r||!r.ok)throw new Error((r&&r.reason)||'Not enough recent sales to value this one. Try the full tool.');
+        const cm={High:'High confidence',Medium:'Fair confidence',Lower:'Indicative'}[r.confidence]||r.confidence;
+        res.innerHTML='<div class="cval-est"><div class="rk">Estimated value · '+label+'</div><div class="rv">'+fmtM(r.low)+' – '+fmtM(r.high)+'</div><div class="rs">Mid-point about '+fmtM(r.estimate_price)+' · '+Math.round(r.estimate_psf).toLocaleString()+' psf</div></div>'+
+          '<div class="cval-meta"><b>'+cm+'</b> · based on '+r.n_comps+' recent sale'+(r.n_comps===1?'':'s')+'.'+(r.area_assumed?' Add your floor area for a tighter number.':'')+'<br><a class="cval-full" href="tools/value.html" target="_blank" rel="noopener">See the full breakdown & comparable sales →</a></div>';
+        res.classList.add('on');
+      }catch(e){ err.textContent=e.message||'Something went wrong — try again.'; err.style.display='block'; }
+      go.disabled=false;go.textContent='Value it →';
+    };
+  };
 })();
 </script>
 <script>
@@ -988,6 +1095,18 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
       return {text:"I can help you value a home, work out your budget, research a project, check stamp duty or grants, or point you to a new launch. What are you trying to do?"};
     return null;
   }
+  function isValue(q){const r=route(q);return !!(r&&r.link&&/value\.html/.test(r.link.href));}
+  function valueInChat(q){              // valuation intent → drop the live inline valuation card right in the chat
+    add('me',esc(q));
+    const t=typing();
+    setTimeout(()=>{
+      t.remove();
+      botReply("Sure, let's value it right here. Pick HDB or condo, type your street or project, and I'll pull the estimate from real recent sales.");
+      const mount=document.createElement('div');mount.style.cssText='margin-top:2px;animation:cmin .35s var(--ease)';body.appendChild(mount);
+      if(window.psValueCard){window.psValueCard(mount);}else{botReply("Tap below to open the full valuation tool.",{href:'tools/value.html',label:'Value a home'});}
+      scroll();showFollowups();
+    },430);
+  }
   function conciergeReply(q){           // instant tool-routing (no AI call) — used by the chips + as a network fallback
     const r=route(q);
     if(r){botReply(r.text,r.link);}
@@ -995,10 +1114,12 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
     showFollowups();
   }
   function chipHandle(label){            // the 4 suggestion chips are clear tool-intents → route instantly (free, no API call)
+    if(isValue(label)){valueInChat(label);return;}
     add('me',esc(label));const t=typing();
     setTimeout(()=>{t.remove();conciergeReply(label);},420);
   }
   function handle(q){                    // a typed question → the real Plainsight AI brain (/api/ask), capped server-side
+    if(isValue(q)){valueInChat(q);return;}
     add('me',esc(q));
     const t=typing(),tool=route(q);
     fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q,history:HIST.slice(-8)})})
