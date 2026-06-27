@@ -1086,18 +1086,19 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
     ftSel.addEventListener('change',()=>{const ft=ftSel.value;if(!ft||!town)return;const g=HDB.groups.find(x=>x.town===town&&x.ft===ft);if(g)renderHDB(g);});
     function renderCondo(p){
       err.style.display='none';
-      const vsn=p.value_flag?'recent transacted price per sqft':(p.discount>0?p.discount+'% cheaper than nearby condos':p.discount<0?(-p.discount)+'% pricier than nearby condos':'in line with nearby condos');
+      const vsn=p.value_flag?'':(p.discount>0?p.discount+'% cheaper than nearby condos':p.discount<0?(-p.discount)+'% pricier than nearby condos':'in line with nearby condos');
+      const rng=(p.psf_lo&&p.psf_hi)?'most sell $'+p.psf_lo.toLocaleString()+'–$'+p.psf_hi.toLocaleString()+' psf':'recent transacted price per sqft';
       const yld=p.yield?p.yield+'% gross rental yield'+(MEDY?' (SG median ~'+MEDY+'%)':''):'rental yield not available';
-      res.innerHTML='<div class="cval-est"><div class="rk">'+title(p.project)+' · '+(SEGP[p.seg]||p.seg||'')+'</div><div class="rv">$'+(p.psf?p.psf.toLocaleString():'—')+' psf</div><div class="rs">'+vsn+'</div></div>'+
-        '<div class="cval-meta">Price trend: <b>'+trendTxt(p.mom)+'</b>.<br>'+yld+'.<br>Tenure: '+(p.fh?'Freehold':'Leasehold')+' · '+(p.txns||0)+' recent sales.<br><a class="cval-full" href="/thesis/" target="_blank" rel="noopener">See the full research, chart &amp; comparables →</a></div>';
+      res.innerHTML='<div class="cval-est"><div class="rk">'+title(p.project)+' · '+(SEGP[p.seg]||p.seg||'')+'</div><div class="rv">~$'+(p.psf?p.psf.toLocaleString():'—')+' psf <span style="font-size:12px;font-weight:500;opacity:.78">typically</span></div><div class="rs">'+rng+'</div></div>'+
+        '<div class="cval-meta">'+(vsn?vsn+'.<br>':'')+'Price trend: <b>'+trendTxt(p.mom)+'</b>.<br>'+yld+'.<br>Tenure: '+(p.fh?'Freehold':'Leasehold')+' · '+(p.txns||0)+' recent sales.<br><a class="cval-full" href="/thesis/?p='+encodeURIComponent(p.project)+'" target="_blank" rel="noopener">See the full research, chart &amp; comparables →</a></div>';
       res.classList.add('on');
     }
     function renderHDB(g){
       err.style.display='none';
       const yld=g.yield?g.yield+'% gross rental yield':'rental yield not available';
-      const vsN=g.vs_national!=null?', '+(g.vs_national>0?g.vs_national+'% above':g.vs_national<0?(-g.vs_national)+'% below':'in line with')+' the national median for this flat type':'';
-      res.innerHTML='<div class="cval-est"><div class="rk">'+g.town+' · '+title(g.ft)+'</div><div class="rv">$'+(g.price?g.price.toLocaleString():'—')+'</div><div class="rs">about $'+(g.psf?g.psf.toLocaleString():'—')+' psf, typically '+(g.lease||'—')+' years lease left</div></div>'+
-        '<div class="cval-meta">Price trend: <b>'+trendTxt(g.mom)+'</b>.<br>'+yld+'.<br>'+(g.txns||0)+' recent sales'+vsN+'.<br><a class="cval-full" href="/thesis/" target="_blank" rel="noopener">See the full research, blocks &amp; chart →</a></div>';
+      const vsN=g.vs_national!=null?(g.vs_national>0?g.vs_national+'% above':g.vs_national<0?(-g.vs_national)+'% below':'in line with')+' the national median for this flat type':'';
+      res.innerHTML='<div class="cval-est"><div class="rk">'+g.town+' · '+title(g.ft)+'</div><div class="rv">~$'+(g.price?g.price.toLocaleString():'—')+' <span style="font-size:12px;font-weight:500;opacity:.78">typically</span></div><div class="rs">about $'+(g.psf?g.psf.toLocaleString():'—')+' psf · typically '+(g.lease||'—')+' years lease left</div></div>'+
+        '<div class="cval-meta">Price trend: <b>'+trendTxt(g.mom)+'</b>.<br>'+yld+'.<br>'+(g.txns||0)+' recent sales'+(vsN?', '+vsN:'')+'.<br><a class="cval-full" href="/thesis/?town='+encodeURIComponent(g.town)+'&ft='+encodeURIComponent(g.ft)+'" target="_blank" rel="noopener">See the full research, blocks &amp; chart →</a></div>';
       res.classList.add('on');
     }
   };

@@ -556,6 +556,10 @@ function init(){
   // deep-link from Caveat: ?p=PROJECT opens that condo's breakdown
   const pq=new URLSearchParams(location.search).get('p');
   if(pq){const hit=D.projects.find(x=>String(x.project).toUpperCase()===pq.toUpperCase());if(hit)openDD(hit.project);}
+  // deep-link from the Aillie chat: ?town=X&ft=Y opens that HDB town + flat-type breakdown
+  const _sp=new URLSearchParams(location.search),_tq=_sp.get('town'),_fq=_sp.get('ft');
+  if(_tq&&_fq&&H){MODE='hdb';TAB='hdb';$$('.modebtn').forEach(x=>x.classList.toggle('on',x.dataset.mode==='hdb'));setDataTag();renderTabs();render();
+    const _g=H.groups.find(x=>String(x.town).toUpperCase()===_tq.toUpperCase()&&String(x.ft).toUpperCase()===_fq.toUpperCase());if(_g)openHDB(_g.town,_g.ft);}
 }
 function setDataTag(){
   if(MODE==='hdb'&&H) $('#dataTag').innerHTML=`<b>${H.n_txns.toLocaleString()}</b> HDB resales · <b>${H.n_towns}</b> towns<br>official HDB data · as of ${MON[+H.as_of.slice(2)]} ’${H.as_of.slice(0,2)}`;
