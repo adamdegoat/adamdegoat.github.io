@@ -19,7 +19,7 @@
  --serif:'Fraunces',Georgia,serif;--sans:'Schibsted Grotesk',system-ui,sans-serif;
  --sh1:0 2px 8px rgba(25,21,18,.05);--sh2:0 24px 50px rgba(25,21,18,.10),0 6px 16px rgba(25,21,18,.05);
  --sh3:0 40px 90px rgba(25,21,18,.16),0 14px 30px rgba(25,21,18,.08);--ease:cubic-bezier(.22,.7,.2,1)}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:hidden}
 body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;
  font-feature-settings:"ss01","liga";overflow-x:hidden}
 /* animated ambient mesh */
@@ -508,6 +508,15 @@ body::before{animation:none}
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:saturate(.92) contrast(1.02)}
 .hero-in{grid-template-columns:1fr}
 .afford-sec .afford-mini{max-width:560px;margin:0 auto}
+/* ── Aillie featured INLINE in the hero (desktop): not a corner pin ── */
+.hero-chat-mount{display:none}
+@media(min-width:881px){
+  .hero-in{grid-template-columns:1.04fr .96fr !important;gap:44px;align-items:center}
+  .hero-chat-mount{display:block;min-width:0}
+  .cpanel.inhero{position:static;width:100%;max-width:none;height:480px;min-height:430px;max-height:74vh;opacity:1 !important;visibility:visible !important;transform:none !important;box-shadow:0 30px 70px rgba(15,35,26,.32),0 0 0 1px rgba(227,201,143,.22)}
+  .cpanel.inhero .cx{display:none}
+  .cbtn,.cteaser{display:none !important}
+}
 /* single-colour headline — no gold word, no underline squiggle (read as AI) */
 .hero h1 em{color:inherit !important}
 .hero h1 .uline{display:none}
@@ -643,6 +652,7 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
     <div class="fresh rv"><span class="dot"></span>Live · built on official URA data · refreshed weekly</div>
     <a class="hinstall rv" href="install.html">📲 Add this hub to your phone — one tap to every tool</a>
   </div>
+  <aside class="hero-chat-mount" id="heroChatMount" aria-label="Ask Aillie"></aside>
   </div></section>
 
 <section class="sec afford-sec"><div class="wrap">
@@ -794,15 +804,15 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
 </div></section>
 
 <!-- ─── Ask Plainsight chatbot ─── -->
-<div class="cteaser" id="cteaser"><button class="cqx" id="cteaserX" aria-label="Dismiss">×</button><span class="ck">Ask Plainsight</span><span id="cteaserT">What's your home worth?</span></div>
-<button class="cbtn" id="cbtn" aria-label="Ask Plainsight">
+<div class="cteaser" id="cteaser"><button class="cqx" id="cteaserX" aria-label="Dismiss">×</button><span class="ck">Ask Aillie</span><span id="cteaserT">What's your home worth?</span></div>
+<button class="cbtn" id="cbtn" aria-label="Ask Aillie">
   <span class="cbi"><svg viewBox="0 0 24 24" fill="none" stroke="#241a0d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.4 8.5 8.5 0 0 1-3.9-.9L3 21l1.9-5.6a8.38 8.38 0 0 1-.9-3.9 8.5 8.5 0 0 1 8.5-8.4 8.38 8.38 0 0 1 8.5 8.4z"/></svg></span>
-  <span class="cbtxt">Ask Plainsight</span><span class="cbp"></span>
+  <span class="cbtxt">Ask Aillie</span><span class="cbp"></span>
 </button>
-<section class="cpanel" id="cpanel" role="dialog" aria-label="Ask Plainsight chat">
+<section class="cpanel" id="cpanel" role="dialog" aria-label="Ask Aillie chat">
   <header class="chead">
-    <span class="cmark"><span>P</span></span>
-    <div class="ct"><b>Ask Plainsight</b><span>Singapore property, answered straight</span></div>
+    <span class="cmark"><span>A</span></span>
+    <div class="ct"><b>Aillie</b><span>Plainsight's property assistant</span></div>
     <button class="cx" id="cx" aria-label="Close chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   </header>
   <div class="cbody" id="cbody"></div>
@@ -1057,11 +1067,12 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
 })();
 </script>
 <script>
-/* ─── Inline research card for the chat — reuses Thesis data (psf / 6-mo trend / yield / tenure), same numbers as /thesis/ ─── */
+/* ─── Inline research card — condo (thesis.json) + HDB (hdb.json), same numbers as /thesis/ ─── */
 (function(){
-  let ready=null, PROJECTS=[], MEDY=null;
+  let ready=null, PROJECTS=[], HDB=null, MEDY=null;
   const title=s=>(s||'').toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());
   const SEGP={CCR:'Prime',RCR:'City fringe',OCR:'Suburbs'};
+  const trendTxt=m=>m==null?'too few recent sales for a clear trend':(m>0?'up '+m+'% over 6 months':m<0?'down '+(-m)+'% over 6 months':'flat over 6 months');
   function ensureThesis(){
     if(ready)return ready;
     ready=(async()=>{
@@ -1069,6 +1080,7 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
       PROJECTS=d.projects||[];
       const ys=PROJECTS.map(p=>p.yield).filter(x=>x).sort((a,b)=>a-b);
       MEDY=ys.length?ys[ys.length>>1]:null;
+      try{ HDB=await (await fetch('/thesis/data/hdb.json',{cache:'force-cache'})).json(); }catch(e){ HDB=null; }
       return true;
     })().catch(e=>{ready=null;throw e;});
     return ready;
@@ -1076,30 +1088,45 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
   window.psResearchCard=function(mount){
     ensureThesis().catch(()=>{});
     const card=document.createElement('div');card.className='cval';
-    card.innerHTML='<div class="cval-f"><input class="cval-in cr-search" placeholder="Type a condo project…" autocomplete="off"><div class="cval-ac"></div></div><div class="cval-err cr-err" style="display:none"></div><div class="cval-res cr-res"></div>';
+    card.innerHTML='<div class="cval-seg"><button class="on" data-m="condo">Condo</button><button data-m="hdb">HDB flat</button></div>'+
+      '<div class="cval-f"><input class="cval-in cr-search" placeholder="Type a condo project…" autocomplete="off"><div class="cval-ac"></div></div>'+
+      '<div class="cr-hdb" style="display:none"><div class="cval-f"><select class="cval-sel cr-ft"><option value="">Pick your town first…</option></select></div></div>'+
+      '<div class="cval-err cr-err" style="display:none"></div><div class="cval-res cr-res"></div>';
     mount.appendChild(card);
     const q=s=>card.querySelector(s);
-    let list=[],cur=-1;
-    const search=q('.cr-search'),ac=q('.cval-ac'),err=q('.cr-err'),res=q('.cr-res');
+    let mode='condo',list=[],cur=-1,town='';
+    const search=q('.cr-search'),ac=q('.cval-ac'),ftWrap=q('.cr-hdb'),ftSel=q('.cr-ft'),err=q('.cr-err'),res=q('.cr-res');
+    function setMode(m){mode=m;card.querySelectorAll('.cval-seg button').forEach(b=>b.classList.toggle('on',b.dataset.m===m));ftWrap.style.display=m==='hdb'?'':'none';search.placeholder=m==='hdb'?'Type your town…':'Type a condo project…';search.value='';ac.classList.remove('on');town='';res.classList.remove('on');err.style.display='none';}
+    card.querySelectorAll('.cval-seg button').forEach(b=>b.onclick=()=>setMode(b.dataset.m));
+    const towns=()=>HDB?[...new Set(HDB.groups.map(g=>g.town))]:[];
     function showAc(){ if(!list.length){ac.classList.remove('on');return;}
-      ac.innerHTML=list.map((p,i)=>'<div data-i="'+i+'" class="'+(i===cur?'hl':'')+'">'+title(p.project)+' <span class="m">· '+(SEGP[p.seg]||p.seg||'')+'</span></div>').join('');
+      ac.innerHTML=list.map((it,i)=>mode==='condo'?'<div data-i="'+i+'" class="'+(i===cur?'hl':'')+'">'+title(it.project)+' <span class="m">· '+(SEGP[it.seg]||it.seg||'')+'</span></div>':'<div data-i="'+i+'" class="'+(i===cur?'hl':'')+'">'+it+'</div>').join('');
       ac.classList.add('on');
       ac.querySelectorAll('div[data-i]').forEach(el=>el.onclick=()=>pick(list[+el.dataset.i]));
     }
-    function pick(p){ search.value=title(p.project); ac.classList.remove('on'); render(p); }
-    search.addEventListener('input',async()=>{try{await ensureThesis();}catch(e){err.textContent='Research data is loading… give it a second and try again.';err.style.display='block';return;}
-      const v=search.value.trim().toUpperCase();cur=-1;
+    function pick(it){ if(mode==='condo'){search.value=title(it.project);ac.classList.remove('on');renderCondo(it);}
+      else {town=it;search.value=it;ac.classList.remove('on');const fts=HDB.groups.filter(g=>g.town===town).map(g=>g.ft);ftSel.innerHTML='<option value="">Pick flat type…</option>'+fts.map(f=>'<option value="'+f+'">'+title(f)+'</option>').join('');} }
+    search.addEventListener('input',async()=>{try{await ensureThesis();}catch(e){err.textContent='Research data is loading, give it a second and try again.';err.style.display='block';return;}
+      const v=search.value.trim().toUpperCase();cur=-1;town='';
       if(v.length<2){ac.classList.remove('on');return;}
-      list=PROJECTS.filter(p=>p.project.includes(v)).slice(0,7);
+      list=mode==='condo'?PROJECTS.filter(p=>p.project.includes(v)).slice(0,7):towns().filter(t=>t.toUpperCase().includes(v)).slice(0,7);
       showAc();
     });
-    function render(p){
+    ftSel.addEventListener('change',()=>{const ft=ftSel.value;if(!ft||!town)return;const g=HDB.groups.find(x=>x.town===town&&x.ft===ft);if(g)renderHDB(g);});
+    function renderCondo(p){
       err.style.display='none';
-      const trend=p.mom==null?'too few recent sales for a clear trend':(p.mom>0?'up '+p.mom+'% over 6 months':p.mom<0?'down '+(-p.mom)+'% over 6 months':'flat over 6 months');
-      const vsn=p.value_flag?'':(p.discount>0?p.discount+'% cheaper than nearby condos':p.discount<0?(-p.discount)+'% pricier than nearby condos':'in line with nearby condos');
+      const vsn=p.value_flag?'recent transacted price per sqft':(p.discount>0?p.discount+'% cheaper than nearby condos':p.discount<0?(-p.discount)+'% pricier than nearby condos':'in line with nearby condos');
       const yld=p.yield?p.yield+'% gross rental yield'+(MEDY?' (SG median ~'+MEDY+'%)':''):'rental yield not available';
-      res.innerHTML='<div class="cval-est"><div class="rk">'+title(p.project)+' · '+(SEGP[p.seg]||p.seg||'')+'</div><div class="rv">$'+(p.psf?p.psf.toLocaleString():'—')+' psf</div><div class="rs">'+(vsn||'recent transacted price per sqft')+'</div></div>'+
-        '<div class="cval-meta">Price trend: <b>'+trend+'</b>.<br>'+yld+'.<br>Tenure: '+(p.fh?'Freehold':'Leasehold')+' · '+(p.txns||0)+' recent sales.<br><a class="cval-full" href="/thesis/" target="_blank" rel="noopener">See the full research, chart &amp; comparables →</a></div>';
+      res.innerHTML='<div class="cval-est"><div class="rk">'+title(p.project)+' · '+(SEGP[p.seg]||p.seg||'')+'</div><div class="rv">$'+(p.psf?p.psf.toLocaleString():'—')+' psf</div><div class="rs">'+vsn+'</div></div>'+
+        '<div class="cval-meta">Price trend: <b>'+trendTxt(p.mom)+'</b>.<br>'+yld+'.<br>Tenure: '+(p.fh?'Freehold':'Leasehold')+' · '+(p.txns||0)+' recent sales.<br><a class="cval-full" href="/thesis/" target="_blank" rel="noopener">See the full research, chart &amp; comparables →</a></div>';
+      res.classList.add('on');
+    }
+    function renderHDB(g){
+      err.style.display='none';
+      const yld=g.yield?g.yield+'% gross rental yield':'rental yield not available';
+      const vsN=g.vs_national!=null?', '+(g.vs_national>0?g.vs_national+'% above':g.vs_national<0?(-g.vs_national)+'% below':'in line with')+' the national median for this flat type':'';
+      res.innerHTML='<div class="cval-est"><div class="rk">'+g.town+' · '+title(g.ft)+'</div><div class="rv">$'+(g.price?g.price.toLocaleString():'—')+'</div><div class="rs">about $'+(g.psf?g.psf.toLocaleString():'—')+' psf, typically '+(g.lease||'—')+' years lease left</div></div>'+
+        '<div class="cval-meta">Price trend: <b>'+trendTxt(g.mom)+'</b>.<br>'+yld+'.<br>'+(g.txns||0)+' recent sales'+vsN+'.<br><a class="cval-full" href="/thesis/" target="_blank" rel="noopener">See the full research, blocks &amp; chart →</a></div>';
       res.classList.add('on');
     }
   };
@@ -1214,15 +1241,22 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
     panel.classList.add('open');btn.classList.add('hide');
     const tz=document.getElementById('cteaser');if(tz)tz.classList.remove('show');
     if(!greeted){greeted=true;
-      setTimeout(()=>{botReply("Hi — I'm the Plainsight assistant, plugged into our property research. I can value any HDB or condo on real recent sales, show a project's price trend and rental yield, or work out your budget. What would you like?");setChips(SUGGEST);},250);
+      setTimeout(()=>{botReply("Hi! I'm Aillie, Plainsight's property assistant. I can value any HDB or condo on real recent sales, check a project's price trend and rental yield, or work out your budget. What can I help you with?");setChips(SUGGEST);},250);
     }
-    setTimeout(()=>inp.focus(),360);
+    if(!panel.classList.contains('inhero'))setTimeout(()=>inp.focus(),360);
   }
   function close(){panel.classList.remove('open');btn.classList.remove('hide');}
   btn.onclick=open;x.onclick=close;
   addEventListener('keydown',e=>{if(e.key==='Escape'&&panel.classList.contains('open'))close();});
-  // showcase the assistant when visitors arrive — open it for them once per session (don't leave it hiding in the corner)
-  try{ if(!sessionStorage.getItem('ps_chat_seen') && innerWidth>700){ setTimeout(()=>{ if(!panel.classList.contains('open'))open(); },1600); sessionStorage.setItem('ps_chat_seen','1'); } }catch(e){}
+  // Desktop: feature Aillie INLINE in the hero (move the panel up, always open, no corner pin). Mobile: floating launcher, auto-open once per session.
+  const heroMount=document.getElementById('heroChatMount');
+  if(heroMount && innerWidth>880){
+    heroMount.appendChild(panel);
+    panel.classList.add('inhero');
+    open();
+  } else {
+    try{ if(!sessionStorage.getItem('ps_chat_seen')){ setTimeout(()=>{ if(!panel.classList.contains('open'))open(); },1400); sessionStorage.setItem('ps_chat_seen','1'); } }catch(e){}
+  }
   form.onsubmit=e=>{e.preventDefault();const v=inp.value.trim();if(!v)return;inp.value='';handle(v);};
   // nudge: rotating input placeholder (only while empty + unfocused)
   let phi=0;setInterval(()=>{if(inp&&document.activeElement!==inp&&!inp.value){phi=(phi+1)%PH.length;inp.placeholder=PH[phi];}},4200);
