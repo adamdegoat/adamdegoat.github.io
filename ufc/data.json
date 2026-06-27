@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-27T09:00:00.218478+08:00",
+  "updated": "2026-06-27T13:00:00.256175+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -290,6 +290,12 @@
   },
   "news": [
     {
+      "title": "27-fight UFC vet Joe Lauzon signs with BKFC, set for debut at Fenway Park",
+      "link": "https://www.mmafighting.com/bkfc/496541/27-fight-ufc-vet-joe-lauzon-signs-with-bkfc-set-for-debut-at-fenway-park",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
       "title": "Daniel Cormier says Arman Tsarukyan has to get next UFC lightweight title shot: ‘Arman essentially made himself undeniable’",
       "link": "https://www.mmafighting.com/latest-news/496370/daniel-cormier-says-arman-tsarukyan-has-to-get-next-ufc-lightweight-title-shot-arman-essentially-made-himself-undeniable",
       "source": "MMA Fighting",
@@ -320,6 +326,18 @@
       "priority": true
     },
     {
+      "title": "UFC Baku Results: Fiziev vs. Torres",
+      "link": "https://www.mmafighting.com/ufc/496532/ufc-baku-results-fiziev-vs-torres",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "UFC Baku predictions",
+      "link": "https://www.mmafighting.com/ufc/496485/ufc-baku-predictions",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "‘At home’ in enemy territory: Matheus Camilo plans to ‘throw down’ with Nazim Sadykhov at UFC Baku",
       "link": "https://www.mmafighting.com/ufc/495921/at-home-in-enemy-territory-matheus-camilo-plans-to-throw-down-with-nazim-sadykhov-at-ufc-baku",
       "source": "MMA Fighting",
@@ -344,21 +362,9 @@
       "priority": false
     },
     {
-      "title": "UFC Baku video: Shara Bullet grabs Michel Pereira’s neck in aggressive faceoff",
-      "link": "https://www.mmafighting.com/ufc/496460/ufc-baku-video-shara-bullet-grabs-michel-pereiras-neck-in-aggressive-faceoff",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Jon Jones leaves door open for potential UFC return: ‘I’m moving like I never left’",
-      "link": "https://www.mmafighting.com/ufc/496426/jon-jones-leaves-door-open-for-potential-ufc-return-im-moving-like-i-never-left",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "UFC White House’s global audience numbers revealed",
-      "link": "https://www.mmafighting.com/ufc/496424/ufc-white-houses-global-audience-numbers-revealed",
-      "source": "MMA Fighting",
+      "title": "Never say never! Jon Jones teases Octagon return after training Gable Steveson for UFC 329: ‘Moving like I never left’",
+      "link": "https://www.mmamania.com/latest-news/453219/never-say-never-jon-jones-teases-octagon-return-after-training-gable-steveson-for-ufc-329-moving-like-i-never-left",
+      "source": "MMA Mania",
       "priority": false
     },
     {
@@ -366,17 +372,11 @@
       "link": "https://www.mmamania.com/latest-news/453056/heres-mmamania-coms-ufc-baku-betting-odds-weekend-lock-whats-yours",
       "source": "MMA Mania",
       "priority": false
-    },
-    {
-      "title": "UFC Baku preview: ‘Fiziev vs. Torres’ main, co-main event predictions",
-      "link": "https://www.mmamania.com/ufc-predictions/452892/ufc-baku-preview-fiziev-vs-torres-main-co-main-event-predictions",
-      "source": "MMA Mania",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "Fiziev versus Torres hits the octagon tomorrow at midnight Singapore time — prime striking action incoming.",
-    "prefight": "Fiziev and Torres bring the heat in an unmissable lightweight main event.",
-    "results": "Manel Kape ended Horiguchi's night with a devastating third-round TKO."
+    "week": "Sunday at midnight SGT: Fiziev clashes with Torres in what could be fireworks.",
+    "prefight": "Elite lightweights clash Sunday morning as Fiziev and Torres settle it.",
+    "results": "Kape overwhelms Horiguchi with sustained striking, forcing a third-round TKO stoppage."
   }
 }
