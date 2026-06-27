@@ -1,75 +1,77 @@
 {
- "asof": "2026-06-26",
+ "asof": "2026-06-27",
  "disclaimer": "AI-assisted research from public web sources \u2014 indicative, verify before quoting a client.",
  "notes": {
-  "ICON": {
-   "note": "Icon is a 646-unit, 99-year leasehold mixed-use development (2007) at 10 Gopeng Street sitting directly above Tanjong Pagar MRT (EW15). The wider Tanjong Pagar area is a long-term beneficiary of the Greater Southern Waterfront redevelopment as the port relocates to Tuas by 2027, though major nearby parcels only come online in the early 2030s.",
+  "ATTITUDE AT KIM YAM": {
+   "note": "999-year leasehold (from 1841) boutique 33-unit development completed in 2011 in River Valley, giving it a tenure advantage over most surrounding 99-year leasehold condos. Within walking distance of Somerset, Fort Canning and the newer Great World MRT stations.",
    "sources": [
-    "https://www.99.co/singapore/condos-apartments/icon",
-    "https://www.edgeprop.sg/condo-apartment/icon"
-   ]
-  },
-  "SELETAR PARK RESIDENCE": {
-   "note": "Seletar Park Residence is a 276-unit, 99-year leasehold (2011) condo in Seletar Hills Estate developed by Asplenium Land, a Hong Leong Group entity, and completed in 2015. No en-bloc activity is reported and resale prices have been broadly flat around S$1,290 psf over 2023\u20132026.",
-   "sources": [
-    "https://www.propertyguru.com.sg/project/seletar-park-residence-21127",
-    "https://www.edgeprop.sg/condo-apartment/seletar-park-residence"
-   ]
-  },
-  "ONE-NORTH RESIDENCES": {
-   "note": "One-North Residences is a 405-unit, 99-year leasehold mixed development (TOP 2009) beside one-north MRT (CC23), developed by a UOL/Kheng Leong/Low Keng Huat venture amid the Biopolis/Fusionopolis clusters. The precinct faces significant new supply, with Bloomsbury Residences (358 units) launched April 2025 and developers securing a further Dover/Slim Barracks-area site in 2026.",
-   "sources": [
-    "https://uolhomes.com.sg/project/one-north-residences/",
-    "https://stackedhomes.com/one-north-residential-transformation-hudson-place-residences/"
-   ]
-  },
-  "THE COAST AT SENTOSA COVE": {
-   "note": "The Coast at Sentosa Cove is a 249-unit, 99-year leasehold waterfront condo (completed 2009) transacting around S$1,530 psf with a high share of loss-making resales. Sentosa Cove non-landed prices fell roughly 18.7% from the 2023 peak, weighed by the 60% foreigner ABSD raised in April 2023, with recent data showing early signs of recovery.",
-   "sources": [
-    "https://www.propertyguru.com.sg/project/the-coast-at-sentosa-cove-87",
-    "https://cos.sg/blog-post/sentosa-cove-property-prices-buck-mainland-uptrend-as-loss-making-deals-rise/"
+    "edgeprop.sg",
+    "99.co"
    ]
   },
   "LUMIERE": {
-   "note": "Lumiere is a 168-unit, 45-storey, 99-year leasehold development (2010) at 2 Mistri Road, Tanjong Pagar, within walking distance of Tanjong Pagar, Telok Ayer and Raffles Place MRT stations. Like nearby projects it is a longer-term beneficiary of the Greater Southern Waterfront masterplan following the port's relocation to Tuas by 2027.",
+   "note": "99-year leasehold 168-unit, 45-storey tower at 2 Mistri Road (TOP ~2012) in the Tanjong Pagar/Shenton Way area near Tanjong Pagar and Telok Ayer MRT. Recent transactions averaged roughly S$1,789 psf over the past 12 months.",
    "sources": [
-    "https://www.99.co/singapore/condos-apartments/lumiere",
-    "https://www.edgeprop.sg/condo-apartment/lumiere"
+    "stackedhomes.com",
+    "propertyguru.com.sg",
+    "99.co"
    ]
   },
-  "THE CLIFT": {
-   "note": "Completed in 2011 by Far East Organization, Singapore's largest private developer, The Clift is a 312-unit, 99-year leasehold tower at 21 McCallum Street. It sits a short walk from Tanjong Pagar (EWL) and Telok Ayer (DTL) MRT stations in the Raffles Place/Tanjong Pagar CBD.",
+  "SELETAR PARK RESIDENCE": {
+   "note": "99-year leasehold 276-unit condo completed 2015 by Asplenium Land and designed by SCDA Architects, located beside Greenwich V mall in the landed Seletar Hills enclave. Relatively MRT-distant, with Ang Mo Kio MRT about a 5-minute drive and Fernvale LRT roughly 900m away.",
    "sources": [
-    "https://www.edgeprop.sg/condo-apartment/the-clift",
-    "https://www.propertyguru.com.sg/project/the-clift-117"
+    "edgeprop.sg",
+    "99.co"
    ]
   },
-  "SPOTTISWOODE RESIDENCES": {
-   "note": "This 351-unit freehold development at 48 Spottiswoode Park Road will benefit from the new Cantonment MRT (Circle Line Stage 6) opening 12 July 2026, which closes the Circle Line loop. Recent transactions reached up to about S$2,582 psf in May 2026, while the adjacent Spottiswoode Park HDB estate is not slated for SERS after HDB's August 2025 statement that no further SERS sites are planned.",
+  "ICON": {
+   "note": "99-year leasehold 646-unit development completed in 2007 by Far East Organization, sitting directly atop the Icon Village retail podium and across the road from Tanjong Pagar MRT. Its large unit count and integrated mall make it a high-liquidity, transit-adjacent CBD project.",
    "sources": [
-    "https://www.lta.gov.sg/content/ltagov/en/newsroom/2026/5/news-releases/circle-line-stage-6-to-open-for-public-preview-on-4-july-2026.html",
-    "https://www.propertyguru.com.sg/project/spottiswoode-residences-20545"
+    "stackedhomes.com",
+    "edgeprop.sg"
    ]
   },
-  "WALLICH RESIDENCE": {
-   "note": "Singapore's tallest residential development (181 units on floors 39\u201364 of Guoco Tower), completed 2018 by GuocoLand with direct access to Tanjong Pagar MRT. Its triplex super penthouse was bought by James Dyson for S$73.8m then sold at a loss for S$62m to Leo Koguan in 2020.",
+  "GUILLEMARD SUITES": {
+   "note": "Freehold boutique 146-unit development completed 2017 by MK25 along Guillemard Road, about an 8-minute (610m) walk to Mountbatten MRT on the Circle Line. Last-12-month transactions averaged around S$1,499 psf.",
    "sources": [
-    "https://en.wikipedia.org/wiki/Guoco_Tower",
-    "https://www.edgeprop.sg/property-news/wallich-residence-penthouse-sold-record-high"
+    "99.co",
+    "edgeprop.sg"
+   ]
+  },
+  "ONE-NORTH RESIDENCES": {
+   "note": "99-year leasehold (TOP 2009) by a UOL-Kheng Leong joint venture, comprising 405 units directly above one-north MRT (CC23) and one stop from Buona Vista interchange, in the heart of the one-north research/business hub. No collective sale activity has been reported.",
+   "sources": [
+    "99.co",
+    "edgeprop.sg"
    ]
   },
   "JOOL SUITES": {
-   "note": "Jool Suites is a 52-unit freehold development at 2 Sing Joo Walk in the Kampong Java/Farrer Park area, completed around 2013\u20132014 by SJ Capital and within roughly a 4-minute walk of Farrer Park MRT (NEL). The newer 8 Farrer Suites sits next door at 8 Sing Joo Walk, with City Square Mall nearby.",
+   "note": "Freehold 52-unit development (TOP 2014) at 2 Sing Joo Walk near Farrer Park/Little India, dominated by small one-bedroom units (387-484 sqft) and penthouses, making it a compact investor/rental-oriented project. No collective sale has been reported.",
    "sources": [
-    "https://www.srx.com.sg/condo/jool-suites-14892",
-    "https://www.edgeprop.sg/condo-apartment/jool-suites"
+    "edgeprop.sg",
+    "srx.com.sg"
    ]
   },
-  "10 SHELFORD": {
-   "note": "10 Shelford is a 69-unit freehold development at 10 Shelford Road, Bukit Timah (District 11), completed in 2014 by Adam Properties. The nearest MRT stations are Tan Kah Kee and Botanic Gardens on the Downtown and Circle Lines.",
+  "THE COAST AT SENTOSA COVE": {
+   "note": "99-year leasehold 249-unit waterfront development (TOP 2010) by Ho Bee Land in Sentosa Cove, the only enclave allowing private marina berthing and foreigner landed purchase. Sentosa Cove non-landed prices fell about 18.7% from 2023 (~$2,125 psf) to 2025 (~$1,728 psf) amid 60% foreigner ABSD, though agents cite early signs of recovery.",
    "sources": [
-    "https://www.edgeprop.sg/condo-apartment/10-shelford",
-    "https://directory.stackedhomes.com/condo/10-shelford/"
+    "propertyguru.com.sg",
+    "propnex.com",
+    "edgeprop.sg"
+   ]
+  },
+  "TROPIKA EAST": {
+   "note": "Freehold 105-unit development (TOP 2016) by Tong Eng Group at Foo Kim Lin Road off Jalan Eunos, set within a landed-housing enclave with loft and private-pool unit types; nearest MRT is Ubi/Kaki Bukit on the Downtown Line. No collective sale has been reported.",
+   "sources": [
+    "edgeprop.sg",
+    "99.co"
+   ]
+  },
+  "WATERFORD RESIDENCE": {
+   "note": "999-year leasehold 118-unit development (TOP 2010) by Hoi Hup Realty at Kim Yam Road on the River Valley/Orchard fringe, about 900m from Fort Canning MRT (DT20). No collective sale has been reported.",
+   "sources": [
+    "propertyguru.com.sg",
+    "99.co"
    ]
   }
  }
