@@ -26,17 +26,15 @@
     if (/\/tools\//.test(p)) return /#tools$/.test(href);
     return false;
   }
-  var MARK = '<svg class="pm" viewBox="0 0 40 40" aria-hidden="true"><defs>' +
-    '<linearGradient id="psg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2c5743"/><stop offset=".55" stop-color="#1b3a2d"/><stop offset="1" stop-color="#0f231a"/></linearGradient>' +
-    '<linearGradient id="psb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#efd9a6"/><stop offset="1" stop-color="#c39a5b"/></linearGradient></defs>' +
-    '<rect x="1" y="1" width="38" height="38" rx="11" fill="url(#psg)"/>' +
-    '<text x="19.5" y="29.5" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-weight="500" font-size="27" fill="url(#psb)">P</text>' +
-    '<circle cx="29" cy="13.5" r="2" fill="#e3c98f"/></svg>';
+  var MARK = '<svg class="pm" viewBox="0 0 64 64" aria-hidden="true">' +
+    '<path d="M9 35 L32 13 L55 35" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>' +
+    '<path d="M16 49 L48 49" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/>' +
+    '<circle cx="32" cy="39" r="3.4" fill="#b08d57"/></svg>';
 
   var css = '' +
     '.psnav{position:sticky;top:0;z-index:300;background:rgba(247,244,236,.97);border-bottom:1px solid #e7e0d2;font-family:"Schibsted Grotesk",system-ui,sans-serif}' +
     '.psnav-in{max-width:1200px;margin:0 auto;padding:0 28px;height:76px;display:flex;align-items:center;gap:20px}' +
-    '.psnav-brand{display:flex;align-items:center;gap:9px;text-decoration:none}.psnav-brand .pm{width:34px;height:34px;flex:none;filter:drop-shadow(0 3px 8px rgba(15,35,26,.16))}' +
+    '.psnav-brand{display:flex;align-items:center;gap:9px;text-decoration:none}.psnav-brand .pm{width:36px;height:36px;flex:none;color:#1b3a2d}' +
     '.psnav-brand b{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:20px;color:#191512;letter-spacing:.01em}' +
     '.psnav-links{display:flex;gap:22px;margin-left:auto;align-items:center}' +
     '.psnav-links a{font-size:14.5px;font-weight:600;color:#5a5248;text-decoration:none;white-space:nowrap;transition:color .2s}' +
