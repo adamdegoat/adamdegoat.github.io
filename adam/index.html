@@ -606,6 +606,10 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
 .cval-err{color:#b4452f;font-size:12px;margin-top:8px;font-weight:600}
 .cval-res{margin-top:11px;display:none}.cval-res.on{display:block}
 .cval-est{background:linear-gradient(150deg,var(--green2),var(--green3));color:#f3efe6;border-radius:11px;padding:13px 15px}
+.cval-warn{background:rgba(176,69,47,.1);border:1px solid rgba(176,69,47,.34);border-radius:10px;padding:9px 12px;font-size:11.5px;color:#9a3c2c;font-weight:600;line-height:1.45;margin-bottom:9px}
+.cval-warn a{color:#9a3c2c;text-decoration:underline;font-weight:700}
+.cval-est.rough{background:linear-gradient(150deg,#7c5a3a,#473420)}
+.cval-est.rough .rk{color:#f0d9b8}
 .cval-est .rk{font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--brass3)}
 .cval-est .rv{font-family:var(--serif);font-weight:600;font-size:24px;line-height:1.1;margin:4px 0 3px}
 .cval-est .rs{font-size:11.5px;color:rgba(243,239,230,.85)}
@@ -1032,8 +1036,10 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
           fullURL+='?t=condo&proj='+encodeURIComponent(p[0])+(size?'&size='+size:'');
         }
         if(!r||!r.ok)throw new Error((r&&r.reason)||'Not enough recent sales to value this one. Try the full tool.');
-        const cm={High:'High confidence',Medium:'Fair confidence',Lower:'Indicative'}[r.confidence]||r.confidence;
-        res.innerHTML='<div class="cval-est"><div class="rk">Estimated value · '+label+'</div><div class="rv">'+fmtM(r.low)+' – '+fmtM(r.high)+'</div><div class="rs">the likely range, from real recent sales nearby</div></div>'+
+        const rough = r.confidence==='Lower' || (r.n_comps||99) < 4;
+        const cm={High:'High confidence',Medium:'Fair confidence',Lower:'Low confidence'}[r.confidence]||r.confidence;
+        const warn = rough ? '<div class="cval-warn">Heads up, not many recent comparable sales here, so this is a rough guide only, not a reliable estimate. For an accurate figure, <a href="https://wa.me/6583219747" target="_blank" rel="noopener">ask us for a proper valuation</a>.</div>' : '';
+        res.innerHTML=warn+'<div class="cval-est'+(rough?' rough':'')+'"><div class="rk">'+(rough?'Rough estimate · ':'Estimated value · ')+label+'</div><div class="rv">'+fmtM(r.low)+' – '+fmtM(r.high)+'</div><div class="rs">'+(rough?'treat with caution, limited recent sales':'the likely range, from real recent sales nearby')+'</div></div>'+
           '<div class="cval-meta"><b>'+cm+'</b> · based on '+r.n_comps+' recent sale'+(r.n_comps===1?'':'s')+' · around '+Math.round(r.estimate_psf).toLocaleString()+' psf.'+(r.area_assumed?' Add your floor area for a tighter range.':'')+'<br><a class="cval-full" href="'+fullURL+'" target="_blank" rel="noopener">See the full breakdown &amp; comparable sales →</a></div>';
         res.classList.add('on');
       }catch(e){ err.textContent=e.message||'Something went wrong — try again.'; err.style.display='block'; }

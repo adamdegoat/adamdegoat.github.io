@@ -365,7 +365,10 @@ function plainReason(s){return s;} // engine reasons are already plain enough
 
 function render(r,label,subj){
   $('#tot').textContent=`${fmtM(r.low)} – ${fmtM(r.high)}`;
-  $('#totsub').innerHTML=`<b>${label}</b> — the likely range for ${r.area_assumed?'a typical unit':'this size'}. Mid-point about <b>${fmtM(r.estimate_price)}</b>.`;
+  const rough = r.confidence==='Lower' || (r.n_comps||99) < 4;
+  $('#totsub').innerHTML = rough
+    ? `<b style="color:#b4452f">Limited recent sales for this one.</b> Treat the range above as a rough guide only, not a reliable valuation. For an accurate figure, <a href="https://wa.me/6583219747" style="color:var(--green2);font-weight:700">get a proper valuation</a>.`
+    : `<b>${label}</b> — the likely range for ${r.area_assumed?'a typical unit':'this size'}. Mid-point about <b>${fmtM(r.estimate_price)}</b>.`;
   const cm={High:'High confidence',Medium:'Fair confidence',Lower:'Indicative'}[r.confidence]||r.confidence;
   $('#conf').className='chip '+r.confidence;$('#conftxt').textContent=cm;
   const html=[
