@@ -366,7 +366,7 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .hero .eyebrow{color:var(--brass3)}
 .hero .eyebrow::before{background:var(--brass3)}
 .hero h1{color:#f6f1e7}
-.hero h1 em{color:var(--brass3)}
+.hero h1 em{color:inherit}
 .hero .lead{color:rgba(246,241,231,.84)}
 .hero .covers{color:rgba(246,241,231,.6)}
 .hero .covers b{color:rgba(246,241,231,.92)}
@@ -498,13 +498,20 @@ body::before{animation:none}
 .pb-card .pb-go i{font-style:normal;transition:transform .25s}.pb-card:hover .pb-go i{transform:translateX(5px)}
 @media(max-width:560px){.photoband{height:340px}.pb-card{display:block;max-width:none}}
 /* ═══ PLAINSIGHT v2 — compact hero (showcase more) + Ask Plainsight chatbot ═══ */
-.hero{padding-top:74px;padding-bottom:42px}
-.hero h1{font-size:clamp(38px,4.7vw,66px) !important;letter-spacing:-.03em}
-.hero .lead{font-size:16.5px;margin-top:18px;max-width:500px}
-.hero .cta{margin-top:24px}
-.mhead{margin-bottom:24px;padding-bottom:14px}
+.hero{padding-top:56px;padding-bottom:32px}
+.hero h1{font-size:clamp(32px,3.9vw,52px) !important;letter-spacing:-.03em}
+.hero .lead{font-size:15.5px;margin-top:14px;max-width:480px}
+.hero .cta{margin-top:19px}
+.mhead{margin-bottom:16px;padding-bottom:12px}
 .links{gap:22px}
-@media(max-width:880px){.hero{padding-top:62px;padding-bottom:30px}.hero h1{font-size:clamp(33px,8.4vw,46px) !important}}
+/* natural photo (the green/gold AI duotone filter is gone); editorial scrim handles legibility */
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:saturate(.92) contrast(1.02)}
+.hero-in{grid-template-columns:1fr}
+.afford-sec .afford-mini{max-width:560px;margin:0 auto}
+/* single-colour headline — no gold word, no underline squiggle (read as AI) */
+.hero h1 em{color:inherit !important}
+.hero h1 .uline{display:none}
+@media(max-width:880px){.hero{padding-top:52px;padding-bottom:24px}.hero h1{font-size:clamp(30px,7.6vw,42px) !important}}
 /* launcher */
 .cbtn{position:fixed;right:22px;bottom:22px;z-index:80;display:inline-flex;align-items:center;gap:10px;
  background:linear-gradient(135deg,var(--green2),var(--green3));color:#f4efe6;border:1px solid rgba(227,201,143,.45);
@@ -620,7 +627,7 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
 </div>
 
 <section class="hero">
-  <div class="hero-bg" aria-hidden="true"><svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice"><defs><filter id="heroduo" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.299 0.587 0.114 0 0  0.299 0.587 0.114 0 0  0.299 0.587 0.114 0 0  0 0 0 1 0"/><feComponentTransfer><feFuncR tableValues="0.04 0.86"/><feFuncG tableValues="0.15 0.78"/><feFuncB tableValues="0.09 0.55"/></feComponentTransfer></filter></defs><image href="img/hero.jpg" x="0" y="0" width="1440" height="900" preserveAspectRatio="xMidYMid slice" filter="url(#heroduo)"/></svg></div>
+  <div class="hero-bg" aria-hidden="true"><img src="img/hero.jpg" alt=""></div>
   <div class="hero-grad" aria-hidden="true"></div>
   <span class="herosun" aria-hidden="true"></span>
   <span class="haloarc" aria-hidden="true"></span>
@@ -636,7 +643,12 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
     <div class="fresh rv"><span class="dot"></span>Live · built on official URA data · refreshed weekly</div>
     <a class="hinstall rv" href="install.html">📲 Add this hub to your phone — one tap to every tool</a>
   </div>
-  <aside class="livepanel afford-mini">
+  </div></section>
+
+<section class="sec afford-sec"><div class="wrap">
+  <div class="sec-h"><div><span class="eyebrow rv">Free · no sign-up</span><h2 class="rv">What can I afford?</h2></div>
+    <p class="rv">Your real budget, from your income and savings, using the actual lending rules — a starting point in seconds.</p></div>
+  <aside class="livepanel afford-mini rv">
     <div class="am-head">
       <span class="am-title">What can I afford?</span>
       <div class="am-seg" id="amType"><button class="on" data-t="private">Condo</button><button data-t="hdb">HDB</button></div>
@@ -1146,6 +1158,8 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
   function close(){panel.classList.remove('open');btn.classList.remove('hide');}
   btn.onclick=open;x.onclick=close;
   addEventListener('keydown',e=>{if(e.key==='Escape'&&panel.classList.contains('open'))close();});
+  // showcase the assistant when visitors arrive — open it for them once per session (don't leave it hiding in the corner)
+  try{ if(!sessionStorage.getItem('ps_chat_seen') && innerWidth>700){ setTimeout(()=>{ if(!panel.classList.contains('open'))open(); },1600); sessionStorage.setItem('ps_chat_seen','1'); } }catch(e){}
   form.onsubmit=e=>{e.preventDefault();const v=inp.value.trim();if(!v)return;inp.value='';handle(v);};
   // nudge: rotating input placeholder (only while empty + unfocused)
   let phi=0;setInterval(()=>{if(inp&&document.activeElement!==inp&&!inp.value){phi=(phi+1)%PH.length;inp.placeholder=PH[phi];}},4200);
