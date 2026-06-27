@@ -64,8 +64,9 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 36px}
 @media(max-width:560px){.wrap{padding:0 20px}}
 /* nav */
-.nav{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:13px;padding:13px 20px;
+.nav{position:sticky;top:0;z-index:40;padding:13px 0;
   background:rgba(244,246,250,.85);backdrop-filter:blur(12px) saturate(1.2);border-bottom:1px solid var(--line)}
+.nav .navwrap{display:flex;align-items:center;gap:13px}
 .navback{font-size:12.5px;font-weight:600;color:var(--ink3);padding:7px 12px;border-radius:30px;border:1px solid var(--line);white-space:nowrap;transition:.15s}
 .navback:hover{color:var(--green);border-color:var(--green-d)}
 .brand{display:flex;align-items:center;gap:9px}
@@ -460,12 +461,12 @@ select.f{padding:13px 13px;border-radius:13px}
 <script src="/adam/nav.js" defer></script>
 </head>
 <body>
-<nav class="nav" style="position:static">
+<nav class="nav" style="position:static"><div class="wrap navwrap">
   <div class="brand"><div><div class="nm" style="font-size:17px">Research</div><div class="sub">Condo &amp; HDB · official caveats</div></div></div>
   <span class="sp"></span>
-  
+
   <div class="datatag" id="dataTag">loading…</div>
-</nav>
+</div></nav>
 <div class="modebar"><div class="wrap"><div class="modeseg" id="modeseg">
   <button class="modebtn on" data-mode="condo">Condos</button>
   <button class="modebtn" data-mode="hdb">HDB</button>
