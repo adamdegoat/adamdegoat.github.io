@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-26T23:30:00.188944+08:00",
+  "updated": "2026-06-27T09:00:00.218478+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -290,9 +290,21 @@
   },
   "news": [
     {
-      "title": "Ex-UFC fighter Aspen Ladd signs with BKB bare-knuckle promotion",
-      "link": "https://www.mmafighting.com/latest-news/496310/ex-ufc-fighter-aspen-ladd-signs-with-bkb-bare-knuckle-promotion",
+      "title": "Daniel Cormier says Arman Tsarukyan has to get next UFC lightweight title shot: ‘Arman essentially made himself undeniable’",
+      "link": "https://www.mmafighting.com/latest-news/496370/daniel-cormier-says-arman-tsarukyan-has-to-get-next-ufc-lightweight-title-shot-arman-essentially-made-himself-undeniable",
       "source": "MMA Fighting",
+      "priority": true
+    },
+    {
+      "title": "Video! UFC’s Dana White shuts down rich cancel culture trying to fire ‘loyal’ Joe Rogan: ‘Don’t ever call me’",
+      "link": "https://www.mmamania.com/ufc-news/453209/video-ufcs-dana-white-shuts-down-rich-cancel-culture-trying-to-fire-loyal-joe-rogan-dont-ever-call-me",
+      "source": "MMA Mania",
+      "priority": true
+    },
+    {
+      "title": "27-fight UFC vet, bonus magnet signs with BKFC to compete at Fenway Park",
+      "link": "https://www.sherdog.com/news/news/27fight-UFC-vet-bonus-magnet-signs-with-BKFC-to-compete-at-Fenway-Park-201658",
+      "source": "Sherdog",
       "priority": true
     },
     {
@@ -308,16 +320,34 @@
       "priority": true
     },
     {
-      "title": "PFL signs former UFC bantamweight contender",
-      "link": "https://www.sherdog.com/news/news/PFL-signs-former-UFC-bantamweight-contender-201626",
-      "source": "Sherdog",
-      "priority": true
+      "title": "‘At home’ in enemy territory: Matheus Camilo plans to ‘throw down’ with Nazim Sadykhov at UFC Baku",
+      "link": "https://www.mmafighting.com/ufc/495921/at-home-in-enemy-territory-matheus-camilo-plans-to-throw-down-with-nazim-sadykhov-at-ufc-baku",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
-      "title": "Dricus Du Plessis: Kamaru Usman was reluctant to sign contract for UFC Oklahoma City",
-      "link": "https://www.sherdog.com/news/news/Dricus-Du-Plessis-Kamaru-Usman-was-reluctant-to-sign-contract-for-UFC-Oklahoma-City-201625",
-      "source": "Sherdog",
-      "priority": true
+      "title": "UFC Baku Preview Show: Is this a do-or-die for Rafael Fiziev against Manuel Torres?",
+      "link": "https://www.mmafighting.com/latest-news/496407/ufc-baku-preview-show-is-this-a-do-or-die-for-rafael-fiziev-against-manuel-torres",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Brunno Ferreira believes Ikram Aliskerov is overhyped, only needs 1 punch to knock him out at UFC Baku",
+      "link": "https://www.mmafighting.com/ufc/496159/brunno-ferreira-believes-ikram-aliskerov-is-overhyped-only-needs-1-punch-to-knock-him-out-at-ufc-baku",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Anthony Hernandez vs. Gregory Rodrigues set to headline UFC’s return to Sacramento",
+      "link": "https://www.mmafighting.com/ufc/496481/anthony-hernandez-vs-gregory-rodrigues-set-to-headline-ufcs-return-to-sacramento",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "UFC Baku video: Shara Bullet grabs Michel Pereira’s neck in aggressive faceoff",
+      "link": "https://www.mmafighting.com/ufc/496460/ufc-baku-video-shara-bullet-grabs-michel-pereiras-neck-in-aggressive-faceoff",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "Jon Jones leaves door open for potential UFC return: ‘I’m moving like I never left’",
@@ -332,51 +362,21 @@
       "priority": false
     },
     {
-      "title": "UFC Baku weigh-in video: Fiziev vs. Torres",
-      "link": "https://www.mmafighting.com/ufc/496351/ufc-baku-weigh-in-video-fiziev-vs-torres",
-      "source": "MMA Fighting",
+      "title": "Here’s MMAmania.com’s UFC Baku betting odds ‘Weekend Lock’ … what’s yours?",
+      "link": "https://www.mmamania.com/latest-news/453056/heres-mmamania-coms-ufc-baku-betting-odds-weekend-lock-whats-yours",
+      "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "Morning Report: Sean O’Malley says rematch with Petr Yan is ‘the biggest fight in bantamweight history’",
-      "link": "https://www.mmafighting.com/latest-news/495260/morning-report-sean-omalley-says-rematch-with-petr-yan-is-the-biggest-fight-in-bantamweight-history",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "‘Tito was absolutely, 100% terrified of Chuck Liddell’: Chuck Liddell, Tito Ortiz reflect on epic rivalry in UFC",
-      "link": "https://www.mmafighting.com/ufc/496231/tito-was-absolutely-100-terrified-of-chuck-liddell-chuck-liddell-tito-ortiz-reflect-on-epic-rivalry-in-ufc",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Justin Gaethje lone MMA fighter nominated for 2026 ESPY award",
-      "link": "https://www.mmafighting.com/latest-news/496331/justin-gaethje-lone-mma-fighter-nominated-for-2026-espy-award",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "UFC Baku newcomer Jefferson Nascimento questions why ‘easy money’ Chase Hooper is still on the UFC roster",
-      "link": "https://www.mmafighting.com/ufc/496214/ufc-baku-newcomer-jefferson-nascimento-questions-why-easy-money-chase-hooper-is-still-on-the-ufc-roster",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Between the Links: Reaction to new UFC rankings, Dustin Poirier, Josh Hokit doubles down",
-      "link": "https://www.mmafighting.com/ufc/496237/between-the-links-reaction-to-new-ufc-rankings-dustin-poirier-josh-hokit-doubles-down",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Live: UFC Baku ceremonial weigh ins video results | Fiziev vs. Torres",
-      "link": "https://www.mmamania.com/ufc-weigh-in-video/453086/live-ufc-baku-ceremonial-weigh-ins-video-results-fiziev-vs-torres-mma",
+      "title": "UFC Baku preview: ‘Fiziev vs. Torres’ main, co-main event predictions",
+      "link": "https://www.mmamania.com/ufc-predictions/452892/ufc-baku-preview-fiziev-vs-torres-main-co-main-event-predictions",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Fiziev vs Torres Sunday midnight SGT—lightweight strikers ready to scrap.",
-    "prefight": "Watch Fiziev's striking masterclass clash with Torres' grappling dominance in Sunday's main event.",
-    "results": "Manel Kape dismantles Horiguchi, TKO via punches in round 3."
+    "week": "Fiziev versus Torres hits the octagon tomorrow at midnight Singapore time — prime striking action incoming.",
+    "prefight": "Fiziev and Torres bring the heat in an unmissable lightweight main event.",
+    "results": "Manel Kape ended Horiguchi's night with a devastating third-round TKO."
   }
 }
