@@ -1,12 +1,12 @@
 {
-  "updated": "2026-06-27",
-  "updated_label": "27 Jun 2026",
+  "updated": "2026-06-28",
+  "updated_label": "28 Jun 2026",
   "count": 9,
   "items": [
     {
-      "headline": "Condo management cannot ban owners from renting out their units, BCA rules",
-      "summary": "The Building and Construction Authority has confirmed that condo by-laws cannot override an owner's legal right to rent out their unit, even if the management corporation has passed rules trying to restrict it. The ruling clarifies a long-running point of confusion between condo committees and individual owners.",
-      "meaning": "If you own a condo, no management committee can legally stop you from renting it out, no matter what the estate's house rules say.",
+      "headline": "Condo rules cannot stop you from renting out your unit, BCA confirms",
+      "summary": "The Building and Construction Authority has ruled that condo management bodies cannot use estate by-laws to prevent owners from renting out their units. The right to rent belongs to the owner, not the management corporation.",
+      "meaning": "If your condo management has been blocking rentals through estate rules, those rules are not legally enforceable and you are protected as an owner.",
       "tag": "Policy",
       "source": "The Straits Times",
       "image": "news-img/fc3a4a7a4e39ac.webp",
@@ -15,10 +15,10 @@
       "date_label": "26 Jun"
     },
     {
-      "headline": "Condo resale prices rebounded in May 2026 even as fewer units were sold",
-      "summary": "Resale condo prices ticked back up in May 2026 after softening earlier in the year, even though the number of transactions eased. Sellers held firm on asking prices despite the quieter buying activity.",
-      "meaning": "Buyers hoping for condo resale discounts should not count on them yet, as sellers are not under pressure to lower prices.",
-      "tag": "Market",
+      "headline": "Condo resale prices climbed in May 2026 even as fewer deals were done",
+      "summary": "Condo resale prices recovered in May 2026, bouncing back from recent softness, even as the number of transactions dipped. Sellers are holding firm on prices despite lower buying activity.",
+      "meaning": "Buyers hoping for resale condo bargains will be disappointed for now, as prices are not falling even when fewer deals are happening.",
+      "tag": "Condo",
       "source": "99.co",
       "image": "news-img/45a44770c8211f.webp",
       "link": "https://www.99.co/singapore/insider/condo-resale-prices-rebound-in-may-2026-even-as-transaction-volumes-ease/",
@@ -26,9 +26,9 @@
       "date_label": "25 Jun"
     },
     {
-      "headline": "June BTO round draws 22,312 applications, with one project the clear favourite",
-      "summary": "More than 22,000 people applied for the June 2026 Build-to-Order exercise, showing that demand for new public flats remains strong. One project stood out with a disproportionately high number of applicants compared to the others in the same round.",
-      "meaning": "Competition for popular BTO flats is still fierce, so it pays to have a backup project chosen before you ballot.",
+      "headline": "June BTO exercise draws over 22,000 applications, singles pile into one project",
+      "summary": "The June 2026 BTO exercise attracted 22,312 applications across multiple projects, with one project drawing especially heavy interest from singles applying under the Singles scheme.",
+      "meaning": "Competition for new HDB flats remains high, so check the application rates carefully before you commit to a project to gauge your real chances.",
       "tag": "HDB",
       "source": "Stacked Homes",
       "image": "news-img/0ea865df7f69b9.jpg",
@@ -37,9 +37,9 @@
       "date_label": "24 Jun"
     },
     {
-      "headline": "Around 8,000 new HDB flats to launch in October 2026, with Bayshore and Toa Payoh projects tipped as hot picks",
-      "summary": "HDB has confirmed it will offer roughly 8,000 flats in the October 2026 BTO exercise. Projects in Bayshore and Toa Payoh are expected to draw strong interest because of their locations near the coast and city fringe respectively.",
-      "meaning": "If you are planning to ballot for a flat, mark October 2026 on your calendar and start shortlisting now, especially if you are open to Bayshore or Toa Payoh.",
+      "headline": "Around 8,000 BTO flats coming in October 2026, including Bayshore and Toa Payoh",
+      "summary": "HDB plans to launch roughly 8,000 flats in the October 2026 BTO exercise, with projects in Bayshore and Toa Payoh expected to attract the most interest given their locations.",
+      "meaning": "If you are planning a BTO application this year, October will be a significant exercise with some prime locations worth preparing for early.",
       "tag": "HDB",
       "source": "99.co",
       "image": "news-img/f30e0926da679d.webp",
@@ -48,20 +48,20 @@
       "date_label": "19 Jun"
     },
     {
-      "headline": "Planned HDB site in Sembawang scaled back to preserve a patch of secondary forest",
-      "summary": "Authorities have reduced the size of a new HDB development site in Sembawang after deciding to keep part of an existing secondary forest intact. The decision means fewer flats will be built there than originally planned.",
-      "meaning": "Less supply coming to Sembawang than expected, which could firm up demand and prices for flats in that area.",
-      "tag": "HDB",
-      "source": "The Straits Times",
-      "image": "news-img/37c81b74340d59.webp",
-      "link": "https://www.straitstimes.com/singapore/environment/new-hdb-site-shrunk-to-preserve-part-of-forest-in-sembawang",
-      "date": "2026-06-26",
-      "date_label": "26 Jun"
+      "headline": "Condo and HDB rents both eased in May 2026 as more supply enters the market",
+      "summary": "Rental prices for both condos and HDB flats dipped in May 2026, continuing a gradual softening as more units become available. The market is described as moving toward a better balance between supply and demand.",
+      "meaning": "If you rent out your property, expect slightly lower rental income than a year ago; if you are a tenant, you now have a little more room to negotiate.",
+      "tag": "Market",
+      "source": "99.co",
+      "image": "news-img/9e510931200ade.webp",
+      "link": "https://www.99.co/singapore/insider/condo-hdb-rental-market-may-2026/",
+      "date": "2026-06-19",
+      "date_label": "19 Jun"
     },
     {
-      "headline": "32-year-old executive HDB flat in Kallang/Whampoa sells for a record $1.412 million",
-      "summary": "A large, older executive flat in Kallang/Whampoa changed hands at $1.412 million, setting a new price record for its flat type in the area. Its size, central location, and remaining lease all played a role in the high price.",
-      "meaning": "Big, centrally located older HDB flats can still fetch top dollar, which is a useful benchmark whether you are buying or thinking of selling one.",
+      "headline": "Kallang/Whampoa executive HDB flat sells for record $1.41 million",
+      "summary": "A 32-year-old executive flat in the Kallang/Whampoa estate changed hands for $1.412 million, setting a new price record for the area. Its large size, central location, and remaining lease length drove the price.",
+      "meaning": "Million-dollar HDB prices are still being set in central estates, which gives buyers and sellers a concrete benchmark for what similar flats in the area are worth.",
       "tag": "HDB",
       "source": "Stacked Homes",
       "image": "news-img/4a4af0480820fe.jpg",
@@ -70,37 +70,37 @@
       "date_label": "25 Jun"
     },
     {
-      "headline": "38-year-old HDB maisonette in Bukit Timah sells for a record $1.508 million",
-      "summary": "A large, older maisonette-style HDB flat in Bukit Timah set a new price record for the town at $1,508,888. The sale reflects continued demand for spacious older flat types in well-established, prime HDB locations.",
-      "meaning": "Older HDB flats in sought-after estates can still command very high prices, so do not write off your older flat as less valuable just because of its age.",
+      "headline": "Government releases two new private housing plots in Bright Hill and Kallang for sale",
+      "summary": "The Urban Redevelopment Authority put two smaller government land sale sites up for tender, one near Sin Ming in the Bright Hill area and one in Kallang. Developers are expected to bid strongly given limited recent supply in those areas.",
+      "meaning": "New private condo projects in Bright Hill and Kallang will eventually follow these land sales, giving buyers in those areas more options in a few years.",
+      "tag": "New Launch",
+      "source": "Business Times",
+      "image": "news-img/f7993d0769ff89.webp",
+      "link": "https://www.businesstimes.com.sg/property/ura-releases-two-smaller-housing-sites-sin-ming-kallang-sale",
+      "date": "2026-06-25",
+      "date_label": "25 Jun"
+    },
+    {
+      "headline": "River Valley Green land sold at $1,730 per square foot of buildable area, pointing to steep future launch prices",
+      "summary": "A developer joint venture paid $1,730 for every square foot of space it can build at the last government-released plot in River Valley Green. That land cost will directly shape what buyers pay when units eventually launch.",
+      "meaning": "The high price paid for this land means future units here are likely to be expensive at launch, so factor that in if you are watching the River Valley area.",
+      "tag": "New Launch",
+      "source": "99.co",
+      "image": "news-img/1d37c286cbe7dd.jpg",
+      "link": "https://www.99.co/singapore/insider/sunway-mcl-csc-land-river-valley-green-c-gls-s1730-psf-ppr/",
+      "date": "2026-06-18",
+      "date_label": "18 Jun"
+    },
+    {
+      "headline": "Bukit Timah maisonette breaks town record at $1.51 million",
+      "summary": "A 38-year-old HDB maisonette in Bukit Timah sold for $1,508,888, the highest price ever recorded for an HDB flat in that area. The large size and address carried the price to that level.",
+      "meaning": "Large, older HDB flats in prime areas are still fetching record prices, giving buyers and sellers a reference point for what the top of the HDB resale market looks like.",
       "tag": "HDB",
       "source": "99.co",
       "image": "news-img/b24f2106b25144.webp",
       "link": "https://www.99.co/singapore/insider/38-year-old-bukit-timah-maisonette-sets-new-town-record-at-s1508888/",
       "date": "2026-06-23",
       "date_label": "23 Jun"
-    },
-    {
-      "headline": "Several HDB projects hit their resale eligibility mark in 2026, opening up more supply",
-      "summary": "A batch of HDB flats bought in the 2021 BTO wave are reaching the end of their five-year Minimum Occupation Period this year, meaning owners are now legally allowed to sell on the open market. This will add fresh resale inventory across multiple estates.",
-      "meaning": "More resale HDB flats will come onto the market throughout 2026, giving buyers more choices but also adding competition for sellers in the same estates.",
-      "tag": "HDB",
-      "source": "99.co",
-      "image": "news-img/8ed7306785d88c.jpg",
-      "link": "https://www.99.co/singapore/insider/thinking-about-buying-these-hdb-projects-are-reaching-mop-in-2026/",
-      "date": "2026-06-24",
-      "date_label": "24 Jun"
-    },
-    {
-      "headline": "Two new private housing sites released at Bright Hill and Farrer Park, one backed by years of unmet demand",
-      "summary": "The government has put two new sites up for sale under the Government Land Sales programme, where developers bid to build private condos. The Farrer Park site in particular has had little new private housing supply for years, which analysts expect will attract strong bids from developers.",
-      "meaning": "New private condos should eventually emerge at these locations, giving buyers in Bright Hill and Farrer Park more options where supply has been thin.",
-      "tag": "New Launch",
-      "source": "Stacked Homes",
-      "image": "news-img/3c926c45a08bcb.jpg",
-      "link": "https://stackedhomes.com/lorong-puntong-kitchener-link-gls-sites/",
-      "date": "2026-06-25",
-      "date_label": "25 Jun"
     }
   ]
 }
