@@ -182,7 +182,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
 // verified fallback (mirror of caveat/data/rates.json financing block)
 let R={tdsr:.55,msr:.30,stress:.04,stressHdb:.03,ltv:.75,ltvReduced:.55,minCash:.05,minCashReduced:.10,minCashHdb:0,
        bsd:[[180000,1],[360000,2],[1000000,3],[1500000,4],[3000000,5],[null,6]],as_of:"14 Jun 2026"};
-fetch('https://adamdegoat.github.io/caveat/data/rates.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{
+fetch('/caveat/data/rates.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{
   if(d.financing){const f=d.financing;R.tdsr=f.tdsr_pct/100;R.msr=f.msr_pct/100;R.stress=f.stress_rate_pct/100;
     if(f.hdb_loan_stress_rate_pct!=null)R.stressHdb=f.hdb_loan_stress_rate_pct/100;
     if(f.hdb_loan_min_cash_pct!=null)R.minCashHdb=f.hdb_loan_min_cash_pct/100;

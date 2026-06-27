@@ -172,7 +172,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
 let SSD={newRegime:[[1,16],[2,12],[3,8],[4,4],[null,0]],
          oldRegime:[[1,12],[2,8],[3,4],[null,0]], as_of:"14 Jun 2026"};
 const NEW_FROM=new Date('2025-07-04'), OLD_FROM=new Date('2017-03-11');
-fetch('https://adamdegoat.github.io/caveat/data/rates.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{
+fetch('/caveat/data/rates.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{
   if(d.ssd&&d.ssd.tiers)SSD.newRegime=d.ssd.tiers.map(t=>[t.held_years_upto,t.rate]);
   if(d.ssd&&d.ssd.grandfathered_pre_2025_07_04&&d.ssd.grandfathered_pre_2025_07_04.tiers)
     SSD.oldRegime=d.ssd.grandfathered_pre_2025_07_04.tiers.map(t=>[t.held_years_upto,t.rate]);

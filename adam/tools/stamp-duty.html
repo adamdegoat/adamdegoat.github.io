@@ -172,7 +172,7 @@ let RATES = {
   as_of: "14 Jun 2026"
 };
 // try the single source of truth (auto-updated by PolicyWatch); fall back to the mirror
-fetch('https://adamdegoat.github.io/caveat/data/rates.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{
+fetch('/caveat/data/rates.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{
   if(d.bsd&&d.bsd.tiers) RATES.bsd_tiers=d.bsd.tiers.map(t=>[t.upto,t.rate]);
   if(d.absd) RATES.absd={SC:d.absd.SC,SPR:d.absd.SPR,Foreigner:d.absd.Foreigner};
   if(d.as_of) RATES.as_of=d.as_of;
