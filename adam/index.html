@@ -1057,6 +1057,55 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
 })();
 </script>
 <script>
+/* ─── Inline research card for the chat — reuses Thesis data (psf / 6-mo trend / yield / tenure), same numbers as /thesis/ ─── */
+(function(){
+  let ready=null, PROJECTS=[], MEDY=null;
+  const title=s=>(s||'').toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());
+  const SEGP={CCR:'Prime',RCR:'City fringe',OCR:'Suburbs'};
+  function ensureThesis(){
+    if(ready)return ready;
+    ready=(async()=>{
+      const d=await (await fetch('/thesis/data/thesis.json',{cache:'force-cache'})).json();
+      PROJECTS=d.projects||[];
+      const ys=PROJECTS.map(p=>p.yield).filter(x=>x).sort((a,b)=>a-b);
+      MEDY=ys.length?ys[ys.length>>1]:null;
+      return true;
+    })().catch(e=>{ready=null;throw e;});
+    return ready;
+  }
+  window.psResearchCard=function(mount){
+    ensureThesis().catch(()=>{});
+    const card=document.createElement('div');card.className='cval';
+    card.innerHTML='<div class="cval-f"><input class="cval-in cr-search" placeholder="Type a condo project…" autocomplete="off"><div class="cval-ac"></div></div><div class="cval-err cr-err" style="display:none"></div><div class="cval-res cr-res"></div>';
+    mount.appendChild(card);
+    const q=s=>card.querySelector(s);
+    let list=[],cur=-1;
+    const search=q('.cr-search'),ac=q('.cval-ac'),err=q('.cr-err'),res=q('.cr-res');
+    function showAc(){ if(!list.length){ac.classList.remove('on');return;}
+      ac.innerHTML=list.map((p,i)=>'<div data-i="'+i+'" class="'+(i===cur?'hl':'')+'">'+title(p.project)+' <span class="m">· '+(SEGP[p.seg]||p.seg||'')+'</span></div>').join('');
+      ac.classList.add('on');
+      ac.querySelectorAll('div[data-i]').forEach(el=>el.onclick=()=>pick(list[+el.dataset.i]));
+    }
+    function pick(p){ search.value=title(p.project); ac.classList.remove('on'); render(p); }
+    search.addEventListener('input',async()=>{try{await ensureThesis();}catch(e){err.textContent='Research data is loading… give it a second and try again.';err.style.display='block';return;}
+      const v=search.value.trim().toUpperCase();cur=-1;
+      if(v.length<2){ac.classList.remove('on');return;}
+      list=PROJECTS.filter(p=>p.project.includes(v)).slice(0,7);
+      showAc();
+    });
+    function render(p){
+      err.style.display='none';
+      const trend=p.mom==null?'too few recent sales for a clear trend':(p.mom>0?'up '+p.mom+'% over 6 months':p.mom<0?'down '+(-p.mom)+'% over 6 months':'flat over 6 months');
+      const vsn=p.value_flag?'':(p.discount>0?p.discount+'% cheaper than nearby condos':p.discount<0?(-p.discount)+'% pricier than nearby condos':'in line with nearby condos');
+      const yld=p.yield?p.yield+'% gross rental yield'+(MEDY?' (SG median ~'+MEDY+'%)':''):'rental yield not available';
+      res.innerHTML='<div class="cval-est"><div class="rk">'+title(p.project)+' · '+(SEGP[p.seg]||p.seg||'')+'</div><div class="rv">$'+(p.psf?p.psf.toLocaleString():'—')+' psf</div><div class="rs">'+(vsn||'recent transacted price per sqft')+'</div></div>'+
+        '<div class="cval-meta">Price trend: <b>'+trend+'</b>.<br>'+yld+'.<br>Tenure: '+(p.fh?'Freehold':'Leasehold')+' · '+(p.txns||0)+' recent sales.<br><a class="cval-full" href="/thesis/" target="_blank" rel="noopener">See the full research, chart &amp; comparables →</a></div>';
+      res.classList.add('on');
+    }
+  };
+})();
+</script>
+<script>
 /* ─── Ask Plainsight — concierge (v1: understands intent + routes to the right tool; the live AI brain wires in next) ─── */
 (function(){
   const btn=document.getElementById('cbtn'),panel=document.getElementById('cpanel'),x=document.getElementById('cx'),
@@ -1119,6 +1168,18 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
       scroll();showFollowups();
     },430);
   }
+  function isResearch(q){return /(research|psf|yield|trend|tenure)/i.test(q||'');}
+  function researchInChat(q){            // research intent → drop the live Thesis research card in the chat
+    add('me',esc(q));
+    const t=typing();
+    setTimeout(()=>{
+      t.remove();
+      botReply("Sure, which condo project? Type it below and I'll pull its real numbers — psf, the 6-month price trend, and rental yield.");
+      const mount=document.createElement('div');mount.style.cssText='margin-top:2px;animation:cmin .35s var(--ease)';body.appendChild(mount);
+      if(window.psResearchCard){window.psResearchCard(mount);}else{botReply("Tap below to open the full research tool.",{href:'/thesis/',label:'Open Research'});}
+      scroll();showFollowups();
+    },430);
+  }
   function conciergeReply(q){           // instant tool-routing (no AI call) — used by the chips + as a network fallback
     const r=route(q);
     if(r){botReply(r.text,r.link);}
@@ -1127,11 +1188,13 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
   }
   function chipHandle(label){            // the 4 suggestion chips are clear tool-intents → route instantly (free, no API call)
     if(isValue(label)){valueInChat(label);return;}
+    if(isResearch(label)){researchInChat(label);return;}
     add('me',esc(label));const t=typing();
     setTimeout(()=>{t.remove();conciergeReply(label);},420);
   }
   function handle(q){                    // a typed question → the real Plainsight AI brain (/api/ask), capped server-side
     if(isValue(q)){valueInChat(q);return;}
+    if(isResearch(q)){researchInChat(q);return;}
     add('me',esc(q));
     const t=typing(),tool=route(q);
     fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q,history:HIST.slice(-8)})})
