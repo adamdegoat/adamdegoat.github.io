@@ -528,8 +528,8 @@ body::before{animation:none}
 .mhead{margin-bottom:16px;padding-bottom:12px}
 .links{gap:22px}
 /* featured "Research" nav pill — pops as the flagship data tool */
-.links a.navfeat{position:relative;overflow:visible}
-.links a.navfeat::after{content:"Featured";position:absolute;left:50%;top:-13px;transform:translateX(-50%);font-size:7px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#241a0d;background:linear-gradient(135deg,var(--brass3),var(--brass));padding:2px 6px;border-radius:7px;white-space:nowrap;line-height:1.2;box-shadow:0 2px 7px rgba(176,141,87,.4)}
+.links a.navfeat{display:inline-flex;align-items:center;gap:6px}
+.links a.navfeat::after{content:"Featured";font-size:8px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#241a0d;background:linear-gradient(135deg,var(--brass3),var(--brass));padding:3px 7px;border-radius:20px;line-height:1;box-shadow:0 2px 6px rgba(176,141,87,.34)}
 /* natural photo (the green/gold AI duotone filter is gone); editorial scrim handles legibility */
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:saturate(.86) contrast(1.05) brightness(.97)}
 .hero-in{grid-template-columns:1fr}
@@ -589,7 +589,7 @@ html.menu-open .cbtn{opacity:0;visibility:hidden;pointer-events:none}
 .chead .cx{flex:none;width:32px;height:32px;border-radius:9px;border:1px solid rgba(243,239,230,.25);background:rgba(255,255,255,.06);color:#f3efe6;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s}
 .chead .cx:hover{background:rgba(255,255,255,.14)}.chead .cx svg{width:16px;height:16px}
 .cbody{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:18px 16px 8px;display:flex;flex-direction:column;gap:12px}
-.cmsg{max-width:86%;font-size:14px;line-height:1.5;padding:11px 14px;border-radius:15px;animation:cmin .35s var(--ease)}
+.cmsg{max-width:86%;font-size:13.5px;line-height:1.55;padding:11px 14px;border-radius:15px;animation:cmin .35s var(--ease);font-family:"Courier New",Courier,monospace;letter-spacing:-.2px}
 @keyframes cmin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .cmsg.bot{align-self:flex-start;background:#fff;border:1px solid var(--line);color:var(--ink);border-bottom-left-radius:5px;box-shadow:0 3px 12px rgba(25,21,18,.05)}
 .cmsg.me{align-self:flex-end;background:linear-gradient(135deg,var(--green2),var(--green3));color:#f3efe6;border-bottom-right-radius:5px}
