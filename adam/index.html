@@ -529,7 +529,7 @@ body::before{animation:none}
 .links{gap:22px}
 /* featured "Research" nav pill — pops as the flagship data tool */
 .links a.navfeat{position:relative}
-.links a.navfeat::before{content:"Featured";position:absolute;left:50%;bottom:calc(100% + 4px);transform:translateX(-50%);display:flex;align-items:center;justify-content:center;height:16px;padding:0 9px;font:800 8px/1 "Schibsted Grotesk",system-ui,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#241a0d;background:linear-gradient(135deg,var(--brass3),var(--brass));border-radius:20px;white-space:nowrap;box-shadow:0 2px 6px rgba(176,141,87,.3)}
+.links a.navfeat::before{content:"Featured";position:absolute;left:50%;bottom:calc(100% - 2px);transform:translateX(-50%);display:flex;align-items:center;justify-content:center;height:15px;padding:0 9px;font:800 8px/1 "Schibsted Grotesk",system-ui,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#241a0d;background:linear-gradient(135deg,var(--brass3),var(--brass));border-radius:20px;white-space:nowrap;box-shadow:0 2px 6px rgba(176,141,87,.3)}
 /* natural photo (the green/gold AI duotone filter is gone); editorial scrim handles legibility */
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:saturate(.86) contrast(1.05) brightness(.97)}
 .hero-in{grid-template-columns:1fr}
@@ -591,7 +591,7 @@ html.menu-open .cbtn{opacity:0;visibility:hidden;pointer-events:none}
 .cbody{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:18px 16px 8px;display:flex;flex-direction:column;gap:12px}
 .cmsg{max-width:86%;font-size:14px;line-height:1.55;padding:11px 14px;border-radius:15px;animation:cmin .35s var(--ease);font-family:"Schibsted Grotesk",system-ui,sans-serif;letter-spacing:-.005em}
 @keyframes cmin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.cmsg.bot{align-self:flex-start;background:#fff;border:1px solid var(--line);color:var(--ink);border-bottom-left-radius:5px;box-shadow:0 3px 12px rgba(25,21,18,.05)}
+.cmsg.bot{align-self:flex-start;background:#f7f3ea;border:1px solid #e7e0d2;color:var(--ink);border-bottom-left-radius:5px;box-shadow:0 3px 12px rgba(25,21,18,.05)}
 .cmsg.me{align-self:flex-end;background:linear-gradient(135deg,var(--green2),var(--green3));color:#f3efe6;border-bottom-right-radius:5px}
 .cmsg .cbtnlink{display:inline-flex;align-items:center;gap:6px;margin-top:9px;background:linear-gradient(135deg,var(--brass3),var(--brass));color:#241a0d;font-weight:700;font-size:12.5px;padding:8px 13px;border-radius:9px;text-decoration:none}
 .cmsg .cbtnlink i{font-style:normal;transition:.2s}.cmsg .cbtnlink:hover i{transform:translateX(3px)}
@@ -1056,7 +1056,10 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
         const rough = r.confidence==='Lower' || (r.n_comps||99) < 4;
         const cm={High:'High confidence',Medium:'Fair confidence',Lower:'Low confidence'}[r.confidence]||r.confidence;
         const warn = rough ? '<div class="cval-warn">Heads up, not many recent comparable sales here, so this is a rough guide only, not a reliable estimate. For an accurate figure, <a href="https://wa.me/6583219747" target="_blank" rel="noopener">ask us for a proper valuation</a>.</div>' : '';
-        res.innerHTML=warn+'<div class="cval-est'+(rough?' rough':'')+'"><div class="rk">'+(rough?'Rough estimate · ':'Estimated value · ')+label+'</div><div class="rv">'+fmtM(r.low)+' – '+fmtM(r.high)+'</div><div class="rs">'+(rough?'treat with caution, limited recent sales':'the likely range, from real recent sales nearby')+'</div></div>'+
+        const vLo=(r.low>0?r.low:(r.obs_low>0?r.obs_low:Math.round((r.estimate_price||0)*0.94)));
+        const vHi=(r.high>0?r.high:(r.obs_high>0?r.obs_high:Math.round((r.estimate_price||0)*1.06)));
+        const vRange=(vLo>0&&vHi>0)?fmtM(vLo)+' – '+fmtM(vHi):'see the full tool';
+        res.innerHTML=warn+'<div class="cval-est'+(rough?' rough':'')+'"><div class="rk">'+(rough?'Rough estimate · ':'Estimated value · ')+label+'</div><div class="rv">'+vRange+'</div><div class="rs">'+(rough?'treat with caution, limited recent sales':'the likely range, from real recent sales nearby')+'</div></div>'+
           '<div class="cval-meta"><b>'+cm+'</b> · based on '+r.n_comps+' recent sale'+(r.n_comps===1?'':'s')+' of similar homes · about $'+Math.round(r.estimate_psf).toLocaleString()+' for each square foot.'+(r.area_assumed?' Add your floor area for a tighter range.':'')+'<br><a class="cval-full" href="'+fullURL+'" target="_blank" rel="noopener">See the full breakdown &amp; similar sales →</a></div>';
         res.classList.add('on');
       }catch(e){ err.textContent=e.message||'Something went wrong — try again.'; err.style.display='block'; }

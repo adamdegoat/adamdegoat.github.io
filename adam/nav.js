@@ -40,7 +40,7 @@
     '.psnav-links{display:flex;gap:22px;margin-left:auto;align-items:center}' +
     '.psnav-links a{font-size:14.5px;font-weight:600;color:#5a5248;text-decoration:none;white-space:nowrap;transition:color .2s}' +
     '.psnav-links a:hover{color:#191512}.psnav-links a.cur{color:#1b3a2d}' +
-    '.psnav-links a.feat{position:relative}.psnav-links a.feat::before{content:"Featured";position:absolute;left:50%;bottom:calc(100% + 4px);transform:translateX(-50%);display:flex;align-items:center;justify-content:center;height:16px;padding:0 9px;font:800 8px/1 "Schibsted Grotesk",system-ui,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#241a0d;background:linear-gradient(135deg,#e3c98f,#b08d57);border-radius:20px;white-space:nowrap;box-shadow:0 2px 6px rgba(176,141,87,.3)}' +
+    '.psnav-links a.feat{position:relative}.psnav-links a.feat::before{content:"Featured";position:absolute;left:50%;bottom:calc(100% - 2px);transform:translateX(-50%);display:flex;align-items:center;justify-content:center;height:15px;padding:0 9px;font:800 8px/1 "Schibsted Grotesk",system-ui,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#241a0d;background:linear-gradient(135deg,#e3c98f,#b08d57);border-radius:20px;white-space:nowrap;box-shadow:0 2px 6px rgba(176,141,87,.3)}' +
     '.psnav-links a.cta{background:#1b3a2d;color:#f5f1e8;padding:9px 18px;border-radius:30px;font-weight:700}' +
     '.psnav-burger{display:none;margin-left:auto;width:42px;height:42px;border:1px solid #dbd1bf;border-radius:10px;background:rgba(255,255,255,.6);cursor:pointer;align-items:center;justify-content:center}' +
     '.psnav-burger svg{width:22px;height:22px;stroke:#191512;fill:none;stroke-width:2;stroke-linecap:round}' +
