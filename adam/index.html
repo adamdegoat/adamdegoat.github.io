@@ -588,6 +588,10 @@ html.menu-open .cbtn{opacity:0;visibility:hidden;pointer-events:none}
 .chead .ct{flex:1;min-width:0}
 .chead .ct b{font-family:var(--serif);font-weight:600;font-size:17px;display:block;line-height:1.1}
 .chead .ct span{font-size:11.5px;color:rgba(243,239,230,.78);font-weight:500}
+.chead .ct .cstat{display:flex;align-items:center;gap:7px;margin-top:3px}
+.chead .cstat .cdot{flex:none;width:7px;height:7px;border-radius:50%;background:#86d6a8;box-shadow:0 0 0 0 rgba(134,214,168,.55);animation:cpulse 2.6s ease-in-out infinite}
+.chead .cstat #cliveTxt{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:opacity .3s ease}
+@keyframes cpulse{0%{box-shadow:0 0 0 0 rgba(134,214,168,.5);opacity:.85}70%{box-shadow:0 0 0 6px rgba(134,214,168,0);opacity:1}100%{box-shadow:0 0 0 0 rgba(134,214,168,0);opacity:.85}}
 .chead .cx{flex:none;width:32px;height:32px;border-radius:9px;border:1px solid rgba(243,239,230,.25);background:rgba(255,255,255,.06);color:#f3efe6;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s}
 .chead .cx:hover{background:rgba(255,255,255,.14)}.chead .cx svg{width:16px;height:16px}
 .cbody{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:18px 16px 8px;display:flex;flex-direction:column;gap:12px}
@@ -812,7 +816,7 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
 <section class="cpanel" id="cpanel" role="dialog" aria-label="Ask Aillie chat">
   <header class="chead">
     <span class="cmark"><span>A</span></span>
-    <div class="ct"><b>Aillie</b><span>PropSight's property intelligence</span></div>
+    <div class="ct"><b>Aillie</b><span class="cstat"><i class="cdot"></i><span id="cliveTxt">Live in Singapore</span></span></div>
     <button class="cx" id="cx" aria-label="Close chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   </header>
   <div class="cbody" id="cbody"></div>
@@ -829,6 +833,30 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
 <script>
 // entrance
 requestAnimationFrame(()=>document.body.classList.add('loaded'));
+// Aillie live status — a real, quietly-moving desk status (not an AI "online" badge).
+// Breathing dot is CSS; this rotates a few honest, Singapore-specific lines + a live SGT clock.
+(function(){
+  var el=document.getElementById('cliveTxt'); if(!el) return;
+  function sgClock(){
+    var n=new Date(), sg=new Date(n.getTime()+n.getTimezoneOffset()*60000+8*3600000);
+    var h=sg.getHours(), m=sg.getMinutes(), ap=h<12?'am':'pm', h12=h%12||12;
+    return h12+':'+(m<10?'0':'')+m+ap;
+  }
+  function lines(){return [
+    'Live in Singapore · '+sgClock(),
+    'Reading real, recent caveats',
+    'Watching all 26 HDB towns',
+    'Every price from an actual sale'
+  ];}
+  var i=0;
+  el.textContent=lines()[0];
+  function tick(){
+    i=(i+1)%4;
+    el.style.opacity='0';
+    setTimeout(function(){ el.textContent=lines()[i]; el.style.opacity='1'; },300);
+  }
+  setInterval(tick,5200);
+})();
 // mobile menu
 (function(){
   const mt=document.getElementById('menuToggle'),mm=document.getElementById('mobileMenu'),navEl=document.getElementById('nav');
