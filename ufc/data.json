@@ -1,152 +1,21 @@
 {
-  "updated": "2026-06-27T21:00:00.277368+08:00",
+  "updated": "2026-06-27T23:30:00.214842+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
-    "id": "2468284",
-    "name": "UFC Fight Night 280 Fiziev vs Torres",
-    "short": "Fiziev vs Torres",
-    "date_sgt": "2026-06-28T00:00:00+08:00",
-    "when_sgt": "Sun 28 Jun, 12:00 AM SGT",
-    "when_main": "Sun 28 Jun, 12:00 AM SGT",
-    "when_prelims": "Sat 27 Jun, 9:00 PM SGT",
+    "id": "2468285",
+    "name": "UFC 329 McGregor vs Holloway 2",
+    "short": "McGregor vs Holloway",
+    "date_sgt": "2026-07-12T09:00:00+08:00",
+    "when_sgt": "Sun 12 Jul, 9:00 AM SGT",
+    "when_main": "Sun 12 Jul, 9:00 AM SGT",
+    "when_prelims": "Sun 12 Jul, 5:00 AM SGT",
     "has_time": true,
-    "location": "Baku, Azerbaijan",
-    "highlights": "https://www.youtube.com/results?search_query=UFC%20Fight%20Night%20280%20Fiziev%20vs%20Torres%20highlights",
-    "desc": "UFC Fight Night: Fiziev vs. Torres (also known as UFC Fight Night 280) is an upcoming mixed martial arts event produced by the Ultimate Fighting Championship that is scheduled to take place on June 27, 2026, at the National Gymnastics Arena in Baku, Azerbaijan",
-    "badge": "https://www.thesportsdb.com/images/media/event/thumb/oq891n1782041517.jpg",
-    "bouts": [
-      {
-        "section": "prelim",
-        "weight": "Welterweight",
-        "a": "Farman Hasanov",
-        "b": "Eric Nolan",
-        "decided": false,
-        "method": "",
-        "round": "",
-        "time": ""
-      },
-      {
-        "section": "prelim",
-        "weight": "Light Heavyweight",
-        "a": "Abdul-Rakhman Yakhyaev",
-        "b": "Julius Walker",
-        "decided": false,
-        "method": "",
-        "round": "",
-        "time": ""
-      },
-      {
-        "section": "prelim",
-        "weight": "Middleweight",
-        "a": "Nursulton Ruziboev",
-        "b": "Andrey Pulyaev",
-        "decided": false,
-        "method": "",
-        "round": "",
-        "time": ""
-      },
-      {
-        "section": "prelim",
-        "weight": "Featherweight",
-        "a": "Kaan Ofli",
-        "b": "Javier Reyes",
-        "decided": false,
-        "method": "",
-        "round": "",
-        "time": ""
-      },
-      {
-        "section": "prelim",
-        "weight": "Welterweight",
-        "a": "Daniil Donchenko",
-        "b": "Theodor Berggren",
-        "decided": false,
-        "method": "",
-        "round": "",
-        "time": ""
-      },
-      {
-        "section": "prelim",
-        "weight": "Bantamweight",
-        "a": "Bekzat Almakhan",
-        "b": "Jean Matsumoto",
-        "decided": false,
-        "method": "",
-        "round": "",
-        "time": ""
-      },
-      {
-        "section": "prelim",
-        "weight": "Welterweight",
-        "a": "Tahir Abdullayev",
-        "b": "Jefferson Nascimento",
-        "decided": false,
-        "method": "",
-        "round": "",
-        "time": ""
-      },
-      {
-        "section": "main",
-        "weight": "Lightweight",
-        "a": "Rafael Fiziev",
-        "b": "Manuel Torres",
-        "decided": false,
-        "method": "",
-        "round": "",
-        "time": ""
-      },
-      {
-        "section": "main",
-        "weight": "Middleweight",
-        "a": "Sharabutdin Magomedov",
-        "b": "Michel Pereira",
-        "decided": false,
-        "method": "",
-        "round": "",
-        "time": ""
-      },
-      {
-        "section": "main",
-        "weight": "Lightweight",
-        "a": "Nazim Sadykhov",
-        "b": "Matheus Camilo",
-        "decided": false,
-        "method": "",
-        "round": "",
-        "time": ""
-      },
-      {
-        "section": "main",
-        "weight": "Flyweight",
-        "a": "Asu Almabayev",
-        "b": "Charles Johnson",
-        "decided": false,
-        "method": "",
-        "round": "",
-        "time": ""
-      },
-      {
-        "section": "main",
-        "weight": "Middleweight",
-        "a": "Ikram Aliskerov",
-        "b": "Brunno Ferreira",
-        "decided": false,
-        "method": "",
-        "round": "",
-        "time": ""
-      },
-      {
-        "section": "main",
-        "weight": "Middleweight",
-        "a": "Abusupiyan Magomedov",
-        "b": "Michał Oleksiejczuk",
-        "decided": false,
-        "method": "",
-        "round": "",
-        "time": ""
-      }
-    ],
+    "location": "Las Vegas, USA",
+    "highlights": "https://www.youtube.com/results?search_query=UFC%20329%20McGregor%20vs%20Holloway%202%20highlights",
+    "desc": "Nearly 13 years after their initial encounter in 2013—long before either man captured UFC gold—Conor \"The Notorious\" McGregor and Max \"Blessed\" Holloway meet again. This blockbuster clash marks McGregor's highly awaited return to the Octagon since suffering a leg injury in 2021, while also serving as Holloway's official competitive debut in the welterweight division following his spectacular BMF title run.  \r\n\r\nThe co-main event promises fireworks as fan-favorite Paddy \"The Baddy\" Pimblett takes on the dangerous French finisher Benoît Saint Denis in a crucial lightweight matchup.",
+    "badge": "https://r2.thesportsdb.com/images/media/league/badge/bewnz31717531281.png",
+    "bouts": [],
     "finished": false,
     "espn_final": false
   },
@@ -336,6 +205,12 @@
       "priority": false
     },
     {
+      "title": "UFC Baku video: Awful stoppage mars Tahir Abdullayev knockout win in opener",
+      "link": "https://www.mmafighting.com/ufc/496617/ufc-baku-video-awful-stoppage-mars-tahir-abdullayev-knockout-win-in-opener",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "UFC Baku predictions",
       "link": "https://www.mmafighting.com/ufc/496485/ufc-baku-predictions",
       "source": "MMA Fighting",
@@ -360,9 +235,15 @@
       "priority": false
     },
     {
-      "title": "Anthony Hernandez vs. Gregory Rodrigues set to headline UFC’s return to Sacramento",
-      "link": "https://www.mmafighting.com/ufc/496481/anthony-hernandez-vs-gregory-rodrigues-set-to-headline-ufcs-return-to-sacramento",
-      "source": "MMA Fighting",
+      "title": "Rafael Fiziev vs. Manuel Torres: Odds, full fight preview and prediction | UFC Baku",
+      "link": "https://www.mmamania.com/ufc-events-ppv/453092/rafael-fiziev-vs-manuel-torres-odds-full-fight-preview-and-prediction-ufc-baku",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
+      "title": "UFC Baku live results, highlights, play-by-play | Fiziev vs. Torres",
+      "link": "https://www.mmamania.com/ufc-results/452116/ufc-baku-live-results-highlights-play-by-play-fiziev-vs-torres",
+      "source": "MMA Mania",
       "priority": false
     },
     {
@@ -370,23 +251,11 @@
       "link": "https://www.mmamania.com/ufc-programming/453136/ufc-baku-start-time-full-fight-card-details-fiziev-vs-torres",
       "source": "MMA Mania",
       "priority": false
-    },
-    {
-      "title": "Bad decision? Inactive 42-year-old UFC veteran Joe Lauzon inks deal with BKFC, debuts at Fenway Park on Aug. 29",
-      "link": "https://www.mmamania.com/bare-knuckle-boxing-results-rules-ppv/453315/bad-decision-inactive-42-year-old-ufc-veteran-joe-lauzon-inks-deal-with-bkfc-debuts-at-fenway-park-on-aug-29",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "Never say never! Jon Jones teases Octagon return after training Gable Steveson for UFC 329: ‘Moving like I never left’",
-      "link": "https://www.mmamania.com/latest-news/453219/never-say-never-jon-jones-teases-octagon-return-after-training-gable-steveson-for-ufc-329-moving-like-i-never-left",
-      "source": "MMA Mania",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "Fiziev vs Torres tomorrow night—elite lightweight fireworks you won't want to miss.",
-    "prefight": "Explosive lightweight action erupts when Fiziev and Torres clash tomorrow night.",
+    "week": "McGregor and Holloway collide this Sunday at 9am SGT for an absolute war.",
+    "prefight": "McGregor and Holloway go to war Sunday 9am SGT—featherweight glory awaits.",
     "results": "The dust has settled on another fight night."
   }
 }
