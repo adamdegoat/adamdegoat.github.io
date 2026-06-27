@@ -1,16 +1,16 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Adam Phang · Singapore Property</title>
-<meta name="description" content="The numbers, the knowledge, and the agent. Value a home, run the real math, plan your move — official data, laid out plainly. Singapore property, without the guesswork. By Adam Phang.">
+<title>Plainsight · Singapore Property</title>
+<meta name="description" content="The numbers, the knowledge, and the team. Value a home, run the real math, plan your move — official Singapore data, laid out plainly. Free tools, no sign-up. Singapore property, in plain sight.">
 <meta name="theme-color" content="#1b3a2d">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icons/icon-180.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Adam Phang">
+<meta name="apple-mobile-web-app-title" content="Plainsight">
 <script>if('serviceWorker' in navigator){addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
-<meta property="og:title" content="Adam Phang · Singapore Property"><meta property="og:description" content="Official data, laid out plainly. You decide — I'm here when you're ready.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b3a2d'/%3E%3Ctext x='15.5' y='23.5' text-anchor='middle' font-family='Georgia,serif' font-weight='500' font-size='22' fill='%23e3c98f'%3EA%3C/text%3E%3Ccircle cx='24' cy='10' r='1.7' fill='%23e3c98f'/%3E%3C/svg%3E">
+<meta property="og:title" content="Plainsight · Singapore Property"><meta property="og:description" content="Official data, laid out plainly. You decide — we're here when you're ready.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b3a2d'/%3E%3Ctext x='15.5' y='23.5' text-anchor='middle' font-family='Georgia,serif' font-weight='500' font-size='22' fill='%23e3c98f'%3EP%3C/text%3E%3Ccircle cx='24' cy='10' r='1.7' fill='%23e3c98f'/%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -495,7 +495,74 @@ body::before{animation:none}
 .pb-card .pb-h{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:24px;line-height:1.12;color:#191512;display:block;margin-top:8px;letter-spacing:-.01em}
 .pb-card .pb-go{display:inline-flex;align-items:center;gap:7px;margin-top:13px;font-size:13.5px;font-weight:700;color:#27513f}
 .pb-card .pb-go i{font-style:normal;transition:transform .25s}.pb-card:hover .pb-go i{transform:translateX(5px)}
-@media(max-width:560px){.photoband{height:340px}.pb-card{display:block;max-width:none}}</style>
+@media(max-width:560px){.photoband{height:340px}.pb-card{display:block;max-width:none}}
+/* ═══ PLAINSIGHT v2 — compact hero (showcase more) + Ask Plainsight chatbot ═══ */
+.hero{padding-top:74px;padding-bottom:42px}
+.hero h1{font-size:clamp(38px,4.7vw,66px) !important;letter-spacing:-.03em}
+.hero .lead{font-size:16.5px;margin-top:18px;max-width:500px}
+.hero .cta{margin-top:24px}
+.mhead{margin-bottom:24px;padding-bottom:14px}
+.links{gap:22px}
+@media(max-width:880px){.hero{padding-top:62px;padding-bottom:30px}.hero h1{font-size:clamp(33px,8.4vw,46px) !important}}
+/* launcher */
+.cbtn{position:fixed;right:22px;bottom:22px;z-index:80;display:inline-flex;align-items:center;gap:10px;
+ background:linear-gradient(135deg,var(--green2),var(--green3));color:#f4efe6;border:1px solid rgba(227,201,143,.45);
+ padding:13px 20px 13px 16px;border-radius:40px;cursor:pointer;font-family:var(--sans);font-weight:700;font-size:14.5px;
+ box-shadow:0 14px 34px rgba(15,35,26,.34);transition:transform .3s var(--ease),box-shadow .3s var(--ease),opacity .3s,visibility .3s;-webkit-tap-highlight-color:transparent}
+.cbtn:hover{transform:translateY(-3px);box-shadow:0 22px 46px rgba(15,35,26,.42),0 0 30px rgba(176,141,87,.4)}
+.cbtn .cbi{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--brass3),var(--brass));display:flex;align-items:center;justify-content:center;flex:none}
+.cbtn .cbi svg{width:17px;height:17px}
+.cbtn .cbp{width:8px;height:8px;border-radius:50%;background:#8fe0b0;box-shadow:0 0 0 0 rgba(143,224,176,.6);animation:pulse 2.2s infinite}
+.cbtn.hide{opacity:0;visibility:hidden;transform:translateY(10px) scale(.92);pointer-events:none}
+html.menu-open .cbtn{opacity:0;visibility:hidden;pointer-events:none}
+@media(max-width:560px){.cbtn{right:16px;bottom:16px;padding:13px;border-radius:50%}.cbtn .cbtxt,.cbtn .cbp{display:none}}
+/* panel */
+.cpanel{position:fixed;right:22px;bottom:22px;z-index:81;width:380px;max-width:calc(100vw - 32px);height:580px;max-height:calc(100vh - 40px);
+ display:flex;flex-direction:column;background:linear-gradient(180deg,#fbf8f1,#f3eee2);border:1px solid var(--line2);border-radius:22px;overflow:hidden;
+ box-shadow:0 40px 90px rgba(15,35,26,.34),0 12px 30px rgba(15,35,26,.18);
+ opacity:0;visibility:hidden;transform:translateY(24px) scale(.96);transform-origin:bottom right;
+ transition:opacity .34s var(--ease),transform .34s var(--ease),visibility .34s}
+.cpanel.open{opacity:1;visibility:visible;transform:none}
+@media(max-width:560px){.cpanel{right:0;bottom:0;width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;border-radius:0}}
+.chead{position:relative;flex:none;color:#f3efe6;padding:18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(227,201,143,.3);
+ background:radial-gradient(420px 200px at 88% -30%,rgba(227,201,143,.3),transparent 60%),linear-gradient(150deg,var(--green2),var(--green3))}
+.chead .cmark{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#2c5743,#0f231a);border:1px solid rgba(227,201,143,.4);display:flex;align-items:center;justify-content:center;flex:none}
+.chead .cmark span{font-family:var(--serif);font-weight:600;font-size:21px;background:linear-gradient(135deg,#efd9a6,#c39a5b);-webkit-background-clip:text;background-clip:text;color:transparent}
+.chead .ct{flex:1;min-width:0}
+.chead .ct b{font-family:var(--serif);font-weight:600;font-size:17px;display:block;line-height:1.1}
+.chead .ct span{font-size:11.5px;color:rgba(243,239,230,.78);font-weight:500}
+.chead .cx{flex:none;width:32px;height:32px;border-radius:9px;border:1px solid rgba(243,239,230,.25);background:rgba(255,255,255,.06);color:#f3efe6;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s}
+.chead .cx:hover{background:rgba(255,255,255,.14)}.chead .cx svg{width:16px;height:16px}
+.cbody{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:18px 16px 8px;display:flex;flex-direction:column;gap:12px}
+.cmsg{max-width:86%;font-size:14px;line-height:1.5;padding:11px 14px;border-radius:15px;animation:cmin .35s var(--ease)}
+@keyframes cmin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.cmsg.bot{align-self:flex-start;background:#fff;border:1px solid var(--line);color:var(--ink);border-bottom-left-radius:5px;box-shadow:0 3px 12px rgba(25,21,18,.05)}
+.cmsg.me{align-self:flex-end;background:linear-gradient(135deg,var(--green2),var(--green3));color:#f3efe6;border-bottom-right-radius:5px}
+.cmsg .cbtnlink{display:inline-flex;align-items:center;gap:6px;margin-top:9px;background:linear-gradient(135deg,var(--brass3),var(--brass));color:#241a0d;font-weight:700;font-size:12.5px;padding:8px 13px;border-radius:9px;text-decoration:none}
+.cmsg .cbtnlink i{font-style:normal;transition:.2s}.cmsg .cbtnlink:hover i{transform:translateX(3px)}
+.ctyping{align-self:flex-start;display:flex;gap:4px;padding:13px 15px;background:#fff;border:1px solid var(--line);border-radius:15px;border-bottom-left-radius:5px}
+.ctyping span{width:7px;height:7px;border-radius:50%;background:var(--ink3);animation:ctb 1.1s infinite}
+.ctyping span:nth-child(2){animation-delay:.18s}.ctyping span:nth-child(3){animation-delay:.36s}
+@keyframes ctb{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+.cchips{display:flex;flex-wrap:wrap;gap:7px;padding:4px 16px 6px}
+.cchip{font-size:12.5px;font-weight:600;color:var(--green);background:rgba(27,58,45,.06);border:1px solid var(--line2);border-radius:30px;padding:8px 13px;cursor:pointer;transition:.16s;-webkit-tap-highlight-color:transparent}
+.cchip:hover{background:#fff;border-color:var(--green2);transform:translateY(-1px)}
+.cfoot{flex:none;border-top:1px solid var(--line);padding:12px 14px;background:rgba(255,255,255,.5)}
+.cinput{display:flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line2);border-radius:30px;padding:6px 6px 6px 16px;transition:.18s}
+.cinput:focus-within{border-color:var(--green2);box-shadow:0 0 0 3px rgba(39,81,63,.1)}
+.cinput input{flex:1;border:0;outline:0;font-family:var(--sans);font-size:14px;color:var(--ink);background:none;min-width:0}
+.cinput button{flex:none;width:38px;height:38px;border-radius:50%;border:0;background:linear-gradient(135deg,var(--green2),var(--green3));color:#f3efe6;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s}
+.cinput button:hover{filter:brightness(1.12)}.cinput button svg{width:17px;height:17px}
+.cdisc{text-align:center;font-size:10.5px;color:var(--ink3);margin-top:8px}
+/* launcher teaser bubble — nudges what to ask before they open it */
+.cteaser{position:fixed;right:22px;bottom:80px;z-index:79;max-width:244px;background:#fffdf8;border:1px solid var(--line2);border-radius:16px;border-bottom-right-radius:5px;padding:12px 32px 12px 15px;box-shadow:0 16px 38px rgba(15,35,26,.22);font-size:13.5px;font-weight:600;color:var(--ink);line-height:1.4;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px) scale(.96);transform-origin:bottom right;transition:opacity .4s var(--ease),transform .4s var(--ease),visibility .4s}
+.cteaser.show{opacity:1;visibility:visible;transform:none}
+.cteaser .ck{display:block;font-size:9.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--brass);margin-bottom:3px}
+.cteaser .cqx{position:absolute;top:5px;right:6px;width:20px;height:20px;border:0;background:none;color:var(--ink3);cursor:pointer;font-size:15px;line-height:1;border-radius:6px;padding:0}
+.cteaser .cqx:hover{background:rgba(0,0,0,.05);color:var(--ink)}
+.cteaser::after{content:"";position:absolute;right:26px;bottom:-7px;width:13px;height:13px;background:#fffdf8;border-right:1px solid var(--line2);border-bottom:1px solid var(--line2);transform:rotate(45deg)}
+html.menu-open .cteaser{opacity:0;visibility:hidden}
+@media(max-width:560px){.cteaser{bottom:74px;right:16px;max-width:194px;font-size:12.5px}}</style>
 <noscript><style>.rv{opacity:1!important;transform:none!important}.livepanel,.portrait{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
@@ -504,10 +571,10 @@ body::before{animation:none}
 
 <header class="nav" id="nav"><div class="wrap nav-in">
   <div class="brand">
-    <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="mg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2c5743"/><stop offset=".55" stop-color="#1b3a2d"/><stop offset="1" stop-color="#0f231a"/></linearGradient><linearGradient id="mb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#efd9a6"/><stop offset="1" stop-color="#c39a5b"/></linearGradient></defs><rect x="1" y="1" width="38" height="38" rx="11" fill="url(#mg)"/><text x="19.5" y="29.5" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-weight="500" font-size="27" fill="url(#mb)">A</text><circle cx="29" cy="13.5" r="2" fill="#e3c98f"/></svg>
-    <span class="bw"><b>Adam Phang</b><span>Singapore Property</span></span>
+    <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="mg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2c5743"/><stop offset=".55" stop-color="#1b3a2d"/><stop offset="1" stop-color="#0f231a"/></linearGradient><linearGradient id="mb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#efd9a6"/><stop offset="1" stop-color="#c39a5b"/></linearGradient></defs><rect x="1" y="1" width="38" height="38" rx="11" fill="url(#mg)"/><text x="19.5" y="29.5" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-weight="500" font-size="27" fill="url(#mb)">P</text><circle cx="29" cy="13.5" r="2" fill="#e3c98f"/></svg>
+    <span class="bw"><b>Plainsight</b><span>Singapore</span></span>
   </div>
-  <nav class="links"><a href="essentials/">The Essentials</a><a href="#tools">Tools</a><a href="notes/">Market Pulse</a><a href="#why">Work with me</a><a href="install.html">Add to phone</a><a href="#talk">Contact</a></nav>
+  <nav class="links"><a href="#tools">Tools</a><a href="/thesis/">Research</a><a href="launches/">New Launches</a><a href="notes/">Market Pulse</a><a href="essentials/">Essentials</a><a href="#why">Why Plainsight</a><a href="#talk">Contact</a></nav>
   <a class="btn navbtn" href="https://wa.me/6583219747">Let's talk <span class="arr">→</span></a>
   <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
     <svg class="ic-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -515,11 +582,13 @@ body::before{animation:none}
   </button>
 </div></header>
 <div class="mobile-menu" id="mobileMenu">
-  <a class="mm" href="essentials/"><span class="mm-n">01</span><span><span class="mm-t">The Essentials</span><span class="mm-d">What every property term actually means</span></span><span class="mm-ar">→</span></a>
-  <a class="mm" href="#tools"><span class="mm-n">02</span><span><span class="mm-t">Tools</span><span class="mm-d">Value, budget, stamp duty, grants &amp; more</span></span><span class="mm-ar">→</span></a>
-  <a class="mm" href="notes/"><span class="mm-n">03</span><span><span class="mm-t">Market Pulse</span><span class="mm-d">My read on the market, weekly</span></span><span class="mm-ar">→</span></a>
-  <a class="mm" href="#why"><span class="mm-n">04</span><span><span class="mm-t">Work with me</span><span class="mm-d">How Adam helps you buy or sell</span></span><span class="mm-ar">→</span></a>
-  <a class="mm" href="#talk"><span class="mm-n">05</span><span><span class="mm-t">Contact</span><span class="mm-d">Get in touch, no pressure</span></span><span class="mm-ar">→</span></a>
+  <a class="mm" href="#tools"><span class="mm-n">01</span><span><span class="mm-t">Tools</span><span class="mm-d">Value, budget, stamp duty, grants &amp; more</span></span><span class="mm-ar">→</span></a>
+  <a class="mm" href="/thesis/"><span class="mm-n">02</span><span><span class="mm-t">Research</span><span class="mm-d">Look up any condo's real numbers</span></span><span class="mm-ar">→</span></a>
+  <a class="mm" href="launches/"><span class="mm-n">03</span><span><span class="mm-t">New Launches</span><span class="mm-d">The launches we're representing</span></span><span class="mm-ar">→</span></a>
+  <a class="mm" href="notes/"><span class="mm-n">04</span><span><span class="mm-t">Market Pulse</span><span class="mm-d">Our read on the market, weekly</span></span><span class="mm-ar">→</span></a>
+  <a class="mm" href="essentials/"><span class="mm-n">05</span><span><span class="mm-t">Essentials</span><span class="mm-d">How buying &amp; selling actually works</span></span><span class="mm-ar">→</span></a>
+  <a class="mm" href="#why"><span class="mm-n">06</span><span><span class="mm-t">Why Plainsight</span><span class="mm-d">How our team helps you buy or sell</span></span><span class="mm-ar">→</span></a>
+  <a class="mm" href="#talk"><span class="mm-n">07</span><span><span class="mm-t">Contact</span><span class="mm-d">Get in touch, no pressure</span></span><span class="mm-ar">→</span></a>
   <div class="mm-foot">
     <a class="mm-install" href="install.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.5 18.5h3"/></svg>Add to your phone</a>
     <a class="mm-cta" href="https://wa.me/6583219747">Let's talk →</a>
@@ -535,8 +604,8 @@ body::before{animation:none}
   <div class="wrap hero-in">
   <div>
     <span class="eyebrow rv">Everything for your Singapore home move — in one place</span>
-    <h1><span class="ln"><i>The numbers,</i></span><span class="ln"><i>the knowledge,</i></span><span class="ln"><i>and <em>the agent.<svg class="uline" viewBox="0 0 300 22" preserveAspectRatio="none" aria-hidden="true"><path d="M5 14 C 84 5, 218 5, 296 11"/></svg></em></i></span></h1>
-    <p class="lead rv">Value any home on real recent sales, see what you can really afford, sort out your stamp duty and grants, or — if you've got little ones — find the homes within 1km of a primary school. Thinking of selling? See what you'd actually walk away with. It's all here, free and no sign-up. Have a good look around; I'm a message away whenever you want a hand.</p>
+    <h1><span class="ln"><i>The numbers,</i></span><span class="ln"><i>the knowledge,</i></span><span class="ln"><i>and <em>the team.<svg class="uline" viewBox="0 0 300 22" preserveAspectRatio="none" aria-hidden="true"><path d="M5 14 C 84 5, 218 5, 296 11"/></svg></em></i></span></h1>
+    <p class="lead rv">Value any home on real recent sales, see what you can really afford, sort out your stamp duty and grants, or — if you've got little ones — find the homes within 1km of a primary school. Thinking of selling? See what you'd actually walk away with. It's all here, free and no sign-up. Have a good look around; we're a message away whenever you want a hand.</p>
     <div class="cta rv"><a class="btn brass" href="tools/afford.html">See what you can afford <span class="arr">→</span></a><a class="btn brass" href="tools/value.html">Value a home <span class="arr">→</span></a></div>
     <p class="covers rv">Home values · affordability · stamp duty · grants · schools · selling · eligibility — <b>all free, all here.</b></p>
     <a class="hessentials rv" href="essentials/">New to property? Start with the essentials →</a>
@@ -577,7 +646,7 @@ body::before{animation:none}
 
 <section class="sec"><div class="wrap">
   <div class="sec-h"><div><span class="eyebrow rv">Start here</span><h2 class="rv">What brings you here?</h2></div>
-    <p class="rv">No menus to dig through — pick where you are, and I'll show you only what's useful.</p></div>
+    <p class="rv">No menus to dig through — pick where you are, and we'll show you only what's useful.</p></div>
   <div class="router">
     <a class="rcard rv" href="#tools" data-f="buy"><div class="ic"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#27513f" stroke-width="1.7" stroke-linecap="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v9h14v-9"/><path d="M10 19v-5h4v5"/></svg></div>
       <h3>I'm buying</h3><p>See what you can afford, value any home, and find the areas that fit — before you fall for the wrong one.</p><span class="go">Start buying <i>→</i></span></a>
@@ -586,7 +655,7 @@ body::before{animation:none}
     <a class="rcard rv" href="essentials/#exploring"><div class="ic"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#27513f" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
       <h3>Just exploring</h3><p>New to all this? Start with the essentials — how it actually works, start to finish — then play with the tools at your pace.</p><span class="go">Understand the essentials <i>→</i></span></a>
     <a class="rcard rv" href="notes/"><div class="ic"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#27513f" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5v14h16"/><path d="M7 14l3.5-4 3 2.5 5-6.5"/></svg></div>
-      <h3>Watching the market</h3><p>Not moving yet, just keeping an eye on prices? My weekly Market Pulse — what's rising, which areas are hot, and whether it's a good time.</p><span class="go">See the Market Pulse <i>→</i></span></a>
+      <h3>Watching the market</h3><p>Not moving yet, just keeping an eye on prices? Our weekly Market Pulse — what's rising, which areas are hot, and whether it's a good time.</p><span class="go">See the Market Pulse <i>→</i></span></a>
   </div>
 </div></section>
 
@@ -630,7 +699,7 @@ body::before{animation:none}
         <div class="glow"></div>
         <div class="frame"></div>
         <div class="db">
-          <svg class="db-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><text x="19.5" y="30" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-weight="500" font-size="30" fill="#e3c98f">A</text><circle cx="31" cy="12" r="2.2" fill="#e3c98f"/></svg>
+          <svg class="db-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><text x="19.5" y="30" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-weight="500" font-size="30" fill="#e3c98f">P</text><circle cx="31" cy="12" r="2.2" fill="#e3c98f"/></svg>
           <div class="db-row"><b>137k+</b><span>official URA caveats behind every figure</span></div>
           <div class="db-row"><b>$0</b><span>to use every tool — no sign-up</span></div>
           <div class="db-row"><b>Weekly</b><span>data, refreshed from official sources</span></div>
@@ -638,9 +707,9 @@ body::before{animation:none}
         </div>
       </div>
       <div>
-        <span class="eyebrow">Work with me</span>
-        <h2>Hi, I'm Adam. Most agents give you a <em>pitch</em> — I give you the <em>data.</em></h2>
-        <p class="sub">I built every tool on this page so you can check the numbers yourself, before anyone tries to sell you anything. No hype, no pressure, nothing I can't stand behind — just official records laid out plainly, and an agent who'd rather you be sure than sold. When you want a real person in your corner, I'm one message away.</p>
+        <span class="eyebrow">Why Plainsight</span>
+        <h2>Most agents give you a <em>pitch.</em> We give you the <em>data.</em></h2>
+        <p class="sub">We built every tool on this page so you can check the numbers yourself, before anyone tries to sell you anything. No hype, no pressure, nothing we can't stand behind — just official records laid out plainly, and a team who'd rather you be sure than sold. When you want a real person in your corner, we're one message away.</p>
       </div>
     </div>
   </div>
@@ -682,11 +751,34 @@ body::before{animation:none}
   </svg>
   <span class="eyebrow rv" style="justify-content:center">When you're ready</span>
   <h2 class="serif rv">Let's figure out your move.<svg class="hl" viewBox="0 0 230 16" preserveAspectRatio="none" aria-hidden="true"><path d="M5 11 C 60 4, 170 4, 225 9"/></svg></h2>
-  <p class="rv">A straight conversation — no obligation, no sales script. Just message me directly, anytime.</p>
-  <div class="rv"><a class="btn brass" href="https://wa.me/6583219747">Talk to Adam <span class="arr">→</span></a></div>
+  <p class="rv">A straight conversation — no obligation, no sales script. Just message us directly, anytime.</p>
+  <div class="rv"><a class="btn brass" href="https://wa.me/6583219747">Talk to our team <span class="arr">→</span></a></div>
   <p class="rv" style="margin-top:20px;font-size:13.5px"><a href="install.html" style="color:var(--green2);font-weight:700">📲 Add this hub to your phone — one tap to every tool →</a></p>
-  <div class="sig rv">Adam Phang · Singapore Property · built on official data · indicative, not financial advice</div>
+  <div class="sig rv">Plainsight · Singapore · built on official data · indicative, not financial advice</div>
 </div></section>
+
+<!-- ─── Ask Plainsight chatbot ─── -->
+<div class="cteaser" id="cteaser"><button class="cqx" id="cteaserX" aria-label="Dismiss">×</button><span class="ck">Ask Plainsight</span><span id="cteaserT">What's your home worth?</span></div>
+<button class="cbtn" id="cbtn" aria-label="Ask Plainsight">
+  <span class="cbi"><svg viewBox="0 0 24 24" fill="none" stroke="#241a0d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.4 8.5 8.5 0 0 1-3.9-.9L3 21l1.9-5.6a8.38 8.38 0 0 1-.9-3.9 8.5 8.5 0 0 1 8.5-8.4 8.38 8.38 0 0 1 8.5 8.4z"/></svg></span>
+  <span class="cbtxt">Ask Plainsight</span><span class="cbp"></span>
+</button>
+<section class="cpanel" id="cpanel" role="dialog" aria-label="Ask Plainsight chat">
+  <header class="chead">
+    <span class="cmark"><span>P</span></span>
+    <div class="ct"><b>Ask Plainsight</b><span>Singapore property, answered straight</span></div>
+    <button class="cx" id="cx" aria-label="Close chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </header>
+  <div class="cbody" id="cbody"></div>
+  <div class="cchips" id="cchips"></div>
+  <div class="cfoot">
+    <form class="cinput" id="cform">
+      <input id="cin" type="text" autocomplete="off" placeholder="Ask about value, budget, a project…" aria-label="Type your question">
+      <button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
+    </form>
+    <div class="cdisc">Indicative guidance · not financial advice</div>
+  </div>
+</section>
 
 <script>
 // entrance
@@ -843,6 +935,110 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
   if(PX){ addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(px);ticking=true;}},{passive:true}); addEventListener('resize',px); px(); }
   const sk=document.getElementById('skyline');
   if(sk){const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){sk.classList.add('drawn');o.disconnect();}}),{threshold:.25});o.observe(sk);}
+})();
+</script>
+<script>
+/* ─── Ask Plainsight — concierge (v1: understands intent + routes to the right tool; the live AI brain wires in next) ─── */
+(function(){
+  const btn=document.getElementById('cbtn'),panel=document.getElementById('cpanel'),x=document.getElementById('cx'),
+        body=document.getElementById('cbody'),chips=document.getElementById('cchips'),form=document.getElementById('cform'),inp=document.getElementById('cin');
+  if(!btn||!panel)return;
+  const WA='https://wa.me/6583219747';
+  const API='https://web-production-07326.up.railway.app/api/ask';
+  let HIST=[],greeted=false;
+  const esc=s=>(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const scroll=()=>{body.scrollTop=body.scrollHeight;};
+  function add(who,html){const d=document.createElement('div');d.className='cmsg '+who;d.innerHTML=html;body.appendChild(d);scroll();return d;}
+  function typing(){const d=document.createElement('div');d.className='ctyping';d.innerHTML='<span></span><span></span><span></span>';body.appendChild(d);scroll();return d;}
+  function setChips(arr){chips.innerHTML='';arr.forEach(c=>{const b=document.createElement('button');b.className='cchip';b.textContent=c.label;b.onclick=()=>chipHandle(c.label);chips.appendChild(b);});}
+  const SUGGEST=[{label:"What's my home worth?"},{label:"What can I afford?"},{label:"Price trend for a project"},{label:"See new launches"}];
+  const FOLLOW=[{label:"What's my home worth?"},{label:"What can I afford?"},{label:"Price trend for a project"},{label:"Rental yield of a condo"},{label:"Stamp duty & ABSD"},{label:"What grants can I get?"},{label:"Is now a good time to buy?"},{label:"See new launches"}];
+  const TEASERS=["What's your home worth?","How's the market in your area?","What can you afford?","Research a new launch","Rental yield of a condo?"];
+  const PH=["Ask about value, budget, a project…","Try: what's my Bishan flat worth?","Try: price trend for Lentor condos?","Try: what can I afford on $8k?","Try: rental yield of a project?"];
+  let fi=0;
+  function showFollowups(){const set=[FOLLOW[fi%FOLLOW.length],FOLLOW[(fi+1)%FOLLOW.length],FOLLOW[(fi+2)%FOLLOW.length]];fi+=3;setChips(set);}
+  function botReply(text,link){
+    let html=esc(text).replace(/\n/g,'<br>');
+    if(link)html+='<br><a class="cbtnlink" href="'+link.href+'"'+(link.blank?' target="_blank" rel="noopener"':'')+'>'+esc(link.label)+' <i>→</i></a>';
+    return add('bot',html);
+  }
+  function route(q){
+    const t=(q||'').toLowerCase();
+    if(/(worth|valuation|how much.*(home|flat|condo|house|hdb)|sell.*for|price of my|^value$)/.test(t))
+      return {text:"I can value any HDB or condo on real recent transactions — with an honest confidence range and the comparable sales behind it.",link:{href:'tools/value.html',label:'Value a home'}};
+    if(/(afford|budget|how much.*(can i|loan|borrow)|^afford$|downpayment|down payment)/.test(t))
+      return {text:"Let's work out your real budget — from your income and savings, using the actual lending rules (TDSR, MSR, LTV).",link:{href:'tools/afford.html',label:'See what you can afford'}};
+    if(/(research|project|condo.*(data|number|psf|yield)|rental yield|tenure|^research$)/.test(t))
+      return {text:"Our research looks up any Singapore condo's real numbers — price psf, the trend over time, rental yield, and how it's priced against comparable projects nearby.",link:{href:'/thesis/',label:'Open Research'}};
+    if(/(launch|lentor|showflat|vvip|preview|^launches$)/.test(t))
+      return {text:"Here are the new launches we're representing right now — full project sites, real numbers, and first choice of units.",link:{href:'launches/',label:'See new launches'}};
+    if(/(stamp duty|absd|bsd|^stamp)/.test(t))
+      return {text:"I'll work out your stamp duty to the dollar — buyer's stamp duty plus any ABSD.",link:{href:'tools/stamp-duty.html',label:'Calculate stamp duty'}};
+    if(/(grant|ehg|first[- ]?timer)/.test(t))
+      return {text:"First-timers can get CPF housing grants — EHG, Family, Proximity. I'll estimate what you'd likely qualify for.",link:{href:'tools/grants.html',label:'Check your grants'}};
+    if(/(school|primary|1km|2km|\bp1\b)/.test(t))
+      return {text:"Pick a primary school and I'll show the condos within 1km and 2km for P1 registration priority.",link:{href:'tools/schools.html',label:'Find homes near a school'}};
+    if(/(net|proceed|ssd|walk away|selling)/.test(t))
+      return {text:"I'll show what you'd actually walk away with after loan, CPF refund and costs — plus any Seller's Stamp Duty.",link:{href:'tools/sell.html',label:'See your net proceeds'}};
+    if(/(eligib|can i buy|\bmop\b|citizen|\bpr\b)/.test(t))
+      return {text:"I can check if you're eligible — HDB, EC or condo — before you fall for the wrong one.",link:{href:'tools/eligibility.html',label:'Check eligibility'}};
+    if(/(market|good time|buy now|cooling|hot|pulse)/.test(t))
+      return {text:"Our weekly Market Pulse reads the official data — what's rising, which areas are hot, and whether it's a good time.",link:{href:'notes/',label:'Read the Market Pulse'}};
+    if(/(hi|hello|hey|help|what can you|start)/.test(t))
+      return {text:"I can help you value a home, work out your budget, research a project, check stamp duty or grants, or point you to a new launch. What are you trying to do?"};
+    return null;
+  }
+  function conciergeReply(q){           // instant tool-routing (no AI call) — used by the chips + as a network fallback
+    const r=route(q);
+    if(r){botReply(r.text,r.link);}
+    else{botReply("Let me get our team on that so you get a straight, accurate answer. Tap below to message us on WhatsApp.",{href:WA,label:'Message our team',blank:true});}
+    showFollowups();
+  }
+  function chipHandle(label){            // the 4 suggestion chips are clear tool-intents → route instantly (free, no API call)
+    add('me',esc(label));const t=typing();
+    setTimeout(()=>{t.remove();conciergeReply(label);},420);
+  }
+  function handle(q){                    // a typed question → the real Plainsight AI brain (/api/ask), capped server-side
+    add('me',esc(q));
+    const t=typing(),tool=route(q);
+    fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q,history:HIST.slice(-8)})})
+      .then(r=>r.json()).then(d=>{
+        t.remove();
+        const reply=(d&&d.reply)||"Let me get our team on that. Want to message us on WhatsApp?";
+        HIST.push({role:'user',content:q},{role:'assistant',content:reply});
+        botReply(reply,(tool&&tool.link)?tool.link:null);showFollowups();
+      }).catch(()=>{
+        t.remove();
+        if(tool){botReply(tool.text,tool.link);}
+        else{botReply("I can't reach the assistant right now, but our team can help directly. Tap below to message us on WhatsApp.",{href:WA,label:'Message our team',blank:true});}
+        showFollowups();
+      });
+  }
+  function open(){
+    panel.classList.add('open');btn.classList.add('hide');
+    const tz=document.getElementById('cteaser');if(tz)tz.classList.remove('show');
+    if(!greeted){greeted=true;
+      setTimeout(()=>{botReply("Hi — I'm the Plainsight assistant, plugged into our property research. I can value any HDB or condo on real recent sales, show a project's price trend and rental yield, or work out your budget. What would you like?");setChips(SUGGEST);},250);
+    }
+    setTimeout(()=>inp.focus(),360);
+  }
+  function close(){panel.classList.remove('open');btn.classList.remove('hide');}
+  btn.onclick=open;x.onclick=close;
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&panel.classList.contains('open'))close();});
+  form.onsubmit=e=>{e.preventDefault();const v=inp.value.trim();if(!v)return;inp.value='';handle(v);};
+  // nudge: rotating input placeholder (only while empty + unfocused)
+  let phi=0;setInterval(()=>{if(inp&&document.activeElement!==inp&&!inp.value){phi=(phi+1)%PH.length;inp.placeholder=PH[phi];}},4200);
+  // nudge: launcher teaser bubble — surfaces example questions before they open it
+  (function(){
+    const tz=document.getElementById('cteaser'),tzt=document.getElementById('cteaserT'),tzx=document.getElementById('cteaserX');
+    if(!tz)return;let i=0,dismissed=false,shown=false;
+    try{dismissed=sessionStorage.getItem('ps_teaser_x')==='1';}catch(e){}
+    const showT=()=>{if(dismissed||panel.classList.contains('open'))return;tzt.textContent=TEASERS[i%TEASERS.length];tz.classList.add('show');shown=true;};
+    setTimeout(showT,4500);
+    setInterval(()=>{if(dismissed||!shown||panel.classList.contains('open'))return;i++;tzt.textContent=TEASERS[i%TEASERS.length];},3800);
+    tz.addEventListener('click',e=>{if(e.target===tzx)return;tz.classList.remove('show');open();});
+    tzx.addEventListener('click',e=>{e.stopPropagation();tz.classList.remove('show');dismissed=true;try{sessionStorage.setItem('ps_teaser_x','1');}catch(e){}});
+  })();
 })();
 </script>
 </body></html>
