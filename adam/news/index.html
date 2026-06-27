@@ -2,7 +2,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#f7f4ec">
 <title>Singapore Property News — PropSight</title>
-<meta name="description" content="The Singapore property headlines that matter for your home, in plain English with what each one means for you. Refreshed twice a week. Free, by PropSight.">
+<meta name="description" content="The Singapore property headlines that matter for your home, in plain English with what each one means for you. Refreshed daily. Free, by PropSight.">
 <link rel="manifest" href="../manifest.json">
 <link rel="apple-touch-icon" href="../icons/icon-180.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b3a2d'/%3E%3Ctext x='15.5' y='23.5' text-anchor='middle' font-family='Georgia,serif' font-weight='500' font-size='22' fill='%23e3c98f'%3EP%3C/text%3E%3Ccircle cx='24' cy='10' r='1.7' fill='%23e3c98f'/%3E%3C/svg%3E">
@@ -23,12 +23,15 @@ h1 em{font-style:italic;color:var(--green2)}
 .upd .d{width:8px;height:8px;border-radius:50%;background:#2e9e6b;flex:none}
 .newsg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:32px 0 24px}
 .newsload{color:var(--ink3);font-size:14px;padding:10px 2px;grid-column:1/-1}
-.ncard{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 22px 20px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 5px 18px rgba(25,21,18,.05);transition:transform .3s var(--ease),box-shadow .3s,border-color .3s}
-.ncard::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--brass2),var(--brass));transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.ncard{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:0;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 5px 18px rgba(25,21,18,.05);transition:transform .3s var(--ease),box-shadow .3s,border-color .3s}
+.ncard::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--brass2),var(--brass));transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease);z-index:2}
 .ncard:hover{transform:translateY(-6px);box-shadow:0 24px 52px rgba(25,21,18,.13);border-color:var(--brass2)}
 .ncard:hover::after{transform:none}
+.nimg{display:block;height:180px;background:#e7e0d2 50%/cover no-repeat;border-bottom:1px solid var(--line)}
+.ncard:hover .nimg{filter:saturate(1.04)}
+.ncard-b{display:flex;flex-direction:column;flex:1;padding:19px 21px 18px}
 .ntag{align-self:flex-start;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--brass);background:rgba(176,141,87,.12);padding:4px 9px;border-radius:6px}
-.ncard h3{font-family:var(--serif);font-weight:600;font-size:18.5px;line-height:1.22;letter-spacing:-.012em;margin:13px 0 9px;color:var(--ink)}
+.ncard h3{font-family:var(--serif);font-weight:600;font-size:18.5px;line-height:1.22;letter-spacing:-.012em;margin:12px 0 9px;color:var(--ink)}
 .ncard .nmean{font-size:13px;color:var(--ink2);line-height:1.52}
 .ncard .nwhat{margin-top:11px;padding-top:11px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink2);line-height:1.5;flex:1}
 .ncard .nwhat b{color:var(--green2);font-weight:700}
@@ -45,7 +48,7 @@ h1 em{font-style:italic;color:var(--green2)}
   <div class="head">
     <span class="kick">Singapore property news</span>
     <h1>What's moving in the <em>market</em>.</h1>
-    <p class="sub">The headlines that matter for your home, in plain English, with what each one actually means for you. Pulled from across Singapore's property press and refreshed twice a week. Free, no sign-up.</p>
+    <p class="sub">The headlines that matter for your home, in plain English, with what each one actually means for you. Pulled from across Singapore's property press and refreshed daily. Free, no sign-up.</p>
     <div class="upd" id="upd"></div>
   </div>
   <div class="newsg" id="newsAll"><div class="newsload">Loading the latest…</div></div>
@@ -57,17 +60,20 @@ h1 em{font-style:italic;color:var(--green2)}
   var mount=document.getElementById('newsAll'), upd=document.getElementById('upd');
   function esc(s){return (s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   fetch('../data/news.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(d){
-    if(upd&&d.updated_label) upd.innerHTML='<span class="d"></span>Updated '+esc(d.updated_label)+' · refreshed every Tue & Fri';
+    if(upd&&d.updated_label) upd.innerHTML='<span class="d"></span>Updated '+esc(d.updated_label)+' · refreshed every morning';
     var items=d.items||[];
     if(!items.length){mount.innerHTML='<div class="newsload">No news right now, check back soon.</div>';return;}
     mount.innerHTML=items.map(function(it){
-      return '<a class="ncard" href="'+esc(it.link)+'" target="_blank" rel="noopener">'+
+      var im=it.image?'<span class="nimg" style="background-image:url(\'../data/'+esc(it.image)+'\')"></span>':'';
+      return '<a class="ncard" href="'+esc(it.link)+'" target="_blank" rel="noopener">'+im+
+        '<span class="ncard-b">'+
         '<span class="ntag">'+esc(it.tag)+'</span>'+
         '<h3>'+esc(it.headline)+'</h3>'+
         '<p class="nmean">'+esc(it.summary)+'</p>'+
         (it.meaning?'<p class="nwhat"><b>What it means for you:</b> '+esc(it.meaning)+'</p>':'')+
-        '<div class="nmeta">'+esc(it.source)+' · '+esc(it.date_label)+'</div>'+
-        '<div class="ngo">Read the full story →</div></a>';
+        '<span class="nmeta">'+esc(it.source)+' · '+esc(it.date_label)+'</span>'+
+        '<span class="ngo">Read the full story →</span>'+
+        '</span></a>';
     }).join('');
   }).catch(function(){mount.innerHTML='<div class="newsload">Could not load news right now. Please try again shortly.</div>';});
 })();
