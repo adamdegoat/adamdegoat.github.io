@@ -1,0 +1,75 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f7f4ec">
+<title>Singapore Property News — PropSight</title>
+<meta name="description" content="The Singapore property headlines that matter for your home, in plain English with what each one means for you. Refreshed twice a week. Free, by PropSight.">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/icon-180.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b3a2d'/%3E%3Ctext x='15.5' y='23.5' text-anchor='middle' font-family='Georgia,serif' font-weight='500' font-size='22' fill='%23e3c98f'%3EP%3C/text%3E%3Ccircle cx='24' cy='10' r='1.7' fill='%23e3c98f'/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600&family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#191512;--ink2:#5a5248;--ink3:#8a8175;--bg:#f7f4ec;--card:#fffefc;--line:#e7e0d2;--line2:#dbd1bf;--green:#1b3a2d;--green2:#27513f;--green3:#0f231a;--brass:#b08d57;--brass2:#c8a468;--brass3:#e3c98f;--serif:'Fraunces',Georgia,serif;--ease:cubic-bezier(.2,.7,.2,1)}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{font-family:'Schibsted Grotesk',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
+.wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+.head{padding:52px 0 6px;max-width:700px}
+.kick{font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);display:inline-flex;align-items:center;gap:10px}
+.kick::before{content:"";width:22px;height:1.5px;background:var(--brass)}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5vw,54px);letter-spacing:-.025em;line-height:1.03;margin:16px 0 0}
+h1 em{font-style:italic;color:var(--green2)}
+.sub{font-size:17px;color:var(--ink2);margin:16px 0 0;line-height:1.55}
+.upd{margin:22px 0 0;font-size:12.5px;font-weight:700;color:var(--ink3);display:inline-flex;align-items:center;gap:8px}
+.upd .d{width:8px;height:8px;border-radius:50%;background:#2e9e6b;flex:none}
+.newsg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:32px 0 24px}
+.newsload{color:var(--ink3);font-size:14px;padding:10px 2px;grid-column:1/-1}
+.ncard{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 22px 20px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 5px 18px rgba(25,21,18,.05);transition:transform .3s var(--ease),box-shadow .3s,border-color .3s}
+.ncard::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--brass2),var(--brass));transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.ncard:hover{transform:translateY(-6px);box-shadow:0 24px 52px rgba(25,21,18,.13);border-color:var(--brass2)}
+.ncard:hover::after{transform:none}
+.ntag{align-self:flex-start;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--brass);background:rgba(176,141,87,.12);padding:4px 9px;border-radius:6px}
+.ncard h3{font-family:var(--serif);font-weight:600;font-size:18.5px;line-height:1.22;letter-spacing:-.012em;margin:13px 0 9px;color:var(--ink)}
+.ncard .nmean{font-size:13px;color:var(--ink2);line-height:1.52}
+.ncard .nwhat{margin-top:11px;padding-top:11px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink2);line-height:1.5;flex:1}
+.ncard .nwhat b{color:var(--green2);font-weight:700}
+.ncard .nmeta{margin-top:15px;font-size:11.5px;font-weight:700;color:var(--ink3);letter-spacing:.01em}
+.ncard .ngo{margin-top:9px;font-size:12.5px;font-weight:700;color:var(--green2)}
+.foot{padding:26px 0 64px;color:var(--ink3);font-size:12.5px;line-height:1.6;max-width:760px}
+.foot a{color:var(--green2);font-weight:700;text-decoration:none}
+@media(max-width:880px){.newsg{grid-template-columns:1fr}}
+@media(max-width:600px){.head{padding:34px 0 2px}.wrap{padding:0 20px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <span class="kick">Singapore property news</span>
+    <h1>What's moving in the <em>market</em>.</h1>
+    <p class="sub">The headlines that matter for your home, in plain English, with what each one actually means for you. Pulled from across Singapore's property press and refreshed twice a week. Free, no sign-up.</p>
+    <div class="upd" id="upd"></div>
+  </div>
+  <div class="newsg" id="newsAll"><div class="newsload">Loading the latest…</div></div>
+  <div class="foot">Headlines are sourced from across the Singapore property press; tap any card to read the full story at its original source. PropSight summarises each in plain English and is not the original publisher. <a href="../">← Back to PropSight</a></div>
+</div>
+<script src="/adam/nav.js" defer></script>
+<script>
+(function(){
+  var mount=document.getElementById('newsAll'), upd=document.getElementById('upd');
+  function esc(s){return (s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  fetch('../data/news.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(d){
+    if(upd&&d.updated_label) upd.innerHTML='<span class="d"></span>Updated '+esc(d.updated_label)+' · refreshed every Tue & Fri';
+    var items=d.items||[];
+    if(!items.length){mount.innerHTML='<div class="newsload">No news right now, check back soon.</div>';return;}
+    mount.innerHTML=items.map(function(it){
+      return '<a class="ncard" href="'+esc(it.link)+'" target="_blank" rel="noopener">'+
+        '<span class="ntag">'+esc(it.tag)+'</span>'+
+        '<h3>'+esc(it.headline)+'</h3>'+
+        '<p class="nmean">'+esc(it.summary)+'</p>'+
+        (it.meaning?'<p class="nwhat"><b>What it means for you:</b> '+esc(it.meaning)+'</p>':'')+
+        '<div class="nmeta">'+esc(it.source)+' · '+esc(it.date_label)+'</div>'+
+        '<div class="ngo">Read the full story →</div></a>';
+    }).join('');
+  }).catch(function(){mount.innerHTML='<div class="newsload">Could not load news right now. Please try again shortly.</div>';});
+})();
+</script>
+</body></html>

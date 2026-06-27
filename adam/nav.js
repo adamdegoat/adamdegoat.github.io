@@ -9,8 +9,9 @@
     ['Research', BASE + '/thesis/', 'feat'],
     ['New Launches', BASE + '/adam/launches/', ''],
     ['Market Pulse', BASE + '/adam/notes/', ''],
+    ['News', BASE + '/adam/news/', ''],
     ['Guide', BASE + '/adam/essentials/', ''],
-    ['Why PropSight', BASE + '/adam/#why', ''],
+    ['About us', BASE + '/adam/about/', ''],
     ['Contact', BASE + '/adam/#talk', ''],
     ["Let's talk", 'https://wa.me/6583219747', 'cta']
   ];
@@ -19,6 +20,8 @@
     if (/\/thesis\//.test(p)) return /\/thesis\//.test(href);
     if (/\/launches\//.test(p)) return /\/launches\//.test(href);
     if (/\/notes\//.test(p)) return /\/notes\//.test(href);
+    if (/\/news\//.test(p)) return /\/news\//.test(href);
+    if (/\/about\//.test(p)) return /\/about\//.test(href);
     if (/\/essentials\//.test(p)) return /\/essentials\//.test(href);
     if (/\/tools\//.test(p)) return /#tools$/.test(href);
     return false;
