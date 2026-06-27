@@ -9,7 +9,7 @@
     ['Research', BASE + '/thesis/', 'feat'],
     ['New Launches', BASE + '/adam/launches/', ''],
     ['Market Pulse', BASE + '/adam/notes/', ''],
-    ['News', BASE + '/adam/news/', ''],
+    ['News', BASE + '/adam/news/', 'smart'],
     ['Guide', BASE + '/adam/essentials/', ''],
     ['About us', BASE + '/adam/about/', ''],
     ['Contact', BASE + '/adam/#talk', ''],
@@ -40,7 +40,7 @@
     '.psnav-links{display:flex;gap:22px;margin-left:auto;align-items:center}' +
     '.psnav-links a{font-size:14.5px;font-weight:600;color:#5a5248;text-decoration:none;white-space:nowrap;transition:color .2s}' +
     '.psnav-links a:hover{color:#191512}.psnav-links a.cur{color:#1b3a2d}' +
-    '.psnav-links a.feat{position:relative}.psnav-links a.feat::before{content:"Featured";position:absolute;left:50%;bottom:calc(100% - 2px);transform:translateX(-50%);display:flex;align-items:center;justify-content:center;height:15px;padding:0 9px;font:800 8px/1 "Schibsted Grotesk",system-ui,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#241a0d;background:linear-gradient(135deg,#e3c98f,#b08d57);border-radius:20px;white-space:nowrap;box-shadow:0 2px 6px rgba(176,141,87,.3)}' +
+    '.psnav-links a.feat,.psnav-links a.smart{position:relative}.psnav-links a.feat::before,.psnav-links a.smart::before{position:absolute;left:50%;bottom:calc(100% - 2px);transform:translateX(-50%);display:flex;align-items:center;justify-content:center;height:15px;padding:0 9px;font:800 8px/1 "Schibsted Grotesk",system-ui,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#241a0d;background:linear-gradient(135deg,#e3c98f,#b08d57);border-radius:20px;white-space:nowrap;box-shadow:0 2px 6px rgba(176,141,87,.3)}.psnav-links a.feat::before{content:"Featured"}.psnav-links a.smart::before{content:"Smart"}' +
     '.psnav-links a.cta{background:#1b3a2d;color:#f5f1e8;padding:9px 18px;border-radius:30px;font-weight:700}' +
     '.psnav-burger{display:none;margin-left:auto;width:42px;height:42px;border:1px solid #dbd1bf;border-radius:10px;background:rgba(255,255,255,.6);cursor:pointer;align-items:center;justify-content:center}' +
     '.psnav-burger svg{width:22px;height:22px;stroke:#191512;fill:none;stroke-width:2;stroke-linecap:round}' +
@@ -52,6 +52,7 @@
   function linkHtml(l, mobile) {
     var cls = [];
     if (l[2] === 'feat' && !mobile) cls.push('feat');
+    if (l[2] === 'smart' && !mobile) cls.push('smart');
     if (l[2] === 'cta' && !mobile) cls.push('cta');
     if (active(l[1])) cls.push('cur');
     return '<a href="' + l[1] + '"' + (cls.length ? ' class="' + cls.join(' ') + '"' : '') + '>' + l[0] + '</a>';

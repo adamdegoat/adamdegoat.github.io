@@ -5,6 +5,13 @@ const Engines = (() => {
   // ============ HDB AVM ============
   const HDB = { STOREY: 0.004, LEASE: 0.004, HALFLIFE: 9, SIZE_TOL: 0.20, MIN: 5 };
 
+  // Bias calibration — measured by avm/backtest.js (point-in-time holdout, signed median error).
+  // The weighting+adjustment pipeline runs a touch low on condos and a touch high on HDB; these
+  // re-center the point estimate so the median signed error sits at ~0. Re-derive after any
+  // change to the comp weighting and update these (1.0 = no correction).
+  const CONDO_CALIB = 1.012;   // condos measured ~1.2% low
+  const HDB_CALIB   = 0.994;   // HDB measured ~0.6% high
+
   // Estate key: group streets in the same estate, ignoring road-type/number/direction
   // tokens. "POTONG PASIR AVE 1/2/3" -> "POTONG PASIR"; "LOR 1 TOA PAYOH" -> "TOA PAYOH".
   const ROAD_TOKENS = new Set(['AVE','AVENUE','ST','STREET','RD','ROAD','DR','DRIVE','CTRL','CENTRAL',
@@ -76,7 +83,7 @@ const Engines = (() => {
       const wBlock = (subjBlkNum && rBlkNum && r.street === stU) ? 1 / (1 + Math.abs(rBlkNum - subjBlkNum) * 0.05) : 1;
       return { ...r, drift, storeyAdj, leaseAdj, adj_psf: adj, weight: wRec * wSize * wStorey * wLease * wProx * wBlock };
     });
-    const res = finalize(comps, areaForEst, { highN: 12, highCV: 0.07, medN: 6, medCV: 0.10 });
+    const res = finalize(comps, areaForEst, { highN: 12, highCV: 0.07, medN: 6, medCV: 0.10 }, HDB_CALIB);
     res.scope = scope; res.tier = tier; res.area_assumed = !hasArea;
     res.block_n = sameBlk.length;  // recent sales at the exact block searched
     const yrs = pool.map(r => r.rem_lease_mths).filter(Boolean).map(m => Math.round(m / 12));
@@ -140,18 +147,22 @@ const Engines = (() => {
     const areaForEst = hasArea ? subj.area_sqm : C.median(pool.map(r => r.area_sqm));
     const res = finalize(comps, areaForEst, cross
       ? { highN: 999, highCV: 0, medN: 6, medCV: 0.10 }
-      : { highN: 8, highCV: 0.07, medN: 6, medCV: 0.10 });
+      : { highN: 8, highCV: 0.07, medN: 6, medCV: 0.10 }, CONDO_CALIB);
     res.scope = scope; res.cross = cross; res.area_assumed = !hasArea;
     return res;
   }
 
   // shared: weighted estimate + band + confidence + PSF trend
-  function finalize(comps, area_sqm, conf) {
+  // calib = systematic-bias correction measured by the backtest (signed median error);
+  // applied to the model PSF only — the observed sale range (obs_low/high) stays raw.
+  function finalize(comps, area_sqm, conf, calib) {
     comps.sort((a, b) => b.weight - a.weight);
     const wsum = comps.reduce((s, c) => s + c.weight, 0);
-    const estPsf = comps.reduce((s, c) => s + c.adj_psf * c.weight, 0) / wsum;
-    const variance = comps.reduce((s, c) => s + c.weight * (c.adj_psf - estPsf) ** 2, 0) / wsum;
-    const cv = Math.sqrt(variance) / estPsf;
+    const rawPsf = comps.reduce((s, c) => s + c.adj_psf * c.weight, 0) / wsum;
+    const variance = comps.reduce((s, c) => s + c.weight * (c.adj_psf - rawPsf) ** 2, 0) / wsum;
+    const cv = Math.sqrt(variance) / rawPsf;       // spread is measured on raw comps
+    const estPsf = rawPsf * (calib || 1);          // bias correction applied to the point estimate
+
     const sqft = area_sqm * C.SQM_SQF;
     const estPrice = estPsf * sqft;
     const band = Math.max(0.03, Math.min(cv, 0.09));
