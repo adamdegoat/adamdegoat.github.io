@@ -644,7 +644,7 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
 </div></header>
 <div class="mobile-menu" id="mobileMenu">
   <a class="mm" href="#tools"><span class="mm-n">01</span><span><span class="mm-t">Tools</span><span class="mm-d">Value, budget, stamp duty, grants &amp; more</span></span><span class="mm-ar">→</span></a>
-  <a class="mm" href="/thesis/"><span class="mm-n">02</span><span><span class="mm-t">Research</span><span class="mm-d">Look up any condo's real numbers</span></span><span class="mm-ar">→</span></a>
+  <a class="mm" href="/thesis/"><span class="mm-n">02</span><span><span class="mm-t">Research</span><span class="mm-d">Any condo or HDB — prices, trends, rental yield &amp; tenure</span></span><span class="mm-ar">→</span></a>
   <a class="mm" href="launches/"><span class="mm-n">03</span><span><span class="mm-t">New Launches</span><span class="mm-d">The launches we're representing</span></span><span class="mm-ar">→</span></a>
   <a class="mm" href="notes/"><span class="mm-n">04</span><span><span class="mm-t">Market Pulse</span><span class="mm-d">Our read on the market, weekly</span></span><span class="mm-ar">→</span></a>
   <a class="mm" href="essentials/"><span class="mm-n">05</span><span><span class="mm-t">Guide</span><span class="mm-d">How buying &amp; selling actually works</span></span><span class="mm-ar">→</span></a>
@@ -664,7 +664,7 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
   <!--PULSE-MQ-START--><a class="mq" href="notes/market-pulse-27-jun-2026.html" aria-label="This week's Market Pulse"><span class="mq-lab"><span class="dot"></span>This week's market</span><span class="mq-div"></span><div class="mq-vp"><div class="mq-track"><span class="mq-i mq-lead">● This week's market</span><span class="mq-sep mq-lead">◆</span><span class="mq-i pl">Condo prices are holding steady right now</span><span class="mq-sep">◆</span><span class="mq-i pl">Resale flat prices are holding steady this month</span><span class="mq-sep">◆</span><span class="mq-i hot">Flats in Toa Payoh are in hot demand, sellers have the upper hand</span><span class="mq-sep">◆</span><span class="mq-i hot">Flats in Bukit Merah are selling well too</span><span class="mq-sep">◆</span><span class="mq-i cool">Flats in Geylang have cooled, so buyers have room to bargain</span><span class="mq-sep">◆</span><span class="mq-i cool">The priciest city-centre condos have softened a little</span><span class="mq-sep">◆</span><span class="mq-cta">See what it means for you this week →</span><span class="mq-sep">◆</span><span class="mq-i mq-lead">● This week's market</span><span class="mq-sep mq-lead">◆</span><span class="mq-i pl">Condo prices are holding steady right now</span><span class="mq-sep">◆</span><span class="mq-i pl">Resale flat prices are holding steady this month</span><span class="mq-sep">◆</span><span class="mq-i hot">Flats in Toa Payoh are in hot demand, sellers have the upper hand</span><span class="mq-sep">◆</span><span class="mq-i hot">Flats in Bukit Merah are selling well too</span><span class="mq-sep">◆</span><span class="mq-i cool">Flats in Geylang have cooled, so buyers have room to bargain</span><span class="mq-sep">◆</span><span class="mq-i cool">The priciest city-centre condos have softened a little</span><span class="mq-sep">◆</span><span class="mq-cta">See what it means for you this week →</span><span class="mq-sep">◆</span></div></div></a><!--PULSE-MQ-END-->
   <div class="wrap hero-in">
   <div>
-    <span class="eyebrow rv">Free Singapore property intelligence</span>
+    <span class="eyebrow rv">Singapore property intelligence</span>
     <h1><span class="ln"><i>Singapore</i></span><span class="ln"><i>property,</i></span><span class="ln"><i>decoded.</i></span></h1>
     <p class="lead lead-lg rv">PropSight is the free way to see Singapore property clearly: value any HDB or condo on real recent sales, work out what you can truly afford, and research how any project is really performing. No agent hard-sell, just the real numbers. And Aillie, our AI guide, is right here — ask her anything.</p>
     <p class="lead lead-sm rv">The free way to see Singapore property clearly — real values, what you can truly afford, and how any project's really doing. And Aillie, our AI guide, is right here.</p>
@@ -1157,7 +1157,7 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
     if(/(afford|budget|how much.*(can i|loan|borrow)|^afford$|downpayment|down payment)/.test(t))
       return {text:"Let's work out your real budget — from your income and savings, using the actual lending rules (TDSR, MSR, LTV).",link:{href:'tools/afford.html',label:'See what you can afford'}};
     if(/(research|project|condo.*(data|number|psf|yield)|rental yield|tenure|^research$)/.test(t))
-      return {text:"Our research looks up any Singapore condo's real numbers — price psf, the trend over time, rental yield, and how it's priced against comparable projects nearby.",link:{href:'/thesis/',label:'Open Research'}};
+      return {text:"Our Research covers every Singapore condo and HDB — price psf, the price trend over time, rental yield, tenure, and how it's priced against comparable homes nearby, plus the new and upcoming launches pipeline.",link:{href:'/thesis/',label:'Open Research'}};
     if(/(launch|lentor|showflat|vvip|preview|^launches$)/.test(t))
       return {text:"Here are the new launches we're representing right now — full project sites, real numbers, and first choice of units.",link:{href:'launches/',label:'See new launches'}};
     if(/(stamp duty|absd|bsd|^stamp)/.test(t))
@@ -1194,7 +1194,7 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
     const t=typing();
     setTimeout(()=>{
       t.remove();
-      botReply("Sure, which condo project? Type it below and I'll pull its real numbers — psf, the 6-month price trend, and rental yield.");
+      botReply("Sure — which condo or HDB? Type it below and I'll pull its real numbers: psf, the 6-month price trend, rental yield and tenure.");
       const mount=document.createElement('div');mount.style.cssText='margin-top:2px;animation:cmin .35s var(--ease)';body.appendChild(mount);
       if(window.psResearchCard){window.psResearchCard(mount);}else{botReply("Tap below to open the full research tool.",{href:'/thesis/',label:'Open Research'});}
       scroll();showFollowups();
