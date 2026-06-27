@@ -457,8 +457,32 @@ select.f{padding:13px 13px;border-radius:13px}
 .herochips span{font-size:11.5px;font-weight:600;color:var(--ink2);background:linear-gradient(180deg,#fff,var(--panel2));border:1px solid var(--line);border-radius:30px;padding:6px 13px;box-shadow:var(--shadow);white-space:nowrap}
 .herochips span b{color:var(--green-d);font-weight:800}
 @media(max-width:560px){.lede2 h1{font-size:23px}.lede2 p{font-size:13.5px}}
+/* ── member gate (guests see a teaser, then a join wall) ── */
+.gatewrap{position:relative;max-height:316px;overflow:hidden}
+.gatewall{position:absolute;left:0;right:0;bottom:0;top:96px;display:flex;align-items:flex-end;justify-content:center;padding:0 18px 24px;
+  background:linear-gradient(180deg,rgba(247,244,236,0) 0%,rgba(247,244,236,.82) 30%,var(--bg) 56%)}
+.gatecard{max-width:452px;width:100%;background:linear-gradient(180deg,#fff,#f8f5ee);border:1px solid #e7e0d2;border-radius:20px;
+  padding:30px 28px;box-shadow:0 34px 80px rgba(20,30,25,.22),0 1px 0 rgba(255,255,255,.7) inset;text-align:center}
+.gatecard .gey{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.gatecard h3{font-family:var(--serif);font-size:25px;font-weight:600;line-height:1.13;color:var(--ink);margin:0 0 9px;letter-spacing:-.2px}
+.gatecard .gsub{font-size:13.5px;color:var(--ink2);line-height:1.5;margin:0 0 17px}
+.gateperks{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-bottom:19px}
+.gateperks span{font-size:11.5px;font-weight:600;color:#3f5a4e;background:#eef3ee;border:1px solid #dbe5dd;border-radius:30px;padding:6px 12px}
+.gateform{display:flex;flex-direction:column;gap:9px}
+.gaterow{display:flex;gap:9px}
+.gateform input{flex:1;width:100%;padding:12px 14px;border:1px solid #d8cfbe;border-radius:11px;font-size:14.5px;font-family:inherit;background:#fff;color:var(--ink)}
+.gateform input:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(31,193,143,.14)}
+.gateform button{padding:13px;border:0;border-radius:11px;background:var(--green-d,#163025);color:#f5f1e8;font-size:14.5px;font-weight:700;font-family:inherit;cursor:pointer;transition:.2s}
+.gateform button:hover{filter:brightness(1.12)}
+.gateform button:disabled{opacity:.6;cursor:default}
+.gatefine{font-size:11px;color:var(--ink3);margin-top:12px}
+.gatefine a{color:var(--green);font-weight:600;text-decoration:none;cursor:pointer}
+.gatemsg{font-size:12.5px;font-weight:600;margin-top:11px;min-height:1px}
+.gatemsg.ok{color:var(--green)}.gatemsg.err{color:#c0392b}
+@media(max-width:560px){.gaterow{flex-direction:column}.gatewall{top:78px}.gatecard{padding:26px 22px}.gatecard h3{font-size:22px}}
 </style>
 <script src="/adam/nav.js" defer></script>
+<script src="/adam/member.js"></script>
 </head>
 <body>
 <nav class="nav" style="position:static"><div class="wrap navwrap">
@@ -577,6 +601,7 @@ function render(noScroll){
   const cn=$('#cmpN');if(cn){cn.style.display=CMP.length?'':'none';cn.textContent=CMP.length;}
   if(!noScroll)window.scrollTo({top:0,behavior:'smooth'});
   if(TAB==='map')setTimeout(initMap,30); else if(LMAP){LMAP.remove();LMAP=null;}
+  if(window.psGate)psGate();   // member gate: guests see a teaser + join wall
 }
 function initMap(){
   const el=document.getElementById('map'); if(!el) return;
@@ -1193,6 +1218,55 @@ document.querySelectorAll('.th-seg button').forEach(function(b){b.addEventListen
 document.getElementById('thGuide').addEventListener('click',function(e){if(e.target.id==='thGuide')thCloseGuide();});
 (function(){var sa=(window.matchMedia&&window.matchMedia('(display-mode: standalone)').matches)||window.navigator.standalone;if(sa){var el=document.getElementById('thInstall');if(el)el.classList.add('th-hidden');}})();
 if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
+</script>
+<script>
+/* ── Member gate: guests get a teaser + a join wall over the data tables ── */
+function psGate(){
+  var app=document.getElementById('app'); if(!app) return;
+  if(window.PS && PS.isMember()) return;            // members see everything
+  var tbl=app.querySelector('.tbl'); if(!tbl) return; // only the data-table views
+  var wrap=tbl.parentElement;
+  if(!wrap || wrap.classList.contains('gatewrap')) return;
+  wrap.classList.add('gatewrap');
+  for(var sib=wrap.nextElementSibling; sib; sib=sib.nextElementSibling) sib.style.display='none';
+  var wall=document.createElement('div'); wall.className='gatewall';
+  wall.innerHTML=''
+   +'<div class="gatecard">'
+   +'<div class="gey">Members · Free</div>'
+   +'<h3>See every Singapore home, in full.</h3>'
+   +'<div class="gsub">You’re seeing a preview. Join PropSight free to unlock the complete research — every condo &amp; HDB, ranked, compared and tracked.</div>'
+   +'<div class="gateperks"><span>Full research</span><span>Weekly newsletter</span><span>Telegram insights</span></div>'
+   +'<form class="gateform" novalidate>'
+   +'<div class="gaterow"><input name="name" placeholder="First name" autocomplete="given-name"><input name="email" type="email" placeholder="you@email.com" autocomplete="email"></div>'
+   +'<button type="submit">Unlock free →</button>'
+   +'</form>'
+   +'<div class="gatemsg" id="gateMsg"></div>'
+   +'<div class="gatefine">Free forever · no spam · <a id="gateSignin">Already a member? Sign in</a></div>'
+   +'</div>';
+  wrap.appendChild(wall);
+  var form=wall.querySelector('.gateform'), msg=wall.querySelector('#gateMsg'), btn=form.querySelector('button');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=(form.name.value||'').trim(), email=(form.email.value||'').trim();
+    if(email.indexOf('@')<1){ msg.className='gatemsg err'; msg.textContent='Please enter a valid email.'; return; }
+    btn.disabled=true; btn.textContent='Unlocking…';
+    PS.join(name,email,'research').then(function(r){
+      if(r && r.ok && r.token){
+        PS.setMember(r.token, r.name||name);
+        msg.className='gatemsg ok'; msg.textContent='You’re in — loading the full research… (check your email to confirm)';
+        setTimeout(function(){ render(true); },700);
+      } else {
+        btn.disabled=false; btn.textContent='Unlock free →';
+        msg.className='gatemsg err'; msg.textContent=(r&&r.error)||'Something went wrong — please try again.';
+      }
+    }).catch(function(){ btn.disabled=false; btn.textContent='Unlock free →'; msg.className='gatemsg err'; msg.textContent='Network error — please try again.'; });
+  });
+  wall.querySelector('#gateSignin').addEventListener('click',function(){
+    var email=prompt('Enter your email and we’ll send you a sign-in link:');
+    if(!email||email.indexOf('@')<1) return;
+    PS.signin(email.trim()).then(function(){ msg.className='gatemsg ok'; msg.textContent='Sent — check your email for the sign-in link.'; });
+  });
+}
 </script>
 </body>
 </html>
