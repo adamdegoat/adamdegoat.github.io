@@ -29,7 +29,7 @@
     '<circle cx="29" cy="13.5" r="2" fill="#e3c98f"/></svg>';
 
   var css = '' +
-    '.psnav{position:sticky;top:0;z-index:300;background:rgba(246,243,234,.9);-webkit-backdrop-filter:blur(10px) saturate(1.1);backdrop-filter:blur(10px) saturate(1.1);border-bottom:1px solid #e7e0d2;font-family:"Schibsted Grotesk",system-ui,sans-serif}' +
+    '.psnav{position:sticky;top:0;z-index:300;background:rgba(247,244,236,.97);border-bottom:1px solid #e7e0d2;font-family:"Schibsted Grotesk",system-ui,sans-serif}' +
     '.psnav-in{max-width:1180px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;gap:24px}' +
     '.psnav-brand{display:flex;align-items:center;gap:9px;text-decoration:none}.psnav-brand .pm{width:34px;height:34px;flex:none;filter:drop-shadow(0 3px 8px rgba(15,35,26,.16))}' +
     '.psnav-brand b{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:20px;color:#191512;letter-spacing:.01em}' +

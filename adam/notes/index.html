@@ -18,7 +18,7 @@
 html{scroll-behavior:smooth}html,body{overflow-x:hidden}
 body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:-20%;z-index:-2;pointer-events:none;background:radial-gradient(620px 460px at 88% -6%,rgba(176,141,87,.12),transparent 60%)}
-body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opacity:.035;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opacity:.035;;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 a{color:inherit;text-decoration:none}
 .top{background:linear-gradient(165deg,#2c5743,#1b3a2d)}
 .nav{max-width:860px;margin:0 auto;padding:0 26px;height:68px;display:flex;align-items:center}
@@ -47,7 +47,7 @@ a{color:inherit;text-decoration:none}
 .lead::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--brass),var(--brass3),var(--brass))}
 .lead::after{content:"";position:absolute;top:-30%;right:-12%;width:300px;height:300px;background:radial-gradient(circle,rgba(227,201,143,.22),transparent 65%);pointer-events:none}
 .newbadge{display:inline-flex;align-items:center;gap:9px;background:var(--green);color:#f4efe6;font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;padding:9px 15px;border-radius:30px;box-shadow:0 8px 18px rgba(27,58,45,.28);position:relative}
-.newbadge .d{width:8px;height:8px;border-radius:50%;background:#7fd4a0;animation:npl 2.2s infinite}
+.newbadge .d{width:8px;height:8px;border-radius:50%;background:#7fd4a0;animation:none}
 @keyframes npl{0%{box-shadow:0 0 0 0 rgba(127,212,160,.55)}70%{box-shadow:0 0 0 9px rgba(127,212,160,0)}100%{box-shadow:0 0 0 0 rgba(127,212,160,0)}}
 .lead .when{margin-left:12px;font-size:12.5px;font-weight:700;color:#8f6a2c}
 .lead h3{font-family:var(--serif);font-weight:600;font-size:clamp(26px,3.6vw,36px);line-height:1.08;margin:15px 0 0;letter-spacing:-.015em;position:relative}
