@@ -245,6 +245,30 @@ Caveat.index().then(d=>{ IDX=d; }).catch(()=>{ $('#err').classList.add('on'); $(
 // flat street list for the address search (street → town behind the scenes)
 Caveat.getJSON('hdb_streets.json').then(t=>{ t.rows.forEach(([st,tn])=>{ STREET_LIST.push({s:st,t:tn}); (STREETS[tn]=STREETS[tn]||[]).push(st); }); }).catch(()=>{});
 
+// Prefill + auto-run from URL params (so a valuation started in the Aillie chat carries over here — no re-keying)
+(async function prefillFromURL(){
+  const P=new URLSearchParams(location.search);
+  if(!P.get('t'))return;
+  for(let i=0;i<70 && (!IDX || !STREET_LIST.length); i++){ await new Promise(r=>setTimeout(r,100)); }
+  try{
+    if(P.get('t')==='condo'){
+      document.querySelectorAll('#mode .opt').forEach(o=>{ if(o.dataset.m==='condo') o.click(); });
+      const proj=(P.get('proj')||'').toUpperCase();
+      const pr=IDX&&IDX.condo_projects.find(x=>x[0]===proj);
+      if(pr){ projSel=pr; $('#proj').value=title(pr[0]); }
+      if(P.get('size')) $('#csize').value=P.get('size');
+    } else {
+      const street=(P.get('street')||'').toUpperCase(), town=(P.get('town')||'').toUpperCase();
+      const o=STREET_LIST.find(x=>x.s===street) || (street&&town?{s:street,t:town}:null);
+      if(o){ $('#addr').value=title(o.s); pickAddr(o); }
+      if(P.get('ft')) $('#ftype').value=P.get('ft');
+      if(P.get('block')) $('#block').value=P.get('block');
+      if(P.get('size')) $('#hsize').value=P.get('size');
+    }
+    run();
+  }catch(e){}
+})();
+
 function title(s){return (s||'').toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());}
 
 // mode toggle

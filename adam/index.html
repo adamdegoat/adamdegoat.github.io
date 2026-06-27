@@ -513,7 +513,9 @@ body::before{animation:none}
 @media(min-width:881px){
   .hero-in{grid-template-columns:1.04fr .96fr !important;gap:44px;align-items:center}
   .hero-chat-mount{display:block;min-width:0}
-  .cpanel.inhero{position:static;width:100%;max-width:none;height:480px;min-height:430px;max-height:74vh;opacity:1 !important;visibility:visible !important;transform:none !important;box-shadow:0 30px 70px rgba(15,35,26,.32),0 0 0 1px rgba(227,201,143,.22)}
+  .cpanel.inhero{position:static;width:100%;max-width:none;height:480px;min-height:430px;max-height:74vh;opacity:1 !important;visibility:visible !important;transform:none !important;background:rgba(249,246,239,.46);backdrop-filter:blur(13px) saturate(1.15);-webkit-backdrop-filter:blur(13px) saturate(1.15);box-shadow:0 34px 80px rgba(8,20,14,.42),0 0 0 1px rgba(227,201,143,.3),inset 0 1px 0 rgba(255,255,255,.4)}
+  .cpanel.inhero .chead{background:radial-gradient(420px 200px at 88% -30%,rgba(227,201,143,.3),transparent 60%),linear-gradient(150deg,rgba(39,81,63,.92),rgba(15,35,26,.92))}
+  .cpanel.inhero .cfoot{background:rgba(255,255,255,.26)}
   .cpanel.inhero .cx{display:none}
   .cbtn,.cteaser{display:none !important}
 }
@@ -581,12 +583,13 @@ html.menu-open .cbtn{opacity:0;visibility:hidden;pointer-events:none}
 html.menu-open .cteaser{opacity:0;visibility:hidden}
 @media(max-width:560px){.cteaser{bottom:74px;right:16px;max-width:194px;font-size:12.5px}}
 /* inline valuation card inside the chat (reuses the Caveat engine) */
-.cval{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px;box-shadow:0 3px 12px rgba(25,21,18,.05)}
+/* in-chat tool card — blends into the conversation, not a stark form */
+.cval{background:rgba(255,255,255,.46);border:1px solid rgba(231,224,210,.6);border-radius:16px;border-top-left-radius:5px;padding:14px;box-shadow:0 4px 14px rgba(25,21,18,.05)}
 .cval-seg{display:flex;background:rgba(27,58,45,.06);border-radius:9px;padding:2px;margin-bottom:10px}
 .cval-seg button{flex:1;border:0;background:none;font-family:var(--sans);font-size:12.5px;font-weight:700;color:var(--ink2);padding:7px;border-radius:7px;cursor:pointer}
 .cval-seg button.on{background:var(--green);color:#f4efe6}
 .cval-f{position:relative;margin-bottom:8px}
-.cval-in,.cval-sel{width:100%;font-family:var(--sans);font-size:13.5px;font-weight:600;padding:10px 12px;border:1px solid var(--line2);border-radius:9px;background:#fff;color:var(--ink);outline:none}
+.cval-in,.cval-sel{width:100%;font-family:var(--sans);font-size:13.5px;font-weight:600;padding:11px 13px;border:1px solid rgba(219,209,191,.8);border-radius:11px;background:rgba(255,255,255,.92);color:var(--ink);outline:none}
 .cval-in:focus,.cval-sel:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(39,81,63,.1)}
 .cval-ac{position:absolute;top:calc(100% + 3px);left:0;right:0;z-index:5;background:#fff;border:1px solid var(--line2);border-radius:10px;box-shadow:0 14px 30px rgba(25,21,18,.16);max-height:172px;overflow-y:auto;display:none}
 .cval-ac.on{display:block}
@@ -654,41 +657,6 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
   </div>
   <aside class="hero-chat-mount" id="heroChatMount" aria-label="Ask Aillie"></aside>
   </div></section>
-
-<section class="sec afford-sec"><div class="wrap">
-  <div class="sec-h"><div><span class="eyebrow rv">Free · no sign-up</span><h2 class="rv">What can I afford?</h2></div>
-    <p class="rv">Your real budget, from your income and savings, using the actual lending rules — a starting point in seconds.</p></div>
-  <aside class="livepanel afford-mini rv">
-    <div class="am-head">
-      <span class="am-title">What can I afford?</span>
-      <div class="am-seg" id="amType"><button class="on" data-t="private">Condo</button><button data-t="hdb">HDB</button></div>
-    </div>
-    <div class="am-fields">
-      <label class="am-f"><span>Monthly income <em class="am-hint">combine both if buying together</em></span><div class="am-in"><i>$</i><input id="amIncome" inputmode="numeric" value="10,000"></div></label>
-      <div class="am-row">
-        <label class="am-f"><span>Cash savings</span><div class="am-in"><i>$</i><input id="amCash" inputmode="numeric" value="150,000"></div></label>
-        <label class="am-f"><span>CPF (OA) savings</span><div class="am-in"><i>$</i><input id="amCpf" inputmode="numeric" value="150,000"></div></label>
-      </div>
-      <button type="button" class="am-cpft" id="amCpfT">ⓘ Using your CPF — quick rules</button>
-      <div class="am-cpfhint" id="amCpfHint" hidden><b>Quick CPF rules:</b><span><span class="ch">·</span> Only your <b>Ordinary Account</b> counts — not Special or Medisave.</span><span><span class="ch">·</span> At least <b>5% of the price must be cash</b> (bank loan) — CPF can't cover that bit.</span><span><span class="ch">·</span> On <b>older, short-lease flats</b> CPF use is reduced — and none if under 20 years lease left.</span></div>
-      <label class="am-f am-age"><span>Oldest buyer's age <em class="am-hint">sets loan length</em></span><div class="am-in"><input id="amAge" inputmode="numeric" value="35"></div></label>
-    </div>
-    <button class="am-more" id="amMore" aria-expanded="false">+ Fine-tune <span style="opacity:.7;font-weight:600">(debts · grant · loan length)</span></button>
-    <div class="am-extra" id="amExtra">
-      <label class="am-f"><span>Existing monthly debts <em class="am-hint">car, other loans, card minimums</em></span><div class="am-in"><i>$</i><input id="amDebts" inputmode="numeric" value="0"></div></label>
-      <label class="am-f"><span>Housing grant <a href="tools/grants.html" style="color:var(--green2);font-weight:700">find →</a></span><div class="am-in"><i>$</i><input id="amGrant" inputmode="numeric" value="0"></div></label>
-      <label class="am-f"><span>Loan length — <b id="amTenV">25 years</b></span><input type="range" id="amTen" min="5" max="30" step="1" value="25"></label>
-    </div>
-    <div class="am-result">
-      <div class="am-rk">You could look up to</div>
-      <div class="am-budget" id="amBudget">—</div>
-      <div class="am-rsub" id="amSub"></div>
-    </div>
-    <p class="am-note" id="amNote"></p>
-    <a class="am-cta" id="amCta" href="tools/afford.html">Full breakdown &amp; stamp duty <i>→</i></a>
-    <a class="am-sell" href="tools/value.html">Selling instead? See your home's worth on real data <i>→</i></a>
-  </aside>
-</div></section>
 
 <section class="sec"><div class="wrap">
   <div class="sec-h"><div><span class="eyebrow rv">Start here</span><h2 class="rv">What brings you here?</h2></div>
@@ -1023,14 +991,14 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
     const card=document.createElement('div');card.className='cval';
     card.innerHTML='<div class="cval-seg"><button class="on" data-m="hdb">HDB flat</button><button data-m="condo">Condo</button></div>'+
       '<div class="cval-f"><input class="cval-in cv-search" placeholder="Type your street…" autocomplete="off"><div class="cval-ac"></div></div>'+
-      '<div class="cv-hdb"><div class="cval-f"><select class="cval-sel cv-ft"><option value="">Pick your street first…</option></select></div></div>'+
+      '<div class="cv-hdb"><div class="cval-f"><select class="cval-sel cv-ft"><option value="">Pick your street first…</option></select></div><div class="cval-f"><input class="cval-in cv-block" placeholder="Block (optional, e.g. 123)" autocomplete="off"></div></div>'+
       '<div class="cval-f"><input class="cval-in cv-size" placeholder="Floor area in sqft (optional)" inputmode="numeric"></div>'+
       '<button class="cval-go cv-go">Value it →</button>'+
       '<div class="cval-err cv-err" style="display:none"></div><div class="cval-res cv-res"></div>';
     mount.appendChild(card);
     const q=s=>card.querySelector(s);
     let mode='hdb',town='',street='',projSel=null,list=[],cur=-1;
-    const search=q('.cv-search'),ac=q('.cval-ac'),ftWrap=q('.cv-hdb'),ftSel=q('.cv-ft'),sizeI=q('.cv-size'),go=q('.cv-go'),err=q('.cv-err'),res=q('.cv-res');
+    const search=q('.cv-search'),ac=q('.cval-ac'),ftWrap=q('.cv-hdb'),ftSel=q('.cv-ft'),blockI=q('.cv-block'),sizeI=q('.cv-size'),go=q('.cv-go'),err=q('.cv-err'),res=q('.cv-res');
     function setMode(m){mode=m;card.querySelectorAll('.cval-seg button').forEach(b=>b.classList.toggle('on',b.dataset.m===m));ftWrap.style.display=m==='hdb'?'':'none';search.placeholder=m==='hdb'?'Type your street…':'Type the condo project…';search.value='';ac.classList.remove('on');town='';street='';projSel=null;}
     card.querySelectorAll('.cval-seg button').forEach(b=>b.onclick=()=>setMode(b.dataset.m));
     function showAc(){ if(!list.length){ac.classList.remove('on');return;}
@@ -1049,16 +1017,19 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
     go.onclick=async()=>{
       err.style.display='none';res.classList.remove('on');go.disabled=true;go.textContent='Valuing…';
       try{ await ensureEngine();
-        let r,label;const size=parseFloat((sizeI.value||'').replace(/[^0-9.]/g,''))||0;
+        let r,label,fullURL='tools/value.html';const size=parseFloat((sizeI.value||'').replace(/[^0-9.]/g,''))||0;
         if(mode==='hdb'){ if(!town||!street)throw new Error('Type your street and pick it from the list.'); const ft=ftSel.value; if(!ft)throw new Error('Pick a flat type.');
-          const rows=await Caveat.hdbTown(town); r=Engines.hdbEstimate(rows,{flat_type:ft,town,street,block:null,area_sqm:sqm(size),storey_mid:null}); label=title(ft)+' · '+title(street);
+          const block=(blockI.value||'').trim().toUpperCase().replace(/[^0-9A-Z]/g,'')||null;
+          const rows=await Caveat.hdbTown(town); r=Engines.hdbEstimate(rows,{flat_type:ft,town,street,block:block,area_sqm:sqm(size),storey_mid:null}); label=title(ft)+(block?' · Blk '+block:'')+' · '+title(street);
+          fullURL+='?t=hdb&street='+encodeURIComponent(street)+'&town='+encodeURIComponent(town)+'&ft='+encodeURIComponent(ft)+(block?'&block='+encodeURIComponent(block):'')+(size?'&size='+size:'');
         } else { if(!projSel){const typed=search.value.trim().toUpperCase();projSel=IDX&&IDX.condo_projects.find(p=>p[0]===typed);} if(!projSel)throw new Error('Pick a project from the list.');
           const p=projSel; const rows=await Caveat.condoDistrict(p[1]); r=Engines.condoEstimate(rows,{project:p[0],district:p[1],seg:p[2],ptype:p[3],tenure_fh:p[4],area_sqm:sqm(size),floor_mid:null}); label=title(p[0])+' · '+area(p[1]);
+          fullURL+='?t=condo&proj='+encodeURIComponent(p[0])+(size?'&size='+size:'');
         }
         if(!r||!r.ok)throw new Error((r&&r.reason)||'Not enough recent sales to value this one. Try the full tool.');
         const cm={High:'High confidence',Medium:'Fair confidence',Lower:'Indicative'}[r.confidence]||r.confidence;
-        res.innerHTML='<div class="cval-est"><div class="rk">Estimated value · '+label+'</div><div class="rv">'+fmtM(r.low)+' – '+fmtM(r.high)+'</div><div class="rs">Mid-point about '+fmtM(r.estimate_price)+' · '+Math.round(r.estimate_psf).toLocaleString()+' psf</div></div>'+
-          '<div class="cval-meta"><b>'+cm+'</b> · based on '+r.n_comps+' recent sale'+(r.n_comps===1?'':'s')+'.'+(r.area_assumed?' Add your floor area for a tighter number.':'')+'<br><a class="cval-full" href="tools/value.html" target="_blank" rel="noopener">See the full breakdown & comparable sales →</a></div>';
+        res.innerHTML='<div class="cval-est"><div class="rk">Estimated value · '+label+'</div><div class="rv">'+fmtM(r.low)+' – '+fmtM(r.high)+'</div><div class="rs">the likely range, from real recent sales nearby</div></div>'+
+          '<div class="cval-meta"><b>'+cm+'</b> · based on '+r.n_comps+' recent sale'+(r.n_comps===1?'':'s')+' · around '+Math.round(r.estimate_psf).toLocaleString()+' psf.'+(r.area_assumed?' Add your floor area for a tighter range.':'')+'<br><a class="cval-full" href="'+fullURL+'" target="_blank" rel="noopener">See the full breakdown &amp; comparable sales →</a></div>';
         res.classList.add('on');
       }catch(e){ err.textContent=e.message||'Something went wrong — try again.'; err.style.display='block'; }
       go.disabled=false;go.textContent='Value it →';
