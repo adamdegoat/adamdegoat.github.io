@@ -35,21 +35,21 @@
 
   var css = '' +
     '.psnav{position:sticky;top:0;z-index:300;background:rgba(247,244,236,.97);border-bottom:1px solid #e7e0d2;font-family:"Schibsted Grotesk",system-ui,sans-serif;padding-top:env(safe-area-inset-top)}' +
-    '.psnav-in{max-width:1240px;margin:0 auto;padding:0 32px;height:76px;display:flex;align-items:center;gap:16px}' +
+    '.psnav-in{max-width:1280px;margin:0 auto;padding:0 32px;height:76px;display:flex;align-items:center;gap:16px}@media(min-width:1201px){.psnav-in{height:84px}}' +
     '.psnav-brand{display:flex;align-items:center;gap:11px;text-decoration:none}.psnav-brand .pm{width:38px;height:38px;flex:none;color:#1b3a2d}' +
     '.psnav-brand .bw{display:flex;flex-direction:column;line-height:1}.psnav-brand .bw span{font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:#8a8175;font-weight:700;margin-top:4px}' +
     '.psnav-brand b{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:22px;color:#191512;letter-spacing:.01em}' +
-    '.psnav-links{display:flex;gap:17px;margin-left:auto;align-items:center}' +
+    '.psnav-links{display:flex;gap:19px;margin:0 auto;align-items:center}' +
     '.psnav-links a{font-size:13.5px;font-weight:600;color:#5a5248;text-decoration:none;white-space:nowrap;transition:color .2s}' +
     '.psnav-links a:hover{color:#191512}.psnav-links a.cur{color:#1b3a2d}' +
-    '.psnav-links a.feat,.psnav-links a.smart,.psnav-links a.soon{position:relative}.psnav-links a.feat::before,.psnav-links a.smart::before,.psnav-links a.soon::before{position:absolute;left:50%;bottom:calc(100% - 2px);transform:translateX(-50%);display:flex;align-items:center;justify-content:center;height:15px;padding:0 9px;font:800 8px/1 "Schibsted Grotesk",system-ui,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#241a0d;background:linear-gradient(135deg,#e3c98f,#b08d57);border-radius:20px;white-space:nowrap;box-shadow:0 2px 6px rgba(176,141,87,.3)}.psnav-links a.feat::before{content:"Featured"}.psnav-links a.smart::before{content:"Smart"}.psnav-links a.soon::before{content:"Soon";background:linear-gradient(135deg,#2f5a46,#1b3a2d);color:#eadfc8;box-shadow:0 2px 6px rgba(27,58,45,.32)}' +
+    '.psnav-links a.feat,.psnav-links a.smart,.psnav-links a.soon{position:relative}.psnav-links a.feat::before,.psnav-links a.smart::before,.psnav-links a.soon::before{position:absolute;left:50%;bottom:calc(100% - 1px);transform:translateX(-50%);display:flex;align-items:center;justify-content:center;height:14px;padding:0 8px;font:800 8px/1 "Schibsted Grotesk",system-ui,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#241a0d;background:linear-gradient(135deg,#e3c98f,#b08d57);border-radius:20px;white-space:nowrap;box-shadow:0 2px 6px rgba(176,141,87,.3)}.psnav-links a.feat::before{content:"Featured"}.psnav-links a.smart::before{content:"Smart"}.psnav-links a.soon::before{content:"Soon";background:linear-gradient(135deg,#2f5a46,#1b3a2d);color:#eadfc8;box-shadow:0 2px 6px rgba(27,58,45,.32)}' +
     '.psnav-links a.cta{background:#1b3a2d;color:#f5f1e8;padding:9px 18px;border-radius:30px;font-weight:700}' +
-    '.psnav-signin{margin-left:14px;background:none;border:0;font-family:inherit;font-size:13.5px;font-weight:600;color:#5a5248;cursor:pointer;padding:8px 2px;white-space:nowrap;transition:color .2s}.psnav-signin:hover{color:#191512}' +
-    '.psnav-join{margin-left:12px;flex:none;background:linear-gradient(135deg,#e3c98f,#b08d57);color:#241a0d;font-weight:800;font-size:13.5px;font-family:inherit;border:1px solid #b08d57;border-radius:40px;padding:10px 17px;cursor:pointer;white-space:nowrap;box-shadow:0 8px 22px rgba(176,141,87,.34);transition:transform .2s,box-shadow .2s}' +
+    '.psnav-signin{margin-left:4px;background:none;border:0;font-family:inherit;font-size:13.5px;font-weight:600;color:#5a5248;cursor:pointer;padding:8px 2px;white-space:nowrap;transition:color .2s}.psnav-signin:hover{color:#191512}' +
+    '.psnav-join{margin-left:0;flex:none;background:linear-gradient(135deg,#e3c98f,#b08d57);color:#241a0d;font-weight:800;font-size:13.5px;font-family:inherit;border:1px solid #b08d57;border-radius:40px;padding:9px 16px;cursor:pointer;white-space:nowrap;box-shadow:0 8px 22px rgba(176,141,87,.34);transition:transform .2s,box-shadow .2s}' +
     '.psnav-join:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(176,141,87,.44)}' +
     /* the "doorway" into the Listing Platform — set apart from the menu, reads as a separate place */
-    '.psnav-door{display:flex;flex-direction:column;gap:2px;text-decoration:none;margin-left:20px;padding:8px 15px;border:1px solid #cdd9d0;border-radius:13px;background:linear-gradient(180deg,#fff,#f1f5f1);position:relative;transition:transform .2s,border-color .2s,box-shadow .2s}' +
-    '.psnav-door::before{content:"";position:absolute;left:-20px;top:50%;transform:translateY(-50%);width:1px;height:30px;background:#e2dac9}' +
+    '.psnav-door{display:flex;flex-direction:column;gap:2px;text-decoration:none;margin-left:6px;padding:7px 13px;border:1px solid #cdd9d0;border-radius:12px;background:linear-gradient(180deg,#fff,#f1f5f1);position:relative;flex:none;transition:transform .2s,border-color .2s,box-shadow .2s}' +
+    '.psnav-door::before{content:"";position:absolute;left:-9px;top:50%;transform:translateY(-50%);width:1px;height:28px;background:#e2dac9}' +
     '.psnav-door:hover{transform:translateY(-1px);border-color:#27513f;box-shadow:0 9px 22px rgba(39,81,63,.15)}' +
     '.psnav-door .pd-top{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:#1b3a2d;line-height:1.05;white-space:nowrap}' +
     '.psnav-door .pd-ar{width:12px;height:12px;flex:none}' +
@@ -75,7 +75,7 @@
     '.psnav-menu a.psm-door .psm-door-d{display:block;font-family:"Schibsted Grotesk",system-ui,sans-serif;font-size:13px;color:#6b6357;margin-top:4px}' +
     '.psnav-menu a.psm-door .psm-arr{flex:none;width:34px;height:34px;border-radius:50%;background:#27513f;display:flex;align-items:center;justify-content:center}' +
     '.psnav-menu a.psm-door .psm-arr svg{width:15px;height:15px;stroke:#f3efe6}' +
-    '@media(max-width:1100px){.psnav-links{display:none}.psnav-door{display:none}.psnav-burger{display:flex}}@media(max-width:560px){.psnav-in{padding:0 20px}.psnav-brand b{font-size:20px}.psnav-brand .pm{width:34px;height:34px}}';
+    '@media(max-width:1200px){.psnav-links{display:none}.psnav-door{display:none}.psnav-burger{display:flex}}@media(max-width:560px){.psnav-in{padding:0 20px}.psnav-brand b{font-size:20px}.psnav-brand .pm{width:34px;height:34px}}';
 
   function linkHtml(l, mobile) {
     var cls = [];

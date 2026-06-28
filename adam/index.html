@@ -611,9 +611,7 @@ body::before{animation:none}
 .cbtn .cbi svg{width:17px;height:17px}
 .cbtn .cbp{width:8px;height:8px;border-radius:50%;background:#8fe0b0;box-shadow:0 0 0 0 rgba(143,224,176,.6);animation:pulse 2.2s infinite}
 .cbtn.hide{opacity:0;visibility:hidden;transform:translateY(10px) scale(.92);pointer-events:none}
-.cbtn-attn::before{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid var(--brass);opacity:0;pointer-events:none;animation:cbtnRing 2.4s var(--ease) infinite}
-.cbtn-attn::after{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid var(--brass);opacity:0;pointer-events:none;animation:cbtnRing 2.4s var(--ease) infinite;animation-delay:1.2s}
-@keyframes cbtnRing{0%{transform:scale(1);opacity:.5}70%{opacity:0}100%{transform:scale(1.5);opacity:0}}
+.cbtn-attn::before,.cbtn-attn::after{display:none}
 html.menu-open .cbtn{opacity:0;visibility:hidden;pointer-events:none}
 @media(max-width:560px){.cbtn{right:16px;bottom:16px;padding:13px;border-radius:50%}.cbtn .cbtxt,.cbtn .cbp{display:none}}
 /* panel */
