@@ -4,6 +4,7 @@
 (function () {
   var API = 'https://web-production-07326.up.railway.app';
   var KEY = 'ps_member';
+  var TG = 'https://t.me/propsightsg';   // members-only channel — link is gated behind sign-in
 
   function get() { try { return JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { return null; } }
   function isMember() { var m = get(); return !!(m && m.token); }
@@ -62,6 +63,7 @@
    + '.psj-acct{display:flex;flex-direction:column;gap:10px;margin-top:6px}'
    + '.psj-acct a,.psj-acct button{display:flex;align-items:center;justify-content:center;width:100%;padding:14px;border-radius:12px;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;text-decoration:none;border:0}'
    + '.psj-acct .psj-go{background:var(--g);color:#f5f1e8}.psj-acct .psj-go:hover{background:#163025}'
+   + '.psj-acct .psj-tg{background:#eaf5ef;color:var(--g);border:1px solid #cde7d8}.psj-acct .psj-tg:hover{background:#dff0e7;border-color:#bfe0cd}'
    + '.psj-acct .psj-out{background:#fff;color:var(--ink);border:1px solid var(--line)}.psj-acct .psj-out:hover{border-color:var(--br);color:#8a2f2f}'
    + '.psj-acct .psj-em{font-size:12.5px;color:var(--ink3);text-align:center;margin:2px 0 4px}'
    /* logged-in nav chip */
@@ -198,9 +200,10 @@
     ov.innerHTML = '<div class="psj-card"><button class="psj-x" data-psj-close aria-label="Close">×</button>'
       + '<div class="psj-ey">Signed in</div>'
       + '<h3 class="psj-h">You’re a member' + (fn ? ', ' + fn : '') + '.</h3>'
-      + '<p class="psj-sub">Full research, the higher Aillie limit, the weekly newsletter and the Telegram channel are all unlocked.</p>'
+      + '<p class="psj-sub">Full research, the higher Aillie limit, the weekly newsletter and the members’ Telegram channel are all unlocked.</p>'
       + '<div class="psj-acct">'
       + '<a class="psj-go" href="/thesis/">Open the full research →</a>'
+      + '<a class="psj-tg" href="' + TG + '" target="_blank" rel="noopener">Join the Telegram channel →</a>'
       + '<button class="psj-out" data-psj-logout type="button">Sign out</button>'
       + '</div></div>';
     document.body.appendChild(ov);
@@ -230,6 +233,9 @@
     // "Sign in" entries only make sense for guests — hide them once signed in
     var si = document.querySelectorAll('.ps-signin-cta');
     for (var j = 0; j < si.length; j++) si[j].style.display = member ? 'none' : '';
+    // Telegram link is a member-only perk — reveal it only once signed in
+    var tg = document.querySelectorAll('.ps-tg-only');
+    for (var k = 0; k < tg.length; k++) tg[k].style.display = member ? '' : 'none';
   }
 
   function _ready(fn) { if (document.readyState !== 'loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
