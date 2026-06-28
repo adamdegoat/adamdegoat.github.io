@@ -47,14 +47,15 @@ em{font-style:italic;color:var(--brass)}
 /* nav */
 .nav{position:sticky;top:0;z-index:60;transition:.35s var(--ease);border-bottom:1px solid transparent;padding-top:env(safe-area-inset-top)}
 .nav.scrolled{background:rgba(246,243,234,.96);border-bottom-color:var(--line);box-shadow:0 1px 0 rgba(255,255,255,.5) inset}
-.nav-in{display:flex;align-items:center;gap:30px;height:76px}
+.nav-in{display:flex;align-items:center;gap:16px;height:76px;max-width:1280px}
+@media(min-width:1201px){.nav-in{height:84px}}
 .brand{display:flex;align-items:center;gap:11px}
 .brand .mark{width:38px;height:38px;flex:none;filter:drop-shadow(0 4px 10px rgba(15,35,26,.18))}
 .brand .bw{display:flex;flex-direction:column;line-height:1}
 .brand b{font-family:var(--serif);font-weight:600;font-size:22px;letter-spacing:.01em}
 .brand .bw span{font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink3);font-weight:700;margin-top:4px}
-.links{display:flex;gap:17px;margin-left:auto}
-.links a{font-size:13.5px;font-weight:600;color:var(--ink2);position:relative;padding:4px 0}
+.links{display:flex;gap:19px;margin:0 auto;align-items:center}
+.links a{font-size:13.5px;font-weight:600;color:var(--ink2);position:relative;padding:4px 0;white-space:nowrap}
 .links a::after{content:"";position:absolute;left:0;bottom:-2px;height:1.5px;width:0;background:var(--brass);transition:width .3s var(--ease)}
 .links a:hover{color:var(--ink)}.links a:hover::after{width:100%}
 .btn{display:inline-flex;align-items:center;gap:9px;background:var(--green);color:#f5f1e8;font-weight:600;font-size:14.5px;padding:13px 24px;border-radius:40px;border:1px solid var(--green);transition:transform .25s var(--ease),box-shadow .25s,background .25s}
@@ -65,16 +66,16 @@ em{font-style:italic;color:var(--brass)}
 .btn.brass-out:hover{background:rgba(227,201,143,.16);border-color:var(--brass3);transform:translateY(-2px)}
 .btn .arr{transition:transform .25s var(--ease)}.btn:hover .arr{transform:translateX(4px)}
 /* mobile menu */
-.navsignin{background:none;border:0;font-family:inherit;font-size:14.5px;font-weight:600;color:var(--ink2);cursor:pointer;padding:8px 2px;margin-left:18px;white-space:nowrap;transition:color .2s}
+.navsignin{background:none;border:0;font-family:inherit;font-size:13.5px;font-weight:600;color:var(--ink2);cursor:pointer;padding:8px 2px;margin-left:4px;white-space:nowrap;transition:color .2s}
 .navsignin:hover{color:var(--ink)}
-.navjoin{display:inline-flex;align-items:center;gap:7px;margin-left:14px;background:linear-gradient(135deg,var(--brass3),var(--brass));color:#241a0d;font-weight:800;font-size:14px;font-family:inherit;padding:11px 19px;border-radius:40px;border:1px solid var(--brass);box-shadow:0 9px 24px rgba(176,141,87,.36);cursor:pointer;white-space:nowrap;transition:transform .2s var(--ease),box-shadow .2s}
+.navjoin{display:inline-flex;align-items:center;gap:6px;margin-left:0;background:linear-gradient(135deg,var(--brass3),var(--brass));color:#241a0d;font-weight:800;font-size:13.5px;font-family:inherit;padding:9px 16px;border-radius:40px;border:1px solid var(--brass);box-shadow:0 9px 24px rgba(176,141,87,.36);cursor:pointer;white-space:nowrap;transition:transform .2s var(--ease),box-shadow .2s}
 .navjoin:hover{transform:translateY(-2px);box-shadow:0 15px 32px rgba(176,141,87,.46)}
 .nav-install{display:none;flex:none;margin-left:10px;width:44px;height:44px;align-items:center;justify-content:center;background:rgba(255,255,255,.55);border:1px solid var(--line2);border-radius:11px;color:var(--ink);-webkit-tap-highlight-color:transparent;transition:.25s var(--ease)}
 .nav-install svg{width:21px;height:21px}
 .navjoin{flex:none}
 /* the "doorway" into the Listing Platform — a separate destination, set apart from the menu + the Join button */
-.navdoor{display:flex;flex-direction:column;gap:2px;text-decoration:none;margin-left:20px;padding:8px 15px;border:1px solid rgba(246,241,231,.42);border-radius:13px;background:rgba(255,255,255,.1);position:relative;flex:none;transition:.25s var(--ease)}
-.navdoor::before{content:"";position:absolute;left:-20px;top:50%;transform:translateY(-50%);width:1px;height:30px;background:rgba(246,241,231,.3)}
+.navdoor{display:flex;flex-direction:column;gap:2px;text-decoration:none;margin-left:6px;padding:7px 13px;border:1px solid rgba(246,241,231,.42);border-radius:12px;background:rgba(255,255,255,.1);position:relative;flex:none;transition:.25s var(--ease)}
+.navdoor::before{content:"";position:absolute;left:-9px;top:50%;transform:translateY(-50%);width:1px;height:28px;background:rgba(246,241,231,.3)}
 .navdoor .nd-top{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:#f6f1e7;line-height:1.05;white-space:nowrap}
 .navdoor .nd-ar{width:12px;height:12px;flex:none}
 .navdoor .nd-sub{display:flex;align-items:center;gap:5px;font-size:8.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(246,241,231,.72);line-height:1}
@@ -370,7 +371,7 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .foot p{color:var(--ink2);font-size:16px;margin:16px 0 30px}
 .foot .sig{margin-top:58px;color:var(--ink3);font-size:13px}
 
-@media(max-width:1100px){.nav .links{display:none}.navdoor{display:none}.navsignin{display:none}.menu-toggle{display:flex;flex:none}.navjoin{margin-left:auto}}
+@media(max-width:1200px){.nav .links{display:none}.navdoor{display:none}.navsignin{display:none}.menu-toggle{display:flex;flex:none}.navjoin{margin-left:auto}}
 @media(max-width:880px){
  .wrap{padding:0 22px}.hero-in{grid-template-columns:1fr;gap:34px}.portrait{max-width:400px}
  .tools .tool{flex-basis:calc(50% - 8px);max-width:calc(50% - 8px)}.pov{padding:34px 24px}
@@ -569,7 +570,7 @@ body::before{animation:none}
 .links{gap:22px}
 /* featured "Research" nav pill — pops as the flagship data tool */
 .links a.navfeat,.links a.navsmart{position:relative}
-.links a.navfeat::before,.links a.navsmart::before{position:absolute;left:50%;bottom:calc(100% - 2px);transform:translateX(-50%);display:flex;align-items:center;justify-content:center;height:15px;padding:0 9px;font:800 8px/1 "Schibsted Grotesk",system-ui,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#241a0d;background:linear-gradient(135deg,var(--brass3),var(--brass));border-radius:20px;white-space:nowrap;box-shadow:0 2px 6px rgba(176,141,87,.3)}
+.links a.navfeat::before,.links a.navsmart::before{position:absolute;left:50%;bottom:calc(100% - 1px);transform:translateX(-50%);display:flex;align-items:center;justify-content:center;height:14px;padding:0 8px;font:800 8px/1 "Schibsted Grotesk",system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#241a0d;background:linear-gradient(135deg,var(--brass3),var(--brass));border-radius:20px;white-space:nowrap;box-shadow:0 2px 6px rgba(176,141,87,.3)}
 .links a.navfeat::before{content:"Featured"}
 .links a.navsmart::before{content:"Smart"}
 .links a.navsoon{position:relative}
