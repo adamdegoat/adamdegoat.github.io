@@ -700,23 +700,23 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
 @media(max-width:560px){.cteaser{bottom:74px;right:16px;max-width:194px;font-size:12.5px}}
 /* inline valuation card inside the chat (reuses the Caveat engine) */
 /* in-chat tool card, blends into the conversation, not a stark form */
-.cval{background:rgba(255,255,255,.46);border:1px solid rgba(231,224,210,.6);border-radius:16px;border-top-left-radius:5px;padding:14px;box-shadow:0 4px 14px rgba(25,21,18,.05)}
-.cval-seg{display:flex;background:rgba(27,58,45,.06);border-radius:9px;padding:2px;margin-bottom:10px}
-.cval-seg button{flex:1;border:0;background:none;font-family:var(--sans);font-size:12.5px;font-weight:700;color:var(--ink2);padding:7px;border-radius:7px;cursor:pointer}
+.cval{background:rgba(255,255,255,.46);border:1px solid rgba(231,224,210,.6);border-radius:14px;border-top-left-radius:5px;padding:11px;box-shadow:0 4px 14px rgba(25,21,18,.05)}
+.cval-seg{display:flex;background:rgba(27,58,45,.06);border-radius:8px;padding:2px;margin-bottom:7px}
+.cval-seg button{flex:1;border:0;background:none;font-family:var(--sans);font-size:12px;font-weight:700;color:var(--ink2);padding:5px;border-radius:6px;cursor:pointer}
 .cval-seg button.on{background:var(--green);color:#f4efe6}
-.cval-f{position:relative;margin-bottom:8px}
-.cval-in,.cval-sel{width:100%;font-family:var(--sans);font-size:16px;font-weight:600;padding:11px 13px;border:1px solid rgba(219,209,191,.8);border-radius:11px;background:rgba(255,255,255,.92);color:var(--ink);outline:none}
+.cval-f{position:relative;margin-bottom:6px}
+.cval-in,.cval-sel{width:100%;font-family:var(--sans);font-size:16px;font-weight:500;padding:8px 12px;border:1px solid rgba(219,209,191,.8);border-radius:10px;background:rgba(255,255,255,.92);color:var(--ink);outline:none}
 .cval-in:focus,.cval-sel:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(39,81,63,.1)}
 .cval-ac{position:absolute;top:calc(100% + 3px);left:0;right:0;z-index:5;background:#fff;border:1px solid var(--line2);border-radius:10px;box-shadow:0 14px 30px rgba(25,21,18,.16);max-height:172px;overflow-y:auto;display:none}
 .cval-ac.on{display:block}
 .cval-ac div{padding:9px 12px;font-size:13px;font-weight:600;cursor:pointer;border-bottom:1px solid var(--line)}
 .cval-ac div:hover,.cval-ac div.hl{background:rgba(27,58,45,.06)}
 .cval-ac .m{color:var(--ink3);font-size:11px;font-weight:500}
-.cval-go{width:100%;margin-top:3px;background:linear-gradient(135deg,var(--green2),var(--green3));color:#f3efe6;border:0;border-radius:9px;padding:11px;font-family:var(--sans);font-weight:700;font-size:13.5px;cursor:pointer;transition:.2s}
+.cval-go{width:100%;margin-top:2px;background:linear-gradient(135deg,var(--green2),var(--green3));color:#f3efe6;border:0;border-radius:9px;padding:9px;font-family:var(--sans);font-weight:700;font-size:13.5px;cursor:pointer;transition:.2s}
 .cval-go:hover{filter:brightness(1.08)}.cval-go:disabled{opacity:.5}
 .cval-err{color:#b4452f;font-size:12px;margin-top:8px;font-weight:600}
 .cval-res{margin-top:11px;display:none}.cval-res.on{display:block}
-.cval-est{background:linear-gradient(150deg,var(--green2),var(--green3));color:#f3efe6;border-radius:11px;padding:13px 15px}
+.cval-est{background:linear-gradient(150deg,var(--green2),var(--green3));color:#f3efe6;border-radius:11px;padding:11px 14px}
 .cval-warn{background:rgba(176,69,47,.1);border:1px solid rgba(176,69,47,.34);border-radius:10px;padding:9px 12px;font-size:11.5px;color:#9a3c2c;font-weight:600;line-height:1.45;margin-bottom:9px}
 .cval-thin{background:#fff8e9;border:1px solid #ecdcb4;border-radius:11px;padding:13px 15px;font-size:13px;color:#6b5526;line-height:1.5}
 .cval-thin b{color:#4a3a16;font-weight:700}
@@ -1149,7 +1149,7 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
     const card=document.createElement('div');card.className='cval';
     card.innerHTML='<div class="cval-seg"><button class="on" data-m="hdb">HDB flat</button><button data-m="condo">Condo</button></div>'+
       '<div class="cval-f"><input class="cval-in cv-search" placeholder="Type your street…" autocomplete="off"><div class="cval-ac"></div></div>'+
-      '<div class="cv-hdb"><div class="cval-f"><select class="cval-sel cv-ft"><option value="">Pick your street first…</option></select></div><div class="cval-f"><input class="cval-in cv-block" placeholder="Block (optional, e.g. 123)" autocomplete="off"></div></div>'+
+      '<div class="cv-hdb"><div class="cval-f"><select class="cval-sel cv-ft"><option value="">Pick your street first…</option></select></div></div>'+
       '<div class="cval-f"><input class="cval-in cv-size" placeholder="Floor area in sqft (optional)" inputmode="numeric"></div>'+
       '<button class="cval-go cv-go">Value it →</button>'+
       '<div class="cval-err cv-err" style="display:none"></div><div class="cval-res cv-res"></div>';
@@ -1177,8 +1177,8 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
       try{ await ensureEngine();
         let r,label,fullURL='tools/value.html';const size=parseFloat((sizeI.value||'').replace(/[^0-9.]/g,''))||0;
         if(mode==='hdb'){ if(!town||!street)throw new Error('Type your street and pick it from the list.'); const ft=ftSel.value; if(!ft)throw new Error('Pick a flat type.');
-          const block=(blockI.value||'').trim().toUpperCase().replace(/[^0-9A-Z]/g,'')||null;
-          const rows=await Caveat.hdbTown(town); r=Engines.hdbEstimate(rows,{flat_type:ft,town,street,block:block,area_sqm:sqm(size),storey_mid:null}); label=title(ft)+(block?' · Blk '+block:'')+' · '+title(street);
+          const block=null;
+          const rows=await Caveat.hdbTown(town); r=Engines.hdbEstimate(rows,{flat_type:ft,town,street,block:block,area_sqm:sqm(size),storey_mid:null}); label=title(ft)+' · '+title(street);
           fullURL+='?t=hdb&street='+encodeURIComponent(street)+'&town='+encodeURIComponent(town)+'&ft='+encodeURIComponent(ft)+(block?'&block='+encodeURIComponent(block):'')+(size?'&size='+size:'');
         } else { if(!projSel){const typed=search.value.trim().toUpperCase();projSel=IDX&&IDX.condo_projects.find(p=>p[0]===typed);} if(!projSel)throw new Error('Pick a project from the list.');
           const p=projSel; const rows=await Caveat.condoDistrict(p[1]); r=Engines.condoEstimate(rows,{project:p[0],district:p[1],seg:p[2],ptype:p[3],tenure_fh:p[4],area_sqm:sqm(size),floor_mid:null}); label=title(p[0])+' · '+area(p[1]);
