@@ -18,6 +18,7 @@
   }
   function join(name, email, source) { return post('/api/member/signup', { name: name, email: email, source: source || 'site' }); }
   function signin(email) { return post('/api/member/signin', { email: email }); }
+  function loginEmail(email) { return post('/api/member/login', { email: email }); }
 
   function captureToken() {
     try { var p = new URLSearchParams(location.search), t = p.get('t');
@@ -97,10 +98,10 @@
       + '<div class="psj-signin" style="display:none">'
       +   '<div class="psj-ey">Welcome back</div>'
       +   '<h3 class="psj-h">Sign in to PropSight.</h3>'
-      +   '<p class="psj-sub">No password needed — enter your email and we’ll send you a one-tap sign-in link.</p>'
+      +   '<p class="psj-sub">No password needed — just enter the email you joined with and you’re straight back in.</p>'
       +   '<form class="psj-siform" novalidate>'
       +   '<input name="email" type="email" placeholder="you@email.com" autocomplete="email">'
-      +   '<button type="submit">Email me a sign-in link →</button></form>'
+      +   '<button type="submit">Sign in →</button></form>'
       +   '<div class="psj-msg psj-simsg"></div>'
       +   '<div class="psj-fine"><a data-psj-tojoin>← New here? Join free</a></div>'
       + '</div>'
@@ -150,12 +151,20 @@
         e.preventDefault();
         var email = (sif.querySelector('[name=email]').value || '').trim();
         if (email.indexOf('@') < 1) { simsg.className = 'psj-msg psj-simsg err'; simsg.textContent = 'Please enter a valid email.'; return; }
-        sib.disabled = true; sib.textContent = 'Sending…';
-        signin(email).then(function () {
-          simsg.className = 'psj-msg psj-simsg ok';
-          simsg.textContent = 'Sent! Check your email for the one-tap sign-in link.';
-          sib.textContent = 'Link sent ✓';
-        }).catch(function () { sib.disabled = false; sib.textContent = 'Email me a sign-in link →'; simsg.className = 'psj-msg psj-simsg err'; simsg.textContent = 'Network error — please try again.'; });
+        sib.disabled = true; sib.textContent = 'Signing in…';
+        loginEmail(email).then(function (r) {
+          if (r && r.ok && r.token) {
+            setMember(r.token, r.name || '');
+            applyAuthUI();
+            simsg.className = 'psj-msg psj-simsg ok';
+            simsg.textContent = 'Welcome back' + (r.name ? ', ' + r.name : '') + '! You’re in.';
+            sib.textContent = 'Signed in ✓';
+            setTimeout(function () { try { location.reload(); } catch (e) {} }, 750);
+          } else {
+            sib.disabled = false; sib.textContent = 'Sign in →';
+            simsg.className = 'psj-msg psj-simsg err'; simsg.textContent = (r && r.error) || 'Couldn’t sign you in — please try again.';
+          }
+        }).catch(function () { sib.disabled = false; sib.textContent = 'Sign in →'; simsg.className = 'psj-msg psj-simsg err'; simsg.textContent = 'Network error — please try again.'; });
       });
     }
   }
