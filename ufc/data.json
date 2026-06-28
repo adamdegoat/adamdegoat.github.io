@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-28T09:00:00.240790+08:00",
+  "updated": "2026-06-28T13:00:00.276423+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -181,6 +181,12 @@
       "priority": true
     },
     {
+      "title": "Alex Pereira calls Herb Dean ‘coward’ after controversial Shara Bullet vs. Michel Pereira fight",
+      "link": "https://www.mmafighting.com/ufc/496855/alex-pereira-calls-herb-dean-coward-after-controversial-shara-bullet-vs-michel-pereira-fight",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "UFC Baku post-fight show: Reaction to Rafael Fiziev’s highlight-reel knockout of Manuel Torres",
       "link": "https://www.mmafighting.com/ufc/496800/ufc-baku-post-fight-show-reaction-to-rafael-fizievs-highlight-reel-knockout-of-manuel-torres",
       "source": "MMA Fighting",
@@ -229,9 +235,9 @@
       "priority": false
     },
     {
-      "title": "UFC Baku video: Abdul Rakhman Yakhyaev nearly shatters record with 8-second, 1-punch knockout",
-      "link": "https://www.mmafighting.com/ufc/496654/ufc-baku-video-abdul-rakhman-yakhyaev-nearly-shatters-record-with-8-second-1-punch-knockout",
-      "source": "MMA Fighting",
+      "title": "Rewind! Watch Conor McGregor, Max Holloway full fight marathon ahead of UFC 329 rematch | Video",
+      "link": "https://www.mmamania.com/latest-news/453538/rewind-watch-conor-mcgregor-max-holloway-full-fight-marathon-ahead-of-ufc-329-rematch-video",
+      "source": "MMA Mania",
       "priority": false
     },
     {
@@ -245,17 +251,11 @@
       "link": "https://www.mmamania.com/ufc-bonuses-and-awards/453013/official-ufc-baku-post-fight-bonus-winners-results-paramount-mma-fiziev-torres-yakhyaev-albamayev-donchenko",
       "source": "MMA Mania",
       "priority": false
-    },
-    {
-      "title": "Highlights! Rafael Fiziev turns back the clock, shuts down Manuel Torres with spinning heel kick TKO | UFC Baku",
-      "link": "https://www.mmamania.com/ufc-paramount-plus-news-hub-fight-cards-schedule/453670/watch-ufc-baku-fight-video-highlights-results-paramount-fiziev-knockout-torres",
-      "source": "MMA Mania",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor and Holloway collide Sunday July 12 for legendary fireworks.",
-    "prefight": "McGregor versus Holloway drops Sunday 9 AM SGT. Striking clinic from two all-time greats.",
-    "results": "The dust has settled on another fight night."
+    "week": "McGregor and Holloway clash for featherweight supremacy Sunday at 9 AM SGT.",
+    "prefight": "McGregor and Holloway clash this Sunday 9 AM SGT—featherweight supremacy on the line.",
+    "results": "Rafael Fiziev earned a Performance of the Night bonus with a second-round knockout over Manuel Torres via spinning wheel kick at UFC Fight Night in Baku on June 27, 2026."
   }
 }
