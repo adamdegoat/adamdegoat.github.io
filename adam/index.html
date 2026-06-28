@@ -709,6 +709,8 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
 .cval-seg{display:flex;background:rgba(27,58,45,.06);border-radius:8px;padding:2px;margin-bottom:7px}
 .cval-seg button{flex:1;border:0;background:none;font-family:var(--sans);font-size:12px;font-weight:700;color:var(--ink2);padding:5px;border-radius:6px;cursor:pointer}
 .cval-seg button.on{background:var(--green);color:#f4efe6}
+.cval-lab{font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--ink3);margin:2px 2px 5px;text-transform:uppercase}
+.cval-est .rvsub{font-size:13px;font-weight:600;color:rgba(243,239,230,.85);margin-top:3px}
 .cval-f{position:relative;margin-bottom:6px}
 .cval-in,.cval-sel{width:100%;font-family:var(--sans);font-size:16px;font-weight:500;padding:8px 12px;border:1px solid rgba(219,209,191,.8);border-radius:10px;background:rgba(255,255,255,.92);color:var(--ink);outline:none}
 .cval-in:focus,.cval-sel:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(39,81,63,.1)}
@@ -1245,6 +1247,119 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
 })();
 </script>
 <script>
+/* ─── Inline calculator cards (stamp duty / net proceeds / grants / eligibility).
+   SINGLE SOURCE OF TRUTH: every rate is read from /caveat/data/rates.json (the SAME file the
+   tool pages read), so a policy change in one file updates Aillie + the tools together. ─── */
+(function(){
+  window.psRates=window.psRates||(function(){var c=null,p=null;return function(){if(c)return Promise.resolve(c);if(p)return p;
+    p=fetch('/caveat/data/rates.json',{cache:'force-cache'}).then(function(r){return r.json();}).then(function(j){c=j;window.PS_RATES=j;return j;}).catch(function(){return null;});return p;};})();
+  function mk(){var c=document.createElement('div');c.className='cval';return c;}
+  function lab(t){return '<div class="cval-lab">'+t+'</div>';}
+  function seg(cls,opts){return '<div class="cval-seg '+cls+'">'+opts.map(function(o,i){return '<button class="'+(i===0?'on':'')+'" data-v="'+o[0]+'">'+o[1]+'</button>';}).join('')+'</div>';}
+  function inp(cls,ph){return '<div class="cval-f"><input class="cval-in '+cls+'" placeholder="'+ph+'" inputmode="numeric"></div>';}
+  function goB(t){return '<button class="cval-go go">'+t+' →</button>';}
+  function tail(){return '<div class="cval-err err" style="display:none"></div><div class="cval-res res"></div>';}
+  function wireSeg(card,cls,cb){var bs=[].slice.call(card.querySelectorAll('.'+cls+' button'));bs.forEach(function(b){b.onclick=function(){bs.forEach(function(x){x.classList.toggle('on',x===b);});cb(b.dataset.v,card);};});}
+  function val(card,sel){var e=card.querySelector(sel);return e?e.value:'';}
+  function parseN(s){var t=(s||'').toString().toLowerCase().replace(/[,$\s]/g,'');var m=t.match(/([\d.]+)\s*(k|m)?/);if(!m)return 0;var n=parseFloat(m[1]);if(isNaN(n))return 0;if(m[2]==='m')n*=1e6;else if(m[2]==='k')n*=1e3;return n;}
+  function fmtM(n){return n>=1e6?'$'+(n/1e6).toFixed(2).replace(/0+$/,'').replace(/\.$/,'')+'M':'$'+Math.round(n/1000)+'k';}
+  function fmtFull(n){return '$'+Math.round(n).toLocaleString();}
+  function est(k,v,s,sub){return '<div class="cval-est"><div class="rk">'+k+'</div><div class="rv">'+v+'</div>'+(s?'<div class="rs">'+s+'</div>':'')+(sub?'<div class="rvsub">'+sub+'</div>':'')+'</div>';}
+  function meta(h,href,l){return '<div class="cval-meta">'+h+'<br><a class="cval-full" href="'+href+'" target="_blank" rel="noopener">'+l+' →</a></div>';}
+  function lookup(inc,tbl){for(var i=0;i<tbl.length;i++){if(inc<=tbl[i][0])return tbl[i][1];}return 0;}
+  function scrollC(){setTimeout(function(){var c=document.getElementById('cbody');if(c)c.scrollTo({top:c.scrollHeight,behavior:'smooth'});},70);}
+  function showErr(card,m){var e=card.querySelector('.err');e.textContent=m;e.style.display='block';}
+  function toolFallback(card,href,l){var r=card.querySelector('.res');r.innerHTML='<div class="cval-thin">I could not load the latest rates just now. The full tool has them.<div class="cval-thin-cta"><a href="'+href+'" target="_blank" rel="noopener">Open '+l+' →</a></div></div>';r.classList.add('on');scrollC();}
+
+  // ── Stamp duty (BSD tiers + ABSD matrix, both from rates.json) ──
+  function bsdCalc(price,tiers){var prev=0,t=0;for(var i=0;i<tiers.length;i++){var upto=tiers[i].upto;var cap=(upto==null)?price:Math.min(price,upto);if(cap>prev){t+=(cap-prev)*tiers[i].rate/100;prev=cap;}if(upto!=null&&price<=upto)break;}return t;}
+  window.psStampCard=function(mount){
+    var card=mk();card.innerHTML=lab('Who is buying?')+seg('sw',[['SC','Citizen'],['SPR','PR'],['Foreigner','Foreigner']])+
+      lab('Which home is this?')+seg('sc',[['1','1st'],['2','2nd'],['3','3rd or more']])+
+      inp('sd-price','Price (e.g. 1,650,000)')+goB('Work out my stamp duty')+tail();
+    mount.appendChild(card);var who='SC',count='1';
+    wireSeg(card,'sw',function(v){who=v;});wireSeg(card,'sc',function(v){count=v;});
+    card.querySelector('.go').onclick=function(){card.querySelector('.err').style.display='none';
+      psRates().then(function(R){var res=card.querySelector('.res');
+        if(!R||!R.bsd){return toolFallback(card,'tools/stamp-duty.html','the stamp duty tool');}
+        var price=parseN(val(card,'.sd-price'));if(!(price>0))return showErr(card,'Enter the price.');
+        var b=bsdCalc(price,R.bsd.tiers),ar=((R.absd[who]||{})[count])||0,a=price*ar/100;
+        var whoL={SC:'Citizen',SPR:'PR',Foreigner:'Foreigner'}[who],cL={'1':'1st','2':'2nd','3':'3rd or more'}[count];
+        res.innerHTML=est('Stamp duty · '+whoL+' · '+cL+' home',fmtFull(b+a),"buyer's stamp duty plus ABSD")+
+          meta('BSD <b>'+fmtFull(b)+'</b> plus ABSD <b>'+fmtFull(a)+'</b> ('+ar+'%).','tools/stamp-duty.html','See the full breakdown');
+        res.classList.add('on');scrollC();});};
+  };
+
+  // ── Net proceeds (arithmetic; assumes no SSD i.e. owned 3+ years, noted) ──
+  window.psSellCard=function(mount){
+    var card=mk();card.innerHTML=inp('s-sell','Sale price (e.g. 1,900,000)')+inp('s-loan','Outstanding loan (e.g. 700,000)')+
+      inp('s-cpf','CPF to refund incl. interest (e.g. 350,000)')+inp('s-agent','Agent fee % (default 2)')+
+      goB('What I walk away with')+tail();
+    mount.appendChild(card);
+    card.querySelector('.go').onclick=function(){card.querySelector('.err').style.display='none';var res=card.querySelector('.res');
+      var sell=parseN(val(card,'.s-sell')),loan=parseN(val(card,'.s-loan')),cpf=parseN(val(card,'.s-cpf'));
+      var agentPct=parseFloat((val(card,'.s-agent')||'').replace(/[^0-9.]/g,''));if(!(agentPct>=0))agentPct=2;
+      if(!(sell>0))return showErr(card,'Enter your sale price.');
+      var agent=agentPct/100*sell,gst=0.09*agent,legal=3000,selling=agent+gst+legal,cash=sell-selling-loan-cpf;
+      res.innerHTML=est('In your pocket','~'+fmtM(Math.max(0,cash)),'cash after costs, loan and CPF refund',cpf>0?('plus '+fmtM(cpf)+' back into your CPF'):'')+
+        meta('After agent ('+agentPct+'% plus GST), legal, your '+fmtM(loan)+' loan and '+fmtM(cpf)+' CPF refund. Assumes you have owned 3+ years (no Seller\'s Stamp Duty).','tools/sell.html','Sold within 3 years or want exact SSD');
+      res.classList.add('on');scrollC();};
+  };
+
+  // ── Grants (all amounts from rates.json grants block) ──
+  window.psGrantsCard=function(mount){
+    var card=mk();card.innerHTML=lab('First-timer or second-timer?')+seg('g-timer',[['first','First-timer'],['second','Second-timer']])+
+      lab('Who is buying?')+seg('g-house',[['couple','Couple / family'],['single','Single']])+
+      lab('Buying what?')+seg('g-buy',[['resale','Resale flat'],['bto','BTO'],['ec','New EC']])+
+      '<div class="g-resale">'+lab('Flat size')+seg('g-size',[['le4','4-room or smaller'],['ge5','5-room or bigger']])+
+        lab('Living near family?')+seg('g-prox',[['none','No'],['near','Within 4km'],['with','Living together']])+'</div>'+
+      inp('g-inc','Monthly household income (e.g. 6,000)')+goB('Estimate my grants')+tail();
+    mount.appendChild(card);var timer='first',house='couple',buy='resale',size='le4',prox='none';
+    function tog(){card.querySelector('.g-resale').style.display=(buy==='resale')?'':'none';}
+    wireSeg(card,'g-timer',function(v){timer=v;});wireSeg(card,'g-house',function(v){house=v;});
+    wireSeg(card,'g-buy',function(v){buy=v;tog();});wireSeg(card,'g-size',function(v){size=v;});wireSeg(card,'g-prox',function(v){prox=v;});
+    card.querySelector('.go').onclick=function(){card.querySelector('.err').style.display='none';
+      psRates().then(function(R){var res=card.querySelector('.res');var G=R&&R.grants;
+        if(!G)return toolFallback(card,'tools/grants.html','the grants tool');
+        var inc=parseN(val(card,'.g-inc'));if(!(inc>0))return showErr(card,'Enter your monthly income.');
+        var single=(house==='single'),parts=[],ehg=0,fam=0,ph=0,ec=0;
+        if(timer==='first'&&(buy==='resale'||buy==='bto')){var c=G.ehg_income_ceiling[single?'single':'family'];if(inc<=c){ehg=lookup(inc,single?G.ehg_single:G.ehg_family);if(ehg)parts.push('EHG '+fmtFull(ehg));}}
+        if(timer==='first'&&buy==='resale'){var fc=G.family_grant_income_ceiling[single?'single':'couple'];if(inc<=fc){fam=G.family_grant[single?'single':'couple'][size]||0;if(fam)parts.push('Family Grant '+fmtFull(fam));}}
+        if(buy==='resale'&&prox!=='none'){ph=(G.proximity[single?'single':'couple']||{})[prox]||0;if(ph)parts.push('Proximity '+fmtFull(ph));}
+        if(buy==='ec'&&timer==='first'&&!single&&inc<=G.ec.income_ceiling){ec=lookup(inc,G.ec.sc_couple);if(ec)parts.push('EC Grant '+fmtFull(ec));}
+        var total=ehg+fam+ph+ec;
+        if(total<=0){res.innerHTML='<div class="cval-thin">From what you have told me, no CPF grant looks likely here (often an income ceiling or a BTO/EC condition). The full tool can check every case.<div class="cval-thin-cta"><a href="tools/grants.html" target="_blank" rel="noopener">Open the grants tool →</a></div></div>';}
+        else{res.innerHTML=est('Grants you may get','up to '+fmtFull(total),'first-timer estimate, subject to HDB checks')+
+          meta(parts.join(' · ')+'.','tools/grants.html','Check every grant in detail');}
+        res.classList.add('on');scrollC();});};
+  };
+
+  // ── Eligibility (income ceilings + MOP from rates.json; decision tree in code) ──
+  function eligV(ptype,status,house,inc,R){var ec=(R&&R.hdb&&R.hdb.income_ceiling&&R.hdb.income_ceiling.ec)||16000;
+    if(ptype==='private'){if(status==='foreigner')return{v:'cond',h:'Yes, with 60% ABSD',p:['Foreigners can buy a private condo.','Expect 60% ABSD on the purchase.']};return{v:'yes',h:'Yes, you can buy',p:['No eligibility limits on private property.','No MOP, you can sell whenever.']};}
+    if(ptype==='hdb'){if(status==='foreigner')return{v:'no',h:'Not eligible',p:['Foreigners cannot buy HDB flats.']};if(status==='pr')return{v:'cond',h:'Conditional',p:['A PR must buy with a Citizen, or another PR (both PR 3+ years).','Family nucleus needed. 5% ABSD on a first home.']};if(house==='single')return{v:'cond',h:'From age 35',p:['A single Citizen can buy a resale flat from 35.','No income ceiling to buy resale outright. 5-year MOP.']};return{v:'yes',h:'Yes, you can buy',p:['A Citizen couple/family can buy a resale flat.','No income ceiling to buy outright. 5-year MOP.']};}
+    if(status==='foreigner')return{v:'no',h:'Not eligible',p:['A new EC needs at least one Citizen.']};if(inc>ec)return{v:'no',h:'Over the income ceiling',p:['The new EC ceiling is '+fmtFull(ec)+' a month.']};return{v:'cond',h:'Likely eligible',p:['Within the '+fmtFull(ec)+'/month EC ceiling.','Need a family nucleus, no private property in the last 30 months, 5-year MOP.']};}
+  window.psEligibilityCard=function(mount){
+    var card=mk();card.innerHTML=lab('What are you buying?')+seg('e-ptype',[['hdb','HDB resale'],['ec','New EC'],['private','Private condo']])+
+      lab('Your status')+seg('e-status',[['sc','Citizen'],['pr','PR'],['foreigner','Foreigner']])+
+      '<div class="e-hdb">'+lab('Household')+seg('e-house',[['family','Couple / family'],['single','Single']])+'</div>'+
+      '<div class="e-ec" style="display:none">'+inp('e-inc','Household income (e.g. 12,000)')+'</div>'+
+      goB('Check eligibility')+tail();
+    mount.appendChild(card);var ptype='hdb',status='sc',house='family';
+    function tog(){card.querySelector('.e-hdb').style.display=(ptype==='hdb')?'':'none';card.querySelector('.e-ec').style.display=(ptype==='ec')?'':'none';}
+    wireSeg(card,'e-ptype',function(v){ptype=v;tog();});wireSeg(card,'e-status',function(v){status=v;});wireSeg(card,'e-house',function(v){house=v;});
+    card.querySelector('.go').onclick=function(){card.querySelector('.err').style.display='none';
+      psRates().then(function(R){var res=card.querySelector('.res');var inc=parseN(val(card,'.e-inc'));
+        var r=eligV(ptype,status,house,inc,R);
+        var pts='<div class="cval-meta">'+r.p.map(function(x){return '· '+x;}).join('<br>')+'<br><a class="cval-full" href="tools/eligibility.html" target="_blank" rel="noopener">Full eligibility check →</a></div>';
+        if(r.v==='yes')res.innerHTML='<div class="cval-est"><div class="rk">Eligibility</div><div class="rv" style="font-size:30px;line-height:1.15">'+r.h+'</div></div>'+pts;
+        else if(r.v==='no')res.innerHTML='<div class="cval-warn"><b>'+r.h+'</b></div>'+pts;
+        else res.innerHTML='<div class="cval-thin"><b>'+r.h+'</b></div>'+pts;
+        res.classList.add('on');scrollC();});};
+  };
+})();
+</script>
+<script>
 /* ─── Inline research card, condo (thesis.json) + HDB (hdb.json), same numbers as /thesis/ ─── */
 (function(){
   let ready=null, PROJECTS=[], HDB=null, MEDY=null;
@@ -1567,6 +1682,15 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
       scroll();showFollowups();
     },430);
   }
+  function cardInChat(q,intro,fn,tool,toolLabel){add('me',esc(q));var t=typing();setTimeout(function(){t.remove();botReply(intro);var m=document.createElement('div');m.style.cssText='margin-top:2px;animation:cmin .35s var(--ease)';body.appendChild(m);if(window[fn]){window[fn](m);}else{botReply('Tap below to open the tool.',{href:tool,label:toolLabel});}scroll();showFollowups();},430);}
+  function stampInChat(q){cardInChat(q,"Sure, I'll work out your stamp duty. Two quick taps and the price.",'psStampCard','tools/stamp-duty.html','Calculate stamp duty');}
+  function grantsInChat(q){cardInChat(q,"Let's see what grants you could get. A few quick taps below.",'psGrantsCard','tools/grants.html','Check your grants');}
+  function sellInChat(q){cardInChat(q,"I'll work out what you would actually walk away with. Fill these in.",'psSellCard','tools/sell.html','See your net proceeds');}
+  function eligInChat(q){cardInChat(q,"I can check that. Pick what you're buying and your status.",'psEligibilityCard','tools/eligibility.html','Check eligibility');}
+  function isStamp(q){var r=route(q);return !!(r&&r.link&&/stamp-duty\.html/.test(r.link.href));}
+  function isGrants(q){var r=route(q);return !!(r&&r.link&&/grants\.html/.test(r.link.href));}
+  function isSell(q){var r=route(q);return !!(r&&r.link&&/sell\.html/.test(r.link.href));}
+  function isElig(q){var r=route(q);return !!(r&&r.link&&/eligibility\.html/.test(r.link.href));}
   function isResearch(q){return /(research|psf|yield|trend|tenure)/i.test(q||'');}
   function researchInChat(q){            // research intent → drop the live Thesis research card in the chat
     add('me',esc(q));
@@ -1590,6 +1714,10 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
     if(isSchool(label)){ add('me',esc(label)); const s=matchSchool(label); if(s){schoolHomesMsg(s);}else{schoolAsk();} return; }
     if(isAfford(label)){affordInChat(label);return;}          // instant budget form-card
     if(isValue(label)){valueInChat(label);return;}            // instant valuation form-card
+    if(isStamp(label)){stampInChat(label);return;}
+    if(isSell(label)){sellInChat(label);return;}
+    if(isGrants(label)){grantsInChat(label);return;}
+    if(isElig(label)){eligInChat(label);return;}
     if(isResearch(label)){researchInChat(label);return;}
     add('me',esc(label));const t=typing();
     setTimeout(()=>{t.remove();conciergeReply(label);},420);
@@ -1599,6 +1727,10 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
     else if(isSchool(q)){ add('me',esc(q)); const s=matchSchool(q); if(s){schoolHomesMsg(s);}else{schoolAsk();} return; }
     if(isAfford(q)){affordInChat(q);return;}
     if(isValue(q)){valueInChat(q);return;}
+    if(isStamp(q)){stampInChat(q);return;}
+    if(isSell(q)){sellInChat(q);return;}
+    if(isGrants(q)){grantsInChat(q);return;}
+    if(isElig(q)){eligInChat(q);return;}
     if(isResearch(q)){researchInChat(q);return;}
     add('me',esc(q));
     const t=typing(),tool=route(q);
