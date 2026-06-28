@@ -1,18 +1,18 @@
 {
   "current": {
-    "issue": 5,
+    "issue": 6,
     "built": "2026-06-29",
     "week_of": "29 June 2026",
     "posts": [
       {
-        "id": "ad",
+        "id": "showcase",
         "tag": [
           "PropSight",
-          "Free"
+          "Live"
         ],
-        "caption": "Your home's real value, what you can afford, stamp duty, grants, rental yield, schools nearby.\nAll from real URA and HDB data. No signup, nothing to pay.\nStop guessing what your place is worth and go look.\nCheck yours free at propsight.sg\n#singaporeproperty #propertysg #sghomeowners #hdb #condosg",
-        "alt": "PropSight, free Singapore property tools",
-        "file": "2026-06-29-w4-ad.png"
+        "caption": "Before you offer or put down a single dollar, see what the place is actually worth.\nReal value, your budget, stamp duty, grants, rental yield, even the schools nearby. Free, no signup.\nStop guessing and go check.\nCheck yours free at propsight.sg\n#singaporeproperty #propertysg #sgproperty #buyingahome #sellingmyhouse #sghomes",
+        "alt": "PropSight shown on a phone",
+        "file": "2026-06-29-w5-showcase.png"
       },
       {
         "id": "schools",
@@ -20,23 +20,58 @@
           "School Finder",
           "1km"
         ],
-        "caption": "Singapore parents, here's the math nobody tells you upfront.\n\n122+ homes already sit within 1km of Kong Hwa, all of them holding P1 priority.\n\nThat number quietly decides your kid's odds before you even ballot.\n\nCheck yours free at propsight.sg\n\n#singaporeproperty #propertysg #konghwa #p1registration #primaryschool #sgmum",
-        "alt": "Homes near Kong Hwa",
-        "file": "2026-06-29-w4-schools.png"
+        "caption": "River Valley parents, this one's for you.\n119+ homes sit within 1km, all P1 priority for ballot day.\nYours might be on that list and you have no idea.\nCheck yours free at propsight.sg\n#singaporeproperty #propertysg #rivervalley #p1priority #sghomes #sgproperty",
+        "alt": "Homes near River Valley",
+        "file": "2026-06-29-w5-schools.png"
       },
       {
-        "id": "yield",
+        "id": "stamp",
         "tag": [
-          "Rental Yield",
-          "HDB vs Condo"
+          "Stamp Duty",
+          "ABSD"
         ],
-        "caption": "Your HDB flat pulls 6.1% gross rent.\nThat fancy condo? 3.6%.\nYeah, the flat wins on yield. Surprised?\n\nCheck your own numbers free at propsight.sg\n\n#singaporeproperty #propertysg #hdb #condo #rentalyield #sgrealestate",
-        "alt": "HDB vs condo rental yield",
-        "file": "2026-06-29-w4-yield.png"
+        "caption": "Buying a 2nd home at $1.65M? That 20% ABSD is about $330k.\nYes, on top of the price.\nKnow the number before you fall for the place.\nCheck yours free at propsight.sg\n#singaporeproperty #propertysg #absd #sghome #propertytips",
+        "alt": "Stamp duty \u2014 ABSD on a second home",
+        "file": "2026-06-29-w5-stamp.png"
       }
     ]
   },
   "archive": [
+    {
+      "week_of": "29 June 2026",
+      "posts": [
+        {
+          "id": "ad",
+          "tag": [
+            "PropSight",
+            "Free"
+          ],
+          "caption": "Your home's real value, what you can afford, stamp duty, grants, rental yield, schools nearby.\nAll from real URA and HDB data. No signup, nothing to pay.\nStop guessing what your place is worth and go look.\nCheck yours free at propsight.sg\n#singaporeproperty #propertysg #sghomeowners #hdb #condosg",
+          "alt": "PropSight, free Singapore property tools",
+          "file": "2026-06-29-w4-ad.png"
+        },
+        {
+          "id": "schools",
+          "tag": [
+            "School Finder",
+            "1km"
+          ],
+          "caption": "Singapore parents, here's the math nobody tells you upfront.\n\n122+ homes already sit within 1km of Kong Hwa, all of them holding P1 priority.\n\nThat number quietly decides your kid's odds before you even ballot.\n\nCheck yours free at propsight.sg\n\n#singaporeproperty #propertysg #konghwa #p1registration #primaryschool #sgmum",
+          "alt": "Homes near Kong Hwa",
+          "file": "2026-06-29-w4-schools.png"
+        },
+        {
+          "id": "yield",
+          "tag": [
+            "Rental Yield",
+            "HDB vs Condo"
+          ],
+          "caption": "Your HDB flat pulls 6.1% gross rent.\nThat fancy condo? 3.6%.\nYeah, the flat wins on yield. Surprised?\n\nCheck your own numbers free at propsight.sg\n\n#singaporeproperty #propertysg #hdb #condo #rentalyield #sgrealestate",
+          "alt": "HDB vs condo rental yield",
+          "file": "2026-06-29-w4-yield.png"
+        }
+      ]
+    },
     {
       "week_of": "24 June 2026",
       "posts": [
