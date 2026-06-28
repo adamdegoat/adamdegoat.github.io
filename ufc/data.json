@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-27T23:30:00.214842+08:00",
+  "updated": "2026-06-28T09:00:00.240790+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -165,21 +165,9 @@
       }
     ],
     "finished": false,
-    "espn_final": false
+    "espn_final": true
   },
   "news": [
-    {
-      "title": "27-fight UFC vet Joe Lauzon signs with BKFC, set for debut at Fenway Park",
-      "link": "https://www.mmafighting.com/bkfc/496541/27-fight-ufc-vet-joe-lauzon-signs-with-bkfc-set-for-debut-at-fenway-park",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
-      "title": "Video! UFC’s Dana White shuts down rich cancel culture trying to fire ‘loyal’ Joe Rogan: ‘Don’t ever call me’",
-      "link": "https://www.mmamania.com/ufc-news/453209/video-ufcs-dana-white-shuts-down-rich-cancel-culture-trying-to-fire-loyal-joe-rogan-dont-ever-call-me",
-      "source": "MMA Mania",
-      "priority": true
-    },
     {
       "title": "27-fight UFC vet, bonus magnet signs with BKFC to compete at Fenway Park",
       "link": "https://www.sherdog.com/news/news/27fight-UFC-vet-bonus-magnet-signs-with-BKFC-to-compete-at-Fenway-Park-201658",
@@ -193,10 +181,16 @@
       "priority": true
     },
     {
-      "title": "Title challenger signs with Eddie Hearn ahead of UFC 330 main event",
-      "link": "https://www.sherdog.com/news/news/Title-challenger-signs-with-Eddie-Hearn-ahead-of-UFC-330-main-event-201641",
-      "source": "Sherdog",
-      "priority": true
+      "title": "UFC Baku post-fight show: Reaction to Rafael Fiziev’s highlight-reel knockout of Manuel Torres",
+      "link": "https://www.mmafighting.com/ufc/496800/ufc-baku-post-fight-show-reaction-to-rafael-fizievs-highlight-reel-knockout-of-manuel-torres",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "‘Put his ass in the dirt’: Pros react to Rafael Fiziev’s spectacular UFC Baku knockout",
+      "link": "https://www.mmafighting.com/ufc/496779/put-his-ass-in-the-dirt-pros-react-to-rafael-fizievs-spectacular-ufc-baku-knockout",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "UFC Baku Results: Fiziev vs. Torres",
@@ -205,57 +199,63 @@
       "priority": false
     },
     {
-      "title": "UFC Baku video: Awful stoppage mars Tahir Abdullayev knockout win in opener",
-      "link": "https://www.mmafighting.com/ufc/496617/ufc-baku-video-awful-stoppage-mars-tahir-abdullayev-knockout-win-in-opener",
+      "title": "UFC Baku results: Rafael Fiziev delivers hellacious wheel kick knockout of Manuel Torres in main event",
+      "link": "https://www.mmafighting.com/ufc/496763/ufc-baku-results-rafael-fiziev-delivers-hellacious-wheel-kick-knockout-of-manuel-torres-in-main-event",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "UFC Baku predictions",
-      "link": "https://www.mmafighting.com/ufc/496485/ufc-baku-predictions",
+      "title": "UFC Baku live blog: Rafael Fiziev vs. Manuel Torres",
+      "link": "https://www.mmafighting.com/ufc/496602/ufc-baku-live-blog-rafael-fiziev-vs-manuel-torres",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "‘At home’ in enemy territory: Matheus Camilo plans to ‘throw down’ with Nazim Sadykhov at UFC Baku",
-      "link": "https://www.mmafighting.com/ufc/495921/at-home-in-enemy-territory-matheus-camilo-plans-to-throw-down-with-nazim-sadykhov-at-ufc-baku",
+      "title": "UFC Baku live blog: Shara Bullet vs. Michel Pereira",
+      "link": "https://www.mmafighting.com/ufc/496599/ufc-baku-live-blog-shara-bullet-vs-michel-pereira",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "UFC Baku Preview Show: Is this a do-or-die for Rafael Fiziev against Manuel Torres?",
-      "link": "https://www.mmafighting.com/latest-news/496407/ufc-baku-preview-show-is-this-a-do-or-die-for-rafael-fiziev-against-manuel-torres",
+      "title": "UFC Baku video: Asu Almabayev submits Charles Johnson with horrifying Suloev stretch",
+      "link": "https://www.mmafighting.com/ufc/496697/ufc-baku-video-asu-almabayev-submits-charles-johnson-with-horrifying-suloev-stretch",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "Brunno Ferreira believes Ikram Aliskerov is overhyped, only needs 1 punch to knock him out at UFC Baku",
-      "link": "https://www.mmafighting.com/ufc/496159/brunno-ferreira-believes-ikram-aliskerov-is-overhyped-only-needs-1-punch-to-knock-him-out-at-ufc-baku",
+      "title": "UFC Baku video: Abus Magomedov chokes Michal Oleksiejczuk unconscious, calls out Israel Adesanya",
+      "link": "https://www.mmafighting.com/ufc/496674/ufc-baku-video-abus-magomedov-chokes-michal-oleksiejczuk-unconscious-calls-out-israel-adesanya",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "Rafael Fiziev vs. Manuel Torres: Odds, full fight preview and prediction | UFC Baku",
-      "link": "https://www.mmamania.com/ufc-events-ppv/453092/rafael-fiziev-vs-manuel-torres-odds-full-fight-preview-and-prediction-ufc-baku",
+      "title": "UFC Baku video: Abdul Rakhman Yakhyaev nearly shatters record with 8-second, 1-punch knockout",
+      "link": "https://www.mmafighting.com/ufc/496654/ufc-baku-video-abdul-rakhman-yakhyaev-nearly-shatters-record-with-8-second-1-punch-knockout",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Conor McGregor photo sparks debate over fight shape two weeks out from UFC 329: ‘He’s training for an all-you-can-eat buffet’",
+      "link": "https://www.mmamania.com/ufc-news/453640/conor-mcgregor-photo-sparks-debate-over-fight-shape-two-weeks-out-from-ufc-329-weight-training-holloway",
       "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "UFC Baku live results, highlights, play-by-play | Fiziev vs. Torres",
-      "link": "https://www.mmamania.com/ufc-results/452116/ufc-baku-live-results-highlights-play-by-play-fiziev-vs-torres",
+      "title": "Bonuses! Undefeated sensation Abdul-Rakhman Yakhyaev banks $100K for eight-second demolition | UFC Baku",
+      "link": "https://www.mmamania.com/ufc-bonuses-and-awards/453013/official-ufc-baku-post-fight-bonus-winners-results-paramount-mma-fiziev-torres-yakhyaev-albamayev-donchenko",
       "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "UFC Baku start time, full fight card details | Fiziev vs. Torres",
-      "link": "https://www.mmamania.com/ufc-programming/453136/ufc-baku-start-time-full-fight-card-details-fiziev-vs-torres",
+      "title": "Highlights! Rafael Fiziev turns back the clock, shuts down Manuel Torres with spinning heel kick TKO | UFC Baku",
+      "link": "https://www.mmamania.com/ufc-paramount-plus-news-hub-fight-cards-schedule/453670/watch-ufc-baku-fight-video-highlights-results-paramount-fiziev-knockout-torres",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor and Holloway collide this Sunday at 9am SGT for an absolute war.",
-    "prefight": "McGregor and Holloway go to war Sunday 9am SGT—featherweight glory awaits.",
+    "week": "McGregor and Holloway collide Sunday July 12 for legendary fireworks.",
+    "prefight": "McGregor versus Holloway drops Sunday 9 AM SGT. Striking clinic from two all-time greats.",
     "results": "The dust has settled on another fight night."
   }
 }
