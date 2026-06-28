@@ -53,8 +53,8 @@ em{font-style:italic;color:var(--brass)}
 .brand .bw{display:flex;flex-direction:column;line-height:1}
 .brand b{font-family:var(--serif);font-weight:600;font-size:22px;letter-spacing:.01em}
 .brand .bw span{font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink3);font-weight:700;margin-top:4px}
-.links{display:flex;gap:28px;margin-left:auto}
-.links a{font-size:14.5px;font-weight:600;color:var(--ink2);position:relative;padding:4px 0}
+.links{display:flex;gap:17px;margin-left:auto}
+.links a{font-size:13.5px;font-weight:600;color:var(--ink2);position:relative;padding:4px 0}
 .links a::after{content:"";position:absolute;left:0;bottom:-2px;height:1.5px;width:0;background:var(--brass);transition:width .3s var(--ease)}
 .links a:hover{color:var(--ink)}.links a:hover::after{width:100%}
 .btn{display:inline-flex;align-items:center;gap:9px;background:var(--green);color:#f5f1e8;font-weight:600;font-size:14.5px;padding:13px 24px;border-radius:40px;border:1px solid var(--green);transition:transform .25s var(--ease),box-shadow .25s,background .25s}
@@ -84,6 +84,7 @@ em{font-style:italic;color:var(--brass)}
 .mobile-menu .mm-n{font-size:12px;font-weight:800;color:var(--brass);font-variant-numeric:tabular-nums}
 .mobile-menu .mm-t{display:block;font-family:var(--serif);font-weight:600;font-size:27px;letter-spacing:-.015em;color:var(--ink);line-height:1.08}
 .mobile-menu .mm-pill{display:inline-block;vertical-align:middle;position:relative;top:-4px;margin-left:10px;font-family:"Schibsted Grotesk",system-ui,sans-serif;font-weight:800;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:#241a0d;background:linear-gradient(135deg,var(--brass3),var(--brass));border-radius:20px;padding:4px 9px;box-shadow:0 2px 6px rgba(176,141,87,.3)}
+.mobile-menu .mm-pill.mm-soon{background:linear-gradient(135deg,#2f5a46,#1b3a2d);color:#eadfc8;box-shadow:0 2px 6px rgba(27,58,45,.3)}
 .mobile-menu .mm-d{display:block;font-size:13px;color:var(--ink3);font-weight:500;margin-top:5px}
 .mobile-menu .mm-ar{align-self:center;font-size:17px;color:var(--brass);transition:transform .25s var(--ease)}
 .mobile-menu .mm:active{background:rgba(176,141,87,.06)}.mobile-menu .mm:active .mm-ar{transform:translateX(4px)}
@@ -348,13 +349,13 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .foot p{color:var(--ink2);font-size:16px;margin:16px 0 30px}
 .foot .sig{margin-top:58px;color:var(--ink3);font-size:13px}
 
+@media(max-width:1240px){.nav .links{display:none}.navsignin{display:none}.menu-toggle{display:flex;flex:none}.navjoin{margin-left:auto}}
 @media(max-width:880px){
  .wrap{padding:0 22px}.hero-in{grid-template-columns:1fr;gap:34px}.portrait{max-width:400px}
- .tools .tool{flex-basis:calc(50% - 8px);max-width:calc(50% - 8px)}.links{display:none}.navbtn{display:none}.navsignin{display:none}.pov{padding:34px 24px}
+ .tools .tool{flex-basis:calc(50% - 8px);max-width:calc(50% - 8px)}.pov{padding:34px 24px}
  .nav-in{gap:9px}
- .navjoin{margin-left:auto;font-size:13px;padding:10px 15px}.nav-in .menu-toggle{margin-left:0}
+ .navjoin{font-size:13px;padding:10px 15px}.nav-in .menu-toggle{margin-left:0}
  .nav-install{display:flex;margin-left:0}
- .menu-toggle{display:flex;flex:none}
  .sec-h{flex-direction:column;align-items:flex-start}
  .about-in{grid-template-columns:1fr;gap:30px}.about-in .portrait{width:100%;max-width:320px;margin:0 auto;aspect-ratio:auto;min-height:300px}
  .lp-v{font-size:22px}
@@ -550,6 +551,8 @@ body::before{animation:none}
 .links a.navfeat::before,.links a.navsmart::before{position:absolute;left:50%;bottom:calc(100% - 2px);transform:translateX(-50%);display:flex;align-items:center;justify-content:center;height:15px;padding:0 9px;font:800 8px/1 "Schibsted Grotesk",system-ui,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#241a0d;background:linear-gradient(135deg,var(--brass3),var(--brass));border-radius:20px;white-space:nowrap;box-shadow:0 2px 6px rgba(176,141,87,.3)}
 .links a.navfeat::before{content:"Featured"}
 .links a.navsmart::before{content:"Smart"}
+.links a.navsoon{position:relative}
+.links a.navsoon::before{position:absolute;left:50%;bottom:calc(100% - 2px);transform:translateX(-50%);display:flex;align-items:center;justify-content:center;height:15px;padding:0 9px;font:800 8px/1 "Schibsted Grotesk",system-ui,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#eadfc8;background:linear-gradient(135deg,#2f5a46,#1b3a2d);border-radius:20px;white-space:nowrap;box-shadow:0 2px 6px rgba(27,58,45,.32);content:"Soon"}
 /* natural photo (the green/gold AI duotone filter is gone); editorial scrim handles legibility */
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:saturate(.86) contrast(1.05) brightness(.97)}
 .hero-in{grid-template-columns:1fr}
@@ -686,7 +689,7 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
     <svg class="mark" aria-hidden="true" viewBox="0 0 64 64"><path d="M9 35 L32 13 L55 35" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 49 L48 49" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><circle cx="32" cy="39" r="3.4" fill="#b08d57"/></svg>
     <span class="bw"><b>PropSight</b><span>Singapore</span></span>
   </div>
-  <nav class="links"><a href="#tools">Tools</a><a href="/thesis/" class="navfeat">Research</a><a href="launches/">New Launches</a><a href="notes/">Market Pulse</a><a href="news/" class="navsmart">News</a><a href="essentials/">Guide</a><a href="about/">About us</a><a href="#talk">Contact</a></nav>
+  <nav class="links"><a href="#tools">Tools</a><a href="/thesis/" class="navfeat">Research</a><a href="launches/">New Launches</a><a href="listings/" class="navsoon">Listing Platform</a><a href="notes/">Market Pulse</a><a href="news/" class="navsmart">News</a><a href="essentials/">Guide</a><a href="about/">About us</a><a href="#talk">Contact</a></nav>
   <button class="navsignin ps-signin-cta" type="button" onclick="window.PS&&PS.login('nav')">Sign in</button>
   <button class="navjoin ps-join-cta" type="button" onclick="window.PS&&PS.cta('nav')">Join&nbsp;<span class="njfree">free</span></button>
   <a class="nav-install" id="navInstall" href="install.html" aria-label="Add PropSight to your home screen" title="Add to your phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.5 18.5h3"/></svg></a>
@@ -699,11 +702,12 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
   <a class="mm" href="#tools"><span class="mm-n">01</span><span><span class="mm-t">Tools</span><span class="mm-d">Value, budget, stamp duty, grants &amp; more</span></span><span class="mm-ar">→</span></a>
   <a class="mm" href="/thesis/"><span class="mm-n">02</span><span><span class="mm-t">Research <span class="mm-pill">Featured</span></span><span class="mm-d">Any condo or HDB — prices, trends, rental yield &amp; tenure</span></span><span class="mm-ar">→</span></a>
   <a class="mm" href="launches/"><span class="mm-n">03</span><span><span class="mm-t">New Launches</span><span class="mm-d">The launches we're representing</span></span><span class="mm-ar">→</span></a>
-  <a class="mm" href="notes/"><span class="mm-n">04</span><span><span class="mm-t">Market Pulse</span><span class="mm-d">Our read on the market, weekly</span></span><span class="mm-ar">→</span></a>
-  <a class="mm" href="news/"><span class="mm-n">05</span><span><span class="mm-t">News <span class="mm-pill">Smart</span></span><span class="mm-d">Singapore property news, refreshed daily</span></span><span class="mm-ar">→</span></a>
-  <a class="mm" href="essentials/"><span class="mm-n">06</span><span><span class="mm-t">Guide</span><span class="mm-d">How buying &amp; selling actually works</span></span><span class="mm-ar">→</span></a>
-  <a class="mm" href="about/"><span class="mm-n">07</span><span><span class="mm-t">About us</span><span class="mm-d">What PropSight is, and everything it does</span></span><span class="mm-ar">→</span></a>
-  <a class="mm" href="#talk"><span class="mm-n">08</span><span><span class="mm-t">Contact</span><span class="mm-d">Get in touch, no pressure</span></span><span class="mm-ar">→</span></a>
+  <a class="mm" href="listings/"><span class="mm-n">04</span><span><span class="mm-t">Listing Platform <span class="mm-pill mm-soon">Soon</span></span><span class="mm-d">Homes for sale, with the real numbers on each</span></span><span class="mm-ar">→</span></a>
+  <a class="mm" href="notes/"><span class="mm-n">05</span><span><span class="mm-t">Market Pulse</span><span class="mm-d">Our read on the market, weekly</span></span><span class="mm-ar">→</span></a>
+  <a class="mm" href="news/"><span class="mm-n">06</span><span><span class="mm-t">News <span class="mm-pill">Smart</span></span><span class="mm-d">Singapore property news, refreshed daily</span></span><span class="mm-ar">→</span></a>
+  <a class="mm" href="essentials/"><span class="mm-n">07</span><span><span class="mm-t">Guide</span><span class="mm-d">How buying &amp; selling actually works</span></span><span class="mm-ar">→</span></a>
+  <a class="mm" href="about/"><span class="mm-n">08</span><span><span class="mm-t">About us</span><span class="mm-d">What PropSight is, and everything it does</span></span><span class="mm-ar">→</span></a>
+  <a class="mm" href="#talk"><span class="mm-n">09</span><span><span class="mm-t">Contact</span><span class="mm-d">Get in touch, no pressure</span></span><span class="mm-ar">→</span></a>
   <div class="mm-foot">
     <button class="mm-cta ps-join-cta" type="button" style="border:0;font-family:inherit;cursor:pointer;width:100%" onclick="document.getElementById('menuToggle').click();window.PS&&PS.cta('menu')">Join free →</button>
     <button class="mm-signin ps-signin-cta" type="button" style="border:0;background:none;font-family:inherit;cursor:pointer;width:100%;font-size:14px;font-weight:600;color:var(--green2);padding:4px" onclick="document.getElementById('menuToggle').click();window.PS&&PS.login('menu')">Already a member? Sign in</button>

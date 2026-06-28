@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PropSight Listing Platform — coming soon</title>
+<meta name="description" content="A property listings platform with PropSight's real data on every home — true value, price trend, rental yield and what you can afford. Coming soon.">
+<meta name="theme-color" content="#f4f1e8">
+<link rel="icon" href="../icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#191512;--ink2:#5a5248;--ink3:#8a8175;--bg:#f4f1e8;--card:#fffefc;--line:#e7e0d2;--line2:#dbd1bf;--green:#1b3a2d;--green2:#27513f;--green3:#0f231a;--brass:#b08d57;--brass2:#c8a468;--brass3:#e3c98f;--sage:#3aa76d;--serif:'Fraunces',Georgia,serif;--ease:cubic-bezier(.2,.7,.2,1)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{font-family:"Schibsted Grotesk",system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:1200px;margin:0 auto;padding:0 36px}
+.kick{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);display:inline-flex;align-items:center;gap:9px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border-radius:40px;font-weight:800;font-size:15px;text-decoration:none;cursor:pointer;border:0;font-family:inherit;transition:.22s var(--ease)}
+.btn.brass{background:linear-gradient(135deg,var(--brass3),var(--brass));color:#241a0d;box-shadow:0 12px 28px rgba(176,141,87,.34)}
+.btn.brass:hover{transform:translateY(-2px);box-shadow:0 18px 36px rgba(176,141,87,.46)}
+
+/* ── stage ── */
+.stage{position:relative;min-height:calc(100vh - 76px);display:flex;align-items:center;padding:54px 0 70px;overflow:hidden}
+.stage::before{content:"";position:absolute;inset:0;background:radial-gradient(720px 420px at 78% -10%,rgba(227,201,143,.26),transparent 62%),radial-gradient(620px 520px at 8% 120%,rgba(39,81,63,.10),transparent 60%);pointer-events:none}
+.stage-in{position:relative;display:grid;grid-template-columns:1.04fr .96fr;gap:50px;align-items:center;width:100%}
+
+/* ── copy ── */
+.lead{position:relative;z-index:2}
+.brandline{display:block;font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);margin-bottom:15px}
+.soon{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--green2);background:rgba(39,81,63,.08);border:1px solid rgba(39,81,63,.16);padding:7px 14px;border-radius:30px}
+.soon .pdot{width:8px;height:8px;border-radius:50%;background:var(--sage);box-shadow:0 0 0 0 rgba(58,167,109,.55);animation:pulse 2.2s var(--ease) infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(58,167,109,.5)}70%{box-shadow:0 0 0 10px rgba(58,167,109,0)}100%{box-shadow:0 0 0 0 rgba(58,167,109,0)}}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5vw,58px);line-height:1.03;letter-spacing:-.028em;margin:18px 0 0;max-width:14ch}
+.sub{font-size:17px;line-height:1.62;color:var(--ink2);margin:20px 0 0;max-width:50ch}
+.feats{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:13px;max-width:460px}
+.feats li{position:relative;padding-left:31px;font-size:14.5px;color:var(--ink2);line-height:1.4}
+.feats li b{color:var(--ink);font-weight:700}
+.feats li::before{content:"";position:absolute;left:0;top:0;width:21px;height:21px;border-radius:50%;background:var(--green2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round' d='M5 13l4 4L19 7'/%3E%3C/svg%3E") center/11px no-repeat}
+.cta{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin:32px 0 0}
+.cta .note{font-size:13px;color:var(--ink3);font-weight:600}
+.cta .note b{color:var(--green2)}
+
+/* ── preview cluster (the "coming" effect): ghost listing cards, blurred + shimmering ── */
+.preview{position:relative;z-index:1;height:486px}
+.pstack{position:absolute;inset:0}
+.lc{position:absolute;width:270px;background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 30px 64px rgba(15,35,26,.16);filter:blur(.4px);opacity:.96}
+.lc .ph{height:142px;position:relative;background:linear-gradient(120deg,#e8e0d0,#d8cdb8)}
+.lc .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-120%);animation:sweep 2.8s var(--ease) infinite}
+.lc .ph .tag{position:absolute;left:12px;top:12px;font-size:10px;font-weight:800;letter-spacing:.04em;color:#fff;background:rgba(27,58,45,.82);padding:5px 9px;border-radius:8px;backdrop-filter:blur(3px)}
+.lc .meat{padding:14px 15px 16px}
+.lc .price{font-family:var(--serif);font-weight:600;font-size:21px;color:var(--ink)}
+.lc .ln{height:9px;border-radius:5px;background:#ece5d6;margin-top:9px}
+.lc .ln.s{width:62%}.lc .ln.t{width:84%;margin-top:8px;background:#efe9dc}
+.lc .chips{display:flex;gap:7px;margin-top:13px}
+.lc .chips i{font-style:normal;font-size:11px;color:var(--ink3);font-weight:700;background:#f2ecde;border-radius:7px;padding:4px 8px}
+.lc .verdict{margin-top:13px;display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:700;color:var(--green2)}
+.lc .verdict .d{width:7px;height:7px;border-radius:50%;background:var(--sage)}
+@keyframes sweep{0%{transform:translateX(-120%)}55%,100%{transform:translateX(120%)}}
+@keyframes bob{0%,100%{transform:var(--t) translateY(0)}50%{transform:var(--t) translateY(-9px)}}
+.lc-a{--t:rotate(-5deg);left:2%;top:38px;z-index:1;transform:var(--t);animation:bob 6s var(--ease) infinite}
+.lc-b{--t:rotate(3deg);right:4%;top:8px;z-index:3;transform:var(--t);animation:bob 6.8s var(--ease) infinite .5s}
+.lc-c{--t:rotate(-2deg);left:30%;bottom:6px;z-index:2;transform:var(--t);animation:bob 7.4s var(--ease) infinite .9s}
+/* soft frosted veil so it reads as "preview / not live yet" */
+.preview::after{content:"";position:absolute;inset:-6% -6% -6% -6%;background:radial-gradient(120% 80% at 60% 45%,transparent 38%,rgba(244,241,232,.55) 78%,rgba(244,241,232,.9) 100%);pointer-events:none;z-index:4}
+
+/* footer line */
+.foot{position:relative;z-index:2;border-top:1px solid var(--line);text-align:center;padding:22px 0;font-size:12.5px;color:var(--ink3)}
+.foot a{color:var(--green2);text-decoration:none;font-weight:600}
+
+@media(max-width:960px){
+  .stage{min-height:0;padding:40px 0 30px}
+  .stage-in{grid-template-columns:1fr;gap:18px}
+  h1{max-width:18ch}
+  .preview{height:360px;margin-top:6px;order:2}
+  .lc{width:228px}
+  .lc-a{left:-2%;top:30px}.lc-b{right:-1%;top:0}.lc-c{left:26%;bottom:0}
+}
+@media(max-width:560px){
+  .wrap{padding:0 20px}
+  .stage{padding:30px 0 20px}
+  .preview{height:300px}
+  .lc{width:200px}.lc .ph{height:118px}.lc .price{font-size:18px}
+  .lc-a{left:-6%;top:24px;--t:rotate(-6deg)}.lc-b{right:-6%;top:0}.lc-c{display:none}
+  .sub{font-size:15.5px}
+  .cta{gap:13px}.btn{width:100%}
+}
+</style>
+</head>
+<body>
+
+<header></header><!-- replaced by shared PropSight nav (nav.js) -->
+
+<main class="stage"><div class="wrap"><div class="stage-in">
+
+  <div class="lead">
+    <span class="brandline">PropSight Listing Platform</span>
+    <span class="soon"><span class="pdot"></span>Coming soon</span>
+    <h1>A property platform of its own.</h1>
+    <p class="sub">We're building a full listings platform inside PropSight — browse every home for sale with our data attached to each one, so the asking price always sits next to what it's really worth. Real value, real trends, no sales spin.</p>
+    <ul class="feats">
+      <li><b>What it's really worth</b> — every listing valued on real recent sales, next to the asking price.</li>
+      <li><b>The project's trend &amp; yield</b> — how prices have moved and what it rents for, at a glance.</li>
+      <li><b>Filtered by what you can afford</b> — see only the homes that actually fit your budget.</li>
+    </ul>
+    <div class="cta">
+      <button class="btn brass ps-join-cta" type="button" onclick="window.PS&&PS.cta('listings')">Get notified at launch →</button>
+      <span class="note">Free to join · <b>members hear first</b></span>
+    </div>
+  </div>
+
+  <div class="preview" aria-hidden="true">
+    <div class="pstack">
+      <div class="lc lc-a">
+        <div class="ph"><span class="tag">For sale</span></div>
+        <div class="meat"><div class="price">$1.28M</div><div class="ln s"></div><div class="ln t"></div>
+          <div class="chips"><i>3 bed</i><i>2 bath</i><i>1,066 sqft</i></div>
+          <div class="verdict"><span class="d"></span>Priced near fair value</div></div>
+      </div>
+      <div class="lc lc-b">
+        <div class="ph"><span class="tag">For sale</span></div>
+        <div class="meat"><div class="price">$745K</div><div class="ln s"></div><div class="ln t"></div>
+          <div class="chips"><i>4-room</i><i>HDB</i><i>92 sqm</i></div>
+          <div class="verdict"><span class="d"></span>Below recent comps</div></div>
+      </div>
+      <div class="lc lc-c">
+        <div class="ph"><span class="tag">For sale</span></div>
+        <div class="meat"><div class="price">$2.05M</div><div class="ln s"></div><div class="ln t"></div>
+          <div class="chips"><i>4 bed</i><i>3 bath</i><i>1,302 sqft</i></div>
+          <div class="verdict"><span class="d"></span>3.1% rental yield</div></div>
+      </div>
+    </div>
+  </div>
+
+</div></div></main>
+
+<div class="foot">Until it's live, everything else is ready — <a href="../tools/value.html">value any home</a>, <a href="/thesis/">explore the research</a> or <a href="../">head back to PropSight</a>.</div>
+
+<script src="../member.js"></script>
+<script src="../nav.js" defer></script>
+</body>
+</html>
