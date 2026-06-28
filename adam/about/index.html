@@ -22,7 +22,7 @@ a{color:inherit}
 .head::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 92% -20%,rgba(227,201,143,.22),transparent 60%);pointer-events:none}
 .head .crumb{font-size:12.5px;color:var(--ink3);font-weight:600;position:relative}
 .head .crumb a{color:var(--ink3);text-decoration:none}.head .crumb b{color:var(--ink2)}
-.head-in{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;margin-top:16px}
+.head-in{position:relative;display:grid;grid-template-columns:1fr 1.05fr;gap:34px;align-items:center;margin-top:16px}
 .head h1{font-family:var(--serif);font-weight:600;font-size:clamp(28px,4vw,46px);letter-spacing:-.025em;line-height:1.05;margin:12px 0 0;max-width:17ch;color:var(--ink)}
 .head .intro{font-size:16px;color:var(--ink2);margin:16px 0 0;max-width:46ch;line-height:1.6}
 .head .metas{display:flex;flex-wrap:wrap;gap:22px;margin:20px 0 0}
@@ -102,24 +102,20 @@ a{color:inherit}
 .sc-foot .ip{flex:1;height:29px;background:#fff;border:1px solid var(--line);border-radius:20px;font-size:10px;color:var(--ink3);display:flex;align-items:center;padding:0 12px}
 .sc-foot .snd{width:29px;height:29px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;flex:none}
 .sc-foot .snd svg{width:12px;height:12px;stroke:#f3efe6}
-/* two-phone composition (fills the space, reads like a real product shot) */
-.duo{position:relative;width:100%;height:478px;display:flex;align-items:center;justify-content:center}
-.duo .phone{position:absolute;width:212px}
-.duo .p-a{transform:translateX(-62px) rotate(-5deg);z-index:2}
-.duo .p-b{transform:translateX(82px) translateY(26px) rotate(6deg) scale(.95);z-index:1}
+/* three-phone cluster (header showcase) */
+.hcluster{position:relative;width:100%;height:446px;display:flex;align-items:center;justify-content:center}
+.hcluster .phone{position:absolute;width:190px}
+.hcluster .hp-c{z-index:3;transform:translateY(-4px) rotate(-2deg)}
+.hcluster .hp-l{z-index:1;transform:translateX(-140px) translateY(30px) rotate(-9deg) scale(.85)}
+.hcluster .hp-r{z-index:2;transform:translateX(142px) translateY(24px) rotate(8deg) scale(.85)}
 
 /* ── tools grid (the substance) ── */
-.tools{padding:38px 0;border-top:1px solid var(--line)}
-.tools .th{max-width:60ch}
-.tools h2{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3vw,33px);letter-spacing:-.02em;margin:13px 0 0}
-.tools .sub{font-size:15px;color:var(--ink2);margin:12px 0 0;line-height:1.6}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin:24px 0 0}
-.tool{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:17px 17px 15px;text-decoration:none;color:inherit;transition:transform .25s var(--ease),box-shadow .25s,border-color .25s}
-.tool:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(25,21,18,.1);border-color:var(--brass2)}
-.tool .ic{width:34px;height:34px;border-radius:9px;background:#f0ece1;display:flex;align-items:center;justify-content:center;margin-bottom:11px}
-.tool .ic svg{width:18px;height:18px;stroke:var(--green2);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.tool h3{font-family:var(--serif);font-weight:600;font-size:16px;letter-spacing:-.01em}
-.tool p{font-size:12.5px;color:var(--ink2);line-height:1.5;margin:5px 0 0}
+.tools{padding:36px 0;border-top:1px solid var(--line)}
+.tools .th-h{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3vw,33px);letter-spacing:-.02em;margin:13px 0 0}
+.tools .th-p{font-size:15px;color:var(--ink2);margin:12px 0 0;line-height:1.65;max-width:80ch}
+.toollist{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 22px}
+.toollist a{font-size:13px;font-weight:600;color:var(--ink2);background:var(--card);border:1px solid var(--line);border-radius:30px;padding:8px 14px;text-decoration:none;transition:.2s var(--ease)}
+.toollist a:hover{border-color:var(--brass);color:var(--ink);transform:translateY(-1px)}
 
 /* ── join band ── */
 .join{padding:34px 0 48px}
@@ -136,16 +132,16 @@ a{color:inherit}
 .fineprint a{color:var(--green2);font-weight:700}
 
 @media(max-width:900px){
-  .head-in{grid-template-columns:1fr;gap:24px}
-  .head-in .media{max-width:300px}
+  .head-in{grid-template-columns:1fr;gap:18px}
   .row{grid-template-columns:1fr;gap:24px;padding:32px 0}
   .row.flip .copy{order:0}
   .vt{grid-template-columns:1fr}
-  .grid{grid-template-columns:1fr 1fr}
   .join-in{grid-template-columns:1fr;gap:18px}
 }
-@media(max-width:560px){.wrap{padding:0 20px}.join-in{padding:32px 24px}.head .metas{gap:16px}.tool{padding:14px}.tool p{font-size:12px}
-  .duo{height:420px}.duo .phone{width:172px}.duo .p-a{transform:translateX(-48px) rotate(-5deg)}.duo .p-b{transform:translateX(58px) translateY(18px) rotate(6deg) scale(.92)}}
+@media(max-width:560px){.wrap{padding:0 20px}.join-in{padding:32px 24px}.head .metas{gap:16px}
+  .hcluster{height:372px}.hcluster .phone{width:146px}.hcluster .hp-c{transform:rotate(-2deg)}
+  .hcluster .hp-l{transform:translateX(-100px) translateY(22px) rotate(-9deg) scale(.82)}
+  .hcluster .hp-r{transform:translateX(102px) translateY(18px) rotate(8deg) scale(.82)}}
 </style>
 </head>
 <body>
@@ -165,17 +161,36 @@ a{color:inherit}
         <div class="meta"><b>$0</b><span>every tool, free</span></div>
       </div>
     </div>
-    <div class="media">
-      <div class="phone"><div class="screen"><div class="notch"></div>
+    <div class="media"><div class="hcluster">
+      <!-- left: value -->
+      <div class="phone hp-l"><div class="screen"><div class="notch"></div>
         <div class="sc-app">
-          <span class="sc-eb">Today's news</span><div class="sc-t">Singapore property</div>
-          <div class="ncard"><div class="nimg"></div><div class="ntx"><b>Condo resale prices held steady in May</b><s>What it means for buyers →</s></div></div>
-          <div class="ncard"><div class="nimg b2"></div><div class="ntx"><b>22,000 apply for the June BTO launch</b><s>Demand stays strong →</s></div></div>
-          <div class="ncard"><div class="nimg b3"></div><div class="ntx"><b>New record HDB resale in Bukit Merah</b><s>$1.5m maisonette →</s></div></div>
-          <div class="ncard"><div class="nimg"></div><div class="ntx"><b>8,000 new flats to launch in October</b><s>Bayshore tipped a hot pick →</s></div></div>
+          <span class="sc-eb">What's it worth</span><div class="sc-t">Estimate</div>
+          <div class="val-card"><div class="ad">BLK 123 Bishan St 12 · 4-room</div><div class="big">$715,000</div><div class="rg">$690k – $742k · 18 sales</div><span class="cf">● High confidence</span></div>
+          <div class="row"><span class="nm">Recent comp<s>Blk 119 · #10</s></span><span class="tg up">$708k</span></div>
+          <div class="row"><span class="nm">Recent comp<s>Blk 125 · #07</s></span><span class="tg up">$722k</span></div>
         </div>
       </div></div>
-    </div>
+      <!-- right: news -->
+      <div class="phone hp-r"><div class="screen"><div class="notch"></div>
+        <div class="sc-app">
+          <span class="sc-eb">Today's news</span><div class="sc-t">Property news</div>
+          <div class="ncard"><div class="nimg"></div><div class="ntx"><b>Condo resale prices held steady in May</b><s>What it means →</s></div></div>
+          <div class="ncard"><div class="nimg b2"></div><div class="ntx"><b>22,000 apply for the June BTO</b><s>Demand stays strong →</s></div></div>
+          <div class="ncard"><div class="nimg b3"></div><div class="ntx"><b>New record HDB resale, Bukit Merah</b><s>$1.5m maisonette →</s></div></div>
+        </div>
+      </div></div>
+      <!-- centre front: Aillie -->
+      <div class="phone hp-c"><div class="screen"><div class="notch"></div>
+        <div class="sc-head"><div class="ai"><span class="av">A</span><div><b>Aillie</b><span class="st"><span class="dot"></span>Live in Singapore</span></div></div></div>
+        <div class="sc-body">
+          <div class="bub u">Is a 4-room in Bishan a good buy now?</div>
+          <div class="bub a">Bishan 4-rooms are going for about <b>$720k</b>, up ~3% this year. Demand near the MRT is strong.</div>
+          <div class="bub a">Want me to value a block, or check what you can afford?</div>
+        </div>
+        <div class="sc-foot"><span class="ip">Ask about any home…</span><span class="snd"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></span></div>
+      </div></div>
+    </div></div>
   </div>
 </div></section>
 
@@ -212,42 +227,12 @@ a{color:inherit}
   </div>
 </div></section>
 
-<!-- ROW 2: AILLIE (phone mockup) -->
+<!-- ROW 2: AILLIE (text-forward, no redundant mockup — Aillie is shown in the header) -->
 <section class="wrap"><div class="row flip">
   <div class="copy">
-    <span class="kick">Your property intelligence</span>
-    <h2>Aillie does the digging.</h2>
-    <p>Aillie is the assistant at the centre of it all. Ask the way you'd ask a friend, "what's a 4-room in Bishan worth", "can I afford a million-dollar condo", "how's Clementi doing", and she pulls the real numbers and explains what they mean for you.</p>
-    <p>No forms, no jargon, no waiting on a callback. And when a number isn't certain, she says so rather than guessing.</p>
-    <a class="go" href="../#talk" onclick="window.askAillie&&(event.preventDefault(),askAillie())">Ask Aillie anything →</a>
-  </div>
-  <div class="media"><div class="duo">
-    <div class="phone p-b"><div class="screen"><div class="notch"></div>
-      <div class="sc-app">
-        <span class="sc-eb">What you can afford</span><div class="sc-t">Your budget</div>
-        <div class="val-card"><div class="ad">Income $9,000/mo · $120k saved</div><div class="big">$1.05M</div><div class="rg">comfortable, on a 25-year loan</div><span class="cf">● Within the limits</span></div>
-        <div class="row"><span class="nm">Monthly repayment<s>at the 4% stress rate</s></span><span class="tg up">$3,900</span></div>
-        <div class="row"><span class="nm">Cash + CPF upfront</span><span class="tg up">$262k</span></div>
-      </div>
-    </div></div>
-    <div class="phone p-a"><div class="screen"><div class="notch"></div>
-      <div class="sc-head"><div class="ai"><span class="av">A</span><div><b>Aillie</b><span class="st"><span class="dot"></span>Live in Singapore</span></div></div></div>
-      <div class="sc-body">
-        <div class="bub u">Is a 4-room in Bishan a good buy now?</div>
-        <div class="bub a">Bishan 4-rooms are going for about <b>$720k</b>, up ~3% this year. A touch above the island median, but demand near the MRT is strong.</div>
-        <div class="bub a">Want me to value a block, or check what you can afford?</div>
-      </div>
-      <div class="sc-foot"><span class="ip">Ask about any home…</span><span class="snd"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></span></div>
-    </div></div>
-  </div></div>
-</div></section>
-
-<!-- ROW 3: VALUE (desktop value tool mockup) -->
-<section class="wrap"><div class="row">
-  <div class="copy">
-    <span class="kick">See it on any screen</span>
-    <h2>Real answers, with the receipts.</h2>
-    <p>PropSight doesn't just hand you a number — it shows you the working. Every valuation comes with the recent comparable sales it's based on, an honest range, and a confidence level. You see exactly why, not just what.</p>
+    <span class="kick">Real answers, with the receipts</span>
+    <h2>You see the working, not just a number.</h2>
+    <p>Ask Aillie anything in plain English and she pulls the real figures for you. Every valuation comes with the recent comparable sales it's based on, an honest range, and a confidence level, so you see exactly why, not just what.</p>
     <ul class="pts">
       <li><span class="tk"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><span>Works the same on <b>desktop and your phone</b> — install it like an app, no store needed.</span></li>
       <li><span class="tk"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><span>Every tool reads the <b>same official data</b>, so the answers all line up.</span></li>
@@ -277,25 +262,23 @@ a{color:inherit}
 
 <!-- TOOLS GRID (the substance) -->
 <section class="tools"><div class="wrap">
-  <div class="th">
-    <span class="kick">Everything in one place</span>
-    <h2>Twelve tools. One hub.</h2>
-    <p class="sub">Every job in a property move has its own tool here, each built on the same official data — so you never have to leave, and the numbers always agree.</p>
+  <span class="kick">Everything in one place</span>
+  <h2 class="th-h">Twelve tools. One hub.</h2>
+  <p class="th-p">Every job in a property move has its own tool, each built on the same official data: value a home, work out your real budget, research any project, check stamp duty, grants and eligibility, see what you'd walk away with as a seller, find homes near a school, and follow the market with Market Pulse, News and the Guide. They all read the same records, so the numbers always agree.</p>
+  <div class="toollist">
+    <a href="../tools/value.html">What's it worth</a>
+    <a href="../tools/afford.html">What you can afford</a>
+    <a href="/thesis/">Research</a>
+    <a href="../tools/stamp-duty.html">Stamp duty</a>
+    <a href="../tools/grants.html">Grants</a>
+    <a href="../tools/eligibility.html">Can you buy it</a>
+    <a href="../tools/sell.html">What you'll pocket</a>
+    <a href="../tools/schools.html">Homes near a school</a>
+    <a href="../notes/">Market Pulse</a>
+    <a href="../news/">News</a>
+    <a href="../essentials/">The Guide</a>
   </div>
-  <div class="grid">
-    <a class="tool" href="../tools/value.html"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></span><h3>What's it worth</h3><p>Any HDB or condo, valued on real recent sales, with the comparables shown.</p></a>
-    <a class="tool" href="../tools/afford.html"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><h3>What you can afford</h3><p>Your real budget from your income and savings, on the actual lending rules.</p></a>
-    <a class="tool" href="/thesis/"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></span><h3>Research</h3><p>Every project's prices, trends, rental yield and how it's priced against nearby homes.</p></a>
-    <a class="tool" href="../tools/stamp-duty.html"><span class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><h3>Stamp duty</h3><p>Buyer's stamp duty plus any extra, worked out to the dollar on the latest rates.</p></a>
-    <a class="tool" href="../tools/grants.html"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 8a4 4 0 1 0 0 8M12 2v2M12 20v2"/></svg></span><h3>Grants</h3><p>Your likely CPF housing grants as a first-timer, and roughly how much.</p></a>
-    <a class="tool" href="../tools/eligibility.html"><span class="ic"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></span><h3>Can you buy it</h3><p>HDB, EC or condo — check eligibility on citizenship, income and lock-in first.</p></a>
-    <a class="tool" href="../tools/sell.html"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 7h18M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></span><h3>What you'll walk away with</h3><p>Your seller's stamp duty if any, and exactly what you pocket after costs.</p></a>
-    <a class="tool" href="../tools/schools.html"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11v5c0 1 2 2 5 2s5-1 5-2v-5"/></svg></span><h3>Homes near a school</h3><p>Pick a primary school, see the condos within 1km and 2km for priority.</p></a>
-    <a class="tool" href="../notes/"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></span><h3>Market Pulse</h3><p>A short, honest weekly read on what the market's really doing right now.</p></a>
-    <a class="tool" href="../news/"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><h3>News</h3><p>The property headlines that matter, in plain English. Refreshed daily.</p></a>
-    <a class="tool" href="../essentials/"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2z"/><path d="M8 7h8M8 11h6"/></svg></span><h3>The Guide</h3><p>The whole buying and selling journey, plus the tips that quietly save money.</p></a>
-    <a class="tool" href="../#tools" onclick="window.PS&&(event.preventDefault(),PS.openModal('about'))"><span class="ic"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><h3>Ask Aillie</h3><p>Not sure where to start? Ask anything and get the real numbers back.</p></a>
-  </div>
+  <a class="btn brass" href="../">Explore all the tools →</a>
 </div></section>
 
 <!-- JOIN BAND -->
