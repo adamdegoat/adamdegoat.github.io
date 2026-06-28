@@ -42,16 +42,18 @@
     '.psnav-links a:hover{color:#191512}.psnav-links a.cur{color:#1b3a2d}' +
     '.psnav-links a.feat,.psnav-links a.smart{position:relative}.psnav-links a.feat::before,.psnav-links a.smart::before{position:absolute;left:50%;bottom:calc(100% - 2px);transform:translateX(-50%);display:flex;align-items:center;justify-content:center;height:15px;padding:0 9px;font:800 8px/1 "Schibsted Grotesk",system-ui,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#241a0d;background:linear-gradient(135deg,#e3c98f,#b08d57);border-radius:20px;white-space:nowrap;box-shadow:0 2px 6px rgba(176,141,87,.3)}.psnav-links a.feat::before{content:"Featured"}.psnav-links a.smart::before{content:"Smart"}' +
     '.psnav-links a.cta{background:#1b3a2d;color:#f5f1e8;padding:9px 18px;border-radius:30px;font-weight:700}' +
-    '.psnav-join{margin-left:20px;flex:none;background:linear-gradient(135deg,#e3c98f,#b08d57);color:#241a0d;font-weight:800;font-size:14px;font-family:inherit;border:1px solid #b08d57;border-radius:40px;padding:10px 18px;cursor:pointer;white-space:nowrap;box-shadow:0 8px 22px rgba(176,141,87,.34);transition:transform .2s,box-shadow .2s}' +
+    '.psnav-signin{margin-left:18px;background:none;border:0;font-family:inherit;font-size:14.5px;font-weight:600;color:#5a5248;cursor:pointer;padding:8px 2px;white-space:nowrap;transition:color .2s}.psnav-signin:hover{color:#191512}' +
+    '.psnav-join{margin-left:14px;flex:none;background:linear-gradient(135deg,#e3c98f,#b08d57);color:#241a0d;font-weight:800;font-size:14px;font-family:inherit;border:1px solid #b08d57;border-radius:40px;padding:10px 18px;cursor:pointer;white-space:nowrap;box-shadow:0 8px 22px rgba(176,141,87,.34);transition:transform .2s,box-shadow .2s}' +
     '.psnav-join:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(176,141,87,.44)}' +
-    '@media(max-width:860px){.psnav-join{margin-left:auto;margin-right:10px;font-size:13px;padding:9px 15px}}' +
+    '@media(max-width:860px){.psnav-signin{display:none}.psnav-join{margin-left:auto;margin-right:10px;font-size:13px;padding:9px 15px}}' +
     '.psnav-burger{display:none;margin-left:auto;width:42px;height:42px;border:1px solid #dbd1bf;border-radius:10px;background:rgba(255,255,255,.6);cursor:pointer;align-items:center;justify-content:center}' +
     '.psnav-burger svg{width:22px;height:22px;stroke:#191512;fill:none;stroke-width:2;stroke-linecap:round}' +
     '.psnav-menu{position:fixed;left:0;right:0;top:calc(76px + env(safe-area-inset-top));bottom:0;z-index:299;background:#f6f3ea;padding:14px 24px 30px;display:none;flex-direction:column;overflow-y:auto}' +
     '.psnav-menu.open{display:flex}' +
     '.psnav-menu a{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:23px;color:#191512;text-decoration:none;padding:16px 2px;border-bottom:1px solid #e7e0d2}' +
     '.psnav-menu a .psm-pill{display:inline-block;vertical-align:middle;position:relative;top:-3px;margin-left:9px;font-family:"Schibsted Grotesk",system-ui,sans-serif;font-weight:800;font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:#241a0d;background:linear-gradient(135deg,#e3c98f,#b08d57);border-radius:20px;padding:3px 8px;box-shadow:0 2px 6px rgba(176,141,87,.3)}' +
-    '.psnav-mjoin{width:100%;background:linear-gradient(135deg,#e3c98f,#b08d57);color:#241a0d;font-family:"Schibsted Grotesk",system-ui,sans-serif;font-weight:800;font-size:16px;border:0;border-radius:14px;padding:15px;margin-bottom:10px;cursor:pointer;box-shadow:0 10px 26px rgba(176,141,87,.34)}' +
+    '.psnav-mjoin{width:100%;background:linear-gradient(135deg,#e3c98f,#b08d57);color:#241a0d;font-family:"Schibsted Grotesk",system-ui,sans-serif;font-weight:800;font-size:16px;border:0;border-radius:14px;padding:15px;margin-bottom:8px;cursor:pointer;box-shadow:0 10px 26px rgba(176,141,87,.34)}' +
+    '.psnav-msignin{width:100%;background:none;border:0;font-family:"Schibsted Grotesk",system-ui,sans-serif;font-size:14px;font-weight:600;color:#27513f;padding:6px;margin-bottom:8px;cursor:pointer}' +
     '@media(max-width:860px){.psnav-links{display:none}.psnav-burger{display:flex}}@media(max-width:560px){.psnav-in{padding:0 20px}.psnav-brand b{font-size:20px}.psnav-brand .pm{width:34px;height:34px}}';
 
   function linkHtml(l, mobile) {
@@ -68,11 +70,13 @@
   var navHTML = '<header class="psnav"><div class="psnav-in">' +
     '<a class="psnav-brand" href="' + BASE + '/adam/">' + MARK + '<span class="bw"><b>PropSight</b><span>Singapore</span></span></a>' +
     '<nav class="psnav-links">' + LINKS.map(function (l) { return linkHtml(l, false); }).join('') + '</nav>' +
+    '<button class="psnav-signin ps-signin-cta" type="button" onclick="window.PS&&PS.login(\'nav\')">Sign in</button>' +
     '<button class="psnav-join ps-join-cta" type="button" onclick="window.PS&&PS.cta(\'nav\')">Join free</button>' +
     '<button class="psnav-burger" id="psBurger" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>' +
     '</div></header>';
   var menuHTML = '<div class="psnav-menu" id="psMenu">' +
     '<button class="psnav-mjoin ps-join-cta" type="button" onclick="window.PS&&PS.cta(\'menu\')">Join free →</button>' +
+    '<button class="psnav-msignin ps-signin-cta" type="button" onclick="window.PS&&PS.login(\'menu\')">Already a member? Sign in</button>' +
     LINKS.map(function (l) { return linkHtml(l, true); }).join('') + '</div>';
 
   function init() {

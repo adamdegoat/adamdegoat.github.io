@@ -65,7 +65,9 @@ em{font-style:italic;color:var(--brass)}
 .btn.brass-out:hover{background:rgba(227,201,143,.16);border-color:var(--brass3);transform:translateY(-2px)}
 .btn .arr{transition:transform .25s var(--ease)}.btn:hover .arr{transform:translateX(4px)}
 /* mobile menu */
-.navjoin{display:inline-flex;align-items:center;gap:7px;margin-left:16px;background:linear-gradient(135deg,var(--brass3),var(--brass));color:#241a0d;font-weight:800;font-size:14px;font-family:inherit;padding:11px 19px;border-radius:40px;border:1px solid var(--brass);box-shadow:0 9px 24px rgba(176,141,87,.36);cursor:pointer;white-space:nowrap;transition:transform .2s var(--ease),box-shadow .2s}
+.navsignin{background:none;border:0;font-family:inherit;font-size:14.5px;font-weight:600;color:var(--ink2);cursor:pointer;padding:8px 2px;margin-left:18px;white-space:nowrap;transition:color .2s}
+.navsignin:hover{color:var(--ink)}
+.navjoin{display:inline-flex;align-items:center;gap:7px;margin-left:14px;background:linear-gradient(135deg,var(--brass3),var(--brass));color:#241a0d;font-weight:800;font-size:14px;font-family:inherit;padding:11px 19px;border-radius:40px;border:1px solid var(--brass);box-shadow:0 9px 24px rgba(176,141,87,.36);cursor:pointer;white-space:nowrap;transition:transform .2s var(--ease),box-shadow .2s}
 .navjoin:hover{transform:translateY(-2px);box-shadow:0 15px 32px rgba(176,141,87,.46)}
 .nav-install{display:none;flex:none;margin-left:10px;width:44px;height:44px;align-items:center;justify-content:center;background:rgba(255,255,255,.55);border:1px solid var(--line2);border-radius:11px;color:var(--ink);-webkit-tap-highlight-color:transparent;transition:.25s var(--ease)}
 .nav-install svg{width:21px;height:21px}
@@ -348,7 +350,7 @@ html.menu-open,html.menu-open body{overflow:hidden}
 
 @media(max-width:880px){
  .wrap{padding:0 22px}.hero-in{grid-template-columns:1fr;gap:34px}.portrait{max-width:400px}
- .tools .tool{flex-basis:calc(50% - 8px);max-width:calc(50% - 8px)}.links{display:none}.navbtn{display:none}.pov{padding:34px 24px}
+ .tools .tool{flex-basis:calc(50% - 8px);max-width:calc(50% - 8px)}.links{display:none}.navbtn{display:none}.navsignin{display:none}.pov{padding:34px 24px}
  .nav-in{gap:9px}
  .navjoin{margin-left:auto;font-size:13px;padding:10px 15px}.nav-in .menu-toggle{margin-left:0}
  .nav-install{display:flex;margin-left:0}
@@ -381,6 +383,8 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .nav .btn{background:transparent;border-color:rgba(246,241,231,.42);color:#f6f1e7}
 .nav .btn:hover{background:rgba(255,255,255,.12)}
 .nav .menu-toggle,.nav .nav-install{background:rgba(255,255,255,.12);border-color:rgba(246,241,231,.42);color:#f6f1e7}
+.nav .navsignin{color:rgba(246,241,231,.85)}.nav .navsignin:hover{color:#fff}
+.nav.scrolled .navsignin{color:var(--ink2)}.nav.scrolled .navsignin:hover{color:var(--ink)}
 .nav.scrolled .nav-install{background:rgba(255,255,255,.6);border-color:var(--line2);color:var(--ink)}
 .nav.scrolled .brand b{color:var(--ink);text-shadow:none}
 .nav.scrolled .brand .mark{color:#1b3a2d;filter:none}
@@ -683,6 +687,7 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
     <span class="bw"><b>PropSight</b><span>Singapore</span></span>
   </div>
   <nav class="links"><a href="#tools">Tools</a><a href="/thesis/" class="navfeat">Research</a><a href="launches/">New Launches</a><a href="notes/">Market Pulse</a><a href="news/" class="navsmart">News</a><a href="essentials/">Guide</a><a href="about/">About us</a><a href="#talk">Contact</a></nav>
+  <button class="navsignin ps-signin-cta" type="button" onclick="window.PS&&PS.login('nav')">Sign in</button>
   <button class="navjoin ps-join-cta" type="button" onclick="window.PS&&PS.cta('nav')">Join&nbsp;<span class="njfree">free</span></button>
   <a class="btn navbtn" href="https://wa.me/6583219747">Let's talk <span class="arr">→</span></a>
   <a class="nav-install" id="navInstall" href="install.html" aria-label="Add PropSight to your home screen" title="Add to your phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.5 18.5h3"/></svg></a>
@@ -702,6 +707,7 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
   <a class="mm" href="#talk"><span class="mm-n">08</span><span><span class="mm-t">Contact</span><span class="mm-d">Get in touch, no pressure</span></span><span class="mm-ar">→</span></a>
   <div class="mm-foot">
     <button class="mm-cta ps-join-cta" type="button" style="border:0;font-family:inherit;cursor:pointer;width:100%" onclick="document.getElementById('menuToggle').click();window.PS&&PS.cta('menu')">Join free →</button>
+    <button class="mm-signin ps-signin-cta" type="button" style="border:0;background:none;font-family:inherit;cursor:pointer;width:100%;font-size:14px;font-weight:600;color:var(--green2);padding:4px" onclick="document.getElementById('menuToggle').click();window.PS&&PS.login('menu')">Already a member? Sign in</button>
     <a class="mm-install" href="install.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.5 18.5h3"/></svg>Add to your phone</a>
     <a class="mm-cta" href="https://wa.me/6583219747" style="background:transparent;color:var(--ink);border:1px solid var(--line2);box-shadow:none">Let's talk →</a>
   </div>

@@ -160,7 +160,7 @@
     }
   }
 
-  function openModal(source) {
+  function openModal(source, startSignin) {
     injectCSS();
     if (document.querySelector('.psj-ov')) return;
     var ov = document.createElement('div'); ov.className = 'psj-ov';
@@ -171,8 +171,12 @@
     function close() { document.documentElement.style.overflow = ''; ov.classList.remove('on'); setTimeout(function () { ov.remove(); }, 240); }
     ov.addEventListener('click', function (e) { if (e.target === ov || e.target.hasAttribute('data-psj-close')) close(); });
     wire(ov, source || 'home', function () { applyAuthUI(); setTimeout(close, 2600); });
-    setTimeout(function(){ var i=ov.querySelector('[name=name]'); if(i) i.focus(); }, 260);
+    if (startSignin) { var t = ov.querySelector('[data-psj-tosignin]'); if (t) t.click(); }
+    else setTimeout(function(){ var i=ov.querySelector('[name=name]'); if(i) i.focus(); }, 260);
   }
+
+  // explicit "I already have an account" path → opens the box on the sign-in panel
+  function login(source) { if (isMember()) { openAccount(); return; } openModal(source, true); }
 
   function logout() { clear(); try { location.reload(); } catch (e) {} }
 
@@ -214,6 +218,9 @@
         el.textContent = el.dataset.joinlabel; el.classList.remove('ps-member');
       }
     }
+    // "Sign in" entries only make sense for guests — hide them once signed in
+    var si = document.querySelectorAll('.ps-signin-cta');
+    for (var j = 0; j < si.length; j++) si[j].style.display = member ? 'none' : '';
   }
 
   function _ready(fn) { if (document.readyState !== 'loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
@@ -224,6 +231,6 @@
     API: API, get: get, isMember: isMember, setMember: setMember, clear: clear, firstName: firstName,
     captureToken: captureToken, join: join, signin: signin,
     injectCSS: injectCSS, cardHTML: cardHTML, wire: wire, openModal: openModal,
-    cta: cta, openAccount: openAccount, logout: logout, applyAuthUI: applyAuthUI
+    cta: cta, login: login, openAccount: openAccount, logout: logout, applyAuthUI: applyAuthUI
   };
 })();
