@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-28T21:00:00.269854+08:00",
+  "updated": "2026-06-28T23:30:00.228407+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -187,6 +187,12 @@
       "priority": true
     },
     {
+      "title": "Brian Ortega reflects on UFC Shanghai weigh-in debacle that led to lightweight move: ‘This one scared me a little bit’",
+      "link": "https://www.mmafighting.com/ufc/496672/brian-ortega-reflects-on-ufc-shanghai-weigh-in-debacle-that-led-to-lightweight-move-this-one-scared-me-a-little-bit",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "PFL San Diego salaries: Main event fighter made $10,000 in losing effort",
       "link": "https://www.mmafighting.com/pfl/496846/pfl-san-diego-salaries-main-event-fighter-made-10000-in-losing-effort",
       "source": "MMA Fighting",
@@ -223,15 +229,15 @@
       "priority": false
     },
     {
-      "title": "UFC Baku live blog: Rafael Fiziev vs. Manuel Torres",
-      "link": "https://www.mmafighting.com/ufc/496602/ufc-baku-live-blog-rafael-fiziev-vs-manuel-torres",
-      "source": "MMA Fighting",
+      "title": "He said what?!? UFC Baku fighter predicted first-punch KO, then got sparked in eight seconds",
+      "link": "https://www.mmamania.com/latest-news/453947/he-said-what-ufc-baku-fighter-predicted-first-punch-ko-then-got-sparked-in-eight-seconds",
+      "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "UFC Baku live blog: Shara Bullet vs. Michel Pereira",
-      "link": "https://www.mmafighting.com/ufc/496599/ufc-baku-live-blog-shara-bullet-vs-michel-pereira",
-      "source": "MMA Fighting",
+      "title": "UFC Baku Results: Biggest winners, losers from ‘Fiziev vs. Torres’ last night",
+      "link": "https://www.mmamania.com/ufc-results/453678/ufc-baku-results-biggest-winners-loser-from-fiziev-vs-torres-last-night",
+      "source": "MMA Mania",
       "priority": false
     },
     {
@@ -245,17 +251,11 @@
       "link": "https://www.mmamania.com/bare-knuckle-boxing-results-rules-ppv/453928/former-ibf-champ-lee-selby-wins-bare-knuckle-boxing-debut-stops-antonio-rizzo-bkb-55-cardiff",
       "source": "MMA Mania",
       "priority": false
-    },
-    {
-      "title": "Rewind! Watch Conor McGregor, Max Holloway full fight marathon ahead of UFC 329 rematch | Video",
-      "link": "https://www.mmamania.com/latest-news/453538/rewind-watch-conor-mcgregor-max-holloway-full-fight-marathon-ahead-of-ufc-329-rematch-video",
-      "source": "MMA Mania",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor versus Holloway Sunday 9 AM SGT: elite striking meets elite power.",
-    "prefight": "McGregor meets Holloway this Sunday 9 AM SGT for pure chaos.",
-    "results": "Spinning wheel kicks aren't supposed to work—but Fiziev's finished Torres in the second round."
+    "week": "McGregor and Holloway collide Sunday 9am SGT — pure striking fireworks ahead.",
+    "prefight": "McGregor and Holloway collide Sunday morning—two featherweight legends in an absolute banger.",
+    "results": "Fiziev starches Torres with a spinning wheel kick in the second round."
   }
 }
