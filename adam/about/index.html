@@ -18,18 +18,26 @@ body{font-family:'Schibsted Grotesk',system-ui,sans-serif;background:var(--bg);c
 a{color:inherit}
 
 /* ── page header (contained — reads as a subpage, not a hero takeover) ── */
-.head{border-bottom:1px solid var(--line);padding:40px 0 34px}
-.head .crumb{font-size:12.5px;color:var(--ink3);font-weight:600;margin-bottom:18px}
+.head{border-bottom:1px solid var(--line);padding:28px 0 30px;position:relative;overflow:hidden}
+.head::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 92% -20%,rgba(227,201,143,.22),transparent 60%);pointer-events:none}
+.head .crumb{font-size:12.5px;color:var(--ink3);font-weight:600;position:relative}
 .head .crumb a{color:var(--ink3);text-decoration:none}.head .crumb b{color:var(--ink2)}
-.head h1{font-family:var(--serif);font-weight:600;font-size:clamp(30px,4.4vw,50px);letter-spacing:-.025em;line-height:1.04;margin:14px 0 0;max-width:18ch}
+.head-in{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;margin-top:16px}
+.head h1{font-family:var(--serif);font-weight:600;font-size:clamp(28px,4vw,46px);letter-spacing:-.025em;line-height:1.04;margin:12px 0 0;max-width:16ch}
 .head h1 em{font-style:italic;color:var(--green2)}
-.head .intro{font-size:17px;color:var(--ink2);margin:20px 0 0;max-width:62ch;line-height:1.62}
-.head .metas{display:flex;flex-wrap:wrap;gap:26px;margin:26px 0 0}
-.head .meta b{font-family:var(--serif);font-weight:600;font-size:23px;color:var(--green2);display:block;line-height:1}
-.head .meta span{font-size:12px;color:var(--ink3);font-weight:600}
+.head .intro{font-size:16px;color:var(--ink2);margin:16px 0 0;max-width:46ch;line-height:1.6}
+.head .metas{display:flex;flex-wrap:wrap;gap:22px;margin:20px 0 0}
+.head .meta b{font-family:var(--serif);font-weight:600;font-size:22px;color:var(--green2);display:block;line-height:1}
+.head .meta span{font-size:11.5px;color:var(--ink3);font-weight:600}
+/* news mockup (header) */
+.ncard{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:11px;padding:8px;margin-bottom:8px}
+.nimg{width:46px;height:46px;border-radius:8px;flex:none;background:linear-gradient(135deg,#3a5c7a,#21364a)}
+.nimg.b2{background:linear-gradient(135deg,#7a5a3a,#4a3621)}.nimg.b3{background:linear-gradient(135deg,#3a7a5a,#214a36)}
+.ntx{min-width:0}.ntx b{display:block;font-size:11px;font-weight:700;line-height:1.25;color:var(--ink)}
+.ntx s{display:block;text-decoration:none;font-size:9px;color:var(--green2);font-weight:600;margin-top:3px}
 
 /* ── alternating info rows ── */
-.row{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center;padding:54px 0}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:center;padding:38px 0}
 .row+.row{border-top:1px solid var(--line)}
 .row.flip .copy{order:2}
 .copy h2{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3vw,33px);letter-spacing:-.02em;line-height:1.1;margin:13px 0 0}
@@ -97,11 +105,11 @@ a{color:inherit}
 .sc-foot .snd svg{width:12px;height:12px;stroke:#f3efe6}
 
 /* ── tools grid (the substance) ── */
-.tools{padding:54px 0;border-top:1px solid var(--line)}
+.tools{padding:38px 0;border-top:1px solid var(--line)}
 .tools .th{max-width:60ch}
 .tools h2{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3vw,33px);letter-spacing:-.02em;margin:13px 0 0}
 .tools .sub{font-size:15px;color:var(--ink2);margin:12px 0 0;line-height:1.6}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:30px 0 0}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin:24px 0 0}
 .tool{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:17px 17px 15px;text-decoration:none;color:inherit;transition:transform .25s var(--ease),box-shadow .25s,border-color .25s}
 .tool:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(25,21,18,.1);border-color:var(--brass2)}
 .tool .ic{width:34px;height:34px;border-radius:9px;background:#f0ece1;display:flex;align-items:center;justify-content:center;margin-bottom:11px}
@@ -110,8 +118,8 @@ a{color:inherit}
 .tool p{font-size:12.5px;color:var(--ink2);line-height:1.5;margin:5px 0 0}
 
 /* ── join band ── */
-.join{padding:8px 0 60px}
-.join-in{position:relative;overflow:hidden;border-radius:24px;background:radial-gradient(640px 300px at 86% -30%,rgba(227,201,143,.24),transparent 60%),linear-gradient(150deg,var(--green2),var(--green3));color:#f3efe6;padding:40px 44px;display:grid;grid-template-columns:1.25fr .75fr;gap:28px;align-items:center}
+.join{padding:34px 0 48px}
+.join-in{position:relative;overflow:hidden;border-radius:24px;background:radial-gradient(640px 300px at 86% -30%,rgba(227,201,143,.24),transparent 60%),linear-gradient(150deg,var(--green2),var(--green3));color:#f3efe6;padding:36px 42px;display:grid;grid-template-columns:1.25fr .75fr;gap:28px;align-items:center}
 .join h2{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3.2vw,36px);letter-spacing:-.02em;line-height:1.06;margin:12px 0 0;color:#f6f1e7}
 .join .kick{color:var(--brass3)}.join .kick::before{background:var(--brass3)}
 .join p{font-size:15px;color:rgba(246,241,231,.86);margin:14px 0 0;line-height:1.55;max-width:48ch}
@@ -124,30 +132,47 @@ a{color:inherit}
 .fineprint a{color:var(--green2);font-weight:700}
 
 @media(max-width:900px){
-  .row{grid-template-columns:1fr;gap:26px;padding:42px 0}
+  .head-in{grid-template-columns:1fr;gap:24px}
+  .head-in .media{max-width:300px}
+  .row{grid-template-columns:1fr;gap:24px;padding:32px 0}
   .row.flip .copy{order:0}
   .vt{grid-template-columns:1fr}
   .grid{grid-template-columns:1fr 1fr}
   .join-in{grid-template-columns:1fr;gap:18px}
 }
-@media(max-width:560px){.wrap{padding:0 20px}.grid{grid-template-columns:1fr}.join-in{padding:32px 24px}.head .metas{gap:18px}}
+@media(max-width:560px){.wrap{padding:0 20px}.join-in{padding:32px 24px}.head .metas{gap:16px}.tool{padding:14px}.tool p{font-size:12px}}
 </style>
 </head>
 <body>
 
 <!-- PAGE HEADER -->
-<header class="head"><div class="wrap">
+<section class="head"><div class="wrap">
   <div class="crumb"><a href="../">PropSight</a> &nbsp;›&nbsp; <b>About</b></div>
-  <span class="kick">About PropSight</span>
-  <h1>We read Singapore's property records, <em>so you don't have to.</em></h1>
-  <p class="intro">PropSight is a free property hub built on the same official data the professionals use — every private caveat from URA, every HDB resale, and OneMap's school and amenity records. We read it, refresh it weekly, and turn it into plain answers you can act on. Look up anything without signing up, and when you want it all pulled together, just ask Aillie.</p>
-  <div class="metas">
-    <div class="meta"><b>137k+</b><span>official URA caveats</span></div>
-    <div class="meta"><b>~4%</b><span>typical valuation error</span></div>
-    <div class="meta"><b>Weekly</b><span>data refresh</span></div>
-    <div class="meta"><b>$0</b><span>every tool, free</span></div>
+  <div class="head-in">
+    <div>
+      <span class="kick">About PropSight</span>
+      <h1>We read Singapore's property records, <em>so you don't have to.</em></h1>
+      <p class="intro">A free property hub built on the same official data the professionals use — every private caveat from URA, every HDB resale, OneMap's school and amenity records. Read, refreshed weekly, and turned into plain answers. Look up anything without signing up, and when you want it pulled together, just ask Aillie.</p>
+      <div class="metas">
+        <div class="meta"><b>137k+</b><span>official URA caveats</span></div>
+        <div class="meta"><b>~4%</b><span>typical valuation error</span></div>
+        <div class="meta"><b>Weekly</b><span>data refresh</span></div>
+        <div class="meta"><b>$0</b><span>every tool, free</span></div>
+      </div>
+    </div>
+    <div class="media">
+      <div class="phone"><div class="screen"><div class="notch"></div>
+        <div class="sc-app">
+          <span class="sc-eb">Today's news</span><div class="sc-t">Singapore property</div>
+          <div class="ncard"><div class="nimg"></div><div class="ntx"><b>Condo resale prices held steady in May</b><s>What it means for buyers →</s></div></div>
+          <div class="ncard"><div class="nimg b2"></div><div class="ntx"><b>22,000 apply for the June BTO launch</b><s>Demand stays strong →</s></div></div>
+          <div class="ncard"><div class="nimg b3"></div><div class="ntx"><b>New record HDB resale in Bukit Merah</b><s>$1.5m maisonette →</s></div></div>
+          <div class="ncard"><div class="nimg"></div><div class="ntx"><b>8,000 new flats to launch in October</b><s>Bayshore tipped a hot pick →</s></div></div>
+        </div>
+      </div></div>
+    </div>
   </div>
-</div></header>
+</div></section>
 
 <!-- ROW 1: THE DATA (desktop research mockup) -->
 <section class="wrap"><div class="row">
