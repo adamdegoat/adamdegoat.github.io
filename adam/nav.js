@@ -32,7 +32,7 @@
     '<circle cx="32" cy="39" r="3.4" fill="#b08d57"/></svg>';
 
   var css = '' +
-    '.psnav{position:sticky;top:0;z-index:300;background:rgba(247,244,236,.97);border-bottom:1px solid #e7e0d2;font-family:"Schibsted Grotesk",system-ui,sans-serif}' +
+    '.psnav{position:sticky;top:0;z-index:300;background:rgba(247,244,236,.97);border-bottom:1px solid #e7e0d2;font-family:"Schibsted Grotesk",system-ui,sans-serif;padding-top:env(safe-area-inset-top)}' +
     '.psnav-in{max-width:1200px;margin:0 auto;padding:0 36px;height:76px;display:flex;align-items:center;gap:30px}' +
     '.psnav-brand{display:flex;align-items:center;gap:11px;text-decoration:none}.psnav-brand .pm{width:38px;height:38px;flex:none;color:#1b3a2d}' +
     '.psnav-brand .bw{display:flex;flex-direction:column;line-height:1}.psnav-brand .bw span{font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:#8a8175;font-weight:700;margin-top:4px}' +
@@ -44,7 +44,7 @@
     '.psnav-links a.cta{background:#1b3a2d;color:#f5f1e8;padding:9px 18px;border-radius:30px;font-weight:700}' +
     '.psnav-burger{display:none;margin-left:auto;width:42px;height:42px;border:1px solid #dbd1bf;border-radius:10px;background:rgba(255,255,255,.6);cursor:pointer;align-items:center;justify-content:center}' +
     '.psnav-burger svg{width:22px;height:22px;stroke:#191512;fill:none;stroke-width:2;stroke-linecap:round}' +
-    '.psnav-menu{position:fixed;left:0;right:0;top:76px;bottom:0;z-index:299;background:#f6f3ea;padding:14px 24px 30px;display:none;flex-direction:column;overflow-y:auto}' +
+    '.psnav-menu{position:fixed;left:0;right:0;top:calc(76px + env(safe-area-inset-top));bottom:0;z-index:299;background:#f6f3ea;padding:14px 24px 30px;display:none;flex-direction:column;overflow-y:auto}' +
     '.psnav-menu.open{display:flex}' +
     '.psnav-menu a{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:23px;color:#191512;text-decoration:none;padding:16px 2px;border-bottom:1px solid #e7e0d2}' +
     '.psnav-menu a .psm-pill{display:inline-block;vertical-align:middle;position:relative;top:-3px;margin-left:9px;font-family:"Schibsted Grotesk",system-ui,sans-serif;font-weight:800;font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:#241a0d;background:linear-gradient(135deg,#e3c98f,#b08d57);border-radius:20px;padding:3px 8px;box-shadow:0 2px 6px rgba(176,141,87,.3)}' +
