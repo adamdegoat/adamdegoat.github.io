@@ -39,11 +39,11 @@
    + '.psj-perks b{color:var(--ink);font-weight:600}'
    + '.psj-tick{flex:none;width:20px;height:20px;border-radius:50%;background:#eaf5ef;border:1px solid #cde7d8;display:flex;align-items:center;justify-content:center;margin-top:1px}'
    + '.psj-tick svg{width:11px;height:11px;stroke:var(--g);fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}'
-   + '.psj-form{display:flex;flex-direction:column;gap:9px}'
-   + '.psj-form input{width:100%;padding:13px 15px;border:1px solid #d8cfbe;border-radius:12px;font-size:15px;font-family:inherit;background:#fff;color:var(--ink)}'
-   + '.psj-form input:focus{outline:none;border-color:var(--g);box-shadow:0 0 0 3px rgba(31,193,143,.14)}'
-   + '.psj-form button{width:100%;padding:14px;border:0;border-radius:12px;background:var(--g);color:#f5f1e8;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;transition:.18s;margin-top:2px}'
-   + '.psj-form button:hover{background:#163025}.psj-form button:disabled{opacity:.55;cursor:default}'
+   + '.psj-form,.psj-siform{display:flex;flex-direction:column;gap:9px}'
+   + '.psj-form input,.psj-siform input{width:100%;padding:13px 15px;border:1px solid #d8cfbe;border-radius:12px;font-size:15px;font-family:inherit;background:#fff;color:var(--ink)}'
+   + '.psj-form input:focus,.psj-siform input:focus{outline:none;border-color:var(--g);box-shadow:0 0 0 3px rgba(31,193,143,.14)}'
+   + '.psj-form button,.psj-siform button{width:100%;padding:14px;border:0;border-radius:12px;background:var(--g);color:#f5f1e8;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;transition:.18s;margin-top:2px}'
+   + '.psj-form button:hover,.psj-siform button:hover{background:#163025}.psj-form button:disabled,.psj-siform button:disabled{opacity:.55;cursor:default}'
    + '.psj-msg{font-size:13px;font-weight:600;margin-top:11px;min-height:1px}.psj-msg.ok{color:#1b7a52}.psj-msg.err{color:#c0392b}'
    + '.psj-fine{font-size:11.5px;color:var(--ink3);margin-top:13px;line-height:1.5}'
    + '.psj-fine a{color:var(--g2);font-weight:600;text-decoration:none;cursor:pointer}'
@@ -69,26 +69,41 @@
     var sub = opts.sub || 'Join PropSight free — see every condo &amp; HDB in full, plus the weekly insights and live Telegram signals.';
     var x = opts.modal ? '<button class="psj-x" data-psj-close aria-label="Close">×</button>' : '';
     return '<div class="psj-card">' + x
-      + '<div class="psj-ey">Free membership</div>'
-      + '<h3 class="psj-h">' + h + '</h3>'
-      + '<p class="psj-sub">' + sub + '</p>'
-      + '<ul class="psj-perks">'
-      + '<li>' + TICK + '<span><b>Full research</b> — every condo &amp; HDB, ranked, compared &amp; tracked.</span></li>'
-      + '<li>' + TICK + '<span><b>More of Aillie</b> — a higher chat limit with your property assistant.</span></li>'
-      + '<li>' + TICK + '<span><b>Weekly newsletter</b> — the moves that matter, in plain English.</span></li>'
-      + '<li>' + TICK + '<span><b>Telegram channel</b> — live property signals as they happen.</span></li>'
-      + '</ul>'
-      + '<form class="psj-form" novalidate>'
-      + '<div class="psj-row"><input name="name" placeholder="First name" autocomplete="given-name">'
-      + '<input name="email" type="email" placeholder="you@email.com" autocomplete="email"></div>'
-      + '<button type="submit">Join free →</button></form>'
-      + '<div class="psj-msg"></div>'
-      + '<div class="psj-fine">Free forever · no spam · <a data-psj-signin>Already a member? Sign in</a></div>'
+      + '<div class="psj-join">'
+      +   '<div class="psj-ey">Free membership</div>'
+      +   '<h3 class="psj-h">' + h + '</h3>'
+      +   '<p class="psj-sub">' + sub + '</p>'
+      +   '<ul class="psj-perks">'
+      +   '<li>' + TICK + '<span><b>Full research</b> — every condo &amp; HDB, ranked, compared &amp; tracked.</span></li>'
+      +   '<li>' + TICK + '<span><b>More of Aillie</b> — a higher chat limit with your property assistant.</span></li>'
+      +   '<li>' + TICK + '<span><b>Weekly newsletter</b> — the moves that matter, in plain English.</span></li>'
+      +   '<li>' + TICK + '<span><b>Telegram channel</b> — live property signals as they happen.</span></li>'
+      +   '</ul>'
+      +   '<form class="psj-form" novalidate>'
+      +   '<div class="psj-row"><input name="name" placeholder="First name" autocomplete="given-name">'
+      +   '<input name="email" type="email" placeholder="you@email.com" autocomplete="email"></div>'
+      +   '<button type="submit">Join free →</button></form>'
+      +   '<div class="psj-msg"></div>'
+      +   '<div class="psj-fine">Free forever · no password · unsubscribe anytime. <a data-psj-tosignin>Already a member? Sign in</a></div>'
+      + '</div>'
+      + '<div class="psj-signin" style="display:none">'
+      +   '<div class="psj-ey">Welcome back</div>'
+      +   '<h3 class="psj-h">Sign in to PropSight.</h3>'
+      +   '<p class="psj-sub">No password needed — enter your email and we’ll send you a one-tap sign-in link.</p>'
+      +   '<form class="psj-siform" novalidate>'
+      +   '<input name="email" type="email" placeholder="you@email.com" autocomplete="email">'
+      +   '<button type="submit">Email me a sign-in link →</button></form>'
+      +   '<div class="psj-msg psj-simsg"></div>'
+      +   '<div class="psj-fine"><a data-psj-tojoin>← New here? Join free</a></div>'
+      + '</div>'
       + '</div>';
   }
 
-  // wire a rendered card (its root contains .psj-form etc.). onDone(member) fires on success.
+  // wire a rendered card. onDone(member) fires on a successful join.
   function wire(root, source, onDone) {
+    var joinView = root.querySelector('.psj-join'),
+        siView = root.querySelector('.psj-signin');
+    // ── join ──
     var form = root.querySelector('.psj-form'),
         msg = root.querySelector('.psj-msg'),
         btn = form.querySelector('button');
@@ -109,12 +124,31 @@
         }
       }).catch(function () { btn.disabled = false; btn.textContent = 'Join free →'; msg.className = 'psj-msg err'; msg.textContent = 'Network error — please try again.'; });
     });
-    var si = root.querySelector('[data-psj-signin]');
-    if (si) si.addEventListener('click', function () {
-      var email = prompt('Enter your email and we’ll send you a sign-in link:');
-      if (!email || email.indexOf('@') < 1) return;
-      signin(email.trim()).then(function () { msg.className = 'psj-msg ok'; msg.textContent = 'Sent — check your email for the sign-in link.'; });
+    // ── toggle between join / sign-in ──
+    var toSi = root.querySelector('[data-psj-tosignin]'), toJoin = root.querySelector('[data-psj-tojoin]');
+    if (toSi && siView) toSi.addEventListener('click', function () {
+      joinView.style.display = 'none'; siView.style.display = 'block';
+      var i = siView.querySelector('[name=email]'); if (i) i.focus();
     });
+    if (toJoin) toJoin.addEventListener('click', function () {
+      siView.style.display = 'none'; joinView.style.display = 'block';
+    });
+    // ── sign-in (passwordless link) ──
+    var sif = root.querySelector('.psj-siform');
+    if (sif) {
+      var simsg = root.querySelector('.psj-simsg'), sib = sif.querySelector('button');
+      sif.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var email = (sif.querySelector('[name=email]').value || '').trim();
+        if (email.indexOf('@') < 1) { simsg.className = 'psj-msg psj-simsg err'; simsg.textContent = 'Please enter a valid email.'; return; }
+        sib.disabled = true; sib.textContent = 'Sending…';
+        signin(email).then(function () {
+          simsg.className = 'psj-msg psj-simsg ok';
+          simsg.textContent = 'Sent! Check your email for the one-tap sign-in link.';
+          sib.textContent = 'Link sent ✓';
+        }).catch(function () { sib.disabled = false; sib.textContent = 'Email me a sign-in link →'; simsg.className = 'psj-msg psj-simsg err'; simsg.textContent = 'Network error — please try again.'; });
+      });
+    }
   }
 
   function openModal(source) {
