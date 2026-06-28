@@ -1,100 +1,252 @@
 <!doctype html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f7f4ec">
-<title>About PropSight — Singapore property, decoded</title>
-<meta name="description" content="PropSight is a free Singapore property hub built on official records: value any HDB or condo, see what you can afford, research any project, check stamp duty and grants, follow the market, and ask Aillie, your property intelligence. We give you the data, not a pitch.">
+<title>PropSight — Singapore property, decoded by data</title>
+<meta name="description" content="PropSight reads Singapore's official property data for you. Value any home on real sales, see what you can afford, research any project, and ask Aillie, your property intelligence — all free, all on your phone. Join free.">
 <link rel="manifest" href="../manifest.json">
 <link rel="apple-touch-icon" href="../icons/icon-180.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b3a2d'/%3E%3Cpath d='M8 18.5 L16 11 L24 18.5' fill='none' stroke='%23ead4a2' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M11 23 L21 23' stroke='%23ead4a2' stroke-width='2.2' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='19.3' r='1.7' fill='%23c8a468'/%3E%3C/svg%3E">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600&family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#191512;--ink2:#5a5248;--ink3:#8a8175;--bg:#f7f4ec;--card:#fffefc;--line:#e7e0d2;--line2:#dbd1bf;--green:#1b3a2d;--green2:#27513f;--green3:#0f231a;--brass:#b08d57;--brass2:#c8a468;--brass3:#e3c98f;--serif:'Fraunces',Georgia,serif;--ease:cubic-bezier(.2,.7,.2,1)}
+:root{--ink:#191512;--ink2:#5a5248;--ink3:#8a8175;--bg:#f4f1e8;--card:#fffefc;--line:#e7e0d2;--line2:#dbd1bf;--green:#1b3a2d;--green2:#27513f;--green3:#0f231a;--brass:#b08d57;--brass2:#c8a468;--brass3:#e3c98f;--sage:#3aa76d;--serif:'Fraunces',Georgia,serif;--ease:cubic-bezier(.2,.7,.2,1)}
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{overflow-x:hidden}
 body{font-family:'Schibsted Grotesk',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
-.wrap{max-width:1200px;margin:0 auto;padding:0 36px}
-.kick{font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);display:inline-flex;align-items:center;gap:10px}
-.kick::before{content:"";width:22px;height:1.5px;background:var(--brass)}
-/* hero */
-.hero{padding:56px 0 12px}
-.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(36px,5.6vw,68px);letter-spacing:-.03em;line-height:1.02;margin:18px 0 0;max-width:14ch}
-.hero h1 em{font-style:italic;color:var(--green2)}
-.hero .lead{font-size:18px;color:var(--ink2);margin:22px 0 0;max-width:620px;line-height:1.6}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:38px 0 0;max-width:760px}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 20px 18px;box-shadow:0 5px 18px rgba(25,21,18,.05)}
-.stat b{font-family:var(--serif);font-weight:600;font-size:30px;color:var(--green2);display:block;line-height:1}
-.stat span{display:block;margin-top:8px;font-size:12.5px;color:var(--ink2);line-height:1.45}
-/* capabilities */
-.sec{padding:54px 0 8px}
-.sec h2{font-family:var(--serif);font-weight:600;font-size:clamp(27px,3.4vw,38px);letter-spacing:-.02em;line-height:1.06;margin:14px 0 0;max-width:18ch}
-.sec .sub{font-size:15.5px;color:var(--ink2);margin:12px 0 0;max-width:560px}
-.caps{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:30px 0 0}
-.cap{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 20px 17px;text-decoration:none;color:inherit;overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s,border-color .3s}
-.cap::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--brass2),var(--brass));transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
-.cap:hover{transform:translateY(-5px);box-shadow:0 22px 46px rgba(25,21,18,.12);border-color:var(--brass2)}
-.cap:hover::after{transform:none}
-.cap .ct{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--brass)}
-.cap h3{font-family:var(--serif);font-weight:600;font-size:18px;margin:9px 0 7px;letter-spacing:-.01em}
-.cap p{font-size:12.8px;color:var(--ink2);line-height:1.5;flex:1}
-.cap .go{margin-top:13px;font-size:12px;font-weight:700;color:var(--green2)}
-/* closing */
-.cta{margin:56px 0 70px;border-radius:24px;overflow:hidden;position:relative;background:radial-gradient(700px 320px at 85% -20%,rgba(227,201,143,.22),transparent 60%),linear-gradient(150deg,var(--green2),var(--green3));color:#f3efe6;padding:48px 44px}
-.cta .kick{color:var(--brass3)}.cta .kick::before{background:var(--brass3)}
-.cta h2{font-family:var(--serif);font-weight:600;font-size:clamp(26px,3.4vw,38px);letter-spacing:-.02em;margin:14px 0 0;max-width:16ch;color:#f6f1e7}
-.cta p{font-size:16px;color:rgba(246,241,231,.85);margin:14px 0 0;max-width:560px;line-height:1.55}
-.cbtns{display:flex;gap:13px;flex-wrap:wrap;margin:26px 0 0}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:40px;font-weight:700;font-size:14.5px;text-decoration:none;transition:.22s var(--ease)}
-.btn.brass{background:linear-gradient(135deg,var(--brass3),var(--brass));color:#241a0d;box-shadow:0 10px 26px rgba(176,141,87,.34)}
-.btn.brass:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(176,141,87,.45)}
-.btn.ghost{background:rgba(255,255,255,.08);color:#f6f1e7;border:1px solid rgba(246,241,231,.32)}
-.btn.ghost:hover{background:rgba(255,255,255,.16);transform:translateY(-2px)}
-@media(max-width:880px){.stats,.caps{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.stats{grid-template-columns:1fr}.caps{grid-template-columns:1fr}.wrap{padding:0 20px}.cta{padding:36px 24px}}
+.wrap{max-width:1180px;margin:0 auto;padding:0 36px}
+.kick{font-size:11.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);display:inline-flex;align-items:center;gap:9px}
+.kick::before{content:"";width:20px;height:1.5px;background:var(--brass)}
+a{color:inherit}
+
+/* ── HERO ── */
+.hero{position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(720px 380px at 78% -10%,rgba(227,201,143,.28),transparent 62%),radial-gradient(600px 400px at 5% 110%,rgba(39,81,63,.08),transparent 60%);pointer-events:none}
+.hero-in{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center;padding:46px 0 40px;min-height:78vh}
+.h1{font-family:var(--serif);font-weight:600;font-size:clamp(38px,5.2vw,62px);letter-spacing:-.03em;line-height:1.0;margin:16px 0 0}
+.h1 em{font-style:italic;color:var(--green2)}
+.lead{font-size:17px;color:var(--ink2);margin:20px 0 0;max-width:30ch;line-height:1.55}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+.chip{display:inline-flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--line);border-radius:30px;padding:7px 13px;font-size:12.5px;font-weight:600;color:var(--ink2)}
+.chip b{color:var(--green2);font-weight:800}
+.chip svg{width:14px;height:14px;color:var(--brass)}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 0}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:40px;font-weight:800;font-size:15px;text-decoration:none;cursor:pointer;border:0;font-family:inherit;transition:.22s var(--ease)}
+.btn.brass{background:linear-gradient(135deg,var(--brass3),var(--brass));color:#241a0d;box-shadow:0 12px 28px rgba(176,141,87,.36)}
+.btn.brass:hover{transform:translateY(-2px);box-shadow:0 18px 38px rgba(176,141,87,.46)}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line2)}
+.btn.ghost:hover{border-color:var(--brass);transform:translateY(-2px)}
+
+/* hero phone cluster */
+.cluster{position:relative;display:flex;justify-content:center;align-items:center;min-height:540px}
+.cluster .phone{position:absolute}
+.cluster .p-main{transform:rotate(-3deg);z-index:3}
+.cluster .p-back{transform:translate(120px,40px) rotate(6deg) scale(.86);z-index:1;opacity:.96}
+.cluster .p-front{transform:translate(-128px,70px) rotate(-9deg) scale(.78);z-index:2}
+
+/* ── PHONE MOCKUP ── */
+.phone{width:248px;background:#0d1f17;border-radius:38px;padding:8px;box-shadow:0 40px 80px rgba(15,35,26,.28),0 0 0 1.5px rgba(255,255,255,.06) inset}
+.phone .screen{position:relative;background:var(--bg);border-radius:31px;overflow:hidden;aspect-ratio:9/19.3;display:flex;flex-direction:column}
+.phone .notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:38%;height:20px;background:#0d1f17;border-radius:0 0 13px 13px;z-index:9}
+/* chat screen */
+.sc-head{background:linear-gradient(150deg,var(--green2),var(--green3));padding:26px 14px 12px;color:#f3efe6;flex:none}
+.sc-head .ai{display:flex;align-items:center;gap:9px}
+.sc-head .av{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,#2c5743,#0f231a);border:1px solid rgba(227,201,143,.4);display:flex;align-items:center;justify-content:center;font-family:var(--serif);color:#efd9a6;font-weight:600;font-size:16px;flex:none}
+.sc-head b{font-family:var(--serif);font-weight:600;font-size:15px;display:block;line-height:1.1}
+.sc-head .st{font-size:9.5px;color:rgba(243,239,230,.82);display:flex;align-items:center;gap:5px;margin-top:1px}
+.sc-head .dot{width:6px;height:6px;border-radius:50%;background:#86d6a8}
+.sc-body{flex:1;padding:13px 12px;display:flex;flex-direction:column;gap:9px;overflow:hidden}
+.bub{max-width:84%;padding:9px 12px;border-radius:14px;font-size:11.5px;line-height:1.42}
+.bub.u{align-self:flex-end;background:var(--green);color:#f3efe6;border-bottom-right-radius:5px}
+.bub.a{align-self:flex-start;background:#fff;border:1px solid var(--line);color:var(--ink);border-bottom-left-radius:5px}
+.bub.a b{color:var(--green2)}
+.sc-foot{flex:none;padding:9px 12px;border-top:1px solid var(--line);background:rgba(255,255,255,.5);display:flex;align-items:center;gap:8px}
+.sc-foot .ip{flex:1;height:30px;background:#fff;border:1px solid var(--line);border-radius:20px;font-size:10px;color:var(--ink3);display:flex;align-items:center;padding:0 12px}
+.sc-foot .snd{width:30px;height:30px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;flex:none}
+.sc-foot .snd svg{width:13px;height:13px;stroke:#f3efe6}
+/* generic app screen (value / research) */
+.sc-app{flex:1;padding:24px 13px 13px;display:flex;flex-direction:column;gap:10px;overflow:hidden}
+.sc-eb{font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--brass)}
+.sc-t{font-family:var(--serif);font-weight:600;font-size:16px;letter-spacing:-.01em;line-height:1.1}
+.val-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px;box-shadow:0 6px 18px rgba(25,21,18,.06)}
+.val-card .ad{font-size:10px;color:var(--ink3);font-weight:600}
+.val-card .big{font-family:var(--serif);font-weight:600;font-size:27px;color:var(--green2);line-height:1;margin:5px 0 3px}
+.val-card .rg{font-size:10.5px;color:var(--ink2)}
+.val-card .cf{display:inline-flex;align-items:center;gap:5px;margin-top:9px;font-size:9.5px;font-weight:700;color:#1b7a52;background:#eaf5ef;border:1px solid #cde7d8;border-radius:20px;padding:3px 9px}
+.bars{display:flex;align-items:flex-end;gap:5px;height:42px;margin-top:4px}
+.bars i{flex:1;background:linear-gradient(180deg,var(--brass2),var(--brass));border-radius:3px 3px 0 0;opacity:.9}
+.row{display:flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);border-radius:11px;padding:9px 11px}
+.row .rk{font-family:var(--serif);font-weight:600;color:var(--brass);font-size:13px;width:14px}
+.row .nm{flex:1;font-size:11px;font-weight:600;line-height:1.15}
+.row .nm s{display:block;text-decoration:none;font-size:9px;color:var(--ink3);font-weight:500}
+.row .tg{font-size:9px;font-weight:800;padding:3px 7px;border-radius:20px}
+.tg.up{background:#eaf5ef;color:#1b7a52}.tg.dn{background:#fbecec;color:#c0392b}
+
+/* ── SHOWCASE ── */
+.show{padding:8px 0 8px}
+.show-h{text-align:center;max-width:30ch;margin:0 auto}
+.show-h h2{font-family:var(--serif);font-weight:600;font-size:clamp(26px,3.4vw,38px);letter-spacing:-.02em;line-height:1.06;margin:12px 0 0}
+.show-h .kick{justify-content:center}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:34px 0 0;align-items:end}
+.feat{display:flex;flex-direction:column;align-items:center;text-align:center}
+.feat .phone{width:228px}
+.feat .cap{margin:18px 0 0}
+.feat .cap h3{font-family:var(--serif);font-weight:600;font-size:18px;letter-spacing:-.01em}
+.feat .cap p{font-size:13px;color:var(--ink2);margin:5px 0 0;line-height:1.45;max-width:24ch}
+
+/* ── JOIN BAND ── */
+.join{margin:46px 0 60px}
+.join-in{position:relative;overflow:hidden;border-radius:26px;background:radial-gradient(700px 320px at 85% -30%,rgba(227,201,143,.26),transparent 60%),linear-gradient(150deg,var(--green2),var(--green3));color:#f3efe6;padding:44px 46px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+.join h2{font-family:var(--serif);font-weight:600;font-size:clamp(26px,3.4vw,40px);letter-spacing:-.02em;line-height:1.05;margin:13px 0 0;color:#f6f1e7}
+.join .kick{color:var(--brass3)}.join .kick::before{background:var(--brass3)}
+.perks{list-style:none;margin:20px 0 0;display:flex;flex-direction:column;gap:11px}
+.perks li{display:flex;align-items:flex-start;gap:11px;font-size:14.5px;color:rgba(246,241,231,.92)}
+.perks .tk{flex:none;width:22px;height:22px;border-radius:50%;background:rgba(134,214,168,.16);border:1px solid rgba(134,214,168,.4);display:flex;align-items:center;justify-content:center;margin-top:1px}
+.perks .tk svg{width:12px;height:12px;stroke:#86d6a8;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.perks b{color:#fff;font-weight:700}
+.join-cta{display:flex;flex-direction:column;gap:12px}
+.join-cta .btn{justify-content:center}
+.btn.tg{background:#229ED9;color:#fff}.btn.tg:hover{filter:brightness(1.08);transform:translateY(-2px)}
+.fineprint{margin:26px 0 0;font-size:13px;color:var(--ink3);text-align:center}
+.fineprint a{color:var(--green2);font-weight:700}
+
+@media(max-width:980px){
+  .hero-in{grid-template-columns:1fr;gap:10px;min-height:0;padding:34px 0 20px;text-align:center}
+  .hero-in .kick,.chips,.cta-row{justify-content:center}
+  .lead{max-width:42ch;margin-left:auto;margin-right:auto}
+  .cluster{min-height:430px;margin-top:14px}
+  .join-in{grid-template-columns:1fr;gap:20px;text-align:center}
+  .join-in .kick{justify-content:center}.perks{align-items:flex-start;max-width:340px;margin-left:auto;margin-right:auto}
+}
+@media(max-width:760px){
+  .three{grid-template-columns:1fr;gap:36px}
+  .feat .phone{width:250px}
+  .cluster .p-back{transform:translate(96px,30px) rotate(6deg) scale(.82)}
+  .cluster .p-front{transform:translate(-104px,56px) rotate(-9deg) scale(.74)}
+}
+@media(max-width:560px){.wrap{padding:0 20px}.join-in{padding:34px 24px}
+  .cluster{min-height:430px}.cluster .p-back,.cluster .p-front{display:none}.cluster .p-main{transform:rotate(0)}}
 </style>
 </head>
 <body>
-<section class="hero"><div class="wrap">
-  <span class="kick">About PropSight</span>
-  <h1>Most agents give you a <em>pitch</em>. We give you the <em>data</em>.</h1>
-  <p class="lead">PropSight is a free Singapore property hub built on official records, so you can check every number yourself before anyone tries to sell you anything. No hype, no sign-up, nothing we can't stand behind, just the facts laid out plainly. And when you want a real person in your corner, we're one message away.</p>
-  <div class="stats">
-    <div class="stat"><b>137k+</b><span>official URA caveats behind every figure</span></div>
-    <div class="stat"><b>$0</b><span>to use every tool, no sign-up</span></div>
-    <div class="stat"><b>Weekly</b><span>data, refreshed from official sources</span></div>
-  </div>
-</div></section>
 
-<section class="sec"><div class="wrap">
-  <span class="kick">What PropSight does</span>
-  <h2>Everything for your Singapore move, in one place.</h2>
-  <p class="sub">Free tools built on official URA, HDB and OneMap data, plus Aillie, your property intelligence, who pulls the real numbers for you.</p>
-  <div class="caps">
-    <a class="cap" href="../#tools" onclick="window.askAillie&&0"><span class="ct">Property intelligence</span><h3>Aillie</h3><p>Ask anything about Singapore property in plain language and get real numbers back, right in the chat.</p><span class="go">Ask Aillie →</span></a>
-    <a class="cap" href="../tools/value.html"><span class="ct">Valuation</span><h3>What's my home worth</h3><p>Any HDB or condo, valued on real recent transactions, with an honest range and the comparable sales shown.</p><span class="go">Open →</span></a>
-    <a class="cap" href="../tools/afford.html"><span class="ct">Affordability</span><h3>What can I afford</h3><p>Your real budget worked out from your income and savings using the actual lending rules.</p><span class="go">Open →</span></a>
-    <a class="cap" href="/thesis/"><span class="ct">Research</span><h3>Every condo & HDB, by the numbers</h3><p>Prices, price trends, rental yield, tenure and how a place is priced against comparable homes nearby, plus new and upcoming launches.</p><span class="go">Open →</span></a>
-    <a class="cap" href="../tools/stamp-duty.html"><span class="ct">Stamp duty</span><h3>What tax you'll pay</h3><p>Buyer's stamp duty plus any extra duty, worked out to the dollar on the latest official rates.</p><span class="go">Open →</span></a>
-    <a class="cap" href="../tools/grants.html"><span class="ct">Grants</span><h3>What grants you can get</h3><p>Your likely CPF housing grants as a first-timer, and roughly how much.</p><span class="go">Open →</span></a>
-    <a class="cap" href="../tools/eligibility.html"><span class="ct">Eligibility</span><h3>Can you buy it</h3><p>HDB, EC or condo, check whether you're eligible on citizenship, income and lock-in before you fall for a place.</p><span class="go">Open →</span></a>
-    <a class="cap" href="../tools/sell.html"><span class="ct">Selling</span><h3>What you'll walk away with</h3><p>Your seller's stamp duty if any, and exactly what you pocket after loan, CPF and costs.</p><span class="go">Open →</span></a>
-    <a class="cap" href="../tools/schools.html"><span class="ct">Schools</span><h3>Homes near a school</h3><p>Pick a primary school and see the condos within 1km and 2km for registration priority.</p><span class="go">Open →</span></a>
-    <a class="cap" href="../notes/"><span class="ct">Market Pulse</span><h3>This week's market</h3><p>A short, honest weekly read on what prices are actually doing and what it means if you're buying or selling now.</p><span class="go">Open →</span></a>
-    <a class="cap" href="../news/"><span class="ct">News</span><h3>Singapore property news</h3><p>The headlines that matter for your home, in plain English with what each one means for you. Refreshed daily.</p><span class="go">Open →</span></a>
-    <a class="cap" href="../essentials/"><span class="ct">The Guide</span><h3>How it all works</h3><p>The full buying and selling journey, start to finish, plus the tips that quietly save people money.</p><span class="go">Open →</span></a>
-  </div>
-</div></section>
-
-<section><div class="wrap">
-  <div class="cta">
-    <span class="kick">When you're ready</span>
-    <h2>Want a real person in your corner?</h2>
-    <p>Use everything here free, for as long as you like. When you want a straight answer about your own situation, no pressure and no sales script, we're one message away.</p>
-    <div class="cbtns">
-      <a class="btn brass" href="https://wa.me/6583219747">Message us on WhatsApp →</a>
-      <a class="btn ghost" href="../">Explore the tools →</a>
+<!-- HERO -->
+<section class="hero"><div class="wrap hero-in">
+  <div>
+    <span class="kick">Singapore property intelligence</span>
+    <h1 class="h1">Singapore property, <em>decoded by data.</em></h1>
+    <p class="lead">PropSight reads Singapore's official property records for you — and answers in plain English. Value any home, see what you can afford, research any project, and just ask Aillie.</p>
+    <div class="chips">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg><b>137k+</b> official caveats</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>Aillie <b>AI</b> answers</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>Refreshed <b>weekly</b></span>
+      <span class="chip"><b>$0</b> — always free</span>
     </div>
-    <p style="margin-top:22px;font-size:14px;color:rgba(246,241,231,.82)">Business &amp; partnerships: <a href="mailto:propsightsg@gmail.com" style="color:var(--brass3);font-weight:700;border-bottom:1px solid rgba(227,201,143,.45)">propsightsg@gmail.com</a></p>
+    <div class="cta-row">
+      <button class="btn brass" type="button" onclick="window.PS&&PS.openModal('about')">Join free →</button>
+      <a class="btn ghost" href="../">See the tools</a>
+    </div>
+  </div>
+  <div class="cluster">
+    <!-- back: research -->
+    <div class="phone p-back"><div class="screen"><div class="notch"></div>
+      <div class="sc-app">
+        <span class="sc-eb">Research</span><div class="sc-t">Best value condos</div>
+        <div class="row"><span class="rk">1</span><span class="nm">The Clematis<s>Clementi · 99-yr</s></span><span class="tg up">9% below</span></div>
+        <div class="row"><span class="rk">2</span><span class="nm">Parc Botannia<s>Sengkang · 99-yr</s></span><span class="tg up">7% below</span></div>
+        <div class="row"><span class="rk">3</span><span class="nm">Riverfront Res.<s>Hougang · 99-yr</s></span><span class="tg up">5% below</span></div>
+        <div class="row"><span class="rk">4</span><span class="nm">The Tre Ver<s>Potong Pasir</s></span><span class="tg dn">2% above</span></div>
+      </div>
+    </div></div>
+    <!-- front: value -->
+    <div class="phone p-front"><div class="screen"><div class="notch"></div>
+      <div class="sc-app">
+        <span class="sc-eb">What's it worth</span><div class="sc-t">Estimate</div>
+        <div class="val-card">
+          <div class="ad">BLK 123 Bishan St 12 · 4-room</div>
+          <div class="big">$715,000</div>
+          <div class="rg">$690k – $742k · on 18 recent sales</div>
+          <span class="cf">● High confidence</span>
+          <div class="bars"><i style="height:55%"></i><i style="height:70%"></i><i style="height:62%"></i><i style="height:84%"></i><i style="height:78%"></i><i style="height:92%"></i></div>
+        </div>
+      </div>
+    </div></div>
+    <!-- main: Aillie chat -->
+    <div class="phone p-main"><div class="screen"><div class="notch"></div>
+      <div class="sc-head">
+        <div class="ai"><span class="av">A</span><div><b>Aillie</b><span class="st"><span class="dot"></span>Live in Singapore</span></div></div>
+      </div>
+      <div class="sc-body">
+        <div class="bub u">Is a 4-room in Bishan a good buy now?</div>
+        <div class="bub a">Bishan 4-rooms are going for about <b>$720k</b>, up ~3% this year. A touch above the island median, but demand near the MRT is strong.</div>
+        <div class="bub a">Want me to value a specific block, or check what you can afford?</div>
+      </div>
+      <div class="sc-foot"><span class="ip">Ask about any home…</span><span class="snd"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></span></div>
+    </div></div>
   </div>
 </div></section>
+
+<!-- SHOWCASE -->
+<section class="show"><div class="wrap">
+  <div class="show-h">
+    <span class="kick">No spreadsheets, no jargon</span>
+    <h2>The whole market, in your pocket.</h2>
+  </div>
+  <div class="three">
+    <div class="feat">
+      <div class="phone"><div class="screen"><div class="notch"></div>
+        <div class="sc-head"><div class="ai"><span class="av">A</span><div><b>Aillie</b><span class="st"><span class="dot"></span>Property intelligence</span></div></div></div>
+        <div class="sc-body">
+          <div class="bub u">What can I afford on $9k a month?</div>
+          <div class="bub a">Around <b>$1.05m</b> on a bank loan, or up to <b>$640k</b> for an HDB flat. Want the full breakdown?</div>
+        </div>
+        <div class="sc-foot"><span class="ip">Ask anything…</span><span class="snd"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></span></div>
+      </div></div>
+      <div class="cap"><h3>Just ask Aillie</h3><p>Real numbers back, in plain English, instantly.</p></div>
+    </div>
+    <div class="feat">
+      <div class="phone"><div class="screen"><div class="notch"></div>
+        <div class="sc-app">
+          <span class="sc-eb">Affordability</span><div class="sc-t">Your real budget</div>
+          <div class="val-card"><div class="ad">Income $9,000/mo · $120k saved</div><div class="big">$1.05M</div><div class="rg">comfortable on a 25-yr loan</div><span class="cf">● Within TDSR limits</span></div>
+          <div class="row"><span class="nm">Monthly repayment<s>at 4% stress rate</s></span><span class="tg up">$3,900</span></div>
+          <div class="row"><span class="nm">Cash + CPF needed<s>upfront</s></span><span class="tg up">$262k</span></div>
+        </div>
+      </div></div>
+      <div class="cap"><h3>Value &amp; afford</h3><p>Every home priced on real sales, your budget on real rules.</p></div>
+    </div>
+    <div class="feat">
+      <div class="phone"><div class="screen"><div class="notch"></div>
+        <div class="sc-app">
+          <span class="sc-eb">Research</span><div class="sc-t">Every condo &amp; HDB</div>
+          <div class="row"><span class="rk">▲</span><span class="nm">Toa Payoh flats<s>hot demand</s></span><span class="tg up">+5.6%</span></div>
+          <div class="row"><span class="rk">▲</span><span class="nm">Bukit Merah flats<s>selling well</s></span><span class="tg up">+4.2%</span></div>
+          <div class="row"><span class="rk">▼</span><span class="nm">Geylang flats<s>room to bargain</s></span><span class="tg dn">-5.9%</span></div>
+          <div class="row"><span class="nm">Rental yield, HDB<s>vs 3.6% for condos</s></span><span class="tg up">6.1%</span></div>
+        </div>
+      </div></div>
+      <div class="cap"><h3>Research anything</h3><p>Prices, trends, yields and where the value is, right now.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- JOIN BAND -->
+<section class="join"><div class="wrap"><div class="join-in">
+  <div>
+    <span class="kick">Free membership</span>
+    <h2>Join the inside track.</h2>
+    <ul class="perks">
+      <li><span class="tk"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><span><b>The full research</b> — every condo &amp; HDB, ranked, compared &amp; tracked.</span></li>
+      <li><span class="tk"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><span><b>Weekly insights</b> + a higher chat limit with Aillie.</span></li>
+      <li><span class="tk"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><span><b>The Telegram community</b> — live property signals as they happen.</span></li>
+    </ul>
+  </div>
+  <div class="join-cta">
+    <button class="btn brass" type="button" onclick="window.PS&&PS.openModal('about')">Join free →</button>
+    <a class="btn tg" href="https://t.me/propsightsg" target="_blank" rel="noopener">Join on Telegram</a>
+  </div>
+</div>
+<p class="fineprint">Free forever, no password. &nbsp;·&nbsp; Business &amp; partnerships: <a href="mailto:propsightsg@gmail.com">propsightsg@gmail.com</a></p>
+</div></section>
+
+<script src="/adam/member.js"></script>
 <script src="/adam/nav.js" defer></script>
 </body></html>
