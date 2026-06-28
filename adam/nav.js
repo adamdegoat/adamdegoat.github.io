@@ -47,6 +47,7 @@
     '.psnav-menu{position:fixed;left:0;right:0;top:76px;bottom:0;z-index:299;background:#f6f3ea;padding:14px 24px 30px;display:none;flex-direction:column;overflow-y:auto}' +
     '.psnav-menu.open{display:flex}' +
     '.psnav-menu a{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:23px;color:#191512;text-decoration:none;padding:16px 2px;border-bottom:1px solid #e7e0d2}' +
+    '.psnav-menu a .psm-pill{display:inline-block;vertical-align:middle;position:relative;top:-3px;margin-left:9px;font-family:"Schibsted Grotesk",system-ui,sans-serif;font-weight:800;font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:#241a0d;background:linear-gradient(135deg,#e3c98f,#b08d57);border-radius:20px;padding:3px 8px;box-shadow:0 2px 6px rgba(176,141,87,.3)}' +
     '@media(max-width:860px){.psnav-links{display:none}.psnav-burger{display:flex}}@media(max-width:560px){.psnav-in{padding:0 20px}.psnav-brand b{font-size:20px}.psnav-brand .pm{width:34px;height:34px}}';
 
   function linkHtml(l, mobile) {
@@ -55,7 +56,10 @@
     if (l[2] === 'smart' && !mobile) cls.push('smart');
     if (l[2] === 'cta' && !mobile) cls.push('cta');
     if (active(l[1])) cls.push('cur');
-    return '<a href="' + l[1] + '"' + (cls.length ? ' class="' + cls.join(' ') + '"' : '') + '>' + l[0] + '</a>';
+    var label = l[0];
+    if (mobile && l[2] === 'feat') label += ' <span class="psm-pill">Featured</span>';
+    if (mobile && l[2] === 'smart') label += ' <span class="psm-pill">Smart</span>';
+    return '<a href="' + l[1] + '"' + (cls.length ? ' class="' + cls.join(' ') + '"' : '') + '>' + label + '</a>';
   }
   var navHTML = '<header class="psnav"><div class="psnav-in">' +
     '<a class="psnav-brand" href="' + BASE + '/adam/">' + MARK + '<span class="bw"><b>PropSight</b><span>Singapore</span></span></a>' +
