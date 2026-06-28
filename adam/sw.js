@@ -1,5 +1,5 @@
-// PropSight hub — service worker (offline shell + installable PWA)
-const CACHE = 'propsight-v135';
+// PropSight hub, service worker (offline shell + installable PWA)
+const CACHE = 'propsight-v137';
 const CORE = [
   'index.html', 'essentials/index.html', 'listings/index.html',
   'notes/index.html', 'notes/your-real-property-budget-three-numbers.html',
@@ -25,8 +25,8 @@ self.addEventListener('fetch', e => {
   const u = new URL(r.url);
   const isHTML = r.mode === 'navigate' || (r.headers.get('accept') || '').includes('text/html');
 
-  // pages + live data: always try the network first so content is never stale; fall back to cache offline
-  if (isHTML || u.pathname.includes('/caveat/data/')) {
+  // pages + live data + shared scripts: always try the network first so updates are never stale; fall back to cache offline
+  if (isHTML || u.pathname.includes('/caveat/data/') || /\/(nav|member)\.js$/.test(u.pathname)) {
     e.respondWith(
       fetch(r).then(resp => {
         if (u.origin === location.origin) { const cc = resp.clone(); caches.open(CACHE).then(c => c.put(r, cc)); }
