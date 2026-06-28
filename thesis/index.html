@@ -462,8 +462,15 @@ select.f{padding:13px 13px;border-radius:13px}
 .gatewrap::after{content:"";position:absolute;left:0;right:0;bottom:0;height:130px;
   background:linear-gradient(180deg,rgba(244,244,246,0),var(--bg) 82%);pointer-events:none}
 .gatehold{display:flex;justify-content:center;padding:0 4px 10px;margin-top:-44px;position:relative;z-index:3}
-.gatehold .psj-card{max-width:472px;width:100%;background:linear-gradient(180deg,#fffdf7,#f4eddb);
-  border:1.5px solid #d9ccac;box-shadow:0 26px 60px rgba(20,30,25,.30),0 0 0 1px rgba(176,141,87,.18),0 2px 0 rgba(255,255,255,.7) inset}
+.gatehold .psj-card{max-width:480px;width:100%;background:linear-gradient(180deg,#fffdf7,#f3ecd6);
+  border:2px solid var(--green);overflow:hidden;
+  box-shadow:0 30px 72px rgba(15,45,32,.34),0 0 0 6px rgba(27,58,45,.08),0 0 0 1px rgba(176,141,87,.3)}
+.gatehold .psj-card::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;
+  background:linear-gradient(90deg,#1b3a2d,#2c5743 55%,#b08d57)}
+.gatehold .psj-card .psj-ey{font-size:11px;padding:6px 13px;box-shadow:0 3px 10px rgba(176,141,87,.4)}
+.gatehold .psj-form button{background:linear-gradient(135deg,#e3c98f,#b08d57);color:#241a0d;font-weight:800;
+  box-shadow:0 10px 24px rgba(176,141,87,.4)}
+.gatehold .psj-form button:hover{filter:brightness(1.06);background:linear-gradient(135deg,#e3c98f,#b08d57)}
 @media(max-width:560px){.gatewrap{max-height:210px}.gatehold{margin-top:-46px}}
 </style>
 <script src="/adam/nav.js" defer></script>
