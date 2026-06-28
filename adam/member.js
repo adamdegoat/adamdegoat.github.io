@@ -56,7 +56,15 @@
    + '.psj-ov.on .psj-card{transform:none}'
    + '.psj-x{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:9px;border:1px solid var(--line);background:#fff;'
    + 'color:var(--ink2);cursor:pointer;font-size:18px;line-height:1;display:flex;align-items:center;justify-content:center}'
-   + '.psj-x:hover{background:#f4f0e6}';
+   + '.psj-x:hover{background:#f4f0e6}'
+   /* account view */
+   + '.psj-acct{display:flex;flex-direction:column;gap:10px;margin-top:6px}'
+   + '.psj-acct a,.psj-acct button{display:flex;align-items:center;justify-content:center;width:100%;padding:14px;border-radius:12px;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;text-decoration:none;border:0}'
+   + '.psj-acct .psj-go{background:var(--g);color:#f5f1e8}.psj-acct .psj-go:hover{background:#163025}'
+   + '.psj-acct .psj-out{background:#fff;color:var(--ink);border:1px solid var(--line)}.psj-acct .psj-out:hover{border-color:var(--br);color:#8a2f2f}'
+   + '.psj-acct .psj-em{font-size:12.5px;color:var(--ink3);text-align:center;margin:2px 0 4px}'
+   /* logged-in nav chip */
+   + '.ps-member{position:relative}.ps-member::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#3aa76d;margin-right:7px;vertical-align:middle}';
 
   var _styled = false;
   function injectCSS() { if (_styled) return; _styled = true;
@@ -116,6 +124,7 @@
       join(name, email, source).then(function (r) {
         if (r && r.ok && r.token) {
           setMember(r.token, r.name || name);
+          applyAuthUI();
           msg.className = 'psj-msg ok'; msg.textContent = 'You’re in! Check your email to confirm.';
           if (onDone) onDone(get());
         } else {
@@ -161,13 +170,60 @@
     requestAnimationFrame(function () { ov.classList.add('on'); });
     function close() { document.documentElement.style.overflow = ''; ov.classList.remove('on'); setTimeout(function () { ov.remove(); }, 240); }
     ov.addEventListener('click', function (e) { if (e.target === ov || e.target.hasAttribute('data-psj-close')) close(); });
-    wire(ov, source || 'home', function () { /* keep modal open to show the "check email" success line */ setTimeout(close, 2600); });
+    wire(ov, source || 'home', function () { applyAuthUI(); setTimeout(close, 2600); });
     setTimeout(function(){ var i=ov.querySelector('[name=name]'); if(i) i.focus(); }, 260);
   }
+
+  function logout() { clear(); try { location.reload(); } catch (e) {} }
+
+  // account panel for signed-in members (replaces the join box once logged in)
+  function openAccount() {
+    injectCSS();
+    if (document.querySelector('.psj-ov')) return;
+    var fn = firstName(), m = get() || {};
+    var ov = document.createElement('div'); ov.className = 'psj-ov';
+    ov.innerHTML = '<div class="psj-card"><button class="psj-x" data-psj-close aria-label="Close">×</button>'
+      + '<div class="psj-ey">Signed in</div>'
+      + '<h3 class="psj-h">You’re a member' + (fn ? ', ' + fn : '') + '.</h3>'
+      + '<p class="psj-sub">Full research, the higher Aillie limit, the weekly newsletter and the Telegram channel are all unlocked.</p>'
+      + '<div class="psj-acct">'
+      + '<a class="psj-go" href="/thesis/">Open the full research →</a>'
+      + '<button class="psj-out" data-psj-logout type="button">Sign out</button>'
+      + '</div></div>';
+    document.body.appendChild(ov);
+    document.documentElement.style.overflow = 'hidden';
+    requestAnimationFrame(function () { ov.classList.add('on'); });
+    function close() { document.documentElement.style.overflow = ''; ov.classList.remove('on'); setTimeout(function () { ov.remove(); }, 240); }
+    ov.addEventListener('click', function (e) { if (e.target === ov || e.target.hasAttribute('data-psj-close')) close(); });
+    ov.querySelector('[data-psj-logout]').addEventListener('click', logout);
+  }
+
+  // every join CTA routes through here: members get the account panel, guests get the join box
+  function cta(source) { if (isMember()) openAccount(); else openModal(source); }
+
+  // relabel join CTAs based on state (".ps-join-cta" → member's name when signed in)
+  function applyAuthUI() {
+    var member = isMember(), label = firstName() || 'My account';
+    var nodes = document.querySelectorAll('.ps-join-cta');
+    for (var i = 0; i < nodes.length; i++) {
+      var el = nodes[i];
+      if (member) {
+        if (!el.dataset.joinlabel) el.dataset.joinlabel = (el.textContent || '').trim();
+        el.textContent = label; el.classList.add('ps-member');
+      } else if (el.dataset.joinlabel) {
+        el.textContent = el.dataset.joinlabel; el.classList.remove('ps-member');
+      }
+    }
+  }
+
+  function _ready(fn) { if (document.readyState !== 'loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
+  _ready(applyAuthUI);
+  setTimeout(applyAuthUI, 400);   // catch nav buttons built late by nav.js
 
   window.PS = {
     API: API, get: get, isMember: isMember, setMember: setMember, clear: clear, firstName: firstName,
     captureToken: captureToken, join: join, signin: signin,
-    injectCSS: injectCSS, cardHTML: cardHTML, wire: wire, openModal: openModal
+    injectCSS: injectCSS, cardHTML: cardHTML, wire: wire, openModal: openModal,
+    cta: cta, openAccount: openAccount, logout: logout, applyAuthUI: applyAuthUI
   };
 })();

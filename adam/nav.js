@@ -68,11 +68,11 @@
   var navHTML = '<header class="psnav"><div class="psnav-in">' +
     '<a class="psnav-brand" href="' + BASE + '/adam/">' + MARK + '<span class="bw"><b>PropSight</b><span>Singapore</span></span></a>' +
     '<nav class="psnav-links">' + LINKS.map(function (l) { return linkHtml(l, false); }).join('') + '</nav>' +
-    '<button class="psnav-join" type="button" onclick="window.PS&&PS.openModal(\'nav\')">Join free</button>' +
+    '<button class="psnav-join ps-join-cta" type="button" onclick="window.PS&&PS.cta(\'nav\')">Join free</button>' +
     '<button class="psnav-burger" id="psBurger" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>' +
     '</div></header>';
   var menuHTML = '<div class="psnav-menu" id="psMenu">' +
-    '<button class="psnav-mjoin" type="button" onclick="window.PS&&PS.openModal(\'menu\')">Join free →</button>' +
+    '<button class="psnav-mjoin ps-join-cta" type="button" onclick="window.PS&&PS.cta(\'menu\')">Join free →</button>' +
     LINKS.map(function (l) { return linkHtml(l, true); }).join('') + '</div>';
 
   function init() {
@@ -90,6 +90,7 @@
     var b = document.getElementById('psBurger');
     b.addEventListener('click', function () { menu.classList.toggle('open'); });
     menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { menu.classList.remove('open'); }); });
+    if (window.PS && PS.applyAuthUI) PS.applyAuthUI();   // relabel Join→name if already signed in
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
