@@ -41,28 +41,27 @@ h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5vw,58px);line-
 .cta .note{font-size:13px;color:var(--ink3);font-weight:600}
 .cta .note b{color:var(--green2)}
 
-/* ── preview cluster (the "coming" effect): ghost listing cards, blurred + shimmering ── */
-.preview{position:relative;z-index:1;height:486px}
-.pstack{position:absolute;inset:0}
-.lc{position:absolute;width:270px;background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 30px 64px rgba(15,35,26,.16);filter:blur(.4px);opacity:.96}
-.lc .ph{height:142px;position:relative;background:linear-gradient(120deg,#e8e0d0,#d8cdb8)}
-.lc .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-120%);animation:sweep 2.8s var(--ease) infinite}
-.lc .ph .tag{position:absolute;left:12px;top:12px;font-size:10px;font-weight:800;letter-spacing:.04em;color:#fff;background:rgba(27,58,45,.9);padding:5px 9px;border-radius:8px}
-.lc .meat{padding:14px 15px 16px}
-.lc .price{font-family:var(--serif);font-weight:600;font-size:21px;color:var(--ink)}
-.lc .ln{height:9px;border-radius:5px;background:#ece5d6;margin-top:9px}
-.lc .ln.s{width:62%}.lc .ln.t{width:84%;margin-top:8px;background:#efe9dc}
-.lc .chips{display:flex;gap:7px;margin-top:13px}
-.lc .chips i{font-style:normal;font-size:11px;color:var(--ink3);font-weight:700;background:#f2ecde;border-radius:7px;padding:4px 8px}
-.lc .verdict{margin-top:13px;display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:700;color:var(--green2)}
-.lc .verdict .d{width:7px;height:7px;border-radius:50%;background:var(--sage)}
-@keyframes sweep{0%{transform:translateX(-120%)}55%,100%{transform:translateX(120%)}}
-@keyframes bob{0%,100%{transform:var(--t) translateY(0)}50%{transform:var(--t) translateY(-9px)}}
-.lc-a{--t:rotate(-5deg);left:2%;top:38px;z-index:1;transform:var(--t);animation:bob 6s var(--ease) infinite}
-.lc-b{--t:rotate(3deg);right:4%;top:8px;z-index:3;transform:var(--t);animation:bob 6.8s var(--ease) infinite .5s}
-.lc-c{--t:rotate(-2deg);left:30%;bottom:6px;z-index:2;transform:var(--t);animation:bob 7.4s var(--ease) infinite .9s}
-/* soft frosted veil so it reads as "preview / not live yet" */
-.preview::after{content:"";position:absolute;inset:-6% -6% -6% -6%;background:radial-gradient(120% 80% at 60% 45%,transparent 38%,rgba(244,241,232,.55) 78%,rgba(244,241,232,.9) 100%);pointer-events:none;z-index:4}
+/* ── preview: realistic listing cards with real photos (a peek at the platform) ── */
+.preview{position:relative;z-index:1;height:360px}
+.lc{position:absolute;left:50%;width:296px;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 30px 62px rgba(15,35,26,.24),0 3px 9px rgba(15,35,26,.08)}
+.lc .ph{position:relative;height:166px;background:#e8e0d0;overflow:hidden}
+.lc .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.lc .tag{position:absolute;left:11px;top:11px;font-size:10px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:rgba(27,58,45,.92);padding:5px 10px;border-radius:7px}
+.lc .save{position:absolute;right:11px;top:11px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.94);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 7px rgba(15,35,26,.2)}
+.lc .save svg{width:15px;height:15px;stroke:#27513f;fill:none;stroke-width:2}
+.lc .meat{padding:14px 15px 15px}
+.lc .price{font-family:var(--serif);font-weight:600;font-size:22px;color:var(--ink);letter-spacing:-.01em;line-height:1}
+.lc .addr{font-size:12.5px;color:var(--ink2);font-weight:600;margin-top:6px}
+.lc .specs{display:flex;margin-top:11px;font-size:11.5px;color:var(--ink3);font-weight:600}
+.lc .specs span+span{margin-left:9px;padding-left:9px;position:relative}
+.lc .specs span+span::before{content:"";position:absolute;left:0;top:50%;width:3px;height:3px;border-radius:50%;background:#cdc3b0;transform:translateY(-50%)}
+.lc .verdict{display:inline-flex;align-items:center;gap:6px;margin-top:13px;font-size:11px;font-weight:700;color:var(--green2);background:#eaf5ef;border:1px solid #cde7d8;padding:5px 11px 5px 9px;border-radius:20px}
+.lc .verdict svg{width:11px;height:11px;stroke:var(--green2);fill:none;stroke-width:2.8}
+@keyframes bob{0%,100%{transform:var(--t) translateY(0)}50%{transform:var(--t) translateY(-7px)}}
+.lc-b{--t:translateX(-262px) rotate(-3deg);top:58px;z-index:1;transform:var(--t);animation:bob 7s var(--ease) infinite}
+.lc-a{--t:translateX(-34px) rotate(2.2deg);top:0;z-index:2;transform:var(--t);animation:bob 7.8s var(--ease) infinite .6s}
+/* gentle floor shadow, no heavy veil — the cards should read clearly */
+.preview::after{content:"";position:absolute;left:6%;right:6%;bottom:0;height:34%;background:radial-gradient(75% 100% at 50% 100%,rgba(244,241,232,.45),transparent 72%);pointer-events:none;z-index:0}
 
 /* footer line */
 .foot{position:relative;z-index:2;border-top:1px solid var(--line);text-align:center;padding:22px 0;font-size:12.5px;color:var(--ink3)}
@@ -72,23 +71,21 @@ h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5vw,58px);line-
   .stage{min-height:0;padding:40px 0 30px}
   .stage-in{grid-template-columns:1fr;gap:18px}
   h1{max-width:18ch}
-  .preview{height:360px;margin-top:6px;order:2}
-  .lc{width:228px}
-  .lc-a{left:-2%;top:30px}.lc-b{right:-1%;top:0}.lc-c{left:26%;bottom:0}
+  .preview{height:372px;margin-top:10px;order:2}
 }
 @media(max-width:560px){
   .wrap{padding:0 20px}
   .stage{padding:30px 0 20px}
-  .preview{height:300px}
-  .lc{width:200px}.lc .ph{height:118px}.lc .price{font-size:18px}
-  .lc-a{left:-6%;top:24px;--t:rotate(-6deg)}.lc-b{right:-6%;top:0}.lc-c{display:none}
+  .preview{height:478px}
+  .lc{width:250px}.lc .ph{height:140px}.lc .price{font-size:20px}
+  .lc-b{--t:translateX(-138px) rotate(-3.5deg);top:0}
+  .lc-a{--t:translateX(-112px) rotate(2.5deg);top:214px}
   .sub{font-size:15.5px}
   .cta{gap:13px}.btn{width:100%}
 }
 /* respect reduced-motion / low-power: hold the cards still, no shimmer, no pulse */
 @media (prefers-reduced-motion: reduce){
-  .lc-a,.lc-b,.lc-c{animation:none}
-  .lc .ph::after{animation:none;opacity:0}
+  .lc-a,.lc-b{animation:none}
   .soon .pdot{animation:none}
 }
 </style>
@@ -116,26 +113,28 @@ h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5vw,58px);line-
   </div>
 
   <div class="preview" aria-hidden="true">
-    <div class="pstack">
-      <div class="lc lc-a">
-        <div class="ph"><span class="tag">For sale</span></div>
-        <div class="meat"><div class="price">$1.28M</div><div class="ln s"></div><div class="ln t"></div>
-          <div class="chips"><i>3 bed</i><i>2 bath</i><i>1,066 sqft</i></div>
-          <div class="verdict"><span class="d"></span>Priced near fair value</div></div>
+    <article class="lc lc-b">
+      <div class="ph"><img src="../data/news-img/0ea865df7f69b9.jpg" alt="" loading="lazy" width="296" height="166">
+        <span class="tag">For sale</span>
+        <span class="save"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-9.5-9C1 9.2 2.6 5.5 6 5.5c2 0 3.2 1.3 4 2.4.8-1.1 2-2.4 4-2.4 3.4 0 5 3.7 3.5 6.5C19 16.4 12 21 12 21z"/></svg></span></div>
+      <div class="meat">
+        <div class="price">$745,000</div>
+        <div class="addr">Bishan St 22 · 4-room HDB</div>
+        <div class="specs"><span>4-room</span><span>92 sqm</span><span>70 yrs left</span></div>
+        <div class="verdict"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Below recent comps</div>
       </div>
-      <div class="lc lc-b">
-        <div class="ph"><span class="tag">For sale</span></div>
-        <div class="meat"><div class="price">$745K</div><div class="ln s"></div><div class="ln t"></div>
-          <div class="chips"><i>4-room</i><i>HDB</i><i>92 sqm</i></div>
-          <div class="verdict"><span class="d"></span>Below recent comps</div></div>
+    </article>
+    <article class="lc lc-a">
+      <div class="ph"><img src="../img/launch-lentor-gardens.jpg" alt="" loading="lazy" width="296" height="166">
+        <span class="tag">For sale</span>
+        <span class="save"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-9.5-9C1 9.2 2.6 5.5 6 5.5c2 0 3.2 1.3 4 2.4.8-1.1 2-2.4 4-2.4 3.4 0 5 3.7 3.5 6.5C19 16.4 12 21 12 21z"/></svg></span></div>
+      <div class="meat">
+        <div class="price">$1,280,000</div>
+        <div class="addr">Lentor Gardens · District 26</div>
+        <div class="specs"><span>3 bed</span><span>2 bath</span><span>1,066 sqft</span></div>
+        <div class="verdict"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Priced near fair value</div>
       </div>
-      <div class="lc lc-c">
-        <div class="ph"><span class="tag">For sale</span></div>
-        <div class="meat"><div class="price">$2.05M</div><div class="ln s"></div><div class="ln t"></div>
-          <div class="chips"><i>4 bed</i><i>3 bath</i><i>1,302 sqft</i></div>
-          <div class="verdict"><span class="d"></span>3.1% rental yield</div></div>
-      </div>
-    </div>
+    </article>
   </div>
 
 </div></div></main>
