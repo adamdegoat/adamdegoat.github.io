@@ -12,8 +12,7 @@
     ['News', BASE + '/adam/news/', 'smart'],
     ['Guide', BASE + '/adam/essentials/', ''],
     ['About us', BASE + '/adam/about/', ''],
-    ['Contact', BASE + '/adam/#talk', ''],
-    ["Let's talk", 'https://wa.me/6583219747', 'cta']
+    ['Contact', BASE + '/adam/#talk', '']
   ];
   var p = location.pathname;
   function active(href) {
