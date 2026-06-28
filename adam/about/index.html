@@ -86,7 +86,8 @@ a{color:inherit}
 /* ── phone mockup ── */
 .phone{width:236px;background:#0d1f17;border-radius:36px;padding:8px;box-shadow:0 36px 70px rgba(15,35,26,.26)}
 .phone .screen{position:relative;background:var(--bg);border-radius:29px;overflow:hidden;aspect-ratio:9/19;display:flex;flex-direction:column}
-.phone .notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:38%;height:19px;background:#0d1f17;border-radius:0 0 12px 12px;z-index:9}
+.phone .notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:34%;height:17px;background:#0d1f17;border-radius:0 0 11px 11px;z-index:9}
+.phone .screen .shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
 .sc-head{background:linear-gradient(150deg,var(--green2),var(--green3));padding:25px 14px 12px;color:#f3efe6;flex:none}
 .sc-head .ai{display:flex;align-items:center;gap:9px}
 .sc-head .av{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,#2c5743,#0f231a);border:1px solid rgba(227,201,143,.4);display:flex;align-items:center;justify-content:center;font-family:var(--serif);color:#efd9a6;font-weight:600;font-size:16px;flex:none}
@@ -162,33 +163,17 @@ a{color:inherit}
       </div>
     </div>
     <div class="media"><div class="hcluster">
-      <!-- left: value -->
+      <!-- left: value tool, real screen -->
       <div class="phone hp-l"><div class="screen"><div class="notch"></div>
-        <div class="sc-app">
-          <span class="sc-eb">What's it worth</span><div class="sc-t">Estimate</div>
-          <div class="val-card"><div class="ad">BLK 123 Bishan St 12 · 4-room</div><div class="big">$715,000</div><div class="rg">$690k – $742k · 18 sales</div><span class="cf">● High confidence</span></div>
-          <div class="row"><span class="nm">Recent comp<s>Blk 119 · #10</s></span><span class="tg up">$708k</span></div>
-          <div class="row"><span class="nm">Recent comp<s>Blk 125 · #07</s></span><span class="tg up">$722k</span></div>
-        </div>
+        <img class="shot" src="shots/value.jpg" alt="PropSight valuing a 4-room flat in Bishan on real recent sales" loading="lazy" width="380" height="800">
       </div></div>
-      <!-- right: news -->
+      <!-- right: news, real screen -->
       <div class="phone hp-r"><div class="screen"><div class="notch"></div>
-        <div class="sc-app">
-          <span class="sc-eb">Today's news</span><div class="sc-t">Property news</div>
-          <div class="ncard"><div class="nimg"></div><div class="ntx"><b>Condo resale prices held steady in May</b><s>What it means →</s></div></div>
-          <div class="ncard"><div class="nimg b2"></div><div class="ntx"><b>22,000 apply for the June BTO</b><s>Demand stays strong →</s></div></div>
-          <div class="ncard"><div class="nimg b3"></div><div class="ntx"><b>New record HDB resale, Bukit Merah</b><s>$1.5m maisonette →</s></div></div>
-        </div>
+        <img class="shot" src="shots/news.jpg" alt="PropSight's Singapore property news feed" loading="lazy" width="380" height="800">
       </div></div>
-      <!-- centre front: Aillie -->
+      <!-- centre front: Aillie, real chat -->
       <div class="phone hp-c"><div class="screen"><div class="notch"></div>
-        <div class="sc-head"><div class="ai"><span class="av">A</span><div><b>Aillie</b><span class="st"><span class="dot"></span>Live in Singapore</span></div></div></div>
-        <div class="sc-body">
-          <div class="bub u">Is a 4-room in Bishan a good buy now?</div>
-          <div class="bub a">Bishan 4-rooms are going for about <b>$720k</b>, up ~3% this year. Demand near the MRT is strong.</div>
-          <div class="bub a">Want me to value a block, or check what you can afford?</div>
-        </div>
-        <div class="sc-foot"><span class="ip">Ask about any home…</span><span class="snd"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></span></div>
+        <img class="shot" src="shots/aillie.jpg" alt="Asking Aillie whether a Bishan 4-room is a good buy" width="380" height="800">
       </div></div>
     </div></div>
   </div>
