@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-28T13:00:00.276423+08:00",
+  "updated": "2026-06-28T21:00:00.269854+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -34,137 +34,137 @@
     "badge": "https://www.thesportsdb.com/images/media/event/thumb/oq891n1782041517.jpg",
     "bouts": [
       {
-        "section": "prelim",
-        "weight": "Welterweight",
-        "a": "Farman Hasanov",
-        "b": "Eric Nolan",
-        "decided": false,
-        "method": "",
-        "round": "",
-        "time": ""
-      },
-      {
-        "section": "prelim",
-        "weight": "Light Heavyweight",
-        "a": "Abdul-Rakhman Yakhyaev",
-        "b": "Julius Walker",
-        "decided": false,
-        "method": "",
-        "round": "",
-        "time": ""
-      },
-      {
-        "section": "prelim",
-        "weight": "Middleweight",
-        "a": "Nursulton Ruziboev",
-        "b": "Andrey Pulyaev",
-        "decided": false,
-        "method": "",
-        "round": "",
-        "time": ""
-      },
-      {
-        "section": "prelim",
-        "weight": "Featherweight",
-        "a": "Kaan Ofli",
-        "b": "Javier Reyes",
-        "decided": false,
-        "method": "",
-        "round": "",
-        "time": ""
-      },
-      {
-        "section": "prelim",
-        "weight": "Welterweight",
-        "a": "Daniil Donchenko",
-        "b": "Theodor Berggren",
-        "decided": false,
-        "method": "",
-        "round": "",
-        "time": ""
-      },
-      {
-        "section": "prelim",
-        "weight": "Bantamweight",
-        "a": "Bekzat Almakhan",
-        "b": "Jean Matsumoto",
-        "decided": false,
-        "method": "",
-        "round": "",
-        "time": ""
-      },
-      {
-        "section": "prelim",
-        "weight": "Welterweight",
-        "a": "Tahir Abdullayev",
-        "b": "Jefferson Nascimento",
-        "decided": false,
-        "method": "",
-        "round": "",
-        "time": ""
-      },
-      {
         "section": "main",
         "weight": "Lightweight",
         "a": "Rafael Fiziev",
         "b": "Manuel Torres",
-        "decided": false,
-        "method": "",
-        "round": "",
-        "time": ""
+        "decided": true,
+        "method": "KO (spinning wheel kick and punches)",
+        "round": "2",
+        "time": "0:15"
       },
       {
         "section": "main",
         "weight": "Middleweight",
         "a": "Sharabutdin Magomedov",
         "b": "Michel Pereira",
-        "decided": false,
-        "method": "",
-        "round": "",
-        "time": ""
+        "decided": true,
+        "method": "Decision (unanimous) (29–28, 29–28, 29–28)",
+        "round": "3",
+        "time": "5:00"
       },
       {
         "section": "main",
         "weight": "Lightweight",
-        "a": "Nazim Sadykhov",
-        "b": "Matheus Camilo",
-        "decided": false,
-        "method": "",
-        "round": "",
-        "time": ""
+        "a": "Matheus Camilo",
+        "b": "Nazim Sadykhov",
+        "decided": true,
+        "method": "TKO (punches)",
+        "round": "1",
+        "time": "1:31"
       },
       {
         "section": "main",
         "weight": "Flyweight",
         "a": "Asu Almabayev",
         "b": "Charles Johnson",
-        "decided": false,
-        "method": "",
-        "round": "",
-        "time": ""
+        "decided": true,
+        "method": "Submission (Suloev stretch)",
+        "round": "3",
+        "time": "3:33"
       },
       {
         "section": "main",
         "weight": "Middleweight",
         "a": "Ikram Aliskerov",
         "b": "Brunno Ferreira",
-        "decided": false,
-        "method": "",
-        "round": "",
-        "time": ""
+        "decided": true,
+        "method": "Decision (unanimous) (30–27, 30–27, 30–27)",
+        "round": "3",
+        "time": "5:00"
       },
       {
         "section": "main",
         "weight": "Middleweight",
         "a": "Abusupiyan Magomedov",
         "b": "Michał Oleksiejczuk",
-        "decided": false,
-        "method": "",
-        "round": "",
-        "time": ""
+        "decided": true,
+        "method": "Submission (guillotine choke)",
+        "round": "1",
+        "time": "3:25"
+      },
+      {
+        "section": "prelim",
+        "weight": "Welterweight",
+        "a": "Farman Hasanov",
+        "b": "Eric Nolan",
+        "decided": true,
+        "method": "Decision (unanimous) (30–27, 30–27, 30–27)",
+        "round": "3",
+        "time": "5:00"
+      },
+      {
+        "section": "prelim",
+        "weight": "Light Heavyweight",
+        "a": "Abdul-Rakhman Yakhyaev",
+        "b": "Julius Walker",
+        "decided": true,
+        "method": "KO (punches)",
+        "round": "1",
+        "time": "0:08"
+      },
+      {
+        "section": "prelim",
+        "weight": "Middleweight",
+        "a": "Nursulton Ruziboev",
+        "b": "Andrey Pulyaev",
+        "decided": true,
+        "method": "Technical Submission (neck crank)",
+        "round": "1",
+        "time": "3:58"
+      },
+      {
+        "section": "prelim",
+        "weight": "Featherweight",
+        "a": "Kaan Ofli",
+        "b": "Javier Reyes",
+        "decided": true,
+        "method": "Submission (arm-triangle choke)",
+        "round": "1",
+        "time": "4:16"
+      },
+      {
+        "section": "prelim",
+        "weight": "Welterweight",
+        "a": "Daniil Donchenko",
+        "b": "Theodor Berggren",
+        "decided": true,
+        "method": "TKO (head kick and punches)",
+        "round": "2",
+        "time": "1:35"
+      },
+      {
+        "section": "prelim",
+        "weight": "Bantamweight",
+        "a": "Jean Matsumoto",
+        "b": "Bekzat Almakhan",
+        "decided": true,
+        "method": "Decision (unanimous) (29–28, 29–28, 29–28)",
+        "round": "3",
+        "time": "5:00"
+      },
+      {
+        "section": "prelim",
+        "weight": "Welterweight",
+        "a": "Tahir Abdullayev",
+        "b": "Jefferson Nascimento",
+        "decided": true,
+        "method": "TKO (punches)",
+        "round": "3",
+        "time": "4:28"
       }
     ],
-    "finished": false,
+    "finished": true,
     "espn_final": true
   },
   "news": [
@@ -179,6 +179,18 @@
       "link": "https://www.sherdog.com/news/news/PFL-San-Diegos-Viviane-Araujo-targets-title-shot-with-a-win-over-Liz-Carmouche-201644",
       "source": "Sherdog",
       "priority": true
+    },
+    {
+      "title": "UFC Baku winner Rafael Fiziev targets BMF title fight given ‘little story’ with Charles Oliveira",
+      "link": "https://www.bjpenn.com/mma-news/ufc/ufc-baku-winner-rafael-fiziev-targets-bmf-title-fight-given-little-story-with-charles-oliveira/?utm_source=rss&utm_medium=rss&utm_campaign=ufc-baku-winner-rafael-fiziev-targets-bmf-title-fight-given-little-story-with-charles-oliveira",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
+      "title": "PFL San Diego salaries: Main event fighter made $10,000 in losing effort",
+      "link": "https://www.mmafighting.com/pfl/496846/pfl-san-diego-salaries-main-event-fighter-made-10000-in-losing-effort",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "Alex Pereira calls Herb Dean ‘coward’ after controversial Shara Bullet vs. Michel Pereira fight",
@@ -223,15 +235,15 @@
       "priority": false
     },
     {
-      "title": "UFC Baku video: Asu Almabayev submits Charles Johnson with horrifying Suloev stretch",
-      "link": "https://www.mmafighting.com/ufc/496697/ufc-baku-video-asu-almabayev-submits-charles-johnson-with-horrifying-suloev-stretch",
-      "source": "MMA Fighting",
+      "title": "UFC Baku results: Sooo … About last night | Fiziev vs. Torres",
+      "link": "https://www.mmamania.com/ufc-results/453518/ufc-baku-results-sooo-about-last-night-fiziev-vs-torres",
+      "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "UFC Baku video: Abus Magomedov chokes Michal Oleksiejczuk unconscious, calls out Israel Adesanya",
-      "link": "https://www.mmafighting.com/ufc/496674/ufc-baku-video-abus-magomedov-chokes-michal-oleksiejczuk-unconscious-calls-out-israel-adesanya",
-      "source": "MMA Fighting",
+      "title": "He’s back! Former IBF champ Lee Selby wins bare knuckle boxing debut, stops Antonio Rizzo at BKB 55 in Cardiff",
+      "link": "https://www.mmamania.com/bare-knuckle-boxing-results-rules-ppv/453928/former-ibf-champ-lee-selby-wins-bare-knuckle-boxing-debut-stops-antonio-rizzo-bkb-55-cardiff",
+      "source": "MMA Mania",
       "priority": false
     },
     {
@@ -239,23 +251,11 @@
       "link": "https://www.mmamania.com/latest-news/453538/rewind-watch-conor-mcgregor-max-holloway-full-fight-marathon-ahead-of-ufc-329-rematch-video",
       "source": "MMA Mania",
       "priority": false
-    },
-    {
-      "title": "Conor McGregor photo sparks debate over fight shape two weeks out from UFC 329: ‘He’s training for an all-you-can-eat buffet’",
-      "link": "https://www.mmamania.com/ufc-news/453640/conor-mcgregor-photo-sparks-debate-over-fight-shape-two-weeks-out-from-ufc-329-weight-training-holloway",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "Bonuses! Undefeated sensation Abdul-Rakhman Yakhyaev banks $100K for eight-second demolition | UFC Baku",
-      "link": "https://www.mmamania.com/ufc-bonuses-and-awards/453013/official-ufc-baku-post-fight-bonus-winners-results-paramount-mma-fiziev-torres-yakhyaev-albamayev-donchenko",
-      "source": "MMA Mania",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor and Holloway clash for featherweight supremacy Sunday at 9 AM SGT.",
-    "prefight": "McGregor and Holloway clash this Sunday 9 AM SGT—featherweight supremacy on the line.",
-    "results": "Rafael Fiziev earned a Performance of the Night bonus with a second-round knockout over Manuel Torres via spinning wheel kick at UFC Fight Night in Baku on June 27, 2026."
+    "week": "McGregor versus Holloway Sunday 9 AM SGT: elite striking meets elite power.",
+    "prefight": "McGregor meets Holloway this Sunday 9 AM SGT for pure chaos.",
+    "results": "Spinning wheel kicks aren't supposed to work—but Fiziev's finished Torres in the second round."
   }
 }
