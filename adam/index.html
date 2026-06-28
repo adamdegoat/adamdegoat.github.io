@@ -67,6 +67,9 @@ em{font-style:italic;color:var(--brass)}
 /* mobile menu */
 .navjoin{display:inline-flex;align-items:center;gap:7px;margin-left:16px;background:linear-gradient(135deg,var(--brass3),var(--brass));color:#241a0d;font-weight:800;font-size:14px;font-family:inherit;padding:11px 19px;border-radius:40px;border:1px solid var(--brass);box-shadow:0 9px 24px rgba(176,141,87,.36);cursor:pointer;white-space:nowrap;transition:transform .2s var(--ease),box-shadow .2s}
 .navjoin:hover{transform:translateY(-2px);box-shadow:0 15px 32px rgba(176,141,87,.46)}
+.nav-install{display:none;flex:none;margin-left:10px;width:44px;height:44px;align-items:center;justify-content:center;background:rgba(255,255,255,.55);border:1px solid var(--line2);border-radius:11px;color:var(--ink);-webkit-tap-highlight-color:transparent;transition:.25s var(--ease)}
+.nav-install svg{width:21px;height:21px}
+.navjoin{flex:none}
 .menu-toggle{display:none;margin-left:auto;width:44px;height:44px;align-items:center;justify-content:center;background:rgba(255,255,255,.55);border:1px solid var(--line2);border-radius:11px;cursor:pointer;color:var(--ink);-webkit-tap-highlight-color:transparent;position:relative;z-index:61;transition:.25s var(--ease)}
 .menu-toggle svg{width:22px;height:22px}
 .menu-toggle .ic-close{display:none}
@@ -346,8 +349,10 @@ html.menu-open,html.menu-open body{overflow:hidden}
 @media(max-width:880px){
  .wrap{padding:0 22px}.hero-in{grid-template-columns:1fr;gap:34px}.portrait{max-width:400px}
  .tools .tool{flex-basis:calc(50% - 8px);max-width:calc(50% - 8px)}.links{display:none}.navbtn{display:none}.pov{padding:34px 24px}
- .navjoin{margin-left:auto;font-size:13px;padding:10px 16px}.nav-in .menu-toggle{margin-left:11px}
- .menu-toggle{display:flex}
+ .nav-in{gap:9px}
+ .navjoin{margin-left:auto;font-size:13px;padding:10px 15px}.nav-in .menu-toggle{margin-left:0}
+ .nav-install{display:flex;margin-left:0}
+ .menu-toggle{display:flex;flex:none}
  .sec-h{flex-direction:column;align-items:flex-start}
  .about-in{grid-template-columns:1fr;gap:30px}.about-in .portrait{width:100%;max-width:320px;margin:0 auto;aspect-ratio:auto;min-height:300px}
  .lp-v{font-size:22px}
@@ -375,7 +380,8 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .nav .links a:hover{color:#fff}
 .nav .btn{background:transparent;border-color:rgba(246,241,231,.42);color:#f6f1e7}
 .nav .btn:hover{background:rgba(255,255,255,.12)}
-.nav .menu-toggle{background:rgba(255,255,255,.12);border-color:rgba(246,241,231,.42);color:#f6f1e7}
+.nav .menu-toggle,.nav .nav-install{background:rgba(255,255,255,.12);border-color:rgba(246,241,231,.42);color:#f6f1e7}
+.nav.scrolled .nav-install{background:rgba(255,255,255,.6);border-color:var(--line2);color:var(--ink)}
 .nav.scrolled .brand b{color:var(--ink);text-shadow:none}
 .nav.scrolled .brand .mark{color:#1b3a2d;filter:none}
 .nav.scrolled .menu-toggle{background:rgba(255,255,255,.6);border-color:var(--line2);color:var(--ink)}
@@ -501,7 +507,7 @@ html.menu-open,html.menu-open body{overflow:hidden}
 /* #5 stronger tool-card icons at rest (esp. mobile, no hover) */
 .tool .ti2{background:linear-gradient(140deg,rgba(27,58,45,.13),rgba(176,141,87,.11));border-color:var(--line2)}
 /* #6 mobile hero declutter */
-@media(max-width:560px){.hero .covers,.hero .hinstall{display:none}}
+@media(max-width:560px){.hero .covers,.hero .hinstall{display:none}.navjoin .njfree{display:none}}
 /* battery/heat: stop the always-on full-screen mesh from repainting forever (gradient stays, drift off) */
 body::before{animation:none}
 .ticker .track{animation-duration:150s}
@@ -677,8 +683,9 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
     <span class="bw"><b>PropSight</b><span>Singapore</span></span>
   </div>
   <nav class="links"><a href="#tools">Tools</a><a href="/thesis/" class="navfeat">Research</a><a href="launches/">New Launches</a><a href="notes/">Market Pulse</a><a href="news/" class="navsmart">News</a><a href="essentials/">Guide</a><a href="about/">About us</a><a href="#talk">Contact</a></nav>
-  <button class="navjoin" type="button" onclick="window.PS&&PS.openModal('nav')">Join free</button>
+  <button class="navjoin" type="button" onclick="window.PS&&PS.openModal('nav')">Join&nbsp;<span class="njfree">free</span></button>
   <a class="btn navbtn" href="https://wa.me/6583219747">Let's talk <span class="arr">→</span></a>
+  <a class="nav-install" id="navInstall" href="install.html" aria-label="Add PropSight to your home screen" title="Add to your phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.5 18.5h3"/></svg></a>
   <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
     <svg class="ic-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     <svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg>
@@ -700,6 +707,9 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
   </div>
 </div>
 
+<script>/* hide the nav install icon if PropSight is already installed (standalone) */
+(function(){var sa=(window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||window.navigator.standalone;
+if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}})();</script>
 <section class="hero">
   <div class="hero-bg" aria-hidden="true"><img src="img/hero.jpg" alt=""></div>
   <div class="hero-grad" aria-hidden="true"></div>
