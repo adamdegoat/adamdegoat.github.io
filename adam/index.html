@@ -72,6 +72,20 @@ em{font-style:italic;color:var(--brass)}
 .nav-install{display:none;flex:none;margin-left:10px;width:44px;height:44px;align-items:center;justify-content:center;background:rgba(255,255,255,.55);border:1px solid var(--line2);border-radius:11px;color:var(--ink);-webkit-tap-highlight-color:transparent;transition:.25s var(--ease)}
 .nav-install svg{width:21px;height:21px}
 .navjoin{flex:none}
+/* the "doorway" into the Listing Platform — a separate destination, set apart from the menu + the Join button */
+.navdoor{display:flex;flex-direction:column;gap:2px;text-decoration:none;margin-left:20px;padding:8px 15px;border:1px solid rgba(246,241,231,.42);border-radius:13px;background:rgba(255,255,255,.1);position:relative;flex:none;transition:.25s var(--ease)}
+.navdoor::before{content:"";position:absolute;left:-20px;top:50%;transform:translateY(-50%);width:1px;height:30px;background:rgba(246,241,231,.3)}
+.navdoor .nd-top{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:#f6f1e7;line-height:1.05;white-space:nowrap}
+.navdoor .nd-ar{width:12px;height:12px;flex:none}
+.navdoor .nd-sub{display:flex;align-items:center;gap:5px;font-size:8.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(246,241,231,.72);line-height:1}
+.navdoor .nd-dot{width:6px;height:6px;border-radius:50%;background:#86d6a8}
+.navdoor:hover{transform:translateY(-1px);border-color:rgba(246,241,231,.78);background:rgba(255,255,255,.18)}
+.nav.scrolled .navdoor{border-color:#cdd9d0;background:linear-gradient(180deg,#fff,#f1f5f1)}
+.nav.scrolled .navdoor::before{background:#e2dac9}
+.nav.scrolled .navdoor .nd-top{color:#1b3a2d}
+.nav.scrolled .navdoor .nd-sub{color:#8a8175}
+.nav.scrolled .navdoor .nd-dot{background:#3aa76d}
+.nav.scrolled .navdoor:hover{border-color:#27513f;box-shadow:0 9px 22px rgba(39,81,63,.15)}
 .menu-toggle{display:none;margin-left:auto;width:44px;height:44px;align-items:center;justify-content:center;background:rgba(255,255,255,.55);border:1px solid var(--line2);border-radius:11px;cursor:pointer;color:var(--ink);-webkit-tap-highlight-color:transparent;position:relative;z-index:61;transition:.25s var(--ease)}
 .menu-toggle svg{width:22px;height:22px}
 .menu-toggle .ic-close{display:none}
@@ -81,6 +95,7 @@ em{font-style:italic;color:var(--brass)}
 .mobile-menu.open{opacity:1;visibility:visible;transform:none}
 .mobile-menu .mm{display:grid;grid-template-columns:32px 1fr auto;align-items:baseline;gap:14px;padding:17px 2px;border-bottom:1px solid rgba(176,141,87,.2);opacity:0;transform:translateY(12px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
 .mobile-menu.open .mm{opacity:1;transform:none}
+.mobile-menu.open .mm-door{opacity:1;transform:none}
 .mobile-menu .mm-n{font-size:12px;font-weight:800;color:var(--brass);font-variant-numeric:tabular-nums}
 .mobile-menu .mm-t{display:block;font-family:var(--serif);font-weight:600;font-size:27px;letter-spacing:-.015em;color:var(--ink);line-height:1.08}
 .mobile-menu .mm-pill{display:inline-block;vertical-align:middle;position:relative;top:-4px;margin-left:10px;font-family:"Schibsted Grotesk",system-ui,sans-serif;font-weight:800;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:#241a0d;background:linear-gradient(135deg,var(--brass3),var(--brass));border-radius:20px;padding:4px 9px;box-shadow:0 2px 6px rgba(176,141,87,.3)}
@@ -88,6 +103,12 @@ em{font-style:italic;color:var(--brass)}
 .mobile-menu .mm-d{display:block;font-size:13px;color:var(--ink3);font-weight:500;margin-top:5px}
 .mobile-menu .mm-ar{align-self:center;font-size:17px;color:var(--brass);transition:transform .25s var(--ease)}
 .mobile-menu .mm:active{background:rgba(176,141,87,.06)}.mobile-menu .mm:active .mm-ar{transform:translateX(4px)}
+.mobile-menu .mm-door{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:18px;padding:18px;border:1px solid #cdd9d0;border-radius:15px;background:linear-gradient(180deg,#fff,#eef4ef);text-decoration:none;opacity:0;transform:translateY(12px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.mobile-menu .mm-door .mmd-t{display:block;font-family:var(--serif);font-weight:600;font-size:21px;color:var(--green);line-height:1.1}
+.mobile-menu .mm-door .mmd-d{display:block;font-size:13px;color:#6b6357;margin-top:4px}
+.mobile-menu .mm-door .mmd-arr{flex:none;width:34px;height:34px;border-radius:50%;background:var(--green2);display:flex;align-items:center;justify-content:center}
+.mobile-menu .mm-door .mmd-arr svg{width:15px;height:15px;stroke:#f3efe6}
+.mobile-menu .mm-door:active{transform:translateY(-1px)}
 .mobile-menu .mm-foot{margin-top:auto;padding-top:26px;display:flex;flex-direction:column;gap:14px}
 .mobile-menu .mm-install{display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:700;color:var(--green2);opacity:0;transform:translateY(12px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
 .mobile-menu .mm-install svg{width:17px;height:17px}
@@ -349,7 +370,7 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .foot p{color:var(--ink2);font-size:16px;margin:16px 0 30px}
 .foot .sig{margin-top:58px;color:var(--ink3);font-size:13px}
 
-@media(max-width:1240px){.nav .links{display:none}.navsignin{display:none}.menu-toggle{display:flex;flex:none}.navjoin{margin-left:auto}}
+@media(max-width:1100px){.nav .links{display:none}.navdoor{display:none}.navsignin{display:none}.menu-toggle{display:flex;flex:none}.navjoin{margin-left:auto}}
 @media(max-width:880px){
  .wrap{padding:0 22px}.hero-in{grid-template-columns:1fr;gap:34px}.portrait{max-width:400px}
  .tools .tool{flex-basis:calc(50% - 8px);max-width:calc(50% - 8px)}.pov{padding:34px 24px}
@@ -689,7 +710,8 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
     <svg class="mark" aria-hidden="true" viewBox="0 0 64 64"><path d="M9 35 L32 13 L55 35" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 49 L48 49" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><circle cx="32" cy="39" r="3.4" fill="#b08d57"/></svg>
     <span class="bw"><b>PropSight</b><span>Singapore</span></span>
   </div>
-  <nav class="links"><a href="#tools">Tools</a><a href="/thesis/" class="navfeat">Research</a><a href="launches/">New Launches</a><a href="listings/" class="navsoon">Listing Platform</a><a href="notes/">Market Pulse</a><a href="news/" class="navsmart">News</a><a href="essentials/">Guide</a><a href="about/">About us</a><a href="#talk">Contact</a></nav>
+  <nav class="links"><a href="#tools">Tools</a><a href="/thesis/" class="navfeat">Research</a><a href="launches/">New Launches</a><a href="notes/">Market Pulse</a><a href="news/" class="navsmart">News</a><a href="essentials/">Guide</a><a href="about/">About us</a><a href="#talk">Contact</a></nav>
+  <a class="navdoor" href="listings/"><span class="nd-top">Listing Platform<svg class="nd-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></span><span class="nd-sub"><span class="nd-dot"></span>Coming soon</span></a>
   <button class="navsignin ps-signin-cta" type="button" onclick="window.PS&&PS.login('nav')">Sign in</button>
   <button class="navjoin ps-join-cta" type="button" onclick="window.PS&&PS.cta('nav')">Join&nbsp;<span class="njfree">free</span></button>
   <a class="nav-install" id="navInstall" href="install.html" aria-label="Add PropSight to your home screen" title="Add to your phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.5 18.5h3"/></svg></a>
@@ -702,12 +724,12 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
   <a class="mm" href="#tools"><span class="mm-n">01</span><span><span class="mm-t">Tools</span><span class="mm-d">Value, budget, stamp duty, grants &amp; more</span></span><span class="mm-ar">→</span></a>
   <a class="mm" href="/thesis/"><span class="mm-n">02</span><span><span class="mm-t">Research <span class="mm-pill">Featured</span></span><span class="mm-d">Any condo or HDB — prices, trends, rental yield &amp; tenure</span></span><span class="mm-ar">→</span></a>
   <a class="mm" href="launches/"><span class="mm-n">03</span><span><span class="mm-t">New Launches</span><span class="mm-d">The launches we're representing</span></span><span class="mm-ar">→</span></a>
-  <a class="mm" href="listings/"><span class="mm-n">04</span><span><span class="mm-t">Listing Platform <span class="mm-pill mm-soon">Soon</span></span><span class="mm-d">Homes for sale, with the real numbers on each</span></span><span class="mm-ar">→</span></a>
-  <a class="mm" href="notes/"><span class="mm-n">05</span><span><span class="mm-t">Market Pulse</span><span class="mm-d">Our read on the market, weekly</span></span><span class="mm-ar">→</span></a>
-  <a class="mm" href="news/"><span class="mm-n">06</span><span><span class="mm-t">News <span class="mm-pill">Smart</span></span><span class="mm-d">Singapore property news, refreshed daily</span></span><span class="mm-ar">→</span></a>
-  <a class="mm" href="essentials/"><span class="mm-n">07</span><span><span class="mm-t">Guide</span><span class="mm-d">How buying &amp; selling actually works</span></span><span class="mm-ar">→</span></a>
-  <a class="mm" href="about/"><span class="mm-n">08</span><span><span class="mm-t">About us</span><span class="mm-d">What PropSight is, and everything it does</span></span><span class="mm-ar">→</span></a>
-  <a class="mm" href="#talk"><span class="mm-n">09</span><span><span class="mm-t">Contact</span><span class="mm-d">Get in touch, no pressure</span></span><span class="mm-ar">→</span></a>
+  <a class="mm" href="notes/"><span class="mm-n">04</span><span><span class="mm-t">Market Pulse</span><span class="mm-d">Our read on the market, weekly</span></span><span class="mm-ar">→</span></a>
+  <a class="mm" href="news/"><span class="mm-n">05</span><span><span class="mm-t">News <span class="mm-pill">Smart</span></span><span class="mm-d">Singapore property news, refreshed daily</span></span><span class="mm-ar">→</span></a>
+  <a class="mm" href="essentials/"><span class="mm-n">06</span><span><span class="mm-t">Guide</span><span class="mm-d">How buying &amp; selling actually works</span></span><span class="mm-ar">→</span></a>
+  <a class="mm" href="about/"><span class="mm-n">07</span><span><span class="mm-t">About us</span><span class="mm-d">What PropSight is, and everything it does</span></span><span class="mm-ar">→</span></a>
+  <a class="mm" href="#talk"><span class="mm-n">08</span><span><span class="mm-t">Contact</span><span class="mm-d">Get in touch, no pressure</span></span><span class="mm-ar">→</span></a>
+  <a class="mm-door" href="listings/"><span><span class="mmd-t">Listing Platform</span><span class="mmd-d">Coming soon — step into the platform</span></span><span class="mmd-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></span></a>
   <div class="mm-foot">
     <button class="mm-cta ps-join-cta" type="button" style="border:0;font-family:inherit;cursor:pointer;width:100%" onclick="document.getElementById('menuToggle').click();window.PS&&PS.cta('menu')">Join free →</button>
     <button class="mm-signin ps-signin-cta" type="button" style="border:0;background:none;font-family:inherit;cursor:pointer;width:100%;font-size:14px;font-weight:600;color:var(--green2);padding:4px" onclick="document.getElementById('menuToggle').click();window.PS&&PS.login('menu')">Already a member? Sign in</button>

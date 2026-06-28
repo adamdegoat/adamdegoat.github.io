@@ -8,7 +8,6 @@
     ['Tools', BASE + '/adam/#tools', ''],
     ['Research', BASE + '/thesis/', 'feat'],
     ['New Launches', BASE + '/adam/launches/', ''],
-    ['Listing Platform', BASE + '/adam/listings/', 'soon'],
     ['Market Pulse', BASE + '/adam/notes/', ''],
     ['News', BASE + '/adam/news/', 'smart'],
     ['Guide', BASE + '/adam/essentials/', ''],
@@ -27,6 +26,8 @@
     if (/\/tools\//.test(p)) return /#tools$/.test(href);
     return false;
   }
+  var LISTINGS = BASE + '/adam/listings/';
+  var ARROW = '<svg class="pd-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>';
   var MARK = '<svg class="pm" viewBox="0 0 64 64" aria-hidden="true">' +
     '<path d="M9 35 L32 13 L55 35" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>' +
     '<path d="M16 49 L48 49" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/>' +
@@ -46,6 +47,17 @@
     '.psnav-signin{margin-left:14px;background:none;border:0;font-family:inherit;font-size:13.5px;font-weight:600;color:#5a5248;cursor:pointer;padding:8px 2px;white-space:nowrap;transition:color .2s}.psnav-signin:hover{color:#191512}' +
     '.psnav-join{margin-left:12px;flex:none;background:linear-gradient(135deg,#e3c98f,#b08d57);color:#241a0d;font-weight:800;font-size:13.5px;font-family:inherit;border:1px solid #b08d57;border-radius:40px;padding:10px 17px;cursor:pointer;white-space:nowrap;box-shadow:0 8px 22px rgba(176,141,87,.34);transition:transform .2s,box-shadow .2s}' +
     '.psnav-join:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(176,141,87,.44)}' +
+    /* the "doorway" into the Listing Platform — set apart from the menu, reads as a separate place */
+    '.psnav-door{display:flex;flex-direction:column;gap:2px;text-decoration:none;margin-left:20px;padding:8px 15px;border:1px solid #cdd9d0;border-radius:13px;background:linear-gradient(180deg,#fff,#f1f5f1);position:relative;transition:transform .2s,border-color .2s,box-shadow .2s}' +
+    '.psnav-door::before{content:"";position:absolute;left:-20px;top:50%;transform:translateY(-50%);width:1px;height:30px;background:#e2dac9}' +
+    '.psnav-door:hover{transform:translateY(-1px);border-color:#27513f;box-shadow:0 9px 22px rgba(39,81,63,.15)}' +
+    '.psnav-door .pd-top{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:#1b3a2d;line-height:1.05;white-space:nowrap}' +
+    '.psnav-door .pd-ar{width:12px;height:12px;flex:none}' +
+    '.psnav-door .pd-sub{display:flex;align-items:center;gap:5px;font-size:8.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8a8175;line-height:1}' +
+    '.psnav-door .pd-dot{width:6px;height:6px;border-radius:50%;background:#3aa76d;box-shadow:0 0 0 0 rgba(58,167,109,.5);animation:pddot 2.2s ease-out infinite}' +
+    '@keyframes pddot{0%{box-shadow:0 0 0 0 rgba(58,167,109,.5)}70%{box-shadow:0 0 0 7px rgba(58,167,109,0)}100%{box-shadow:0 0 0 0 rgba(58,167,109,0)}}' +
+    '.psnav-door.cur{border-color:#27513f;background:linear-gradient(180deg,#27513f,#1b3a2d)}' +
+    '.psnav-door.cur .pd-top{color:#f3efe6}.psnav-door.cur .pd-sub{color:rgba(243,239,230,.82)}' +
     '@media(max-width:860px){.psnav-signin{display:none}.psnav-join{margin-left:auto;margin-right:10px;font-size:13px;padding:9px 15px}}' +
     '.psnav-burger{display:none;margin-left:auto;width:42px;height:42px;border:1px solid #dbd1bf;border-radius:10px;background:rgba(255,255,255,.6);cursor:pointer;align-items:center;justify-content:center}' +
     '.psnav-burger svg{width:22px;height:22px;stroke:#191512;fill:none;stroke-width:2;stroke-linecap:round}' +
@@ -56,7 +68,13 @@
     '.psnav-menu a .psm-soon{background:linear-gradient(135deg,#2f5a46,#1b3a2d);color:#eadfc8;box-shadow:0 2px 6px rgba(27,58,45,.3)}' +
     '.psnav-mjoin{width:100%;background:linear-gradient(135deg,#e3c98f,#b08d57);color:#241a0d;font-family:"Schibsted Grotesk",system-ui,sans-serif;font-weight:800;font-size:16px;border:0;border-radius:14px;padding:15px;margin-bottom:8px;cursor:pointer;box-shadow:0 10px 26px rgba(176,141,87,.34)}' +
     '.psnav-msignin{width:100%;background:none;border:0;font-family:"Schibsted Grotesk",system-ui,sans-serif;font-size:14px;font-weight:600;color:#27513f;padding:6px;margin-bottom:8px;cursor:pointer}' +
-    '@media(max-width:1240px){.psnav-links{display:none}.psnav-burger{display:flex}}@media(max-width:560px){.psnav-in{padding:0 20px}.psnav-brand b{font-size:20px}.psnav-brand .pm{width:34px;height:34px}}';
+    /* mobile menu: the door becomes a distinct card pinned at the very end */
+    '.psnav-menu a.psm-door{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:18px;padding:18px 18px;border:1px solid #cdd9d0;border-bottom:1px solid #cdd9d0;border-radius:15px;background:linear-gradient(180deg,#fff,#eef4ef)}' +
+    '.psnav-menu a.psm-door .psm-door-t{display:block;font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:21px;color:#1b3a2d;line-height:1.1}' +
+    '.psnav-menu a.psm-door .psm-door-d{display:block;font-family:"Schibsted Grotesk",system-ui,sans-serif;font-size:13px;color:#6b6357;margin-top:4px}' +
+    '.psnav-menu a.psm-door .psm-arr{flex:none;width:34px;height:34px;border-radius:50%;background:#27513f;display:flex;align-items:center;justify-content:center}' +
+    '.psnav-menu a.psm-door .psm-arr svg{width:15px;height:15px;stroke:#f3efe6}' +
+    '@media(max-width:1100px){.psnav-links{display:none}.psnav-door{display:none}.psnav-burger{display:flex}}@media(max-width:560px){.psnav-in{padding:0 20px}.psnav-brand b{font-size:20px}.psnav-brand .pm{width:34px;height:34px}}';
 
   function linkHtml(l, mobile) {
     var cls = [];
@@ -74,6 +92,10 @@
   var navHTML = '<header class="psnav"><div class="psnav-in">' +
     '<a class="psnav-brand" href="' + BASE + '/adam/">' + MARK + '<span class="bw"><b>PropSight</b><span>Singapore</span></span></a>' +
     '<nav class="psnav-links">' + LINKS.map(function (l) { return linkHtml(l, false); }).join('') + '</nav>' +
+    '<a class="psnav-door' + (active(LISTINGS) ? ' cur' : '') + '" href="' + LISTINGS + '">' +
+      '<span class="pd-top">Listing Platform' + ARROW + '</span>' +
+      '<span class="pd-sub"><span class="pd-dot"></span>Coming soon</span>' +
+    '</a>' +
     '<button class="psnav-signin ps-signin-cta" type="button" onclick="window.PS&&PS.login(\'nav\')">Sign in</button>' +
     '<button class="psnav-join ps-join-cta" type="button" onclick="window.PS&&PS.cta(\'nav\')">Join free</button>' +
     '<button class="psnav-burger" id="psBurger" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>' +
@@ -81,7 +103,11 @@
   var menuHTML = '<div class="psnav-menu" id="psMenu">' +
     '<button class="psnav-mjoin ps-join-cta" type="button" onclick="window.PS&&PS.cta(\'menu\')">Join free →</button>' +
     '<button class="psnav-msignin ps-signin-cta" type="button" onclick="window.PS&&PS.login(\'menu\')">Already a member? Sign in</button>' +
-    LINKS.map(function (l) { return linkHtml(l, true); }).join('') + '</div>';
+    LINKS.map(function (l) { return linkHtml(l, true); }).join('') +
+    '<a class="psm-door' + (active(LISTINGS) ? ' cur' : '') + '" href="' + LISTINGS + '">' +
+      '<span><span class="psm-door-t">Listing Platform</span><span class="psm-door-d">Coming soon — step into the platform</span></span>' +
+      '<span class="psm-arr">' + ARROW + '</span>' +
+    '</a>' + '</div>';
 
   function init() {
     // the Join button opens the shared signup modal — make sure member.js is present
