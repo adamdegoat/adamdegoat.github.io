@@ -1,14 +1,14 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Press — Adam Phang's content studio</title>
-<meta name="description" content="Three new Instagram posts every week, built from real Singapore property data. Adam Phang's content studio.">
+<title>PropSight Studio — Instagram content</title>
+<meta name="description" content="Three new Instagram posts every week, built from real Singapore property data. PropSight's marketing studio.">
 <meta name="theme-color" content="#1c140d">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icons/icon-180.png">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Press">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23c25a38'/%3E%3Ctext x='16' y='24' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='22' fill='%23f6ecdc'%3EP%3C/text%3E%3Ccircle cx='24.5' cy='9' r='1.8' fill='%23f6e7c0'/%3E%3C/svg%3E">
+<meta name="apple-mobile-web-app-title" content="Studio">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%231b3a2d'/%3E%3Ccircle cx='27' cy='27' r='19' fill='none' stroke='%23ead4a2' stroke-width='3.4'/%3E%3Cpath d='M17.5 32 L27 22 L36.5 32' fill='none' stroke='%23ead4a2' stroke-width='3'/%3E%3Cpath d='M21 36.4 L33 36.4' stroke='%23ead4a2' stroke-width='3'/%3E%3Ccircle cx='27' cy='33' r='1.8' fill='%23d8b15e'/%3E%3Cpath d='M40.5 40.5 L53 53' fill='none' stroke='%23d8b15e' stroke-width='5.2'/%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,0,600;9..144,0,900;9..144,1,400;9..144,1,600&family=Schibsted+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -22,8 +22,8 @@ a{color:inherit;text-decoration:none}
 /* nav */
 .nav{display:flex;justify-content:space-between;align-items:center;padding:26px 0;border-bottom:1.5px solid var(--ink)}
 .logo{display:flex;align-items:center;gap:13px}
-.mk{width:44px;height:44px;border-radius:11px;background:linear-gradient(150deg,#1b3a2d,#0f231b);display:grid;place-items:center;position:relative;font-family:Fraunces;font-weight:900;font-size:29px;color:#e3c98f;flex:none}
-.mk i{position:absolute;top:9px;right:10px;width:6px;height:6px;border-radius:50%;background:#e8c23f}
+.mk{width:46px;height:46px;border-radius:12px;background:linear-gradient(150deg,#1b3a2d,#0f231b);display:grid;place-items:center;position:relative;color:#ead4a2;flex:none}
+.mk svg{width:30px;height:30px}
 .logo b{font-family:Fraunces;font-weight:900;font-size:25px;letter-spacing:.02em}
 .logo span{font-size:12px;color:var(--soft);letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-left:2px}
 .navlinks{display:flex;gap:32px;font-weight:700;font-size:15px}
@@ -79,10 +79,11 @@ a{color:inherit;text-decoration:none}
 .sbar{display:flex;justify-content:space-between;align-items:center;padding:11px 20px 6px;font-size:12px;font-weight:700;color:#0d0d0f}
 .igh{display:flex;align-items:center;gap:9px;padding:8px 11px}
 .av{width:32px;height:32px;border-radius:50%;background:linear-gradient(45deg,#feda75,#d62976,#962fbf);padding:2px;flex:none}
-.av i{display:flex;width:100%;height:100%;border-radius:50%;background:linear-gradient(150deg,#1b3a2d,#0f231b);align-items:center;justify-content:center;font-family:Fraunces;font-weight:900;font-size:17px;color:#e3c98f;font-style:normal}
-.who{display:flex;flex-direction:column;gap:3px}
-.uname{height:9px;width:88px;background:#3a3a3a;border-radius:3px;filter:blur(3px);opacity:.85}
-.loc{height:7px;width:56px;background:#bdbdbd;border-radius:3px;filter:blur(2.5px)}
+.av i{display:flex;width:100%;height:100%;border-radius:50%;background:linear-gradient(150deg,#1b3a2d,#0f231b);align-items:center;justify-content:center;color:#ead4a2;font-style:normal}
+.av i svg{width:20px;height:20px}
+.who{display:flex;flex-direction:column;gap:2px;justify-content:center}
+.uname{font-size:12px;font-weight:700;color:#1a1a1a;line-height:1}
+.loc{font-size:10.5px;color:#5a5a5a;line-height:1}
 .igh .more{margin-left:auto;font-weight:800;color:#222;letter-spacing:2px}
 .pimg img{width:100%;display:block}
 .acts{display:flex;gap:15px;padding:11px 13px 5px;font-size:21px}
@@ -90,7 +91,7 @@ a{color:inherit;text-decoration:none}
 .likes{padding:1px 13px}
 .lk{display:block;height:9px;width:130px;background:#3a3a3a;border-radius:3px;filter:blur(3px);opacity:.8}
 .pcap{padding:5px 13px 3px;font-size:12.5px;line-height:1.45;color:#1a1a1a}
-.pcap .u{display:inline-block;height:9px;width:74px;background:#3a3a3a;border-radius:3px;filter:blur(3px);vertical-align:middle;margin-right:5px;opacity:.85}
+.pcap .u{font-weight:700;color:#1a1a1a;margin-right:5px}
 .pcap .more2{color:#8e8e8e}
 .pcap .tags{color:#274d8a;display:block;margin-top:2px}
 .ptime{padding:5px 13px 13px;font-size:10px;color:#9a9a9a;text-transform:uppercase;letter-spacing:.04em}
@@ -143,124 +144,120 @@ a{color:inherit;text-decoration:none}
 </style></head>
 <body>
 <div class="wrap"><div class="nav">
-  <div class="logo"><div class="mk">A<i></i></div><b>Press</b><span>· a content studio</span></div>
+  <div class="logo"><div class="mk"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#d8b15e"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#d8b15e" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><b>PropSight</b><span>· studio</span></div>
   <div class="navlinks"><a href="#drop">This week</a><a href="#how">How it works</a><a href="#archive">Archive</a></div>
-  <div class="status"><span class="dot"></span>Updated Wed 24 Jun · Next drop Mon 29 Jun · 04:00</div>
+  <div class="status"><span class="dot"></span>Updated Mon 29 Jun · Next drop Mon 6 Jul · 04:00</div>
 </div></div>
-<div class="mq"><div class="track">REAL DATA, MADE BEAUTIFUL&nbsp;&nbsp;✦&nbsp;&nbsp;THREE NEW POSTS EVERY WEEK&nbsp;&nbsp;✦&nbsp;&nbsp;ADAM PHANG · SINGAPORE PROPERTY&nbsp;&nbsp;✦&nbsp;&nbsp;NEW EVERY MONDAY&nbsp;&nbsp;✦&nbsp;&nbsp;REAL DATA, MADE BEAUTIFUL&nbsp;&nbsp;✦&nbsp;&nbsp;THREE NEW POSTS EVERY WEEK&nbsp;&nbsp;✦&nbsp;&nbsp;ADAM PHANG · SINGAPORE PROPERTY&nbsp;&nbsp;✦&nbsp;&nbsp;NEW EVERY MONDAY&nbsp;&nbsp;✦&nbsp;&nbsp;</div></div>
+<div class="mq"><div class="track">REAL DATA, MADE BEAUTIFUL&nbsp;&nbsp;✦&nbsp;&nbsp;THREE NEW POSTS EVERY WEEK&nbsp;&nbsp;✦&nbsp;&nbsp;PROPSIGHT · SINGAPORE PROPERTY&nbsp;&nbsp;✦&nbsp;&nbsp;NEW EVERY MONDAY&nbsp;&nbsp;✦&nbsp;&nbsp;REAL DATA, MADE BEAUTIFUL&nbsp;&nbsp;✦&nbsp;&nbsp;THREE NEW POSTS EVERY WEEK&nbsp;&nbsp;✦&nbsp;&nbsp;PROPSIGHT · SINGAPORE PROPERTY&nbsp;&nbsp;✦&nbsp;&nbsp;NEW EVERY MONDAY&nbsp;&nbsp;✦&nbsp;&nbsp;</div></div>
 <div class="wrap">
   <div class="hero">
-    <div><div class="issue">Issue 1 — Week of 24 June 2026</div><div class="mast">PR<span class="o">E</span>SS</div></div>
-    <div class="lead"><p>Three new posts. Every week. Built from real Singapore property data — and made to stop the scroll.</p>
-      <div class="sm">Your content studio: download the image, copy the caption, post it. That's the whole job.</div></div>
+    <div><div class="issue">Issue 5 · Week of 29 June 2026</div><div class="mast">STUD<span class="o">I</span>O</div></div>
+    <div class="lead"><p>Three new posts. Every week. Built from real Singapore property data, made to stop the scroll and send people to PropSight.</p>
+      <div class="sm">Download the image, copy the caption, post it to @propsightsg. That's the whole job.</div></div>
   </div>
   <section id="drop">
     <div class="shead"><h2>This week's drop</h2><span class="newpill">● 3 New</span><span class="subnote">Suggested: post one Mon · Wed · Fri</span></div>
     <div class="grid"><article class="pcard">
   <div class="phone"><div class="island"></div><div class="screen">
     <div class="sbar"><span>9:41</span><span>●●● 📶 🔋</span></div>
-    <div class="igh"><div class="av"><i>A</i></div><div class="who"><span class="uname"></span><span class="loc"></span></div><span class="more">⋯</span></div>
-    <div class="pimg"><img loading="lazy" src="posts/2026-06-24-c-stamp.png" alt="Stamp duty — ABSD on a second home"></div>
+    <div class="igh"><div class="av"><i><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#d8b15e"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#d8b15e" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div><div class="who"><span class="uname">propsightsg</span><span class="loc">Singapore</span></div><span class="more">⋯</span></div>
+    <div class="pimg"><img loading="lazy" src="posts/2026-06-29-w4-ad.png" alt="PropSight, free Singapore property tools"></div>
     <div class="acts"><span>♡</span><span>💬</span><span>➤</span><span class="save">🔖</span></div>
     <div class="likes"><span class="lk"></span></div>
-    <div class="pcap"><span class="u"></span>Affordable second home? Let's talk reality. <span class="more2">… more</span><span class="tags">#singaporeproperty #propertysg #absd</span></div>
+    <div class="pcap"><b class="u">propsightsg</b> Your home's real value, what you can afford, stamp duty, grants, rental yield, schools nea… <span class="more2">… more</span><span class="tags">#singaporeproperty #propertysg #sghomeowners</span></div>
     <div class="ptime">2 hours ago</div>
   </div></div>
-  <div class="tagrow"><span class="tg">Stamp Duty</span><span class="tg">ABSD</span></div>
+  <div class="tagrow"><span class="tg">PropSight</span><span class="tg">Free</span></div>
   <div class="pacts">
-    <div class="btns"><a class="btn dl" href="posts/2026-06-24-c-stamp.png" download>↓ Download</a>
-      <button class="btn cp" data-cap="Affordable second home? Let's talk reality.
-
-A citizen buying a 2nd home at $1.65M pays 20% ABSD.
-
-That's about $330k cash, on top of the price. Plan for it before you fall in love with the place.
-
-link in bio
-
-#singaporeproperty #propertysg #absd #secondproperty #sghomebuyer">⧉ Copy caption</button></div>
+    <div class="btns"><a class="btn dl" href="posts/2026-06-29-w4-ad.png" download>↓ Download</a>
+      <button class="btn cp" data-cap="Your home's real value, what you can afford, stamp duty, grants, rental yield, schools nearby.
+All from real URA and HDB data. No signup, nothing to pay.
+Stop guessing what your place is worth and go look.
+Check yours free at propsight.sg
+#singaporeproperty #propertysg #sghomeowners #hdb #condosg">⧉ Copy caption</button></div>
   </div>
 </article><article class="pcard">
   <div class="phone"><div class="island"></div><div class="screen">
     <div class="sbar"><span>9:41</span><span>●●● 📶 🔋</span></div>
-    <div class="igh"><div class="av"><i>A</i></div><div class="who"><span class="uname"></span><span class="loc"></span></div><span class="more">⋯</span></div>
-    <div class="pimg"><img loading="lazy" src="posts/2026-06-24-c-value.png" alt="What a flat in Tampines is worth"></div>
+    <div class="igh"><div class="av"><i><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#d8b15e"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#d8b15e" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div><div class="who"><span class="uname">propsightsg</span><span class="loc">Singapore</span></div><span class="more">⋯</span></div>
+    <div class="pimg"><img loading="lazy" src="posts/2026-06-29-w4-schools.png" alt="Homes near Kong Hwa"></div>
     <div class="acts"><span>♡</span><span>💬</span><span>➤</span><span class="save">🔖</span></div>
     <div class="likes"><span class="lk"></span></div>
-    <div class="pcap"><span class="u"></span>taking the guesswork out of your Tampines flat <span class="more2">… more</span><span class="tags">#singaporeproperty #propertysg #tampines</span></div>
+    <div class="pcap"><b class="u">propsightsg</b> Singapore parents, here's the math nobody tells you upfront. <span class="more2">… more</span><span class="tags">#singaporeproperty #propertysg #konghwa</span></div>
     <div class="ptime">2 hours ago</div>
   </div></div>
-  <div class="tagrow"><span class="tg">Home Value</span><span class="tg">Comps</span></div>
+  <div class="tagrow"><span class="tg">School Finder</span><span class="tg">1km</span></div>
   <div class="pacts">
-    <div class="btns"><a class="btn dl" href="posts/2026-06-24-c-value.png" download>↓ Download</a>
-      <button class="btn cp" data-cap="taking the guesswork out of your Tampines flat
-a typical 4-room resale sits around $710k right now
-that figure comes from 2478 actual sales this year, not wishful asking prices
-know your number before you list
-link in bio
-#singaporeproperty #propertysg #tampines #hdbresale #4roomflat #sghomes">⧉ Copy caption</button></div>
+    <div class="btns"><a class="btn dl" href="posts/2026-06-29-w4-schools.png" download>↓ Download</a>
+      <button class="btn cp" data-cap="Singapore parents, here's the math nobody tells you upfront.
+
+122+ homes already sit within 1km of Kong Hwa, all of them holding P1 priority.
+
+That number quietly decides your kid's odds before you even ballot.
+
+Check yours free at propsight.sg
+
+#singaporeproperty #propertysg #konghwa #p1registration #primaryschool #sgmum">⧉ Copy caption</button></div>
   </div>
 </article><article class="pcard">
   <div class="phone"><div class="island"></div><div class="screen">
     <div class="sbar"><span>9:41</span><span>●●● 📶 🔋</span></div>
-    <div class="igh"><div class="av"><i>A</i></div><div class="who"><span class="uname"></span><span class="loc"></span></div><span class="more">⋯</span></div>
-    <div class="pimg"><img loading="lazy" src="posts/2026-06-24-c-myth.png" alt="Property myth vs fact"></div>
+    <div class="igh"><div class="av"><i><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#d8b15e"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#d8b15e" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div><div class="who"><span class="uname">propsightsg</span><span class="loc">Singapore</span></div><span class="more">⋯</span></div>
+    <div class="pimg"><img loading="lazy" src="posts/2026-06-29-w4-yield.png" alt="HDB vs condo rental yield"></div>
     <div class="acts"><span>♡</span><span>💬</span><span>➤</span><span class="save">🔖</span></div>
     <div class="likes"><span class="lk"></span></div>
-    <div class="pcap"><span class="u"></span>Myth: the price you offer is the price you can borrow on. <span class="more2">… more</span><span class="tags">#singaporeproperty #propertysg #homeloan</span></div>
+    <div class="pcap"><b class="u">propsightsg</b> Your HDB flat pulls 6.1% gross rent. <span class="more2">… more</span><span class="tags">#singaporeproperty #propertysg #hdb</span></div>
     <div class="ptime">2 hours ago</div>
   </div></div>
-  <div class="tagrow"><span class="tg">Myth vs Fact</span><span class="tg">Tip</span></div>
+  <div class="tagrow"><span class="tg">Rental Yield</span><span class="tg">HDB vs Condo</span></div>
   <div class="pacts">
-    <div class="btns"><a class="btn dl" href="posts/2026-06-24-c-myth.png" download>↓ Download</a>
-      <button class="btn cp" data-cap="Myth: the price you offer is the price you can borrow on.
+    <div class="btns"><a class="btn dl" href="posts/2026-06-29-w4-yield.png" download>↓ Download</a>
+      <button class="btn cp" data-cap="Your HDB flat pulls 6.1% gross rent.
+That fancy condo? 3.6%.
+Yeah, the flat wins on yield. Surprised?
 
-Not true. Your loan and CPF only stretch to the bank's valuation.
-Offer above it and that gap comes straight out of your own pocket.
+Check your own numbers free at propsight.sg
 
-link in bio
-
-#singaporeproperty #propertysg #homeloan #cpf #bankvaluation #buyersg">⧉ Copy caption</button></div>
+#singaporeproperty #propertysg #hdb #condo #rentalyield #sgrealestate">⧉ Copy caption</button></div>
   </div>
 </article></div>
   </section>
   <section id="recent" class="recent"><div class="shead"><h2>Recent drops</h2><span class="subnote">the last few weeks</span></div><div class="rwrap"><div class="rgrid"><article class="card">
-  <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-c-pulse.png" alt="Market Pulse — Clementi"></div>
-  <div class="meta"><div class="tagrow"><span class="tg">Market Pulse</span><span class="tg">Clementi</span></div>
+  <div class="imgwrap"><img loading="lazy" src="posts/2026-06-29-w3-showcase.png" alt="PropSight shown on a phone"></div>
+  <div class="meta"><div class="tagrow"><span class="tg">PropSight</span><span class="tg">Live</span></div>
     <div class="actrow">
-      <a class="btn dl" href="posts/2026-06-24-c-pulse.png" download>↓ Download</a>
-      <button class="btn cp" data-cap="Resale flats in Clementi just clocked 713 sales last year.
-Median sitting at $598k, up 3.9% over twelve months.
-Steady demand, mature estate, schools everywhere. People want in.
-Thinking of selling? This is a good window.
-link in bio
-#clementi #clementiresale #hdbresale #singaporeproperty #propertysg #sghomes">⧉ Copy caption</button>
+      <a class="btn dl" href="posts/2026-06-29-w3-showcase.png" download>↓ Download</a>
+      <button class="btn cp" data-cap="Stop guessing what your flat is actually worth.
+Real value, your budget, stamp duty, grants, rental yield, even the schools nearby.
+Free, no signup, no catch.
+Check yours free at propsight.sg
+#singaporeproperty #propertysg #sghomes #stampduty #propertytips #sghdb">⧉ Copy caption</button>
     </div></div></article><article class="card">
-  <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-c-affordable.png" alt="Most affordable flats — Ang Mo Kio"></div>
-  <div class="meta"><div class="tagrow"><span class="tg">Most Affordable</span><span class="tg">Ang Mo Kio</span></div>
+  <div class="imgwrap"><img loading="lazy" src="posts/2026-06-29-w3-schools.png" alt="Homes near Tanjong Katong"></div>
+  <div class="meta"><div class="tagrow"><span class="tg">School Finder</span><span class="tg">1km</span></div>
     <div class="actrow">
-      <a class="btn dl" href="posts/2026-06-24-c-affordable.png" download>↓ Download</a>
-      <button class="btn cp" data-cap="amk resale flats still the value play if you want in.
-real volume, real transactions, median sitting around $517k.
-not glam, but your money goes further here.
-link in bio
-#singaporeproperty #propertysg #angmokio #resaleflat #hdbresale #sghomes">⧉ Copy caption</button>
+      <a class="btn dl" href="posts/2026-06-29-w3-schools.png" download>↓ Download</a>
+      <button class="btn cp" data-cap="Tanjong Katong's got pull, and P1 is the real prize.
+123+ homes sit within 1km, all qualifying for P1 priority.
+Yours might be one of them. Worth two minutes to find out.
+Check yours free at propsight.sg
+
+#singaporeproperty #propertysg #tanjongkatong #p1priority #homebuyingsg #propertytools">⧉ Copy caption</button>
     </div></div></article><article class="card">
-  <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-c-faceoff.png" alt="Clementi vs Geylang"></div>
-  <div class="meta"><div class="tagrow"><span class="tg">Area Face-off</span><span class="tg">Clementi vs Geylang</span></div>
+  <div class="imgwrap"><img loading="lazy" src="posts/2026-06-29-w3-stamp.png" alt="Stamp duty — ABSD on a second home"></div>
+  <div class="meta"><div class="tagrow"><span class="tg">Stamp Duty</span><span class="tg">ABSD</span></div>
     <div class="actrow">
-      <a class="btn dl" href="posts/2026-06-24-c-faceoff.png" download>↓ Download</a>
-      <button class="btn cp" data-cap="Clementi or Geylang? 
-
-Clementi flats sit at $598k and are climbing 3.9% a year. Geylang is $580k and softer at -5.9%, so there's room to bargain. Different plays, both real.
-
-link in bio.
-
-#singaporeproperty #clementi #hdbresale #propertysg #sgproperty">⧉ Copy caption</button>
+      <a class="btn dl" href="posts/2026-06-29-w3-stamp.png" download>↓ Download</a>
+      <button class="btn cp" data-cap="Buying your 2nd home at $1.65M? The 20% ABSD is about $330k.
+That sits on top of the price, not inside it.
+A lot of people find out too late.
+Check yours free at propsight.sg
+#singaporeproperty #propertysg #absd #secondhome #propertytax">⧉ Copy caption</button>
     </div></div></article><article class="card">
-  <div class="imgwrap"><img loading="lazy" src="posts/2026-06-25-y3-yield.png" alt="HDB vs condo rental yield"></div>
+  <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-w0-yield.png" alt="HDB vs condo rental yield"></div>
   <div class="meta"><div class="tagrow"><span class="tg">Rental Yield</span><span class="tg">HDB vs Condo</span></div>
     <div class="actrow">
-      <a class="btn dl" href="posts/2026-06-25-y3-yield.png" download>↓ Download</a>
+      <a class="btn dl" href="posts/2026-06-24-w0-yield.png" download>↓ Download</a>
       <button class="btn cp" data-cap="link in bio means I just write the caption. Let me produce it.
 
 HDB flats yield about 6.1% gross rent islandwide vs 3.6% for private condos.Everyone wants the shiny condo. The numbers laugh at that.
@@ -270,51 +267,47 @@ Yes, the smaller flat is the bigger earner.
 link in bio
 #singaporeproperty #propertysg #hdb #rentalyield #condo #sgrealestate">⧉ Copy caption</button>
     </div></div></article><article class="card">
-  <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-c-net.png" alt="Net proceeds when you sell"></div>
-  <div class="meta"><div class="tagrow"><span class="tg">Net Proceeds</span><span class="tg">Selling</span></div>
+  <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-w0-faceoff.png" alt="Clementi vs Geylang"></div>
+  <div class="meta"><div class="tagrow"><span class="tg">Area Face-off</span><span class="tg">Clementi vs Geylang</span></div>
     <div class="actrow">
-      <a class="btn dl" href="posts/2026-06-24-c-net.png" download>↓ Download</a>
-      <button class="btn cp" data-cap="$1.65M sale, real numbers I ran for a client.
-After loan, CPF refund and fees, you keep about $879k. example figures, yours will differ.
-Want your own breakdown before you list? I'll do the math.
-link in bio
-#singaporeproperty #propertysg #sgrealestate #sellsmart #sghome">⧉ Copy caption</button>
+      <a class="btn dl" href="posts/2026-06-24-w0-faceoff.png" download>↓ Download</a>
+      <button class="btn cp" data-cap="Clementi or Geylang? 
+
+Clementi flats sit at $598k and are climbing 3.9% a year. Geylang is $580k and softer at -5.9%, so there's room to bargain. Different plays, both real.
+
+link in bio.
+
+#singaporeproperty #clementi #hdbresale #propertysg #sgproperty">⧉ Copy caption</button>
     </div></div></article><article class="card">
-  <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-c-schools.png" alt="Homes near Haig Girls'"></div>
-  <div class="meta"><div class="tagrow"><span class="tg">School Finder</span><span class="tg">1km</span></div>
+  <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-w0-affordable.png" alt="Most affordable flats — Ang Mo Kio"></div>
+  <div class="meta"><div class="tagrow"><span class="tg">Most Affordable</span><span class="tg">Ang Mo Kio</span></div>
     <div class="actrow">
-      <a class="btn dl" href="posts/2026-06-24-c-schools.png" download>↓ Download</a>
-      <button class="btn cp" data-cap="Affordable.
-
-Some parents chase the dream school for years.
-
-136+ homes sit within 1km of St. Joseph's Institution Junior. That's P1 priority.
-
-Want the list before the next launch crowd does?
-
+      <a class="btn dl" href="posts/2026-06-24-w0-affordable.png" download>↓ Download</a>
+      <button class="btn cp" data-cap="amk resale flats still the value play if you want in.
+real volume, real transactions, median sitting around $517k.
+not glam, but your money goes further here.
 link in bio
-
-#singaporeproperty #propertysg #sji #primaryone #1kmrule #districtproperty">⧉ Copy caption</button>
+#singaporeproperty #propertysg #angmokio #resaleflat #hdbresale #sghomes">⧉ Copy caption</button>
     </div></div></article></div><span class="rfade"></span></div><div class="rhint">swipe for more →</div></section>
   <section id="how" class="how">
     <div class="shead"><h2>How it works</h2></div>
     <div class="steps">
       <div class="step"><div class="n">1</div><h4>New every Monday</h4><p>Three fresh posts land here automatically at 4am — built from the week's real URA &amp; HDB data.</p></div>
-      <div class="step"><div class="n">2</div><h4>Download the image</h4><p>Tap <b>Download</b> on any post to save the square image straight to your phone or computer.</p></div>
+      <div class="step"><div class="n">2</div><h4>Download the image</h4><p>Tap <b>Download</b> on any post to save the image straight to your phone or computer.</p></div>
       <div class="step"><div class="n">3</div><h4>Copy the caption</h4><p>Tap <b>Copy caption</b> — the hook, the value, hashtags and your link line are ready to paste.</p></div>
       <div class="step"><div class="n">4</div><h4>Post to Instagram</h4><p>Paste, post, done. Space the three across the week (Mon / Wed / Fri works well).</p></div>
     </div>
     <div class="install">
-      <div><h3>Add Press to your phone</h3><p>Install it like an app for one-tap access. <b>iPhone:</b> open in Safari → Share → <b>Add to Home Screen</b>. <b>Android:</b> Chrome menu → <b>Install app</b>.</p></div>
-      <button id="installBtn" style="display:none">↓ Install Press</button>
+      <div><h3>Add the Studio to your phone</h3><p>Install it like an app for one-tap access. <b>iPhone:</b> open in Safari → Share → <b>Add to Home Screen</b>. <b>Android:</b> Chrome menu → <b>Install app</b>.</p></div>
+      <button id="installBtn" style="display:none">↓ Install Studio</button>
     </div>
   </section>
   <section id="archive" class="arch">
     <div class="shead"><h2>The archive</h2><span class="subnote">every drop, kept</span></div>
-    <div class="archrow"><span class="empty">Older drops will collect here, week by week.</span></div>
+    <div class="archrow"><a href="posts/2026-06-24-w1-pulse.png"><img loading="lazy" src="posts/2026-06-24-w1-pulse.png" alt="Market Pulse — Clementi"></a><a href="posts/2026-06-24-w1-value.png"><img loading="lazy" src="posts/2026-06-24-w1-value.png" alt="What a flat in Tampines is worth"></a><a href="posts/2026-06-24-w1-schools.png"><img loading="lazy" src="posts/2026-06-24-w1-schools.png" alt="Homes near St. Joseph's Institution Junior"></a><a href="posts/2026-06-24-w2-stamp.png"><img loading="lazy" src="posts/2026-06-24-w2-stamp.png" alt="Stamp duty — ABSD on a second home"></a><a href="posts/2026-06-24-w2-grants.png"><img loading="lazy" src="posts/2026-06-24-w2-grants.png" alt="Housing grants you may be missing"></a><a href="posts/2026-06-24-w2-myth.png"><img loading="lazy" src="posts/2026-06-24-w2-myth.png" alt="Property myth vs fact"></a></div>
   </section>
 </div>
-<div class="foot"><div class="wrap"><b>Press</b><span>The content studio of Adam Phang · <a href="https://adamdegoat.github.io/adam/" style="color:#e3c98f">adamdegoat.github.io/adam</a> · new every Monday 04:00 SGT</span></div></div>
+<div class="foot"><div class="wrap"><b>PropSight Studio</b><span>The marketing studio behind <a href="https://propsight.sg" style="color:#e3c98f">propsight.sg</a> · new every Monday 04:00 SGT</span></div></div>
 <div class="toast" id="toast">Caption copied ✓</div>
 <script>
 function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(window._t);window._t=setTimeout(function(){t.classList.remove('show');t.textContent='Caption copied ✓';},2300);}

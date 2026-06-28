@@ -1,6 +1,6 @@
 {
-  "name": "Press \u2014 Adam Phang",
-  "short_name": "Press",
+  "name": "PropSight Studio",
+  "short_name": "Studio",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

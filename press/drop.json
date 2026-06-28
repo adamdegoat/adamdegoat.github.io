@@ -1,74 +1,74 @@
 {
   "current": {
-    "issue": 1,
-    "built": "2026-06-24",
-    "week_of": "24 June 2026",
+    "issue": 5,
+    "built": "2026-06-29",
+    "week_of": "29 June 2026",
     "posts": [
       {
-        "id": "stamp",
+        "id": "ad",
         "tag": [
-          "Stamp Duty",
-          "ABSD"
+          "PropSight",
+          "Free"
         ],
-        "caption": "Affordable second home? Let's talk reality.\n\nA citizen buying a 2nd home at $1.65M pays 20% ABSD.\n\nThat's about $330k cash, on top of the price. Plan for it before you fall in love with the place.\n\nlink in bio\n\n#singaporeproperty #propertysg #absd #secondproperty #sghomebuyer",
-        "alt": "Stamp duty \u2014 ABSD on a second home",
-        "file": "2026-06-24-c-stamp.png"
+        "caption": "Your home's real value, what you can afford, stamp duty, grants, rental yield, schools nearby.\nAll from real URA and HDB data. No signup, nothing to pay.\nStop guessing what your place is worth and go look.\nCheck yours free at propsight.sg\n#singaporeproperty #propertysg #sghomeowners #hdb #condosg",
+        "alt": "PropSight, free Singapore property tools",
+        "file": "2026-06-29-w4-ad.png"
       },
       {
-        "id": "value",
+        "id": "schools",
         "tag": [
-          "Home Value",
-          "Comps"
+          "School Finder",
+          "1km"
         ],
-        "caption": "taking the guesswork out of your Tampines flat\na typical 4-room resale sits around $710k right now\nthat figure comes from 2478 actual sales this year, not wishful asking prices\nknow your number before you list\nlink in bio\n#singaporeproperty #propertysg #tampines #hdbresale #4roomflat #sghomes",
-        "alt": "What a flat in Tampines is worth",
-        "file": "2026-06-24-c-value.png"
+        "caption": "Singapore parents, here's the math nobody tells you upfront.\n\n122+ homes already sit within 1km of Kong Hwa, all of them holding P1 priority.\n\nThat number quietly decides your kid's odds before you even ballot.\n\nCheck yours free at propsight.sg\n\n#singaporeproperty #propertysg #konghwa #p1registration #primaryschool #sgmum",
+        "alt": "Homes near Kong Hwa",
+        "file": "2026-06-29-w4-schools.png"
       },
       {
-        "id": "myth",
+        "id": "yield",
         "tag": [
-          "Myth vs Fact",
-          "Tip"
+          "Rental Yield",
+          "HDB vs Condo"
         ],
-        "caption": "Myth: the price you offer is the price you can borrow on.\n\nNot true. Your loan and CPF only stretch to the bank's valuation.\nOffer above it and that gap comes straight out of your own pocket.\n\nlink in bio\n\n#singaporeproperty #propertysg #homeloan #cpf #bankvaluation #buyersg",
-        "alt": "Property myth vs fact",
-        "file": "2026-06-24-c-myth.png"
+        "caption": "Your HDB flat pulls 6.1% gross rent.\nThat fancy condo? 3.6%.\nYeah, the flat wins on yield. Surprised?\n\nCheck your own numbers free at propsight.sg\n\n#singaporeproperty #propertysg #hdb #condo #rentalyield #sgrealestate",
+        "alt": "HDB vs condo rental yield",
+        "file": "2026-06-29-w4-yield.png"
       }
     ]
   },
   "archive": [
     {
-      "week_of": "24 June 2026",
+      "week_of": "29 June 2026",
       "posts": [
         {
-          "id": "pulse",
+          "id": "showcase",
           "tag": [
-            "Market Pulse",
-            "Clementi"
+            "PropSight",
+            "Live"
           ],
-          "caption": "Resale flats in Clementi just clocked 713 sales last year.\nMedian sitting at $598k, up 3.9% over twelve months.\nSteady demand, mature estate, schools everywhere. People want in.\nThinking of selling? This is a good window.\nlink in bio\n#clementi #clementiresale #hdbresale #singaporeproperty #propertysg #sghomes",
-          "alt": "Market Pulse \u2014 Clementi",
-          "file": "2026-06-24-c-pulse.png"
+          "caption": "Stop guessing what your flat is actually worth.\nReal value, your budget, stamp duty, grants, rental yield, even the schools nearby.\nFree, no signup, no catch.\nCheck yours free at propsight.sg\n#singaporeproperty #propertysg #sghomes #stampduty #propertytips #sghdb",
+          "alt": "PropSight shown on a phone",
+          "file": "2026-06-29-w3-showcase.png"
         },
         {
-          "id": "affordable",
+          "id": "schools",
           "tag": [
-            "Most Affordable",
-            "Ang Mo Kio"
+            "School Finder",
+            "1km"
           ],
-          "caption": "amk resale flats still the value play if you want in.\nreal volume, real transactions, median sitting around $517k.\nnot glam, but your money goes further here.\nlink in bio\n#singaporeproperty #propertysg #angmokio #resaleflat #hdbresale #sghomes",
-          "alt": "Most affordable flats \u2014 Ang Mo Kio",
-          "file": "2026-06-24-c-affordable.png"
+          "caption": "Tanjong Katong's got pull, and P1 is the real prize.\n123+ homes sit within 1km, all qualifying for P1 priority.\nYours might be one of them. Worth two minutes to find out.\nCheck yours free at propsight.sg\n\n#singaporeproperty #propertysg #tanjongkatong #p1priority #homebuyingsg #propertytools",
+          "alt": "Homes near Tanjong Katong",
+          "file": "2026-06-29-w3-schools.png"
         },
         {
-          "id": "faceoff",
+          "id": "stamp",
           "tag": [
-            "Area Face-off",
-            "Clementi vs Geylang"
+            "Stamp Duty",
+            "ABSD"
           ],
-          "caption": "Clementi or Geylang? \n\nClementi flats sit at $598k and are climbing 3.9% a year. Geylang is $580k and softer at -5.9%, so there's room to bargain. Different plays, both real.\n\nlink in bio.\n\n#singaporeproperty #clementi #hdbresale #propertysg #sgproperty",
-          "alt": "Clementi vs Geylang",
-          "file": "2026-06-24-c-faceoff.png"
+          "caption": "Buying your 2nd home at $1.65M? The 20% ABSD is about $330k.\nThat sits on top of the price, not inside it.\nA lot of people find out too late.\nCheck yours free at propsight.sg\n#singaporeproperty #propertysg #absd #secondhome #propertytax",
+          "alt": "Stamp duty \u2014 ABSD on a second home",
+          "file": "2026-06-29-w3-stamp.png"
         }
       ]
     },
@@ -83,17 +83,52 @@
           ],
           "caption": "link in bio means I just write the caption. Let me produce it.\n\nHDB flats yield about 6.1% gross rent islandwide vs 3.6% for private condos.Everyone wants the shiny condo. The numbers laugh at that.\nHDB flats pull about 6.1% gross rent. Condos sit at 3.6%.\nYes, the smaller flat is the bigger earner.\n\nlink in bio\n#singaporeproperty #propertysg #hdb #rentalyield #condo #sgrealestate",
           "alt": "HDB vs condo rental yield",
-          "file": "2026-06-25-y3-yield.png"
+          "file": "2026-06-24-w0-yield.png"
         },
         {
-          "id": "net",
+          "id": "faceoff",
           "tag": [
-            "Net Proceeds",
-            "Selling"
+            "Area Face-off",
+            "Clementi vs Geylang"
           ],
-          "caption": "$1.65M sale, real numbers I ran for a client.\nAfter loan, CPF refund and fees, you keep about $879k. example figures, yours will differ.\nWant your own breakdown before you list? I'll do the math.\nlink in bio\n#singaporeproperty #propertysg #sgrealestate #sellsmart #sghome",
-          "alt": "Net proceeds when you sell",
-          "file": "2026-06-24-c-net.png"
+          "caption": "Clementi or Geylang? \n\nClementi flats sit at $598k and are climbing 3.9% a year. Geylang is $580k and softer at -5.9%, so there's room to bargain. Different plays, both real.\n\nlink in bio.\n\n#singaporeproperty #clementi #hdbresale #propertysg #sgproperty",
+          "alt": "Clementi vs Geylang",
+          "file": "2026-06-24-w0-faceoff.png"
+        },
+        {
+          "id": "affordable",
+          "tag": [
+            "Most Affordable",
+            "Ang Mo Kio"
+          ],
+          "caption": "amk resale flats still the value play if you want in.\nreal volume, real transactions, median sitting around $517k.\nnot glam, but your money goes further here.\nlink in bio\n#singaporeproperty #propertysg #angmokio #resaleflat #hdbresale #sghomes",
+          "alt": "Most affordable flats \u2014 Ang Mo Kio",
+          "file": "2026-06-24-w0-affordable.png"
+        }
+      ]
+    },
+    {
+      "week_of": "24 June 2026",
+      "posts": [
+        {
+          "id": "pulse",
+          "tag": [
+            "Market Pulse",
+            "Clementi"
+          ],
+          "caption": "Resale flats in Clementi just clocked 713 sales last year.\nMedian sitting at $598k, up 3.9% over twelve months.\nSteady demand, mature estate, schools everywhere. People want in.\nThinking of selling? This is a good window.\nlink in bio\n#clementi #clementiresale #hdbresale #singaporeproperty #propertysg #sghomes",
+          "alt": "Market Pulse \u2014 Clementi",
+          "file": "2026-06-24-w1-pulse.png"
+        },
+        {
+          "id": "value",
+          "tag": [
+            "Home Value",
+            "Comps"
+          ],
+          "caption": "taking the guesswork out of your Tampines flat\na typical 4-room resale sits around $710k right now\nthat figure comes from 2478 actual sales this year, not wishful asking prices\nknow your number before you list\nlink in bio\n#singaporeproperty #propertysg #tampines #hdbresale #4roomflat #sghomes",
+          "alt": "What a flat in Tampines is worth",
+          "file": "2026-06-24-w1-value.png"
         },
         {
           "id": "schools",
@@ -102,8 +137,43 @@
             "1km"
           ],
           "caption": "Affordable.\n\nSome parents chase the dream school for years.\n\n136+ homes sit within 1km of St. Joseph's Institution Junior. That's P1 priority.\n\nWant the list before the next launch crowd does?\n\nlink in bio\n\n#singaporeproperty #propertysg #sji #primaryone #1kmrule #districtproperty",
-          "alt": "Homes near Haig Girls'",
-          "file": "2026-06-24-c-schools.png"
+          "alt": "Homes near St. Joseph's Institution Junior",
+          "file": "2026-06-24-w1-schools.png"
+        }
+      ]
+    },
+    {
+      "week_of": "24 June 2026",
+      "posts": [
+        {
+          "id": "stamp",
+          "tag": [
+            "Stamp Duty",
+            "ABSD"
+          ],
+          "caption": "Affordable second home? Let's talk reality.\n\nA citizen buying a 2nd home at $1.65M pays 20% ABSD.\n\nThat's about $330k cash, on top of the price. Plan for it before you fall in love with the place.\n\nlink in bio\n\n#singaporeproperty #propertysg #absd #secondproperty #sghomebuyer",
+          "alt": "Stamp duty \u2014 ABSD on a second home",
+          "file": "2026-06-24-w2-stamp.png"
+        },
+        {
+          "id": "grants",
+          "tag": [
+            "Grants",
+            "CPF"
+          ],
+          "caption": "First-timer families, listen up.\nThe CPF Housing Grant can give you up to $80k.\nAnd that's before EHG, Proximity or EC perks stack on top.\nlink in bio\n#singaporeproperty #propertysg #cpfgrant #bto #firsthome #hdbgrant",
+          "alt": "Housing grants you may be missing",
+          "file": "2026-06-24-w2-grants.png"
+        },
+        {
+          "id": "myth",
+          "tag": [
+            "Myth vs Fact",
+            "Tip"
+          ],
+          "caption": "Myth: the price you offer is the price you can borrow on.\n\nNot true. Your loan and CPF only stretch to the bank's valuation.\nOffer above it and that gap comes straight out of your own pocket.\n\nlink in bio\n\n#singaporeproperty #propertysg #homeloan #cpf #bankvaluation #buyersg",
+          "alt": "Property myth vs fact",
+          "file": "2026-06-24-w2-myth.png"
         }
       ]
     }
