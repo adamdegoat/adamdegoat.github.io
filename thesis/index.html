@@ -818,9 +818,9 @@ const VIEWS={
   const u=D.upcoming||[];
   const hero=`<div class="lede"><b class="serif">Upcoming launches</b> — what's coming, not on sale yet. Nothing has transacted, so each figure is <b>indicative</b>, benchmarked against the real resale around it.</div>
    <div class="flag-w" style="margin-top:12px">⚠ <b>Indicative only.</b> These aren't selling yet, so prices are estimated from the area's resale — not transactions. Always verify launch dates &amp; pricing with the developer.</div>`;
-  if(!u.length)return hero+`<div class="empty"><div class="b serif">Watchlist is being built</div>Curated upcoming projects will appear here, each benchmarked against nearby resale.</div>`;
+  if(!u.length)return hero+`<div class="empty"><div class="b serif">Watchlist is being built</div>Upcoming projects we are tracking will appear here, each benchmarked against nearby resale.</div>`;
   return hero+`<div class="launch-feed" style="margin-top:18px">${u.map(upcomingCard).join('')}</div>
-   <div class="note" style="text-align:center;color:var(--ink3);margin:8px 0 30px">A curated watchlist (kept current weekly), each benchmarked against the median resale of comparable condos in the same area. Indicative framing — not a valuation.</div>`;
+   <div class="note" style="text-align:center;color:var(--ink3);margin:8px 0 30px">A hand-picked watchlist, kept current weekly,, each benchmarked against the median resale of comparable condos in the same area. Indicative framing — not a valuation.</div>`;
  },
  compare(){
   if(!CMP.length)return `<div class="hero compact"><h1 class="serif">Compare, <em>side by side</em>.</h1>
@@ -1225,7 +1225,7 @@ function psGate(){
   var hold=document.createElement('div'); hold.className='gatehold';
   hold.innerHTML=PS.cardHTML({
     heading:'See every Singapore home, in full.',
-    sub:'You’re seeing a preview. Join PropSight free to unlock the complete research — every condo &amp; HDB, ranked, compared and tracked.'
+    sub:'You’re seeing a preview. Join PropSight free to open the complete research — every condo &amp; HDB, ranked, compared and tracked.'
   });
   wrap.parentNode.insertBefore(hold, wrap.nextSibling);
   PS.wire(hold,'research',function(){ setTimeout(function(){ render(true); },900); });

@@ -103,7 +103,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
     <span class="kick">Affordability</span>
     <h1>What can you actually afford?</h1><svg class="hl-i" viewBox="0 0 172 14" preserveAspectRatio="none" aria-hidden="true"><path d="M4 9 C 44 4, 128 4, 168 8"/></svg>
     <p class="sub">Work out the home price that fits your income and savings — using the same lending rules the banks must follow. Do this before you fall for anything.</p>
-    <a href="../essentials/#first-home" style="display:inline-block;margin-top:13px;font-size:13.5px;font-weight:700;color:var(--green2);border:1px solid var(--line2);border-radius:30px;padding:8px 15px">New to this? Start with the Guide →</a>
+    <a href="../essentials/#buying" style="display:inline-block;margin-top:13px;font-size:13.5px;font-weight:700;color:var(--green2);border:1px solid var(--line2);border-radius:30px;padding:8px 15px">New to this? Start with the Guide →</a>
   </div>
 
   <div class="card">
@@ -256,7 +256,7 @@ function calc(){
     let m;
     if(r.leaseBlock) m='<b>That lease is too short to finance.</b> With under ~20 years left, banks won’t lend and CPF can’t be used — these homes are effectively cash-only. Tell us the exact lease and we’ll work out the cash price.';
     else if(inc<=0) m='Enter your monthly income to see what you can afford.';
-    else if(r.maxMonthly<=0) m='<b>Your existing monthly debts already use up the borrowing limit.</b> Banks cap all your debt repayments at '+Math.round(R.tdsr*100)+'% of your income — clearing some debt, or a higher/combined income, would unlock a budget.';
+    else if(r.maxMonthly<=0) m='<b>Your existing monthly debts already use up the borrowing limit.</b> Banks cap all your debt repayments at '+Math.round(R.tdsr*100)+'% of your income — clearing some debt, or a higher/combined income, would free up some budget.';
     else if(cash<=0) m='<b>You’ll need some cash to start.</b> At least '+Math.round(R.minCash*100)+'% of the price must be paid in cash — CPF can’t cover that part.';
     else m='With these numbers there isn’t a workable budget yet — try a longer loan, more savings, or message us and we’ll look at it together.';
     $('#limit').innerHTML=m;

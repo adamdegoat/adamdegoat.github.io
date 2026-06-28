@@ -76,7 +76,7 @@
   var TICK = '<span class="psj-tick"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>';
   function cardHTML(opts) {
     opts = opts || {};
-    var h = opts.heading || 'Unlock the full picture.';
+    var h = opts.heading || 'See the full picture.';
     var sub = opts.sub || 'Join PropSight free — see every condo &amp; HDB in full, plus the weekly insights and live Telegram signals.';
     var x = opts.modal ? '<button class="psj-x" data-psj-close aria-label="Close">×</button>' : '';
     return '<div class="psj-card">' + x
@@ -87,7 +87,7 @@
       +   '<ul class="psj-perks">'
       +   '<li>' + TICK + '<span><b>Full research</b> — every condo &amp; HDB, ranked, compared &amp; tracked.</span></li>'
       +   '<li>' + TICK + '<span><b>More of Aillie</b> — a higher chat limit with your property assistant.</span></li>'
-      +   '<li>' + TICK + '<span><b>Weekly newsletter</b> — the moves that matter, in plain English.</span></li>'
+      +   '<li>' + TICK + '<span><b>Weekly newsletter</b> — the moves that matter.</span></li>'
       +   '<li>' + TICK + '<span><b>Telegram channel</b> — live property signals as they happen.</span></li>'
       +   '</ul>'
       +   '<form class="psj-form" novalidate>'
