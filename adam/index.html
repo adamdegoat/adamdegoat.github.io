@@ -141,9 +141,11 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .hessentials:hover{border-color:var(--brass);transform:translateY(-1px)}
 .fresh{display:inline-flex;align-items:center;gap:9px;margin-top:14px;font-size:12.5px;color:var(--ink3);font-weight:600}
 .fresh .dot{width:8px;height:8px;border-radius:50%;background:#2e9e6b;box-shadow:0 0 0 0 rgba(46,158,107,.5);animation:pulse 2s infinite}
-.hc{display:inline-flex;align-items:baseline;gap:5px}
-.hc-time{font-variant-numeric:tabular-nums;font-weight:700;letter-spacing:.02em;color:var(--ink2)}
-.hc-z{font-size:.8em;font-weight:800;letter-spacing:.1em;color:var(--brass)}
+.herotop{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:4px}
+.heroclock{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;font-weight:700;letter-spacing:.14em;color:rgba(246,241,231,.72);font-variant-numeric:tabular-nums;border-left:1px solid rgba(246,241,231,.22);padding-left:14px}
+.heroclock .hcdot{width:6px;height:6px;border-radius:50%;background:#2e9e6b;box-shadow:0 0 0 0 rgba(46,158,107,.5);animation:pulse 2s infinite}
+.heroclock time{color:rgba(246,241,231,.92);letter-spacing:.06em}
+.heroclock .hcz{color:#e3c98f;font-weight:800}
 .hperks{display:flex;align-items:baseline;gap:10px;margin-top:20px;font-size:14px;font-weight:600;line-height:1.5;max-width:510px}
 .hperks .hperks-star{flex:none;color:var(--brass3);font-size:15px;position:relative;top:1px}
 .hperks b{color:var(--brass3);font-weight:800}
@@ -455,8 +457,6 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .hero .covers{color:rgba(246,241,231,.6)}
 .hero .covers b{color:rgba(246,241,231,.92)}
 .hero .fresh{color:rgba(246,241,231,.62)}
-.hero .fresh .hc-time{color:rgba(246,241,231,.95)}
-.hero .fresh .hc-z{color:#e3c98f}
 .hero .hsoon{color:rgba(246,241,231,.82)}
 .hero .hperks{color:rgba(246,241,231,.94)}
 .hero .hinstall{color:var(--brass3)}
@@ -787,7 +787,7 @@ if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}
   <!--PULSE-MQ-START--><a class="mq" href="notes/market-pulse-27-jun-2026.html" aria-label="This week's Market Pulse"><span class="mq-lab"><span class="dot"></span>This week's market</span><span class="mq-div"></span><div class="mq-vp"><div class="mq-track"><span class="mq-i mq-lead">● This week's market</span><span class="mq-sep mq-lead">◆</span><span class="mq-i hot">Resale flats are renting out at 6.1% a year, more than condos</span><span class="mq-sep">◆</span><span class="mq-i pl">Parc Clematis is the most-traded condo on the market right now</span><span class="mq-sep">◆</span><span class="mq-i pl">Loyang Valley's owners sold their whole estate to a developer for around $880 million</span><span class="mq-sep">◆</span><span class="mq-i pl">Parktown Residence is the new launch buyers are chasing</span><span class="mq-sep">◆</span><span class="mq-i pl">Resale flat prices are holding steady this month</span><span class="mq-sep">◆</span><span class="mq-i pl">Condo prices are holding steady right now</span><span class="mq-sep">◆</span><span class="mq-cta">See what it means for you this week →</span><span class="mq-sep">◆</span><span class="mq-i mq-lead">● This week's market</span><span class="mq-sep mq-lead">◆</span><span class="mq-i hot">Resale flats are renting out at 6.1% a year, more than condos</span><span class="mq-sep">◆</span><span class="mq-i pl">Parc Clematis is the most-traded condo on the market right now</span><span class="mq-sep">◆</span><span class="mq-i pl">Loyang Valley's owners sold their whole estate to a developer for around $880 million</span><span class="mq-sep">◆</span><span class="mq-i pl">Parktown Residence is the new launch buyers are chasing</span><span class="mq-sep">◆</span><span class="mq-i pl">Resale flat prices are holding steady this month</span><span class="mq-sep">◆</span><span class="mq-i pl">Condo prices are holding steady right now</span><span class="mq-sep">◆</span><span class="mq-cta">See what it means for you this week →</span><span class="mq-sep">◆</span></div></div></a><!--PULSE-MQ-END-->
   <div class="wrap hero-in">
   <div>
-    <span class="eyebrow rv">Singapore property intelligence</span>
+    <div class="herotop rv"><span class="eyebrow">Singapore property intelligence</span><span class="heroclock"><span class="hcdot"></span><time id="psClock">--:--:--</time><span class="hcz">SGT</span></span></div>
     <h1><span class="ln"><i>Singapore property,</i></span><span class="ln"><i>decoded.</i></span></h1>
     <p class="lead lead-lg rv">PropSight is the free way to see Singapore property clearly: value any HDB or condo on real recent sales, dig into deep research on every project and town, work out what you can truly afford, and read the property news that actually matters, in plain English. No agent hard-sell, just the real numbers. And Aillie, your property intelligence, is right here, ask her anything.</p>
     <p class="lead lead-sm rv">The free way to see Singapore property clearly: real values, deep research on every project and town, what you can truly afford, and the property news that matters, in plain English. Plus Aillie, your property intelligence.</p>
@@ -796,7 +796,7 @@ if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}
     <div class="hsoon rv"><span class="hsoon-d"></span><span><b>Coming soon:</b> a PropSight listings platform, every home with the real numbers built in.</span></div>
     <p class="covers rv">Home values · affordability · stamp duty · grants · schools · selling · eligibility, <b>all free, all here.</b></p>
     <a class="hessentials rv" href="essentials/">New to property? Start with the guide →</a>
-    <div class="fresh rv"><span class="dot"></span><span class="hc"><time id="psClock" class="hc-time">--:--:--</time> <span class="hc-z">SGT</span></span>· built on official URA data, refreshed weekly</div>
+    <div class="fresh rv"><span class="dot"></span>Live · built on official URA data · refreshed weekly</div>
     <a class="hinstall rv" href="install.html">Add this hub to your phone, one tap to every tool</a>
   </div>
   <aside class="hero-chat-mount" id="heroChatMount" aria-label="Ask Aillie"><div class="chatcue" aria-hidden="true"><b>Ask Aillie anything</b><span>real numbers · free</span></div></aside>
