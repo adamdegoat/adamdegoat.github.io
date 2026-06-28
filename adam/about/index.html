@@ -23,8 +23,7 @@ a{color:inherit}
 .head .crumb{font-size:12.5px;color:var(--ink3);font-weight:600;position:relative}
 .head .crumb a{color:var(--ink3);text-decoration:none}.head .crumb b{color:var(--ink2)}
 .head-in{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;margin-top:16px}
-.head h1{font-family:var(--serif);font-weight:600;font-size:clamp(28px,4vw,46px);letter-spacing:-.025em;line-height:1.04;margin:12px 0 0;max-width:16ch}
-.head h1 em{font-style:italic;color:var(--green2)}
+.head h1{font-family:var(--serif);font-weight:600;font-size:clamp(28px,4vw,46px);letter-spacing:-.025em;line-height:1.05;margin:12px 0 0;max-width:17ch;color:var(--ink)}
 .head .intro{font-size:16px;color:var(--ink2);margin:16px 0 0;max-width:46ch;line-height:1.6}
 .head .metas{display:flex;flex-wrap:wrap;gap:22px;margin:20px 0 0}
 .head .meta b{font-family:var(--serif);font-weight:600;font-size:22px;color:var(--green2);display:block;line-height:1}
@@ -103,6 +102,11 @@ a{color:inherit}
 .sc-foot .ip{flex:1;height:29px;background:#fff;border:1px solid var(--line);border-radius:20px;font-size:10px;color:var(--ink3);display:flex;align-items:center;padding:0 12px}
 .sc-foot .snd{width:29px;height:29px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;flex:none}
 .sc-foot .snd svg{width:12px;height:12px;stroke:#f3efe6}
+/* two-phone composition (fills the space, reads like a real product shot) */
+.duo{position:relative;width:100%;height:478px;display:flex;align-items:center;justify-content:center}
+.duo .phone{position:absolute;width:212px}
+.duo .p-a{transform:translateX(-62px) rotate(-5deg);z-index:2}
+.duo .p-b{transform:translateX(82px) translateY(26px) rotate(6deg) scale(.95);z-index:1}
 
 /* ── tools grid (the substance) ── */
 .tools{padding:38px 0;border-top:1px solid var(--line)}
@@ -140,7 +144,8 @@ a{color:inherit}
   .grid{grid-template-columns:1fr 1fr}
   .join-in{grid-template-columns:1fr;gap:18px}
 }
-@media(max-width:560px){.wrap{padding:0 20px}.join-in{padding:32px 24px}.head .metas{gap:16px}.tool{padding:14px}.tool p{font-size:12px}}
+@media(max-width:560px){.wrap{padding:0 20px}.join-in{padding:32px 24px}.head .metas{gap:16px}.tool{padding:14px}.tool p{font-size:12px}
+  .duo{height:420px}.duo .phone{width:172px}.duo .p-a{transform:translateX(-48px) rotate(-5deg)}.duo .p-b{transform:translateX(58px) translateY(18px) rotate(6deg) scale(.92)}}
 </style>
 </head>
 <body>
@@ -151,7 +156,7 @@ a{color:inherit}
   <div class="head-in">
     <div>
       <span class="kick">About PropSight</span>
-      <h1>We read Singapore's property records, <em>so you don't have to.</em></h1>
+      <h1>We read Singapore's property records, so you don't have to.</h1>
       <p class="intro">A free property hub built on the same official data the professionals use — every private caveat from URA, every HDB resale, OneMap's school and amenity records. Read, refreshed weekly, and turned into plain answers. Look up anything without signing up, and when you want it pulled together, just ask Aillie.</p>
       <div class="metas">
         <div class="meta"><b>137k+</b><span>official URA caveats</span></div>
@@ -212,21 +217,29 @@ a{color:inherit}
   <div class="copy">
     <span class="kick">Your property intelligence</span>
     <h2>Aillie does the digging.</h2>
-    <p>Aillie is the assistant at the centre of it all. Ask the way you'd ask a friend — <em>"what's a 4-room in Bishan worth", "can I afford a million-dollar condo", "how's Clementi doing"</em> — and she pulls the real numbers and explains what they mean for you.</p>
+    <p>Aillie is the assistant at the centre of it all. Ask the way you'd ask a friend, "what's a 4-room in Bishan worth", "can I afford a million-dollar condo", "how's Clementi doing", and she pulls the real numbers and explains what they mean for you.</p>
     <p>No forms, no jargon, no waiting on a callback. And when a number isn't certain, she says so rather than guessing.</p>
     <a class="go" href="../#talk" onclick="window.askAillie&&(event.preventDefault(),askAillie())">Ask Aillie anything →</a>
   </div>
-  <div class="media">
-    <div class="phone"><div class="screen"><div class="notch"></div>
+  <div class="media"><div class="duo">
+    <div class="phone p-b"><div class="screen"><div class="notch"></div>
+      <div class="sc-app">
+        <span class="sc-eb">What you can afford</span><div class="sc-t">Your budget</div>
+        <div class="val-card"><div class="ad">Income $9,000/mo · $120k saved</div><div class="big">$1.05M</div><div class="rg">comfortable, on a 25-year loan</div><span class="cf">● Within the limits</span></div>
+        <div class="row"><span class="nm">Monthly repayment<s>at the 4% stress rate</s></span><span class="tg up">$3,900</span></div>
+        <div class="row"><span class="nm">Cash + CPF upfront</span><span class="tg up">$262k</span></div>
+      </div>
+    </div></div>
+    <div class="phone p-a"><div class="screen"><div class="notch"></div>
       <div class="sc-head"><div class="ai"><span class="av">A</span><div><b>Aillie</b><span class="st"><span class="dot"></span>Live in Singapore</span></div></div></div>
       <div class="sc-body">
         <div class="bub u">Is a 4-room in Bishan a good buy now?</div>
         <div class="bub a">Bishan 4-rooms are going for about <b>$720k</b>, up ~3% this year. A touch above the island median, but demand near the MRT is strong.</div>
-        <div class="bub a">Want me to value a specific block, or check what you can afford?</div>
+        <div class="bub a">Want me to value a block, or check what you can afford?</div>
       </div>
       <div class="sc-foot"><span class="ip">Ask about any home…</span><span class="snd"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></span></div>
     </div></div>
-  </div>
+  </div></div>
 </div></section>
 
 <!-- ROW 3: VALUE (desktop value tool mockup) -->
