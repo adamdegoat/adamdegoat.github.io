@@ -119,7 +119,7 @@ html.menu-open,html.menu-open body{overflow:hidden}
 /* reveal */
 .rv{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .rv.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}body::before{animation:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;animation-delay:0!important;transition-duration:.001ms!important}.rv{opacity:1;transform:none}.mq-track{transform:translateX(0)!important}}
 
 /* hero */
 .hero{padding:84px 0 56px;position:relative}
@@ -392,8 +392,8 @@ a.mq-i{text-decoration:none}a.mq-i:hover{opacity:.82}
 
 /* Work-with-me, green block with portrait */
 .pov{margin:0;background:radial-gradient(700px 360px at 88% -24%,rgba(127,208,187,.22),transparent 60%),linear-gradient(150deg,var(--green2),var(--green3));color:#e6f3f0;border-radius:28px;padding:46px;position:relative;overflow:hidden}
-.pov .sheen{position:absolute;top:-60%;left:-30%;width:60%;height:220%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.06),transparent);transform:rotate(8deg);animation:sweep 9s ease-in-out infinite;pointer-events:none}
-@keyframes sweep{0%,100%{left:-40%}50%{left:120%}}
+.pov .sheen{position:absolute;top:-60%;left:-40%;width:60%;height:220%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.06),transparent);transform:rotate(8deg);animation:sweep 9s ease-in-out infinite;pointer-events:none;will-change:transform}
+@keyframes sweep{0%,100%{transform:rotate(8deg) translateX(0)}50%{transform:rotate(8deg) translateX(280%)}}
 .pov .frame{position:absolute;inset:18px;border:1px solid rgba(127,208,187,.22);border-radius:18px;pointer-events:none}
 .about-in{display:grid;grid-template-columns:.84fr 1.16fr;gap:48px;align-items:center;position:relative}
 .about-in .portrait{opacity:1;transform:none;box-shadow:0 26px 60px rgba(8,20,15,.4);background:radial-gradient(440px 380px at 68% 8%,#356650,#27513f 52%,#0f231a)}
@@ -632,9 +632,9 @@ body::before{animation:none}
 @media(min-width:881px){
   .hero-in{grid-template-columns:1.18fr .82fr !important;gap:40px;align-items:center}
   .hero-chat-mount{display:block;min-width:0;position:relative;z-index:5}
-  .chatcue{position:absolute;top:13px;right:-15px;z-index:40;background:var(--gtex,none),#1b3a2d;color:#eef6f1;padding:8px 14px 9px;border-radius:13px;box-shadow:0 14px 32px rgba(15,35,26,.5),0 0 0 4px rgba(238,248,246,.55);text-align:center;line-height:1.12;transform:rotate(3.5deg);animation:cuebob 2.8s ease-in-out infinite;pointer-events:none}
+  .chatcue{position:absolute;top:24px;right:-15px;z-index:40;background:var(--gtex,none),#1b3a2d;color:#eef6f1;padding:8px 14px 9px;border-radius:13px;box-shadow:0 14px 32px rgba(15,35,26,.5),0 0 0 4px rgba(238,248,246,.55);text-align:center;line-height:1.12;transform:rotate(3.5deg);animation:cuebob 2.8s ease-in-out infinite;pointer-events:none}
   .chatcue b{display:block;font-size:13px;font-weight:800;letter-spacing:-.01em}
-  .chatcue span{display:block;font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(13,36,31,.62);margin-top:1px}
+  .chatcue span{display:block;font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(160,214,191,.95);margin-top:1px}
   .chatcue::after{display:none}
   @keyframes cuebob{0%,100%{transform:rotate(3.5deg) translateY(0)}50%{transform:rotate(3.5deg) translateY(-5px)}}
   .cpanel.inhero{position:static;width:100%;max-width:none;height:648px;min-height:580px;max-height:88vh;opacity:1 !important;visibility:visible !important;transform:none !important;background:rgba(238,248,246,.62);box-shadow:0 34px 80px rgba(8,20,14,.42),0 0 0 1px rgba(127,208,187,.3),inset 0 1px 0 rgba(255,255,255,.4)}
