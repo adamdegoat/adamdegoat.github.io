@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-28T23:30:00.228407+08:00",
+  "updated": "2026-06-29T09:00:00.239000+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -175,16 +175,34 @@
       "priority": true
     },
     {
-      "title": "PFL San Diego’s Viviane Araujo targets title shot with a win over Liz Carmouche",
-      "link": "https://www.sherdog.com/news/news/PFL-San-Diegos-Viviane-Araujo-targets-title-shot-with-a-win-over-Liz-Carmouche-201644",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
       "title": "UFC Baku winner Rafael Fiziev targets BMF title fight given ‘little story’ with Charles Oliveira",
       "link": "https://www.bjpenn.com/mma-news/ufc/ufc-baku-winner-rafael-fiziev-targets-bmf-title-fight-given-little-story-with-charles-oliveira/?utm_source=rss&utm_medium=rss&utm_campaign=ufc-baku-winner-rafael-fiziev-targets-bmf-title-fight-given-little-story-with-charles-oliveira",
       "source": "BJPenn",
       "priority": true
+    },
+    {
+      "title": "UFC 330: Makhachev vs. Machado Garry adds top middleweight prospect to lineup",
+      "link": "https://www.mmafighting.com/ufc/496491/ufc-330-makhachev-vs-machado-garry-adds-top-middleweight-prospect-to-lineup",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "GiGi Canuto proud to be first fighter to ‘make it rain’ in octagon after winning Daniel Cormier bet on TUF 34",
+      "link": "https://www.mmafighting.com/ufc/496470/gigi-canuto-proud-to-be-first-fighter-to-make-it-rain-in-octagon-after-winning-daniel-cormier-bet-on-tuf-34",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Shara Bullet breaks down UFC Baku comeback victory over Michel Pereira: ‘He would have to kill me’",
+      "link": "https://www.mmafighting.com/ufc/496811/shara-bullet-breaks-down-ufc-baku-comeback-victory-over-michel-pereira-he-would-have-to-kill-me",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Rafael Fiziev blasts UFC’s new ‘elephant sh*t’ rankings system following UFC Baku knockout win",
+      "link": "https://www.mmafighting.com/ufc/496808/rafael-fiziev-blasts-ufcs-new-elephant-sht-rankings-system-following-ufc-baku-knockout-win",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "Brian Ortega reflects on UFC Shanghai weigh-in debacle that led to lightweight move: ‘This one scared me a little bit’",
@@ -199,63 +217,45 @@
       "priority": false
     },
     {
-      "title": "Alex Pereira calls Herb Dean ‘coward’ after controversial Shara Bullet vs. Michel Pereira fight",
-      "link": "https://www.mmafighting.com/ufc/496855/alex-pereira-calls-herb-dean-coward-after-controversial-shara-bullet-vs-michel-pereira-fight",
-      "source": "MMA Fighting",
+      "title": "New Conor McGregor vs. Max Holloway UFC 329 promo drops: ‘I’m going through Max’",
+      "link": "https://www.mmamania.com/ufc-news/454034/new-conor-mcgregor-vs-max-holloway-ufc-329-promo-drops-im-going-through-max",
+      "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "UFC Baku post-fight show: Reaction to Rafael Fiziev’s highlight-reel knockout of Manuel Torres",
-      "link": "https://www.mmafighting.com/ufc/496800/ufc-baku-post-fight-show-reaction-to-rafael-fizievs-highlight-reel-knockout-of-manuel-torres",
-      "source": "MMA Fighting",
+      "title": "UFC Baku results: Matches to make for ‘Fiziev vs. Torres’ main card winners",
+      "link": "https://www.mmamania.com/ufc-results/453721/ufc-baku-results-matches-to-make-for-fiziev-vs-torres-main-card-winners",
+      "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "‘Put his ass in the dirt’: Pros react to Rafael Fiziev’s spectacular UFC Baku knockout",
-      "link": "https://www.mmafighting.com/ufc/496779/put-his-ass-in-the-dirt-pros-react-to-rafael-fizievs-spectacular-ufc-baku-knockout",
-      "source": "MMA Fighting",
+      "title": "Rookie Report Card: Grading all Octagon newcomers UFC Baku post-mortem",
+      "link": "https://www.mmamania.com/latest-news/453399/rookie-report-card-grading-all-octagon-newcomers-ufc-baku-post-mortem",
+      "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "UFC Baku Results: Fiziev vs. Torres",
-      "link": "https://www.mmafighting.com/ufc/496532/ufc-baku-results-fiziev-vs-torres",
-      "source": "MMA Fighting",
+      "title": "Alex Pereira wants referee Herb Dean banned from UFC after ‘cowardly’ Baku performance",
+      "link": "https://www.mmamania.com/ufc-news/454014/alex-pereira-wants-referee-herb-dean-banned-from-ufc-after-cowardly-baku-performance",
+      "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "UFC Baku results: Rafael Fiziev delivers hellacious wheel kick knockout of Manuel Torres in main event",
-      "link": "https://www.mmafighting.com/ufc/496763/ufc-baku-results-rafael-fiziev-delivers-hellacious-wheel-kick-knockout-of-manuel-torres-in-main-event",
-      "source": "MMA Fighting",
+      "title": "UFC Baku, The Morning After: Fouls galore as Herb Dean drops the ball yet again",
+      "link": "https://www.mmamania.com/ufc-results/453779/ufc-baku-the-morning-after-fouls-galore-as-herb-dean-drops-the-ball-yet-again",
+      "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "He said what?!? UFC Baku fighter predicted first-punch KO, then got sparked in eight seconds",
+      "title": "He said what?!? UFC Baku fighter literally predicted first-punch knockout … then got sparked in eight seconds",
       "link": "https://www.mmamania.com/latest-news/453947/he-said-what-ufc-baku-fighter-predicted-first-punch-ko-then-got-sparked-in-eight-seconds",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "UFC Baku Results: Biggest winners, losers from ‘Fiziev vs. Torres’ last night",
-      "link": "https://www.mmamania.com/ufc-results/453678/ufc-baku-results-biggest-winners-loser-from-fiziev-vs-torres-last-night",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "UFC Baku results: Sooo … About last night | Fiziev vs. Torres",
-      "link": "https://www.mmamania.com/ufc-results/453518/ufc-baku-results-sooo-about-last-night-fiziev-vs-torres",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "He’s back! Former IBF champ Lee Selby wins bare knuckle boxing debut, stops Antonio Rizzo at BKB 55 in Cardiff",
-      "link": "https://www.mmamania.com/bare-knuckle-boxing-results-rules-ppv/453928/former-ibf-champ-lee-selby-wins-bare-knuckle-boxing-debut-stops-antonio-rizzo-bkb-55-cardiff",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor and Holloway collide Sunday 9am SGT — pure striking fireworks ahead.",
-    "prefight": "McGregor and Holloway collide Sunday morning—two featherweight legends in an absolute banger.",
-    "results": "Fiziev starches Torres with a spinning wheel kick in the second round."
+    "week": "McGregor meets Holloway Sunday morning — buckle up for elite striking warfare.",
+    "prefight": "McGregor versus Holloway for featherweight supremacy — Sunday July 12, 9 AM SGT live.",
+    "results": "Fiziev drops Torres cold with spinning wheel kick and follow-up punches in round two."
   }
 }
