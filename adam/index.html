@@ -733,7 +733,7 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
 .cval-est.rough{background:linear-gradient(150deg,#7c5a3a,#473420)}
 .cval-est.rough .rk{color:#f0d9b8}
 .cval-est .rk{font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--brass3)}
-.cval-est .rv{font-family:var(--serif);font-weight:600;font-size:24px;line-height:1.1;margin:4px 0 3px}
+.cval-est .rv{font-family:var(--serif);font-weight:600;font-size:24px;line-height:1.1;margin:4px 0 3px;opacity:1!important;transform:none!important}
 .cval-est .rs{font-size:11.5px;color:rgba(243,239,230,.85)}
 .cval-meta{font-size:11.5px;color:var(--ink2);margin-top:9px;line-height:1.5}.cval-meta b{color:var(--green2)}
 .cval-full{display:inline-block;margin-top:6px;font-size:12px;font-weight:700;color:var(--green2);border-bottom:1.5px solid var(--brass2)}</style>
@@ -1160,15 +1160,17 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
     const card=document.createElement('div');card.className='cval';
     card.innerHTML='<div class="cval-seg"><button class="on" data-m="hdb">HDB flat</button><button data-m="condo">Condo</button></div>'+
       '<div class="cval-f"><input class="cval-in cv-search" placeholder="Type your street…" autocomplete="off"><div class="cval-ac"></div></div>'+
-      '<div class="cv-hdb"><div class="cval-f"><select class="cval-sel cv-ft"><option value="">Pick your street first…</option></select></div></div>'+
+      '<div class="cv-hdb"><div class="cval-f"><select class="cval-sel cv-ft"><option value="">Pick your street first…</option></select></div>'+
+        '<div class="cval-f" style="display:flex;gap:8px"><input class="cval-in cv-block" placeholder="Block (optional)" autocomplete="off" style="flex:1;min-width:0"><input class="cval-in cv-storey" placeholder="Floor (optional)" inputmode="numeric" style="flex:1;min-width:0"></div></div>'+
+      '<div class="cv-condo" style="display:none"><div class="cval-f"><input class="cval-in cv-floor" placeholder="Floor (optional)" inputmode="numeric"></div></div>'+
       '<div class="cval-f"><input class="cval-in cv-size" placeholder="Floor area in sqft (optional)" inputmode="numeric"></div>'+
       '<button class="cval-go cv-go">Value it →</button>'+
       '<div class="cval-err cv-err" style="display:none"></div><div class="cval-res cv-res"></div>';
     mount.appendChild(card);
     const q=s=>card.querySelector(s);
     let mode='hdb',town='',street='',projSel=null,list=[],cur=-1;
-    const search=q('.cv-search'),ac=q('.cval-ac'),ftWrap=q('.cv-hdb'),ftSel=q('.cv-ft'),blockI=q('.cv-block'),sizeI=q('.cv-size'),go=q('.cv-go'),err=q('.cv-err'),res=q('.cv-res');
-    function setMode(m){mode=m;card.querySelectorAll('.cval-seg button').forEach(b=>b.classList.toggle('on',b.dataset.m===m));ftWrap.style.display=m==='hdb'?'':'none';search.placeholder=m==='hdb'?'Type your street…':'Type the condo project…';search.value='';ac.classList.remove('on');town='';street='';projSel=null;}
+    const search=q('.cv-search'),ac=q('.cval-ac'),ftWrap=q('.cv-hdb'),ftSel=q('.cv-ft'),blockI=q('.cv-block'),storeyI=q('.cv-storey'),floorI=q('.cv-floor'),condoWrap=q('.cv-condo'),sizeI=q('.cv-size'),go=q('.cv-go'),err=q('.cv-err'),res=q('.cv-res');
+    function setMode(m){mode=m;card.querySelectorAll('.cval-seg button').forEach(b=>b.classList.toggle('on',b.dataset.m===m));ftWrap.style.display=m==='hdb'?'':'none';condoWrap.style.display=m==='condo'?'':'none';search.placeholder=m==='hdb'?'Type your street…':'Type the condo project…';search.value='';ac.classList.remove('on');town='';street='';projSel=null;}
     card.querySelectorAll('.cval-seg button').forEach(b=>b.onclick=()=>setMode(b.dataset.m));
     function showAc(){ if(!list.length){ac.classList.remove('on');return;}
       ac.innerHTML=list.map((o,i)=>mode==='hdb'?'<div data-i="'+i+'" class="'+(i===cur?'hl':'')+'">'+title(o.s)+' <span class="m">· '+title(o.t)+'</span></div>':'<div data-i="'+i+'" class="'+(i===cur?'hl':'')+'">'+title(o[0])+' <span class="m">· '+area(o[1])+'</span></div>').join('');
@@ -1188,12 +1190,12 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
       try{ await ensureEngine();
         let r,label,fullURL='tools/value.html';const size=parseFloat((sizeI.value||'').replace(/[^0-9.]/g,''))||0;
         if(mode==='hdb'){ if(!town||!street)throw new Error('Type your street and pick it from the list.'); const ft=ftSel.value; if(!ft)throw new Error('Pick a flat type.');
-          const block=null;
-          const rows=await Caveat.hdbTown(town); r=Engines.hdbEstimate(rows,{flat_type:ft,town,street,block:block,area_sqm:sqm(size),storey_mid:null}); label=title(ft)+' · '+title(street);
-          fullURL+='?t=hdb&street='+encodeURIComponent(street)+'&town='+encodeURIComponent(town)+'&ft='+encodeURIComponent(ft)+(block?'&block='+encodeURIComponent(block):'')+(size?'&size='+size:'');
+          const block=(blockI.value||'').trim()||null; const storey=parseInt((storeyI.value||'').replace(/[^0-9]/g,''),10)||null;
+          const rows=await Caveat.hdbTown(town); r=Engines.hdbEstimate(rows,{flat_type:ft,town,street,block:block,area_sqm:sqm(size),storey_mid:storey}); label=title(ft)+' · '+title(street);
+          fullURL+='?t=hdb&street='+encodeURIComponent(street)+'&town='+encodeURIComponent(town)+'&ft='+encodeURIComponent(ft)+(block?'&block='+encodeURIComponent(block):'')+(storey?'&storey='+storey:'')+(size?'&size='+size:'');
         } else { if(!projSel){const typed=search.value.trim().toUpperCase();projSel=IDX&&IDX.condo_projects.find(p=>p[0]===typed);} if(!projSel)throw new Error('Pick a project from the list.');
-          const p=projSel; const rows=await Caveat.condoDistrict(p[1]); r=Engines.condoEstimate(rows,{project:p[0],district:p[1],seg:p[2],ptype:p[3],tenure_fh:p[4],area_sqm:sqm(size),floor_mid:null}); label=title(p[0])+' · '+area(p[1]);
-          fullURL+='?t=condo&proj='+encodeURIComponent(p[0])+(size?'&size='+size:'');
+          const p=projSel; const floor=parseInt((floorI.value||'').replace(/[^0-9]/g,''),10)||null; const rows=await Caveat.condoDistrict(p[1]); r=Engines.condoEstimate(rows,{project:p[0],district:p[1],seg:p[2],ptype:p[3],tenure_fh:p[4],area_sqm:sqm(size),floor_mid:floor}); label=title(p[0])+' · '+area(p[1]);
+          fullURL+='?t=condo&proj='+encodeURIComponent(p[0])+(floor?'&floor='+floor:'')+(size?'&size='+size:'');
         }
         if(!r||!r.ok)throw new Error((r&&r.reason)||'Not enough recent sales to value this one. Try the full tool.');
         const vLo=(r.low>0?r.low:(r.obs_low>0?r.obs_low:Math.round((r.estimate_price||0)*0.94)));
@@ -1206,7 +1208,7 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
           res.innerHTML='<div class="cval-est"><div class="rk">Estimated value · '+label+'</div><div class="rv">'+fmtM(vLo)+', '+fmtM(vHi)+'</div><div class="rs">the likely range, from real recent sales nearby</div></div>'+
             '<div class="cval-meta"><b>'+cm+'</b> · based on '+r.n_comps+' recent sale'+(r.n_comps===1?'':'s')+' of similar homes · about $'+Math.round(r.estimate_psf).toLocaleString()+' for each square foot.'+(r.area_assumed?' Add your floor area for a tighter range.':'')+'<br><a class="cval-full" href="'+fullURL+'" target="_blank" rel="noopener">See the full breakdown &amp; similar sales →</a></div>';
         }
-        res.classList.add('on');setTimeout(function(){var c=document.getElementById('cbody');if(c)c.scrollTo({top:c.scrollHeight,behavior:'smooth'});},70);
+        res.classList.add('on');res.querySelectorAll('.rv').forEach(function(el){el.classList.add('in');});setTimeout(function(){var c=document.getElementById('cbody');if(c)c.scrollTo({top:c.scrollHeight,behavior:'smooth'});},70);
       }catch(e){ err.textContent=e.message||'Something went wrong, try again.'; err.style.display='block'; }
       go.disabled=false;go.textContent='Value it →';
     };
@@ -1600,6 +1602,9 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
   }
   function route(q){
     const t=(q||'').toLowerCase();
+    // sell / net-proceeds intent takes priority over valuation (e.g. "how much will i get if i sell") — but a pure "what's it worth / sell for" stays valuation
+    if(/(net proceed|proceeds|\bssd\b|seller.?s stamp|walk away|pocket|take home|sell my|selling|if i sell)/.test(t) && !/(worth|valuation|sell.*for|value of)/.test(t))
+      return {text:"I'll show what you'd actually walk away with after loan, CPF refund and costs, plus any Seller's Stamp Duty.",link:{href:'tools/sell.html',label:'See your net proceeds'}};
     if(/(worth|valuation|how much.*(home|flat|condo|house|hdb)|sell.*for|price of my|^value$)/.test(t))
       return {text:"I can value any HDB or condo on real recent transactions, with an honest confidence range and the comparable sales behind it.",link:{href:'tools/value.html',label:'Value a home'}};
     if(/(afford|budget|how much.*(can i|loan|borrow)|^afford$|downpayment|down payment)/.test(t))
@@ -1675,22 +1680,16 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
       scroll();showFollowups();
     },430);
   }
-  function affordInChat(q){             // budget intent → drop the live inline budget form right in the chat
-    add('me',esc(q));
-    const t=typing();
-    setTimeout(()=>{
-      t.remove();
-      botReply("Happy to work out your budget right here. Tell me your income and whether it's HDB or condo, and I'll use the real loan rules.");
-      const mount=document.createElement('div');mount.style.cssText='margin-top:2px;animation:cmin .35s var(--ease)';body.appendChild(mount);
-      if(window.psAffordCard){window.psAffordCard(mount);}else{botReply("Tap below to open the budget tool.",{href:'tools/afford.html',label:'See what you can afford'});}
-      scroll();showFollowups();
-    },430);
+  // long-form calculators: a short helpful line from Aillie, then hand off to the full tool (which has every input)
+  function guideToTool(q,sentence,href,label){
+    add('me',esc(q));var t=typing();
+    setTimeout(function(){t.remove();botReply(sentence,{href:href,label:label});showFollowups();},430);
   }
-  function cardInChat(q,intro,fn,tool,toolLabel){add('me',esc(q));var t=typing();setTimeout(function(){t.remove();botReply(intro);var m=document.createElement('div');m.style.cssText='margin-top:2px;animation:cmin .35s var(--ease)';body.appendChild(m);if(window[fn]){window[fn](m);}else{botReply('Tap below to open the tool.',{href:tool,label:toolLabel});}scroll();showFollowups();},430);}
-  function stampInChat(q){cardInChat(q,"Sure, I'll work out your stamp duty. Two quick taps and the price.",'psStampCard','tools/stamp-duty.html','Calculate stamp duty');}
-  function grantsInChat(q){cardInChat(q,"Let's see what grants you could get. A few quick taps below.",'psGrantsCard','tools/grants.html','Check your grants');}
-  function sellInChat(q){cardInChat(q,"I'll work out what you would actually walk away with. Fill these in.",'psSellCard','tools/sell.html','See your net proceeds');}
-  function eligInChat(q){cardInChat(q,"I can check that. Pick what you're buying and your status.",'psEligibilityCard','tools/eligibility.html','Check eligibility');}
+  function affordInChat(q){guideToTool(q,"Your real budget comes down to your income, your age and any loans you're already paying. The calculator works it out properly using the actual bank rules (TDSR, MSR and LTV), so you get a number you can trust in a few taps.",'tools/afford.html','Open the affordability calculator');}
+  function stampInChat(q){guideToTool(q,"Stamp duty shifts a lot with your residency and whether it's your 1st, 2nd or 3rd property, so let's get it exact. The calculator works out your BSD and ABSD to the dollar.",'tools/stamp-duty.html','Open the stamp duty calculator');}
+  function grantsInChat(q){guideToTool(q,"Grants depend on your income, your household and the flat you're buying. The calculator checks every one you could claim (EHG, Family and Proximity) and adds them up for you.",'tools/grants.html','Open the grants calculator');}
+  function sellInChat(q){guideToTool(q,"What you actually walk away with depends on your sale price, the loan still outstanding, the CPF you used and the fees. The calculator nets it all out so there are no surprises.",'tools/sell.html','Open the net proceeds calculator');}
+  function eligInChat(q){guideToTool(q,"Whether you can buy comes down to your status, your household and what you're buying. The eligibility checker walks the rules and tells you straight.",'tools/eligibility.html','Check your eligibility');}
   function isStamp(q){var r=route(q);return !!(r&&r.link&&/stamp-duty\.html/.test(r.link.href));}
   function isGrants(q){var r=route(q);return !!(r&&r.link&&/grants\.html/.test(r.link.href));}
   function isSell(q){var r=route(q);return !!(r&&r.link&&/sell\.html/.test(r.link.href));}
