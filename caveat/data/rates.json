@@ -119,6 +119,8 @@
     "msr_pct": 30,
     "stress_rate_pct": 4.0,
     "hdb_loan_stress_rate_pct": 3.0,
+    "typical_bank_rate_pct": 3.5,
+    "hdb_concessionary_rate_pct": 2.6,
     "variable_income_haircut_pct": 30,
     "ltv": {
       "bank": {
