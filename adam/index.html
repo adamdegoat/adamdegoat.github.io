@@ -244,7 +244,7 @@ html.menu-open,html.menu-open body{overflow:hidden}
 /* ── Market Pulse marquee (human headlines; sits below the nav, over the hero photo) ── */
 .mq{position:absolute;top:0;left:0;right:0;z-index:4;display:flex;align-items:stretch;height:48px;
     background:linear-gradient(90deg,rgba(9,22,15,.9),rgba(12,30,21,.78));
-    border-bottom:1px solid rgba(227,201,143,.20);cursor:pointer;text-decoration:none}
+    border-bottom:1px solid rgba(227,201,143,.20);cursor:default;text-decoration:none}
 .mq-lab{flex:none;display:flex;align-items:center;gap:9px;padding:0 18px 0 clamp(20px,4vw,40px);font-size:11.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#e3c98f}
 .mq-lab .dot{width:8px;height:8px;border-radius:50%;background:#8fe0b0;animation:mqpl 2s infinite}
 @keyframes mqpl{0%,100%{transform:scale(1)}50%{transform:scale(1.45)}}
@@ -255,7 +255,11 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .mq:hover .mq-track{animation-play-state:paused}
 @keyframes mqscroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .mq-i{display:inline-block;font-size:14.5px;font-weight:500;color:#efe9da;padding:0 6px;letter-spacing:.005em}
+a.mq-i{text-decoration:none}a.mq-i:hover{opacity:.82}
 .mq-i.hot{color:#8fe0b0;font-weight:600}.mq-i.cool{color:#f0b48f;font-weight:600}.mq-i.pl{color:#fff;font-weight:600}
+.mq-i .chip{display:inline-block;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;padding:3px 7px;border-radius:5px;margin-right:9px;vertical-align:1px;line-height:1}
+.mq-i .chip.market{background:#ead4a2;color:#241a0d}
+.mq-i .chip.news{background:rgba(143,224,176,.16);color:#8fe0b0;border:1px solid rgba(143,224,176,.45)}
 .mq-lead{display:none;color:#e3c98f;font-weight:800;letter-spacing:.13em;text-transform:uppercase;font-size:12px}
 .mq-sep{color:#e3c98f;opacity:.5;padding:0 22px;font-size:9px}
 .mq-cta{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:800;color:#241a0d;background:var(--gtex,none),#ead4a2;padding:7px 16px;border-radius:30px;margin:0 6px}
@@ -801,7 +805,7 @@ if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}
   <div class="hero-grad" aria-hidden="true"></div>
   <span class="herosun" aria-hidden="true"></span>
   <span class="haloarc" aria-hidden="true"></span>
-  <!--PULSE-MQ-START--><a class="mq" href="notes/market-pulse-27-jun-2026.html" aria-label="This week's Market Pulse"><span class="mq-lab"><span class="dot"></span>This week's market</span><span class="mq-div"></span><div class="mq-vp"><div class="mq-track"><span class="mq-i mq-lead">● This week's market</span><span class="mq-sep mq-lead">◆</span><span class="mq-i hot">Resale flats are renting out at 6.1% a year, more than condos</span><span class="mq-sep">◆</span><span class="mq-i pl">Parc Clematis is the most-traded condo on the market right now</span><span class="mq-sep">◆</span><span class="mq-i pl">Loyang Valley's owners sold their whole estate to a developer for around $880 million</span><span class="mq-sep">◆</span><span class="mq-i pl">Parktown Residence is the new launch buyers are chasing</span><span class="mq-sep">◆</span><span class="mq-i pl">Resale flat prices are holding steady this month</span><span class="mq-sep">◆</span><span class="mq-i pl">Condo prices are holding steady right now</span><span class="mq-sep">◆</span><span class="mq-cta">See what it means for you this week →</span><span class="mq-sep">◆</span><span class="mq-i mq-lead">● This week's market</span><span class="mq-sep mq-lead">◆</span><span class="mq-i hot">Resale flats are renting out at 6.1% a year, more than condos</span><span class="mq-sep">◆</span><span class="mq-i pl">Parc Clematis is the most-traded condo on the market right now</span><span class="mq-sep">◆</span><span class="mq-i pl">Loyang Valley's owners sold their whole estate to a developer for around $880 million</span><span class="mq-sep">◆</span><span class="mq-i pl">Parktown Residence is the new launch buyers are chasing</span><span class="mq-sep">◆</span><span class="mq-i pl">Resale flat prices are holding steady this month</span><span class="mq-sep">◆</span><span class="mq-i pl">Condo prices are holding steady right now</span><span class="mq-sep">◆</span><span class="mq-cta">See what it means for you this week →</span><span class="mq-sep">◆</span></div></div></a><!--PULSE-MQ-END-->
+  <!--PULSE-MQ-START--><div class="mq" aria-label="Live market and news"><span class="mq-lab"><span class="dot"></span>Live · today</span><span class="mq-div"></span><div class="mq-vp"><div class="mq-track"><span class="mq-i mq-lead">● Live · today</span><span class="mq-sep mq-lead">◆</span><a class="mq-i hot" href="notes/market-pulse-27-jun-2026.html"><span class="chip market">Market</span>Resale flats are renting out at 6.1% a year, more than condos</a><span class="mq-sep">◆</span><a class="mq-i pl" href="notes/market-pulse-27-jun-2026.html"><span class="chip market">Market</span>Parc Clematis is the most-traded condo on the market right now</a><span class="mq-sep">◆</span><a class="mq-i pl" href="notes/market-pulse-27-jun-2026.html"><span class="chip market">Market</span>Loyang Valley just sold en bloc for around $880 million</a><span class="mq-sep">◆</span><a class="mq-i pl" href="notes/market-pulse-27-jun-2026.html"><span class="chip market">Market</span>Parktown Residence is the new launch buyers are chasing</a><span class="mq-sep">◆</span><a class="mq-i pl" href="notes/market-pulse-27-jun-2026.html"><span class="chip market">Market</span>Resale flat prices are holding steady this month</a><span class="mq-sep">◆</span><a class="mq-i pl" href="notes/market-pulse-27-jun-2026.html"><span class="chip market">Market</span>Condo prices are holding steady right now</a><span class="mq-sep">◆</span><a class="mq-cta" href="notes/market-pulse-27-jun-2026.html">See what it means for you →</a><span class="mq-sep">◆</span><span class="mq-i mq-lead">● Live · today</span><span class="mq-sep mq-lead">◆</span><a class="mq-i hot" href="notes/market-pulse-27-jun-2026.html"><span class="chip market">Market</span>Resale flats are renting out at 6.1% a year, more than condos</a><span class="mq-sep">◆</span><a class="mq-i pl" href="notes/market-pulse-27-jun-2026.html"><span class="chip market">Market</span>Parc Clematis is the most-traded condo on the market right now</a><span class="mq-sep">◆</span><a class="mq-i pl" href="notes/market-pulse-27-jun-2026.html"><span class="chip market">Market</span>Loyang Valley just sold en bloc for around $880 million</a><span class="mq-sep">◆</span><a class="mq-i pl" href="notes/market-pulse-27-jun-2026.html"><span class="chip market">Market</span>Parktown Residence is the new launch buyers are chasing</a><span class="mq-sep">◆</span><a class="mq-i pl" href="notes/market-pulse-27-jun-2026.html"><span class="chip market">Market</span>Resale flat prices are holding steady this month</a><span class="mq-sep">◆</span><a class="mq-i pl" href="notes/market-pulse-27-jun-2026.html"><span class="chip market">Market</span>Condo prices are holding steady right now</a><span class="mq-sep">◆</span><a class="mq-cta" href="notes/market-pulse-27-jun-2026.html">See what it means for you →</a><span class="mq-sep">◆</span></div></div></div><script type="application/json" id="mqData">{"note": "notes/market-pulse-27-jun-2026.html", "market": [{"t": "Resale flats are renting out at 6.1% a year, more than condos", "cls": "hot"}, {"t": "Parc Clematis is the most-traded condo on the market right now", "cls": "pl"}, {"t": "Loyang Valley just sold en bloc for around $880 million", "cls": "pl"}, {"t": "Parktown Residence is the new launch buyers are chasing", "cls": "pl"}, {"t": "Resale flat prices are holding steady this month", "cls": "pl"}, {"t": "Condo prices are holding steady right now", "cls": "pl"}]}</script><!--PULSE-MQ-END-->
   <div class="wrap hero-in">
   <div>
     <div class="herotop rv"><span class="eyebrow">Singapore property intelligence</span><span class="heroclock"><span class="hcdot"></span><time id="psClock">--:--:--</time><span class="hcz">SGT</span></span></div>
@@ -1826,6 +1830,37 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
         '</span></a>';
     }).join('');
   }).catch(function(){ mount.innerHTML=''; });
+})();
+</script>
+<script>
+/* Blend the day's news headlines into the Market Pulse marquee. Market items are server-rendered;
+   news is spliced in here from the daily data/news.json, so the strip refreshes every day on its own.
+   On any failure the server-rendered (market-only) track is left untouched. */
+(function(){
+  var track=document.querySelector('.mq-track'), dataEl=document.getElementById('mqData');
+  if(!track||!dataEl)return;
+  var cfg; try{cfg=JSON.parse(dataEl.textContent);}catch(e){return;}
+  if(!cfg||!cfg.market||!cfg.market.length)return;
+  function esc(s){return (s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  var note=cfg.note||'#';
+  var mItem=function(m){return '<a class="mq-i '+(m.cls||'pl')+'" href="'+esc(note)+'"><span class="chip market">Market</span>'+esc(m.t)+'</a>';};
+  var nItem=function(n){return '<a class="mq-i" href="'+esc(n.link)+'" target="_blank" rel="noopener"><span class="chip news">News</span>'+esc(n.headline)+'</a>';};
+  function build(news){
+    var parts=[], ni=0;
+    cfg.market.forEach(function(m,i){
+      parts.push(mItem(m));
+      if(ni<news.length && (i===0||i===2)){parts.push(nItem(news[ni]));ni++;}
+    });
+    while(ni<news.length){parts.push(nItem(news[ni]));ni++;}
+    parts.push('<a class="mq-cta" href="'+esc(note)+'">See what it means for you →</a>');
+    var lead='<span class="mq-i mq-lead">● Live · today</span><span class="mq-sep mq-lead">◆</span>';
+    var unit=lead+parts.join('<span class="mq-sep">◆</span>')+'<span class="mq-sep">◆</span>';
+    track.innerHTML=unit+unit;
+  }
+  fetch('data/news.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(d){
+    var news=(d.items||[]).filter(function(it){return it.headline&&it.link;}).slice(0,2);
+    if(news.length)build(news);
+  }).catch(function(){});
 })();
 </script>
 <script>/* hero live clock, Singapore time, ticking seconds */
