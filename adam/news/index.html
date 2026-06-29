@@ -95,6 +95,32 @@ h1 em{font-style:normal;color:inherit}
 .foot{padding:30px 0 64px;margin-top:8px;color:var(--ink3);font-size:12.5px;line-height:1.6;max-width:760px;border-top:1px solid var(--line2)}
 .foot a{color:var(--green2);font-weight:700;text-decoration:none}
 
+/* ===== Prototype A: slim treated hero band ===== */
+.newshero{position:relative;isolation:isolate;background:#10231a;overflow:hidden;
+ border-bottom:1px solid rgba(176,141,87,.45);box-shadow:0 14px 30px rgba(15,35,26,.14)}
+.newshero .nh-bg{position:absolute;inset:0;z-index:-2;background:url('../img/hero.jpg') center 40%/cover}
+.newshero .nh-grad{position:absolute;inset:0;z-index:-1;
+ background:linear-gradient(100deg,rgba(11,25,18,.95) 0%,rgba(18,40,28,.84) 38%,rgba(16,36,26,.62) 72%,rgba(12,28,20,.5) 100%)}
+.nh-in{padding-top:28px;padding-bottom:0}
+.newshero .head{padding:0;max-width:760px}
+.newshero .kick{color:var(--brass3)}
+.newshero .kick::before{background:var(--brass3)}
+.newshero h1{color:#f6f1e7;font-size:clamp(27px,4.1vw,42px);margin-top:11px;line-height:1.02}
+.newshero h1 em{color:var(--brass3)}
+.newshero .sub{color:rgba(246,241,231,.85);max-width:625px;margin-top:10px;font-size:15px}
+.newshero .folio{border-bottom:0;padding:15px 0 18px;margin-top:18px;
+ border-top:1px solid rgba(246,241,231,.16)}
+.newshero .upd{color:#eadfc8}
+.newshero .upd b{color:#fff}
+.newshero .upd .soft{color:rgba(246,241,231,.6)}
+.newshero .edition{color:rgba(246,241,231,.58)}
+.newsbody{padding-top:8px}
+@media(max-width:640px){
+ .nh-in{padding-top:20px}
+ .newshero h1{font-size:24px;margin-top:9px}
+ .newshero .sub{font-size:13.5px;margin-top:8px}
+ .newshero .folio{padding:11px 0 13px;margin-top:13px}
+}
 @media(max-width:640px){
  .wrap{padding:0 20px}
  .head{padding:34px 0 0}
@@ -113,17 +139,22 @@ h1 em{font-style:normal;color:inherit}
 </script>
 </head>
 <body>
-<div class="wrap">
-  <div class="head">
-    <span class="kick">Singapore property news</span>
-    <h1>What's moving in the <em>market</em>.</h1>
-    <p class="sub">The headlines that matter for your home, with what each one actually means for you. Pulled from across Singapore's property press, with the latest on top. Free, no sign-up.</p>
+<section class="newshero">
+  <div class="nh-bg" aria-hidden="true"></div>
+  <div class="nh-grad" aria-hidden="true"></div>
+  <div class="wrap nh-in">
+    <div class="head">
+      <span class="kick">Singapore property news</span>
+      <h1>What's moving in the <em>market</em>.</h1>
+      <p class="sub">The headlines that matter for your home, with what each one actually means for you. Pulled from across Singapore's property press, with the latest on top. Free, no sign-up.</p>
+    </div>
+    <div class="folio">
+      <div class="upd" id="upd"></div>
+      <div class="edition">PropSight wire</div>
+    </div>
   </div>
-  <div class="dbl"></div>
-  <div class="folio">
-    <div class="upd" id="upd"></div>
-    <div class="edition">PropSight wire</div>
-  </div>
+</section>
+<div class="wrap newsbody">
   <div id="newsAll"><div class="newsload">Loading the latest brief…</div></div>
   <div class="foot">Headlines are sourced from across the Singapore property press; tap any item to read the full story at its original source. PropSight summarises each in its own words and is not the original publisher. <a href="../">Back to PropSight</a></div>
 </div>
