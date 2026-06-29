@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-29T13:00:00.278511+08:00",
+  "updated": "2026-06-29T21:00:00.226379+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -247,15 +247,15 @@
       "priority": false
     },
     {
-      "title": "He said what?!? UFC Baku fighter literally predicted first-punch knockout … then got sparked in eight seconds",
-      "link": "https://www.mmamania.com/latest-news/453947/he-said-what-ufc-baku-fighter-predicted-first-punch-ko-then-got-sparked-in-eight-seconds",
-      "source": "MMA Mania",
+      "title": "Rafael Fiziev: Vision was impaired when landing spinning wheel kick at UFC Baku",
+      "link": "https://www.sherdog.com/news/news/Rafael-Fiziev-Vision-was-impaired-when-landing-spinning-wheel-kick-at-UFC-Baku-201677",
+      "source": "Sherdog",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor and Holloway bring the heat Sunday — elite precision versus elite volume.",
-    "prefight": "McGregor vs Holloway headlines Sunday, July 12 at 9 AM SGT—two striking icons collide.",
-    "results": "Fiziev drops Torres with a spinning wheel kick, finishes with ground punches in round two."
+    "week": "Featherweight fireworks incoming: McGregor and Holloway collide this Sunday morning.",
+    "prefight": "McGregor meets Holloway this Sunday at 9 AM SGT — elite strikers clash.",
+    "results": "Fiziev ends Torres with spinning wheel kick KO in round two."
   }
 }
