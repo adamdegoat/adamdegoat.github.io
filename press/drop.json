@@ -54,5 +54,25 @@
       }
     ]
   },
-  "archive": []
+  "archive": [
+    {
+      "label": "Launch post (pin this first)",
+      "week_of": "30 June 2026",
+      "built": "2026-06-30",
+      "posts": [
+        {
+          "id": "launch",
+          "cat": "Launch",
+          "day": "Pin this",
+          "time": "First post",
+          "note": "Your intro / advertising post. Pin this to the top of your profile.",
+          "palette": "midnight",
+          "value": "dark",
+          "caption": "Free Singapore property intelligence is now live at propsight.sg.\n\nPropSight shows you what any HDB or condo is really worth, worked out from real recent sales nearby. Plus what you can truly afford, the stamp duty and hidden costs, and the schools within 1km. All in plain English, with no agent and no signup.\n\nThis is the account for straight Singapore property numbers, no spin. Every week: real home values, the market shifts that matter, and the buying myths people still believe.\n\nFollow along, and check any home free at propsight.sg (link in bio)\n\n#singaporeproperty #propertysg #hdb #hdbresale #condosingapore #sgproperty #propertyinvestment #sghomeowners #bto",
+          "alt": "PropSight shown on a laptop and a phone, free Singapore property intelligence at propsight.sg",
+          "file": "launch-propsight.png"
+        }
+      ]
+    }
+  ]
 }
