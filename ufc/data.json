@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-29T09:00:00.239000+08:00",
+  "updated": "2026-06-29T13:00:00.278511+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -169,8 +169,8 @@
   },
   "news": [
     {
-      "title": "27-fight UFC vet, bonus magnet signs with BKFC to compete at Fenway Park",
-      "link": "https://www.sherdog.com/news/news/27fight-UFC-vet-bonus-magnet-signs-with-BKFC-to-compete-at-Fenway-Park-201658",
+      "title": "UFC veteran, ex-KSW champ announces retirement from MMA",
+      "link": "https://www.sherdog.com/news/news/UFC-veteran-exKSW-champ-announces-retirement-from-MMA-201679",
       "source": "Sherdog",
       "priority": true
     },
@@ -254,8 +254,8 @@
     }
   ],
   "hooks": {
-    "week": "McGregor meets Holloway Sunday morning — buckle up for elite striking warfare.",
-    "prefight": "McGregor versus Holloway for featherweight supremacy — Sunday July 12, 9 AM SGT live.",
-    "results": "Fiziev drops Torres cold with spinning wheel kick and follow-up punches in round two."
+    "week": "McGregor and Holloway bring the heat Sunday — elite precision versus elite volume.",
+    "prefight": "McGregor vs Holloway headlines Sunday, July 12 at 9 AM SGT—two striking icons collide.",
+    "results": "Fiziev drops Torres with a spinning wheel kick, finishes with ground punches in round two."
   }
 }
