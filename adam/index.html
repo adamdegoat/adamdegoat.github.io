@@ -1602,7 +1602,7 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
   }
   function route(q){
     const t=(q||'').toLowerCase();
-    // sell / net-proceeds intent takes priority over valuation (e.g. "how much will i get if i sell") — but a pure "what's it worth / sell for" stays valuation
+    // sell / net-proceeds intent takes priority over valuation (e.g. "how much will i get if i sell"). A pure "what's it worth / sell for" stays valuation.
     if(/(net proceed|proceeds|\bssd\b|seller.?s stamp|walk away|pocket|take home|sell my|selling|if i sell)/.test(t) && !/(worth|valuation|sell.*for|value of)/.test(t))
       return {text:"I'll show what you'd actually walk away with after loan, CPF refund and costs, plus any Seller's Stamp Duty.",link:{href:'tools/sell.html',label:'See your net proceeds'}};
     if(/(worth|valuation|how much.*(home|flat|condo|house|hdb)|sell.*for|price of my|^value$)/.test(t))
