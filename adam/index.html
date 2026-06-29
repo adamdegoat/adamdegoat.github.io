@@ -589,6 +589,8 @@ body::before{animation:none}
 /* ═══ PLAINSIGHT v2, compact hero (showcase more) + Ask PropSight chatbot ═══ */
 .hero{margin-top:-77px;padding-top:140px;padding-bottom:32px}
 .hero .mq{top:77px}
+/* desktop nav is 85px tall (mobile 77), so pull the hero up to match or the light page bg shows as a thin bar at the very top */
+@media(min-width:1201px){.hero{margin-top:-85px;padding-top:148px}.hero .mq{top:85px}}
 .hero h1{font-size:clamp(38px,4.6vw,64px) !important;letter-spacing:-.032em}
 .hero .lead{font-size:17px;margin-top:18px;max-width:500px;line-height:1.55}
 .hero .cta{margin-top:26px}
