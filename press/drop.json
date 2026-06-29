@@ -1,76 +1,183 @@
 {
   "current": {
-    "issue": 1,
+    "issue": 2,
     "built": "2026-06-30",
     "week_of": "30 June 2026",
+    "launch": {
+      "id": "launch",
+      "cat": "Launch",
+      "day": "Pin first",
+      "time": "Your first post",
+      "note": "Your intro post. Post this first, then pin it to the top of your profile.",
+      "palette": "midnight",
+      "value": "dark",
+      "caption": "Free Singapore property intelligence is now live at propsight.sg.\n\nPropSight shows you what any HDB or condo is really worth, worked out from real recent sales nearby. Plus what you can truly afford, the stamp duty and hidden costs, and the schools within 1km. All in plain English, with no agent and no signup.\n\nThis is the account for straight Singapore property numbers, no spin. Every week: real home values, the market shifts that matter, and the buying myths people still believe.\n\nFollow along, and check any home free at propsight.sg (link in bio)\n\n#singaporeproperty #propertysg #hdb #hdbresale #condosingapore #sgproperty #propertyinvestment #sghomeowners #bto",
+      "alt": "PropSight on a laptop and a phone, free Singapore property intelligence at propsight.sg",
+      "file": "launch-propsight.png"
+    },
     "posts": [
       {
-        "id": "editorial",
-        "cat": "Editorial",
+        "id": "myth",
+        "cat": "Myth buster",
         "day": "Mon",
         "time": "8:00 PM",
-        "note": "Start of the week, strongest reach. Lead with a hook.",
-        "palette": "pine",
+        "note": "Start of the week, strongest reach. A hook or myth to stop the scroll.",
+        "palette": "teal",
         "value": "light",
-        "caption": "Buying an HDB resale or condo? Check the real value first.\nPropSight shows you what any Singapore home is actually worth, your true budget, and the hidden costs most people forget.\nIt even lists the nearby schools, all in one free place.\nOne tip people save: check the hidden costs before you fall for the listing photos.\nCheck yours free at propsight.sg (link in bio)\n#singaporeproperty #propertysg #sgproperty #hdbresale #condosingapore #stampduty #sghomeowners #propertyinvestment",
-        "alt": "Know what a home is really worth",
-        "file": "2026-06-30-w0-editorial.png"
+        "caption": "Property myth busted: stamp duty on your first home\nEveryone says you pay extra stamp duty buying property. Not true.\nA Singapore citizen pays 0% ABSD on their first home. ABSD only kicks in from your second property.\nSo your first place? No extra stamp duty to worry about.\nCheck yours free at propsight.sg (link in bio)\n\n#singaporeproperty #propertysg #sgproperty #absd #stampduty #hdbresale #firsthome #condosingapore",
+        "alt": "Property myth vs fact",
+        "file": "2026-06-30-w1-myth.png"
       },
       {
         "id": "value",
         "cat": "Home value",
         "day": "Wed",
         "time": "8:00 PM",
-        "note": "Midweek. A data story, the kind people save and share.",
-        "palette": "glacier",
+        "note": "Midweek. A market read, insight or news story people save and share.",
+        "palette": "indigo",
         "value": "light",
-        "caption": "4-room HDB resale in Tampines sits around $710k right now\n\nThat number comes from 2526 actual sales logged this year, not a guess or a listing price.\nIf you own one, check your block before you price too low or chase a buyer too high.\nBuyers, this is your reality check before you even view.\nCheck yours free at propsight.sg (link in bio)\n#singaporeproperty #propertysg #hdbresale #tampines #hdb #sgproperty #propertyinvestment #sghomeowners",
+        "caption": "Tampines 4-room HDB resale is sitting around $710k right now\n\nThat number is not a guess. It comes from 2526 real Tampines sales this year, not one neighbour's gossip.\n\nBefore you list or lowball, check what your exact block and floor are really worth.\n\nCheck yours free at propsight.sg (link in bio)\n\n#singaporeproperty #propertysg #hdbresale #tampines #hdb #sgproperty #propertyinvestment",
         "alt": "What a flat in Tampines is worth",
-        "file": "2026-06-30-w0-value.png"
+        "file": "2026-06-30-w1-value.png"
       },
       {
-        "id": "photo-sky",
-        "cat": "Photo \u00b7 Skyline",
+        "id": "photo-hdb",
+        "cat": "Photo \u00b7 HDB",
         "day": "Fri",
         "time": "7:00 PM",
         "note": "Friday feed. A striking photo post pulls in reach.",
-        "palette": "spruce",
+        "palette": "steel",
         "value": "dark",
-        "caption": "What is your HDB or condo actually worth right now?\nPropSight values any Singapore home, CBD or heartland, on real recent sales.\nFree, and built on what places near you actually sold for, not a guess.\nSave this and check your own number before any agent gives you theirs.\nCheck yours free at propsight.sg (link in bio)\n#singaporeproperty #propertysg #hdbresale #condosingapore #sgproperty #propertyvaluation #sghomeowners",
-        "alt": "Singapore CBD skyline behind Chinatown shophouses",
-        "file": "2026-06-30-w0-photo-sky.png"
+        "caption": "Thinking of selling your HDB flat but have no idea what it's worth?\n\nPropSight values any HDB flat for free using real recent sales right in your estate, not some guess off a portal average. Same block, same flat type, what people actually paid. Check before you list or before you make an offer, so you walk in knowing your number.\n\nCheck yours free at propsight.sg (link in bio)\n\n#singaporeproperty #propertysg #hdbresale #hdb #sgproperty #sghomeowners #hdbvaluation",
+        "alt": "Singapore HDB corridor with national flags and unit numbers",
+        "file": "2026-06-30-w1-photo-hdb.png"
       },
       {
-        "id": "myth",
-        "cat": "Myth buster",
+        "id": "costs",
+        "cat": "Hidden costs",
         "day": "Sat",
         "time": "11:00 AM",
-        "note": "Weekend scroll. A quick tip or tool people act on.",
+        "note": "Weekend scroll. A quick tool or tip people act on.",
+        "palette": "aqua",
+        "value": "light",
+        "caption": "The price is never the price.\n\nOn a $1.65M home you're really looking at about $117k more, stamp duty, legal fees and renovation, before you get the keys.\n\nWork out your real total free at propsight.sg (link in bio).\n\n#singaporeproperty #propertysg #sgproperty #stampduty #homebuying",
+        "alt": "The real cost of a home",
+        "file": "2026-06-30-w1-costs.png"
+      }
+    ],
+    "stories": [
+      {
+        "id": "story-stat",
+        "kind": "This week's number",
+        "day": "Tue",
+        "time": "12:30 PM",
+        "note": "Midday scroll. A quick value hit, drives a tap to your link.",
+        "instr": "Add a link sticker to propsight.sg near the bottom arrow before you post.",
         "palette": "petrol",
         "value": "dark",
-        "caption": "No, you don't need 20% cash to buy a condo in Singapore\nThe myth says you need 20% in cash. That's wrong.\nA private home downpayment is 25%, but only 5% has to be cash.\nThe other 20% can come straight from your CPF, so the cash you actually need upfront is way smaller than people scare you into thinking.\nSave this before you talk to any agent, then check your own numbers free at propsight.sg (link in bio)\n#singaporeproperty #propertysg #condosingapore #sgproperty #cpf #propertyinvestment #sghomeowners #newlaunch",
-        "alt": "Property myth vs fact",
-        "file": "2026-06-30-w0-myth.png"
+        "alt": "This week's number, $660k in Sengkang",
+        "file": "2026-06-30-w1-story-stat.png"
+      },
+      {
+        "id": "story-poll",
+        "kind": "Guess the price (poll)",
+        "day": "Thu",
+        "time": "7:00 PM",
+        "note": "Evening. A poll, pure engagement that the algorithm loves.",
+        "instr": "Drop an IG poll or quiz sticker in the dashed box. Reveal the real number in a follow-up story.",
+        "palette": "indigo",
+        "value": "light",
+        "alt": "Guess the price of a 4-room in Yishun",
+        "file": "2026-06-30-w1-story-poll.png"
+      },
+      {
+        "id": "story-link",
+        "kind": "Know your home's worth (link)",
+        "day": "Sun",
+        "time": "11:00 AM",
+        "note": "Weekend. The link story that sends people to value their home.",
+        "instr": "Add an IG link sticker to propsight.sg over the bottom arrow before posting.",
+        "palette": "midnight",
+        "value": "dark",
+        "alt": "Know what your home is really worth, free at propsight.sg",
+        "file": "2026-06-30-w1-story-link.png"
+      }
+    ],
+    "covers": [
+      {
+        "name": "Start here",
+        "file": "cover-start.png"
+      },
+      {
+        "name": "Value",
+        "file": "cover-value.png"
+      },
+      {
+        "name": "Market",
+        "file": "cover-market.png"
+      },
+      {
+        "name": "Tips",
+        "file": "cover-tips.png"
+      },
+      {
+        "name": "News",
+        "file": "cover-news.png"
       }
     ]
   },
   "archive": [
     {
-      "label": "Launch post (pin this first)",
       "week_of": "30 June 2026",
       "built": "2026-06-30",
       "posts": [
         {
-          "id": "launch",
-          "cat": "Launch",
-          "day": "Pin this",
-          "time": "First post",
-          "note": "Your intro / advertising post. Pin this to the top of your profile.",
-          "palette": "midnight",
+          "id": "editorial",
+          "cat": "Editorial",
+          "day": "Mon",
+          "time": "8:00 PM",
+          "note": "Start of the week, strongest reach. Lead with a hook.",
+          "palette": "pine",
+          "value": "light",
+          "caption": "Buying an HDB resale or condo? Check the real value first.\nPropSight shows you what any Singapore home is actually worth, your true budget, and the hidden costs most people forget.\nIt even lists the nearby schools, all in one free place.\nOne tip people save: check the hidden costs before you fall for the listing photos.\nCheck yours free at propsight.sg (link in bio)\n#singaporeproperty #propertysg #sgproperty #hdbresale #condosingapore #stampduty #sghomeowners #propertyinvestment",
+          "alt": "Know what a home is really worth",
+          "file": "2026-06-30-w0-editorial.png"
+        },
+        {
+          "id": "value",
+          "cat": "Home value",
+          "day": "Wed",
+          "time": "8:00 PM",
+          "note": "Midweek. A data story, the kind people save and share.",
+          "palette": "glacier",
+          "value": "light",
+          "caption": "4-room HDB resale in Tampines sits around $710k right now\n\nThat number comes from 2526 actual sales logged this year, not a guess or a listing price.\nIf you own one, check your block before you price too low or chase a buyer too high.\nBuyers, this is your reality check before you even view.\nCheck yours free at propsight.sg (link in bio)\n#singaporeproperty #propertysg #hdbresale #tampines #hdb #sgproperty #propertyinvestment #sghomeowners",
+          "alt": "What a flat in Tampines is worth",
+          "file": "2026-06-30-w0-value.png"
+        },
+        {
+          "id": "photo-sky",
+          "cat": "Photo \u00b7 Skyline",
+          "day": "Fri",
+          "time": "7:00 PM",
+          "note": "Friday feed. A striking photo post pulls in reach.",
+          "palette": "spruce",
           "value": "dark",
-          "caption": "Free Singapore property intelligence is now live at propsight.sg.\n\nPropSight shows you what any HDB or condo is really worth, worked out from real recent sales nearby. Plus what you can truly afford, the stamp duty and hidden costs, and the schools within 1km. All in plain English, with no agent and no signup.\n\nThis is the account for straight Singapore property numbers, no spin. Every week: real home values, the market shifts that matter, and the buying myths people still believe.\n\nFollow along, and check any home free at propsight.sg (link in bio)\n\n#singaporeproperty #propertysg #hdb #hdbresale #condosingapore #sgproperty #propertyinvestment #sghomeowners #bto",
-          "alt": "PropSight shown on a laptop and a phone, free Singapore property intelligence at propsight.sg",
-          "file": "launch-propsight.png"
+          "caption": "What is your HDB or condo actually worth right now?\nPropSight values any Singapore home, CBD or heartland, on real recent sales.\nFree, and built on what places near you actually sold for, not a guess.\nSave this and check your own number before any agent gives you theirs.\nCheck yours free at propsight.sg (link in bio)\n#singaporeproperty #propertysg #hdbresale #condosingapore #sgproperty #propertyvaluation #sghomeowners",
+          "alt": "Singapore CBD skyline behind Chinatown shophouses",
+          "file": "2026-06-30-w0-photo-sky.png"
+        },
+        {
+          "id": "myth",
+          "cat": "Myth buster",
+          "day": "Sat",
+          "time": "11:00 AM",
+          "note": "Weekend scroll. A quick tip or tool people act on.",
+          "palette": "petrol",
+          "value": "dark",
+          "caption": "No, you don't need 20% cash to buy a condo in Singapore\nThe myth says you need 20% in cash. That's wrong.\nA private home downpayment is 25%, but only 5% has to be cash.\nThe other 20% can come straight from your CPF, so the cash you actually need upfront is way smaller than people scare you into thinking.\nSave this before you talk to any agent, then check your own numbers free at propsight.sg (link in bio)\n#singaporeproperty #propertysg #condosingapore #sgproperty #cpf #propertyinvestment #sghomeowners #newlaunch",
+          "alt": "Property myth vs fact",
+          "file": "2026-06-30-w0-myth.png"
         }
       ]
     }
