@@ -27,12 +27,17 @@ a{color:inherit;text-decoration:none}
 .nav .b .mark{width:30px;height:30px;flex:none}
 .nav .back{margin-left:auto;font-size:13.5px;font-weight:600;color:rgba(246,241,231,.82)}
 .hl-i{display:block;height:13px;width:172px;margin-top:11px;overflow:visible}.hl-i path{fill:none;stroke:var(--brass);stroke-width:5;stroke-linecap:round;vector-effect:non-scaling-stroke}
-.mast{max-width:860px;margin:0 auto;padding:54px 26px 4px}
+.mast{position:relative;overflow:hidden;border-bottom:1px solid rgba(176,141,87,.45);box-shadow:0 14px 30px rgba(15,35,26,.14)}
+.mast-bg{position:absolute;inset:0;background:linear-gradient(102deg,rgba(8,18,13,.95) 0%,rgba(12,28,19,.9) 44%,rgba(18,40,27,.6) 78%,rgba(14,32,22,.46) 100%),url('../img/pulse-cbd.jpg') center 44%/cover;z-index:0}
+.mast-in{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:42px 26px 40px}
 .kick{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#8f6a2c;display:inline-flex;align-items:center;gap:10px}
 .kick::before{content:"";width:22px;height:1.5px;background:#8f6a2c}
-.mast h1{font-family:var(--serif);font-weight:600;font-size:clamp(38px,5.4vw,54px);letter-spacing:-.028em;margin:14px 0 0}
-.mast p{color:var(--ink2);font-size:17px;margin-top:16px;max-width:560px}
+.mast .kick{color:var(--brass3)}.mast .kick::before{background:var(--brass3)}
+.mast h1{font-family:var(--serif);font-weight:600;font-size:clamp(27px,4.1vw,42px);letter-spacing:-.024em;margin:11px 0 0;color:#f6f1e7;line-height:1.04}
+.mast .hl-i{margin-top:10px}.mast .hl-i path{stroke:var(--brass3)}
+.mast p{color:rgba(246,241,231,.86);font-size:15px;margin-top:13px;max-width:580px;line-height:1.55}
 .masl{color:var(--green2);font-weight:700;border-bottom:1px solid rgba(176,141,87,.5);white-space:nowrap}
+.mast .masl{color:var(--brass3);border-bottom-color:rgba(227,201,143,.5)}
 /* stream toggle */
 .tabs{max-width:860px;margin:26px auto 0;padding:0 26px;display:flex;gap:9px}
 .tab{font-size:14px;font-weight:700;color:var(--ink2);background:#fffdf8;border:1px solid var(--line2);padding:11px 19px;border-radius:40px;cursor:pointer;transition:.2s var(--ease)}
@@ -86,7 +91,7 @@ a{color:inherit;text-decoration:none}
 .ec p{font-size:14.5px;color:rgba(243,239,230,.8);margin-top:11px;line-height:1.55;max-width:48ch}
 .ec-btn{flex:none;background:var(--gtex,none),#ead4a2;color:#241a0d;font-weight:700;font-size:15px;padding:15px 24px;border-radius:40px;white-space:nowrap}
 .rv{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease)}.rv.in{opacity:1;transform:none}
-@media(max-width:680px){.guides{grid-template-columns:1fr}.prow{grid-template-columns:1fr;gap:7px}.lead{padding:28px 24px 26px}.tabs{flex-wrap:wrap}.mast{padding:22px 22px 2px}.mast h1{margin-top:10px}.mast p{font-size:15.5px;margin-top:12px}}
+@media(max-width:680px){.guides{grid-template-columns:1fr}.prow{grid-template-columns:1fr;gap:7px}.lead{padding:28px 24px 26px}.tabs{flex-wrap:wrap}.mast-in{padding:30px 22px 30px}.mast h1{margin-top:10px}.mast p{font-size:14.5px;margin-top:12px}}
 :focus-visible{outline:2.5px solid #b08d57;outline-offset:2px;border-radius:3px}
 </style><script src="/adam/nav.js" defer></script>
   <link rel="canonical" href="https://propsight.sg/market-pulse/">
@@ -97,8 +102,11 @@ a{color:inherit;text-decoration:none}
 <body>
 <header class="top"><nav class="nav"><a class="b" href="../index.html"><svg class="mark" aria-hidden="true" viewBox="0 0 64 64"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#d8b15e"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#d8b15e" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg>PropSight</a></nav></header>
 
-<div class="mast"><span class="kick">Market Pulse</span><h1>The market, the way we see it.<svg class="hl-i" viewBox="0 0 172 13" preserveAspectRatio="none" aria-hidden="true"><path d="M4 8 C 44 3, 128 3, 168 7"/></svg></h1>
+<div class="mast">
+  <div class="mast-bg" aria-hidden="true"></div>
+  <div class="mast-in"><span class="kick">Market Pulse</span><h1>The market, the way we see it.<svg class="hl-i" viewBox="0 0 172 13" preserveAspectRatio="none" aria-hidden="true"><path d="M4 8 C 44 3, 128 3, 168 7"/></svg></h1>
   <p>Every week, a quick honest read on what Singapore property is actually doing, and what it means if you're buying or selling right now. New to all this? <a class="masl" href="../essentials/">Start with the Guide →</a></p></div>
+</div>
 
 <div class="note-stream on" id="s-pulse"><!--PULSE-LIST-START--><section class="sec"><div class="sec-h"><h2>This week</h2><span class="meta">New every Saturday · latest 27 Jun</span></div><a class="lead" href="market-pulse-27-jun-2026.html"><span class="newbadge"><span class="d"></span>New this week</span><span class="when">27 June 2026</span><h3>Resale flats are out-earning condos for landlords: 6.1% vs 3.6%.</h3><p class="dek">Condo prices are holding steady, led by the suburbs and the areas just outside the city. HDB resale is holding steady. The priciest central areas have cooled a little. Plus what it means if you're buying, selling or renting out right now.</p><div class="lstrip"><span class="chip flat"><span class="a">→</span> Resale flats <span class="v">steady</span></span><span class="chip flat"><span class="a">→</span> Condos <span class="v">steady</span></span><span class="chip down"><span class="a">▼</span> City-centre condos <span class="v">cooling</span></span></div><span class="go">Read this week's pulse →</span></a><div class="sec-h" style="margin-top:42px"><h2>Past weeks</h2><span class="meta">The market diary</span></div><div class="parch"><a class="prow" href="market-pulse-20-jun-2026.html"><span class="pdate">20 June 2026</span><span><h4>Condo prices are climbing. The heartland is split. Here's where the market's actually moving.</h4><span class="mini"><span class="mc flat">→ Resale flats steady</span><span class="mc up">▲ Condos rising</span><span class="mc down">▼ City-centre condos cooling</span></span></span><span class="pgo">Read →</span></a></div></section><!--PULSE-LIST-END--></div>
 

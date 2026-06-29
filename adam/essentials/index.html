@@ -27,6 +27,14 @@ a{color:inherit;text-decoration:none}
 .bar .back{margin-left:auto;font-size:13.5px;font-weight:600;color:rgba(246,241,231,.82)}.bar .back:hover{color:#fff}
 .wrap{max-width:720px;margin:0 auto;padding:0 28px}
 .head{padding:58px 0 30px;max-width:680px;border-bottom:1px solid var(--line2)}
+.ghero{position:relative;overflow:hidden;border-bottom:1px solid rgba(176,141,87,.45);box-shadow:0 14px 30px rgba(15,35,26,.14)}
+.ghero-bg{position:absolute;inset:0;background:linear-gradient(102deg,rgba(8,18,13,.95) 0%,rgba(12,28,19,.9) 44%,rgba(18,40,27,.6) 78%,rgba(14,32,22,.46) 100%),url('../img/guide-hdb.jpg') center 38%/cover;z-index:0}
+.ghero-in{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:42px 28px 40px}
+.ghero .kick{color:var(--brass3)}.ghero .kick::before{background:var(--brass3)}
+.ghero h1{font-family:var(--serif);font-weight:600;font-size:clamp(27px,4.1vw,42px);letter-spacing:-.024em;margin:11px 0 0;line-height:1.04;color:#f6f1e7}
+.ghero .hl-i{margin-top:10px}.ghero .hl-i path{stroke:var(--brass3)}
+.ghero .metaread{color:rgba(246,241,231,.82)}.ghero .metaread svg{stroke:var(--brass3)}
+.ghero .sub{color:rgba(246,241,231,.86);font-size:15px;margin-top:14px;max-width:580px;line-height:1.55}
 .kick{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--brassink)}
 h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5.4vw,52px);letter-spacing:-.025em;margin:13px 0 0;line-height:1.05}
 .hl-i{display:block;height:14px;width:172px;margin-top:11px;overflow:visible}.hl-i path{fill:none;stroke:var(--brass2);stroke-width:5;stroke-linecap:round;vector-effect:non-scaling-stroke}
@@ -141,7 +149,7 @@ h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5.4vw,52px);let
 .acard p{font-size:14px;color:var(--ink2);line-height:1.58}
 .acard .more{display:inline-block;margin-top:12px;font-size:12.5px;font-weight:700;color:var(--green2);border-bottom:1px solid rgba(176,141,87,.45);padding-bottom:1px}
 .soon{margin-top:12px;font-size:14px;color:var(--ink3);border:1px dashed var(--line2);border-radius:12px;padding:16px 18px;line-height:1.55}
-@media(max-width:680px){.wrap{padding:0 20px}.bar .wrap{padding:0 20px}.terms{grid-template-columns:1fr;gap:0}.libgrid{grid-template-columns:1fr}.jstep{gap:16px;padding-bottom:30px}.journey::before{left:20px}.jnode{width:42px;height:42px}.jnode .n{font-size:17px}.head{padding:40px 0 26px}h1{font-size:clamp(32px,8vw,40px)}}
+@media(max-width:680px){.wrap{padding:0 20px}.bar .wrap{padding:0 20px}.terms{grid-template-columns:1fr;gap:0}.libgrid{grid-template-columns:1fr}.jstep{gap:16px;padding-bottom:30px}.journey::before{left:20px}.jnode{width:42px;height:42px}.jnode .n{font-size:17px}.head{padding:40px 0 26px}.ghero-in{padding:32px 20px 30px}h1{font-size:clamp(32px,8vw,40px)}}
 :focus-visible{outline:2.5px solid #b08d57;outline-offset:2px;border-radius:3px}</style><script src="/adam/nav.js" defer></script>
   <link rel="canonical" href="https://propsight.sg/guide/">
   <script type="application/ld+json">
@@ -151,15 +159,18 @@ h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5.4vw,52px);let
 <body>
 <header class="bar"><div class="wrap"><a class="b" href="../index.html"><svg class="mark" aria-hidden="true" viewBox="0 0 64 64"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#d8b15e"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#d8b15e" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg>PropSight</a></div></header>
 
-<div class="wrap">
-  <div class="head">
+<section class="ghero">
+  <div class="ghero-bg" aria-hidden="true"></div>
+  <div class="ghero-in">
     <span class="kick">The Guide</span>
     <h1>How property actually works.</h1><svg class="hl-i" viewBox="0 0 172 14" preserveAspectRatio="none" aria-hidden="true"><path d="M4 9 C 44 4, 128 4, 168 8"/></svg>
     <span class="metaread"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6c-2-1.4-5-1.6-7-1v12c2-.6 5-.4 7 1 2-1.4 5-1.6 7-1V5c-2-.6-5-.4-7 1z"/><path d="M12 6v13"/></svg>3 chapters &middot; about 12 min read</span>
     <p class="sub">New to all this? Start here. See exactly how buying and selling happen, step by step, and pick up the things that quietly cost people money. No jargon you can't follow, no sales pitch.</p>
   </div>
+</section>
 
-  <div class="tabs"><div class="tabrow" id="tabrow">
+<div class="wrap">
+  <div class="tabs" style="margin-top:34px"><div class="tabrow" id="tabrow">
     <button class="tab on" data-t="buying">How buying works</button>
     <button class="tab" data-t="selling">How selling works</button>
     <button class="tab" data-t="tips">Tips worth knowing</button>
