@@ -356,22 +356,23 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .badge-soon{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);background:rgba(152,142,126,.15);padding:3px 8px;border-radius:6px;display:inline-block;margin-bottom:10px}
 .notes-all{display:inline-flex;margin-top:22px;font-size:14px;font-weight:700;color:var(--green2);gap:8px}
 @media(max-width:880px){.notes{grid-template-columns:1fr}}
+.newsband{position:relative;overflow:hidden;border-radius:22px;padding:40px 38px;margin-bottom:30px;box-shadow:0 24px 52px rgba(15,35,26,.18)}
+.newsband .nb-bg{position:absolute;inset:0;background:linear-gradient(102deg,rgba(8,18,13,.95) 0%,rgba(12,28,19,.9) 44%,rgba(18,40,27,.6) 78%,rgba(14,32,22,.46) 100%),url('img/hero.jpg') center 58%/cover;z-index:0}
+.newsband .nb-in{position:relative;z-index:1;max-width:640px}
+.newsband .eyebrow{color:var(--brass3)}.newsband .eyebrow::before{background:var(--brass3)}
+.newsband h2{font-family:var(--serif);font-weight:600;font-size:clamp(28px,3.4vw,40px);letter-spacing:-.022em;line-height:1.04;margin-top:11px;color:#f6f1e7}
+.newsband p{color:rgba(246,241,231,.86);font-size:15px;line-height:1.55;margin-top:13px;max-width:560px}
+.newsband .masl{color:var(--brass3);font-weight:700;white-space:nowrap}
+.newsband .hl{margin-top:11px}
+@media(max-width:600px){.newsband{padding:30px 22px}}
 .newsg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .newsload{color:var(--ink3);font-size:14px;padding:8px 2px;grid-column:1/-1}
 .ncard{position:relative;display:flex;flex-direction:column;background:#fffefc;border:1px solid var(--line);border-radius:18px;padding:0;overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s,border-color .3s}
 .ncard::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:#d8b15e;transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease);z-index:2}
 .ncard:hover{transform:translateY(-6px);box-shadow:0 24px 52px rgba(25,21,18,.13);border-color:var(--brass2)}
 .ncard:hover::after{transform:none}
-.nimg{display:flex;flex-direction:column;justify-content:flex-end;min-height:120px;padding:22px 20px 18px;background:#fbf5e9;border-bottom:1px solid var(--line)}
-.nimg .stat{font-family:var(--serif);font-weight:600;letter-spacing:-.02em;color:var(--green2);line-height:.95;font-variant-numeric:tabular-nums;font-size:38px}
-.nimg .stat .u{font-size:.5em;color:var(--brass);font-weight:700;margin-left:3px}
-.nimg .statlbl{font-size:10.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--ink3);margin-top:8px}
-.nimg .trend{display:inline-flex;align-items:center;gap:9px;font-family:var(--serif);font-weight:600;font-size:24px}
-.nimg .trend svg{width:15px;height:15px;flex:none}
-.nimg .trend.up{color:#1f7a4d}.nimg .trend.up svg{fill:#1f7a4d}
-.nimg .trend.dn{color:#a6612f}.nimg .trend.dn svg{fill:#a6612f}
-.nimg .rule{font-family:var(--serif);font-weight:600;font-size:22px;color:var(--green2);display:inline-flex;align-items:center;gap:10px}
-.nimg .rule::before{content:"";width:24px;height:2px;background:var(--brass);display:inline-block}
+.nimg{display:block;height:174px;background:#e7e0d2 50%/cover no-repeat;border-bottom:1px solid var(--line)}
+.ncard:hover .nimg{filter:saturate(1.04)}
 .ncard-b{display:flex;flex-direction:column;flex:1;padding:18px 20px 17px}
 .ntag{align-self:flex-start;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--brass);background:rgba(176,141,87,.12);padding:4px 9px;border-radius:6px}
 .ncard h3{font-family:var(--serif);font-weight:600;font-size:18px;line-height:1.22;letter-spacing:-.012em;margin:12px 0 8px;color:var(--ink)}
@@ -858,8 +859,15 @@ if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}
 </div></section>
 
 <section class="sec divtop" id="news"><div class="wrap">
-  <div class="sec-h"><div><span class="eyebrow rv">Singapore property news</span><h2 class="rv">What's moving in the market.</h2><svg class="hl" viewBox="0 0 188 15" preserveAspectRatio="none" aria-hidden="true"><path d="M4 9 C 48 4, 140 4, 184 8"/></svg></div>
-    <p class="rv">The headlines that matter for your home, with what each one means for you. The latest, on top. <a class="masl" href="news/">See all news →</a></p></div>
+  <div class="newsband rv">
+    <div class="nb-bg" aria-hidden="true"></div>
+    <div class="nb-in">
+      <span class="eyebrow">Singapore property news</span>
+      <h2>What's moving in the market.</h2>
+      <svg class="hl" viewBox="0 0 188 15" preserveAspectRatio="none" aria-hidden="true"><path d="M4 9 C 48 4, 140 4, 184 8"/></svg>
+      <p>The headlines that matter for your home, with what each one means for you. The latest, on top. <a class="masl" href="news/">See all news →</a></p>
+    </div>
+  </div>
   <div class="newsg" id="newsHome" aria-live="polite"><div class="newsload">Loading the latest…</div></div>
   <a class="notes-all rv" href="news/">See all property news <span>→</span></a>
 </div></section>
@@ -1803,30 +1811,11 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
 (function(){
   var mount=document.getElementById('newsHome'); if(!mount)return;
   function esc(s){return (s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
-  function kicker(t){var K={Policy:'New ruling','New Launch':'New launch',Market:'Market move',Rates:'Rate move',HDB:'HDB update',Condo:'Condo update'};return K[t]||'Latest news';}
-  function lbl(l){return l?'<span class="statlbl">'+esc(l)+'</span>':'';}
-  function splitStat(s){var m=String(s).match(/^(.*\S)\s*(psf|ppr|M|B|k|%|\+)$/i);if(m&&m[1])return{base:m[1],unit:m[2]};return{base:String(s),unit:''};}
-  function hook(it){
-    if(it.stat){
-      var sp=splitStat(it.stat);
-      var u=sp.unit?'<span class="u">'+esc(sp.unit)+'</span>':'';
-      return '<span class="stat">'+esc(sp.base)+u+'</span>'+lbl(it.stat_label);
-    }
-    if(it.trend==='up'||it.trend==='down'){
-      var dn=it.trend==='down';
-      var isRent=/rent/i.test((it.headline||'')+' '+(it.summary||''));
-      var phrase=dn?(isRent?'Rents ease':'Prices ease'):(isRent?'Rents up':'Prices up');
-      var svg=dn?'<svg viewBox="0 0 24 24"><path d="M12 18L4 6h16z"/></svg>'
-               :'<svg viewBox="0 0 24 24"><path d="M12 6l8 12H4z"/></svg>';
-      return '<span class="trend '+(dn?'dn':'up')+'">'+svg+esc(phrase)+'</span>'+lbl(it.stat_label);
-    }
-    return '<span class="rule">'+esc(kicker(it.tag))+'</span>'+lbl(it.stat_label);
-  }
   fetch('data/news.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(d){
     var items=(d.items||[]).slice(0,3);
     if(!items.length){mount.innerHTML='';return;}
     mount.innerHTML=items.map(function(it){
-      var im='<span class="nimg">'+hook(it)+'</span>';
+      var im=it.image?'<span class="nimg" style="background-image:url(\'data/'+esc(it.image)+'\')"></span>':'';
       return '<a class="ncard" href="'+esc(it.link)+'" target="_blank" rel="noopener">'+im+
         '<span class="ncard-b">'+
         '<span class="ntag">'+esc(it.tag)+'</span>'+
