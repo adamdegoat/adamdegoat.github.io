@@ -1,85 +1,56 @@
 {
   "current": {
-    "issue": 7,
+    "issue": 1,
     "built": "2026-06-29",
     "week_of": "29 June 2026",
     "posts": [
       {
-        "id": "device",
-        "cat": "Device mockup",
-        "tag": [
-          "PropSight",
-          "Live"
-        ],
-        "caption": "Thinking of selling and wondering what your flat is actually worth? Value any HDB or condo on real recent sales, sort out your budget, even find homes near the school you want.\nNo signup. No agent calling you.\nCheck yours free at propsight.sg\n\n#singaporeproperty #propertysg #hdb #condo #sghome #propertytools",
-        "alt": "PropSight shown on a phone",
-        "file": "2026-06-29-w6-device.png"
-      },
-      {
         "id": "editorial",
         "cat": "Editorial",
-        "tag": [
-          "PropSight",
-          "Free"
-        ],
-        "caption": "PropSight knows what your home is actually worth, and what you can truly afford.\nHidden costs, nearby schools, real numbers, all in one free place.\nNo signup. No agent breathing down your neck.\nCheck yours free at propsight.sg\n\n#singaporeproperty #propertysg #sghomebuyers #sghome #sgrealestate",
+        "day": "Mon",
+        "time": "8:00 PM",
+        "note": "Start of the week, strongest reach. Lead with a hook.",
+        "palette": "pine",
+        "value": "light",
+        "caption": "Thinking about buying but not sure what the place is actually worth?\nSee the real value, your true budget, the hidden costs and the schools nearby.\nAll free, all in one spot.\nCheck yours free at propsight.sg\n#singaporeproperty #propertysg #sghomebuyers #sgproperty #homebuyingsg #sgrealestate",
         "alt": "Know what a home is really worth",
-        "file": "2026-06-29-w6-editorial.png"
+        "file": "2026-06-29-w0-editorial.png"
       },
       {
-        "id": "statement",
-        "cat": "Statement",
-        "tag": [
-          "PropSight",
-          "Free"
-        ],
-        "caption": "Free tools. Real numbers. No catch.\nEverything runs on official URA and HDB data, no signup, nothing to pay.\nSee what your place is actually worth before you talk to anyone.\nCheck yours free at propsight.sg\n#singaporeproperty #propertysg #hdb #ura #sghome #propertytools",
-        "alt": "PropSight is free",
-        "file": "2026-06-29-w6-statement.png"
+        "id": "value",
+        "cat": "Home value",
+        "day": "Wed",
+        "time": "8:00 PM",
+        "note": "Midweek. A data story, the kind people save and share.",
+        "palette": "glacier",
+        "value": "light",
+        "caption": "Tampines neighbours asking what their 4-room is really worth?\nAbout $710k, and that is not a guess.\nWe pulled it from 2526 real resale sales this year.\nCheck yours free at propsight.sg\n#tampines #hdbresale #4room #propertysg #singaporeproperty #hdb",
+        "alt": "What a flat in Tampines is worth",
+        "file": "2026-06-29-w0-value.png"
       },
       {
-        "id": "costs",
-        "cat": "Hidden costs",
-        "tag": [
-          "Hidden Costs",
-          "Real data"
-        ],
-        "caption": "The price is never the price.\n\nOn a $1.65M home you're really looking at about $117k more, stamp duty, legal fees and renovation, before you get the keys. Know the real total first.\n\nCheck yours free at propsight.sg (link in bio).\n\n#singaporeproperty #propertysg #sgproperty #stampduty #homebuying #condo",
-        "alt": "The real cost of a home",
-        "file": "2026-06-29-w6-costs.png"
-      },
-      {
-        "id": "market",
-        "cat": "Market story",
-        "tag": [
-          "Market Pulse",
-          "HDB vs Condo"
-        ],
-        "caption": "HDB flats are pulling about 6.1% gross rent islandwide.\nCondos? 3.6%.\nThe \"premium\" address is quietly earning you less.\nSee what your place actually yields, free at propsight.sg\n\n#singaporeproperty #propertysg #hdb #condo #rentalyield #propertyinvesting",
-        "alt": "This week's market story",
-        "file": "2026-06-29-w6-market.png"
+        "id": "photo-sky",
+        "cat": "Photo \u00b7 Skyline",
+        "day": "Fri",
+        "time": "7:00 PM",
+        "note": "Friday feed. A striking photo post pulls in reach.",
+        "palette": "spruce",
+        "value": "dark",
+        "caption": "Your CBD condo or your HDB in the heartland, doesn't matter.\nSame real recent sales, same free valuation.\nStop guessing what it's worth and go look.\nCheck yours free at propsight.sg \ud83c\udfe0\n#singaporeproperty #propertysg #sghome #hdb #condo #propertytools",
+        "alt": "Singapore at night",
+        "file": "2026-06-29-w0-photo-sky.png"
       },
       {
         "id": "myth",
         "cat": "Myth buster",
-        "tag": [
-          "Myth vs Fact",
-          "Tip"
-        ],
-        "caption": "That offer you wrote? The bank doesn't care about it.\n\nYour loan and CPF only stretch as far as the bank's valuation. Anything above that, you cover in cash from your own pocket.\n\nSo know the number before you sign.\nCheck yours free at propsight.sg\n\n#singaporeproperty #propertysg #hdb #condosg #homeloan #cpf",
+        "day": "Sat",
+        "time": "11:00 AM",
+        "note": "Weekend scroll. A quick tip or tool people act on.",
+        "palette": "petrol",
+        "value": "dark",
+        "caption": "You need 20% cash for a condo.\" Nope.\nThe downpayment on a private home is 25%, sure, but only 5% has to be cash.\nThe other 20%? That can come straight from your CPF.\n\nCheck yours free at propsight.sg\n\n#singaporeproperty #propertysg #condobuying #cpf #firsthome",
         "alt": "Property myth vs fact",
-        "file": "2026-06-29-w6-myth.png"
-      },
-      {
-        "id": "tool",
-        "cat": "Tool spotlight",
-        "tag": [
-          "Free Tool",
-          "Affordability"
-        ],
-        "caption": "PropSight's affordability tool, free.\n\nReal numbers, official data, no signup and no agent calling you after.\n\nTry it free at propsight.sg (link in bio).\n\n#singaporeproperty #propertysg #sgproperty #hdb #condo #freetools",
-        "alt": "PropSight Affordability tool",
-        "file": "2026-06-29-w6-tool.png"
+        "file": "2026-06-29-w0-myth.png"
       }
     ]
   },
