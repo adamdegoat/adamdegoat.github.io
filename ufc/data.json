@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-29T21:00:00.226379+08:00",
+  "updated": "2026-06-29T23:30:00.273645+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -181,6 +181,12 @@
       "priority": true
     },
     {
+      "title": "Merab Dvalishvili reveals Ilia Topuria was ‘fighting blind’ after first round against Justin Gaethje",
+      "link": "https://www.mmafighting.com/ufc/496915/merab-dvalishvili-reveals-ilia-topuria-was-fighting-blind-after-first-round-against-justin-gaethje",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "UFC 330: Makhachev vs. Machado Garry adds top middleweight prospect to lineup",
       "link": "https://www.mmafighting.com/ufc/496491/ufc-330-makhachev-vs-machado-garry-adds-top-middleweight-prospect-to-lineup",
       "source": "MMA Fighting",
@@ -207,12 +213,6 @@
     {
       "title": "Brian Ortega reflects on UFC Shanghai weigh-in debacle that led to lightweight move: ‘This one scared me a little bit’",
       "link": "https://www.mmafighting.com/ufc/496672/brian-ortega-reflects-on-ufc-shanghai-weigh-in-debacle-that-led-to-lightweight-move-this-one-scared-me-a-little-bit",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "PFL San Diego salaries: Main event fighter made $10,000 in losing effort",
-      "link": "https://www.mmafighting.com/pfl/496846/pfl-san-diego-salaries-main-event-fighter-made-10000-in-losing-effort",
       "source": "MMA Fighting",
       "priority": false
     },
@@ -254,8 +254,8 @@
     }
   ],
   "hooks": {
-    "week": "Featherweight fireworks incoming: McGregor and Holloway collide this Sunday morning.",
-    "prefight": "McGregor meets Holloway this Sunday at 9 AM SGT — elite strikers clash.",
-    "results": "Fiziev ends Torres with spinning wheel kick KO in round two."
+    "week": "McGregor clashes with Holloway Sunday 12 July, 9am SGT - featherweight fireworks await.",
+    "prefight": "McGregor takes on Holloway July 12 — pure striking masterclass incoming.",
+    "results": "Fiziev's spinning wheel kick ends Torres in the second round."
   }
 }
