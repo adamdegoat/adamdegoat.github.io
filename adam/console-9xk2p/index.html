@@ -18,7 +18,7 @@
   .gatebox .mk{font-family:"Fraunces",serif;font-weight:600;font-size:22px;color:var(--green)}
   .gatebox .mk span{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--brass);display:block;margin-top:2px;font-family:"Schibsted Grotesk"}
   .gatebox p{font-size:12.5px;color:var(--ink3);margin:6px 0 20px}
-  .gatebox input{width:100%;padding:13px 15px;border:1px solid #d8cfbe;border-radius:11px;font-size:15px;font-family:inherit;text-align:center;letter-spacing:.1em}
+  .gatebox input{width:100%;padding:13px 15px;border:1px solid #d8cfbe;border-radius:11px;font-size:16px;font-family:inherit;text-align:center;letter-spacing:.1em}
   .gatebox input:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(31,193,143,.14)}
   .gatebox button{width:100%;margin-top:11px;padding:13px;border:0;border-radius:11px;background:var(--green);color:#f5f1e8;font-size:14.5px;font-weight:700;font-family:inherit;cursor:pointer}
   .gatebox .err{color:#c0392b;font-size:12px;font-weight:600;margin-top:10px;min-height:14px}
@@ -46,7 +46,7 @@
   .ptitle{font-family:"Fraunces",serif;font-size:17px;padding:16px 18px 0;color:var(--ink)}
   .pform{padding:14px 18px 18px}
   .pform label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink3);margin:10px 0 5px}
-  .pform input,.pform textarea{width:100%;padding:11px 13px;border:1px solid #d8cfbe;border-radius:10px;font-size:14px;font-family:inherit;resize:vertical}
+  .pform input,.pform textarea{width:100%;padding:11px 13px;border:1px solid #d8cfbe;border-radius:10px;font-size:16px;font-family:inherit;resize:vertical}
   .pform textarea{min-height:150px;line-height:1.5}
   .pform input:focus,.pform textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(31,193,143,.12)}
   .sendbar{display:flex;gap:9px;align-items:center;margin-top:13px;flex-wrap:wrap}
@@ -60,7 +60,7 @@
     <form class="gatebox" id="gform">
       <div class="mk">PropSight<span>Members Console</span></div>
       <p>Private. Enter the access code.</p>
-      <input id="pw" type="password" inputmode="numeric" autocomplete="off" placeholder="Access code" autofocus>
+      <input id="pw" type="password" inputmode="text" autocomplete="current-password" placeholder="Access code" autofocus>
       <button type="submit">Enter</button>
       <div class="err" id="gerr"></div>
     </form>
@@ -179,7 +179,7 @@ function send(testOnly){
   msg.className='msg';msg.textContent='Sending…';
   fetch(API+'/api/member-admin/newsletter',{method:'POST',headers:H(),body:JSON.stringify(payload)})
     .then(function(r){return r.json();}).then(function(d){
-      if(d&&d.ok){msg.className='msg ok';msg.textContent=(testOnly?'Test sent':'Sent')+' — '+d.sent+'/'+d.total+(d.failed?(' ('+d.failed+' failed)'):'')+'.';}
+      if(d&&d.ok){msg.className='msg ok';msg.textContent=(testOnly?'Test sent':'Sent')+', '+d.sent+'/'+d.total+(d.failed?(' ('+d.failed+' failed)'):'')+'.';}
       else{msg.className='msg err';msg.textContent=(d&&d.error)||'Failed.';}
     }).catch(function(){msg.className='msg err';msg.textContent='Network error.';});
 }

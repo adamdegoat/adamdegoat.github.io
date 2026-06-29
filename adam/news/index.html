@@ -1,48 +1,113 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#f7f4ec">
-<title>Singapore Property News — PropSight</title>
-<meta property="og:type" content="website"><meta property="og:site_name" content="PropSight"><meta property="og:url" content="https://adamdegoat.github.io/adam/news/"><meta property="og:title" content="Singapore Property News — PropSight"><meta property="og:description" content="The headlines that matter for your home, with what each one means for you. Free, refreshed daily."><meta property="og:image" content="https://adamdegoat.github.io/adam/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://adamdegoat.github.io/adam/og.jpg">
+<title>Singapore Property News, PropSight</title>
+<meta property="og:type" content="website"><meta property="og:site_name" content="PropSight"><meta property="og:url" content="https://propsight.sg/news/"><meta property="og:title" content="Singapore Property News, PropSight"><meta property="og:description" content="The headlines that matter for your home, with what each one means for you. Free, refreshed daily."><meta property="og:image" content="https://adamdegoat.github.io/adam/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://adamdegoat.github.io/adam/og.jpg">
 <meta name="description" content="The Singapore property headlines that matter for your home, with what each one means for you. Refreshed daily. Free, by PropSight.">
 <link rel="manifest" href="../manifest.json">
 <link rel="apple-touch-icon" href="../icons/icon-180.png">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b3a2d'/%3E%3Cpath d='M8 18.5 L16 11 L24 18.5' fill='none' stroke='%23ead4a2' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M11 23 L21 23' stroke='%23ead4a2' stroke-width='2.2' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='19.3' r='1.7' fill='%23c8a468'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b3a2d'/%3E%3Cg fill='none' stroke='%23ead4a2' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='13.5' cy='13.5' r='9.5'/%3E%3Cpath d='M8.75 16 L13.5 11 L18.25 16'/%3E%3Cpath d='M10.5 18.2 L16.5 18.2'/%3E%3C/g%3E%3Ccircle cx='13.5' cy='16.5' r='1' fill='%23d8b15e'/%3E%3Cpath d='M20.25 20.25 L26.5 26.5' fill='none' stroke='%23d8b15e' stroke-width='2.8' stroke-linecap='round'/%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600&family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#191512;--ink2:#5a5248;--ink3:#8a8175;--bg:#f7f4ec;--card:#fffefc;--line:#e7e0d2;--line2:#dbd1bf;--green:#1b3a2d;--green2:#27513f;--green3:#0f231a;--brass:#b08d57;--brass2:#c8a468;--brass3:#e3c98f;--serif:'Fraunces',Georgia,serif;--ease:cubic-bezier(.2,.7,.2,1)}
+:root{--ink:#191512;--ink2:#534b41;--ink3:#857c6f;--bg:#f7f4ec;--card:#fffefb;--line:#e3dbca;--line2:#cbc0aa;--green:#1b3a2d;--green2:#27513f;--green3:#0f231a;--brass:#b08d57;--brass2:#c8a468;--brass3:#e3c98f;--serif:'Fraunces',Georgia,serif;--sans:'Schibsted Grotesk',system-ui,sans-serif;--ease:cubic-bezier(.2,.7,.2,1)}
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{overflow-x:hidden}
-body{font-family:'Schibsted Grotesk',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
-.wrap{max-width:1200px;margin:0 auto;padding:0 36px}
-.head{padding:52px 0 6px;max-width:700px}
-.kick{font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);display:inline-flex;align-items:center;gap:10px}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding:0 36px}
+
+/* ===== masthead ===== */
+.head{padding:50px 0 0;max-width:880px}
+.kick{font-size:11.5px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--brass);display:inline-flex;align-items:center;gap:10px}
 .kick::before{content:"";width:22px;height:1.5px;background:var(--brass)}
-h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5vw,54px);letter-spacing:-.025em;line-height:1.03;margin:16px 0 0}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5.4vw,58px);letter-spacing:-.028em;line-height:1.0;margin:14px 0 0}
 h1 em{font-style:normal;color:inherit}
-.sub{font-size:17px;color:var(--ink2);margin:16px 0 0;line-height:1.55}
-.upd{margin:22px 0 0;font-size:12.5px;font-weight:700;color:var(--ink3);display:inline-flex;align-items:center;gap:8px}
+.sub{font-size:16px;color:var(--ink2);margin:15px 0 0;line-height:1.55;max-width:670px}
+
+/* double hairline rule under the head */
+.dbl{margin:26px 0 0;height:4px;border-top:2px solid var(--green3);border-bottom:1px solid var(--green3)}
+
+/* dateline / folio bar */
+.folio{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:11px 0 12px;border-bottom:1px solid var(--line2)}
+.upd{font-size:13px;font-weight:700;letter-spacing:.03em;color:var(--green);display:inline-flex;align-items:center;gap:9px;font-variant-numeric:tabular-nums}
 .upd .d{width:8px;height:8px;border-radius:50%;background:#2e9e6b;flex:none}
-.newsg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:32px 0 24px}
-.newsload{color:var(--ink3);font-size:14px;padding:10px 2px;grid-column:1/-1}
-.ncard{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:0;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 5px 18px rgba(25,21,18,.05);transition:transform .3s var(--ease),box-shadow .3s,border-color .3s}
-.ncard::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--brass2),var(--brass));transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease);z-index:2}
-.ncard:hover{transform:translateY(-6px);box-shadow:0 24px 52px rgba(25,21,18,.13);border-color:var(--brass2)}
-.ncard:hover::after{transform:none}
-.nimg{display:block;height:180px;background:#e7e0d2 50%/cover no-repeat;border-bottom:1px solid var(--line)}
-.ncard:hover .nimg{filter:saturate(1.04)}
-.ncard-b{display:flex;flex-direction:column;flex:1;padding:19px 21px 18px}
-.ntag{align-self:flex-start;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--brass);background:rgba(176,141,87,.12);padding:4px 9px;border-radius:6px}
-.ncard h3{font-family:var(--serif);font-weight:600;font-size:18.5px;line-height:1.22;letter-spacing:-.012em;margin:12px 0 9px;color:var(--ink)}
-.ncard .nmean{font-size:13px;color:var(--ink2);line-height:1.52}
-.ncard .nwhat{margin-top:11px;padding-top:11px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink2);line-height:1.5;flex:1}
-.ncard .nwhat b{color:var(--green2);font-weight:700}
-.ncard .nmeta{margin-top:15px;font-size:11.5px;font-weight:700;color:var(--ink3);letter-spacing:.01em}
-.ncard .ngo{margin-top:9px;font-size:12.5px;font-weight:700;color:var(--green2)}
-.foot{padding:26px 0 64px;color:var(--ink3);font-size:12.5px;line-height:1.6;max-width:760px}
+.upd b{font-weight:800}
+.upd .soft{color:var(--ink3);font-weight:600;letter-spacing:.01em}
+.edition{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3);white-space:nowrap}
+.newsload{color:var(--ink3);font-size:14px;padding:20px 2px}
+
+/* ===== tag pills (squared, wire) ===== */
+.tag{align-self:flex-start;font-size:9.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:2px;white-space:nowrap}
+.t-Policy{color:#46566b;background:rgba(81,97,112,.14)}
+.t-Condo{color:#8a6a32;background:rgba(176,141,87,.17)}
+.t-HDB{color:#1f5a43;background:rgba(31,93,67,.14)}
+.t-Market{color:#3a4a40;background:rgba(27,58,45,.13)}
+.t-New{color:#1f6d5f;background:rgba(31,109,95,.14)}
+.t-Rates{color:#6b4f2a;background:rgba(156,123,69,.16)}
+
+/* ===== the data hook ===== */
+.stat{font-family:var(--serif);font-weight:600;letter-spacing:-.02em;color:var(--green);line-height:.95;font-variant-numeric:tabular-nums}
+.stat .u{font-size:.5em;color:var(--brass);font-weight:700;margin-left:3px}
+.statlbl{font-size:10.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--ink3);margin-top:8px}
+.trend{display:inline-flex;align-items:center;gap:9px;font-family:var(--serif);font-weight:600;font-size:24px}
+.trend svg{width:15px;height:15px;flex:none}
+.trend.up{color:#1f7a4d}.trend.up svg{fill:#1f7a4d}
+.trend.dn{color:#a6612f}.trend.dn svg{fill:#a6612f}
+.rule{font-family:var(--serif);font-weight:600;font-size:22px;color:var(--green);display:inline-flex;align-items:center;gap:10px}
+.rule::before{content:"";width:24px;height:2px;background:var(--brass);display:inline-block}
+
+/* ===== lead: hot this week ===== */
+.lead{margin-top:24px;display:grid;grid-template-columns:300px 1fr;gap:0;background:var(--card);border:1px solid var(--line2);border-top:3px solid var(--green);overflow:hidden;transition:border-color .2s var(--ease);text-decoration:none;color:inherit}
+.lead:hover{border-color:var(--brass2)}
+.lead-stat{padding:34px 30px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--line);background:#fbf5e9}
+.lead-stat .stat{color:var(--green);font-size:56px}
+.lead-stat .stat .u{color:var(--brass)}
+.lead-stat .trend{font-size:32px}.lead-stat .trend svg{width:20px;height:20px}
+.lead-stat .rule{font-size:28px}
+.hot{align-self:flex-start;display:inline-flex;align-items:center;gap:7px;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#fbf5e9;background:var(--green);padding:5px 10px;border-radius:2px;margin-bottom:18px}
+.hot::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--brass3);flex:none}
+.lead-tx{padding:30px 34px}
+.lead-tx .tag{display:inline-block;margin-bottom:13px}
+.lead-tx h2{font-family:var(--serif);font-weight:600;font-size:29px;line-height:1.14;letter-spacing:-.02em;color:var(--ink)}
+.lead-tx .mean{margin-top:15px;font-size:14.5px;color:var(--ink2);border-left:3px solid var(--brass);padding-left:13px;line-height:1.55}
+.lead-tx .mean b{color:var(--green2)}
+.lead-tx .meta{margin-top:20px;padding-top:15px;border-top:1px solid var(--line);font-size:12px;font-weight:700;color:var(--ink3);display:flex;justify-content:space-between;gap:14px;align-items:center;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.lead-tx .go{color:var(--green2)}
+
+/* ===== the wire: feed ===== */
+.feedhd{display:flex;align-items:center;gap:14px;margin:36px 0 0;font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--green2)}
+.feedhd::after{content:"";flex:1;height:1px;background:var(--line2)}
+.grid{margin:0;display:grid;grid-template-columns:1fr 1fr;column-gap:46px;row-gap:0;background:linear-gradient(var(--line2),var(--line2)) center top/1px 100% no-repeat}
+.card{position:relative;display:flex;flex-direction:column;padding:20px 2px 22px;border-top:1px solid var(--line2);text-decoration:none;color:inherit;transition:background .18s var(--ease)}
+.card:hover{background:rgba(176,141,87,.05)}
+.cmeta{display:flex;align-items:center;gap:11px;font-size:11.5px;font-weight:700;color:var(--ink3);font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.cmeta .dt{color:var(--green2);flex:none;display:inline-flex;align-items:center;gap:11px}
+.cmeta .dt::after{content:"";width:4px;height:4px;border-radius:50%;background:var(--brass);flex:none}
+.cmeta .src{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cmeta .tag{margin-left:auto;align-self:center}
+.hook{margin:16px 0 12px;min-height:52px;display:flex;flex-direction:column;justify-content:flex-end}
+.hook .stat{font-size:40px}
+.card h3{font-family:var(--serif);font-weight:600;font-size:18.5px;line-height:1.24;letter-spacing:-.012em;color:var(--ink)}
+.card .mean{margin-top:10px;font-size:12.5px;color:var(--ink2);line-height:1.5;flex:1}
+.card .mean b{color:var(--green2);font-weight:700}
+.card .rd{margin-top:15px;font-size:11.5px;font-weight:800;letter-spacing:.04em}
+.card .go{color:var(--green2);display:inline-flex;align-items:center;gap:6px}
+
+.foot{padding:30px 0 64px;margin-top:8px;color:var(--ink3);font-size:12.5px;line-height:1.6;max-width:760px;border-top:1px solid var(--line2)}
 .foot a{color:var(--green2);font-weight:700;text-decoration:none}
-@media(max-width:880px){.newsg{grid-template-columns:1fr}}
-@media(max-width:600px){.head{padding:34px 0 2px}.wrap{padding:0 20px}}
+
+@media(max-width:640px){
+ .wrap{padding:0 20px}
+ .head{padding:34px 0 0}
+ .folio{padding:11px 0}
+ .lead{grid-template-columns:1fr}
+ .lead-stat{border-right:0;border-bottom:1px solid var(--line);padding:26px 24px 22px}
+ .lead-stat .stat{font-size:50px}
+ .lead-tx{padding:26px 24px}
+ .grid{grid-template-columns:1fr;column-gap:0;background:none}
+ .card{padding:20px 0 22px}
+}
 </style>
+  <link rel="canonical" href="https://propsight.sg/news/">
 </head>
 <body>
 <div class="wrap">
@@ -50,32 +115,69 @@ h1 em{font-style:normal;color:inherit}
     <span class="kick">Singapore property news</span>
     <h1>What's moving in the <em>market</em>.</h1>
     <p class="sub">The headlines that matter for your home, with what each one actually means for you. Pulled from across Singapore's property press and refreshed daily. Free, no sign-up.</p>
-    <div class="upd" id="upd"></div>
   </div>
-  <div class="newsg" id="newsAll"><div class="newsload">Loading the latest…</div></div>
-  <div class="foot">Headlines are sourced from across the Singapore property press; tap any card to read the full story at its original source. PropSight summarises each in its own words and is not the original publisher. <a href="../">← Back to PropSight</a></div>
+  <div class="dbl"></div>
+  <div class="folio">
+    <div class="upd" id="upd"></div>
+    <div class="edition">PropSight wire</div>
+  </div>
+  <div id="newsAll"><div class="newsload">Loading the latest brief…</div></div>
+  <div class="foot">Headlines are sourced from across the Singapore property press; tap any item to read the full story at its original source. PropSight summarises each in its own words and is not the original publisher. <a href="../">Back to PropSight</a></div>
 </div>
 <script src="/adam/nav.js" defer></script>
 <script>
 (function(){
   var mount=document.getElementById('newsAll'), upd=document.getElementById('upd');
   function esc(s){return (s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function tagClass(t){var M={HDB:'t-HDB',Condo:'t-Condo',Policy:'t-Policy',Market:'t-Market','New Launch':'t-New',Rates:'t-Rates'};return M[t]||'t-Market';}
+  function kicker(t){var K={Policy:'New ruling','New Launch':'New launch',Market:'Market move',Rates:'Rate move',HDB:'HDB update',Condo:'Condo update'};return K[t]||'Latest news';}
+  function lbl(l){return l?'<span class="statlbl">'+esc(l)+'</span>':'';}
+  function splitStat(s){var m=String(s).match(/^(.*\S)\s*(psf|ppr|M|B|k|%|\+)$/i);if(m&&m[1])return{base:m[1],unit:m[2]};return{base:String(s),unit:''};}
+  function hook(it){
+    if(it.stat){
+      var sp=splitStat(it.stat);
+      var u=sp.unit?'<span class="u">'+esc(sp.unit)+'</span>':'';
+      return '<span class="stat">'+esc(sp.base)+u+'</span>'+lbl(it.stat_label);
+    }
+    if(it.trend==='up'||it.trend==='down'){
+      var dn=it.trend==='down';
+      var isRent=/rent/i.test((it.headline||'')+' '+(it.summary||''));
+      var phrase=dn?(isRent?'Rents ease':'Prices ease'):(isRent?'Rents up':'Prices up');
+      var svg=dn?'<svg viewBox="0 0 24 24"><path d="M12 18L4 6h16z"/></svg>'
+               :'<svg viewBox="0 0 24 24"><path d="M12 6l8 12H4z"/></svg>';
+      return '<span class="trend '+(dn?'dn':'up')+'">'+svg+esc(phrase)+'</span>'+lbl(it.stat_label);
+    }
+    return '<span class="rule">'+esc(kicker(it.tag))+'</span>'+lbl(it.stat_label);
+  }
+  function leadCard(it){
+    return '<a class="lead" href="'+esc(it.link)+'" target="_blank" rel="noopener">'+
+      '<div class="lead-stat"><span class="hot">Hot this week</span>'+hook(it)+'</div>'+
+      '<div class="lead-tx">'+
+        '<span class="tag '+tagClass(it.tag)+'">'+esc(it.tag)+'</span>'+
+        '<h2>'+esc(it.headline)+'</h2>'+
+        (it.meaning?'<p class="mean"><b>What it means for you:</b> '+esc(it.meaning)+'</p>':'')+
+        '<div class="meta"><span>'+esc(it.source)+(it.date_label?' · '+esc(it.date_label):'')+'</span>'+
+          '<span class="go">Read the full story →</span></div>'+
+      '</div></a>';
+  }
+  function gridCard(it){
+    return '<a class="card" href="'+esc(it.link)+'" target="_blank" rel="noopener">'+
+      '<div class="cmeta"><span class="dt">'+esc(it.date_label)+'</span>'+
+        '<span class="src">'+esc(it.source)+'</span>'+
+        '<span class="tag '+tagClass(it.tag)+'">'+esc(it.tag)+'</span></div>'+
+      '<div class="hook">'+hook(it)+'</div>'+
+      '<h3>'+esc(it.headline)+'</h3>'+
+      (it.meaning?'<p class="mean"><b>What it means:</b> '+esc(it.meaning)+'</p>':'')+
+      '<div class="rd"><span class="go">Read the full story →</span></div>'+
+    '</a>';
+  }
   fetch('../data/news.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(d){
-    if(upd&&d.updated_label) upd.innerHTML='<span class="d"></span>Updated '+esc(d.updated_label)+' · refreshed every morning';
+    if(upd&&d.updated_label) upd.innerHTML='<span class="d"></span>Updated <b>'+esc(d.updated_label)+'</b> <span class="soft">· refreshed every morning</span>';
     var items=d.items||[];
     if(!items.length){mount.innerHTML='<div class="newsload">No news right now, check back soon.</div>';return;}
-    mount.innerHTML=items.map(function(it){
-      var im=it.image?'<span class="nimg" style="background-image:url(\'../data/'+esc(it.image)+'\')"></span>':'';
-      return '<a class="ncard" href="'+esc(it.link)+'" target="_blank" rel="noopener">'+im+
-        '<span class="ncard-b">'+
-        '<span class="ntag">'+esc(it.tag)+'</span>'+
-        '<h3>'+esc(it.headline)+'</h3>'+
-        '<p class="nmean">'+esc(it.summary)+'</p>'+
-        (it.meaning?'<p class="nwhat"><b>What it means for you:</b> '+esc(it.meaning)+'</p>':'')+
-        '<span class="nmeta">'+esc(it.source)+' · '+esc(it.date_label)+'</span>'+
-        '<span class="ngo">Read the full story →</span>'+
-        '</span></a>';
-    }).join('');
+    var lead=leadCard(items[0]);
+    var grid=items.slice(1).map(gridCard).join('');
+    mount.innerHTML=lead+(grid?'<div class="feedhd">More on the wire</div><div class="grid">'+grid+'</div>':'');
   }).catch(function(){mount.innerHTML='<div class="newsload">Could not load news right now. Please try again shortly.</div>';});
 })();
 </script>

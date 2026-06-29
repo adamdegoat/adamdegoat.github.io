@@ -1,4 +1,4 @@
-/* Caveat — Prospecting radar: recent transactions in a farm area + outreach drafts. */
+/* Caveat, Prospecting radar: recent transactions in a farm area + outreach drafts. */
 const Prospect = (() => {
   const C = Caveat; let IDX = null; let mode = 'hdb'; let MOP = null;
 
@@ -24,7 +24,7 @@ const Prospect = (() => {
           : mode === 'condo'
           ? `<div class="field"><label>District</label><select id="p_district">${districts}</select></div>`
           : `<div class="field"><label>Town</label><select id="p_mtown"></select></div>
-             <p class="hint">HDB blocks reaching their 5-year MOP — owners are newly free to sell, so these are prime farming targets for first-time sellers.</p>`}
+             <p class="hint">HDB blocks reaching their 5-year MOP, owners are newly free to sell, so these are prime farming targets for first-time sellers.</p>`}
       </div>
       <button class="btn-primary" id="p_go">${mode === 'mop' ? 'Show MOP targets' : 'Show recent sales'}</button>`;
     el.querySelectorAll('#pSeg button').forEach(b => b.onclick = () => { mode = b.dataset.m; renderForm(); });
@@ -92,7 +92,7 @@ const Prospect = (() => {
             <div class="tx-sub">Lease from ${b[2]} · ${b[3]} recent ${b[3] === 1 ? 'sale' : 'sales'}</div></div>
           <div><div class="tx-price" style="font-size:18px">${C.fmtMoney(b[4])}</div><div class="tx-psf">avg recent price</div></div>
         </div>`).join('')}</div>
-      <p class="pulse-foot" style="margin-top:16px">Proxy: blocks whose 99-year lease started ${MOP.mop_window} — BTOs handed over ~5 years ago, so owners are newly eligible to sell. Confirm each owner's exact MOP date.</p>`;
+      <p class="pulse-foot" style="margin-top:16px">Proxy: blocks whose 99-year lease started ${MOP.mop_window}, BTOs handed over ~5 years ago, so owners are newly eligible to sell. Confirm each owner's exact MOP date.</p>`;
   }
 
   function render(out, area, items, areaName) {

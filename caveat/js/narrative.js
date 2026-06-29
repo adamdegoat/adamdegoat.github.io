@@ -1,4 +1,4 @@
-/* Caveat — template narrative generator (no LLM). Drafts the deck prose; the
+/* Caveat, template narrative generator (no LLM). Drafts the deck prose; the
    agent verifies. Deterministic, defensible, SG-context wording. */
 const Narrative = (() => {
   const C = Caveat;
@@ -14,8 +14,8 @@ const Narrative = (() => {
   }
 
   const confLine = {
-    High: 'a tight, consistent set of recent comparables — a confident read',
-    Medium: 'a reasonable set of recent comparables — a sound working estimate',
+    High: 'a tight, consistent set of recent comparables, a confident read',
+    Medium: 'a reasonable set of recent comparables, a sound working estimate',
     Lower: 'a more varied set of comparables, so treat this as an indicative range to refine on viewing',
   };
 

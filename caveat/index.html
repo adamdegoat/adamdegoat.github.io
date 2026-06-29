@@ -4,12 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta name="description" content="Caveat — Singapore property intelligence for agents: instant valuations with maps & rental yield, a live market terminal, smart search, affordability & stamp duty, and prospecting. Built on official URA, HDB & OneMap data.">
+<meta name="description" content="Caveat, Singapore property intelligence for agents: instant valuations with maps & rental yield, a live market terminal, smart search, affordability & stamp duty, and prospecting. Built on official URA, HDB & OneMap data.">
 <title>Caveat · SG Property Intelligence</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230f9d76'/%3E%3Cstop offset='1' stop-color='%23b88a2e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='8' y='8' width='16' height='16' rx='4' transform='rotate(45 16 16)' fill='url(%23g)'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b3a2d'/%3E%3Cg fill='none' stroke='%23ead4a2' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='13.5' cy='13.5' r='9.5'/%3E%3Cpath d='M8.75 16 L13.5 11 L18.25 16'/%3E%3Cpath d='M10.5 18.2 L16.5 18.2'/%3E%3C/g%3E%3Ccircle cx='13.5' cy='16.5' r='1' fill='%23d8b15e'/%3E%3Cpath d='M20.25 20.25 L26.5 26.5' fill='none' stroke='%23d8b15e' stroke-width='2.8' stroke-linecap='round'/%3E%3C/svg%3E">
 <meta name="theme-color" content="#101a2b">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="PropSight"><meta property="og:url" content="https://propsight.sg/caveat/"><meta property="og:title" content="Caveat · Singapore Property Intelligence"><meta property="og:description" content="Instant HDB & condo valuations with maps and rental yield, a live market terminal, smart search, affordability and stamp duty, and prospecting, built on official URA, HDB & OneMap data."><meta property="og:image" content="https://propsight.sg/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Caveat · Singapore Property Intelligence"><meta name="twitter:description" content="Instant valuations, a live market terminal and affordability tools, built on official URA, HDB & OneMap data."><meta name="twitter:image" content="https://propsight.sg/og.jpg">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -46,10 +47,11 @@
 .cav-hidden{display:none!important}
 @media(max-width:480px){.cav-feats{grid-template-columns:1fr}}
 </style>
+  <link rel="canonical" href="https://propsight.sg/caveat/">
 </head>
 <body>
 <header class="appbar">
-  <a class="hub-back" href="https://adamdegoat.github.io/realestate/" title="Back to Groundwork" aria-label="Back to Groundwork">‹</a>
+  <a class="hub-back" href="https://adamdegoat.github.io/realestate/" title="Back to home" aria-label="Back to home">‹</a>
   <div class="brand" data-route="valuation">
     <span class="logo" aria-hidden="true"></span>
     <span class="wordmark">Caveat</span>
@@ -64,7 +66,7 @@
     <button data-route="prospecting">Prospecting</button>
   </nav>
   <button class="help-btn" id="helpBtn" title="How to use Caveat">How to use</button>
-  <button class="cav-ibtn" id="cavInstall" title="Install Caveat as an app" aria-label="Install Caveat as an app" onclick="openCavGuide()">📲<span class="lbl">&nbsp;Install</span></button>
+  <button class="cav-ibtn" id="cavInstall" title="Install Caveat as an app" aria-label="Install Caveat as an app" onclick="openCavGuide()"><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.15em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M12 6v7m0 0-2.5-2.5M12 13l2.5-2.5"/><path d="M10.5 18.5h3"/></svg><span class="lbl">&nbsp;Install</span></button>
   <button class="icon-btn" id="themeBtn" title="Toggle dark mode" aria-label="Toggle dark mode">◐</button>
   <button class="profile-btn" id="settingsBtn" title="Your agent profile">
     <span class="avatar" id="profileAvatar">—</span>
@@ -77,7 +79,7 @@
   <section id="valuation" class="route active">
     <div class="route-head">
       <h1>Valuation <span class="serif-accent">deck</span></h1>
-      <p class="lede">Price HDB &amp; condo resale, browse landed reference transactions, or benchmark a new launch — straight from official caveats.</p>
+      <p class="lede">Price HDB &amp; condo resale, browse landed reference transactions, or benchmark a new launch, straight from official caveats.</p>
     </div>
     <div class="cma-grid">
       <aside class="panel input-panel" id="cmaForm"><!-- built by cma.js --></aside>
@@ -94,7 +96,7 @@
   <section id="market" class="route">
     <div class="route-head">
       <h1>Market <span class="serif-accent">pulse</span></h1>
-      <p class="lede">A live read of the Singapore resale market — prices, momentum and hotspots, straight from official transactions.</p>
+      <p class="lede">A live read of the Singapore resale market, prices, momentum and hotspots, straight from official transactions.</p>
     </div>
     <div id="pulseBody"><div class="empty-state"><div class="spinner"></div><p>Loading market data…</p></div></div>
   </section>
@@ -103,7 +105,7 @@
   <section id="find" class="route">
     <div class="route-head">
       <h1>Find <span class="serif-accent">a match</span></h1>
-      <p class="lede">Search the market by budget, region and rental yield — surface the projects and towns that fit, ranked.</p>
+      <p class="lede">Search the market by budget, region and rental yield, surface the projects and towns that fit, ranked.</p>
     </div>
     <div class="cma-grid">
       <aside class="panel input-panel" id="findForm"><!-- built by search.js --></aside>
@@ -117,7 +119,7 @@
   <section id="eligibility" class="route">
     <div class="route-head">
       <h1>Affordability <span class="serif-accent">&amp; stamp duty</span></h1>
-      <p class="lede">One clear breakdown of duties, downpayment and loan headroom — shareable with your buyer.</p>
+      <p class="lede">One clear breakdown of duties, downpayment and loan headroom, shareable with your buyer.</p>
     </div>
     <div class="cma-grid">
       <aside class="panel input-panel" id="eligForm"><!-- built by eligibility-ui.js --></aside>
@@ -165,7 +167,7 @@
 <footer class="site-foot">
   <div class="foot-inner">
     <span id="freshness">Loading data…</span>
-    <span class="foot-disc">Full valuations for HDB &amp; private resale; landed &amp; new launches shown as reference transactions / benchmark prices. Indicative only — Caveat drafts, the agent verifies; not a bank valuation or financial advice. <a href="#" id="footRatesLink">Rates &amp; rules ↗</a> verified against IRAS, MAS &amp; HDB · 14 Jun 2026. Data: URA, HDB &amp; data.gov.sg (Singapore Open Data Licence), OneMap © SLA.</span>
+    <span class="foot-disc">Full valuations for HDB &amp; private resale; landed &amp; new launches shown as reference transactions / benchmark prices. Indicative only, Caveat drafts, the agent verifies; not a bank valuation or financial advice. <a href="#" id="footRatesLink">Rates &amp; rules ↗</a> verified against IRAS, MAS &amp; HDB · 14 Jun 2026. Data: URA, HDB &amp; data.gov.sg (Singapore Open Data Licence), OneMap © SLA.</span>
   </div>
 </footer>
 
@@ -173,52 +175,52 @@
 <div class="modal-backdrop" id="helpModal" hidden>
   <div class="modal modal-wide" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
     <div class="modal-head"><h2 id="helpTitle">How to use Caveat</h2><button class="x" id="helpClose" aria-label="Close">×</button></div>
-    <p class="modal-note">Six tools, one source of truth — official Singapore transaction data. Here's the quick tour.</p>
+    <p class="modal-note">Six tools, one source of truth, official Singapore transaction data. Here's the quick tour.</p>
 
     <ol class="howto">
       <li>
         <span class="ht-num">1</span>
-        <div><b>Valuation</b> — price a home in seconds.
-          <p>Choose <b>HDB</b> or <b>Condo</b> for a full valuation deck — estimate range, comparable sales, price trend, map, amenities, rental yield (condos) and a written summary. <b>Landed</b> shows recent reference transactions and <b>New launch</b> shows the new-sale benchmark (these are priced differently, so they're not a single estimate).</p></div>
+        <div><b>Valuation</b>, price a home in seconds.
+          <p>Choose <b>HDB</b> or <b>Condo</b> for a full valuation deck, estimate range, comparable sales, price trend, map, amenities, rental yield (condos) and a written summary. <b>Landed</b> shows recent reference transactions and <b>New launch</b> shows the new-sale benchmark (these are priced differently, so they're not a single estimate).</p></div>
       </li>
       <li>
         <span class="ht-num">2</span>
-        <div><b>Market</b> — read the whole market.
+        <div><b>Market</b>, read the whole market.
           <p>A live dashboard of median prices, price-per-sqft momentum, the rental market and gross yields, plus a sortable breakdown by town and the most-active condos.</p></div>
       </li>
       <li>
         <span class="ht-num">3</span>
-        <div><b>Find</b> — search by budget &amp; yield.
+        <div><b>Find</b>, search by budget &amp; yield.
           <p>Tell it a region, max budget and minimum rental yield; it ranks the condos (or towns) that fit. Tap <i>Value this</i> to jump straight into a full valuation.</p></div>
       </li>
       <li>
         <span class="ht-num">4</span>
-        <div><b>Affordability</b> — qualify a buyer.
-          <p>Enter the buyer's profile, price and income. Caveat works out ABSD, stamp duty, cash upfront, the maximum loan and whether it passes the TDSR/MSR limits — and shows exactly which rules it applied.</p></div>
+        <div><b>Affordability</b>, qualify a buyer.
+          <p>Enter the buyer's profile, price and income. Caveat works out ABSD, stamp duty, cash upfront, the maximum loan and whether it passes the TDSR/MSR limits, and shows exactly which rules it applied.</p></div>
       </li>
       <li>
         <span class="ht-num">5</span>
-        <div><b>Upgrade</b> — plan an HDB → condo move.
+        <div><b>Upgrade</b>, plan an HDB → condo move.
           <p>Enter your flat and a target condo; it maps your sale proceeds, both stamp-duty paths (sell-first vs buy-first), the loan you'd qualify for and the real cash you'd need.</p></div>
       </li>
       <li>
         <span class="ht-num">6</span>
-        <div><b>Prospecting</b> — find leads in your farm area.
-          <p>See what just sold in a town/district (with a drafted outreach message to copy), or list <b>MOP targets</b> — blocks reaching their 5-year mark, full of first-time sellers.</p></div>
+        <div><b>Prospecting</b>, find leads in your farm area.
+          <p>See what just sold in a town/district (with a drafted outreach message to copy), or list <b>MOP targets</b>, blocks reaching their 5-year mark, full of first-time sellers.</p></div>
       </li>
     </ol>
 
     <div class="scope-box">
-      <h3>What Caveat covers — and what it doesn't</h3>
+      <h3>What Caveat covers, and what it doesn't</h3>
       <ul>
         <li><span class="ok">✓</span> <b>Full valuations</b> for HDB resale flats &amp; private condo/apartment resale</li>
-        <li><span class="ok">✓</span> <b>Landed</b> shown as recent reference transactions &amp; <b>new launches</b> as a new-sale benchmark (not a single estimate — they're priced differently)</li>
+        <li><span class="ok">✓</span> <b>Landed</b> shown as recent reference transactions &amp; <b>new launches</b> as a new-sale benchmark (not a single estimate, they're priced differently)</li>
         <li><span class="no">✕</span> Estimates are <b>indicative from recent comparables, not a bank or official valuation</b></li>
         <li><span class="ok">✓</span> Data is official (URA, HDB, OneMap), auto-refreshed weekly</li>
       </ul>
-      <p class="scope-foot">Always your call as the agent — Caveat drafts, you verify. Set your name &amp; CEA number under <b>“Set up profile”</b> so it appears on every deck.</p>
+      <p class="scope-foot">Always your call as the agent, Caveat drafts, you verify. Set your name &amp; CEA number under <b>“Set up profile”</b> so it appears on every deck.</p>
     </div>
-    <button class="btn-primary" id="helpGotit">Got it — let's go</button>
+    <button class="btn-primary" id="helpGotit">Got it, let's go</button>
   </div>
 </div>
 
@@ -226,7 +228,7 @@
 <div class="modal-backdrop" id="settingsModal" hidden>
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
     <div class="modal-head"><h2 id="settingsTitle">Your agent profile</h2><button class="x" id="settingsClose" aria-label="Close">×</button></div>
-    <p class="modal-note">Optional — only used to brand your decks. Edit it anytime; the CEA number is only needed once you're a licensed agent sharing decks with clients.</p>
+    <p class="modal-note">Optional, only used to brand your decks. Edit it anytime; the CEA number is only needed once you're a licensed agent sharing decks with clients.</p>
     <form id="settingsForm" class="stack">
       <label>Name<input name="name" placeholder="e.g. Jamie Tan" required></label>
       <label>CEA registration no.<input name="cea" placeholder="e.g. R012345A" pattern="[Rr][0-9]{6}[A-Za-z]"></label>
@@ -272,26 +274,26 @@
     <div class="cav-head">
       <img src="icons/icon-192.png" alt="Caveat">
       <h2>Add Caveat to your phone</h2>
-      <p>Install once — instant valuations, market intel &amp; affordability, a tap away in the field.</p>
+      <p>Install once, instant valuations, market intel &amp; affordability, a tap away in the field.</p>
     </div>
     <div class="cav-feats">
-      <div class="cav-feat"><div class="fi">⚡</div><b>Instant in the field</b><span>Valuations &amp; yield on the spot</span></div>
-      <div class="cav-feat"><div class="fi">📊</div><b>Live market intel</b><span>URA · HDB · OneMap data</span></div>
-      <div class="cav-feat"><div class="fi">📶</div><b>Opens like an app</b><span>Fullscreen, no browser bars</span></div>
-      <div class="cav-feat"><div class="fi">🆓</div><b>Free · official data</b><span>No login, no cost</span></div>
+      <div class="cav-feat"><div class="fi"><svg viewBox="0 0 24 24" width="1.3em" height="1.3em" style="vertical-align:middle" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg></div><b>Instant in the field</b><span>Valuations &amp; yield on the spot</span></div>
+      <div class="cav-feat"><div class="fi"><svg viewBox="0 0 24 24" width="1.3em" height="1.3em" style="vertical-align:middle" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M6 21v-7M12 21V5M18 21v-9"/></svg></div><b>Live market intel</b><span>URA · HDB · OneMap data</span></div>
+      <div class="cav-feat"><div class="fi"><svg viewBox="0 0 24 24" width="1.3em" height="1.3em" style="vertical-align:middle" fill="currentColor"><rect x="3" y="14" width="3.4" height="6" rx="1"/><rect x="8.5" y="10" width="3.4" height="10" rx="1"/><rect x="14" y="6" width="3.4" height="14" rx="1"/><rect x="19.5" y="2" width="3.4" height="18" rx="1"/></svg></div><b>Opens like an app</b><span>Fullscreen, no browser bars</span></div>
+      <div class="cav-feat"><div class="fi"><svg viewBox="0 0 24 24" width="1.3em" height="1.3em" style="vertical-align:middle" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 11 4h7a2 2 0 0 1 2 2v7l-8 8a1.5 1.5 0 0 1-2 0l-7-7a1.5 1.5 0 0 1 0-2z"/><circle cx="16" cy="8" r="1.3"/></svg></div><b>Free · official data</b><span>No login, no cost</span></div>
     </div>
     <div class="cav-seg"><button data-os="ios" class="on">iPhone</button><button data-os="and">Android</button></div>
     <ol class="cav-steps" id="cavIos">
       <li>Open this page in <b>Safari</b> (not Chrome).</li>
-      <li>Tap the <b>Share</b> button — the square with an ↑ arrow.</li>
+      <li>Tap the <b>Share</b> button, the square with an ↑ arrow.</li>
       <li>Scroll down and tap <b>"Add to Home Screen"</b>.</li>
-      <li>Tap <b>Add</b> — the Caveat icon appears on your home screen. 🎉</li>
+      <li>Tap <b>Add</b>, the Caveat icon appears on your home screen.</li>
     </ol>
     <ol class="cav-steps cav-hidden" id="cavAnd">
       <li>Open this page in <b>Chrome</b>.</li>
       <li>Tap the <b>⋮</b> menu (top-right).</li>
       <li>Tap <b>"Add to Home screen"</b> / <b>"Install app"</b>.</li>
-      <li>Tap <b>Add</b> — the Caveat app icon appears. 🎉</li>
+      <li>Tap <b>Add</b>, the Caveat app icon appears.</li>
     </ol>
     <button class="cav-got" onclick="cavCloseGuide()">Got it</button>
   </div>

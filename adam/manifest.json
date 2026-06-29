@@ -1,7 +1,7 @@
 {
   "name": "PropSight · Singapore Property",
   "short_name": "PropSight",
-  "description": "Everything for your Singapore home move — value homes, check what you can afford, stamp duty, schools and more. Free.",
+  "description": "Everything for your Singapore home move, value homes, check what you can afford, stamp duty, schools and more. Free.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

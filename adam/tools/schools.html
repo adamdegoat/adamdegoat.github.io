@@ -1,15 +1,16 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Homes Near a Primary School — PropSight · Singapore Property</title>
-<meta name="description" content="Pick a Singapore primary school and see which condos sit within 1km (P1 priority) and 1–2km — straight-line, the same basis MOE uses. Free, by PropSight.">
+<title>Homes Near a Primary School, PropSight · Singapore Property</title>
+<meta name="description" content="Pick a Singapore primary school and see which condos sit within 1km (P1 priority) and 1-2km, straight-line, the same basis MOE uses. Free, by PropSight.">
 <meta name="theme-color" content="#1b3a2d">
 <link rel="manifest" href="../manifest.json">
 <link rel="apple-touch-icon" href="../icons/icon-180.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="PropSight"><meta property="og:url" content="https://propsight.sg/tools/schools.html"><meta property="og:title" content="Homes Near a Primary School, PropSight"><meta property="og:description" content="Pick a Singapore primary school and see which condos sit within 1km (P1 priority) and 1-2km, straight-line, the same basis MOE uses. Free, by PropSight."><meta property="og:image" content="https://propsight.sg/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Homes Near a Primary School, PropSight"><meta name="twitter:description" content="See which condos sit within 1km and 1-2km of any Singapore primary school. Free, no sign-up."><meta name="twitter:image" content="https://propsight.sg/og.jpg">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="PropSight">
 <script>if('serviceWorker' in navigator){addEventListener('load',function(){navigator.serviceWorker.register('../sw.js').catch(function(){});});}</script>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b3a2d'/%3E%3Cpath d='M8 18.5 L16 11 L24 18.5' fill='none' stroke='%23ead4a2' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M11 23 L21 23' stroke='%23ead4a2' stroke-width='2.2' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='19.3' r='1.7' fill='%23c8a468'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b3a2d'/%3E%3Cg fill='none' stroke='%23ead4a2' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='13.5' cy='13.5' r='9.5'/%3E%3Cpath d='M8.75 16 L13.5 11 L18.25 16'/%3E%3Cpath d='M10.5 18.2 L16.5 18.2'/%3E%3C/g%3E%3Ccircle cx='13.5' cy='16.5' r='1' fill='%23d8b15e'/%3E%3Cpath d='M20.25 20.25 L26.5 26.5' fill='none' stroke='%23d8b15e' stroke-width='2.8' stroke-linecap='round'/%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600&family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -47,6 +48,8 @@ input:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(39,81,63,.1)}
 .res.on{display:block}
 .schoolname{font-family:var(--serif);font-weight:600;font-size:26px;letter-spacing:-.02em}
 .count{font-size:14px;color:var(--ink2);margin-top:4px}
+.seclabel{font-family:var(--serif);font-weight:600;font-size:20px;color:var(--green);margin-top:26px;letter-spacing:-.01em}
+.hdblabel{margin-top:38px;padding-top:28px;border-top:2px solid var(--line2)}
 .grp{margin-top:22px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fffefc}
 .grp .gh{padding:15px 20px;display:flex;align-items:center;gap:11px;border-bottom:1px solid var(--line)}
 .grp.p1 .gh{background:linear-gradient(150deg,var(--green2),var(--green3));color:#f3efe6;border-bottom:0}
@@ -56,17 +59,28 @@ input:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(39,81,63,.1)}
 .grp .gt{font-weight:700;font-size:15px}.grp.p1 .gt{color:#f3efe6}
 .grp .gt small{display:block;font-weight:500;font-size:12.5px;opacity:.8;margin-top:1px}
 .grp ul{list-style:none}
-.grp li{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:12px 20px;border-bottom:1px solid var(--line);font-size:15px}
+.grp li{border-bottom:1px solid var(--line);font-size:15px}
 .grp li:last-child{border-bottom:0}
+.grp li a{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:12px 20px;color:inherit;transition:background .15s}
+.grp li a:hover,.grp li a:focus-visible{background:#f3eee2}
 .grp li .nm{font-weight:600}
+.grp li .r{display:flex;align-items:center;gap:11px;white-space:nowrap}
 .grp li .d{font-weight:700;font-family:var(--serif);font-size:15px;color:var(--green2);white-space:nowrap}
+.grp li .go{font-family:var(--serif);font-weight:600;color:var(--brass);opacity:.5;transition:transform .15s,opacity .15s,color .15s}
+.grp li a:hover .go,.grp li a:focus-visible .go{opacity:1;color:var(--green2);transform:translateX(2px)}
+.seeall{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:18px;padding:15px 20px;border-radius:14px;background:var(--gtex,none),#ead4a2;color:#241a0d;font-weight:700;font-size:15px;box-shadow:0 8px 22px rgba(176,141,87,.22);transition:transform .16s,box-shadow .16s}
+.seeall:hover,.seeall:focus-visible{transform:translateY(-1px);box-shadow:0 12px 28px rgba(176,141,87,.3)}
+.seeall b{font-weight:800}
+.seeall .sa-go{font-family:var(--serif);font-size:18px;flex:none}
+.bandnote{font-size:13px;color:var(--ink3);margin-top:7px}
+@media(max-width:560px){.seeall{font-size:13.5px;padding:14px 16px}}
 .grp .more{padding:11px 20px;font-size:13px;color:var(--ink3);background:#faf6ec}
 .grp .empty{padding:16px 20px;font-size:14px;color:var(--ink3)}
 .expl{margin-top:26px;background:#fff8e9;border:1px solid #ecdcb4;border-radius:14px;padding:18px 20px;font-size:14px;color:#6b5526;line-height:1.6}
 .expl b{color:#4a3a16}.expl p+p{margin-top:9px}
 .cta{margin:26px 0 0;display:flex;gap:11px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;padding:13px 22px;border-radius:30px}
-.btn.p{background:linear-gradient(135deg,var(--brass3),var(--brass));color:#241a0d}
+.btn.p{background:var(--gtex,none),#ead4a2;color:#241a0d}
 .btn.g{background:#fffefc;border:1px solid var(--line2);color:var(--ink)}
 .disc{font-size:12.5px;color:var(--ink3);margin-top:22px;border-top:1px solid var(--line);padding-top:18px;line-height:1.6}
 .disc b{color:var(--ink2)}
@@ -80,16 +94,17 @@ input:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(39,81,63,.1)}
 .bar .back{color:rgba(246,241,231,.82)}
 .bar .back:hover{color:#fff}
 body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opacity:.045;;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}.hl-i{display:block;height:14px;width:172px;margin-top:11px;overflow:visible}.hl-i path{fill:none;stroke:#cda86a;stroke-width:5;stroke-linecap:round;vector-effect:non-scaling-stroke}:focus-visible{outline:2.5px solid #b08d57;outline-offset:2px;border-radius:3px}.eyebrow,.kick,.free,.rdate,.note .date,.lp-k,.tool .free{color:#8f6a2c}</style><script src="/adam/nav.js" defer></script>
+  <link rel="canonical" href="https://propsight.sg/tools/schools.html">
 </head>
 <body>
 <div class="topo" aria-hidden="true"></div>
-<header class="bar"><div class="wrap"><span class="b"><svg class="mark" aria-hidden="true" viewBox="0 0 64 64"><path d="M9 35 L32 13 L55 35" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 49 L48 49" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><circle cx="32" cy="39" r="3.4" fill="#b08d57"/></svg>PropSight</span></div></header>
+<header class="bar"><div class="wrap"><span class="b"><svg class="mark" aria-hidden="true" viewBox="0 0 64 64"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#d8b15e"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#d8b15e" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg>PropSight</span></div></header>
 
 <div class="wrap">
   <div class="head">
     <span class="kick">School proximity</span>
     <h1>Homes near a primary school</h1><svg class="hl-i" viewBox="0 0 172 14" preserveAspectRatio="none" aria-hidden="true"><path d="M4 9 C 44 4, 128 4, 168 8"/></svg>
-    <p class="sub">Buying with P1 registration in mind? Pick a school and see which condos sit within <b>1km</b> (top priority) and <b>1–2km</b> (next in line) — measured straight-line, the same way MOE does.</p>
+    <p class="sub">Buying with P1 registration in mind? Pick a school and see which condos sit within <b>1km</b> (top priority) and <b>1-2km</b> (next in line), measured straight-line, the same way MOE does.</p>
   </div>
 
   <div class="card">
@@ -103,20 +118,36 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
 
   <div class="res" id="res">
     <div class="schoolname" id="sname"></div>
+    <div class="bandnote">Both groups below get registration priority over homes more than 2km away. The 1km group is first, then 1-2km.</div>
+
+    <div class="seclabel">Private condos</div>
     <div class="count" id="scount"></div>
+    <a class="seeall" id="seeall" href="#"><span>See all <b id="seeall-n"></b> condos in Research</span><span class="sa-go" aria-hidden="true">→</span></a>
     <div class="grp p1" id="g1">
-      <div class="gh"><span class="badge">1 km</span><span class="gt">Within 1km — first priority<small>Highest balloting priority for Singapore Citizens</small></span></div>
+      <div class="gh"><span class="badge">1 km</span><span class="gt">Within 1km, top priority for P1 registration<small>Highest priority in the ballot for Singapore Citizens</small></span></div>
       <ul id="l1"></ul>
     </div>
     <div class="grp p2" id="g2">
-      <div class="gh"><span class="badge">1–2 km</span><span class="gt">Between 1km and 2km — next in line<small>Priority after the 1km group, before those beyond 2km</small></span></div>
+      <div class="gh"><span class="badge">1-2 km</span><span class="gt">1-2km, next priority<small>Comes after the 1km group, ahead of homes beyond 2km</small></span></div>
       <ul id="l2"></ul>
+    </div>
+
+    <div class="seclabel hdblabel" id="hdblabel">HDB flats</div>
+    <div class="count" id="hcount"></div>
+    <a class="seeall" id="hseeall" href="#"><span>See <b id="hseeall-n"></b> HDB resale data in Research</span><span class="sa-go" aria-hidden="true">→</span></a>
+    <div class="grp p1" id="hg1">
+      <div class="gh"><span class="badge">1 km</span><span class="gt">HDB streets within 1km<small>Top priority distance for P1 registration</small></span></div>
+      <ul id="hl1"></ul>
+    </div>
+    <div class="grp p2" id="hg2">
+      <div class="gh"><span class="badge">1-2 km</span><span class="gt">HDB streets 1-2km<small>Next priority after the 1km group</small></span></div>
+      <ul id="hl2"></ul>
     </div>
   </div>
 
   <div class="expl">
-    <p><b>How the 1km / 2km rule works.</b> When a school has more applicants than places, children are ranked by how close home is: those <b>within 1km</b> come first, then <b>1–2km</b>, then beyond 2km — applied within each group (Singapore Citizens first, then PRs). Distance is the straight-line (“as the crow flies”) distance from your home to the school’s main gate, using SLA’s OneMap.</p>
-    <p>Living in the zone is a <b>priority, not a guarantee</b> — popular schools still ballot. And to keep the priority you must <b>live at that address for at least 30 months</b> from the start of the registration exercise.</p>
+    <p><b>How the 1km / 2km rule works.</b> When a school has more applicants than places, children are ranked by how close home is: those <b>within 1km</b> come first, then <b>1-2km</b>, then beyond 2km, applied within each group (Singapore Citizens first, then PRs). Distance is the straight-line (“as the crow flies”) distance from your home to the school’s main gate, using SLA’s OneMap.</p>
+    <p>Living in the zone is a <b>priority, not a guarantee</b>, popular schools still ballot. And to keep the priority you must <b>live at that address for at least 30 months</b> from the start of the registration exercise.</p>
   </div>
 
   <div class="cta">
@@ -124,7 +155,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
     <a class="btn g" href="afford.html">What can I afford?</a>
   </div>
 
-  <p class="disc">Distances are <b>indicative</b>, measured straight-line from each condo to an approximate school location — close to, but not identical to, MOE’s official figure (which uses the exact main gate). Always confirm the exact distance with the <b>official MOE / OneMap School Query</b> before deciding. This list shows <b>private condos only</b> (landed homes and HDB flats can also qualify and aren’t listed here). Some smaller or newer projects may be missing. Built on URA caveat data — not affiliated with MOE.</p>
+  <p class="disc">Distances are <b>indicative</b>, measured straight-line from each condo to an approximate school location, close to, but not identical to, MOE’s official figure (which uses the exact main gate). Always confirm the exact distance with the <b>official MOE / OneMap School Query</b> before deciding. This list shows <b>private condos only</b> (landed homes and HDB flats can also qualify and aren’t listed here). Some smaller or newer projects may be missing. Built on URA caveat data, not affiliated with MOE.</p>
 </div>
 <section class="more wrap">
   <div class="ask">
@@ -133,7 +164,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
       <h3 class="ask-h">Get a straight answer from our team.<svg class="hl-i" viewBox="0 0 172 14" preserveAspectRatio="none" aria-hidden="true"><path d="M4 9 C 44 4, 128 4, 168 8"/></svg></h3>
       <p>Every number here is a guide. For your exact case &mdash; financing, timing, the smartest move &mdash; have a quick chat. No pressure, no sales script.</p>
     </div>
-    <a class="ask-btn" target="_blank" rel="noopener" href="https://wa.me/6583219747?text=Hi%20PropSight%2C%20I%20was%20using%20your%20tools%20and%20have%20a%20question.">&#128172; WhatsApp us &rarr;</a>
+    <a class="ask-btn" target="_blank" rel="noopener" href="https://wa.me/6583219747?text=Hi%20PropSight%2C%20I%20was%20using%20your%20tools%20and%20have%20a%20question.">WhatsApp us &rarr;</a>
   </div>
   <div class="mtools">
     <div class="mt-lbl">More free tools</div>
@@ -164,7 +195,11 @@ fetch('school-homes.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{
     const s=DATA.find(x=>x.n===n)||DATA.find(x=>x.n.toLowerCase().startsWith(n.split(' ')[0].toLowerCase()));
     if(s){const c=document.createElement('span');c.className='chip';c.textContent=s.n.replace(/ Primary School$/,'').replace(/ School$/,'');c.onclick=()=>pick(s);box.appendChild(c);}
   });
-}).catch(()=>{ $('#chips').innerHTML='<span class="cl">Couldn’t load school data — please refresh.</span>'; });
+}).catch(()=>{ $('#chips').innerHTML='<span class="cl">Couldn’t load school data, please refresh.</span>'; });
+
+// HDB streets near each school (separate dataset, street-level)
+let HDB={};
+fetch('school-hdb.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{ (d.schools||[]).forEach(x=>{HDB[x.n]=x;}); }).catch(()=>{});
 
 function render(list){
   const ac=$('#ac');
@@ -188,21 +223,44 @@ $('#q').addEventListener('keydown',e=>{
 });
 document.addEventListener('click',e=>{if(!e.target.closest('.search'))$('#ac').classList.remove('on');});
 
-function li(c){return `<li><span class="nm">${c.n}</span><span class="d">${c.d} m</span></li>`;}
+function li(c){return `<li><a href="/research/?p=${encodeURIComponent(c.n)}"><span class="nm">${c.n}</span><span class="r"><span class="d">${c.d} m</span><span class="go" aria-hidden="true">→</span></span></a></li>`;}
 function fill(ul,arr,total,near){
   const el=$(ul);
   if(!arr.length){el.innerHTML=`<li class="empty">No condos ${near} of this school.</li>`;return;}
   let h=arr.map(li).join('');
-  if(total>arr.length) h+=`<li class="more">+ ${total-arr.length} more ${near} — message us for the full list</li>`;
+  if(total>arr.length) h+=`<li class="more">+ ${total-arr.length} more ${near}, message us for the full list</li>`;
+  el.innerHTML=h;
+}
+function hli(x){return `<li><a href="/research/?town=${encodeURIComponent(x.t)}"><span class="nm">${x.s}</span><span class="r"><span class="d">${x.d} m</span><span class="go" aria-hidden="true">→</span></span></a></li>`;}
+function hfill(ul,arr,total,near){
+  const el=$(ul);
+  if(!arr.length){el.innerHTML=`<li class="empty">No HDB streets ${near} of this school.</li>`;return;}
+  let h=arr.map(hli).join('');
+  if(total>arr.length) h+=`<li class="more">+ ${total-arr.length} more ${near}</li>`;
   el.innerHTML=h;
 }
 function pick(s){
   if(!s)return;
   $('#q').value=s.n;$('#ac').classList.remove('on');matches=[];cur=-1;
   $('#sname').textContent=s.n;
-  $('#scount').textContent=`${s.p1n} condo${s.p1n===1?'':'s'} within 1km · ${s.p2n} between 1–2km`;
+  $('#scount').textContent=`${s.p1n} condo${s.p1n===1?'':'s'} within 1km · ${s.p2n} between 1-2km`;
+  $('#seeall').href=`/research/?school=${encodeURIComponent(s.n)}&zone=2km`;
+  $('#seeall-n').textContent=s.n.replace(/ Primary School$/,'').replace(/ School$/,'');
   fill('#l1',s.p1,s.p1n,'within 1km');
-  fill('#l2',s.p2,s.p2n,'within 1–2km');
+  fill('#l2',s.p2,s.p2n,'within 1-2km');
+  // HDB flats section (separate, street-level, links to that town's HDB resale data)
+  const h=HDB[s.n], hsec=['#hdblabel','#hcount','#hseeall','#hg1','#hg2'].map(id=>$(id));
+  if(h && (h.p1n||h.p2n)){
+    hsec.forEach(e=>{if(e)e.style.display='';});
+    $('#hcount').textContent=`${h.p1n} HDB street${h.p1n===1?'':'s'} within 1km · ${h.p2n} between 1-2km`;
+    const town=((h.p1[0]||h.p2[0]||{}).t)||'';
+    $('#hseeall').href=`/research/?town=${encodeURIComponent(town)}`;
+    $('#hseeall-n').textContent=town;
+    hfill('#hl1',h.p1,h.p1n,'within 1km');
+    hfill('#hl2',h.p2,h.p2n,'within 1-2km');
+  } else {
+    hsec.forEach(e=>{if(e)e.style.display='none';});
+  }
   $('#res').classList.add('on');
   $('#res').scrollIntoView({behavior:'smooth',block:'start'});
 }

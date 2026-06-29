@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>What Can I Afford? — PropSight · Singapore Property</title>
-<meta property="og:type" content="website"><meta property="og:site_name" content="PropSight"><meta property="og:url" content="https://adamdegoat.github.io/adam/tools/afford.html"><meta property="og:title" content="What Can I Afford? — PropSight"><meta property="og:description" content="See what you can really afford before you start viewing. Free."><meta property="og:image" content="https://adamdegoat.github.io/adam/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://adamdegoat.github.io/adam/og.jpg">
-<meta name="description" content="Work out the home price you can realistically afford in Singapore — based on your income, savings, age and the official lending rules. Free, by PropSight.">
+<title>What Can I Afford?, PropSight · Singapore Property</title>
+<meta property="og:type" content="website"><meta property="og:site_name" content="PropSight"><meta property="og:url" content="https://propsight.sg/tools/afford.html"><meta property="og:title" content="What Can I Afford?, PropSight"><meta property="og:description" content="See what you can really afford before you start viewing. Free."><meta property="og:image" content="https://adamdegoat.github.io/adam/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://adamdegoat.github.io/adam/og.jpg">
+<meta name="description" content="Work out the home price you can realistically afford in Singapore, based on your income, savings, age and the official lending rules. Free, by PropSight.">
 <meta name="theme-color" content="#1b3a2d">
 <link rel="manifest" href="../manifest.json">
 <link rel="apple-touch-icon" href="../icons/icon-180.png">
@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="PropSight">
 <script>if('serviceWorker' in navigator){addEventListener('load',function(){navigator.serviceWorker.register('../sw.js').catch(function(){});});}</script>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b3a2d'/%3E%3Cpath d='M8 18.5 L16 11 L24 18.5' fill='none' stroke='%23ead4a2' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M11 23 L21 23' stroke='%23ead4a2' stroke-width='2.2' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='19.3' r='1.7' fill='%23c8a468'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b3a2d'/%3E%3Cg fill='none' stroke='%23ead4a2' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='13.5' cy='13.5' r='9.5'/%3E%3Cpath d='M8.75 16 L13.5 11 L18.25 16'/%3E%3Cpath d='M10.5 18.2 L16.5 18.2'/%3E%3C/g%3E%3Ccircle cx='13.5' cy='16.5' r='1' fill='%23d8b15e'/%3E%3Cpath d='M20.25 20.25 L26.5 26.5' fill='none' stroke='%23d8b15e' stroke-width='2.8' stroke-linecap='round'/%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600&family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -64,7 +64,7 @@ input[type=range]{flex:1;accent-color:var(--green2)}
 .disc{font-size:12.5px;color:var(--ink3);margin-top:20px;border-top:1px solid var(--line);padding-top:18px;line-height:1.6}
 .cta{margin:24px 0 0;display:flex;gap:11px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;padding:13px 22px;border-radius:30px}
-.btn.p{background:linear-gradient(135deg,var(--brass3),var(--brass));color:#241a0d}
+.btn.p{background:var(--gtex,none),#ead4a2;color:#241a0d}
 .btn.g{background:#fffefc;border:1px solid var(--line2);color:var(--ink)}
 .foot{padding:30px 0 70px}.foot a{font-size:14px;font-weight:700;color:var(--green2)}
 @media(max-width:560px){.res .tot{font-size:38px}.two{flex-direction:column;gap:0}}
@@ -81,7 +81,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
 .ask-k{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#e3c98f}
 .ask-h{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:25px;margin:8px 0 0;line-height:1.12;display:inline-block;position:relative}
 .ask-tx p{font-size:14.5px;color:rgba(243,239,230,.8);margin-top:12px;line-height:1.55}
-.ask-btn{flex:none;background:linear-gradient(135deg,#e3c98f,#b08d57);color:#241a0d;font-weight:700;font-size:15px;padding:15px 24px;border-radius:40px;white-space:nowrap;transition:.2s}
+.ask-btn{flex:none;background:var(--gtex,none),#ead4a2;color:#241a0d;font-weight:700;font-size:15px;padding:15px 24px;border-radius:40px;white-space:nowrap;transition:.2s}
 .ask-btn:hover{transform:translateY(-2px)}
 .ask .hl-i path{stroke:#e3c98f}
 .mtools{margin-top:28px}
@@ -93,27 +93,29 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
 .mt-grid a b{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:15.5px;color:#191512;display:block}
 .mt-grid a span{font-size:12.5px;color:#988e7e;margin-top:2px;display:block}
 @media(max-width:680px){.mt-grid{grid-template-columns:1fr 1fr}.ask{padding:24px}}
-@media(max-width:420px){.mt-grid{grid-template-columns:1fr}}:focus-visible{outline:2.5px solid #b08d57;outline-offset:2px;border-radius:3px}.eyebrow,.kick,.free,.rdate,.note .date,.lp-k,.tool .free{color:#8f6a2c}</style><script src="/adam/nav.js" defer></script>
+@media(max-width:420px){.mt-grid{grid-template-columns:1fr}}:focus-visible{outline:2.5px solid #b08d57;outline-offset:2px;border-radius:3px}.eyebrow,.kick,.free,.rdate,.note .date,.lp-k,.tool .free{color:#8f6a2c}@media(max-width:560px){.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}.opt{min-width:0;flex:none;white-space:normal;line-height:1.25;text-overflow:clip;overflow:visible}}
+</style><script src="/adam/nav.js" defer></script>
+  <link rel="canonical" href="https://propsight.sg/tools/afford.html">
 </head>
 <body>
 <div class="topo" aria-hidden="true"></div>
-<header class="bar"><div class="wrap"><span class="b"><svg class="mark" aria-hidden="true" viewBox="0 0 64 64"><path d="M9 35 L32 13 L55 35" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 49 L48 49" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><circle cx="32" cy="39" r="3.4" fill="#b08d57"/></svg>PropSight</span></div></header>
+<header class="bar"><div class="wrap"><span class="b"><svg class="mark" aria-hidden="true" viewBox="0 0 64 64"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#d8b15e"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#d8b15e" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg>PropSight</span></div></header>
 
 <div class="wrap">
   <div class="head">
     <span class="kick">Affordability</span>
     <h1>What can you actually afford?</h1><svg class="hl-i" viewBox="0 0 172 14" preserveAspectRatio="none" aria-hidden="true"><path d="M4 9 C 44 4, 128 4, 168 8"/></svg>
-    <p class="sub">Work out the home price that fits your income and savings — using the same lending rules the banks must follow. Do this before you fall for anything.</p>
+    <p class="sub">Work out the home price that fits your income and savings, using the same lending rules the banks must follow. Do this before you fall for anything.</p>
     <a href="../essentials/#buying" style="display:inline-block;margin-top:13px;font-size:13.5px;font-weight:700;color:var(--green2);border:1px solid var(--line2);border-radius:30px;padding:8px 15px">New to this? Start with the Guide →</a>
   </div>
 
   <div class="card">
     <div class="field">
-      <label>What are you buying?<small>HDB flats and new ECs have a stricter cap — the loan alone can't exceed 30% of your income.</small></label>
+      <label>What are you buying?<small>HDB flats and new ECs have a stricter cap, the loan alone can't exceed 30% of your income.</small></label>
       <div class="opts" id="ptype"><div class="opt on" data-p="private">Private / condo</div><div class="opt" data-p="hdb">HDB flat</div><div class="opt" data-p="ec">New EC</div></div>
     </div>
     <div class="field" id="loanF" style="display:none">
-      <label>Which loan?<small>An HDB loan is stress-tested at 3% (banks use 4%) and needs no minimum cash — so your budget can come out differently.</small></label>
+      <label>Which loan?<small>An HDB loan is stress-tested at 3% (banks use 4%) and needs no minimum cash, so your budget can come out differently.</small></label>
       <div class="opts" id="ltype"><div class="opt on" data-l="bank">Bank loan</div><div class="opt" data-l="hdb">HDB loan</div></div>
     </div>
     <div class="field money">
@@ -126,14 +128,14 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
     </div>
     <div class="two">
       <div class="field money"><label>Cash savings<small>For the home</small></label><span class="pre">$</span><input type="text" id="cash" inputmode="numeric" value="300,000"></div>
-      <div class="field money"><label>CPF you'll use<small>Your CPF Ordinary Account (OA) — goes toward the down payment &amp; stamp duty, not the minimum cash. Wise to keep a little as buffer.</small></label><span class="pre">$</span><input type="text" id="cpf" inputmode="numeric" value="150,000"></div>
+      <div class="field money"><label>CPF you'll use<small>Your CPF Ordinary Account (OA), goes toward the down payment &amp; stamp duty, not the minimum cash. Wise to keep a little as buffer.</small></label><span class="pre">$</span><input type="text" id="cpf" inputmode="numeric" value="150,000"></div>
     </div>
-    <div class="field money"><label>Housing grant <span style="font-weight:500;color:var(--ink3)">— optional</span><small>First-timer HDB/EC? <a href="grants.html" style="color:var(--green2);font-weight:700">Find your grant →</a> (it's added to your CPF)</small></label><span class="pre">$</span><input type="text" id="grant" inputmode="numeric" value="0"></div>
+    <div class="field money"><label>Housing grant <span style="font-weight:500;color:var(--ink3)">(optional)</span><small>First-timer HDB/EC? <a href="grants.html" style="color:var(--green2);font-weight:700">Find your grant →</a> (it's added to your CPF)</small></label><span class="pre">$</span><input type="text" id="grant" inputmode="numeric" value="0"></div>
     <div class="field" style="margin-bottom:4px">
       <label>Loan length</label>
       <div class="range"><input type="range" id="tenure" min="10" max="30" step="1" value="25"><span class="rv" id="tenrv">25 years</span></div>
     </div>
-    <div class="field"><label>Remaining lease <span style="font-weight:500;color:var(--ink3)">— optional</span><small>Only for an <b>older</b> home. Leave blank for a new or freehold one. On a short lease, the rules cut how much CPF and loan you can use.</small></label><input type="text" class="plain" id="lease" inputmode="numeric" placeholder="e.g. 65 years"></div>
+    <div class="field"><label>Remaining lease <span style="font-weight:500;color:var(--ink3)">(optional)</span><small>Only for an <b>older</b> home. Leave blank for a new or freehold one. On a short lease, the rules cut how much CPF and loan you can use.</small></label><input type="text" class="plain" id="lease" inputmode="numeric" placeholder="e.g. 65 years"></div>
   </div>
 
   <div class="res" id="res"><div class="fr"></div>
@@ -255,22 +257,22 @@ function calc(){
     $('#tot').textContent='—';$('#totsub').textContent='';$('#rows').innerHTML='';$('#flag').style.display='none';$('#note').innerHTML='';
     const inc=num('income'),cash=num('cash');
     let m;
-    if(r.leaseBlock) m='<b>That lease is too short to finance.</b> With under ~20 years left, banks won’t lend and CPF can’t be used — these homes are effectively cash-only. Tell us the exact lease and we’ll work out the cash price.';
+    if(r.leaseBlock) m='<b>That lease is too short to finance.</b> With under ~20 years left, banks won’t lend and CPF can’t be used, these homes are effectively cash-only. Tell us the exact lease and we’ll work out the cash price.';
     else if(inc<=0) m='Enter your monthly income to see what you can afford.';
-    else if(r.maxMonthly<=0) m='<b>Your existing monthly debts already use up the borrowing limit.</b> Banks cap all your debt repayments at '+Math.round(R.tdsr*100)+'% of your income — clearing some debt, or a higher/combined income, would free up some budget.';
-    else if(cash<=0) m='<b>You’ll need some cash to start.</b> At least '+Math.round(R.minCash*100)+'% of the price must be paid in cash — CPF can’t cover that part.';
-    else m='With these numbers there isn’t a workable budget yet — try a longer loan, more savings, or message us and we’ll look at it together.';
+    else if(r.maxMonthly<=0) m='<b>Your existing monthly debts already use up the borrowing limit.</b> Banks cap all your debt repayments at '+Math.round(R.tdsr*100)+'% of your income, clearing some debt, or a higher/combined income, would free up some budget.';
+    else if(cash<=0) m='<b>You’ll need some cash to start.</b> At least '+Math.round(R.minCash*100)+'% of the price must be paid in cash, CPF can’t cover that part.';
+    else m='With these numbers there isn’t a workable budget yet, try a longer loan, more savings, or message us and we’ll look at it together.';
     $('#limit').innerHTML=m;
-    $('#disc').innerHTML='Indicative only — not financial advice. Always confirm with a banker.';
+    $('#disc').innerHTML='Indicative only, not financial advice. Always confirm with a banker.';
     return;
   }
   $('#tot').textContent='~'+fmtM(r.maxPrice);
-  $('#totsub').textContent='the most you should look at — many buyers aim a bit below this for breathing room';
+  $('#totsub').textContent='the most you should look at, many buyers aim a bit below this for breathing room';
   const rows=[
     ['Home price','the ceiling for your search','~'+fmt(r.maxPrice)],
     ['Loan you’d take','about '+Math.round(r.ltv*100)+'% of the price','~'+fmt(r.loan)],
     ['You put down','cash ~'+fmt(r.cashPortion)+' + CPF ~'+fmt(r.cpfPortion),'~'+fmt(r.downpay)],
-    ['Monthly repayment','tested at '+(r.sr*100)+'% — your actual will be lower','~'+fmt(r.monthlyStress)],
+    ['Monthly repayment','tested at '+(r.sr*100)+'%, your actual will be lower','~'+fmt(r.monthlyStress)],
     ['Cash needed upfront','min cash + stamp duty + ~$3k legal/fees allowance','~'+fmt(r.cashUpfront)],
   ];
   $('#rows').innerHTML=rows.map(x=>`<div class="row"><span class="k">${x[0]}<small>${x[1]}</small></span><span class="v">${x[2]}</span></div>`).join('');
@@ -281,16 +283,16 @@ function calc(){
               : (age+r.yearsEff>65) ? `the loan would run past age 65`
               : `the loan is longer than ${r.maxTen} years`;
     const extra = r.leaseShort ? ` On a short lease your usable CPF is also pro-rated down, so the real budget is lower.` : ` A shorter loan, or buying younger, lifts this.`;
-    $('#flag').innerHTML=`⚠️ Because ${why}, banks cap your loan at <b>${Math.round(r.ltv*100)}%</b> (not 75%) — so you need a much bigger down payment.${extra}`;
+    $('#flag').innerHTML=`<svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.15em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg> Because ${why}, banks cap your loan at <b>${Math.round(r.ltv*100)}%</b> (not 75%), so you need a much bigger down payment.${extra}`;
   } else $('#flag').style.display='none';
   // binding constraint
   let L='';
-  if(r.limit==='income') L=`<b>Your income is the limit here.</b> Banks cap your loan at a share of your income — a longer loan, a co-borrower, or clearing existing debt would lift your budget.`;
+  if(r.limit==='income') L=`<b>Your income is the limit here.</b> Banks cap your loan at a share of your income, a longer loan, a co-borrower, or clearing existing debt would lift your budget.`;
   else if(r.limit==='savings') L=`<b>Your savings are the limit here.</b> You could borrow more, but the down payment needs cash + CPF you don’t have yet. Building savings raises your ceiling fastest.`;
   else L=`<b>Your cash is the limit here.</b> At least ${Math.round(r.minCash*100)}% of the price must be paid in cash (CPF can’t cover that part).`;
   $('#limit').innerHTML=L;
-  $('#note').innerHTML=`This uses the real rules: a bank can lend up to <b>${Math.round(R.tdsr*100)}% of your income for all debts</b>${r.msr?` and, for an HDB flat or new EC, the home loan alone can’t exceed <b>${Math.round(R.msr*100)}%</b>`:''} — stress-tested at <b>${r.sr*100}%</b>${r.hdbLoan?' (the HDB-loan rate; no minimum cash needed)':''} even though real rates are usually lower.`;
-  $('#disc').innerHTML='Indicative only — not financial advice. Assumes '+(r.hdbLoan?'an <b>HDB loan</b>':'a <b>bank loan</b>')+' and your <b>first home</b>. Your loan and CPF only stretch up to the bank’s valuation — if you buy <b>above</b> valuation, the extra is cash on top of these figures. CPF use is also capped at valuation and you may keep a buffer in your OA, so treat the CPF figure as a maximum. If your income is mainly commission or self-employed, banks count only about <b>70%</b> of it — your real figure would be lower. For an <b>older home</b>, a short remaining lease cuts how much CPF and loan you can use (CPF needs the lease to cover you to age 95). HDB buyers using CPF also pay a small <b>Home Protection Scheme</b> premium from their OA. A precise number depends on your credit and the bank’s valuation. Rules as of '+R.as_of+'. Always confirm with a banker.';
+  $('#note').innerHTML=`This uses the real rules: a bank can lend up to <b>${Math.round(R.tdsr*100)}% of your income for all debts</b>${r.msr?` and, for an HDB flat or new EC, the home loan alone can’t exceed <b>${Math.round(R.msr*100)}%</b>`:''}, stress-tested at <b>${r.sr*100}%</b>${r.hdbLoan?' (the HDB-loan rate; no minimum cash needed)':''} even though real rates are usually lower.`;
+  $('#disc').innerHTML='Indicative only, not financial advice. Assumes '+(r.hdbLoan?'an <b>HDB loan</b>':'a <b>bank loan</b>')+' and your <b>first home</b>. Your loan and CPF only stretch up to the bank’s valuation, if you buy <b>above</b> valuation, the extra is cash on top of these figures. CPF use is also capped at valuation and you may keep a buffer in your OA, so treat the CPF figure as a maximum. If your income is mainly commission or self-employed, banks count only about <b>70%</b> of it, your real figure would be lower. For an <b>older home</b>, a short remaining lease cuts how much CPF and loan you can use (CPF needs the lease to cover you to age 95). HDB buyers using CPF also pay a small <b>Home Protection Scheme</b> premium from their OA. A precise number depends on your credit and the bank’s valuation. Rules as of '+R.as_of+'. Always confirm with a banker.';
 }
 
 ['income','debts','cash','cpf','grant','age','lease'].forEach(id=>$('#'+id).addEventListener('input',e=>{const raw=e.target.value.replace(/[^0-9]/g,'');e.target.value=raw?((id==='age'||id==='lease')?raw:Number(raw).toLocaleString('en-US')):'';calc();}));

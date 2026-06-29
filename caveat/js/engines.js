@@ -1,11 +1,11 @@
-/* Caveat — valuation + eligibility engines (ported from the Python reference). */
+/* Caveat, valuation + eligibility engines (ported from the Python reference). */
 const Engines = (() => {
   const C = Caveat;
 
   // ============ HDB AVM ============
   const HDB = { STOREY: 0.004, LEASE: 0.004, HALFLIFE: 9, SIZE_TOL: 0.20, MIN: 5 };
 
-  // Bias calibration — measured by avm/backtest.js (point-in-time holdout, signed median error).
+  // Bias calibration, measured by avm/backtest.js (point-in-time holdout, signed median error).
   // The weighting+adjustment pipeline runs a touch low on condos and a touch high on HDB; these
   // re-center the point estimate so the median signed error sits at ~0. Re-derive after any
   // change to the comp weighting and update these (1.0 = no correction).
@@ -27,14 +27,14 @@ const Engines = (() => {
 
   function hdbEstimate(rows, subj) {
     // subj: {flat_type, area_sqm, storey_mid, rem_lease_mths, street, block, town}
-    // Floor area & storey are OPTIONAL — flat type + address is enough for a typical-unit estimate.
+    // Floor area & storey are OPTIONAL, flat type + address is enough for a typical-unit estimate.
     const hasArea = subj.area_sqm > 0, hasStorey = subj.storey_mid > 0;
     const lo = hasArea ? subj.area_sqm * (1 - HDB.SIZE_TOL) : 0;
     const hi = hasArea ? subj.area_sqm * (1 + HDB.SIZE_TOL) : Infinity;
     const base = rows.filter(r => r.flat_type === subj.flat_type && (!hasArea || (r.area_sqm >= lo && r.area_sqm <= hi)));
-    if (base.length < HDB.MIN) { const n = base.length; return { ok: false, reason: `Only ${n} recent ${subj.flat_type.toLowerCase()} sale${n === 1 ? '' : 's'} on record near here — try a nearby street or a more common flat type.` }; }
+    if (base.length < HDB.MIN) { const n = base.length; return { ok: false, reason: `Only ${n} recent ${subj.flat_type.toLowerCase()} sale${n === 1 ? '' : 's'} on record near here, try a nearby street or a more common flat type.` }; }
 
-    // LOCALITY TIERS — use the tightest pool with enough comps, and say which one.
+    // LOCALITY TIERS, use the tightest pool with enough comps, and say which one.
     // block -> street -> estate -> town. Never silently fall back to the whole town.
     const blkU = String(subj.block || '').toUpperCase().trim();
     const subjBlkNum = parseInt(blkU, 10) || 0;  // numeric part, for nearest-block ordering
@@ -51,7 +51,7 @@ const Engines = (() => {
     else {
       pool = base; tier = 'town';
       const n = sameSt.length || sameEs.length, label = titleish(esK || stU || townTitle);
-      scope = stU ? `wider ${townTitle} — only ${n} ${label} sale${n === 1 ? '' : 's'} in range` : townTitle;
+      scope = stU ? `wider ${townTitle}, only ${n} ${label} sale${n === 1 ? '' : 's'} in range` : townTitle;
     }
 
     const areaForEst = hasArea ? subj.area_sqm : C.median(pool.map(r => r.area_sqm));
@@ -100,7 +100,7 @@ const Engines = (() => {
     const lo = hasArea ? subj.area_sqm * (1 - CD.SIZE_TOL) : 0, hi = hasArea ? subj.area_sqm * (1 + CD.SIZE_TOL) : Infinity;
     const inSize = r => !hasArea || (r.area_sqm >= lo && r.area_sqm <= hi);
     // subject location: use any same-project caveats' coords (centroid) so the
-    // cross-district fallback can weight by real distance — no frontend wiring needed.
+    // cross-district fallback can weight by real distance, no frontend wiring needed.
     const projRows = rows.filter(r => r.project === subj.project && r.x && r.y);
     const subjX = subj.x || (projRows.length ? C.median(projRows.map(r => r.x)) : null);
     const subjY = subj.y || (projRows.length ? C.median(projRows.map(r => r.y)) : null);
@@ -146,7 +146,7 @@ const Engines = (() => {
     });
     const areaForEst = hasArea ? subj.area_sqm : C.median(pool.map(r => r.area_sqm));
     const res = finalize(comps, areaForEst, cross
-      ? { highN: 999, highCV: 0, medN: 6, medCV: 0.10 }
+      ? { highN: 999, highCV: 0, medN: 6, medCV: 0.10, cross: true }
       : { highN: 8, highCV: 0.07, medN: 6, medCV: 0.10 }, CONDO_CALIB);
     res.scope = scope; res.cross = cross; res.area_assumed = !hasArea;
     return res;
@@ -154,7 +154,7 @@ const Engines = (() => {
 
   // shared: weighted estimate + band + confidence + PSF trend
   // calib = systematic-bias correction measured by the backtest (signed median error);
-  // applied to the model PSF only — the observed sale range (obs_low/high) stays raw.
+  // applied to the model PSF only, the observed sale range (obs_low/high) stays raw.
   function finalize(comps, area_sqm, conf, calib) {
     comps.sort((a, b) => b.weight - a.weight);
     const wsum = comps.reduce((s, c) => s + c.weight, 0);
@@ -165,17 +165,24 @@ const Engines = (() => {
 
     const sqft = area_sqm * C.SQM_SQF;
     const estPrice = estPsf * sqft;
-    const band = Math.max(0.03, Math.min(cv, 0.09));
+    // Cross-district/segment fallback: the backtest shows ~16% real error on this path
+    // (vs ~4% same-project), so the narrow same-project band would overstate precision.
+    // Here we widen the band (floor 12%, cap 15%) and never let the chip read above
+    // "Lower", an estimate built from other projects/segments is only indicative.
+    const isCross = !!(conf && conf.cross);
+    const band = isCross ? Math.max(0.12, Math.min(cv, 0.15)) : Math.max(0.03, Math.min(cv, 0.09));
     let confidence = 'Lower';
-    if (comps.length >= conf.highN && cv < conf.highCV) confidence = 'High';
-    else if (comps.length >= conf.medN && cv < conf.medCV) confidence = 'Medium';
+    if (!isCross) {
+      if (comps.length >= conf.highN && cv < conf.highCV) confidence = 'High';
+      else if (comps.length >= conf.medN && cv < conf.medCV) confidence = 'Medium';
+    }
 
     // monthly median PSF trend (raw, for the chart)
     const byM = {};
     comps.forEach(c => (byM[c.yymm] = byM[c.yymm] || []).push(c.psf));
     const trend = Object.keys(byM).sort().map(m => ({ yymm: m, psf: Math.round(C.median(byM[m])) }));
 
-    // observed range of comparable sales (normalised to subject size), trimmed 10th–90th pct
+    // observed range of comparable sales (normalised to subject size), trimmed 10th-90th pct
     const psfSorted = comps.map(c => c.adj_psf).sort((a, b) => a - b);
     const pctl = q => psfSorted[Math.max(0, Math.min(psfSorted.length - 1, Math.round(q * (psfSorted.length - 1))))];
     const obs_low = Math.round(pctl(0.10) * sqft / 1000) * 1000;

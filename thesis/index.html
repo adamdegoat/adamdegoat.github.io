@@ -4,17 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta name="description" content="Thesis — look up any Singapore condo and see its real numbers from official caveats: price per sqft, price trend over time, rental yield, tenure and how it's priced against comparable condos nearby — plus a live new-launch feed. Just the facts, no scores or predictions. Indicative analysis, not financial advice. Part of PropSight.">
+<meta name="description" content="Thesis, look up any Singapore condo and see its real numbers from official caveats: price per sqft, price trend over time, rental yield, tenure and how it's priced against comparable condos nearby, plus a live new-launch feed. Just the facts, no scores or predictions. Indicative analysis, not financial advice. Part of PropSight.">
 <title>Research · PropSight · Singapore Property</title>
-<meta property="og:type" content="website"><meta property="og:site_name" content="PropSight"><meta property="og:url" content="https://adamdegoat.github.io/thesis/"><meta property="og:title" content="PropSight Research — every Singapore condo and HDB"><meta property="og:description" content="Compare any condo or HDB on real caveats — prices, trends, rental yield and tenure. Free."><meta property="og:image" content="https://adamdegoat.github.io/adam/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://adamdegoat.github.io/adam/og.jpg">
+<meta property="og:type" content="website"><meta property="og:site_name" content="PropSight"><meta property="og:url" content="https://adamdegoat.github.io/thesis/"><meta property="og:title" content="PropSight Research, every Singapore condo and HDB"><meta property="og:description" content="Compare any condo or HDB on real caveats, prices, trends, rental yield and tenure. Free."><meta property="og:image" content="https://adamdegoat.github.io/adam/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://adamdegoat.github.io/adam/og.jpg">
 <meta name="theme-color" content="#0d1521">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b3a2d'/%3E%3Cpath d='M8 18.5 L16 11 L24 18.5' fill='none' stroke='%23ead4a2' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M11 23 L21 23' stroke='%23ead4a2' stroke-width='2.2' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='19.3' r='1.7' fill='%23c8a468'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b3a2d'/%3E%3Cg fill='none' stroke='%23ead4a2' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='13.5' cy='13.5' r='9.5'/%3E%3Cpath d='M8.75 16 L13.5 11 L18.25 16'/%3E%3Cpath d='M10.5 18.2 L16.5 18.2'/%3E%3C/g%3E%3Ccircle cx='13.5' cy='16.5' r='1' fill='%23d8b15e'/%3E%3Cpath d='M20.25 20.25 L26.5 26.5' fill='none' stroke='%23d8b15e' stroke-width='2.8' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -100,10 +101,10 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 /* controls */
 .ctrls{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:22px 0 14px}
 .search{flex:1;min-width:200px;position:relative}
-.search input{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:11px 13px;color:var(--ink);font-size:14px;font-family:inherit}
+.search input{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:11px 13px;color:var(--ink);font-size:16px;font-family:inherit}
 .search input:focus{outline:0;border-color:var(--green-d)}
 .search input::placeholder{color:var(--ink3)}
-select.f{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:11px 12px;color:var(--ink2);font-size:13px;font-family:inherit;cursor:pointer}
+select.f{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:11px 12px;color:var(--ink2);font-size:16px;font-family:inherit;cursor:pointer}
 /* table */
 .tbl{width:100%;border-collapse:collapse}
 .tbl thead th{text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:var(--ink3);font-weight:700;padding:0 12px 10px;border-bottom:1px solid var(--line);cursor:pointer;white-space:nowrap;user-select:none}
@@ -271,7 +272,7 @@ select.f{background:var(--panel);border:1px solid var(--line);border-radius:10px
 @media(max-width:720px){.kpis{grid-template-columns:1fr 1fr}.mgrid{grid-template-columns:1fr 1fr}
   .hide-sm{display:none}.hero h1{font-size:25px}.dd{width:100%}.freshbar{font-size:11px;gap:6px}
   .datatag{display:none}}
-/* ===== craft kit — visual polish only (no logic / markup / IDs touched) ===== */
+/* ===== craft kit, visual polish only (no logic / markup / IDs touched) ===== */
 body::after{content:"";position:fixed;inset:0;z-index:55;pointer-events:none;opacity:.04;;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 .nav{background:rgba(255,255,255,.82);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3)}
@@ -281,14 +282,14 @@ body::after{content:"";position:fixed;inset:0;z-index:55;pointer-events:none;opa
 .kpi .v{font-size:30px;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
 .kpi .k{letter-spacing:.12em}
 .bar-row .val,.comps td,td.num{font-variant-numeric:tabular-nums}
-/* ===== redesign polish — neutral, info-first, agent-facing ===== */
+/* ===== redesign polish, neutral, info-first, agent-facing ===== */
 .hero.compact{padding:22px 0 2px}
 .hero.compact h1{font-size:33px;line-height:1.08;letter-spacing:-.4px}
 .hero.compact p{font-size:14px;margin-top:9px;max-width:640px}
 .ctrls{margin:18px 0 16px}
 .search{min-width:240px}
 .search .si{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:15px;opacity:.5;pointer-events:none}
-.search input{padding:14px 14px 14px 43px;border-radius:13px;font-size:15px;box-shadow:var(--shadow);transition:box-shadow .15s,border-color .15s}
+.search input{padding:14px 14px 14px 43px;border-radius:13px;font-size:16px;box-shadow:var(--shadow);transition:box-shadow .15s,border-color .15s}
 .search input:focus{box-shadow:0 0 0 4px rgba(15,157,118,.1),var(--shadow)}
 select.f{padding:13px 13px;border-radius:13px}
 .kpis-sm{grid-template-columns:repeat(4,1fr);gap:11px;margin:6px 0 16px}
@@ -395,7 +396,7 @@ select.f{padding:13px 13px;border-radius:13px}
 .tbl thead th{vertical-align:top;padding-bottom:12px}
 .tbl thead th .thl{display:block}
 .tbl thead th .ths{display:block;font-size:8.5px;font-weight:600;color:var(--ink3);text-transform:none;letter-spacing:.02em;margin-top:3px;opacity:.85}
-/* ===== premium colour — coloured data ===== */
+/* ===== premium colour, coloured data ===== */
 .tbl td .psf{font-weight:700;color:var(--ink);font-size:13px}
 .vsp,.trend{display:inline-block;font-family:var(--mono);font-size:11.5px;font-weight:700;padding:3px 8px;border-radius:7px;letter-spacing:-.01em;line-height:1.2}
 .vsp.pos,.trend.up{background:rgba(15,157,118,.13);color:#0b7d5e}
@@ -469,13 +470,45 @@ select.f{padding:13px 13px;border-radius:13px}
 .gatehold .psj-card::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;
   background:linear-gradient(90deg,#1b3a2d,#2c5743 55%,#b08d57)}
 .gatehold .psj-card .psj-ey{font-size:11px;padding:6px 13px;box-shadow:0 3px 10px rgba(176,141,87,.4)}
-.gatehold .psj-form button{background:linear-gradient(135deg,#e3c98f,#b08d57);color:#241a0d;font-weight:800;
+.gatehold .psj-form button{background:var(--gtex,none),#ead4a2;color:#241a0d;font-weight:800;
   box-shadow:0 10px 24px rgba(176,141,87,.4)}
-.gatehold .psj-form button:hover{filter:brightness(1.06);background:linear-gradient(135deg,#e3c98f,#b08d57)}
+.gatehold .psj-form button:hover{filter:brightness(1.06);background:var(--gtex,none),#ead4a2}
 @media(max-width:560px){.gatewrap{max-height:210px}.gatehold{margin-top:-46px}}
+/* ===== school filter (condo mode) + distance badges ===== */
+.schoolctl{display:inline-flex;align-items:center;gap:7px;flex:0 0 auto}
+.schoolinput{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:13px 13px;color:var(--ink2);font-size:16px;font-family:inherit;min-width:188px;max-width:232px}
+.schoolinput:focus{outline:0;border-color:var(--green-d)}
+.schoolinput::placeholder{color:var(--ink3)}
+.schoolchip{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--green-d);background:rgba(15,157,118,.1);border:1px solid rgba(15,157,118,.32);border-radius:30px;padding:9px 14px;cursor:pointer;white-space:nowrap}
+.schoolchip:hover{background:rgba(15,157,118,.16)}
+.zoneseg{display:inline-flex;background:var(--panel2);border:1px solid var(--line);border-radius:30px;padding:3px;gap:2px}
+.zonebtn{font-size:11.5px;font-weight:700;color:var(--ink3);padding:6px 12px;border-radius:30px;background:none;border:0;cursor:pointer;font-family:inherit}
+.zonebtn.on{background:var(--bg2);color:var(--green-d);box-shadow:var(--shadow)}
+.schoolnote{font-size:12.5px;color:var(--ink2);line-height:1.5;background:linear-gradient(120deg,rgba(15,157,118,.07),var(--panel2));border:1px solid rgba(15,157,118,.25);border-radius:10px;padding:10px 13px;margin:2px 0 14px}
+.schoolnote b{color:var(--green-d)}
+.distbadge{display:inline-block;font-size:10.5px;font-weight:700;font-family:var(--sans);padding:3px 9px;border-radius:30px;margin-top:5px;white-space:nowrap}
+.distbadge.p1{background:rgba(15,157,118,.13);color:#0b7d5e}
+.distbadge.p2{background:rgba(192,132,24,.12);color:#9a6a10}
+/* ===== deep-dive quick-facts strip + jump chips ===== */
+.qfacts{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:2px 0 6px}
+.qf{background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:10px 12px}
+.qf .qk{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--ink3)}
+.qf .qv{font-family:var(--mono);font-size:14px;font-weight:600;color:var(--ink);margin-top:4px;line-height:1.2}
+.qf .qv small{display:block;font-family:var(--sans);font-size:10.5px;color:var(--ink3);font-weight:500;margin-top:2px}
+.qf .qv.pos{color:#0b7d5e}.qf .qv.neg{color:#b33f36}
+@media(max-width:720px){.qfacts{grid-template-columns:1fr 1fr}}
+.jumpchips{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 2px}
+.jumpchip{font-size:11.5px;font-weight:600;color:var(--ink2);background:var(--panel);border:1px solid var(--line);border-radius:30px;padding:7px 13px;cursor:pointer;transition:.15s}
+.jumpchip:hover{border-color:var(--green-d);color:var(--green-d)}
+.dd-body .sect{scroll-margin-top:78px}
+/* ===== mode-toggle discoverability hint ===== */
+.modebar .wrap{display:flex;align-items:center;gap:12px}
+.modehint{font-size:11.5px;color:var(--ink3);font-weight:500}
+@media(max-width:560px){.modehint{display:none}}
 </style>
 <script src="/adam/nav.js" defer></script>
 <script src="/adam/member.js"></script>
+  <link rel="canonical" href="https://propsight.sg/research/">
 </head>
 <body>
 <nav class="nav" style="position:static"><div class="wrap navwrap">
@@ -487,7 +520,7 @@ select.f{padding:13px 13px;border-radius:13px}
 <div class="modebar"><div class="wrap"><div class="modeseg" id="modeseg">
   <button class="modebtn on" data-mode="condo">Condos</button>
   <button class="modebtn" data-mode="hdb">HDB</button>
-</div></div></div>
+</div><span class="modehint" id="modehint">Condos · HDB resale · switch anytime</span></div></div>
 <div class="tabsbar"><div class="wrap"><div class="tabs" id="tabs"></div></div></div>
 <div class="wrap"><div class="freshbar" id="freshbar"></div></div>
 <div class="wrap"><div id="app"><div class="empty"><div class="b serif">Loading…</div>Pulling every condo's numbers from official caveats.</div></div></div>
@@ -497,7 +530,16 @@ select.f{padding:13px 13px;border-radius:13px}
 
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-let D=null,H=null,MODE='condo',TAB='research',SORT={k:'project',dir:1},HSORT={k:'town',dir:1},FILT={q:'',seg:'',district:'',tenure:'',price:'',town:'',ft:'',mature:'',grade:'',upreg:'',lview:'feed',lold:false},CMP=[];
+const _amsw='fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"';
+const AMICON={
+  mrt:`<svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.15em" ${_amsw}><rect x="5" y="3" width="14" height="13" rx="3"/><path d="M5 10h14"/><path d="M8.5 19l-1.5 2.5M15.5 19l1.5 2.5"/><circle cx="9" cy="13" r="1"/><circle cx="15" cy="13" r="1"/></svg>`,
+  park:`<svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.15em" ${_amsw}><path d="M12 22v-6"/><path d="M12 16a5 5 0 0 0 5-5 4 4 0 0 0-1-2.5A4.5 4.5 0 0 0 12 3a4.5 4.5 0 0 0-4 3.5A4 4 0 0 0 7 11a5 5 0 0 0 5 5z"/></svg>`,
+  hawker:`<svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.15em" ${_amsw}><path d="M3 11h18a9 9 0 0 1-18 0z"/><path d="M12 11V8M9 8c0-1.5 1-2 1.5-2.5M15 8c0-1.5-1-2-1.5-2.5"/><path d="M4 20h16"/></svg>`,
+  school:`<svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.15em" ${_amsw}><path d="M12 4 2 9l10 5 10-5-10-5z"/><path d="M6 11v5c0 1 3 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg>`,
+};
+let D=null,H=null,MODE='condo',TAB='research',SORT={k:'project',dir:1},HSORT={k:'town',dir:1},FILT={q:'',seg:'',district:'',tenure:'',price:'',town:'',ft:'',mature:'',grade:'',upreg:'',lview:'feed',lold:false,school:'',schoolZone:'2km'},CMP=[];
+// school → primary-school proximity index (built on load from /tools/school-homes.json); null if it fails to load
+let SCHOOL_IDX=null,SCHOOL_NAMES=[];
 const TABS_CONDO=[['research','▦','Condos'],['map','◎','Map'],['launches','◆','New launches'],['upcoming','◇','Upcoming'],['compare','⇄','Compare'],['about','ⓘ','About']];
 const TABS_HDB=[['hdb','▦','HDB flats'],['about','ⓘ','About']];
 const tabsFor=()=>MODE==='hdb'?TABS_HDB:TABS_CONDO;
@@ -505,17 +547,17 @@ const median=arr=>{const a=arr.filter(x=>x!=null&&!isNaN(x)).slice().sort((x,y)=
 const FACS=['value','timing','liquidity','yield','tenure','supply'];
 // plain-English factor labels + one-line meanings (override the engine's terse labels for display)
 const FLABEL={value:'Value vs nearby',timing:'Price-cycle timing',liquidity:'Ease of selling',yield:'Rental yield',tenure:'Tenure',supply:'Incoming competition'};
-const FDESC={value:'cheaper per sqft than comparable condos within 1.5km',timing:'where it sits in the price cycle — rewards recent dips, flags the overheated',liquidity:'how often it trades — higher means easier to exit',yield:'annual rent as a % of price (gross)',tenure:'freehold ranks above leasehold',supply:'fewer new launches coming nearby = less price pressure'};
+const FDESC={value:'cheaper per sqft than comparable condos within 1.5km',timing:'where it sits in the price cycle, rewards recent dips, flags the overheated',liquidity:'how often it trades, higher means easier to exit',yield:'annual rent as a % of price (gross)',tenure:'freehold ranks above leasehold',supply:'fewer new launches coming nearby = less price pressure'};
 const flab=f=>FLABEL[f]||(D.factor_labels&&D.factor_labels[f])||f;
 // one clear sentence on how a project's $psf compares to the condos around it, with the reference number
 function valuePhrase(p){
-  if(p.value_flag)return `priced very differently from the condos around it (a different type — hard to compare)`;
+  if(p.value_flag)return `priced very differently from the condos around it (a different type, hard to compare)`;
   if(p.discount>=2)return `<b>${p.discount}% cheaper per sqft</b> than comparable condos within 1.5km (~$${(p.peer_ref||0).toLocaleString()} psf around it)`;
   if(p.discount<=-2)return `<b>${-p.discount}% pricier per sqft</b> than comparable condos within 1.5km (~$${(p.peer_ref||0).toLocaleString()} psf around it)`;
   return `priced <b>in line</b> with comparable condos within 1.5km (~$${(p.peer_ref||0).toLocaleString()} psf around it)`;
 }
 const gletter=g=>g[0];
-// factual value chip (replaces the old A–F letter badge) — neutral, sourced, relative
+// factual value chip (replaces the old A-F letter badge), neutral, sourced, relative
 function valChip(p){
   if(p.value_flag)return `<span class="vchip warn">⚠ hard to compare</span>`;
   if(p.discount>=2)return `<span class="vchip pos">${p.discount}% below nearby</span>`;
@@ -530,15 +572,15 @@ const DISTRICTS={'01':'Marina · Raffles','02':'Tanjong Pagar · Chinatown','03'
 const distArea=d=>DISTRICTS[String(d).padStart(2,'0')]||'';
 const MON=['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 // plain-English region names (kill the CCR/RCR/OCR jargon for buyers)
-const SEGN={CCR:['Prime','Core Central — prime / city'],RCR:['City-fringe','Rest of Central — city fringe'],OCR:['Suburban','Outside Central — suburban']};
+const SEGN={CCR:['Prime','Core Central, prime / city'],RCR:['City-fringe','Rest of Central, city fringe'],OCR:['Suburban','Outside Central, suburban']};
 const segShort=s=>(SEGN[s]||[s])[0];
 const segLong=s=>(SEGN[s]||[s,s])[1];
 const plainBasis=s=>(s||'same area').replace(/\bCCR\b/g,'Prime').replace(/\bRCR\b/g,'City-fringe').replace(/\bOCR\b/g,'Suburban');
 const fmtm=m=>m>=1000?(m/1000).toFixed(1)+'km':m+'m';
 const walkMin=m=>Math.max(1,Math.round(m/80))+' min walk';
-let MEDY=null;  // median SG condo yield — set on load, used as the plain-English comparison point
+let MEDY=null;  // median SG condo yield, set on load, used as the plain-English comparison point
 const PRICEBANDS={'u15':[0,1500],'15-20':[1500,2000],'20-25':[2000,2500],'25p':[2500,null]};
-const SORTOPTS=[['project|1','Name A–Z'],['psf|1','$/sqft: low → high'],['psf|-1','$/sqft: high → low'],['yield|-1','Yield: high → low'],['txns|-1','Most active'],['mom|-1','Biggest 6-mo rise']];
+const SORTOPTS=[['project|1','Name A-Z'],['psf|1','$/sqft: low → high'],['psf|-1','$/sqft: high → low'],['yield|-1','Yield: high → low'],['txns|-1','Most active'],['mom|-1','Biggest 6-mo rise']];
 const ymIdx=ym=>{ym=''+ym;return (2000+ +ym.slice(0,2))*12 + +ym.slice(2);};
 const ymLabel=ym=>ym?MON[+(''+ym).slice(2)]+" '"+(''+ym).slice(0,2):'—';
 function launchStatus(last){const m=ymIdx(D.as_of)-ymIdx(last);return m<=2?['● Actively selling','act']:m<=8?['Still selling','sel']:['Mostly sold','sold'];}
@@ -548,6 +590,20 @@ fetch('data/thesis.json?cb='+Date.now()).then(r=>r.json()).then(async d=>{
   MEDY=median(D.projects.map(p=>p.yield).filter(x=>x));
   try{ window.RESEARCH=await (await fetch('data/research.json?cb='+Date.now())).json(); }catch(e){ window.RESEARCH=null; }
   try{ H=await (await fetch('data/hdb.json?cb='+Date.now())).json(); }catch(e){ H=null; }
+  // primary-school proximity, schoolName → Map(UPPERCASE project → {band:'p1'|'p2', d}); fail soft (just disables the school filter)
+  try{
+    const sh=await (await fetch('/tools/school-homes.json?cb='+Date.now())).json();
+    SCHOOL_IDX=new Map();
+    (sh.schools||[]).forEach(sc=>{
+      const m=new Map();
+      ['p1','p2'].forEach(band=>(sc[band]||[]).forEach(e=>{
+        const k=String(e.n).toUpperCase();
+        if(!m.has(k)||e.d<m.get(k).d) m.set(k,{band,d:e.d});   // nearest wins if a project appears twice
+      }));
+      SCHOOL_IDX.set(sc.n,m); SCHOOL_NAMES.push(sc.n);
+    });
+    SCHOOL_NAMES.sort();
+  }catch(e){ SCHOOL_IDX=null; }
   init();
 }).catch(e=>{$('#app').innerHTML='<div class="empty">Could not load research data. '+e+'</div>';});
 
@@ -563,21 +619,30 @@ function fresh(builtISO){
 function init(){
   const fr=fresh(D.built);
   $('#freshbar').innerHTML=`<span class="live"><span class="dot"></span>Live</span><span class="sep">·</span> data refreshed <b>${fr.ago}</b>${fr.built?' ('+fr.built+')':''} <span class="sep">·</span> auto-updates weekly <span class="sep">·</span> next refresh <b>${fr.next}</b>`;
-  if(!H){const h=document.querySelector('.modebtn[data-mode="hdb"]');if(h)h.style.display='none';}  // no HDB data → hide toggle
+  if(!H){const h=document.querySelector('.modebtn[data-mode="hdb"]');if(h)h.style.display='none';const mh=$('#modehint');if(mh)mh.style.display='none';}  // no HDB data → hide toggle + hint
   $('#modeseg').onclick=e=>{const b=e.target.closest('.modebtn');if(!b)return;const m=b.dataset.mode;if(m===MODE)return;
     MODE=m; TAB=(MODE==='hdb'?'hdb':'research');
     $$('.modebtn').forEach(x=>x.classList.toggle('on',x.dataset.mode===MODE));
     setDataTag(); renderTabs(); render();};
   setDataTag(); renderTabs();
-  $('#foot').innerHTML=`PropSight. Compiled from official URA &amp; HDB transaction data. Indicative analysis only — <b>not financial advice</b>; verify independently before any decision. All figures are point-in-time and the market can move against any past pattern.`;
+  $('#foot').innerHTML=`PropSight. Compiled from official URA &amp; HDB transaction data. Indicative analysis only, <b>not financial advice</b>; verify independently before any decision. All figures are point-in-time and the market can move against any past pattern.`;
   render();
   // deep-link from Caveat: ?p=PROJECT opens that condo's breakdown
   const pq=new URLSearchParams(location.search).get('p');
   if(pq){const hit=D.projects.find(x=>String(x.project).toUpperCase()===pq.toUpperCase());if(hit)openDD(hit.project);}
-  // deep-link from the Aillie chat: ?town=X&ft=Y opens that HDB town + flat-type breakdown
+  // deep-link from the school finder / Aillie: ?town=X (optionally &ft=Y) opens that HDB town
   const _sp=new URLSearchParams(location.search),_tq=_sp.get('town'),_fq=_sp.get('ft');
-  if(_tq&&_fq&&H){MODE='hdb';TAB='hdb';$$('.modebtn').forEach(x=>x.classList.toggle('on',x.dataset.mode==='hdb'));setDataTag();renderTabs();render();
-    const _g=H.groups.find(x=>String(x.town).toUpperCase()===_tq.toUpperCase()&&String(x.ft).toUpperCase()===_fq.toUpperCase());if(_g)openHDB(_g.town,_g.ft);}
+  if(_tq&&H){MODE='hdb';TAB='hdb';$$('.modebtn').forEach(x=>x.classList.toggle('on',x.dataset.mode==='hdb'));setDataTag();
+    const _tn=(H.groups.find(x=>String(x.town).toUpperCase()===_tq.toUpperCase())||{}).town;if(_tn)FILT.town=_tn;
+    renderTabs();render();
+    if(_fq){const _g=H.groups.find(x=>String(x.town).toUpperCase()===_tq.toUpperCase()&&String(x.ft).toUpperCase()===_fq.toUpperCase());if(_g)openHDB(_g.town,_g.ft);}}
+  // deep-link: ?school=NAME (&zone=1km|2km) → condo mode + research tab, filtered to homes near that primary school
+  const _sc=_sp.get('school');
+  if(_sc&&SCHOOL_IDX){
+    const found=[...SCHOOL_IDX.keys()].find(n=>n.toLowerCase()===_sc.toLowerCase());
+    if(found){MODE='condo';TAB='research';FILT.school=found;FILT.schoolZone=_sp.get('zone')==='1km'?'1km':'2km';
+      $$('.modebtn').forEach(x=>x.classList.toggle('on',x.dataset.mode==='condo'));setDataTag();renderTabs();render();}
+  }
 }
 function setDataTag(){
   if(MODE==='hdb'&&H) $('#dataTag').innerHTML=`<b>${H.n_txns.toLocaleString()}</b> HDB resales · <b>${H.n_towns}</b> towns<br>official HDB data · as of ${MON[+H.as_of.slice(2)]} ’${H.as_of.slice(0,2)}`;
@@ -622,13 +687,28 @@ function filterProjects(){
     if(FILT.tenure==='fh'&&!p.fh)return false;
     if(FILT.tenure==='lh'&&p.fh)return false;
     if(FILT.price){const b=PRICEBANDS[FILT.price];if(b&&(p.psf<b[0]||(b[1]&&p.psf>=b[1])))return false;}
+    if(FILT.school&&SCHOOL_IDX){const idx=SCHOOL_IDX.get(FILT.school);
+      if(idx){const e=idx.get(p.project.toUpperCase());if(!e)return false;if(FILT.schoolZone==='1km'&&e.band!=='p1')return false;}}
     return true;
   });
 }
+// distance entry {band,d} for a project relative to the active school filter (null if none)
+function schoolDist(p){if(!FILT.school||!SCHOOL_IDX)return null;const idx=SCHOOL_IDX.get(FILT.school);return idx?idx.get(p.project.toUpperCase())||null:null;}
+// the school filter control for the condo bar: a datalist input, or an active chip + 1km/2km zone toggle
+function schoolControl(){
+  if(!SCHOOL_IDX)return '';
+  if(FILT.school){const z=FILT.schoolZone||'2km';
+    return `<span class="schoolctl"><button class="schoolchip" id="schoolClear" title="Clear school filter">✕ ${esc(FILT.school)}</button>
+      <span class="zoneseg"><button class="zonebtn ${z!=='1km'?'on':''}" data-zone="2km">Within 2km</button><button class="zonebtn ${z==='1km'?'on':''}" data-zone="1km">1km only</button></span></span>`;}
+  return `<span class="schoolctl"><input class="schoolinput" id="fschool" list="schoolList" autocomplete="off" placeholder="Near a primary school…">
+    <datalist id="schoolList">${SCHOOL_NAMES.map(n=>`<option value="${esc(n)}">`).join('')}</datalist></span>`;
+}
+function schoolBadge(p){const e=schoolDist(p);if(!e)return '';const p1=e.band==='p1';
+  return `<span class="distbadge ${p1?'p1':'p2'}">${fmtm(e.d)} · ${p1?'within 1km':'1-2km'}</span>`;}
 // ===== HDB helpers =====
 const tcFt=f=>f==='EXECUTIVE'?'Executive':f.replace(' ROOM','-room');
-const storeyBand=s=>String(s-1).padStart(2,'0')+'–'+String(s+1).padStart(2,'0');
-const HSORTOPTS=[['town|1','Town A–Z'],['psf|1','$/sqft: low → high'],['psf|-1','$/sqft: high → low'],['price|1','Price: low → high'],['price|-1','Price: high → low'],['yield|-1','Yield: high → low'],['lease|-1','Lease: most years left'],['txns|-1','Most active']];
+const storeyBand=s=>String(s-1).padStart(2,'0')+'-'+String(s+1).padStart(2,'0');
+const HSORTOPTS=[['town|1','Town A-Z'],['psf|1','$/sqft: low → high'],['psf|-1','$/sqft: high → low'],['price|1','Price: low → high'],['price|-1','Price: high → low'],['yield|-1','Yield: high → low'],['lease|-1','Lease: most years left'],['txns|-1','Most active']];
 function filterHDB(){
   const q=FILT.q.toLowerCase().trim();
   return H.groups.filter(g=>{
@@ -669,17 +749,17 @@ function openHDB(town,ft){
      <div class="mgrid">
        <div class="mc"><div class="k">Typical price</div><div class="v">${fmtP(g.price)}</div></div>
        <div class="mc"><div class="k">Price / sqft</div><div class="v">$${g.psf.toLocaleString()}</div></div>
-       <div class="mc"><div class="k">Price range</div><div class="v">${fmtP(g.price_lo)}–${fmtP(g.price_hi)}</div></div>
-       <div class="mc"><div class="k">Typical size</div><div class="v">${g.sqft.toLocaleString()} <small>sqft · ${g.sqft_lo}–${g.sqft_hi}</small></div></div>
+       <div class="mc"><div class="k">Price range</div><div class="v">${fmtP(g.price_lo)}-${fmtP(g.price_hi)}</div></div>
+       <div class="mc"><div class="k">Typical size</div><div class="v">${g.sqft.toLocaleString()} <small>sqft · ${g.sqft_lo}-${g.sqft_hi}</small></div></div>
      </div>
      <div class="sect">Remaining lease</div>
      <div class="mgrid">
        <div class="mc"><div class="k">Typical lease left</div><div class="v">${g.lease} <small>years</small></div></div>
-       <div class="mc"><div class="k">Lease range</div><div class="v">${g.lease_lo}–${g.lease_hi} <small>years</small></div></div>
+       <div class="mc"><div class="k">Lease range</div><div class="v">${g.lease_lo}-${g.lease_hi} <small>years</small></div></div>
      </div>
-     <div class="readout">Remaining lease is the biggest driver of an HDB flat's price — older flats sell for much less, and a short lease limits CPF use and bank loans. Flats here span <b>${g.lease_lo}–${g.lease_hi} years</b> left.</div>
+     <div class="readout">Remaining lease is the biggest driver of an HDB flat's price, older flats sell for much less, and a short lease limits CPF use and bank loans. Flats here span <b>${g.lease_lo}-${g.lease_hi} years</b> left.</div>
      ${g.spark&&g.spark.length>=2?`<div class="sect sect-row">Price trend ${trendDelta(g.spark)}</div>
-     <div class="facnote">Median resale price per sqft — ${H.window_months} months to ${MON[+H.as_of.slice(2)]} ’${H.as_of.slice(0,2)}.</div>
+     <div class="facnote">Median resale price per sqft, ${H.window_months} months to ${MON[+H.as_of.slice(2)]} ’${H.as_of.slice(0,2)}.</div>
      <div class="chartbox">${sparkSVG(g.spark)}</div>`:''}
      </div><div class="dd-col">
      <div class="sect">How it's priced</div>
@@ -687,14 +767,14 @@ function openHDB(town,ft){
        <div class="cmp3r head"><span class="cl">This town · ${tcFt(g.ft)}</span><span class="cv">$${g.psf.toLocaleString()} psf</span><span class="cd none"></span></div>
        ${natRow('vs all '+tcFt(g.ft)+' islandwide','national median',g.nat_psf)}
      </div>
-     <div class="cmphint">Compared to the islandwide median for the <b>same flat type</b> — a fair like-for-like read on whether this town runs cheap or dear.</div>
+     <div class="cmphint">Compared to the islandwide median for the <b>same flat type</b>, a fair like-for-like read on whether this town runs cheap or dear.</div>
      ${g.yield?`<div class="sect">What it rents for</div>
-     <div class="rentbox"><div class="rentbig">~$${g.rent?g.rent.toLocaleString():'—'}<span>/month</span></div><div class="rentnote">A typical flat rents for around this — about a <b>${g.yield}% gross yearly return</b> on price. Before costs.</div></div>`:''}
+     <div class="rentbox"><div class="rentbig">~$${g.rent?g.rent.toLocaleString():'—'}<span>/month</span></div><div class="rentnote">A typical flat rents for around this, about a <b>${g.yield}% gross yearly return</b> on price. Before costs.</div></div>`:''}
      <div class="sect">Recent sales <span class="secthint">· actual resales</span></div>
      <div class="saletbl hdb"><div class="saleh"><span>When</span><span>Block</span><span class="r">Storey</span><span class="r">Lease</span><span class="r">Price</span></div>
        ${g.sales.slice(0,8).map(s=>`<div class="saler"><span>${ymLabel(s.ym)}</span><span class="blk">${s.block} ${s.street}</span><span class="r">${storeyBand(s.storey)}</span><span class="r">${s.lease}y</span><span class="r">${fmtP(s.price)}</span></div>`).join('')}</div>
      <div class="sect">How active it is</div>
-     <div class="readout"><b>${g.txns.toLocaleString()}</b> ${tcFt(g.ft)} flats sold in ${g.town} over the last ${H.window_months} months${g.txns_recent?` (<b>${g.txns_recent}</b> in the last 6)`:''} — ${g.txns>=150?'a very active':g.txns>=40?'a fairly active':'a quieter'} resale market.</div>
+     <div class="readout"><b>${g.txns.toLocaleString()}</b> ${tcFt(g.ft)} flats sold in ${g.town} over the last ${H.window_months} months${g.txns_recent?` (<b>${g.txns_recent}</b> in the last 6)`:''}, ${g.txns>=150?'a very active':g.txns>=40?'a fairly active':'a quieter'} resale market.</div>
      </div></div>
      <div class="dd-actions"><a class="actbtn primary" href="https://adamdegoat.github.io/caveat/">Value a specific flat in Caveat</a></div>
      <div class="dd-cross">Caveat values one specific flat · Thesis shows the whole town × flat-type picture.</div>
@@ -704,72 +784,78 @@ function openHDB(town,ft){
 function aboutHDB(){
   const asof=MON[+H.as_of.slice(2)]+" ’"+H.as_of.slice(0,2);
   const defs=[
-    ['Grouped by town × flat type','HDB is shown the way buyers think — e.g. “4-room in Bishan”. Comparing a 3-room\'s psf to a 5-room\'s is meaningless, so each flat type is kept separate.'],
-    ['Remaining lease','The typical years of lease left — the single biggest driver of an HDB flat\'s price. A short lease also limits CPF use and bank loans.'],
-    ['vs national','How this town\'s price per sqft compares to the islandwide median for the <b>same flat type</b> — a like-for-like read on whether the town runs cheap or dear.'],
-    ['Mature vs non-mature','Mature estates (older, central, more amenities) generally cost more than non-mature ones — shown so you can compare fairly.'],
+    ['Grouped by town × flat type','HDB is shown the way buyers think, e.g. “4-room in Bishan”. Comparing a 3-room\'s psf to a 5-room\'s is meaningless, so each flat type is kept separate.'],
+    ['Remaining lease','The typical years of lease left, the single biggest driver of an HDB flat\'s price. A short lease also limits CPF use and bank loans.'],
+    ['vs national','How this town\'s price per sqft compares to the islandwide median for the <b>same flat type</b>, a like-for-like read on whether the town runs cheap or dear.'],
+    ['Mature vs non-mature','Mature estates (older, central, more amenities) generally cost more than non-mature ones, shown so you can compare fairly.'],
     ['What it rents for','Typical monthly rent and gross rental yield, from official HDB rental medians (subletting rules apply).'],
-    ['Recent sales','The latest actual resales — block, storey band, remaining lease and price — straight from the records.'],
+    ['Recent sales','The latest actual resales, block, storey band, remaining lease and price, straight from the records.'],
     ['Price trend','Median resale psf month by month, so you can see whether the town is rising, flat or easing.']
   ];
   return `<div class="hero compact"><h1 class="serif">About <em>the HDB data</em>.</h1>
-    <p>Plain facts from official HDB resale records — no scores, no predictions. Built HDB-native, not borrowed from the condo logic.</p></div>
+    <p>Plain facts from official HDB resale records, no scores, no predictions. Built HDB-native, not borrowed from the condo logic.</p></div>
    <div class="panel" style="margin-top:18px"><h2>Where the numbers come from</h2>
      <div class="note">Compiled from <b>official HDB resale transactions</b> across <b>${H.n_towns} towns</b> (${H.n_txns.toLocaleString()} sales, as of ${asof}), plus official HDB rental medians for yields. Nothing scraped or guessed.</div></div>
    <div class="panel"><h2>What each number means</h2>
      <div class="deflist">${defs.map(d=>`<div class="defrow"><div class="defk">${d[0]}</div><div class="defv">${d[1]}</div></div>`).join('')}</div></div>
    <div class="panel"><h2>Honest limits</h2>
-     <div class="flag-w" style="margin-top:0">Figures are town × flat-type <b>medians</b> over ~${H.window_months} months — a market read, not a valuation of any one flat (for that, use Caveat). Lease, storey and model vary within each group. Indicative only — <b>not financial advice</b>.</div></div>
+     <div class="flag-w" style="margin-top:0">Figures are town × flat-type <b>medians</b> over ~${H.window_months} months, a market read, not a valuation of any one flat (for that, use Caveat). Lease, storey and model vary within each group. Indicative only, <b>not financial advice</b>.</div></div>
    <div class="panel"><h2>Always current</h2>
      <div class="note">Refreshes automatically every week with the latest HDB resales.</div></div>`;
 }
 const VIEWS={
  research(){
   const q=FILT.q.toLowerCase().trim();
+  const schoolActive=FILT.school&&SCHOOL_IDX&&SCHOOL_IDX.get(FILT.school);
   let rows=filterProjects();
-  rows=rows.slice().sort((a,b)=>{let x=a[SORT.k],y=b[SORT.k];if(typeof x==='string')return SORT.dir*x.localeCompare(y);return SORT.dir*((x??-999)-(y??-999));});
+  if(schoolActive){rows=rows.slice().sort((a,b)=>((schoolDist(a)||{}).d??9e9)-((schoolDist(b)||{}).d??9e9));}  // nearest school first
+  else rows=rows.slice().sort((a,b)=>{let x=a[SORT.k],y=b[SORT.k];if(typeof x==='string')return SORT.dir*x.localeCompare(y);return SORT.dir*((x??-999)-(y??-999));});
   const opt=(arr,cur)=>arr.map(o=>`<option value="${o[0]}" ${cur===o[0]?'selected':''}>${o[1]}</option>`).join('');
   const segOpts=opt([['','All regions'],['CCR','Prime'],['RCR','City-fringe'],['OCR','Suburban']],FILT.seg);
   const distOpts=opt([['','All districts'],...Object.keys(DISTRICTS).map(d=>[d,`D${d} · ${DISTRICTS[d]}`])],FILT.district);
   const tenOpts=opt([['','Any tenure'],['fh','Freehold'],['lh','Leasehold']],FILT.tenure);
-  const priceOpts=opt([['','Any price'],['u15','Under $1,500 psf'],['15-20','$1,500–2,000'],['20-25','$2,000–2,500'],['25p','$2,500+ psf']],FILT.price);
+  const priceOpts=opt([['','Any price'],['u15','Under $1,500 psf'],['15-20','$1,500-2,000'],['20-25','$2,000-2,500'],['25p','$2,500+ psf']],FILT.price);
   const sortOpts=opt(SORTOPTS,SORT.k+'|'+SORT.dir);
   // live autocomplete suggestions while typing
   const acRows=q?rows.slice(0,8):[];
   const ac=`<div class="ac ${acRows.length?'show':''}" id="ac">${acRows.map(p=>`<div class="ac-item" data-p="${esc(p.project)}"><span class="ac-n">${tc(p.project)}</span><span class="ac-d">${p.area_name?p.area_name+' · ':''}${distName(p.district)} · $${p.psf.toLocaleString()} psf</span></div>`).join('')}</div>`;
   // one-tap popular condos (only when nothing is filtered)
-  const anyFilter=FILT.seg||FILT.district||FILT.tenure||FILT.price;
+  const anyFilter=FILT.seg||FILT.district||FILT.tenure||FILT.price||FILT.school;
   const POP=['NORMANTON PARK','THE SAIL @ MARINA BAY','PARC CLEMATIS','ONE-NORTH RESIDENCES','BISHAN PARK CONDOMINIUM','THE INTERLACE'];
   const pop=POP.map(n=>D.projects.find(p=>p.project===n)).filter(Boolean);
   const popRow=(!q&&!anyFilter&&pop.length)?`<div class="poprow"><span class="poplab">Popular:</span>${pop.map(p=>`<button class="popchip" data-p="${esc(p.project)}">${tc(p.project)}</button>`).join('')}</div>`:'';
-  const ctx=FILT.district?` in D${FILT.district} · ${DISTRICTS[FILT.district]}`:(q?` matching “${FILT.q}”`:(anyFilter?'':' · official caveats, refreshed weekly'));
+  const ctx=schoolActive?` near ${FILT.school}`:FILT.district?` in D${FILT.district} · ${DISTRICTS[FILT.district]}`:(q?` matching “${FILT.q}”`:(anyFilter?'':' · official caveats, refreshed weekly'));
+  // plain-English explainer when filtering by school
+  const schoolNote=schoolActive?`<div class="schoolnote">Homes <b>within 1km</b> of ${FILT.school} get top priority for P1 registration; <b>1-2km</b> get next priority. Showing condos ${FILT.schoolZone==='1km'?'within 1km':'within 2km'}, nearest first.</div>`:'';
   return `<div class="lede2"><h1 class="serif">Every Singapore condo, <em>by the numbers</em>.</h1>
-     <p>Search any condo to see its <b>real transacted prices</b>, how they've moved, rental yield, the nearest MRT &amp; schools — and exactly how it's priced against nearby condos, its town and its district. Straight from official URA caveats. No login, no agent.</p>
+     <p>Search any condo to see its <b>real transacted prices</b>, how they've moved, rental yield, the nearest MRT &amp; schools, and exactly how it's priced against nearby condos, its town and its district. Straight from official URA caveats. No login, no agent.</p>
      <div class="herochips"><span><b>${D.n_projects.toLocaleString()}</b> condos</span><span>Official URA data</span><span>Refreshed weekly</span><span>Free, no login</span></div></div>
    <div class="ctrls">
-     <div class="search"><span class="si">🔍</span><input id="q" autocomplete="off" placeholder="Search a condo…" value="${FILT.q}">${ac}</div>
+     <div class="search"><span class="si"><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:middle" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span><input id="q" autocomplete="off" placeholder="Search a condo…" value="${FILT.q}">${ac}</div>
      <select class="f" id="fdist" title="District">${distOpts}</select>
      <select class="f" id="fseg" title="Region">${segOpts}</select>
      <select class="f" id="ften" title="Tenure">${tenOpts}</select>
      <select class="f" id="fprice" title="Price">${priceOpts}</select>
+     ${schoolControl()}
      <span class="sortby"><span class="sortlab">Sort</span><select class="f" id="fsort" title="Sort by">${sortOpts}</select></span>
    </div>
+   ${schoolNote}
    ${popRow}
    <div class="tbl-head"><span class="th-count">${rows.length.toLocaleString()} condo${rows.length===1?'':'s'}${ctx}</span><span class="tbl-hint">tap any row for the full breakdown →</span></div>
    <div style="overflow-x:auto"><table class="tbl"><thead><tr>
      ${[['project','Condo',''],['seg','Region',''],['psf','$ / sqft','typical'],['discount','vs nearby','within 1.5km'],['mom','6mo trend','price psf'],['yield','Yield','rent / year'],['txns','Sales','last '+D.window_months+' mo']].map(c=>`<th class="${['psf','discount','mom','yield','txns'].includes(c[0])?'r':''} ${['seg','yield'].includes(c[0])?'hide-sm':''}" data-k="${c[0]}"><span class="thl">${c[1]}${SORT.k===c[0]?(SORT.dir<0?' ▾':' ▴'):''}</span>${c[2]?`<span class="ths">${c[2]}</span>`:''}</th>`).join('')}
    </tr></thead><tbody>${rows.slice(0,200).map(rowHtml).join('')}</tbody></table>
    ${rows.length>200?`<div class="empty" style="padding:20px">Showing 200 of ${rows.length.toLocaleString()}. Search to narrow down.</div>`:''}</div>
-   <div class="legend"><b>How to read this:</b> <span><b>$ / sqft</b> — its typical transacted price per square foot</span><span><b>vs nearby</b> — how that compares to similar condos within 1.5km (<span class="pos">green = cheaper</span>, red = pricier)</span><span><b>6mo trend</b> — change in median price over the last 6 months</span><span><b>Yield</b> — gross annual rent as a % of price</span><span><b>Sales</b> — recent transactions (how actively it trades)</span></div>`;
+   <div class="legend"><b>How to read this:</b> <span><b>$ / sqft</b>, its typical transacted price per square foot</span><span><b>vs nearby</b>, how that compares to similar condos within 1.5km (<span class="pos">green = cheaper</span>, red = pricier)</span><span><b>6mo trend</b>, change in median price over the last 6 months</span><span><b>Yield</b>, gross annual rent as a % of price</span><span><b>Sales</b>, recent transactions (how actively it trades)</span></div>`;
  },
  map(){
   const opt=(arr,cur)=>arr.map(o=>`<option value="${o[0]}" ${cur===o[0]?'selected':''}>${o[1]}</option>`).join('');
   const segOpts=opt([['','All regions'],['CCR','Prime'],['RCR','City-fringe'],['OCR','Suburban']],FILT.seg);
   const distOpts=opt([['','All districts'],...Object.keys(DISTRICTS).map(d=>[d,`D${d} · ${DISTRICTS[d]}`])],FILT.district);
   const tenOpts=opt([['','Any tenure'],['fh','Freehold'],['lh','Leasehold']],FILT.tenure);
-  const priceOpts=opt([['','Any price'],['u15','Under $1,500 psf'],['15-20','$1,500–2,000'],['20-25','$2,000–2,500'],['25p','$2,500+ psf']],FILT.price);
+  const priceOpts=opt([['','Any price'],['u15','Under $1,500 psf'],['15-20','$1,500-2,000'],['20-25','$2,000-2,500'],['25p','$2,500+ psf']],FILT.price);
   const rows=filterProjects(); window.MAPROWS=rows;
-  return `<div class="lede"><b class="serif">Map</b> — every condo plotted, coloured by region. Tap a dot for the full breakdown; filter to zoom into an area.</div>
+  return `<div class="lede"><b class="serif">Map</b>, every condo plotted, coloured by region. Tap a dot for the full breakdown; filter to zoom into an area.</div>
    <div class="ctrls">
      <select class="f" id="fdist" title="District">${distOpts}</select>
      <select class="f" id="fseg" title="Region">${segOpts}</select>
@@ -788,7 +874,7 @@ const VIEWS={
   const byRec=inReg.slice().sort((a,b)=>(''+b.last).localeCompare(''+a.last)||(b.txns||0)-(a.txns||0));
   const tier=k=>byRec.filter(l=>launchStatus(l.last)[1]===k);
   const tAct=tier('act'),tSel=tier('sel'),tOld=tier('sold');
-  const hero=`<div class="lede"><b class="serif">New launches</b> — what's selling, and whether the price over resale is fair. Freshest activity first, each benchmarked against the area's real resale.</div>
+  const hero=`<div class="lede"><b class="serif">New launches</b>, what's selling, and whether the price over resale is fair. Freshest activity first, each benchmarked against the area's real resale.</div>
    <div class="kpis kpis-sm">
      <div class="kpi"><div class="k">Launches in market</div><div class="v">${inReg.length}</div><div class="s">${reg?segShort(reg):'all regions'} · real sales</div></div>
      <div class="kpi"><div class="k">Actively selling now</div><div class="v pos">${activeAll.length}</div><div class="s">sold in the last ~2 months</div></div>
@@ -801,7 +887,7 @@ const VIEWS={
   let body;
   if(view==='table'){
    const ls=inReg.slice().sort((a,b)=>(a.premium??999)-(b.premium??999));
-   body=`<div class="panel" style="margin-top:16px"><h2>Launch vs resale — and how it's selling <span class="pill">sorted by premium</span></h2>
+   body=`<div class="panel" style="margin-top:16px"><h2>Launch vs resale, and how it's selling <span class="pill">sorted by premium</span></h2>
    <div style="overflow-x:auto;margin-top:6px"><table class="tbl"><thead><tr>
      <th>Launch</th><th class="r">Launch PSF</th><th class="r">vs resale</th><th class="hide-sm">Pricing</th><th class="r hide-sm">Units sold</th><th class="r hide-sm">Last sale</th><th>Status</th>
    </tr></thead><tbody>${ls.map(launchRow).join('')}</tbody></table></div>
@@ -817,15 +903,15 @@ const VIEWS={
  },
  upcoming(){
   const u=D.upcoming||[];
-  const hero=`<div class="lede"><b class="serif">Upcoming launches</b> — what's coming, not on sale yet. Nothing has transacted, so each figure is <b>indicative</b>, benchmarked against the real resale around it.</div>
-   <div class="flag-w" style="margin-top:12px">⚠ <b>Indicative only.</b> These aren't selling yet, so prices are estimated from the area's resale — not transactions. Always verify launch dates &amp; pricing with the developer.</div>`;
+  const hero=`<div class="lede"><b class="serif">Upcoming launches</b>, what's coming, not on sale yet. Nothing has transacted, so each figure is <b>indicative</b>, benchmarked against the real resale around it.</div>
+   <div class="flag-w" style="margin-top:12px">⚠ <b>Indicative only.</b> These aren't selling yet, so prices are estimated from the area's resale, not transactions. Always verify launch dates &amp; pricing with the developer.</div>`;
   if(!u.length)return hero+`<div class="empty"><div class="b serif">Watchlist is being built</div>Upcoming projects we are tracking will appear here, each benchmarked against nearby resale.</div>`;
   return hero+`<div class="launch-feed" style="margin-top:18px">${u.map(upcomingCard).join('')}</div>
-   <div class="note" style="text-align:center;color:var(--ink3);margin:8px 0 30px">A hand-picked watchlist, kept current weekly,, each benchmarked against the median resale of comparable condos in the same area. Indicative framing — not a valuation.</div>`;
+   <div class="note" style="text-align:center;color:var(--ink3);margin:8px 0 30px">A hand-picked watchlist, kept current weekly,, each benchmarked against the median resale of comparable condos in the same area. Indicative framing, not a valuation.</div>`;
  },
  compare(){
   if(!CMP.length)return `<div class="hero compact"><h1 class="serif">Compare, <em>side by side</em>.</h1>
-    <p>Add condos with the ⇄ button on any project to line them up — price, how they're trending, yield and tenure, head to head.</p></div>
+    <p>Add condos with the ⇄ button on any project to line them up, price, how they're trending, yield and tenure, head to head.</p></div>
     <div class="empty"><div class="b serif">No condos added yet</div>Open any condo → “Add to compare”. Up to 3.</div>`;
   const ps=CMP.map(n=>D.projects.find(p=>p.project===n)).filter(Boolean);
   return `<div class="hero compact"><h1 class="serif">Side by side</h1><p>${ps.length} condo${ps.length>1?'s':''} compared. <button onclick="CMP=[];render()" style="color:var(--gold);font-size:13px;font-weight:600">Clear all</button></p></div>
@@ -852,10 +938,10 @@ const VIEWS={
   const acRows=q?rows.slice(0,8):[];
   const ac=`<div class="ac ${acRows.length?'show':''}" id="ac">${acRows.map(g=>`<div class="ac-item" data-h="${esc(g.town)}|${esc(g.ft)}"><span class="ac-n">${g.town} · ${tcFt(g.ft)}</span><span class="ac-d">$${g.price.toLocaleString()} · $${g.psf} psf · ${g.lease}y lease</span></div>`).join('')}</div>`;
   return `<div class="lede2"><h1 class="serif">Every HDB town &amp; flat type, <em>by the numbers</em>.</h1>
-     <p>Search a town to see <b>real resale prices</b>, typical <b>remaining lease</b>, rental yield, recent sales block by block — and how it's priced against the islandwide median for the same flat type. Straight from official HDB data.</p>
+     <p>Search a town to see <b>real resale prices</b>, typical <b>remaining lease</b>, rental yield, recent sales block by block, and how it's priced against the islandwide median for the same flat type. Straight from official HDB data.</p>
      <div class="herochips"><span><b>${H.n_towns}</b> towns</span><span><b>${(H.n_txns/1000).toFixed(0)}k</b> resales</span><span>Official HDB data</span><span>Refreshed weekly</span></div></div>
    <div class="ctrls">
-     <div class="search"><span class="si">🔍</span><input id="q" autocomplete="off" placeholder="Search a town — e.g. Bishan, Punggol…" value="${FILT.q}">${ac}</div>
+     <div class="search"><span class="si"><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:middle" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span><input id="q" autocomplete="off" placeholder="Search a town, e.g. Bishan, Punggol…" value="${FILT.q}">${ac}</div>
      <select class="f" id="ftown" title="Town">${townOpts}</select>
      <select class="f" id="fft" title="Flat type">${ftOpts}</select>
      <select class="f" id="fmature" title="Estate">${matOpts}</select>
@@ -866,32 +952,32 @@ const VIEWS={
      ${[['town','Town',''],['ft','Flat type',''],['price','Median price','typical'],['psf','$ / sqft','typical'],['lease','Lease left','typical'],['yield','Yield','rent / year'],['vs_national','vs national','same flat type'],['txns','Sales','last '+H.window_months+' mo']].map(c=>`<th class="${['price','psf','lease','yield','vs_national','txns'].includes(c[0])?'r':''} ${['yield','vs_national'].includes(c[0])?'hide-sm':''}" data-hk="${c[0]}"><span class="thl">${c[1]}${HSORT.k===c[0]?(HSORT.dir<0?' ▾':' ▴'):''}</span>${c[2]?`<span class="ths">${c[2]}</span>`:''}</th>`).join('')}
    </tr></thead><tbody>${rows.slice(0,300).map(hdbRow).join('')}</tbody></table>
    ${rows.length>300?`<div class="empty" style="padding:18px">Showing 300 of ${rows.length}. Filter to narrow down.</div>`:''}</div>
-   <div class="legend"><b>How to read this:</b> <span><b>Lease left</b> — typical remaining lease in years; the #1 HDB price driver</span><span><b>vs national</b> — this town's psf vs the islandwide median for the <i>same flat type</i> (<span class="pos">green = cheaper</span>, red = pricier)</span><span><b>Yield</b> — gross annual rent as a % of price</span><span><b>Sales</b> — resale transactions over the window</span></div>`;
+   <div class="legend"><b>How to read this:</b> <span><b>Lease left</b>, typical remaining lease in years; the #1 HDB price driver</span><span><b>vs national</b>, this town's psf vs the islandwide median for the <i>same flat type</i> (<span class="pos">green = cheaper</span>, red = pricier)</span><span><b>Yield</b>, gross annual rent as a % of price</span><span><b>Sales</b>, resale transactions over the window</span></div>`;
  },
  about(){
   if(MODE==='hdb'&&H) return aboutHDB();
   const asof=MON[+D.as_of.slice(2)]+" ’"+D.as_of.slice(0,2);
   const defs=[
-    ['Price per sqft','The typical transacted price per square foot — the median of actual caveats for that condo over the data window.'],
-    ['How it\'s priced','We compare the condo three ways: vs <b>nearby</b> condos within 1.5km (matched on tenure — freehold to freehold, leasehold to leasehold, since freehold trades at a premium in SG), vs its <b>town</b>, and vs its <b>district</b>. “Cheaper / pricier” is a factual gap, not a rating.'],
-    ['Hard to compare','When a condo\'s price sits very far from its neighbours, it\'s usually a different type (much older, or much bigger / smaller units), so we don\'t show a nearby figure — but the town and district comparisons still apply.'],
-    ['Price trend','The condo\'s median price per sqft month by month, so you can see the actual path — rising, flat or easing.'],
+    ['Price per sqft','The typical transacted price per square foot, the median of actual caveats for that condo over the data window.'],
+    ['How it\'s priced','We compare the condo three ways: vs <b>nearby</b> condos within 1.5km (matched on tenure, freehold to freehold, leasehold to leasehold, since freehold trades at a premium in SG), vs its <b>town</b>, and vs its <b>district</b>. “Cheaper / pricier” is a factual gap, not a rating.'],
+    ['Hard to compare','When a condo\'s price sits very far from its neighbours, it\'s usually a different type (much older, or much bigger / smaller units), so we don\'t show a nearby figure, but the town and district comparisons still apply.'],
+    ['Price trend','The condo\'s median price per sqft month by month, so you can see the actual path, rising, flat or easing.'],
     ['What it rents for','Typical monthly rent and the gross rental yield (annual rent as a % of price, before costs), from matched rental contracts.'],
-    ['Recent sales','The latest actual transactions — date, size, price and psf — straight from the caveats.'],
+    ['Recent sales','The latest actual transactions, date, size, price and psf, straight from the caveats.'],
     ['What\'s around it','Nearest MRT (with walking time), top schools, parks and hawker centres, by real distance.'],
-    ['Region & tenure','Region is shown plainly — Prime (central), City-fringe, or Suburban. Tenure is freehold or leasehold, from the records.'],
-    ['Map','Every condo plotted by location and coloured by region — tap a dot for its full breakdown.']
+    ['Region & tenure','Region is shown plainly, Prime (central), City-fringe, or Suburban. Tenure is freehold or leasehold, from the records.'],
+    ['Map','Every condo plotted by location and coloured by region, tap a dot for its full breakdown.']
   ];
   return `<div class="hero compact"><h1 class="serif">About <em>the data</em>.</h1>
-    <p>Plain facts from official records — no scores, no rankings, no predictions. Just the numbers, so you and your client can read them yourselves.</p></div>
+    <p>Plain facts from official records, no scores, no rankings, no predictions. Just the numbers, so you and your client can read them yourselves.</p></div>
    <div class="panel" style="margin-top:18px"><h2>Where the numbers come from</h2>
-     <div class="note">Every figure is compiled from <b>official URA caveats</b> — the real prices lodged with the authorities when a property changes hands — over a rolling <b>${D.window_months}-month window</b> (as of ${asof}). Rental yields use matched rental contracts; tenure and project details come from the same official records. Nothing here is scraped, hand-entered, or guessed by AI.</div>
+     <div class="note">Every figure is compiled from <b>official URA caveats</b>, the real prices lodged with the authorities when a property changes hands, over a rolling <b>${D.window_months}-month window</b> (as of ${asof}). Rental yields use matched rental contracts; tenure and project details come from the same official records. Nothing here is scraped, hand-entered, or guessed by AI.</div>
    </div>
    <div class="panel"><h2>What each number means</h2>
      <div class="deflist">${defs.map(d=>`<div class="defrow"><div class="defk">${d[0]}</div><div class="defv">${d[1]}</div></div>`).join('')}</div>
    </div>
    <div class="panel"><h2>Honest limits</h2>
-     <div class="flag-w" style="margin-top:0">Only about <b>${D.window_months} months</b> of caveat history exists, so the price-trend chart covers roughly a year and a half — not multiple market cycles. Every figure is point-in-time and <b>indicative only</b>. Always verify independently before any decision. This is research, <b>not financial advice</b>.</div>
+     <div class="flag-w" style="margin-top:0">Only about <b>${D.window_months} months</b> of caveat history exists, so the price-trend chart covers roughly a year and a half, not multiple market cycles. Every figure is point-in-time and <b>indicative only</b>. Always verify independently before any decision. This is research, <b>not financial advice</b>.</div>
    </div>
    <div class="panel"><h2>Always current</h2>
      <div class="note">The data refreshes automatically every week as new caveats are lodged, so the numbers stay current as the market moves.</div></div>`;
@@ -903,7 +989,7 @@ function gcol(g){return ({A:'#0b7d5e',B:'#2f6aa6',C:'#9a6a10',D:'#b33f36',F:'#b3
 function rowHtml(p){
   const thin=p.txns<5;
   const vs=thin?`<span class="vsp flat" title="Too few recent sales to compare">·</span>`
-    :p.value_flag?`<span class="vsp warn" title="Prices too different from nearby to compare fairly — likely a different type">⚠</span>`
+    :p.value_flag?`<span class="vsp warn" title="Prices too different from nearby to compare fairly, likely a different type">⚠</span>`
     :p.discount>=2?`<span class="vsp pos">↓${p.discount}%</span>`
     :p.discount<=-2?`<span class="vsp neg">↑${-p.discount}%</span>`
     :`<span class="vsp flat">≈</span>`;
@@ -914,7 +1000,7 @@ function rowHtml(p){
     :`<span class="trend flat">0%</span>`;
   const yb=!p.yield?'lo':p.yield>=4?'hi':p.yield>=3.2?'mid':'lo';
   return `<tr data-p="${esc(p.project)}">
-   <td><span class="pn">${p.project}<small>${p.area_name?p.area_name+' · ':''}${distName(p.district)}${p.fh?' · FH':''}</small></span></td>
+   <td><span class="pn">${p.project}<small>${p.area_name?p.area_name+' · ':''}${distName(p.district)}${p.fh?' · FH':''}</small></span>${schoolBadge(p)}</td>
    <td class="hide-sm"><span class="chip seg-${p.seg}">${segShort(p.seg)}</span></td>
    <td class="r"><b class="psf">$${p.psf.toLocaleString()}</b></td>
    <td class="r">${vs}</td>
@@ -958,9 +1044,9 @@ function launchCard(l){
 }
 function launchTake(l){
   const r=l.premium, u=(l.txns||0).toLocaleString(), st=launchStatus(l.last)[0].replace('● ','').toLowerCase();
-  if(r==null) return `Priced at $${l.launch_psf} psf — ${u} units sold, ${st}.`;
-  const w=r<=18?`${r}% over resale — below the typical new-launch premium`:r<=45?`a ${r}% premium over area resale — around typical for a new launch`:r<=60?`a ${r}% premium over resale — above the typical new-launch premium`:`${r}% over resale — well above the typical new-launch premium`;
-  return `At $${l.launch_psf} psf it's ${w} (resale ~$${l.resale_psf||'—'}) — ${u} units sold, ${st}.`;
+  if(r==null) return `Priced at $${l.launch_psf} psf, ${u} units sold, ${st}.`;
+  const w=r<=18?`${r}% over resale, below the typical new-launch premium`:r<=45?`a ${r}% premium over area resale, around typical for a new launch`:r<=60?`a ${r}% premium over resale, above the typical new-launch premium`:`${r}% over resale, well above the typical new-launch premium`;
+  return `At $${l.launch_psf} psf it's ${w} (resale ~$${l.resale_psf||'—'}), ${u} units sold, ${st}.`;
 }
 
 // ---- research: "best value now" highlight (top A-tier picks, click for the thesis) ----
@@ -977,7 +1063,7 @@ function bestHook(p){
 function bestBlock(){
   const best=D.projects.filter(p=>!p.value_flag&&p.discount>=2).sort((a,b)=>b.discount-a.discount).slice(0,3);
   if(best.length<3)return '';
-  return `<div class="bestrow"><div class="best-h">📉 Priced furthest below nearby comparables <span>projects trading at the biggest discount to similar condos around them — click any for the breakdown</span></div>
+  return `<div class="bestrow"><div class="best-h"><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.15em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5v14h18"/><path d="M19 8l-6 6-3-3-4 4"/><path d="M19 13V8h-5"/></svg> Priced furthest below nearby comparables <span>projects trading at the biggest discount to similar condos around them, click any for the breakdown</span></div>
    <div class="best-cards">${best.map(p=>`<div class="best-c" data-p="${esc(p.project)}">
      <div class="best-top">${valChip(p)}<span class="best-n">${tc(p.project)}</span></div>
      <div class="best-sub">${p.street?tc(p.street)+', ':''}${distName(p.district)} · ${p.seg}</div>
@@ -1029,7 +1115,7 @@ function upcomingCard(l){
   const hasEst=l.est_psf!=null;
   const take=hasEst
     ? (l.premium!=null?`At an indicative <b>$${l.est_psf.toLocaleString()} psf</b> it would be <b>${l.premium>0?l.premium+'% above':Math.abs(l.premium)+'% below'}</b> the resale around it (~$${(l.resale_psf||0).toLocaleString()}).`:`Indicative <b>$${l.est_psf.toLocaleString()} psf</b>.`)
-    : (l.resale_psf?`Resale nearby runs <b>~$${l.resale_psf.toLocaleString()} psf</b>; new launches in this area have typically opened about <b>${l.typical_premium}% higher</b>, so a first guide is roughly <b>$${(l.expected_psf||0).toLocaleString()} psf</b> — confirm when it launches.`:`No resale benchmark available for this area yet.`);
+    : (l.resale_psf?`Resale nearby runs <b>~$${l.resale_psf.toLocaleString()} psf</b>; new launches in this area have typically opened about <b>${l.typical_premium}% higher</b>, so a first guide is roughly <b>$${(l.expected_psf||0).toLocaleString()} psf</b>, confirm when it launches.`:`No resale benchmark available for this area yet.`);
   return `<div class="lcard">
     <div class="lc-top"><div class="lc-name">${tc(l.project)}<small>${distArea(l.district)} · ${distName(l.district)} · ${segShort(l.seg)}</small></div><span class="lstat upc">◇ ${l.expected||'Upcoming'}</span></div>
     <div class="lc-row">
@@ -1063,8 +1149,8 @@ function openDD(name){
   };
   const nearbyRow=p.value_flag
     ? `<div class="cmp3r"><span class="cl">vs nearby<small>within 1.5km</small></span><span class="cv">~$${(p.peer_ref||0).toLocaleString()}</span><span class="cd warn">hard to compare</span></div>`
-    : cmpRow('vs nearby',(p.peer_tenure?p.peer_tenure+' · ':'')+'within 1.5km',p.peer_ref);
-  const pricedBlock=`<div class="sect">How it's priced</div>
+    : cmpRow('vs nearby',(p.peer_tenure?p.peer_tenure+' · ':'')+(p.peer_n?p.peer_n+' condos within 1.5km':'within 1.5km'),p.peer_ref);
+  const pricedBlock=`<div class="sect" id="dd-priced">How it's priced</div>
      <div class="cmp3">
        <div class="cmp3r head"><span class="cl">This condo</span><span class="cv">$${p.psf.toLocaleString()} psf</span><span class="cd none"></span></div>
        ${nearbyRow}
@@ -1072,47 +1158,65 @@ function openDD(name){
        ${cmpRow('vs D'+p.district,(distArea(p.district)||'district')+' · '+(p.dist_n||0)+' condos',p.dist_psf)}
      </div>
      <div class="cmphint">Green = this condo is cheaper per sqft than that benchmark; red = pricier. “Nearby” matches tenure (freehold vs leasehold); town &amp; district are the broader median.</div>`;
+  // compact quick-facts strip, makes the report's depth visible the moment it opens
+  const qf=[];
+  qf.push(['Price / sqft','$'+p.psf.toLocaleString()]);
+  qf.push(['Typical price',fmtP(p.price)]);
+  if(p.yield>0)qf.push(['Rental yield',p.yield+'%']);
+  if(p.mom!=null)qf.push(['6-mo trend',(p.mom>0?'▲ +':p.mom<0?'▼ ':'')+p.mom+'%',p.mom>0?'pos':p.mom<0?'neg':'']);
+  qf.push(['Tenure',p.fh?'Freehold':'Leasehold']);
+  if(a.mrt)qf.push(['Nearest MRT',a.mrt.name+(a.mrt.m?`<small>${walkMin(a.mrt.m)}</small>`:'')]);
+  if(a.schools&&a.schools.length)qf.push(['Schools nearby',a.schools.length+'<small>within walking distance</small>']);
+  const qfacts=`<div class="qfacts">${qf.map(f=>`<div class="qf"><div class="qk">${f[0]}</div><div class="qv ${f[2]||''}">${f[1]}</div></div>`).join('')}</div>`;
+  // jump chips, only for sections actually rendered for this project
+  const jumps=[[!thin,'dd-priced','Prices'],[!thin&&p.spark&&p.spark.length>=2,'dd-trend','Trend'],[!!p.yield,'dd-rent','Rent'],[p.sales&&p.sales.length,'dd-sales','Recent sales'],[a.mrt||a.schools,'dd-around','Around it'],[window.RESEARCH&&window.RESEARCH.notes&&window.RESEARCH.notes[p.project],'dd-notes','Notes']].filter(j=>j[0]);
+  const jumpHTML=jumps.length>1?`<div class="jumpchips">${jumps.map(j=>`<button class="jumpchip" data-j="${j[1]}">${j[2]}</button>`).join('')}</div>`:'';
+  // cross-link into HDB resale for the matching town (or a generic fallback)
+  const hTown=condoToHdbTown(p);
+  const hdbCross=H?`<div class="dd-cross">${hTown?`Prefer HDB? <a style="color:var(--green-d);font-weight:600;cursor:pointer" onclick="gotoHDB('${hTown.replace(/'/g,"\\'")}')">See ${hTown} resale flats →</a>`:`<a style="color:var(--green-d);font-weight:600;cursor:pointer" onclick="gotoHDB('')">Explore HDB resale data →</a>`}</div>`:'';
   $('#dd').innerHTML=`<div class="dd-head"><span class="gg vchip ${thin?'warn':(p.value_flag?'warn':(p.discount>=2?'pos':p.discount<=-2?'neg':''))}">${thin?'⚠ limited data':(p.value_flag?'⚠ hard to compare':(p.discount>=2?p.discount+'% below nearby':p.discount<=-2?(-p.discount)+'% above nearby':'in line w/ nearby'))}</span>
     <div class="tt">${tc(p.project)}<small>${p.street?tc(p.street)+' · ':''}${distName(p.district)} ${distArea(p.district)} · ${segShort(p.seg)} · ${p.fh?'Freehold':'Leasehold'}</small></div>
     <span class="x" onclick="closeDD()">✕</span></div>
    <div class="dd-body">
-     <div class="thesis">${thin?`${tc(p.project)} has had <b>${p.txns} recent sale${p.txns==1?'':'s'}</b> in the last ~${D.window_months} months, at around <b>$${p.psf.toLocaleString()} psf</b>. That's too few to chart a reliable trend or comparison — but here's what actually transacted.`:thesis(p)}</div>
-     ${thin?`<div class="flag-w">⚠ <b>Limited data.</b> Only <b>${p.txns} recent sale${p.txns==1?'':'s'}</b> here, so the figures are indicative — not a reliable median. We don't show a trend or “vs nearby” comparison until there's enough trading. For a precise valuation of a specific unit, use Caveat.</div>`:(p.value_flag?`<div class="flag-w">⚠ <b>Hard to compare:</b> this condo's prices are very different from the condos around it — usually because it's a different type (much older, or much bigger / smaller units). So we don't show a "cheaper / pricier than nearby" figure for it.</div>`:'')}
+     ${qfacts}
+     ${jumpHTML}
+     <div class="thesis">${thin?`${tc(p.project)} has had <b>${p.txns} recent sale${p.txns==1?'':'s'}</b> in the last ~${D.window_months} months, at around <b>$${p.psf.toLocaleString()} psf</b>. That's too few to chart a reliable trend or comparison, but here's what actually transacted.`:thesis(p)}</div>
+     ${thin?`<div class="flag-w">⚠ <b>Limited data.</b> Only <b>${p.txns} recent sale${p.txns==1?'':'s'}</b> here, so the figures are indicative, not a reliable median. We don't show a trend or “vs nearby” comparison until there's enough trading. For a precise valuation of a specific unit, use Caveat.</div>`:(p.value_flag?`<div class="flag-w">⚠ <b>Hard to compare:</b> this condo's prices are very different from the condos around it, usually because it's a different type (much older, or much bigger / smaller units). So we don't show a "cheaper / pricier than nearby" figure for it.</div>`:'')}
      <div class="dd-cols"><div class="dd-col">
      <div class="sect">What it costs <span class="secthint">${thin?'· from '+p.txns+' sale'+(p.txns==1?'':'s'):''}</span></div>
      <div class="mgrid">
        <div class="mc"><div class="k">${thin?'Price / sqft':'Typical price / sqft'}</div><div class="v">$${p.psf.toLocaleString()}</div></div>
        <div class="mc"><div class="k">${thin?'A unit':'A typical unit'}</div><div class="v">${fmtP(p.price)} <small>~${p.sqft?p.sqft.toLocaleString()+' sqft':p.area+' sqm'}</small></div></div>
-       <div class="mc"><div class="k">Recent price range</div><div class="v">$${(p.psf_lo||0).toLocaleString()}–$${(p.psf_hi||0).toLocaleString()} <small>psf</small></div></div>
-       <div class="mc"><div class="k">Unit sizes seen</div><div class="v">${p.sqft_lo?p.sqft_lo.toLocaleString():'—'}–${p.sqft_hi?p.sqft_hi.toLocaleString():'—'} <small>sqft</small></div></div>
+       <div class="mc"><div class="k">Recent price range</div><div class="v">$${(p.psf_lo||0).toLocaleString()}-$${(p.psf_hi||0).toLocaleString()} <small>psf</small></div></div>
+       <div class="mc"><div class="k">Unit sizes seen</div><div class="v">${p.sqft_lo?p.sqft_lo.toLocaleString():'—'}-${p.sqft_hi?p.sqft_hi.toLocaleString():'—'} <small>sqft</small></div></div>
      </div>
      ${thin?'':pricedBlock}
 
-     ${!thin&&p.spark&&p.spark.length>=2?`<div class="sect sect-row">Price trend ${trendDelta(p.spark)}</div>
-     <div class="facnote">Median price per sqft from official caveats — ${D.window_months} months to ${MON[+D.as_of.slice(2)]} ’${D.as_of.slice(0,2)}.</div>
+     ${!thin&&p.spark&&p.spark.length>=2?`<div class="sect sect-row" id="dd-trend">Price trend ${trendDelta(p.spark)}</div>
+     <div class="facnote">Median price per sqft from official caveats, ${D.window_months} months to ${MON[+D.as_of.slice(2)]} ’${D.as_of.slice(0,2)}.</div>
      <div class="chartbox">${sparkSVG(p.spark)}</div>`:''}
 
-     ${p.yield?`<div class="sect">What it rents for</div>
+     ${p.yield?`<div class="sect" id="dd-rent">What it rents for</div>
      <div class="rentbox"><div class="rentbig">~$${rent?rent.toLocaleString():'—'}<span>/month</span></div>
-       <div class="rentnote">A typical unit rents for around this — roughly a <b>${p.yield}% gross yearly return</b> on its price${yCmp?`, <b>${yCmp}</b> the Singapore condo average of ~${MEDY}%`:''}. Before costs.</div></div>`:''}
+       <div class="rentnote">A typical unit rents for around this, roughly a <b>${p.yield}% gross yearly return</b> on its price${yCmp?`, <b>${yCmp}</b> the Singapore condo average of ~${MEDY}%`:''}. Before costs.</div></div>`:''}
      </div><div class="dd-col">
-     ${(p.sales&&p.sales.length)?`<div class="sect">Recent sales <span class="secthint">· actual caveats</span></div>
+     ${(p.sales&&p.sales.length)?`<div class="sect" id="dd-sales">Recent sales <span class="secthint">· actual caveats</span></div>
      <div class="saletbl"><div class="saleh"><span>When</span><span class="r">Size</span><span class="r">Price</span><span class="r">$/sqft</span></div>
        ${p.sales.slice(0,8).map(s=>`<div class="saler"><span>${ymLabel(s.ym)}</span><span class="r">${s.sqft.toLocaleString()} sqft</span><span class="r">${fmtP(s.price)}</span><span class="r">$${s.psf.toLocaleString()}</span></div>`).join('')}</div>`:''}
 
-     ${(a.mrt||a.schools)?`<div class="sect">What's around it</div>
+     ${(a.mrt||a.schools)?`<div class="sect" id="dd-around">What's around it</div>
      <div class="amgrid">
-       ${a.mrt?`<div class="amc"><div class="amk">🚇 Nearest MRT</div><div class="amv">${a.mrt.name}</div><div class="ams">${walkMin(a.mrt.m)} · ${fmtm(a.mrt.m)}</div></div>`:''}
-       ${a.park?`<div class="amc"><div class="amk">🌳 Nearest park</div><div class="amv">${a.park.name}</div><div class="ams">${walkMin(a.park.m)} · ${fmtm(a.park.m)}</div></div>`:''}
-       ${a.hawker?`<div class="amc"><div class="amk">🍜 Hawker / food</div><div class="amv">${a.hawker.name}</div><div class="ams">${fmtm(a.hawker.m)} away</div></div>`:''}
+       ${a.mrt?`<div class="amc"><div class="amk">${AMICON.mrt} Nearest MRT</div><div class="amv">${a.mrt.name}</div><div class="ams">${walkMin(a.mrt.m)} · ${fmtm(a.mrt.m)}</div></div>`:''}
+       ${a.park?`<div class="amc"><div class="amk">${AMICON.park} Nearest park</div><div class="amv">${a.park.name}</div><div class="ams">${walkMin(a.park.m)} · ${fmtm(a.park.m)}</div></div>`:''}
+       ${a.hawker?`<div class="amc"><div class="amk">${AMICON.hawker} Hawker / food</div><div class="amv">${a.hawker.name}</div><div class="ams">${fmtm(a.hawker.m)} away</div></div>`:''}
      </div>
-     ${a.schools&&a.schools.length?`<div class="amschools"><div class="amk" style="margin-bottom:7px">🏫 Schools nearby</div>${a.schools.map(s=>`<span class="schip">${s.name} <b>${fmtm(s.m)}</b></span>`).join('')}</div>`:''}`:''}
+     ${a.schools&&a.schools.length?`<div class="amschools"><div class="amk" style="margin-bottom:7px">${AMICON.school} Schools nearby</div>${a.schools.map(s=>`<span class="schip">${s.name} <b>${fmtm(s.m)}</b></span>`).join('')}</div>`:''}`:''}
 
      <div class="sect">How active it is</div>
-     <div class="readout"><b>${p.txns.toLocaleString()}</b> units changed hands in the last ${D.window_months} months${p.txns_recent?` (<b>${p.txns_recent}</b> in the last 6)`:''} — ${p.txns>=80?'it trades very actively':p.txns>=25?'it trades fairly actively':'it trades fairly quietly'}, which affects how easily you could resell.</div>
+     <div class="readout"><b>${p.txns.toLocaleString()}</b> units changed hands in the last ${D.window_months} months${p.txns_recent?` (<b>${p.txns_recent}</b> in the last 6)`:''}, ${p.txns>=80?'it trades very actively':p.txns>=25?'it trades fairly actively':'it trades fairly quietly'}, which affects how easily you could resell.</div>
 
-     ${(()=>{const rn=window.RESEARCH&&window.RESEARCH.notes&&window.RESEARCH.notes[p.project];return rn?`<div class="sect">On the ground <span class="secthint">· researched · ${window.RESEARCH.asof||''}</span></div>
-     <div class="research"><p>${rn.note}</p>${rn.sources&&rn.sources.length?`<div class="rsrc">${rn.sources.map(s=>/^https?:/.test(s)?`<a href="${s}" target="_blank">${s.replace(/^https?:\/\/(www\.)?/,'').split('/')[0]} ↗</a>`:`<span>${s}</span>`).join('')}</div>`:''}<div class="rdisc">${window.RESEARCH.disclaimer||'Researched from public sources — verify before quoting.'}</div></div>`:''})()}
+     ${(()=>{const rn=window.RESEARCH&&window.RESEARCH.notes&&window.RESEARCH.notes[p.project];return rn?`<div class="sect" id="dd-notes">On the ground <span class="secthint">· researched · ${window.RESEARCH.asof||''}</span></div>
+     <div class="research"><p>${rn.note}</p>${rn.sources&&rn.sources.length?`<div class="rsrc">${rn.sources.map(s=>/^https?:/.test(s)?`<a href="${s}" target="_blank">${s.replace(/^https?:\/\/(www\.)?/,'').split('/')[0]} ↗</a>`:`<span>${s}</span>`).join('')}</div>`:''}<div class="rdisc">${window.RESEARCH.disclaimer||'Researched from public sources, verify before quoting.'}</div></div>`:''})()}
      </div></div>
 
      <div class="dd-actions">
@@ -1121,12 +1225,28 @@ function openDD(name){
        <a class="actbtn" href="${tv}" target="_blank">Search online ↗</a>
      </div>
      <div class="dd-cross">Caveat values a specific unit · Thesis shows the whole condo's picture.</div>
+     ${hdbCross}
    </div>`;
   $('#ov').classList.add('show');
 }
+// map a condo's planning area to a loaded HDB town (exact area_name match, plus a few confident aliases)
+function condoToHdbTown(p){
+  if(!H)return null;
+  const towns=H.groups.map(g=>g.town),an=(p.area_name||'').toLowerCase();
+  let t=towns.find(x=>x.toLowerCase()===an); if(t)return t;
+  const ALIAS={'kallang':'Kallang-Whampoa','downtown core':'Central Area','outram':'Central Area','rochor':'Central Area','museum':'Central Area'};
+  if(ALIAS[an]&&towns.includes(ALIAS[an]))return ALIAS[an];
+  return null;
+}
+// switch to HDB mode, optionally pre-filtered to a town
+function gotoHDB(town){
+  closeDD();MODE='hdb';TAB='hdb';FILT.town=town||'';
+  $$('.modebtn').forEach(x=>x.classList.toggle('on',x.dataset.mode==='hdb'));
+  setDataTag();renderTabs();render();
+}
 function thesis(p){
   const parts=[];
-  if(p.value_flag)parts.push(`priced <b>very differently</b> from the condos around it — likely a different type, so it's hard to compare directly`);
+  if(p.value_flag)parts.push(`priced <b>very differently</b> from the condos around it, likely a different type, so it's hard to compare directly`);
   else if(p.discount>=2)parts.push(`priced <b>${p.discount}% below</b> comparable condos within 1.5km (which average ~$${(p.peer_ref||0).toLocaleString()} psf)`);
   else if(p.discount<=-2)parts.push(`priced <b>${-p.discount}% above</b> comparable condos within 1.5km (which average ~$${(p.peer_ref||0).toLocaleString()} psf)`);
   else parts.push(`priced <b>in line</b> with comparable condos within 1.5km`);
@@ -1142,6 +1262,9 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDD();});
 
 // delegated events
 document.addEventListener('click',e=>{
+  const scl=e.target.closest('#schoolClear'); if(scl){FILT.school='';render();return;}
+  const zb=e.target.closest('.zonebtn'); if(zb){FILT.schoolZone=zb.dataset.zone;render();return;}
+  const jc=e.target.closest('.jumpchip'); if(jc){const el=document.getElementById(jc.dataset.j);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});return;}
   const chip=e.target.closest('.up-chip'); if(chip){FILT.upreg=chip.dataset.reg;render();return;}
   const lv=e.target.closest('.lview-btn'); if(lv){FILT.lview=lv.dataset.v;render();return;}
   const lo=e.target.closest('.lold-btn'); if(lo){FILT.lold=true;render();return;}
@@ -1157,13 +1280,17 @@ document.addEventListener('click',e=>{
   const hth=e.target.closest('.tbl thead th[data-hk]');
   if(hth){const k=hth.dataset.hk;if(HSORT.k===k)HSORT.dir*=-1;else{HSORT.k=k;HSORT.dir=(k==='town'||k==='ft')?1:-1;}render();return;}
 });
-document.addEventListener('input',e=>{if(e.target.id==='q'){FILT.q=e.target.value;const inp=e.target;const pos=inp.selectionStart;render(true);const ni=$('#q');if(ni){ni.focus();ni.setSelectionRange(pos,pos);}}});
+document.addEventListener('input',e=>{
+  if(e.target.id==='q'){FILT.q=e.target.value;const inp=e.target;const pos=inp.selectionStart;render(true);const ni=$('#q');if(ni){ni.focus();ni.setSelectionRange(pos,pos);}}
+  else if(e.target.id==='fschool'){if(SCHOOL_IDX&&SCHOOL_IDX.has(e.target.value)){FILT.school=e.target.value;FILT.schoolZone=FILT.schoolZone||'2km';render();}}
+});
 document.addEventListener('change',e=>{
   const id=e.target.id,v=e.target.value;
   if(id==='fseg'){FILT.seg=v;render();}
   else if(id==='fdist'){FILT.district=v;render();}
   else if(id==='ften'){FILT.tenure=v;render();}
   else if(id==='fprice'){FILT.price=v;render();}
+  else if(id==='fschool'){if(SCHOOL_IDX&&SCHOOL_IDX.has(v)){FILT.school=v;FILT.schoolZone=FILT.schoolZone||'2km';render();}}
   else if(id==='fsort'){const a=v.split('|');SORT={k:a[0],dir:+a[1]};render();}
   else if(id==='ftown'){FILT.town=v;render();}
   else if(id==='fft'){FILT.ft=v;render();}
@@ -1179,26 +1306,26 @@ function esc(s){return String(s).replace(/"/g,'&quot;');}
     <div class="th-head">
       <img src="icon-192.png" alt="Thesis">
       <h2>Add Thesis to your phone</h2>
-      <p>Install once — pull up any project's numbers and the live launch feed in seconds.</p>
+      <p>Install once, pull up any project's numbers and the live launch feed in seconds.</p>
     </div>
     <div class="th-feats">
-      <div class="th-feat"><div class="fi">📊</div><b>The numbers on every project</b><span>From official caveats</span></div>
-      <div class="th-feat"><div class="fi">📈</div><b>Live launch feed</b><span>How each launch is priced &amp; selling</span></div>
-      <div class="th-feat"><div class="fi">📶</div><b>Opens like an app</b><span>Fullscreen, no browser bars</span></div>
-      <div class="th-feat"><div class="fi">🆓</div><b>Free · official data</b><span>URA caveats · no login</span></div>
+      <div class="th-feat"><div class="fi"><svg viewBox="0 0 24 24" width="1.3em" height="1.3em" style="vertical-align:middle" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M6 21v-7M12 21V5M18 21v-9"/></svg></div><b>The numbers on every project</b><span>From official caveats</span></div>
+      <div class="th-feat"><div class="fi"><svg viewBox="0 0 24 24" width="1.3em" height="1.3em" style="vertical-align:middle" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 7-7"/><path d="M20 8V3.5M20 8h-4.5"/></svg></div><b>Live launch feed</b><span>How each launch is priced &amp; selling</span></div>
+      <div class="th-feat"><div class="fi"><svg viewBox="0 0 24 24" width="1.3em" height="1.3em" style="vertical-align:middle" fill="currentColor"><rect x="3" y="14" width="3.4" height="6" rx="1"/><rect x="8.5" y="10" width="3.4" height="10" rx="1"/><rect x="14" y="6" width="3.4" height="14" rx="1"/><rect x="19.5" y="2" width="3.4" height="18" rx="1"/></svg></div><b>Opens like an app</b><span>Fullscreen, no browser bars</span></div>
+      <div class="th-feat"><div class="fi"><svg viewBox="0 0 24 24" width="1.3em" height="1.3em" style="vertical-align:middle" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 11 4h7a2 2 0 0 1 2 2v7l-8 8a1.5 1.5 0 0 1-2 0l-7-7a1.5 1.5 0 0 1 0-2z"/><circle cx="16" cy="8" r="1.3"/></svg></div><b>Free · official data</b><span>URA caveats · no login</span></div>
     </div>
     <div class="th-seg"><button data-os="ios" class="on">iPhone</button><button data-os="and">Android</button></div>
     <ol class="th-steps" id="thIos">
       <li>Open this page in <b>Safari</b> (not Chrome).</li>
-      <li>Tap the <b>Share</b> button — the square with an ↑ arrow.</li>
+      <li>Tap the <b>Share</b> button, the square with an ↑ arrow.</li>
       <li>Scroll down and tap <b>"Add to Home Screen"</b>.</li>
-      <li>Tap <b>Add</b> — the Thesis icon appears on your home screen. 🎉</li>
+      <li>Tap <b>Add</b>, the Thesis icon appears on your home screen.</li>
     </ol>
     <ol class="th-steps th-hidden" id="thAnd">
       <li>Open this page in <b>Chrome</b>.</li>
       <li>Tap the <b>⋮</b> menu (top-right).</li>
       <li>Tap <b>"Add to Home screen"</b> / <b>"Install app"</b>.</li>
-      <li>Tap <b>Add</b> — the Thesis app icon appears. 🎉</li>
+      <li>Tap <b>Add</b>, the Thesis app icon appears.</li>
     </ol>
     <button class="th-got" onclick="thCloseGuide()">Got it</button>
   </div>
@@ -1226,7 +1353,7 @@ function psGate(){
   var hold=document.createElement('div'); hold.className='gatehold';
   hold.innerHTML=PS.cardHTML({
     heading:'See every Singapore home, in full.',
-    sub:'You’re seeing a preview. Join PropSight free to open the complete research — every condo &amp; HDB, ranked, compared and tracked.'
+    sub:'You’re seeing a preview. Join PropSight free to open the complete research, every condo &amp; HDB, ranked, compared and tracked.'
   });
   wrap.parentNode.insertBefore(hold, wrap.nextSibling);
   PS.wire(hold,'research',function(){ setTimeout(function(){ render(true); },900); });

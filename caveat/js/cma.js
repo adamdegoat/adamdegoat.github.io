@@ -1,8 +1,8 @@
-/* Caveat — CMA deck tool. */
+/* Caveat, CMA deck tool. */
 const CMA = (() => {
   const C = Caveat; let IDX = null; let mode = 'hdb';
 
-  // sqm/sqft input toggle — engine always works in sqm; choice is remembered.
+  // sqm/sqft input toggle, engine always works in sqm; choice is remembered.
   const areaUnit = () => localStorage.getItem('caveat_area_unit') || (mode === 'condo' ? 'sqft' : 'sqm');
   const toSqm = v => (areaUnit() === 'sqft' && v ? v / C.SQM_SQF : v);
   function wireAreaUnit() {
@@ -45,7 +45,7 @@ const CMA = (() => {
 
   function hdbFields() {
     return `
-      <div class="field ac-wrap"><label>Address — street or estate <span style="font-weight:500;color:var(--ink-3)">· type &amp; pick from the list</span></label>
+      <div class="field ac-wrap"><label>Address, street or estate <span style="font-weight:500;color:var(--ink-3)">· type &amp; pick from the list</span></label>
         <input id="f_street" autocomplete="off" placeholder="e.g. Potong Pasir Ave 1">
         <input type="hidden" id="f_town">
         <div class="ac-list" id="f_streetac" style="display:none"></div></div>
@@ -59,7 +59,7 @@ const CMA = (() => {
       </div>
       <div class="field"><label>Lease remaining <span style="font-weight:500;color:var(--ink-3)">· optional</span></label>
         <input id="f_lease" type="number" inputmode="numeric" placeholder="62"><span class="suffix">yrs</span></div>
-      <p class="hint">Just the address &amp; flat type is enough — add floor area, storey or lease to sharpen the estimate.</p>`;
+      <p class="hint">Just the address &amp; flat type is enough, add floor area, storey or lease to sharpen the estimate.</p>`;
   }
   async function wireHdb() {
     const townH = document.getElementById('f_town'), ft = document.getElementById('f_ftype');
@@ -98,7 +98,7 @@ const CMA = (() => {
         <div><label>Floor level <span style="font-weight:500;color:var(--ink-3)">· optional</span></label><input id="f_floor" type="number" inputmode="numeric" placeholder="any"></div>
       </div>
       <div class="field"><div id="f_projinfo" class="hint"></div></div>
-      <p class="hint">Just the project name works — but condo prices swing a lot by size, so <b>add your floor area</b> for an accurate figure (without it you'll get a rough typical-unit estimate).</p>`;
+      <p class="hint">Just the project name works, but condo prices swing a lot by size, so <b>add your floor area</b> for an accurate figure (without it you'll get a rough typical-unit estimate).</p>`;
   }
   function wireCondo() {
     const inp = document.getElementById('f_project'), ac = document.getElementById('f_ac');
@@ -149,7 +149,7 @@ const CMA = (() => {
         <div class="ac-list" id="l_streetac" style="display:none"></div></div>
       <div class="field"><label>Landed type</label><select id="l_type">
         <option value="">All landed</option><option>Terrace</option><option>Semi-detached</option><option>Detached</option></select></div>
-      <p class="hint">Search a street to see recent landed sales there, with the surrounding area for context. Landed prices swing widely with land size, tenure &amp; plot — these are <b>reference transactions</b>, not a single estimate.</p>`;
+      <p class="hint">Search a street to see recent landed sales there, with the surrounding area for context. Landed prices swing widely with land size, tenure &amp; plot, these are <b>reference transactions</b>, not a single estimate.</p>`;
   }
   async function wireLanded() {
     const inp = document.getElementById('l_street'), ac = document.getElementById('l_streetac'), meta = document.getElementById('l_meta');
@@ -175,7 +175,7 @@ const CMA = (() => {
   }
   async function genLanded(res) {
     let meta = val('l_meta');
-    if (!meta) {  // typed but didn't tap — auto-resolve an exact street match
+    if (!meta) {  // typed but didn't tap, auto-resolve an exact street match
       const typed = val('l_street').trim().toUpperCase();
       const LS = await C.landedStreets();
       const hit = typed && LS.find(s => s.street === typed);
@@ -186,7 +186,7 @@ const CMA = (() => {
     let area = (await C.condoDistrict(d)).filter(r => LANDED_TYPES.includes(r.ptype));
     if (type) area = area.filter(r => r.ptype === type || r.ptype === 'Strata ' + type);
     const rows = area.filter(r => (r.street || '').toUpperCase() === streetU);
-    if (rows.length < 1) throw new Error(`No recent ${type || 'landed'} sales on ${Narrative.titleCase(street)} — try the "All landed" type or another street.`);
+    if (rows.length < 1) throw new Error(`No recent ${type || 'landed'} sales on ${Narrative.titleCase(street)}, try the "All landed" type or another street.`);
     rows.sort((a, b) => b.yymm.localeCompare(a.yymm));
     const prices = rows.map(r => r.price), psfs = rows.map(r => r.psf);
     const aPrices = area.map(r => r.price), aPsf = area.map(r => r.psf);
@@ -196,13 +196,13 @@ const CMA = (() => {
         <div class="deck-addr">${type || 'All landed'} · District ${d}</div>
         <div class="deck-sub">${rows.length} sale${rows.length > 1 ? 's' : ''} on this street · last 18 months</div></div>
         <div class="chip lower"><span class="chip-dot"></span>Reference only</div></div></div>
-      <div class="ref-banner">⚠ Landed homes vary enormously by land size, tenure and plot — there is no reliable single price-per-sqft. These are <b>actual recent transactions</b> to anchor your own judgement, not a valuation.</div>
+      <div class="ref-banner">⚠ Landed homes vary enormously by land size, tenure and plot, there is no reliable single price-per-sqft. These are <b>actual recent transactions</b> to anchor your own judgement, not a valuation.</div>
       <div class="estimate" style="grid-template-columns:1fr 1fr 1fr">
         <div><div class="est-label">Median price · this street</div><div class="est-figure" style="font-size:30px">${C.fmtMoney(C.median(prices))}</div></div>
         <div><div class="est-label">Median land PSF</div><div class="est-figure" style="font-size:30px">$${Math.round(C.median(psfs))}</div></div>
-        <div><div class="est-label">Price range</div><div class="est-figure" style="font-size:22px">${C.fmtK(Math.min(...prices))}–${C.fmtK(Math.max(...prices))}</div></div>
+        <div><div class="est-label">Price range</div><div class="est-figure" style="font-size:22px">${C.fmtK(Math.min(...prices))}-${C.fmtK(Math.max(...prices))}</div></div>
       </div>
-      <p class="hint" style="margin:2px 0 0">Wider area — District ${d} ${type || 'landed'}: median <b>${C.fmtMoney(C.median(aPrices))}</b> at <b>$${Math.round(C.median(aPsf))} psf</b> across ${area.length} recent sale${area.length > 1 ? 's' : ''}.</p>
+      <p class="hint" style="margin:2px 0 0">Wider area, District ${d} ${type || 'landed'}: median <b>${C.fmtMoney(C.median(aPrices))}</b> at <b>$${Math.round(C.median(aPsf))} psf</b> across ${area.length} recent sale${area.length > 1 ? 's' : ''}.</p>
       <div class="deck-section"><h4>Recent sales on ${Narrative.titleCase(street)}</h4>
         <table class="comps"><thead><tr><th>Type</th><th class="hide-sm">Month</th>
           <th style="text-align:right">Land area</th><th style="text-align:right">PSF</th><th style="text-align:right">Price</th></tr></thead>
@@ -210,7 +210,7 @@ const CMA = (() => {
           <td>${r.ptype}</td><td class="hide-sm">${mLabel(r.yymm)}</td>
           <td class="num">${Math.round(r.area_sqm * C.SQM_SQF)} sf</td><td class="num">$${Math.round(r.psf)}</td><td class="num">${C.fmtK(r.price)}</td></tr>`).join('')}</tbody></table>
         <p class="hint" style="margin-top:10px">PSF is on strata/land area as filed with URA. Showing ${Math.min(rows.length, 14)} most recent of ${rows.length}.</p></div>
-      <div class="deck-disc">${window.__freshness ? `Transactions current as of ${window.__freshness.built}. ` : ''}Reference transactions from URA caveats — not a valuation or guarantee of price.</div>
+      <div class="deck-disc">${window.__freshness ? `Transactions current as of ${window.__freshness.built}. ` : ''}Reference transactions from URA caveats, not a valuation or guarantee of price.</div>
     </div>`;
     res.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
@@ -222,7 +222,7 @@ const CMA = (() => {
       <div class="field ac-wrap"><label>New-launch project</label>
         <input id="nl_project" autocomplete="off" placeholder="Start typing a launch…">
         <input type="hidden" id="nl_meta"><div class="ac-list" id="nl_ac" style="display:none"></div></div>
-      <p class="hint">New launches are <b>developer-priced</b>. Caveat shows the <b>recent new-sale benchmark</b> — actual transacted prices — not a market valuation.</p>`;
+      <p class="hint">New launches are <b>developer-priced</b>. Caveat shows the <b>recent new-sale benchmark</b>, actual transacted prices, not a market valuation.</p>`;
   }
   async function wireNewLaunch() {
     if (!NL) NL = C.expand(await C.getJSON('new_launch.json'));  // already sorted recency→volume
@@ -256,7 +256,7 @@ const CMA = (() => {
         <div class="deck-addr">${p.project}</div>
         <div class="deck-sub">District ${p.district} · ${p.seg} · last sale ${mLabel(p.last)}</div></div>
         <div class="chip medium"><span class="chip-dot"></span>Benchmark</div></div></div>
-      <div class="ref-banner">New launches are priced by the developer, not the resale market. This is the <b>benchmark of actual new-sale transactions</b> at this project — useful context for pricing, not an independent valuation.</div>
+      <div class="ref-banner">New launches are priced by the developer, not the resale market. This is the <b>benchmark of actual new-sale transactions</b> at this project, useful context for pricing, not an independent valuation.</div>
       <div class="estimate" style="grid-template-columns:1fr 1fr 1fr">
         <div><div class="est-label">Median new-sale PSF</div><div class="est-figure" style="font-size:32px">$${p.median_psf}</div></div>
         <div><div class="est-label">Median price</div><div class="est-figure" style="font-size:26px">${C.fmtK(p.median_price)}</div></div>
@@ -265,8 +265,8 @@ const CMA = (() => {
       ${seg ? `<div class="deck-section"><h4>Versus the ${p.seg} resale market</h4>
         <p style="font-size:14.5px;color:var(--ink-2);line-height:1.6">At <b>$${p.median_psf} psf</b>, ${p.project} is benchmarking
         <b style="color:${vs >= 0 ? 'var(--rose)' : 'var(--brand-d)'}">${vs >= 0 ? vs + '% above' : Math.abs(vs) + '% below'}</b>
-        the ${seg.label} resale median of $${seg.median_psf} psf — typical of the new-launch premium over comparable resale stock.</p></div>` : ''}
-      <div class="deck-disc">${window.__freshness ? `Current as of ${window.__freshness.built}. ` : ''}New-sale transactions from URA over the last 30 months — developer-priced benchmark, not a valuation.</div>
+        the ${seg.label} resale median of $${seg.median_psf} psf, typical of the new-launch premium over comparable resale stock.</p></div>` : ''}
+      <div class="deck-disc">${window.__freshness ? `Current as of ${window.__freshness.built}. ` : ''}New-sale transactions from URA over the last 30 months, developer-priced benchmark, not a valuation.</div>
     </div>`;
     res.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
@@ -278,7 +278,7 @@ const CMA = (() => {
     if (!ft) {
       const sel = document.getElementById('f_ftype');
       throw new Error(sel && sel.options.length <= 1
-        ? 'No HDB sales on record for this street — try a nearby street or estate.'
+        ? 'No HDB sales on record for this street, try a nearby street or estate.'
         : 'Pick the flat type.');
     }
     const rows = await C.hdbTown(town);
@@ -308,7 +308,7 @@ const CMA = (() => {
 
   async function genCondo(res) {
     let meta = val('f_projmeta');
-    if (!meta) {  // typed a name but didn't tap the dropdown — auto-resolve an exact match
+    if (!meta) {  // typed a name but didn't tap the dropdown, auto-resolve an exact match
       const typed = val('f_project').trim().toUpperCase();
       const hit = typed && IDX.condo_projects.find(p => p[0] === typed);
       if (hit) meta = JSON.stringify(hit);
@@ -350,12 +350,12 @@ const CMA = (() => {
       ? (r.tier === 'block'
           ? `✓ Based on ${r.block_n} recent sale${r.block_n > 1 ? 's' : ''} at Blk ${subj.block}`
           : (r.block_n > 0
-              ? `Only ${r.block_n} recent ${subj.flat_type.toLowerCase()} sale${r.block_n > 1 ? 's' : ''} at Blk ${subj.block} — estimate uses ${r.n_comps} nearby ${r.scope} sales`
-              : `No recent ${subj.flat_type.toLowerCase()} sales at Blk ${subj.block} — estimate uses ${r.n_comps} nearby ${r.scope} sales`))
+              ? `Only ${r.block_n} recent ${subj.flat_type.toLowerCase()} sale${r.block_n > 1 ? 's' : ''} at Blk ${subj.block}, estimate uses ${r.n_comps} nearby ${r.scope} sales`
+              : `No recent ${subj.flat_type.toLowerCase()} sales at Blk ${subj.block}, estimate uses ${r.n_comps} nearby ${r.scope} sales`))
       : '';
     const leaseMsg = (kind === 'hdb' && r.lease_lo && r.lease_hi && (r.lease_hi - r.lease_lo) >= 10)
-      ? `comparables span ${r.lease_lo}–${r.lease_hi} yrs lease — shorter-lease units sit at the lower end` : '';
-    const areaMsg = r.area_assumed ? '⚠ Rough estimate for a typical unit in this project — enter your floor area for an accurate figure' : '';
+      ? `comparables span ${r.lease_lo}-${r.lease_hi} yrs lease, shorter-lease units sit at the lower end` : '';
+    const areaMsg = r.area_assumed ? '⚠ Rough estimate for a typical unit in this project, enter your floor area for an accurate figure' : '';
     const rspan = Math.max(1, (r.obs_high || 0) - (r.obs_low || 0));
     const midPct = Math.max(8, Math.min(92, Math.round((r.estimate_price - (r.obs_low || r.estimate_price)) / rspan * 100)));
 
@@ -392,7 +392,7 @@ const CMA = (() => {
           <div class="est-rangenote" style="font-size:12.5px;color:var(--ink-2);line-height:1.5;margin-top:9px">Comparable units sold between <b>${C.fmtMoney(r.obs_low)}</b> and <b>${C.fmtMoney(r.obs_high)}</b>${leaseMsg ? ` · ${leaseMsg}` : ''}.</div>
         </div>
         <div class="est-side">
-          <div class="fact"><span class="k">Likely range</span><span class="v" style="font-size:12.5px">${C.fmtK(r.obs_low)}–${C.fmtK(r.obs_high)}</span></div>
+          <div class="fact"><span class="k">Likely range</span><span class="v" style="font-size:12.5px">${C.fmtK(r.obs_low)}-${C.fmtK(r.obs_high)}</span></div>
           <div class="fact"><span class="k">Comparables used</span><span class="v">${r.n_comps}</span></div>
           <div class="fact"><span class="k">Price agreement</span><span class="v">${cvWord(r.cv)}</span></div>
           ${r.scope ? `<div class="fact"><span class="k">Comp basis</span><span class="v" style="font-size:12px">${r.scope}</span></div>` : ''}
@@ -437,7 +437,7 @@ const CMA = (() => {
         <button class="btn-ghost" onclick="window.print()">Export PDF</button>
         <button class="btn-primary" style="width:auto;margin:0;padding:11px 18px" onclick="CMA.regen()">New valuation</button>
       </div>
-      <div class="deck-disc">${window.__freshness ? `Comparables current as of ${window.__freshness.built} (data auto-refreshes weekly). ` : ''}Indicative estimate from recent comparable transactions — not a bank valuation or a guarantee of sale price. Generated by Caveat for the named agent, who is responsible for verifying it.</div>
+      <div class="deck-disc">${window.__freshness ? `Comparables current as of ${window.__freshness.built} (data auto-refreshes weekly). ` : ''}Indicative estimate from recent comparable transactions, not a bank valuation or a guarantee of sale price. Generated by Caveat for the named agent, who is responsible for verifying it.</div>
     </div>`;
     res.scrollIntoView({ behavior: 'smooth', block: 'start' });
     if (subj.lat) prepMap(kind, subj, r, amen, color);
@@ -528,7 +528,14 @@ const CMA = (() => {
       <p class="hint" style="margin-top:10px">Showing the ${Math.min(comps.length, SHOWN)} closest of ${comps.length} comparable${comps.length === 1 ? '' : 's'} used (last ${win} months), ranked by recency, size &amp; floor. “Adj psf” normalises each to the subject for time, ${kind === 'hdb' ? 'storey &amp; lease' : 'floor &amp; tenure'}. #floor is the band mid-point.</p>`;
   }
 
-  const amenIcon = { mrt: '🚇', lrt: '🚈', school: '🎓', hawker: '🍜', park: '🌳' };
+  const _aw = 'fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"';
+  const _train = `<svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.15em" ${_aw}><rect x="5" y="3" width="14" height="13" rx="3"/><path d="M5 10h14"/><path d="M8.5 19l-1.5 2.5M15.5 19l1.5 2.5"/><circle cx="9" cy="13" r="1"/><circle cx="15" cy="13" r="1"/></svg>`;
+  const amenIcon = {
+    mrt: _train, lrt: _train,
+    school: `<svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.15em" ${_aw}><path d="M12 4 2 9l10 5 10-5-10-5z"/><path d="M6 11v5c0 1 3 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg>`,
+    hawker: `<svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.15em" ${_aw}><path d="M3 11h18a9 9 0 0 1-18 0z"/><path d="M12 11V8M9 8c0-1.5 1-2 1.5-2.5M15 8c0-1.5-1-2-1.5-2.5"/><path d="M4 20h16"/></svg>`,
+    park: `<svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.15em" ${_aw}><path d="M12 22v-6"/><path d="M12 16a5 5 0 0 0 5-5 4 4 0 0 0-1-2.5A4.5 4.5 0 0 0 12 3a4.5 4.5 0 0 0-4 3.5A4 4 0 0 0 7 11a5 5 0 0 0 5 5z"/></svg>`,
+  };
   const amenLabel = { mrt: 'MRT', lrt: 'LRT', school: 'School', hawker: 'Hawker', park: 'Park' };
   function amenRow(amen) {
     const order = ['mrt', 'lrt', 'school', 'hawker', 'park'];
@@ -540,7 +547,7 @@ const CMA = (() => {
   }
 
   function trendArrow(t) {
-    if (t == null) return '<span style="color:var(--ink-3)">— flat</span>';
+    if (t == null) return '<span style="color:var(--ink-3)">· flat</span>';
     if (t > 0.5) return `<span style="color:var(--brand-d)">▲ ${t}%</span>`;
     if (t < -0.5) return `<span style="color:var(--rose)">▼ ${Math.abs(t)}%</span>`;
     return `<span style="color:var(--slate)">≈ flat</span>`;
@@ -554,8 +561,8 @@ const CMA = (() => {
       `<span class="school-chip">${Narrative.titleCase(x.name).replace(/ Primary School/i, ' Pri')}<span> ${x.dist}m</span></span>`).join('');
     return `<div class="deck-section"><h4>Primary schools · P1 priority</h4>
       ${w1.length ? `<div class="school-band"><span class="sb-label">Within 1km</span><div class="school-chips">${chips(w1)}</div></div>` : ''}
-      ${w2.length ? `<div class="school-band"><span class="sb-label">1–2 km</span><div class="school-chips">${chips(w2)}</div></div>` : ''}
-      <p class="hint" style="margin-top:9px">Home-to-school distance sets Primary 1 registration priority (within 1km, then 1–2km).</p></div>`;
+      ${w2.length ? `<div class="school-band"><span class="sb-label">1-2 km</span><div class="school-chips">${chips(w2)}</div></div>` : ''}
+      <p class="hint" style="margin-top:9px">Home-to-school distance sets Primary 1 registration priority (within 1km, then 1-2km).</p></div>`;
   }
 
   const val = id => (document.getElementById(id) || {}).value || '';
