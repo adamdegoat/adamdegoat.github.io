@@ -96,11 +96,9 @@ h1 em{font-style:normal;color:inherit}
 .foot a{color:var(--green2);font-weight:700;text-decoration:none}
 
 /* ===== Prototype A: slim treated hero band ===== */
-.newshero{position:relative;isolation:isolate;background:#10231a;overflow:hidden;
+.newshero{position:relative;overflow:hidden;background:linear-gradient(105deg,rgba(8,18,13,.95) 0%,rgba(12,28,19,.9) 42%,rgba(18,40,27,.62) 76%,rgba(14,32,22,.5) 100%),url('../img/hero.jpg') center 72%/cover;
  border-bottom:1px solid rgba(176,141,87,.45);box-shadow:0 14px 30px rgba(15,35,26,.14)}
-.newshero .nh-bg{position:absolute;inset:0;z-index:-2;background:url('../img/hero.jpg') center 40%/cover}
-.newshero .nh-grad{position:absolute;inset:0;z-index:-1;
- background:linear-gradient(100deg,rgba(11,25,18,.95) 0%,rgba(18,40,28,.84) 38%,rgba(16,36,26,.62) 72%,rgba(12,28,20,.5) 100%)}
+.newshero .nh-bg,.newshero .nh-grad{display:none}
 .nh-in{padding-top:28px;padding-bottom:0}
 .newshero .head{padding:0;max-width:760px}
 .newshero .kick{color:var(--brass3)}
