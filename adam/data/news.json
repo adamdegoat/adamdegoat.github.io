@@ -4,6 +4,20 @@
   "count": 9,
   "items": [
     {
+      "headline": "Singapore's landed home market slows in 2026 but sellers still hold the upper hand",
+      "summary": "Landed home transactions have declined in 2026, but tight supply means sellers can hold firm on prices, keeping it a sellers' market despite the quieter activity. Buyers face fewer choices and less room to negotiate.",
+      "meaning": "If you are hoping for a price correction before buying a landed home, limited supply makes a meaningful drop unlikely in the near term.",
+      "tag": "Market",
+      "stat": "",
+      "stat_label": "",
+      "trend": "",
+      "source": "Stacked Homes",
+      "image": "",
+      "link": "https://stackedhomes.com/singapore-landed-prices-1h-2026-sellers-market/",
+      "date": "2026-06-28",
+      "date_label": "28 Jun"
+    },
+    {
       "headline": "32-year-old Kallang/Whampoa executive HDB flat sells for record $1.412 million",
       "summary": "A 32-year-old executive HDB flat in Kallang/Whampoa changed hands at $1.412 million, setting a new resale record for the town. The sale shows that older large HDB flats in central locations can still command top dollar.",
       "meaning": "HDB sellers in similar mature estates should know their flats can still fetch record prices even as the units age.",
@@ -16,6 +30,48 @@
       "link": "https://stackedhomes.com/kallang-whampoa-executive-hdb-record-46-bendemeer/",
       "date": "2026-06-25",
       "date_label": "25 Jun"
+    },
+    {
+      "headline": "Condo resale prices rebound in May 2026 even as fewer units change hands",
+      "summary": "Condo resale prices climbed in May 2026 despite transaction volumes easing, suggesting buyers continue to pay up for the right units. The uptick follows a softer patch and points to underlying demand holding firm.",
+      "meaning": "If you are waiting for condo resale prices to dip before buying, the market appears to have stabilised and is moving up again.",
+      "tag": "Condo",
+      "stat": "",
+      "stat_label": "",
+      "trend": "up",
+      "source": "99.co",
+      "image": "",
+      "link": "https://www.99.co/singapore/insider/condo-resale-prices-rebound-in-may-2026-even-as-transaction-volumes-ease/",
+      "date": "2026-06-25",
+      "date_label": "25 Jun"
+    },
+    {
+      "headline": "URA releases two new condo land sites in Bright Hill and Farrer Park, with Farrer Park backed by years of pent-up demand",
+      "summary": "Two new Government Land Sale sites for condo development have been released in Bright Hill and Farrer Park, with the Farrer Park plot expected to draw especially keen developer bids given years of limited new supply in that area. Completed projects will add fresh condo inventory to both neighbourhoods within a few years.",
+      "meaning": "Buyers and owners near Farrer Park should know that new condo supply is coming, which could affect resale values and rental competition when those projects eventually launch.",
+      "tag": "New Launch",
+      "stat": "",
+      "stat_label": "",
+      "trend": "",
+      "source": "Stacked Homes",
+      "image": "",
+      "link": "https://stackedhomes.com/lorong-puntong-kitchener-link-gls-sites/",
+      "date": "2026-06-25",
+      "date_label": "25 Jun"
+    },
+    {
+      "headline": "June 2026 BTO ballot: Bishan and Woodlands see strong demand",
+      "summary": "Application rates for the June 2026 BTO exercise show Bishan and Woodlands attracting notably strong interest, with those towns among the most competitive choices. Buyers chasing popular locations will face steep odds.",
+      "meaning": "If you are balloting in June 2026, choosing a less popular town can dramatically improve your chances of actually getting a flat sooner.",
+      "tag": "HDB",
+      "stat": "",
+      "stat_label": "",
+      "trend": "",
+      "source": "99.co",
+      "image": "",
+      "link": "https://www.99.co/singapore/insider/june-2026-bto-application-rates/",
+      "date": "2026-06-24",
+      "date_label": "24 Jun"
     },
     {
       "headline": "38-year-old Bukit Timah maisonette sets new town record at $1.508 million",
@@ -46,20 +102,6 @@
       "date_label": "19 Jun"
     },
     {
-      "headline": "Condo resale prices rebound in May 2026 even as fewer units change hands",
-      "summary": "Condo resale prices climbed in May 2026 despite transaction volumes easing, suggesting buyers continue to pay up for the right units. The uptick follows a softer patch and points to underlying demand holding firm.",
-      "meaning": "If you are waiting for condo resale prices to dip before buying, the market appears to have stabilised and is moving up again.",
-      "tag": "Condo",
-      "stat": "",
-      "stat_label": "",
-      "trend": "up",
-      "source": "99.co",
-      "image": "",
-      "link": "https://www.99.co/singapore/insider/condo-resale-prices-rebound-in-may-2026-even-as-transaction-volumes-ease/",
-      "date": "2026-06-25",
-      "date_label": "25 Jun"
-    },
-    {
       "headline": "Condo and HDB rents both ease in May 2026 as market moves toward balance",
       "summary": "Both private condo and HDB rents softened in May 2026 as more rental supply came online and landlords faced greater competition from one another. The market is gradually shifting away from the landlord-dominated conditions of 2022 to 2024.",
       "meaning": "Tenants have a little more bargaining room when renewing leases now, while landlords should not count on automatic rent increases.",
@@ -74,20 +116,6 @@
       "date_label": "19 Jun"
     },
     {
-      "headline": "June 2026 BTO ballot: Bishan and Woodlands see strong demand",
-      "summary": "Application rates for the June 2026 BTO exercise show Bishan and Woodlands attracting notably strong interest, with those towns among the most competitive choices. Buyers chasing popular locations will face steep odds.",
-      "meaning": "If you are balloting in June 2026, choosing a less popular town can dramatically improve your chances of actually getting a flat sooner.",
-      "tag": "HDB",
-      "stat": "",
-      "stat_label": "",
-      "trend": "",
-      "source": "99.co",
-      "image": "",
-      "link": "https://www.99.co/singapore/insider/june-2026-bto-application-rates/",
-      "date": "2026-06-24",
-      "date_label": "24 Jun"
-    },
-    {
       "headline": "Last River Valley Green land site sold to Sunway MCL-CSC Land JV at $1,730 per square foot",
       "summary": "A joint venture between Sunway MCL and CSC Land secured the final Government Land Sale plot at River Valley Green, paying $1,730 per square foot of potential floor area. This will result in a new condo launch in the River Valley corridor.",
       "meaning": "With land bought at that level, expect the eventual condo here to launch well above $2,000 per square foot, which could also lift valuations for nearby existing units.",
@@ -100,34 +128,6 @@
       "link": "https://www.99.co/singapore/insider/sunway-mcl-csc-land-river-valley-green-c-gls-s1730-psf-ppr/",
       "date": "2026-06-18",
       "date_label": "18 Jun"
-    },
-    {
-      "headline": "Singapore's landed home market slows in 2026 but sellers still hold the upper hand",
-      "summary": "Landed home transactions have declined in 2026, but tight supply means sellers can hold firm on prices, keeping it a sellers' market despite the quieter activity. Buyers face fewer choices and less room to negotiate.",
-      "meaning": "If you are hoping for a price correction before buying a landed home, limited supply makes a meaningful drop unlikely in the near term.",
-      "tag": "Market",
-      "stat": "",
-      "stat_label": "",
-      "trend": "",
-      "source": "Stacked Homes",
-      "image": "",
-      "link": "https://stackedhomes.com/singapore-landed-prices-1h-2026-sellers-market/",
-      "date": "2026-06-28",
-      "date_label": "28 Jun"
-    },
-    {
-      "headline": "URA releases two new condo land sites in Bright Hill and Farrer Park, with Farrer Park backed by years of pent-up demand",
-      "summary": "Two new Government Land Sale sites for condo development have been released in Bright Hill and Farrer Park, with the Farrer Park plot expected to draw especially keen developer bids given years of limited new supply in that area. Completed projects will add fresh condo inventory to both neighbourhoods within a few years.",
-      "meaning": "Buyers and owners near Farrer Park should know that new condo supply is coming, which could affect resale values and rental competition when those projects eventually launch.",
-      "tag": "New Launch",
-      "stat": "",
-      "stat_label": "",
-      "trend": "",
-      "source": "Stacked Homes",
-      "image": "",
-      "link": "https://stackedhomes.com/lorong-puntong-kitchener-link-gls-sites/",
-      "date": "2026-06-25",
-      "date_label": "25 Jun"
     }
   ]
 }
