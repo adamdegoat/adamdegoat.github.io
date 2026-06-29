@@ -1,319 +1,241 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>PropSight Studio — Instagram content</title>
-<meta name="description" content="Three new Instagram posts every week, built from real Singapore property data. PropSight's marketing studio.">
-<meta name="theme-color" content="#1c140d">
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>PropSight Studio</title>
+<meta name="theme-color" content="#123831">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icons/icon-180.png">
-<meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Studio">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%231b3a2d'/%3E%3Ccircle cx='27' cy='27' r='19' fill='none' stroke='%23ead4a2' stroke-width='3.4'/%3E%3Cpath d='M17.5 32 L27 22 L36.5 32' fill='none' stroke='%23ead4a2' stroke-width='3'/%3E%3Cpath d='M21 36.4 L33 36.4' stroke='%23ead4a2' stroke-width='3'/%3E%3Ccircle cx='27' cy='33' r='1.8' fill='%23d8b15e'/%3E%3Cpath d='M40.5 40.5 L53 53' fill='none' stroke='%23d8b15e' stroke-width='5.2'/%3E%3C/svg%3E">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,0,600;9..144,0,900;9..144,1,400;9..144,1,600&family=Schibsted+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23123831'/%3E%3Cg fill='none' stroke='%23cfeae0' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='13.5' cy='13.5' r='9.5'/%3E%3Cpath d='M8.75 16 L13.5 11 L18.25 16'/%3E%3Cpath d='M10.5 18.2 L16.5 18.2'/%3E%3C/g%3E%3Ccircle cx='13.5' cy='16.5' r='1' fill='%2315a0a0'/%3E%3Cpath d='M20.25 20.25 L26.5 26.5' fill='none' stroke='%2315a0a0' stroke-width='2.8' stroke-linecap='round'/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,900&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#f1e8d6;--ink:#1c140d;--soft:#7a6248;--line:#1c140d;--accent:#c25a38;--panel:#fffaf0;--gold:#b08d57}
-html{scroll-behavior:smooth;overflow-x:hidden}
-body{background:var(--bg);color:var(--ink);font-family:'Schibsted Grotesk',sans-serif;position:relative;overflow-x:hidden;width:100%;max-width:100%;-webkit-font-smoothing:antialiased}
-*{min-width:0}
-body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.06;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+body{background:radial-gradient(900px 620px at 82% -10%,#f4f8f6,transparent 60%),linear-gradient(170deg,#eef3f1,#e1ebe6);color:#163a2d;font-family:'Schibsted Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh}
+.wrap{max-width:1200px;margin:0 auto;padding:0 22px}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:1320px;margin:0 auto;padding:0 clamp(20px,5vw,64px)}
-/* nav */
-.nav{display:flex;justify-content:space-between;align-items:center;padding:26px 0;border-bottom:1.5px solid var(--ink)}
-.logo{display:flex;align-items:center;gap:13px}
-.mk{width:46px;height:46px;border-radius:12px;background:linear-gradient(150deg,#1b3a2d,#0f231b);display:grid;place-items:center;position:relative;color:#ead4a2;flex:none}
-.mk svg{width:30px;height:30px}
-.logo b{font-family:Fraunces;font-weight:900;font-size:25px;letter-spacing:.02em}
-.logo span{font-size:12px;color:var(--soft);letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-left:2px}
-.navlinks{display:flex;gap:32px;font-weight:700;font-size:15px}
-.status{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:700;color:#5c4a33;background:#fff7ea;border:1.5px solid #d9c7a3;padding:8px 15px;border-radius:30px;white-space:nowrap}
-.dot{width:9px;height:9px;border-radius:50%;background:#3a9e5b;box-shadow:0 0 0 4px #3a9e5b33;flex:none}
-/* marquee */
-.mq{border-bottom:1.5px solid var(--ink);background:var(--accent);color:#f6ecdc;overflow:hidden;white-space:nowrap;padding:11px 0;font-family:Fraunces;font-weight:600;font-size:18px;letter-spacing:.04em}
-.mq .track{display:inline-block;animation:scroll 38s linear infinite}
-@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-/* hero — compact, lets the designs lead */
-.hero{padding:clamp(22px,3vw,34px) 0 22px;display:flex;justify-content:space-between;align-items:center;gap:28px 44px;flex-wrap:wrap;border-bottom:1.5px solid var(--ink)}
-.herL{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
-.issue{display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-.issue::before{content:"";width:22px;height:2px;background:var(--accent)}
-.mast{font-family:Fraunces;font-weight:900;font-size:clamp(46px,6.5vw,84px);line-height:.84;letter-spacing:-.025em}
-.mast .o{color:var(--accent)}
-.lead{max-width:430px;border-left:2px solid var(--accent);padding-left:22px}
-.lead p{font-family:Fraunces;font-style:italic;font-weight:400;font-size:clamp(17px,1.9vw,21px);line-height:1.32;color:#3a2c1d}
-.lead .sm{font-style:normal;font-size:13.5px;color:var(--soft);margin-top:9px;line-height:1.5;font-weight:500}
-/* section heads */
-.shead{display:flex;align-items:baseline;gap:18px;border-top:3px solid var(--ink);padding-top:24px;margin-bottom:30px;flex-wrap:wrap}
-.shead h2{font-family:Fraunces;font-weight:900;font-size:clamp(34px,5vw,54px);letter-spacing:-.01em}
-.newpill{background:#1b3a2d;color:#e9f5ec;font-weight:800;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:7px 15px;border-radius:30px}
-.subnote{margin-left:auto;font-size:15px;color:var(--soft);font-weight:600;align-self:center}
-/* drop grid */
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-.card{background:var(--panel);border:1.5px solid #e3d4b4;border-radius:18px;overflow:hidden;box-shadow:0 18px 40px #1c140d18;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
-.card:hover{transform:translateY(-5px);box-shadow:0 26px 54px #1c140d24}
-.imgwrap{position:relative;background:#111;line-height:0}
-.imgwrap img{width:100%;display:block}
-.ribbon{position:absolute;top:15px;left:15px;background:var(--accent);color:#fff;font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:8px;box-shadow:0 6px 14px #0003;z-index:2}
-.meta{padding:15px 16px 16px;display:flex;flex-direction:column;flex:1}
-.tagrow{display:flex;gap:8px;margin-bottom:0;flex-wrap:wrap}
-.tg{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:30px;background:#f0e3c8;color:#6b5331}
-.cap{font-size:14.5px;line-height:1.5;color:#4a3a28;font-weight:500;flex:1}
-.btns{display:flex;gap:10px;margin-top:16px}
-.btn{flex:1;text-align:center;font-weight:800;font-size:14px;padding:12px 0;border-radius:30px;cursor:pointer;border:none;font-family:inherit;transition:transform .12s}
-.btn:active{transform:scale(.96)}
-.btn.dl{background:var(--ink);color:var(--bg)}
-.btn.cp{background:#fff;border:1.5px solid var(--ink);color:var(--ink)}
-.btn.cp.done{background:#1b3a2d;color:#fff;border-color:#1b3a2d}
-.btn.sh{display:block;width:100%;background:var(--accent);color:#fff;border:none;margin-bottom:10px}
-.pacts{width:100%;max-width:290px;margin-top:14px}
-.pcard .tagrow{margin-top:16px}
-/* light recent-card actions */
-.actrow{display:flex;gap:8px;margin-top:14px;align-items:stretch}
-.actrow .btn{flex:1;display:inline-flex;align-items:center;justify-content:center;font-size:14px;padding:12px 0;margin-bottom:0}
-/* phone-in-IG featured cards */
-.pcard{display:flex;flex-direction:column;align-items:center}
-.phone{width:100%;max-width:290px;background:#0d0d0f;border-radius:40px;padding:8px;box-shadow:0 30px 60px #1c140d33;position:relative}
-.island{position:absolute;top:18px;left:50%;transform:translateX(-50%);width:86px;height:24px;background:#000;border-radius:18px;z-index:5}
-.screen{background:#fff;border-radius:34px;overflow:hidden}
-.sbar{display:flex;justify-content:space-between;align-items:center;padding:11px 20px 6px;font-size:12px;font-weight:700;color:#0d0d0f}
-.igh{display:flex;align-items:center;gap:9px;padding:8px 11px}
-.av{width:32px;height:32px;border-radius:50%;background:linear-gradient(45deg,#feda75,#d62976,#962fbf);padding:2px;flex:none}
-.av i{display:flex;width:100%;height:100%;border-radius:50%;background:linear-gradient(150deg,#1b3a2d,#0f231b);align-items:center;justify-content:center;color:#ead4a2;font-style:normal}
-.av i svg{width:20px;height:20px}
-.who{display:flex;flex-direction:column;gap:2px;justify-content:center}
-.uname{font-size:12px;font-weight:700;color:#1a1a1a;line-height:1}
-.loc{font-size:10.5px;color:#5a5a5a;line-height:1}
-.igh .more{margin-left:auto;font-weight:800;color:#222;letter-spacing:2px}
-.pimg img{width:100%;display:block}
-.acts{display:flex;gap:15px;padding:11px 13px 5px;font-size:21px}
+header{padding:30px 0 6px}
+.brand{display:flex;align-items:center;gap:13px}
+.brand .mk{width:46px;height:46px;border-radius:13px;background:linear-gradient(150deg,#163a2d,#0c211a);display:grid;place-items:center;color:#cfeae0;flex:none}
+.brand .mk svg{width:30px;height:30px}
+.brand .bt b{font-family:Fraunces;font-weight:600;font-size:23px;letter-spacing:.01em;display:block;line-height:1}
+.brand .bt b span{color:#0f7a82}
+.brand .bt .bs{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#7a8a82;font-weight:700;margin-top:5px}
+.hero{padding:22px 0 4px}
+.hero h1{font-family:Fraunces;font-weight:500;font-size:clamp(32px,4.6vw,50px);letter-spacing:-.022em;line-height:1.02}
+.hero p{color:#5a6f67;font-size:16.5px;margin-top:12px;max-width:660px;line-height:1.5}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.chip{background:#fff;border:1px solid #d3e1da;border-radius:30px;padding:9px 16px;font-size:13px;font-weight:600;color:#163a2d}
+.chip b{color:#0f7a82;font-weight:800}
+.how{margin-top:14px;font-size:13.5px;color:#7a8a82}
+section{padding:32px 0 8px}
+.shead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.shead h2{font-family:Fraunces;font-weight:600;font-size:27px;letter-spacing:-.01em}
+.shead .sub{font-size:13px;color:#7a8a82;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(312px,1fr));gap:32px}
+
+/* IG phone mockup */
+.pcard{display:flex;flex-direction:column;gap:14px}
+.clabel{display:flex;align-items:center;gap:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:#0f7a82}
+.clabel::before{content:"";width:20px;height:2px;background:#0f7a82;border-radius:2px}
+.phone{background:#0c1714;border-radius:34px;padding:9px;box-shadow:0 30px 60px rgba(15,35,26,.20),0 8px 20px rgba(15,35,26,.12)}
+.screen{background:#fff;border-radius:27px;overflow:hidden;color:#0f1a16}
+.sbar{display:flex;justify-content:space-between;align-items:center;padding:9px 18px 5px}
+.sbar .sbt{font-weight:700;font-size:12.5px}
+.sbar .sbic{display:flex;gap:5px;align-items:center;color:#0f1a16}
+.sbar .sbic svg{height:11px;width:auto}
+.igh{display:flex;align-items:center;gap:9px;padding:7px 12px}
+.igh .av{width:31px;height:31px;border-radius:50%;background:#eaf1ee;display:grid;place-items:center;color:#163a2d;flex:none}
+.igh .av svg{width:21px;height:21px}
+.igh .who{display:flex;flex-direction:column;line-height:1.15;flex:1;min-width:0}
+.igh .who b{font-size:12.5px;font-weight:700}
+.igh .who i{font-style:normal;font-size:10.5px;color:#7a8a82}
+.igh .more{color:#0f1a16}.igh .more svg{width:18px;height:18px;display:block}
+.pimg{aspect-ratio:1/1;background:#eaf1ee}
+.pimg img{width:100%;height:100%;object-fit:cover;display:block}
+.acts{display:flex;align-items:center;gap:15px;padding:11px 13px 5px;color:#0f1a16}
+.acts .ic svg{width:23px;height:23px;display:block}
 .acts .save{margin-left:auto}
-.likes{padding:1px 13px}
-.lk{display:block;height:9px;width:130px;background:#3a3a3a;border-radius:3px;filter:blur(3px);opacity:.8}
-.pcap{padding:5px 13px 3px;font-size:12.5px;line-height:1.45;color:#1a1a1a}
-.pcap .u{font-weight:700;color:#1a1a1a;margin-right:5px}
-.pcap .more2{color:#8e8e8e}
-.pcap .tags{color:#274d8a;display:block;margin-top:2px}
-.ptime{padding:5px 13px 13px;font-size:10px;color:#9a9a9a;text-transform:uppercase;letter-spacing:.04em}
-.pcard .tagrow{margin:16px 0 0;display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
-.pcard .btns{margin-top:0;width:100%;display:flex;gap:10px}
-/* recent drops */
-.recent{margin-top:64px}
-.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-.rwrap{position:relative}
-.rfade,.rhint{display:none}
-/* how to — compact */
-.how{margin-top:56px}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.step{background:var(--panel);border:1.5px solid #e3d4b4;border-radius:14px;padding:16px 16px;position:relative}
-.step .n{font-family:Fraunces;font-weight:900;font-size:32px;color:var(--accent);line-height:.9}
-.step h4{font-size:15px;font-weight:800;margin:8px 0 4px}
-.step p{font-size:12.5px;color:var(--soft);line-height:1.45;font-weight:500}
-.install{margin-top:24px;background:linear-gradient(150deg,#1b3a2d,#0f231b);color:#eef3ee;border-radius:18px;padding:30px 32px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-.install h3{font-family:Fraunces;font-weight:600;font-size:24px;color:#fff}
-.install p{font-size:14.5px;color:#bcd3c2;margin-top:8px;max-width:560px;line-height:1.55}
-.install b{color:#e3c98f}
-#installBtn{background:linear-gradient(135deg,#e3c98f,#b08d57);color:#241a0d;font-weight:800;font-size:15px;padding:14px 24px;border-radius:30px;border:none;cursor:pointer;white-space:nowrap}
+.pcap{padding:1px 13px 13px;font-size:12.5px;line-height:1.45}
+.pcap b{font-weight:700}
+.pcap .tags{display:block;color:#0f6f78;margin-top:3px}
+.pbtns{display:flex;gap:9px}
+.btn{flex:1;text-align:center;border-radius:30px;padding:12px;font-weight:700;font-size:13.5px;cursor:pointer;border:1px solid transparent;transition:.18s}
+.btn.dl{background:#163a2d;color:#eef4f1}
+.btn.dl:hover{background:#0f2a20}
+.btn.cp{background:#fff;border-color:#cbdcd5;color:#163a2d}
+.btn.cp:hover{border-color:#7fd0bb}
+.btn.cp.done{background:#cdeee2;border-color:#7fd0bb;color:#0f7a4a}
+
 /* archive */
-.arch{margin-top:78px}
-.archrow{display:flex;gap:16px;overflow-x:auto;padding-bottom:10px;scrollbar-width:thin}
-.archrow img{width:148px;height:148px;object-fit:cover;border-radius:12px;border:1.5px solid #e3d4b4;flex:none}
-.empty{color:var(--soft);font-size:15px;font-weight:500;font-style:italic}
-/* foot */
-.foot{background:var(--ink);color:#cdbfa6;margin-top:78px;padding:32px 0;font-size:14px;font-weight:600}
-.foot .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-.foot b{color:var(--bg);font-family:Fraunces;font-size:20px}
-.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(80px);background:#1b3a2d;color:#fff;font-weight:700;font-size:15px;padding:14px 24px;border-radius:30px;box-shadow:0 16px 40px #0004;z-index:80;opacity:0;transition:.3s}
-.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
-@media(max-width:920px){
-  .navlinks{display:none}
-  .grid{grid-template-columns:1fr;gap:22px}
-  .steps{grid-template-columns:1fr 1fr}
-  .hero{align-items:flex-start}.lead{padding-bottom:0}
-  .nav{gap:12px}
-  .status{font-size:11px;padding:7px 11px;white-space:normal;text-align:right;line-height:1.3}
-  .mast{font-size:clamp(44px,13vw,84px)}
-  /* recent drops become a horizontal swipe row on mobile */
-  .rgrid{display:flex;grid-template-columns:none;overflow-x:auto;gap:14px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:2px 2px 10px;scrollbar-width:none}
-  .rgrid::-webkit-scrollbar{display:none}
-  .rgrid>.card{flex:0 0 80%;scroll-snap-align:start}
-  .rfade{display:block;position:absolute;top:0;right:0;width:52px;height:100%;background:linear-gradient(90deg,rgba(241,232,214,0),var(--bg));pointer-events:none}
-  .rhint{display:block;text-align:right;font-size:13px;font-weight:800;color:var(--accent);margin-top:6px;letter-spacing:.02em}
-}
-@media(max-width:560px){.steps{grid-template-columns:1fr}.subnote{margin-left:0;width:100%}}
-</style></head>
-<body>
-<div class="wrap"><div class="nav">
-  <div class="logo"><div class="mk"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#d8b15e"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#d8b15e" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><b>PropSight</b><span>· studio</span></div>
-  <div class="navlinks"><a href="#drop">This week</a><a href="#how">How it works</a><a href="#archive">Archive</a></div>
-  <div class="status"><span class="dot"></span>Updated Mon 29 Jun · Next drop Mon 6 Jul · 04:00</div>
-</div></div>
-<div class="mq"><div class="track">REAL DATA, MADE BEAUTIFUL&nbsp;&nbsp;✦&nbsp;&nbsp;THREE NEW POSTS EVERY WEEK&nbsp;&nbsp;✦&nbsp;&nbsp;PROPSIGHT · SINGAPORE PROPERTY&nbsp;&nbsp;✦&nbsp;&nbsp;NEW EVERY MONDAY&nbsp;&nbsp;✦&nbsp;&nbsp;REAL DATA, MADE BEAUTIFUL&nbsp;&nbsp;✦&nbsp;&nbsp;THREE NEW POSTS EVERY WEEK&nbsp;&nbsp;✦&nbsp;&nbsp;PROPSIGHT · SINGAPORE PROPERTY&nbsp;&nbsp;✦&nbsp;&nbsp;NEW EVERY MONDAY&nbsp;&nbsp;✦&nbsp;&nbsp;</div></div>
+.aweek{margin-bottom:30px}
+.awh{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #d3e1da;padding-bottom:10px;margin-bottom:15px}
+.awh b{font-family:Fraunces;font-weight:600;font-size:20px}
+.awh span{font-size:12.5px;color:#7a8a82;font-weight:600}
+.agrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:12px}
+.th{position:relative;border-radius:13px;overflow:hidden;display:block;border:1px solid #d3e1da}
+.th img{width:100%;display:block;aspect-ratio:1/1;object-fit:cover}
+.th .thl{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(0deg,rgba(12,23,20,.82),transparent);color:#fff;font-size:9.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:16px 8px 6px}
+.empty{color:#7a8a82;font-style:italic}
+footer{padding:34px 0 70px;color:#7a8a82;font-size:13px;text-align:center;border-top:1px solid #d3e1da;margin-top:24px}
+footer a{color:#0f7a82;font-weight:700}
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:#163a2d;color:#eef4f1;padding:12px 22px;border-radius:30px;font-weight:600;font-size:14px;opacity:0;transition:.28s;pointer-events:none;z-index:60;box-shadow:0 16px 36px rgba(15,35,26,.3)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:560px){.grid{grid-template-columns:1fr;gap:30px}.agrid{grid-template-columns:repeat(auto-fill,minmax(104px,1fr))}}
+</style></head><body>
 <div class="wrap">
-  <div class="hero">
-    <div><div class="issue">Issue 6 · Week of 29 June 2026</div><div class="mast">STUD<span class="o">I</span>O</div></div>
-    <div class="lead"><p>Three new posts. Every week. Built from real Singapore property data, made to stop the scroll and send people to PropSight.</p>
-      <div class="sm">Download the image, copy the caption, post it to @propsightsg. That's the whole job.</div></div>
+<header><div class="brand">
+  <div class="mk"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  <div class="bt"><b>PropSight<span> Studio</span></b><div class="bs">content engine</div></div>
+</div></header>
+
+<div class="hero">
+  <h1>This week's drop.</h1>
+  <p>Seven ready to post designs, one of each kind. Pick what you want, copy the caption, download the image, post it on Instagram.</p>
+  <div class="meta">
+    <span class="chip">Issue <b>#7</b></span>
+    <span class="chip">Week of <b>29 June 2026</b></span>
+    <span class="chip"><b>7</b> designs</span>
+    <span class="chip">Next drop <b>Mon 6 Jul · 04:00</b></span>
   </div>
-  <section id="drop">
-    <div class="shead"><h2>This week's drop</h2><span class="newpill">● 3 New</span><span class="subnote">Suggested: post one Mon · Wed · Fri</span></div>
-    <div class="grid"><article class="pcard">
-  <div class="phone"><div class="island"></div><div class="screen">
-    <div class="sbar"><span>9:41</span><span>●●● 📶 🔋</span></div>
-    <div class="igh"><div class="av"><i><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#d8b15e"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#d8b15e" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div><div class="who"><span class="uname">propsightsg</span><span class="loc">Singapore</span></div><span class="more">⋯</span></div>
-    <div class="pimg"><img loading="lazy" src="posts/2026-06-29-w5-showcase.png" alt="PropSight shown on a phone"></div>
-    <div class="acts"><span>♡</span><span>💬</span><span>➤</span><span class="save">🔖</span></div>
-    <div class="likes"><span class="lk"></span></div>
-    <div class="pcap"><b class="u">propsightsg</b> Before you offer or put down a single dollar, see what the place is actually worth. <span class="more2">… more</span><span class="tags">#singaporeproperty #propertysg #sgproperty</span></div>
-    <div class="ptime">2 hours ago</div>
-  </div></div>
-  <div class="tagrow"><span class="tg">PropSight</span><span class="tg">Live</span></div>
-  <div class="pacts">
-    <div class="btns"><a class="btn dl" href="posts/2026-06-29-w5-showcase.png" download>↓ Download</a>
-      <button class="btn cp" data-cap="Before you offer or put down a single dollar, see what the place is actually worth.
-Real value, your budget, stamp duty, grants, rental yield, even the schools nearby. Free, no signup.
-Stop guessing and go check.
-Check yours free at propsight.sg
-#singaporeproperty #propertysg #sgproperty #buyingahome #sellingmyhouse #sghomes">⧉ Copy caption</button></div>
-  </div>
-</article><article class="pcard">
-  <div class="phone"><div class="island"></div><div class="screen">
-    <div class="sbar"><span>9:41</span><span>●●● 📶 🔋</span></div>
-    <div class="igh"><div class="av"><i><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#d8b15e"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#d8b15e" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div><div class="who"><span class="uname">propsightsg</span><span class="loc">Singapore</span></div><span class="more">⋯</span></div>
-    <div class="pimg"><img loading="lazy" src="posts/2026-06-29-w5-schools.png" alt="Homes near River Valley"></div>
-    <div class="acts"><span>♡</span><span>💬</span><span>➤</span><span class="save">🔖</span></div>
-    <div class="likes"><span class="lk"></span></div>
-    <div class="pcap"><b class="u">propsightsg</b> River Valley parents, this one's for you. <span class="more2">… more</span><span class="tags">#singaporeproperty #propertysg #rivervalley</span></div>
-    <div class="ptime">2 hours ago</div>
-  </div></div>
-  <div class="tagrow"><span class="tg">School Finder</span><span class="tg">1km</span></div>
-  <div class="pacts">
-    <div class="btns"><a class="btn dl" href="posts/2026-06-29-w5-schools.png" download>↓ Download</a>
-      <button class="btn cp" data-cap="River Valley parents, this one's for you.
-119+ homes sit within 1km, all P1 priority for ballot day.
-Yours might be on that list and you have no idea.
-Check yours free at propsight.sg
-#singaporeproperty #propertysg #rivervalley #p1priority #sghomes #sgproperty">⧉ Copy caption</button></div>
-  </div>
-</article><article class="pcard">
-  <div class="phone"><div class="island"></div><div class="screen">
-    <div class="sbar"><span>9:41</span><span>●●● 📶 🔋</span></div>
-    <div class="igh"><div class="av"><i><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#d8b15e"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#d8b15e" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div><div class="who"><span class="uname">propsightsg</span><span class="loc">Singapore</span></div><span class="more">⋯</span></div>
-    <div class="pimg"><img loading="lazy" src="posts/2026-06-29-w5-stamp.png" alt="Stamp duty — ABSD on a second home"></div>
-    <div class="acts"><span>♡</span><span>💬</span><span>➤</span><span class="save">🔖</span></div>
-    <div class="likes"><span class="lk"></span></div>
-    <div class="pcap"><b class="u">propsightsg</b> Buying a 2nd home at $1.65M? That 20% ABSD is about $330k. <span class="more2">… more</span><span class="tags">#singaporeproperty #propertysg #absd</span></div>
-    <div class="ptime">2 hours ago</div>
-  </div></div>
-  <div class="tagrow"><span class="tg">Stamp Duty</span><span class="tg">ABSD</span></div>
-  <div class="pacts">
-    <div class="btns"><a class="btn dl" href="posts/2026-06-29-w5-stamp.png" download>↓ Download</a>
-      <button class="btn cp" data-cap="Buying a 2nd home at $1.65M? That 20% ABSD is about $330k.
-Yes, on top of the price.
-Know the number before you fall for the place.
-Check yours free at propsight.sg
-#singaporeproperty #propertysg #absd #sghome #propertytips">⧉ Copy caption</button></div>
-  </div>
-</article></div>
-  </section>
-  <section id="recent" class="recent"><div class="shead"><h2>Recent drops</h2><span class="subnote">the last few weeks</span></div><div class="rwrap"><div class="rgrid"><article class="card">
-  <div class="imgwrap"><img loading="lazy" src="posts/2026-06-29-w4-ad.png" alt="PropSight, free Singapore property tools"></div>
-  <div class="meta"><div class="tagrow"><span class="tg">PropSight</span><span class="tg">Free</span></div>
-    <div class="actrow">
-      <a class="btn dl" href="posts/2026-06-29-w4-ad.png" download>↓ Download</a>
-      <button class="btn cp" data-cap="Your home's real value, what you can afford, stamp duty, grants, rental yield, schools nearby.
-All from real URA and HDB data. No signup, nothing to pay.
-Stop guessing what your place is worth and go look.
-Check yours free at propsight.sg
-#singaporeproperty #propertysg #sghomeowners #hdb #condosg">⧉ Copy caption</button>
-    </div></div></article><article class="card">
-  <div class="imgwrap"><img loading="lazy" src="posts/2026-06-29-w4-schools.png" alt="Homes near Kong Hwa"></div>
-  <div class="meta"><div class="tagrow"><span class="tg">School Finder</span><span class="tg">1km</span></div>
-    <div class="actrow">
-      <a class="btn dl" href="posts/2026-06-29-w4-schools.png" download>↓ Download</a>
-      <button class="btn cp" data-cap="Singapore parents, here's the math nobody tells you upfront.
-
-122+ homes already sit within 1km of Kong Hwa, all of them holding P1 priority.
-
-That number quietly decides your kid's odds before you even ballot.
-
-Check yours free at propsight.sg
-
-#singaporeproperty #propertysg #konghwa #p1registration #primaryschool #sgmum">⧉ Copy caption</button>
-    </div></div></article><article class="card">
-  <div class="imgwrap"><img loading="lazy" src="posts/2026-06-29-w4-yield.png" alt="HDB vs condo rental yield"></div>
-  <div class="meta"><div class="tagrow"><span class="tg">Rental Yield</span><span class="tg">HDB vs Condo</span></div>
-    <div class="actrow">
-      <a class="btn dl" href="posts/2026-06-29-w4-yield.png" download>↓ Download</a>
-      <button class="btn cp" data-cap="Your HDB flat pulls 6.1% gross rent.
-That fancy condo? 3.6%.
-Yeah, the flat wins on yield. Surprised?
-
-Check your own numbers free at propsight.sg
-
-#singaporeproperty #propertysg #hdb #condo #rentalyield #sgrealestate">⧉ Copy caption</button>
-    </div></div></article><article class="card">
-  <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-w0-yield.png" alt="HDB vs condo rental yield"></div>
-  <div class="meta"><div class="tagrow"><span class="tg">Rental Yield</span><span class="tg">HDB vs Condo</span></div>
-    <div class="actrow">
-      <a class="btn dl" href="posts/2026-06-24-w0-yield.png" download>↓ Download</a>
-      <button class="btn cp" data-cap="link in bio means I just write the caption. Let me produce it.
-
-HDB flats yield about 6.1% gross rent islandwide vs 3.6% for private condos.Everyone wants the shiny condo. The numbers laugh at that.
-HDB flats pull about 6.1% gross rent. Condos sit at 3.6%.
-Yes, the smaller flat is the bigger earner.
-
-link in bio
-#singaporeproperty #propertysg #hdb #rentalyield #condo #sgrealestate">⧉ Copy caption</button>
-    </div></div></article><article class="card">
-  <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-w0-faceoff.png" alt="Clementi vs Geylang"></div>
-  <div class="meta"><div class="tagrow"><span class="tg">Area Face-off</span><span class="tg">Clementi vs Geylang</span></div>
-    <div class="actrow">
-      <a class="btn dl" href="posts/2026-06-24-w0-faceoff.png" download>↓ Download</a>
-      <button class="btn cp" data-cap="Clementi or Geylang? 
-
-Clementi flats sit at $598k and are climbing 3.9% a year. Geylang is $580k and softer at -5.9%, so there's room to bargain. Different plays, both real.
-
-link in bio.
-
-#singaporeproperty #clementi #hdbresale #propertysg #sgproperty">⧉ Copy caption</button>
-    </div></div></article><article class="card">
-  <div class="imgwrap"><img loading="lazy" src="posts/2026-06-24-w0-affordable.png" alt="Most affordable flats — Ang Mo Kio"></div>
-  <div class="meta"><div class="tagrow"><span class="tg">Most Affordable</span><span class="tg">Ang Mo Kio</span></div>
-    <div class="actrow">
-      <a class="btn dl" href="posts/2026-06-24-w0-affordable.png" download>↓ Download</a>
-      <button class="btn cp" data-cap="amk resale flats still the value play if you want in.
-real volume, real transactions, median sitting around $517k.
-not glam, but your money goes further here.
-link in bio
-#singaporeproperty #propertysg #angmokio #resaleflat #hdbresale #sghomes">⧉ Copy caption</button>
-    </div></div></article></div><span class="rfade"></span></div><div class="rhint">swipe for more →</div></section>
-  <section id="how" class="how">
-    <div class="shead"><h2>How it works</h2></div>
-    <div class="steps">
-      <div class="step"><div class="n">1</div><h4>New every Monday</h4><p>Three fresh posts land here automatically at 4am — built from the week's real URA &amp; HDB data.</p></div>
-      <div class="step"><div class="n">2</div><h4>Download the image</h4><p>Tap <b>Download</b> on any post to save the image straight to your phone or computer.</p></div>
-      <div class="step"><div class="n">3</div><h4>Copy the caption</h4><p>Tap <b>Copy caption</b> — the hook, the value, hashtags and your link line are ready to paste.</p></div>
-      <div class="step"><div class="n">4</div><h4>Post to Instagram</h4><p>Paste, post, done. Space the three across the week (Mon / Wed / Fri works well).</p></div>
-    </div>
-    <div class="install">
-      <div><h3>Add the Studio to your phone</h3><p>Install it like an app for one-tap access. <b>iPhone:</b> open in Safari → Share → <b>Add to Home Screen</b>. <b>Android:</b> Chrome menu → <b>Install app</b>.</p></div>
-      <button id="installBtn" style="display:none">↓ Install Studio</button>
-    </div>
-  </section>
-  <section id="archive" class="arch">
-    <div class="shead"><h2>The archive</h2><span class="subnote">every drop, kept</span></div>
-    <div class="archrow"><a href="posts/2026-06-24-w1-pulse.png"><img loading="lazy" src="posts/2026-06-24-w1-pulse.png" alt="Market Pulse — Clementi"></a><a href="posts/2026-06-24-w1-value.png"><img loading="lazy" src="posts/2026-06-24-w1-value.png" alt="What a flat in Tampines is worth"></a><a href="posts/2026-06-24-w1-schools.png"><img loading="lazy" src="posts/2026-06-24-w1-schools.png" alt="Homes near St. Joseph's Institution Junior"></a><a href="posts/2026-06-24-w2-stamp.png"><img loading="lazy" src="posts/2026-06-24-w2-stamp.png" alt="Stamp duty — ABSD on a second home"></a><a href="posts/2026-06-24-w2-grants.png"><img loading="lazy" src="posts/2026-06-24-w2-grants.png" alt="Housing grants you may be missing"></a><a href="posts/2026-06-24-w2-myth.png"><img loading="lazy" src="posts/2026-06-24-w2-myth.png" alt="Property myth vs fact"></a></div>
-  </section>
+  <p class="how">Built 29 Jun. A fresh set lands every Monday at 4am, and last week's moves to the archive below.</p>
 </div>
-<div class="foot"><div class="wrap"><b>PropSight Studio</b><span>The marketing studio behind <a href="https://propsight.sg" style="color:#e3c98f">propsight.sg</a> · new every Monday 04:00 SGT</span></div></div>
-<div class="toast" id="toast">Caption copied ✓</div>
+
+<section>
+  <div class="shead"><h2>This week</h2><span class="sub">tap Copy caption, then Download</span></div>
+  <div class="grid"><article class="pcard">
+  <div class="clabel">Device mockup</div>
+  <div class="phone"><div class="screen">
+    <div class="sbar"><span class="sbt">9:41</span><span class="sbic"><svg viewBox="0 0 22 12" fill="currentColor"><rect x="0" y="6" width="3" height="6" rx="1"/><rect x="4.5" y="4" width="3" height="8" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1" opacity=".4"/></svg><svg viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="1.5" width="20" height="9" rx="2.5"/><rect x="3" y="3.5" width="14" height="5" rx="1" fill="currentColor"/><rect x="22" y="4" width="2" height="4" rx="1" fill="currentColor"/></svg></span></div>
+    <div class="igh"><span class="av"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="who"><b>propsightsg</b><i>Singapore</i></span><span class="more"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></span></div>
+    <div class="pimg"><img loading="lazy" src="posts/2026-06-29-w6-device.png" alt="PropSight shown on a phone"></div>
+    <div class="acts"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-6.6-4.2-9-7.8C1.2 9.7 2.6 6.1 6 6.1c2.2 0 3.7 1.6 6 4 2.3-2.4 3.8-4 6-4 3.4 0 4.8 3.6 3 6.1C18.6 15.8 12 20 12 20z"/></svg></span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-5A8 8 0 1 1 21 11.5z"/></svg></span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3 11 14M22 3l-7 18-4-7-7-4 18-7z"/></svg></span><span class="ic save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg></span></div>
+    <div class="pcap"><b>propsightsg</b> Thinking of selling and wondering what your flat is actually worth? Value any HDB or condo… <span class="tags">#singaporeproperty #propertysg #hdb</span></div>
+  </div></div>
+  <div class="pbtns"><a class="btn dl" href="posts/2026-06-29-w6-device.png" download>Download</a>
+    <button class="btn cp" data-cap="Thinking of selling and wondering what your flat is actually worth? Value any HDB or condo on real recent sales, sort out your budget, even find homes near the school you want.
+No signup. No agent calling you.
+Check yours free at propsight.sg
+
+#singaporeproperty #propertysg #hdb #condo #sghome #propertytools">Copy caption</button></div>
+</article><article class="pcard">
+  <div class="clabel">Editorial</div>
+  <div class="phone"><div class="screen">
+    <div class="sbar"><span class="sbt">9:41</span><span class="sbic"><svg viewBox="0 0 22 12" fill="currentColor"><rect x="0" y="6" width="3" height="6" rx="1"/><rect x="4.5" y="4" width="3" height="8" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1" opacity=".4"/></svg><svg viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="1.5" width="20" height="9" rx="2.5"/><rect x="3" y="3.5" width="14" height="5" rx="1" fill="currentColor"/><rect x="22" y="4" width="2" height="4" rx="1" fill="currentColor"/></svg></span></div>
+    <div class="igh"><span class="av"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="who"><b>propsightsg</b><i>Singapore</i></span><span class="more"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></span></div>
+    <div class="pimg"><img loading="lazy" src="posts/2026-06-29-w6-editorial.png" alt="Know what a home is really worth"></div>
+    <div class="acts"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-6.6-4.2-9-7.8C1.2 9.7 2.6 6.1 6 6.1c2.2 0 3.7 1.6 6 4 2.3-2.4 3.8-4 6-4 3.4 0 4.8 3.6 3 6.1C18.6 15.8 12 20 12 20z"/></svg></span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-5A8 8 0 1 1 21 11.5z"/></svg></span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3 11 14M22 3l-7 18-4-7-7-4 18-7z"/></svg></span><span class="ic save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg></span></div>
+    <div class="pcap"><b>propsightsg</b> PropSight knows what your home is actually worth, and what you can truly afford. <span class="tags">#singaporeproperty #propertysg #sghomebuyers</span></div>
+  </div></div>
+  <div class="pbtns"><a class="btn dl" href="posts/2026-06-29-w6-editorial.png" download>Download</a>
+    <button class="btn cp" data-cap="PropSight knows what your home is actually worth, and what you can truly afford.
+Hidden costs, nearby schools, real numbers, all in one free place.
+No signup. No agent breathing down your neck.
+Check yours free at propsight.sg
+
+#singaporeproperty #propertysg #sghomebuyers #sghome #sgrealestate">Copy caption</button></div>
+</article><article class="pcard">
+  <div class="clabel">Statement</div>
+  <div class="phone"><div class="screen">
+    <div class="sbar"><span class="sbt">9:41</span><span class="sbic"><svg viewBox="0 0 22 12" fill="currentColor"><rect x="0" y="6" width="3" height="6" rx="1"/><rect x="4.5" y="4" width="3" height="8" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1" opacity=".4"/></svg><svg viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="1.5" width="20" height="9" rx="2.5"/><rect x="3" y="3.5" width="14" height="5" rx="1" fill="currentColor"/><rect x="22" y="4" width="2" height="4" rx="1" fill="currentColor"/></svg></span></div>
+    <div class="igh"><span class="av"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="who"><b>propsightsg</b><i>Singapore</i></span><span class="more"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></span></div>
+    <div class="pimg"><img loading="lazy" src="posts/2026-06-29-w6-statement.png" alt="PropSight is free"></div>
+    <div class="acts"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-6.6-4.2-9-7.8C1.2 9.7 2.6 6.1 6 6.1c2.2 0 3.7 1.6 6 4 2.3-2.4 3.8-4 6-4 3.4 0 4.8 3.6 3 6.1C18.6 15.8 12 20 12 20z"/></svg></span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-5A8 8 0 1 1 21 11.5z"/></svg></span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3 11 14M22 3l-7 18-4-7-7-4 18-7z"/></svg></span><span class="ic save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg></span></div>
+    <div class="pcap"><b>propsightsg</b> Free tools. Real numbers. No catch. <span class="tags">#singaporeproperty #propertysg #hdb</span></div>
+  </div></div>
+  <div class="pbtns"><a class="btn dl" href="posts/2026-06-29-w6-statement.png" download>Download</a>
+    <button class="btn cp" data-cap="Free tools. Real numbers. No catch.
+Everything runs on official URA and HDB data, no signup, nothing to pay.
+See what your place is actually worth before you talk to anyone.
+Check yours free at propsight.sg
+#singaporeproperty #propertysg #hdb #ura #sghome #propertytools">Copy caption</button></div>
+</article><article class="pcard">
+  <div class="clabel">Hidden costs</div>
+  <div class="phone"><div class="screen">
+    <div class="sbar"><span class="sbt">9:41</span><span class="sbic"><svg viewBox="0 0 22 12" fill="currentColor"><rect x="0" y="6" width="3" height="6" rx="1"/><rect x="4.5" y="4" width="3" height="8" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1" opacity=".4"/></svg><svg viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="1.5" width="20" height="9" rx="2.5"/><rect x="3" y="3.5" width="14" height="5" rx="1" fill="currentColor"/><rect x="22" y="4" width="2" height="4" rx="1" fill="currentColor"/></svg></span></div>
+    <div class="igh"><span class="av"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="who"><b>propsightsg</b><i>Singapore</i></span><span class="more"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></span></div>
+    <div class="pimg"><img loading="lazy" src="posts/2026-06-29-w6-costs.png" alt="The real cost of a home"></div>
+    <div class="acts"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-6.6-4.2-9-7.8C1.2 9.7 2.6 6.1 6 6.1c2.2 0 3.7 1.6 6 4 2.3-2.4 3.8-4 6-4 3.4 0 4.8 3.6 3 6.1C18.6 15.8 12 20 12 20z"/></svg></span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-5A8 8 0 1 1 21 11.5z"/></svg></span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3 11 14M22 3l-7 18-4-7-7-4 18-7z"/></svg></span><span class="ic save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg></span></div>
+    <div class="pcap"><b>propsightsg</b> The price is never the price. <span class="tags">#singaporeproperty #propertysg #sgproperty</span></div>
+  </div></div>
+  <div class="pbtns"><a class="btn dl" href="posts/2026-06-29-w6-costs.png" download>Download</a>
+    <button class="btn cp" data-cap="The price is never the price.
+
+On a $1.65M home you're really looking at about $117k more, stamp duty, legal fees and renovation, before you get the keys. Know the real total first.
+
+Check yours free at propsight.sg (link in bio).
+
+#singaporeproperty #propertysg #sgproperty #stampduty #homebuying #condo">Copy caption</button></div>
+</article><article class="pcard">
+  <div class="clabel">Market story</div>
+  <div class="phone"><div class="screen">
+    <div class="sbar"><span class="sbt">9:41</span><span class="sbic"><svg viewBox="0 0 22 12" fill="currentColor"><rect x="0" y="6" width="3" height="6" rx="1"/><rect x="4.5" y="4" width="3" height="8" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1" opacity=".4"/></svg><svg viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="1.5" width="20" height="9" rx="2.5"/><rect x="3" y="3.5" width="14" height="5" rx="1" fill="currentColor"/><rect x="22" y="4" width="2" height="4" rx="1" fill="currentColor"/></svg></span></div>
+    <div class="igh"><span class="av"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="who"><b>propsightsg</b><i>Singapore</i></span><span class="more"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></span></div>
+    <div class="pimg"><img loading="lazy" src="posts/2026-06-29-w6-market.png" alt="This week's market story"></div>
+    <div class="acts"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-6.6-4.2-9-7.8C1.2 9.7 2.6 6.1 6 6.1c2.2 0 3.7 1.6 6 4 2.3-2.4 3.8-4 6-4 3.4 0 4.8 3.6 3 6.1C18.6 15.8 12 20 12 20z"/></svg></span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-5A8 8 0 1 1 21 11.5z"/></svg></span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3 11 14M22 3l-7 18-4-7-7-4 18-7z"/></svg></span><span class="ic save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg></span></div>
+    <div class="pcap"><b>propsightsg</b> HDB flats are pulling about 6.1% gross rent islandwide. <span class="tags">#singaporeproperty #propertysg #hdb</span></div>
+  </div></div>
+  <div class="pbtns"><a class="btn dl" href="posts/2026-06-29-w6-market.png" download>Download</a>
+    <button class="btn cp" data-cap="HDB flats are pulling about 6.1% gross rent islandwide.
+Condos? 3.6%.
+The &quot;premium&quot; address is quietly earning you less.
+See what your place actually yields, free at propsight.sg
+
+#singaporeproperty #propertysg #hdb #condo #rentalyield #propertyinvesting">Copy caption</button></div>
+</article><article class="pcard">
+  <div class="clabel">Myth buster</div>
+  <div class="phone"><div class="screen">
+    <div class="sbar"><span class="sbt">9:41</span><span class="sbic"><svg viewBox="0 0 22 12" fill="currentColor"><rect x="0" y="6" width="3" height="6" rx="1"/><rect x="4.5" y="4" width="3" height="8" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1" opacity=".4"/></svg><svg viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="1.5" width="20" height="9" rx="2.5"/><rect x="3" y="3.5" width="14" height="5" rx="1" fill="currentColor"/><rect x="22" y="4" width="2" height="4" rx="1" fill="currentColor"/></svg></span></div>
+    <div class="igh"><span class="av"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="who"><b>propsightsg</b><i>Singapore</i></span><span class="more"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></span></div>
+    <div class="pimg"><img loading="lazy" src="posts/2026-06-29-w6-myth.png" alt="Property myth vs fact"></div>
+    <div class="acts"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-6.6-4.2-9-7.8C1.2 9.7 2.6 6.1 6 6.1c2.2 0 3.7 1.6 6 4 2.3-2.4 3.8-4 6-4 3.4 0 4.8 3.6 3 6.1C18.6 15.8 12 20 12 20z"/></svg></span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-5A8 8 0 1 1 21 11.5z"/></svg></span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3 11 14M22 3l-7 18-4-7-7-4 18-7z"/></svg></span><span class="ic save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg></span></div>
+    <div class="pcap"><b>propsightsg</b> That offer you wrote? The bank doesn't care about it. <span class="tags">#singaporeproperty #propertysg #hdb</span></div>
+  </div></div>
+  <div class="pbtns"><a class="btn dl" href="posts/2026-06-29-w6-myth.png" download>Download</a>
+    <button class="btn cp" data-cap="That offer you wrote? The bank doesn't care about it.
+
+Your loan and CPF only stretch as far as the bank's valuation. Anything above that, you cover in cash from your own pocket.
+
+So know the number before you sign.
+Check yours free at propsight.sg
+
+#singaporeproperty #propertysg #hdb #condosg #homeloan #cpf">Copy caption</button></div>
+</article><article class="pcard">
+  <div class="clabel">Tool spotlight</div>
+  <div class="phone"><div class="screen">
+    <div class="sbar"><span class="sbt">9:41</span><span class="sbic"><svg viewBox="0 0 22 12" fill="currentColor"><rect x="0" y="6" width="3" height="6" rx="1"/><rect x="4.5" y="4" width="3" height="8" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1" opacity=".4"/></svg><svg viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="1.5" width="20" height="9" rx="2.5"/><rect x="3" y="3.5" width="14" height="5" rx="1" fill="currentColor"/><rect x="22" y="4" width="2" height="4" rx="1" fill="currentColor"/></svg></span></div>
+    <div class="igh"><span class="av"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="who"><b>propsightsg</b><i>Singapore</i></span><span class="more"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></span></div>
+    <div class="pimg"><img loading="lazy" src="posts/2026-06-29-w6-tool.png" alt="PropSight Affordability tool"></div>
+    <div class="acts"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-6.6-4.2-9-7.8C1.2 9.7 2.6 6.1 6 6.1c2.2 0 3.7 1.6 6 4 2.3-2.4 3.8-4 6-4 3.4 0 4.8 3.6 3 6.1C18.6 15.8 12 20 12 20z"/></svg></span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-5A8 8 0 1 1 21 11.5z"/></svg></span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3 11 14M22 3l-7 18-4-7-7-4 18-7z"/></svg></span><span class="ic save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg></span></div>
+    <div class="pcap"><b>propsightsg</b> PropSight's affordability tool, free. <span class="tags">#singaporeproperty #propertysg #sgproperty</span></div>
+  </div></div>
+  <div class="pbtns"><a class="btn dl" href="posts/2026-06-29-w6-tool.png" download>Download</a>
+    <button class="btn cp" data-cap="PropSight's affordability tool, free.
+
+Real numbers, official data, no signup and no agent calling you after.
+
+Try it free at propsight.sg (link in bio).
+
+#singaporeproperty #propertysg #sgproperty #hdb #condo #freetools">Copy caption</button></div>
+</article></div>
+</section>
+
+<section id="archive">
+  <div class="shead"><h2>Archive</h2><span class="sub">every past week</span></div>
+  <span class="empty">Last week's designs will collect here, week by week.</span>
+</section>
+</div>
+<footer>PropSight Studio &middot; made for <a href="https://propsight.sg">propsight.sg</a></footer>
 <script>
-function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(window._t);window._t=setTimeout(function(){t.classList.remove('show');t.textContent='Caption copied ✓';},2300);}
-document.querySelectorAll('.cp').forEach(function(b){b.addEventListener('click',function(){
-  navigator.clipboard.writeText(b.getAttribute('data-cap').replace(/&quot;/g,'"')).then(function(){toast('Caption copied ✓');});
-});});
-var dp;window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();dp=e;var ib=document.getElementById('installBtn');ib.style.display='block';ib.onclick=function(){dp.prompt()}});
-if('serviceWorker' in navigator){addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}
+const toast=document.createElement('div');toast.className='toast';document.body.appendChild(toast);
+let tt;function pop(m){toast.textContent=m;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('show')},1700);}
+document.addEventListener('click',function(e){
+  const b=e.target.closest('.cp');if(!b)return;
+  const t=(b.dataset.cap||'').replace(/&quot;/g,'"');
+  navigator.clipboard.writeText(t).then(function(){
+    b.classList.add('done');const o=b.textContent;b.textContent='Copied';pop('Caption copied');
+    setTimeout(function(){b.classList.remove('done');b.textContent=o;},1500);
+  }).catch(function(){pop('Copy failed, select the text manually');});
+});
+if('serviceWorker' in navigator){addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
 </script>
 </body></html>
