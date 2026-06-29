@@ -8,16 +8,16 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="PropSight">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b3a2d'/%3E%3Cg fill='none' stroke='%23ead4a2' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='13.5' cy='13.5' r='9.5'/%3E%3Cpath d='M8.75 16 L13.5 11 L18.25 16'/%3E%3Cpath d='M10.5 18.2 L16.5 18.2'/%3E%3C/g%3E%3Ccircle cx='13.5' cy='16.5' r='1' fill='%23d8b15e'/%3E%3Cpath d='M20.25 20.25 L26.5 26.5' fill='none' stroke='%23d8b15e' stroke-width='2.8' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b3a2d'/%3E%3Cg fill='none' stroke='%23cfeae0' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='13.5' cy='13.5' r='9.5'/%3E%3Cpath d='M8.75 16 L13.5 11 L18.25 16'/%3E%3Cpath d='M10.5 18.2 L16.5 18.2'/%3E%3C/g%3E%3Ccircle cx='13.5' cy='16.5' r='1' fill='%2315a0a0'/%3E%3Cpath d='M20.25 20.25 L26.5 26.5' fill='none' stroke='%2315a0a0' stroke-width='2.8' stroke-linecap='round'/%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600&family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>:root{--gtex:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='gn'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.06 0 0 0 0 0.05 0 0 0 0 0.02 0 0 0 0.22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23gn)'/%3E%3C/svg%3E")}
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#f6f3ea;--ink:#191512;--ink2:#4f4840;--ink3:#6b6253;--line:#e7e0d2;--line2:#dbd1bf;
- --green:#1b3a2d;--green2:#27513f;--green3:#0f231a;--brass:#b08d57;--brass2:#cda86a;--brass3:#e3c98f;
+:root{--bg:#eaf6f4;--ink:#191512;--ink2:#404f4c;--ink3:#536b66;--line:#d2e7e3;--line2:#bfdbd5;
+ --green:#1b3a2d;--green2:#27513f;--green3:#0f231a;--brass:#0f7a82;--brass2:#15a0a0;--brass3:#7fd0bb;
  --serif:'Fraunces',Georgia,serif;--sans:'Schibsted Grotesk',system-ui,sans-serif;--ease:cubic-bezier(.22,.7,.2,1)}
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
-body::before{content:"";position:fixed;inset:-20%;z-index:-2;pointer-events:none;background:radial-gradient(620px 460px at 88% -6%,rgba(150,140,110,.07),transparent 60%),radial-gradient(540px 440px at -4% 10%,rgba(28,58,46,.07),transparent 58%)}
+body::before{content:"";position:fixed;inset:-20%;z-index:-2;pointer-events:none;background:radial-gradient(620px 460px at 88% -6%,rgba(60,168,150,.07),transparent 60%),radial-gradient(540px 440px at -4% 10%,rgba(28,58,46,.07),transparent 58%)}
 .topo{position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(27,58,45,.07) 1.1px,transparent 1.2px);background-size:28px 28px}
 a{color:inherit;text-decoration:none}
 .bar{height:72px;display:flex;align-items:center;border-bottom:1px solid var(--line)}
@@ -32,41 +32,41 @@ a{color:inherit;text-decoration:none}
 h1{font-family:var(--serif);font-weight:600;font-size:clamp(30px,5vw,42px);letter-spacing:-.025em;margin:12px 0 0;line-height:1.05}
 .sub{font-size:17px;color:var(--ink2);margin:14px auto 0;max-width:520px}
 .why{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:24px 0 0}
-.why span{font-size:12.5px;font-weight:600;color:var(--ink2);background:#fffefc;border:1px solid var(--line);border-radius:30px;padding:8px 14px}
-.installbtn{display:none;margin:28px auto 0;font-family:inherit;font-weight:700;font-size:15px;padding:15px 28px;border:0;border-radius:40px;background:var(--gtex,none),#ead4a2;color:#241a0d;cursor:pointer;box-shadow:0 12px 28px rgba(176,141,87,.34);transition:.2s var(--ease)}
+.why span{font-size:12.5px;font-weight:600;color:var(--ink2);background:#fcfffe;border:1px solid var(--line);border-radius:30px;padding:8px 14px}
+.installbtn{display:none;margin:28px auto 0;font-family:inherit;font-weight:700;font-size:15px;padding:15px 28px;border:0;border-radius:40px;background:var(--gtex,none),#1b3a2d;color:#eef6f1;cursor:pointer;box-shadow:0 12px 28px rgba(15,35,26,.34);transition:.2s var(--ease)}
 .installbtn:hover{transform:translateY(-2px)}
 .installbtn.show{display:block}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:40px 0 0}
-.card{background:#fffefc;border:1px solid var(--line);border-radius:20px;padding:26px 24px;box-shadow:0 10px 30px rgba(25,21,18,.05)}
+.card{background:#fcfffe;border:1px solid var(--line);border-radius:20px;padding:26px 24px;box-shadow:0 10px 30px rgba(25,21,18,.05)}
 .card h2{font-family:var(--serif);font-weight:600;font-size:20px;display:flex;align-items:center;gap:9px;margin-bottom:16px}
 .card h2 svg{width:22px;height:22px;flex:none}
 ol{list-style:none;counter-reset:s}
 ol li{counter-increment:s;position:relative;padding:0 0 16px 38px;font-size:14.5px;color:var(--ink2);line-height:1.5}
 ol li:last-child{padding-bottom:0}
-ol li::before{content:counter(s);position:absolute;left:0;top:-1px;width:25px;height:25px;border-radius:50%;background:var(--green);color:#f4efe6;font-size:12.5px;font-weight:800;display:flex;align-items:center;justify-content:center;font-family:var(--sans)}
+ol li::before{content:counter(s);position:absolute;left:0;top:-1px;width:25px;height:25px;border-radius:50%;background:var(--green);color:#e6f4f1;font-size:12.5px;font-weight:800;display:flex;align-items:center;justify-content:center;font-family:var(--sans)}
 ol li b{color:var(--ink)}
 .shareico{display:inline-flex;vertical-align:-4px;margin:0 2px}
-.note{font-size:13.5px;color:var(--ink2);margin:34px 0 0;background:#fff8e9;border:1px solid #ecdcb4;border-radius:14px;padding:16px 18px;line-height:1.6}
-.note b{color:#4a3a16}
+.note{font-size:13.5px;color:var(--ink2);margin:34px 0 0;background:#eef6f3;border:1px solid #bfe6db;border-radius:14px;padding:16px 18px;line-height:1.6}
+.note b{color:#164a40}
 .cta{margin:30px 0 0;text-align:center}
-.cta a{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;padding:13px 24px;border-radius:30px;background:var(--green);color:#f4efe6}
+.cta a{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;padding:13px 24px;border-radius:30px;background:var(--green);color:#e6f4f1}
 .foot{padding:34px 0 70px;text-align:center}.foot a{font-size:14px;font-weight:700;color:var(--green2)}
 @media(max-width:560px){.cards{grid-template-columns:1fr}}
 /* dark bar + deeper greige body + column lines (match homepage) */
-:root{--bg:#eae8e1}
+:root{--bg:#e1eae8}
 .topo{background-image:repeating-linear-gradient(90deg,rgba(27,58,45,.045) 0 1px,transparent 1px 150px),repeating-linear-gradient(0deg,rgba(27,58,45,.045) 0 1px,transparent 1px 150px)}
 .bar{background:linear-gradient(165deg,#2c5743,#1b3a2d);border-bottom:0}
-.bar .b{color:#f6f1e7}
-.bar .back{color:rgba(246,241,231,.82)}
+.bar .b{color:#e7f6f3}
+.bar .back{color:rgba(231,246,243,.82)}
 .bar .back:hover{color:#fff}
-.hl-i{display:block;height:13px;width:172px;margin-top:11px;overflow:visible}.hl-i path{fill:none;stroke:#b08d57;stroke-width:5;stroke-linecap:round;vector-effect:non-scaling-stroke}body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opacity:.045;;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}:focus-visible{outline:2.5px solid #b08d57;outline-offset:2px;border-radius:3px}.eyebrow,.kick,.free,.rdate,.note .date,.lp-k,.tool .free{color:#8f6a2c}</style>  <link rel="canonical" href="https://propsight.sg/install.html">
+.hl-i{display:block;height:13px;width:172px;margin-top:11px;overflow:visible}.hl-i path{fill:none;stroke:#0f7a82;stroke-width:5;stroke-linecap:round;vector-effect:non-scaling-stroke}body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opacity:.045;;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}:focus-visible{outline:2.5px solid #0f7a82;outline-offset:2px;border-radius:3px}.eyebrow,.kick,.free,.rdate,.note .date,.lp-k,.tool .free{color:#0d6f78}</style>  <link rel="canonical" href="https://propsight.sg/install.html">
   <script type="application/ld+json">
 {"@context": "https://schema.org","@graph": [{"@type": "BreadcrumbList","itemListElement": [{"@type": "ListItem","position": 1,"name": "PropSight","item": "https://propsight.sg/"},{"@type": "ListItem","position": 2,"name": "Add to Your Phone","item": "https://propsight.sg/install.html"}]}]}
 </script>
 </head>
 <body>
 <div class="topo" aria-hidden="true"></div>
-<header class="bar"><div class="wrap"><span class="b"><svg class="mark" aria-hidden="true" viewBox="0 0 64 64"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#d8b15e"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#d8b15e" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg>PropSight</span><a class="back" href="index.html">← Back to home</a></div></header>
+<header class="bar"><div class="wrap"><span class="b"><svg class="mark" aria-hidden="true" viewBox="0 0 64 64"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg>PropSight</span><a class="back" href="index.html">← Back to home</a></div></header>
 
 <div class="wrap">
   <div class="head">

@@ -8,7 +8,7 @@
 <link rel="icon" href="data:,">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{--green:#1b3a2d;--green2:#27513f;--brass:#b08d57;--ink:#191512;--ink2:#5a5248;--ink3:#8a8175;--line:#e7e0d2;--bg:#f4f4f6;--panel:#fff}
+  :root{--green:#1b3a2d;--green2:#27513f;--brass:#0f7a82;--ink:#191512;--ink2:#485a56;--ink3:#758a86;--line:#d2e7e3;--bg:#f4f4f6;--panel:#fff}
   *{box-sizing:border-box}
   body{margin:0;font-family:"Schibsted Grotesk",system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:14px}
   .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
@@ -18,9 +18,9 @@
   .gatebox .mk{font-family:"Fraunces",serif;font-weight:600;font-size:22px;color:var(--green)}
   .gatebox .mk span{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--brass);display:block;margin-top:2px;font-family:"Schibsted Grotesk"}
   .gatebox p{font-size:12.5px;color:var(--ink3);margin:6px 0 20px}
-  .gatebox input{width:100%;padding:13px 15px;border:1px solid #d8cfbe;border-radius:11px;font-size:16px;font-family:inherit;text-align:center;letter-spacing:.1em}
+  .gatebox input{width:100%;padding:13px 15px;border:1px solid #bed8d3;border-radius:11px;font-size:16px;font-family:inherit;text-align:center;letter-spacing:.1em}
   .gatebox input:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(31,193,143,.14)}
-  .gatebox button{width:100%;margin-top:11px;padding:13px;border:0;border-radius:11px;background:var(--green);color:#f5f1e8;font-size:14.5px;font-weight:700;font-family:inherit;cursor:pointer}
+  .gatebox button{width:100%;margin-top:11px;padding:13px;border:0;border-radius:11px;background:var(--green);color:#e8f5f2;font-size:14.5px;font-weight:700;font-family:inherit;cursor:pointer}
   .gatebox .err{color:#c0392b;font-size:12px;font-weight:600;margin-top:10px;min-height:14px}
   /* app */
   #app{display:none;padding:26px 0 60px}
@@ -33,20 +33,20 @@
   .bar{display:flex;gap:9px;margin-bottom:14px;flex-wrap:wrap}
   .btn{padding:9px 15px;border-radius:10px;font-size:13px;font-weight:600;font-family:inherit;cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--ink)}
   .btn:hover{border-color:var(--brass)}
-  .btn.dark{background:var(--green);color:#f5f1e8;border-color:var(--green)}
+  .btn.dark{background:var(--green);color:#e8f5f2;border-color:var(--green)}
   .panel{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:22px}
   table{width:100%;border-collapse:collapse}
-  th,td{text-align:left;padding:12px 16px;font-size:13px;border-bottom:1px solid #f1ece1}
-  th{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink3);font-weight:700;background:#fafaf7}
+  th,td{text-align:left;padding:12px 16px;font-size:13px;border-bottom:1px solid #e1f1ee}
+  th{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink3);font-weight:700;background:#f7faf9}
   td.em{color:var(--ink2)}
   tr:last-child td{border-bottom:0}
   .pill{font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:20px}
-  .pill.c{background:#eaf5ef;color:#1b7a52}.pill.p{background:#fbf3e2;color:#9a6b1e}
+  .pill.c{background:#eaf5ef;color:#1b7a52}.pill.p{background:#e2fbf6;color:#1e9a81}
   .del{color:#c0392b;cursor:pointer;font-weight:600;font-size:12px;background:none;border:0;font-family:inherit}
   .ptitle{font-family:"Fraunces",serif;font-size:17px;padding:16px 18px 0;color:var(--ink)}
   .pform{padding:14px 18px 18px}
   .pform label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink3);margin:10px 0 5px}
-  .pform input,.pform textarea{width:100%;padding:11px 13px;border:1px solid #d8cfbe;border-radius:10px;font-size:16px;font-family:inherit;resize:vertical}
+  .pform input,.pform textarea{width:100%;padding:11px 13px;border:1px solid #bed8d3;border-radius:10px;font-size:16px;font-family:inherit;resize:vertical}
   .pform textarea{min-height:150px;line-height:1.5}
   .pform input:focus,.pform textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(31,193,143,.12)}
   .sendbar{display:flex;gap:9px;align-items:center;margin-top:13px;flex-wrap:wrap}
@@ -166,7 +166,7 @@ document.getElementById('csv').onclick=function(){
 function bodyHtml(){
   var t=document.getElementById('nbody').value.trim();
   return t.split(/\n\s*\n/).map(function(p){
-    return '<p style="font-size:14px;color:#5a5248;line-height:1.6;margin:0 0 14px">'+esc(p).replace(/\n/g,'<br>')+'</p>';
+    return '<p style="font-size:14px;color:#485a56;line-height:1.6;margin:0 0 14px">'+esc(p).replace(/\n/g,'<br>')+'</p>';
   }).join('');
 }
 function send(testOnly){
