@@ -16,10 +16,10 @@ header{padding:30px 0 6px}
 .brand .mk svg{width:30px;height:30px}
 .brand b{font-family:Fraunces;font-weight:600;font-size:23px;letter-spacing:.01em;line-height:1}
 .brand b span{color:#0f7a82} .brand .bs{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#7a8a82;font-weight:700;margin-top:5px}
-.hero{padding:24px 0 4px}
-.hero h1{font-family:Fraunces;font-weight:500;font-size:clamp(34px,4.8vw,54px);letter-spacing:-.022em;line-height:1.02}
-.hero p{color:#5a6f67;font-size:16.5px;margin-top:12px;max-width:680px;line-height:1.5}
-.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.topbar{padding:8px 0 2px}
+
+
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
 .chip{background:#fff;border:1px solid #d3e1da;border-radius:30px;padding:9px 16px;font-size:13px;font-weight:600}
 .chip b{color:#0f7a82;font-weight:800}
 section{padding:34px 0 6px}
@@ -80,6 +80,12 @@ footer{padding:34px 0 70px;color:#7a8a82;font-size:13px;text-align:center;border
 .vscreen img{width:100%;height:100%;object-fit:cover;display:block}
 .sinstr{font-size:12.5px;color:#5a6f67;line-height:1.45;background:#fff;border:1px solid #dbe7e2;border-radius:12px;padding:11px 13px} .sinstr b{color:#0f7a82}
 .howto{background:#fff;border:1px solid #dbe7e2;border-radius:16px;padding:18px 20px;font-size:14px;line-height:1.55;color:#4a5a52;margin-bottom:22px} .howto b{color:#163a2d}
+.dloc{display:flex;align-items:center;gap:7px;font-size:12.5px;color:#5a6f67;background:#eef5f2;border:1px solid #d8e6e0;border-radius:10px;padding:8px 11px}
+.dloc svg{width:15px;height:15px;flex:none;color:#0f7a82} .dloc b{color:#163a2d;font-weight:700}
+.checklist{display:flex;flex-direction:column;gap:11px}
+.checklist b{font-family:Fraunces;font-weight:600;font-size:17px;margin-bottom:3px}
+.checklist .ck{display:flex;gap:11px;align-items:flex-start;font-size:13.5px;color:#4a5a52;line-height:1.5}
+.checklist .ck i{flex:none;width:22px;height:22px;border-radius:50%;background:#163a2d;color:#eef4f1;font-style:normal;font-weight:800;font-size:12px;display:grid;place-items:center;margin-top:1px}
 .hgrid{display:flex;gap:24px;flex-wrap:wrap}
 .hcov{text-align:center}
 .hc{width:92px;height:92px;border-radius:50%;overflow:hidden;display:block;border:2px solid #d3e1da;box-shadow:0 8px 20px rgba(15,35,26,.12)}
@@ -90,16 +96,14 @@ footer{padding:34px 0 70px;color:#7a8a82;font-size:13px;text-align:center;border
 <div class="wrap">
 <header><div class="brand"><div class="mk"><svg viewBox="0 0 64 64"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
   <div><b>PropSight<span> Studio</span></b><div class="bs">weekly content plan</div></div></div></header>
-<div class="hero">
-  <h1>This week's plan.</h1>
-  <p>Everything to post this week, on a schedule. For each feed post, copy the caption and download the image, then post it on its day and time. For stories, download and add the sticker noted. When you post a feed post, tap reshare it to your story too.</p>
+<div class="topbar">
   <div class="meta"><span class="chip">Issue <b>#2</b></span><span class="chip">Week of <b>30 June 2026</b></span><span class="chip"><b>4</b> posts</span><span class="chip"><b>3</b> stories</span><span class="chip">Next plan <b>Mon 6 Jul · 04:00</b></span></div>
 </div>
 <section><div class="shead"><h2>Your feed preview</h2><span class="sub">this week on top of recent posts</span></div>
   <div class="feedwrap">
     <div class="fhead"><div class="av"><svg viewBox="0 0 64 64"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div class="fstats"><div><b>312</b><span>posts</span></div><div><b>8.4k</b><span>followers</span></div><div><b>42</b><span>following</span></div></div></div>
-    <div class="fbio"><b>propsightsg</b><p>Singapore property, decoded.<br>Free tools, real numbers. No signup.</p><span class="u">propsight.sg</span></div>
+    <div class="fbio"><b>propsightsg</b><p>Singapore property, decoded.<br>Free tools, real numbers, built on URA data.</p><span class="u">propsight.sg</span></div>
     <div class="fscroll"><div class="fgrid"><a class="ft" href="posts/launch-propsight.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/launch-propsight.png" alt="PropSight on a laptop and a phone, free Singapore property intelligence at propsight.sg"><span class="ftl">Launch</span></a><a class="ft" href="posts/2026-06-30-w1-costs.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w1-costs.png" alt="The real cost of a home"><span class="ftl">Hidden costs</span></a><a class="ft" href="posts/2026-06-30-w1-photo-hdb.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w1-photo-hdb.png" alt="Singapore HDB corridor with national flags and unit numbers"><span class="ftl">Photo · HDB</span></a><a class="ft" href="posts/2026-06-30-w1-value.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w1-value.png" alt="What a flat in Tampines is worth"><span class="ftl">Home value</span></a><a class="ft" href="posts/2026-06-30-w1-myth.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w1-myth.png" alt="Property myth vs fact"><span class="ftl">Myth buster</span></a></div></div>
   </div>
   <div class="fnote">Scroll the grid to see your whole feed. Newest posts sit top-left like Instagram, your pinned first post stays up top, and it fills out as you post each week.</div>
@@ -107,28 +111,36 @@ footer{padding:34px 0 70px;color:#7a8a82;font-size:13px;text-align:center;border
 <section><div class="shead"><h2>Your first post</h2><span class="sub">post this, then pin it to your profile</span></div><div class="grid one"><article class="day">
   <div class="dwhen"><span class="dday">Pin first</span><span class="dtime">Your first post</span><span class="dcat pin">Pin first</span></div>
   <div class="dnote">Your intro post. Post this first, then pin it to the top of your profile.</div>
+  <div class="dloc"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z'/><circle cx='12' cy='11' r='2.2'/></svg><span>Tag location <b>Singapore</b></span></div>
   <div class="phone"><div class="screen">
     <div class="sbar"><span class="sbt">9:41</span><span class="sbic"><svg viewBox="0 0 22 12" fill="currentColor"><rect x="0" y="6" width="3" height="6" rx="1"/><rect x="4.5" y="4" width="3" height="8" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1" opacity=".4"/></svg><svg viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="1.5" width="20" height="9" rx="2.5"/><rect x="3" y="3.5" width="14" height="5" rx="1" fill="currentColor"/><rect x="22" y="4" width="2" height="4" rx="1" fill="currentColor"/></svg></span></div>
     <div class="igh"><span class="av"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="who"><b>propsightsg</b><i>Singapore</i></span><span class="more"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></span></div>
     <div class="pimg"><img loading="lazy" src="posts/launch-propsight.png" alt="PropSight on a laptop and a phone, free Singapore property intelligence at propsight.sg"></div>
     <div class="acts"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-6.6-4.2-9-7.8C1.2 9.7 2.6 6.1 6 6.1c2.2 0 3.7 1.6 6 4 2.3-2.4 3.8-4 6-4 3.4 0 4.8 3.6 3 6.1C18.6 15.8 12 20 12 20z"/></svg></span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-5A8 8 0 1 1 21 11.5z"/></svg></span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3 11 14M22 3l-7 18-4-7-7-4 18-7z"/></svg></span><span class="ic save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg></span></div>
-    <div class="pcap"><b>propsightsg</b> Free Singapore property intelligence is now live at propsight.sg. <span class="tags">#singaporeproperty #propertysg #hdb</span></div>
+    <div class="pcap"><b>propsightsg</b> PropSight is live. The free way to see Singapore property clearly. <span class="tags">#singaporeproperty #propertysg #hdb</span></div>
   </div></div>
   <div class="pbtns"><a class="btn dl" href="posts/launch-propsight.png" download>Download</a>
-    <button class="btn cp" data-cap="Free Singapore property intelligence is now live at propsight.sg.
+    <button class="btn cp" data-cap="PropSight is live. The free way to see Singapore property clearly.
 
-PropSight shows you what any HDB or condo is really worth, worked out from real recent sales nearby. Plus what you can truly afford, the stamp duty and hidden costs, and the schools within 1km. All in plain English, with no agent and no signup.
+Value any HDB or condo on real recent sales. Work out what you can truly afford. Dig into deep research on every project and town. Read the news that actually matters, in plain English.
 
-This is the account for straight Singapore property numbers, no spin. Every week: real home values, the market shifts that matter, and the buying myths people still believe.
+And Aillie, your property intelligence, answers anything, anytime.
 
-Follow along, and check any home free at propsight.sg (link in bio)
+Start free at propsight.sg (link in bio). Join free to unlock the full research, a weekly newsletter and live market signals.
 
 #singaporeproperty #propertysg #hdb #hdbresale #condosingapore #sgproperty #propertyinvestment #sghomeowners #bto">Copy caption</button></div>
 </article></div></section>
 <section><div class="shead"><h2>Feed posts</h2><span class="sub">four this week, post one on its day</span></div>
+  <div class="howto checklist"><b>Before you tap Share</b>
+    <span class="ck"><i>1</i>Set the location. Use the one shown on each post, it surfaces you to locals searching that spot. This matters more than hashtags now.</span>
+    <span class="ck"><i>2</i>Tagging people, skip it. Only tag on a new launch (the developer's account) or a real collaborator. Random tags get a post throttled.</span>
+    <span class="ck"><i>3</i>Drop a first comment with two or three extra hashtags, or "Value your flat free, link in bio". Keeps the caption clean.</span>
+    <span class="ck"><i>4</i>Post on the day and time on the card, then reshare it to your story.</span>
+  </div>
   <div class="grid"><article class="day">
   <div class="dwhen"><span class="dday">Mon</span><span class="dtime">8:00 PM</span><span class="dcat">Myth buster</span></div>
   <div class="dnote">Start of the week, strongest reach. A hook or myth to stop the scroll.</div>
+  <div class="dloc"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z'/><circle cx='12' cy='11' r='2.2'/></svg><span>Tag location <b>Singapore</b></span></div>
   <div class="phone"><div class="screen">
     <div class="sbar"><span class="sbt">9:41</span><span class="sbic"><svg viewBox="0 0 22 12" fill="currentColor"><rect x="0" y="6" width="3" height="6" rx="1"/><rect x="4.5" y="4" width="3" height="8" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1" opacity=".4"/></svg><svg viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="1.5" width="20" height="9" rx="2.5"/><rect x="3" y="3.5" width="14" height="5" rx="1" fill="currentColor"/><rect x="22" y="4" width="2" height="4" rx="1" fill="currentColor"/></svg></span></div>
     <div class="igh"><span class="av"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="who"><b>propsightsg</b><i>Singapore</i></span><span class="more"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></span></div>
@@ -147,6 +159,7 @@ Check yours free at propsight.sg (link in bio)
 </article><article class="day">
   <div class="dwhen"><span class="dday">Wed</span><span class="dtime">8:00 PM</span><span class="dcat">Home value</span></div>
   <div class="dnote">Midweek. A market read, insight or news story people save and share.</div>
+  <div class="dloc"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z'/><circle cx='12' cy='11' r='2.2'/></svg><span>Tag location <b>Tampines, Singapore</b></span></div>
   <div class="phone"><div class="screen">
     <div class="sbar"><span class="sbt">9:41</span><span class="sbic"><svg viewBox="0 0 22 12" fill="currentColor"><rect x="0" y="6" width="3" height="6" rx="1"/><rect x="4.5" y="4" width="3" height="8" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1" opacity=".4"/></svg><svg viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="1.5" width="20" height="9" rx="2.5"/><rect x="3" y="3.5" width="14" height="5" rx="1" fill="currentColor"/><rect x="22" y="4" width="2" height="4" rx="1" fill="currentColor"/></svg></span></div>
     <div class="igh"><span class="av"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="who"><b>propsightsg</b><i>Singapore</i></span><span class="more"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></span></div>
@@ -167,6 +180,7 @@ Check yours free at propsight.sg (link in bio)
 </article><article class="day">
   <div class="dwhen"><span class="dday">Fri</span><span class="dtime">7:00 PM</span><span class="dcat">Photo · HDB</span></div>
   <div class="dnote">Friday feed. A striking photo post pulls in reach.</div>
+  <div class="dloc"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z'/><circle cx='12' cy='11' r='2.2'/></svg><span>Tag location <b>Singapore</b></span></div>
   <div class="phone"><div class="screen">
     <div class="sbar"><span class="sbt">9:41</span><span class="sbic"><svg viewBox="0 0 22 12" fill="currentColor"><rect x="0" y="6" width="3" height="6" rx="1"/><rect x="4.5" y="4" width="3" height="8" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1" opacity=".4"/></svg><svg viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="1.5" width="20" height="9" rx="2.5"/><rect x="3" y="3.5" width="14" height="5" rx="1" fill="currentColor"/><rect x="22" y="4" width="2" height="4" rx="1" fill="currentColor"/></svg></span></div>
     <div class="igh"><span class="av"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="who"><b>propsightsg</b><i>Singapore</i></span><span class="more"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></span></div>
@@ -185,6 +199,7 @@ Check yours free at propsight.sg (link in bio)
 </article><article class="day">
   <div class="dwhen"><span class="dday">Sat</span><span class="dtime">11:00 AM</span><span class="dcat">Hidden costs</span></div>
   <div class="dnote">Weekend scroll. A quick tool or tip people act on.</div>
+  <div class="dloc"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z'/><circle cx='12' cy='11' r='2.2'/></svg><span>Tag location <b>Singapore</b></span></div>
   <div class="phone"><div class="screen">
     <div class="sbar"><span class="sbt">9:41</span><span class="sbic"><svg viewBox="0 0 22 12" fill="currentColor"><rect x="0" y="6" width="3" height="6" rx="1"/><rect x="4.5" y="4" width="3" height="8" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1" opacity=".4"/></svg><svg viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="1.5" width="20" height="9" rx="2.5"/><rect x="3" y="3.5" width="14" height="5" rx="1" fill="currentColor"/><rect x="22" y="4" width="2" height="4" rx="1" fill="currentColor"/></svg></span></div>
     <div class="igh"><span class="av"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="who"><b>propsightsg</b><i>Singapore</i></span><span class="more"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></span></div>
