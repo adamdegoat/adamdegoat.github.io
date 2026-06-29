@@ -1,5 +1,5 @@
 // PropSight hub, service worker (offline shell + installable PWA)
-const CACHE = 'propsight-v138';
+const CACHE = 'propsight-v139';
 const CORE = [
   'index.html', 'essentials/index.html', 'listings/index.html',
   'notes/index.html', 'notes/your-real-property-budget-three-numbers.html',
@@ -24,9 +24,11 @@ self.addEventListener('fetch', e => {
   if (r.method !== 'GET') return;
   const u = new URL(r.url);
   const isHTML = r.mode === 'navigate' || (r.headers.get('accept') || '').includes('text/html');
+  // same-origin images (hero, photos): network-first too, so a replaced image is never one load stale
+  const isImg = u.origin === location.origin && (r.destination === 'image' || /\.(jpe?g|png|webp|avif|gif|svg)$/i.test(u.pathname));
 
-  // pages + live data + shared scripts: always try the network first so updates are never stale; fall back to cache offline
-  if (isHTML || u.pathname.includes('/caveat/data/') || /\/(nav|member)\.js$/.test(u.pathname)) {
+  // pages + live data + shared scripts + images: always try the network first so updates are never stale; fall back to cache offline
+  if (isHTML || isImg || u.pathname.includes('/caveat/data/') || /\/(nav|member)\.js$/.test(u.pathname)) {
     e.respondWith(
       fetch(r).then(resp => {
         if (u.origin === location.origin) { const cc = resp.clone(); caches.open(CACHE).then(c => c.put(r, cc)); }
