@@ -250,7 +250,7 @@ html.menu-open,html.menu-open body{overflow:hidden}
 @keyframes mqpl{0%,100%{transform:scale(1)}50%{transform:scale(1.45)}}
 .mq-div{flex:none;width:1px;background:rgba(127,208,187,.25);margin:11px 0}
 .mq-vp{position:relative;flex:1;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 3%,#000 90%,transparent)}
-.mq-track{position:absolute;top:0;left:0;height:100%;display:inline-flex;align-items:center;white-space:nowrap;animation:mqscroll 58s linear infinite}
+.mq-track{position:absolute;top:0;left:0;height:100%;display:inline-flex;align-items:center;white-space:nowrap;animation:mqscroll 82s linear infinite}
 .mq-track.paused{animation-play-state:paused}
 .mq:hover .mq-track{animation-play-state:paused}
 @keyframes mqscroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
@@ -363,7 +363,7 @@ a.mq-i{text-decoration:none}a.mq-i:hover{opacity:.82}
 .notes-all{display:inline-flex;margin-top:22px;font-size:14px;font-weight:700;color:var(--green2);gap:8px}
 @media(max-width:880px){.notes{grid-template-columns:1fr}}
 .newsband{position:relative;overflow:hidden;border-radius:22px;padding:40px 38px;margin-bottom:30px;box-shadow:0 24px 52px rgba(15,35,26,.18)}
-.newsband .nb-bg{position:absolute;inset:0;background:linear-gradient(102deg,rgba(8,18,13,.95) 0%,rgba(12,28,19,.9) 44%,rgba(18,40,27,.6) 78%,rgba(14,32,22,.46) 100%),url('img/hero.jpg') center 58%/cover;filter:saturate(.7);z-index:0}
+.newsband .nb-bg{position:absolute;inset:0;background:linear-gradient(102deg,rgba(8,18,13,.82) 0%,rgba(12,28,19,.56) 44%,rgba(18,40,27,.3) 78%,rgba(14,32,22,.15) 100%),url('img/hero.jpg') center 58%/cover;filter:saturate(.7);z-index:0}
 .newsband .nb-in{position:relative;z-index:1;max-width:640px}
 .newsband .eyebrow{color:var(--brass3)}.newsband .eyebrow::before{background:var(--brass3)}
 .newsband h2{font-family:var(--serif);font-weight:600;font-size:clamp(28px,3.4vw,40px);letter-spacing:-.022em;line-height:1.04;margin-top:11px;color:#e7f6f3}
@@ -463,12 +463,13 @@ a.mq-i{text-decoration:none}a.mq-i:hover{opacity:.82}
 .nav.scrolled .btn:hover{background:var(--green3)}
 .nav.scrolled .menu-toggle{background:rgba(255,255,255,.55);border-color:var(--line2);color:var(--ink)}
 /* the dark hero */
-.hero{background:linear-gradient(100deg,rgba(11,25,18,.95) 0%,rgba(18,40,28,.8) 32%,rgba(16,36,26,.4) 62%,rgba(12,28,20,.24) 100%),url('img/hero.jpg') center 36%/cover;background-color:#12281c;position:relative;z-index:1;padding-top:96px}
-.hero .eyebrow{color:var(--brass3)}
+.hero{background:linear-gradient(100deg,rgba(11,25,18,.55) 0%,rgba(18,40,28,.28) 34%,rgba(16,36,26,.08) 64%,rgba(12,28,20,0) 100%),url('img/hero.jpg') center 36%/cover;background-color:#12281c;position:relative;z-index:1;padding-top:96px}
+.hero .eyebrow{color:var(--brass3);text-shadow:0 1px 12px rgba(7,16,11,.55)}
 .hero .eyebrow::before{background:var(--brass3)}
-.hero h1{color:#e7f6f3}
+.hero .herotop,.hero .heroclock{text-shadow:0 1px 12px rgba(7,16,11,.55)}
+.hero h1{color:#e7f6f3;text-shadow:0 2px 26px rgba(7,16,11,.55),0 1px 3px rgba(7,16,11,.4)}
 .hero h1 em{color:inherit}
-.hero .lead{color:rgba(231,246,243,.84)}
+.hero .lead{color:rgba(231,246,243,.88);text-shadow:0 1px 16px rgba(7,16,11,.5)}
 .hero .covers{color:rgba(231,246,243,.6)}
 .hero .covers b{color:rgba(231,246,243,.92)}
 .hero .fresh{color:rgba(231,246,243,.62)}
@@ -894,12 +895,29 @@ if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}
 
 <section class="foot" id="talk"><div class="wrap">
   <span class="fhalo" aria-hidden="true"></span>
-  <svg class="skyline" id="skyline" viewBox="0 0 1040 150" fill="none" stroke="#0f7a82" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-    <g stroke-width="1.1" stroke-opacity=".3">
+  <svg class="skyline" id="skyline" viewBox="0 0 1040 165" fill="none" stroke="#0f7a82" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <defs>
+      <linearGradient id="skrefl" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#0f7a82" stop-opacity=".16"/><stop offset="1" stop-color="#0f7a82" stop-opacity="0"/>
+      </linearGradient>
+      <radialGradient id="skflyer" cx="50%" cy="50%" r="50%">
+        <stop offset="0" stop-color="#15a0a0" stop-opacity=".14"/><stop offset="1" stop-color="#15a0a0" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <!-- depth: faded filled silhouettes far behind -->
+    <g fill="#0f7a82" fill-opacity=".055" stroke="none">
+      <rect x="96" y="96" width="44" height="34"/><rect x="226" y="84" width="40" height="46"/>
+      <rect x="430" y="80" width="52" height="50"/><rect x="640" y="92" width="42" height="38"/>
+      <rect x="804" y="86" width="38" height="44"/><rect x="966" y="98" width="40" height="32"/>
+    </g>
+    <g stroke-width="1.1" stroke-opacity=".34">
       <path d="M232 130 V78 H258 V130 M610 130 V82 H634 V130 M648 130 V92 H668 V130 M860 130 V84 H884 V130"/>
     </g>
-    <path d="M8 130 H1032" stroke-width="1.1" stroke-opacity=".26"/>
-    <g stroke-width="2">
+    <!-- grounded base: reflection wash + crisp baseline -->
+    <rect x="8" y="130" width="1024" height="30" fill="url(#skrefl)" stroke="none"/>
+    <path d="M8 130 H1032" stroke-width="1.4" stroke-opacity=".4"/>
+    <!-- front skyline -->
+    <g stroke-width="2.1">
       <path d="M24 130 V44 H58 V130"/><path d="M41 44 V26"/>
       <g stroke-width="1.05" stroke-opacity=".5"><path d="M30 62 H52 M30 76 H52 M30 90 H52 M30 104 H52"/></g>
       <path d="M66 130 V54 H74 V44 H90 V54 H98 V130"/>
@@ -910,12 +928,9 @@ if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}
       <path d="M262 130 L270 42 L286 42 L278 130"/>
       <path d="M320 130 L328 42 L344 42 L336 130"/>
       <path d="M378 130 L386 42 L402 42 L394 130"/>
-      <path d="M256 42 L472 35 L472 28 L256 35 Z"/>
+      <path d="M256 42 L472 35 L472 28 L256 35 Z" fill="#0f7a82" fill-opacity=".07"/>
       <path d="M472 31 L496 27"/>
       <g stroke-width="1.4" stroke-opacity=".75"><path d="M300 35 V28 M340 34 V27 M380 33 V26"/></g>
-      <circle cx="576" cy="62" r="50"/><circle cx="576" cy="62" r="43"/>
-      <path d="M576 62 L626 62 M576 62 L611 97 M576 62 L601 105 M576 62 L576 112 M576 62 L551 105 M576 62 L541 97 M576 62 L526 62 M576 62 L541 27 M576 62 L551 19 M576 62 L576 12 M576 62 L601 19 M576 62 L611 27" stroke-width="1.05" stroke-opacity=".5"/>
-      <path d="M552 130 L572 70 M600 130 L580 70"/><path d="M544 130 H608"/>
       <path d="M676 130 V52 H708 V130"/><path d="M692 52 V36"/>
       <g stroke-width="1.05" stroke-opacity=".5"><path d="M682 70 H702 M682 84 H702 M682 98 H702"/></g>
       <path d="M716 130 V60 H724 V48 H742 V60 H750 V130"/>
@@ -925,12 +940,19 @@ if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}
       <path d="M872 130 V70 H900 V130"/>
       <path d="M906 130 V50 H918 V130"/><path d="M912 50 V34"/>
     </g>
+    <!-- accent focal: Singapore Flyer in brass -->
+    <circle cx="576" cy="62" r="50" fill="url(#skflyer)" stroke="none"/>
+    <g stroke="#13868c">
+      <circle cx="576" cy="62" r="50" stroke-width="2.6"/><circle cx="576" cy="62" r="43" stroke-width="1.5" stroke-opacity=".7"/>
+      <path d="M576 62 L626 62 M576 62 L611 97 M576 62 L601 105 M576 62 L576 112 M576 62 L551 105 M576 62 L541 97 M576 62 L526 62 M576 62 L541 27 M576 62 L551 19 M576 62 L576 12 M576 62 L601 19 M576 62 L611 27" stroke-width="1.05" stroke-opacity=".55"/>
+      <path d="M552 130 L572 70 M600 130 L580 70" stroke-width="2.1"/><path d="M544 130 H608" stroke-width="2.1"/>
+    </g>
   </svg>
   <span class="eyebrow rv" style="justify-content:center">When you're ready</span>
   <h2 class="serif rv">Let's figure out your move.<svg class="hl" viewBox="0 0 230 16" preserveAspectRatio="none" aria-hidden="true"><path d="M5 11 C 60 4, 170 4, 225 9"/></svg></h2>
-  <p class="rv">A straight conversation, no obligation, no sales script. Just message us directly, anytime.</p>
-  <div class="rv" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a class="btn brass" href="https://wa.me/6583219747">Message our team <span class="arr">→</span></a></div>
-  <p class="rv" style="margin-top:18px;font-size:14px;color:var(--ink2)">Business &amp; partnerships: <a href="mailto:propsightsg@gmail.com" style="color:var(--green2);font-weight:700;border-bottom:1px solid rgba(15,35,26,.55)">propsightsg@gmail.com</a></p>
+  <p class="rv">A question about a home, a project, the platform, or anything at all, ask away. A straight conversation, no obligation, no sales script. Message us directly, anytime.</p>
+  <div class="rv" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a class="btn brass" href="https://wa.me/6583219747">Message us <span class="arr">→</span></a></div>
+  <p class="rv" style="margin-top:18px;font-size:14px;color:var(--ink2)">Prefer email? Reach us anytime, about anything: <a href="mailto:propsightsg@gmail.com" style="color:var(--green2);font-weight:700;border-bottom:1px solid rgba(15,35,26,.55)">propsightsg@gmail.com</a></p>
   <p class="rv" style="margin-top:14px;font-size:13.5px"><a href="install.html" style="color:var(--green2);font-weight:700">Add this hub to your phone, one tap to every tool →</a></p>
   <div class="sig rv">PropSight · Singapore · built on official data · indicative, not financial advice</div>
 </div></section>
