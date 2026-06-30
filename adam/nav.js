@@ -102,8 +102,9 @@
     '.psftr-disc{flex-basis:100%;font-size:12px;color:#758a86;line-height:1.5;margin-top:4px;max-width:78ch}' +
     '@media(max-width:560px){.psftr-in{padding:0 20px}}' +
     /* language toggle (desktop pill + mobile menu button) */
-    '.psnav-lang{margin-left:8px;flex:none;background:none;border:1px solid #bfdbd5;border-radius:30px;font-family:inherit;font-size:12.5px;font-weight:700;color:#1b3a2d;cursor:pointer;padding:7px 13px;white-space:nowrap;transition:background .2s,border-color .2s}' +
-    '.psnav-lang:hover{background:#dff0ec;border-color:#27513f}' +
+    '.psnav-lang{display:inline-flex;align-items:center;gap:6px;margin-left:8px;flex:none;background:#eaf6f4;border:1.5px solid #27513f;border-radius:30px;font-family:inherit;font-size:13px;font-weight:800;color:#1b3a2d;cursor:pointer;padding:8px 14px;white-space:nowrap;transition:background .2s,color .2s,transform .2s}' +
+    '.psnav-lang svg{width:15px;height:15px;flex:none;stroke:currentColor;fill:none;stroke-width:1.7}' +
+    '.psnav-lang:hover{background:#1b3a2d;color:#eaf6f4;transform:translateY(-1px)}' +
     '@media(max-width:1200px){.psnav-lang{display:none}}' +
     '.psnav-mlang{width:100%;background:#dff0ec;border:1px solid #bfdbd5;border-radius:14px;font-family:"Schibsted Grotesk",system-ui,sans-serif;font-weight:800;font-size:15px;color:#1b3a2d;padding:13px;margin-bottom:14px;cursor:pointer}' +
     /* Chinese versions of the CSS-rendered nav badges */
@@ -130,7 +131,7 @@
       '<span class="pd-top">' + t('Listing Platform') + ARROW + '</span>' +
       '<span class="pd-sub"><span class="pd-dot"></span>' + t('Coming soon') + '</span>' +
     '</a>' +
-    '<button class="psnav-lang" id="psLang" type="button" aria-label="Switch language">' + (curLang() === 'zh' ? 'EN' : '中文') + '</button>' +
+    '<button class="psnav-lang" id="psLang" type="button" aria-label="Switch language"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"/></svg>' + (curLang() === 'zh' ? 'EN' : '中文') + '</button>' +
     '<button class="psnav-signin ps-signin-cta" type="button" onclick="window.PS&&PS.login(\'nav\')">' + t('Sign in') + '</button>' +
     '<button class="psnav-join ps-join-cta" type="button" onclick="window.PS&&PS.cta(\'nav\')">' + t('Join free') + '</button>' +
     '<button class="psnav-burger" id="psBurger" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>' +
