@@ -344,6 +344,22 @@
     'EHG is for first-timers only.': 'EHG 仅限首次购房者。',
     'The EC grant is for first-timers.': 'EC 补贴仅限首次购房者。',
     'Proximity & Family grants are for resale flats, not BTO.': '就近补贴和家庭补贴适用于转售组屋，不适用于 BTO。',
+    // grants result sentences
+    'Your income is above the EHG ceiling ({ceil}/mo), so no EHG.': '你的收入超过 EHG 上限（{ceil}/月），因此没有 EHG。',
+    "On an older resale flat, grants can be <b>pro-rated</b> if the remaining lease won't cover the youngest buyer to age 95, so a short-lease flat may give you less than the figure above. Send us the exact unit and we'll check.":
+      '对于较旧的转售组屋，如果剩余屋契无法覆盖最年轻的买家到95岁，补贴可能会<b>按比例减少</b>，所以短屋契的组屋拿到的可能比上面的数字少。把确切的单位发给我们，我们帮你核实。',
+    'SC/PR couple: the Family Grant is $10k less until you have a child together or the PR becomes a citizen.': '公民/永久居民夫妻：在你们共同生育孩子或永久居民转为公民之前，家庭补贴会少 $10k。',
+    'Your income is above the Family Grant ceiling ({ceil}/mo).': '你的收入超过家庭补贴上限（{ceil}/月）。',
+    "Singles can't buy a new EC, it needs a family nucleus.": '单身者不能购买新 EC，需要符合家庭核心要求。',
+    'The EC grant tapers to $0 above $12,000 income, you can still buy an EC (ceiling $16,000), just no grant.': '收入超过 $12,000 时 EC 补贴递减至 $0，你仍可以买 EC（上限 $16,000），只是没有补贴。',
+    'Income above the EC income ceiling ($16,000).': '收入超过 EC 收入上限（$16,000）。',
+    'Upgrading from a subsidised 2- or 3-room flat? You may also qualify for the $15k Step-Up Grant (income ≤ $7,000), ask us to check.': '从受津贴的2房式或3房式组屋升级？你可能还符合 $15k 升级补贴（收入 ≤ $7,000），找我们核实。',
+    'on a new BTO flat': '购买新 BTO 组屋时', 'on a new EC from the developer': '向发展商购买新 EC 时',
+    "because you're taking a grant on a resale flat": '因为你在转售组屋上领取了补贴',
+    'Buying a resale flat <b>without</b> taking any grant? No resale levy is due.': '购买转售组屋但<b>不</b>领取任何补贴？无需缴转售税。',
+    'Net picture: <b>{total}</b> of grants into your CPF, minus a <b>{levy}</b> levy = <b>{sign}{net}</b> overall.': '总体情况：<b>{total}</b> 补贴存入你的 CPF，减去 <b>{levy}</b> 转售税 = 整体 <b>{sign}{net}</b>。',
+    'This is a cash cost on top of the flat, it can be paid from your sale proceeds, not borrowed.': '这是房款之外的现金成本，可以用你的卖房收益支付，不能贷款。',
+    "As a second-timer, you pay a resale levy {why}, based on your first {size} flat. It's <b>not a grant and not financeable</b>.": '作为二次购房者，你需缴转售税{why}，按你第一套 {size} 组屋计算。它<b>不是补贴，也不能贷款</b>。',
 
     // ══ eligibility.html ══
     'Can you actually buy it?': '你到底能不能买？',

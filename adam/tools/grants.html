@@ -87,7 +87,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
 .mt-grid a span{font-size:12.5px;color:#7e9893;margin-top:2px;display:block}
 @media(max-width:680px){.mt-grid{grid-template-columns:1fr 1fr}.ask{padding:24px}}
 @media(max-width:420px){.mt-grid{grid-template-columns:1fr}}:focus-visible{outline:2.5px solid #0f7a82;outline-offset:2px;border-radius:3px}.eyebrow,.kick,.free,.rdate,.note .date,.lp-k,.tool .free{color:#0d6f78}@media(max-width:560px){.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}.opt{min-width:0;flex:none;white-space:normal;line-height:1.25;text-overflow:clip;overflow:visible}}
-</style><script src="/adam/i18n.js?v=18" defer></script><script src="/adam/nav.js" defer></script>
+</style><script src="/adam/i18n.js?v=19" defer></script><script src="/adam/nav.js" defer></script>
   <link rel="canonical" href="https://propsight.sg/tools/grants.html">
   <script type="application/ld+json">
 {"@context": "https://schema.org","@graph": [{"@type": "WebApplication","name": "What Housing Grants Can I Get?","url": "https://propsight.sg/tools/grants.html","applicationCategory": "FinanceApplication","operatingSystem": "Any","browserRequirements": "Requires JavaScript","offers": {"@type": "Offer","price": "0","priceCurrency": "SGD"},"provider": {"@id": "https://propsight.sg/#org"},"inLanguage": "en-SG"},{"@type": "BreadcrumbList","itemListElement": [{"@type": "ListItem","position": 1,"name": "PropSight","item": "https://propsight.sg/"},{"@type": "ListItem","position": 2,"name": "What Housing Grants Can I Get?","item": "https://propsight.sg/tools/grants.html"}]}]}
@@ -172,6 +172,8 @@ let EHG_SIN=[[750,60000],[1000,55000],[1250,52500],[1500,47500],[1750,45000],[20
 let GP={ehgCeil:{single:4500,couple:9000},famCeil:{single:7000,couple:14000},fam:{single:{small:40000,big:25000},couple:{small:80000,big:50000},scprDeduct:10000},prox:{single:{'with':15000,near:10000},couple:{'with':30000,near:20000}},ecCeil:16000,ecSc:[[10000,30000],[11000,20000],[12000,10000]],ecScpr:[[10000,20000],[11000,10000]]};
 const ehg=(income,single)=>{const t=single?EHG_SIN:EHG_FAM;for(const[b,a]of t)if(income<=b)return a;return 0;};
 const tier=(income,tbl)=>{for(const[b,a]of tbl)if(income<=b)return a;return 0;};
+var T=function(s){return window.PSI18N?PSI18N.t(s):s;};
+var TF=function(e,v){return window.PSI18N?PSI18N.tf(e,v):e.replace(/\{(\w+)\}/g,function(m,k){return v&&v[k]!=null?v[k]:m;});};
 
 function compute(){
   const income=num('income'), single=house==='single';
@@ -180,45 +182,45 @@ function compute(){
   if(buy!=='ec'){
     if(timer==='first'){
       const ceil=single?GP.ehgCeil.single:GP.ehgCeil.couple;
-      if(income<=ceil){const e=ehg(income,single); if(e>0){out.push(['Enhanced CPF Housing Grant (EHG)',e]); total+=e;}}
-      else notes.push('Your income is above the EHG ceiling ('+money(ceil)+'/mo), so no EHG.');
-    } else notes.push('EHG is for first-timers only.');
+      if(income<=ceil){const e=ehg(income,single); if(e>0){out.push([T('Enhanced CPF Housing Grant (EHG)'),e]); total+=e;}}
+      else notes.push(TF('Your income is above the EHG ceiling ({ceil}/mo), so no EHG.',{ceil:money(ceil)}));
+    } else notes.push(T('EHG is for first-timers only.'));
   }
-  if(buy==='resale') notes.push('On an older resale flat, grants can be <b>pro-rated</b> if the remaining lease won\'t cover the youngest buyer to age 95, so a short-lease flat may give you less than the figure above. Send us the exact unit and we\'ll check.');
+  if(buy==='resale') notes.push(T("On an older resale flat, grants can be <b>pro-rated</b> if the remaining lease won't cover the youngest buyer to age 95, so a short-lease flat may give you less than the figure above. Send us the exact unit and we'll check."));
   // Family Grant, resale only, first-timers
   if(buy==='resale' && timer==='first'){
     const ceil=single?GP.famCeil.single:GP.famCeil.couple;
     if(income<=ceil){
       let fg = single ? (size==='small'?GP.fam.single.small:GP.fam.single.big) : (size==='small'?GP.fam.couple.small:GP.fam.couple.big);
-      if(house==='scpr'){fg-=GP.fam.scprDeduct; notes.push('SC/PR couple: the Family Grant is $10k less until you have a child together or the PR becomes a citizen.');}
-      out.push(['CPF Housing Grant (Family)',fg]); total+=fg;
-    } else notes.push('Your income is above the Family Grant ceiling ('+money(ceil)+'/mo).');
+      if(house==='scpr'){fg-=GP.fam.scprDeduct; notes.push(T('SC/PR couple: the Family Grant is $10k less until you have a child together or the PR becomes a citizen.'));}
+      out.push([T('CPF Housing Grant (Family)'),fg]); total+=fg;
+    } else notes.push(TF('Your income is above the Family Grant ceiling ({ceil}/mo).',{ceil:money(ceil)}));
   }
   // Proximity Grant, resale only, any timer, no income ceiling
   if(buy==='resale' && prox!=='none'){
     const phg = single ? (prox==='with'?GP.prox.single.with:GP.prox.single.near) : (prox==='with'?GP.prox.couple.with:GP.prox.couple.near);
-    out.push(['Proximity Housing Grant',phg]); total+=phg;
+    out.push([T('Proximity Housing Grant'),phg]); total+=phg;
   }
   // EC grant, new EC, first-timers, family nucleus
   if(buy==='ec'){
-    if(single) notes.push('Singles can’t buy a new EC, it needs a family nucleus.');
+    if(single) notes.push(T("Singles can't buy a new EC, it needs a family nucleus."));
     else if(timer==='first'){
       let ec = house==='scpr' ? tier(income,GP.ecScpr) : tier(income,GP.ecSc);
-      if(ec>0){out.push(['EC Family Grant',ec]); total+=ec;}
+      if(ec>0){out.push([T('EC Family Grant'),ec]); total+=ec;}
       else notes.push(income<=GP.ecCeil
-        ? 'The EC grant tapers to $0 above $12,000 income, you can still buy an EC (ceiling $16,000), just no grant.'
-        : 'Income above the EC income ceiling ($16,000).');
-    } else notes.push('The EC grant is for first-timers.');
+        ? T('The EC grant tapers to $0 above $12,000 income, you can still buy an EC (ceiling $16,000), just no grant.')
+        : T('Income above the EC income ceiling ($16,000).'));
+    } else notes.push(T('The EC grant is for first-timers.'));
   }
-  if(timer==='second' && buy!=='ec') notes.push('Upgrading from a subsidised 2- or 3-room flat? You may also qualify for the $15k Step-Up Grant (income ≤ $7,000), ask us to check.');
-  if(buy==='bto' && (prox!=='none')) notes.push('Proximity & Family grants are for resale flats, not BTO.');
+  if(timer==='second' && buy!=='ec') notes.push(T('Upgrading from a subsidised 2- or 3-room flat? You may also qualify for the $15k Step-Up Grant (income ≤ $7,000), ask us to check.'));
+  if(buy==='bto' && (prox!=='none')) notes.push(T('Proximity & Family grants are for resale flats, not BTO.'));
   // resale levy, owed by second-timers buying another SUBSIDISED flat
   let levy=0, levyWhy='';
   if(timer==='second'){
-    if(buy==='bto'){ levy=LEVY[firstFlat]||0; levyWhy='on a new BTO flat'; }
-    else if(buy==='ec'){ levy=LEVY[firstFlat]||0; levyWhy='on a new EC from the developer'; }
-    else if(buy==='resale' && total>0){ levy=LEVY[firstFlat]||0; levyWhy='because you’re taking a grant on a resale flat'; }
-    else if(buy==='resale'){ notes.push('Buying a resale flat <b>without</b> taking any grant? No resale levy is due.'); }
+    if(buy==='bto'){ levy=LEVY[firstFlat]||0; levyWhy=T('on a new BTO flat'); }
+    else if(buy==='ec'){ levy=LEVY[firstFlat]||0; levyWhy=T('on a new EC from the developer'); }
+    else if(buy==='resale' && total>0){ levy=LEVY[firstFlat]||0; levyWhy=T("because you're taking a grant on a resale flat"); }
+    else if(buy==='resale'){ notes.push(T('Buying a resale flat <b>without</b> taking any grant? No resale levy is due.')); }
   }
   return {out,total,notes,levy,levyWhy};
 }
@@ -230,19 +232,19 @@ function render(){
   $('#firstFlatF').classList.toggle('hide', timer!=='second');
   const r=compute();
   $('#totV').textContent = r.total>0 ? '~'+money(r.total) : '$0';
-  $('#totS').textContent = r.total>0 ? 'into your CPF, to help pay for the home' : 'no grants for this combination, see the notes';
+  $('#totS').textContent = r.total>0 ? T('into your CPF, to help pay for the home') : T('no grants for this combination, see the notes');
   $('#rows').innerHTML = r.out.length
     ? r.out.map(g=>`<div class="r"><span class="n">${g[0]}</span><span class="v">${money(g[1])}</span></div>`).join('')
-    : '<div class="none">No grants apply to these answers.</div>';
+    : '<div class="none">'+T('No grants apply to these answers.')+'</div>';
   // resale levy callout
   const lb=$('#levyBox');
   if(r.levy>0){
     let net = r.total - r.levy;
     let netLine = r.total>0
-      ? `Net picture: <b>${money(r.total)}</b> of grants into your CPF, minus a <b>${money(r.levy)}</b> levy = <b>${net>=0?'+':'−'}${money(Math.abs(net))}</b> overall.`
-      : `This is a cash cost on top of the flat, it can be paid from your sale proceeds, not borrowed.`;
-    lb.innerHTML = `<div class="lt"><span>Resale levy you'll owe</span><span>−${money(r.levy)}</span></div>`
-      +`<div>As a second-timer, you pay a resale levy ${r.levyWhy}, based on your first ${firstFlat.replace('room','-room').replace('exec','Executive')} flat. It's <b>not a grant and not financeable</b>.</div>`
+      ? TF('Net picture: <b>{total}</b> of grants into your CPF, minus a <b>{levy}</b> levy = <b>{sign}{net}</b> overall.',{total:money(r.total),levy:money(r.levy),sign:net>=0?'+':'−',net:money(Math.abs(net))})
+      : T('This is a cash cost on top of the flat, it can be paid from your sale proceeds, not borrowed.');
+    lb.innerHTML = `<div class="lt"><span>${T("Resale levy you'll owe")}</span><span>−${money(r.levy)}</span></div>`
+      +`<div>${TF("As a second-timer, you pay a resale levy {why}, based on your first {size} flat. It's <b>not a grant and not financeable</b>.",{why:r.levyWhy,size:T(firstFlat.replace('room','-room').replace('exec','Executive'))})}</div>`
       +`<div class="lnet">${netLine}</div>`;
     lb.classList.remove('hide');
   } else lb.classList.add('hide');
