@@ -1,68 +1,136 @@
 {
   "current": {
-    "issue": 1,
+    "issue": 2,
     "built": "2026-06-30",
     "week_of": "30 June 2026",
     "launch": {
       "id": "launch",
       "cat": "Launch",
-      "day": "Pin first",
-      "time": "Your first post",
-      "note": "Your intro post. Post this first, then pin it to the top of your profile.",
+      "day": "Day 1",
+      "time": "8:00 PM",
+      "note": "Post this first, then PIN it to the top of your profile.",
       "palette": "midnight",
       "value": "dark",
       "caption": "PropSight is live. The free way to see Singapore property clearly.\n\nValue any HDB or condo on real recent sales. Work out what you can truly afford. Dig into deep research on every project and town. Read the news that actually matters, in plain English.\n\nAnd Aillie, your property intelligence, answers anything, anytime.\n\nStart free at propsight.sg (link in bio). Join free to unlock the full research, a weekly newsletter and live market signals.\n\n#singaporeproperty #propertysg #hdb #condosingapore #propertyinvestment",
       "alt": "PropSight on a laptop and a phone, free Singapore property intelligence at propsight.sg",
-      "file": "launch-propsight.png"
+      "file": "launch-propsight.png",
+      "file_zh": "launch-propsight-zh.png",
+      "caption_zh": "PropSight \u6b63\u5f0f\u4e0a\u7ebf\u4e86\u3002\u770b\u6e05\u65b0\u52a0\u5761\u623f\u4ea7\uff0c\u514d\u8d39\u5c31\u80fd\u529e\u5230\u3002\n\n\u6839\u636e\u771f\u5b9e\u8fd1\u671f\u6210\u4ea4\uff0c\u4e3a\u4efb\u4f55 HDB \u6216 condo \u4f30\u503c\u3002\u7b97\u6e05\u695a\u81ea\u5df1\u771f\u6b63\u80fd\u8d1f\u62c5\u591a\u5c11\u3002\u6df1\u5165\u7814\u7a76\u6bcf\u4e2a\u9879\u76ee\u548c\u5730\u533a\u7684\u8be6\u7ec6\u8d44\u6599\u3002\u7528\u7b80\u5355\u6613\u61c2\u7684\u82f1\u6587\uff0c\u8bfb\u5230\u771f\u6b63\u91cd\u8981\u7684\u8d44\u8baf\u3002\n\n\u8fd8\u6709\u4f60\u7684\u623f\u4ea7\u667a\u80fd\u52a9\u624b Aillie\uff0c\u968f\u65f6\u968f\u5730\u89e3\u7b54\u4efb\u4f55\u95ee\u9898\u3002\n\n\u514d\u8d39\u4e0a\u624b\uff0c\u8bbf\u95ee propsight.sg\uff08\u94fe\u63a5\u5728\u7b80\u4ecb\uff09\u3002\u6ce8\u518c\u514d\u8d39\uff0c\u89e3\u9501\u5b8c\u6574\u7814\u7a76\u8d44\u6599\u3001\u6bcf\u5468\u901a\u8baf\u548c\u5b9e\u65f6\u5e02\u573a\u52a8\u6001\u3002\n\n#singaporeproperty #propertysg #hdb #condosingapore #propertyinvestment"
     },
-    "posts": [
-      {
-        "id": "editorial",
-        "cat": "Editorial",
-        "day": "Mon",
-        "time": "8:00 PM",
-        "note": "Start of the week, strongest reach. A hook or myth to stop the scroll.",
-        "palette": "pine",
-        "value": "light",
-        "caption": "Real value of any home in Singapore, free\nPropSight shows you what a home is actually worth, your true budget, the hidden costs most buyers forget, and the schools nearby, all in one place.\nOne tab before you make an offer or list. No agent, no guessing, just real property intelligence.\nCheck yours free at propsight.sg (link in bio)\n#singaporeproperty #propertysg #hdbresale #condosingapore #propertyinvestment",
-        "alt": "Know what a home is really worth",
-        "file": "2026-06-30-w0-editorial.png"
-      },
-      {
-        "id": "insights",
-        "cat": "Market Insights",
-        "day": "Wed",
-        "time": "8:00 PM",
-        "note": "Midweek. A market read, insight or news story people save and share.",
-        "palette": "glacier",
-        "value": "light",
-        "caption": "HDB resale flats are out-earning condos for landlords right now.\nRental yield is the story, not the price tag.\nCondo prices are holding steady, led by the suburbs and the city fringe.\nHDB resale is holding steady too, so sellers, you have time.\nCheck your own numbers free at propsight.sg (link in bio)\n#singaporeproperty #propertysg #hdbresale #rentalyield #condosingapore",
-        "alt": "Market insight, Resale flats are out-earning condos for landlords",
-        "file": "2026-06-30-w0-insights.png"
-      },
+    "starter": [
       {
         "id": "show-value",
         "cat": "The value tool",
+        "day": "Day 2",
+        "time": "12:30 PM",
+        "note": "Your strongest tool first. Real home values, free, from recent sales.",
+        "palette": "teal",
+        "value": null,
+        "caption": "Tampines 4-room HDB resale is sitting near $710k\nBefore you list or lowball an offer, check what your exact flat is actually worth from recent sales, not your neighbour's hopeful asking price.\nSame goes for any condo. Real numbers, free, in under a minute.\nCheck yours free at propsight.sg (link in bio)\n#singaporeproperty #propertysg #hdbresale #tampines #propertyinvestment",
+        "alt": "The PropSight value tool",
+        "file": "starter-show-value.png",
+        "file_zh": "starter-show-value-zh.png",
+        "caption_zh": "\u6de1\u6ee8\u5c3c\u56db\u623f\u5f0f HDB \u8f6c\u552e\u4ef7\u683c\u5df2\u7ecf\u63a5\u8fd1 $710k\u3002\n\n\u4e0d\u7ba1\u662f\u6302\u724c\u5356\u623f\u8fd8\u662f\u538b\u4ef7\u51fa\u4ef7\uff0c\u5148\u770b\u770b\u4f60\u7684\u7ec4\u5c4b\u6309\u8fd1\u671f\u6210\u4ea4\u8bb0\u5f55\u5230\u5e95\u503c\u591a\u5c11\uff0c\u522b\u5149\u9760\u90bb\u5c45\u90a3\u4e2a\u4e00\u53a2\u60c5\u613f\u7684\u5f00\u4ef7\u3002\n\nCondo \u4e5f\u662f\u540c\u6837\u9053\u7406\u3002\u771f\u5b9e\u6570\u636e\uff0c\u514d\u8d39\uff0c\u4e0d\u5230\u4e00\u5206\u949f\u3002\n\n\u514d\u8d39\u5728 propsight.sg \u67e5\u8be2\u4f60\u5bb6\u7684\u4f30\u503c\uff08\u94fe\u63a5\u5728\u7b80\u4ecb\uff09\n\n#singaporeproperty #propertysg #hdbresale #tampines #propertyinvestment"
+      },
+      {
+        "id": "show-afford",
+        "cat": "The affordability tool",
+        "day": "Day 2",
+        "time": "7:00 PM",
+        "note": "The affordability angle, the question every buyer has.",
+        "palette": "indigo",
+        "value": null,
+        "caption": "Earn 10k a month? Here's what fits.\n\nYour real budget comes from income, savings and age, not just the price tag. Work it out before you fall for the wrong home.\n\nFind your number free at propsight.sg (link in bio).\n\n#singaporeproperty #propertysg #sgproperty #homeloan #affordability",
+        "alt": "The PropSight affordability tool",
+        "file": "starter-show-afford.png",
+        "file_zh": "starter-show-afford-zh.png",
+        "caption_zh": "\u6708\u5165 10k\uff0c\u80fd\u4e70\u4ec0\u4e48\uff1f\n\n\u771f\u6b63\u7684\u8d2d\u623f\u9884\u7b97\uff0c\u53d6\u51b3\u4e8e\u4f60\u7684\u6536\u5165\u3001\u5b58\u6b3e\u548c\u5e74\u9f84\uff0c\u4e0d\u53ea\u662f\u770b\u4ef7\u683c\u3002\u5148\u628a\u81ea\u5df1\u7684\u6570\u5b57\u641e\u6e05\u695a\uff0c\u522b\u7b49\u7231\u4e0a\u4e86\u4e00\u5957\u4e0d\u9002\u5408\u7684\u5bb6\u624d\u540e\u6094\u3002\n\n\u5230 propsight.sg \u514d\u8d39\u7b97\u51fa\u4f60\u7684\u9884\u7b97\uff08\u94fe\u63a5\u5728\u7b80\u4ecb\uff09\u3002\n\n#singaporeproperty #propertysg #sgproperty #homeloan #affordability"
+      },
+      {
+        "id": "show-schools",
+        "cat": "The schools tool",
+        "day": "Day 3",
+        "time": "12:30 PM",
+        "note": "Schools, very shareable with parents looking at P1.",
+        "palette": "steel",
+        "value": null,
+        "caption": "Nanyang Primary has 47 condos within 1km, ranked by walking distance.\nIf you are buying near a top primary school, distance is the whole game for Phase 2C balloting.\nWe mapped every single one so you can sort by who actually walks in, not who guesses.\nSave this before your next viewing and check the real list yourself.\nCheck yours free at propsight.sg (link in bio)\n#singaporeproperty #propertysg #condosingapore #primaryschool #nanyangprimary",
+        "alt": "The PropSight schools tool",
+        "file": "starter-show-schools.png",
+        "file_zh": "starter-show-schools-zh.png",
+        "caption_zh": "\u5357\u6d0b\u5c0f\u5b661\u516c\u91cc\u8303\u56f4\u5185\u670947\u4e2acondo\uff0c\u5168\u90e8\u6309\u6b65\u884c\u8ddd\u79bb\u6392\u597d\u4e86\u3002\n\n\u5982\u679c\u4f60\u6b63\u5728\u8003\u8651\u4e70\u540d\u5c0f\u5b66\u9644\u8fd1\u7684\u623f\u5b50\uff0cPhase 2C\u62bd\u7b7e\u62fc\u7684\u5c31\u662f\u8ddd\u79bb\uff0c\u8fd9\u624d\u662f\u5173\u952e\u6240\u5728\u3002\n\n\u6211\u4eec\u628a\u6bcf\u4e00\u4e2a\u90fd\u6807\u51fa\u6765\u4e86\uff0c\u8ba9\u4f60\u6309\u5b9e\u9645\u6b65\u884c\u8ddd\u79bb\u6765\u7b5b\u9009\uff0c\u4e0d\u7528\u9760\u731c\u6d4b\u3002\n\n\u4e0b\u6b21\u770b\u623f\u4e4b\u524d\u5148\u6536\u85cf\u8fd9\u4e2a\uff0c\u81ea\u5df1\u6765\u67e5\u771f\u5b9e\u540d\u5355\u3002\n\n\u5230propsight.sg\u514d\u8d39\u67e5\u770b\u4f60\u7684\u60c5\u51b5\uff08\u94fe\u63a5\u5728\u7b80\u4ecb\uff09\n\n#singaporeproperty #propertysg #condosingapore #primaryschool #nanyangprimary"
+      },
+      {
+        "id": "photo-sky",
+        "cat": "Photo \u00b7 Skyline",
+        "day": "Day 3",
+        "time": "7:00 PM",
+        "note": "A clean Singapore brand photo to round out the grid.",
+        "palette": "petrol",
+        "value": null,
+        "caption": "What your Singapore home is actually worth, free\n\nMost valuations are guesses. This one runs on real recent sales near you, CBD condo or heartland HDB, no agent needed.\nCheck the number yourself before anyone quotes you one.\n\nCheck yours free at propsight.sg (link in bio)\n\n#singaporeproperty #propertysg #sgproperty #hdbresale #condosingapore",
+        "alt": "Singapore CBD skyline behind Chinatown shophouses",
+        "file": "starter-photo-sky.png",
+        "file_zh": "starter-photo-sky-zh.png",
+        "caption_zh": "\u4f60\u7684\u65b0\u52a0\u5761\u623f\u5b50\u5230\u5e95\u503c\u591a\u5c11\uff0c\u514d\u8d39\u67e5\n\n\u5927\u591a\u6570\u4f30\u4ef7\u90fd\u53ea\u662f\u731c\u731c\u770b\u3002\u8fd9\u4e2a\u5de5\u5177\u6839\u636e\u4f60\u9644\u8fd1\u771f\u5b9e\u7684\u8fd1\u671f\u6210\u4ea4\u6570\u636e\u6765\u8fd0\u7b97\uff0c\u4e0d\u7ba1\u662f\u5e02\u533acondo\u8fd8\u662f\u7ec4\u5c4b\u533a\u7684HDB\uff0c\u5b8c\u5168\u4e0d\u9700\u8981\u7ecf\u7eaa\u4eba\u3002\n\u5728\u522b\u4eba\u5f00\u53e3\u62a5\u4ef7\u4e4b\u524d\uff0c\u5148\u81ea\u5df1\u628a\u6570\u5b57\u67e5\u6e05\u695a\u3002\n\n\u514d\u8d39\u5230 propsight.sg \u67e5\u4f60\u7684\u4f30\u4ef7\uff08\u94fe\u63a5\u5728\u7b80\u4ecb\uff09\n\n#singaporeproperty #propertysg #sgproperty #hdbresale #condosingapore"
+      }
+    ],
+    "posts": [
+      {
+        "id": "myth",
+        "cat": "Myth buster",
+        "day": "Mon",
+        "time": "8:00 PM",
+        "note": "Start of the week, strongest reach. A hook or myth to stop the scroll.",
+        "palette": "teal",
+        "value": "light",
+        "caption": "Stamp duty on your first home? Here's the truth.\nEveryone swears you pay extra ABSD the moment you buy. Not true.\nA Singapore citizen pays 0% ABSD on their first home.\nIt only starts from your second property, so your first buy is cleaner than people warn you.\nCheck yours free at propsight.sg (link in bio)\n#singaporeproperty #propertysg #absd #stampduty #firsthome",
+        "alt": "Property myth vs fact",
+        "file": "2026-06-30-w1-myth.png",
+        "file_zh": "2026-06-30-w1-myth-zh.png",
+        "caption_zh": "\u4e70\u7b2c\u4e00\u5957\u623f\u8981\u4ea4\u5370\u82b1\u7a0e\uff1f\u6765\uff0c\u628a\u8fd9\u4ef6\u4e8b\u8bf4\u6e05\u695a\u3002\n\n\u5f88\u591a\u4eba\u65a9\u9489\u622a\u94c1\u5730\u8bf4\uff0c\u4e00\u4e70\u623f\u5c31\u5f97\u591a\u4ea4 ABSD\u3002\u5176\u5b9e\u4e0d\u5bf9\u3002\n\n\u65b0\u52a0\u5761\u516c\u6c11\u4e70\u7b2c\u4e00\u5957\u623f\uff0cABSD \u662f 0%\u3002\n\n\u4ece\u7b2c\u4e8c\u5957\u623f\u5f00\u59cb\u624d\u7b97\uff0c\u6240\u4ee5\u4e70\u7b2c\u4e00\u5957\uff0c\u6bd4\u5927\u5bb6\u8bb2\u7684\u8981\u7b80\u5355\u591a\u4e86\u3002\n\n\u514d\u8d39\u5230 propsight.sg \u67e5\u4e00\u67e5\u4f60\u7684\u60c5\u51b5\uff08\u94fe\u63a5\u5728\u7b80\u4ecb\uff09\n\n#singaporeproperty #propertysg #absd #stampduty #firsthome"
+      },
+      {
+        "id": "value",
+        "cat": "Home value",
+        "day": "Wed",
+        "time": "8:00 PM",
+        "note": "Midweek. A market read, insight or news story people save and share.",
+        "palette": "indigo",
+        "value": "light",
+        "caption": "Tampines 4-room HDB resale is sitting around $710k\n\nThat figure comes from 2526 real sales this year, not one agent's guess.\nBefore you list or lowball an offer, check what your exact flat is actually worth.\nSave this so you have it when the WhatsApp offer lands.\nCheck yours free at propsight.sg (link in bio)\n\n#singaporeproperty #propertysg #hdbresale #hdbtampines #resaleflat",
+        "alt": "What a flat in Tampines is worth",
+        "file": "2026-06-30-w1-value.png",
+        "file_zh": "2026-06-30-w1-value-zh.png",
+        "caption_zh": "\u6de1\u6ee8\u5c3c\u56db\u623f\u5f0fHDB\u8f6c\u552e\u4ef7\uff0c\u5927\u7ea6\u843d\u5728$710k\u3002\n\n\u8fd9\u4e2a\u6570\u5b57\u6765\u81ea\u4eca\u5e742526\u5b97\u771f\u5b9e\u6210\u4ea4\u8bb0\u5f55\uff0c\u4e0d\u662f\u54ea\u4e2a\u7ecf\u7eaa\u4eba\u4f30\u51fa\u6765\u7684\u3002\n\u4e0d\u7ba1\u4f60\u662f\u51c6\u5907\u6302\u724c\u51fa\u552e\uff0c\u8fd8\u662f\u60f3\u538b\u4f4e\u51fa\u4ef7\uff0c\u90fd\u5148\u641e\u6e05\u695a\u4f60\u90a3\u95f4\u5355\u4f4d\u5230\u5e95\u503c\u591a\u5c11\u3002\n\u628a\u8fd9\u7bc7\u5b58\u8d77\u6765\uff0c\u7b49WhatsApp\u7684\u51fa\u4ef7\u4e00\u6765\uff0c\u4f60\u5fc3\u91cc\u5c31\u6709\u5e95\u4e86\u3002\n\u514d\u8d39\u5230propsight.sg\u67e5\u4f60\u7684\u5355\u4f4d\u4f30\u503c\uff08\u94fe\u63a5\u5728\u7b80\u4ecb\uff09\n\n#singaporeproperty #propertysg #hdbresale #hdbtampines #resaleflat"
+      },
+      {
+        "id": "show-afford",
+        "cat": "The affordability tool",
         "day": "Fri",
         "time": "7:00 PM",
         "note": "Friday feed. A striking photo post pulls in reach.",
-        "palette": "spruce",
+        "palette": "steel",
         "value": "light",
-        "caption": "A 4-room HDB in Tampines is about $710k right now.\nThat is the resale number from real recent sales, not a guess.\nBefore you list or lowball an offer, know what your own flat is actually worth.\nFree for any HDB or condo, takes a minute.\nCheck yours free at propsight.sg (link in bio)\n#singaporeproperty #propertysg #hdbresale #hdb #tampines",
-        "alt": "The PropSight value tool",
-        "file": "2026-06-30-w0-show-value.png"
+        "caption": "Earn 10k a month? Here's what fits.\n\nYour real budget comes from income, savings and age, not just the price tag. Work it out before you fall for the wrong home.\n\nFind your number free at propsight.sg (link in bio).\n\n#singaporeproperty #propertysg #sgproperty #homeloan #affordability",
+        "alt": "The PropSight affordability tool",
+        "file": "2026-06-30-w1-show-afford.png",
+        "file_zh": "2026-06-30-w1-show-afford-zh.png",
+        "caption_zh": "\u6708\u5165 10k\uff0c\u80fd\u4e70\u4ec0\u4e48\uff1f\n\n\u771f\u6b63\u7684\u8d2d\u623f\u9884\u7b97\uff0c\u53d6\u51b3\u4e8e\u4f60\u7684\u6536\u5165\u3001\u5b58\u6b3e\u548c\u5e74\u9f84\uff0c\u4e0d\u53ea\u662f\u770b\u4ef7\u683c\u3002\u5148\u628a\u81ea\u5df1\u7684\u6570\u5b57\u641e\u6e05\u695a\uff0c\u522b\u7b49\u7231\u4e0a\u4e86\u4e00\u5957\u4e0d\u9002\u5408\u7684\u5bb6\u624d\u540e\u6094\u3002\n\n\u5230 propsight.sg \u514d\u8d39\u7b97\u51fa\u4f60\u7684\u9884\u7b97\uff08\u94fe\u63a5\u5728\u7b80\u4ecb\uff09\u3002\n\n#singaporeproperty #propertysg #sgproperty #homeloan #affordability"
       },
       {
-        "id": "afford",
-        "cat": "Affordability",
+        "id": "costs",
+        "cat": "Hidden costs",
         "day": "Sat",
         "time": "11:00 AM",
         "note": "Weekend scroll. A quick tool or tip people act on.",
-        "palette": "petrol",
-        "value": "dark",
-        "caption": "Earn $10,000 a month? Here's the home that fits.\n\nOn a 25-year loan at 75% financing, that stretches to about $1.39M. Your savings and age move the number.\n\nFind your number free at propsight.sg (link in bio).\n\n#singaporeproperty #propertysg #sgproperty #homeloan #affordability",
-        "alt": "What you can afford",
-        "file": "2026-06-30-w0-afford.png"
+        "palette": "aqua",
+        "value": "light",
+        "caption": "The price is never the price.\n\nOn a $1.65M home you're really looking at about $117k more, stamp duty, legal fees and renovation, before you get the keys.\n\nWork out your real total free at propsight.sg (link in bio).\n\n#singaporeproperty #propertysg #sgproperty #stampduty #homebuying",
+        "alt": "The real cost of a home",
+        "file": "2026-06-30-w1-costs.png",
+        "file_zh": "2026-06-30-w1-costs-zh.png",
+        "caption_zh": "\u4ef7\u683c\uff0c\u4ece\u6765\u90fd\u4e0d\u53ea\u662f\u4ef7\u683c\u3002\n\n\u4e70\u4e00\u5957 $1.65M \u7684\u623f\u5b50\uff0c\u4f60\u5b9e\u9645\u8981\u51c6\u5907\u7684\uff0c\u53ef\u4e0d\u6b62\u8fd9\u4e2a\u6570\u3002\u5370\u82b1\u7a0e\u3001\u5f8b\u5e08\u8d39\u3001\u88c5\u4fee\u8d39\u5168\u52a0\u8d77\u6765\uff0c\u5dee\u4e0d\u591a\u8fd8\u8981\u591a\u4ed8\u7ea6 $117k\uff0c\u624d\u80fd\u771f\u6b63\u62ff\u5230\u94a5\u5319\u3002\n\n\u514d\u8d39\u5728 propsight.sg \u7b97\u51fa\u4f60\u7684\u5b9e\u9645\u603b\u5f00\u9500\uff08\u94fe\u63a5\u5728\u7b80\u4ecb\uff09\u3002\n\n#singaporeproperty #propertysg #sgproperty #stampduty #homebuying"
       }
     ],
     "stories": [
@@ -75,8 +143,8 @@
         "instr": "Add a link sticker to propsight.sg near the bottom arrow before you post.",
         "palette": "petrol",
         "value": "dark",
-        "alt": "This week's number, $710k in Tampines",
-        "file": "2026-06-30-w0-story-stat.png"
+        "alt": "This week's number, $660k in Sengkang",
+        "file": "2026-06-30-w1-story-stat.png"
       },
       {
         "id": "story-poll",
@@ -87,8 +155,8 @@
         "instr": "Drop an IG poll or quiz sticker in the dashed box. Reveal the real number in a follow-up story.",
         "palette": "indigo",
         "value": "light",
-        "alt": "Guess the price of a 4-room in Woodlands",
-        "file": "2026-06-30-w0-story-poll.png"
+        "alt": "Guess the price of a 4-room in Yishun",
+        "file": "2026-06-30-w1-story-poll.png"
       },
       {
         "id": "story-link",
@@ -100,7 +168,7 @@
         "palette": "midnight",
         "value": "dark",
         "alt": "Know what your home is really worth, free at propsight.sg",
-        "file": "2026-06-30-w0-story-link.png"
+        "file": "2026-06-30-w1-story-link.png"
       }
     ],
     "covers": [
@@ -126,5 +194,60 @@
       }
     ]
   },
-  "archive": []
+  "archive": [
+    {
+      "week_of": "30 June 2026",
+      "built": "2026-06-30",
+      "posts": [
+        {
+          "id": "editorial",
+          "cat": "Editorial",
+          "day": "Mon",
+          "time": "8:00 PM",
+          "note": "Start of the week, strongest reach. A hook or myth to stop the scroll.",
+          "palette": "pine",
+          "value": "light",
+          "caption": "Real value of any home in Singapore, free\nPropSight shows you what a home is actually worth, your true budget, the hidden costs most buyers forget, and the schools nearby, all in one place.\nOne tab before you make an offer or list. No agent, no guessing, just real property intelligence.\nCheck yours free at propsight.sg (link in bio)\n#singaporeproperty #propertysg #hdbresale #condosingapore #propertyinvestment",
+          "alt": "Know what a home is really worth",
+          "file": "2026-06-30-w0-editorial.png"
+        },
+        {
+          "id": "insights",
+          "cat": "Market Insights",
+          "day": "Wed",
+          "time": "8:00 PM",
+          "note": "Midweek. A market read, insight or news story people save and share.",
+          "palette": "glacier",
+          "value": "light",
+          "caption": "HDB resale flats are out-earning condos for landlords right now.\nRental yield is the story, not the price tag.\nCondo prices are holding steady, led by the suburbs and the city fringe.\nHDB resale is holding steady too, so sellers, you have time.\nCheck your own numbers free at propsight.sg (link in bio)\n#singaporeproperty #propertysg #hdbresale #rentalyield #condosingapore",
+          "alt": "Market insight, Resale flats are out-earning condos for landlords",
+          "file": "2026-06-30-w0-insights.png"
+        },
+        {
+          "id": "show-value",
+          "cat": "The value tool",
+          "day": "Fri",
+          "time": "7:00 PM",
+          "note": "Friday feed. A striking photo post pulls in reach.",
+          "palette": "spruce",
+          "value": "light",
+          "caption": "A 4-room HDB in Tampines is about $710k right now.\nThat is the resale number from real recent sales, not a guess.\nBefore you list or lowball an offer, know what your own flat is actually worth.\nFree for any HDB or condo, takes a minute.\nCheck yours free at propsight.sg (link in bio)\n#singaporeproperty #propertysg #hdbresale #hdb #tampines",
+          "alt": "The PropSight value tool",
+          "file": "2026-06-30-w0-show-value.png"
+        },
+        {
+          "id": "afford",
+          "cat": "Affordability",
+          "day": "Sat",
+          "time": "11:00 AM",
+          "note": "Weekend scroll. A quick tool or tip people act on.",
+          "palette": "petrol",
+          "value": "dark",
+          "caption": "Earn $10,000 a month? Here's the home that fits.\n\nOn a 25-year loan at 75% financing, that stretches to about $1.39M. Your savings and age move the number.\n\nFind your number free at propsight.sg (link in bio).\n\n#singaporeproperty #propertysg #sgproperty #homeloan #affordability",
+          "alt": "What you can afford",
+          "file": "2026-06-30-w0-afford.png"
+        }
+      ]
+    }
+  ]
 }

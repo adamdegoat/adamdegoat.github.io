@@ -34,7 +34,7 @@ section{padding:34px 0 6px}
 .fstats{display:flex;gap:26px;text-align:center}
 .fstats b{font-weight:700;font-size:18px;display:block} .fstats span{font-size:12px;color:#7a8a82}
 .fbio{padding:6px 22px 16px} .fbio b{font-size:14px} .fbio p{font-size:13.5px;color:#4a5a52;margin-top:3px;line-height:1.45} .fbio .u{color:#0f7a82;font-weight:600;font-family:Fraunces;margin-top:4px;display:block}
-.fscroll{max-height:720px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.fscroll{max-height:430px;overflow-y:auto;-webkit-overflow-scrolling:touch}
 .fscroll::-webkit-scrollbar{width:8px} .fscroll::-webkit-scrollbar-thumb{background:#cbdcd5;border-radius:8px}
 .fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
 .ft{position:relative;display:block;aspect-ratio:4/5;overflow:hidden;background:#eaf1ee}
@@ -62,6 +62,22 @@ section{padding:34px 0 6px}
 .pbtns{display:flex;gap:9px}
 .btn{flex:1;text-align:center;border-radius:30px;padding:12px;font-weight:700;font-size:13.5px;cursor:pointer;border:1px solid transparent}
 .btn.dl{background:#163a2d;color:#eef4f1} .btn.cp{background:#fff;border-color:#cbdcd5;color:#163a2d} .btn.cp.done{background:#cdeee2;border-color:#7fd0bb;color:#0f7a4a}
+.btn.wide{width:100%}
+/* compact carousel cards (less scrolling) */
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.dcard{background:#fff;border:1px solid #dbe7e2;border-radius:18px;padding:15px 15px 16px;display:flex;flex-direction:column;gap:11px;box-shadow:0 10px 26px rgba(15,35,26,.07)}
+.dcard.pin{border-color:#7fd0bb;box-shadow:0 0 0 1.5px #cdeee2}
+.cslides{display:flex;gap:9px}
+.cslide{position:relative;flex:1;aspect-ratio:4/5;border-radius:11px;overflow:hidden;background:#eaf1ee;display:block}
+.cslide img{width:100%;height:100%;object-fit:cover;display:block}
+.cslide .cn{position:absolute;left:7px;top:7px;font-size:10.5px;font-weight:800;letter-spacing:.03em;background:rgba(12,23,20,.82);color:#fff;border-radius:20px;padding:3px 9px;z-index:2}
+.cslide .cn.zh{background:#0f7a82}
+.cslide::after{content:"Save";position:absolute;right:7px;bottom:7px;font-size:10px;font-weight:700;background:rgba(255,255,255,.92);color:#163a2d;border-radius:7px;padding:3px 8px;opacity:0;transition:.18s}
+.cslide:hover::after{opacity:1}
+.biobar{background:linear-gradient(135deg,#163a2d,#0c211a);color:#eef4f1;border-radius:18px;padding:17px 22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:6px}
+.biobar .bl{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#9fd9c9;flex:none}
+.biobar .bt{font-size:13.5px;line-height:1.5;flex:1;min-width:200px} .biobar .bt b{font-family:'Noto Sans SC','Schibsted Grotesk'}
+.biobar .btn.cp{flex:none;background:#bfe3d0;border-color:#bfe3d0;color:#13261d}
 /* archive */
 .aweek{margin-bottom:28px}
 .awh{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #d3e1da;padding-bottom:10px;margin-bottom:14px}
@@ -121,30 +137,23 @@ footer{padding:34px 0 70px;color:#7a8a82;font-size:13px;text-align:center;border
 <header><div class="brand"><div class="mk"><svg viewBox="0 0 64 64"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
   <div><b>PropSight<span> Studio</span></b><div class="bs">weekly content plan</div></div></div></header>
 <div class="topbar">
-  <div class="meta"><span class="chip">Issue <b>#1</b></span><span class="chip">Week of <b>30 June 2026</b></span><span class="chip"><b>4</b> posts</span><span class="chip"><b>3</b> stories</span><span class="chip">Next plan <b>Mon 6 Jul · 04:00</b></span></div>
+  <div class="meta"><span class="chip">Issue <b>#2</b></span><span class="chip">Week of <b>30 June 2026</b></span><span class="chip"><b>4</b> posts</span><span class="chip"><b>3</b> stories</span><span class="chip">Next plan <b>Mon 6 Jul · 04:00</b></span></div>
 </div>
+<div class="biobar"><span class="bl">Your bio</span><span class="bt">PropSight · <b>新加坡房产，一目了然</b> · Free Singapore property values, research &amp; news · propsight.sg</span><button class="btn cp" data-cap="PropSight · 新加坡房产，一目了然 · Free Singapore property values, research and news · propsight.sg">Copy bio</button></div>
 <section><div class="shead"><h2>Your feed preview</h2><span class="sub">this week on top of recent posts</span></div>
   <div class="feedwrap">
     <div class="fhead"><div class="av"><svg viewBox="0 0 64 64"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div class="fstats"><div><b>312</b><span>posts</span></div><div><b>8.4k</b><span>followers</span></div><div><b>42</b><span>following</span></div></div></div>
     <div class="fbio"><b>propsightsg</b><p>Singapore property, decoded.<br>Free tools, real numbers, built on URA data.</p><span class="u">propsight.sg</span></div>
-    <div class="fscroll"><div class="fgrid"><a class="ft" href="posts/launch-propsight.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/launch-propsight.png" alt="PropSight on a laptop and a phone, free Singapore property intelligence at propsight.sg"><span class="ftl">Launch</span></a><a class="ft" href="posts/2026-06-30-w0-afford.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w0-afford.png" alt="What you can afford"><span class="ftl">Affordability</span></a><a class="ft" href="posts/2026-06-30-w0-show-value.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w0-show-value.png" alt="The PropSight value tool"><span class="ftl">The value tool</span></a><a class="ft" href="posts/2026-06-30-w0-insights.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w0-insights.png" alt="Market insight, Resale flats are out-earning condos for landlords"><span class="ftl">Market Insights</span></a><a class="ft" href="posts/2026-06-30-w0-editorial.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w0-editorial.png" alt="Know what a home is really worth"><span class="ftl">Editorial</span></a></div></div>
+    <div class="fscroll"><div class="fgrid"><a class="ft" href="posts/launch-propsight.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/launch-propsight.png" alt="PropSight on a laptop and a phone, free Singapore property intelligence at propsight.sg"><span class="ftl">Launch</span></a><a class="ft" href="posts/starter-show-value.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/starter-show-value.png" alt="The PropSight value tool"><span class="ftl">The value tool</span></a><a class="ft" href="posts/starter-show-afford.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/starter-show-afford.png" alt="The PropSight affordability tool"><span class="ftl">The affordability tool</span></a><a class="ft" href="posts/starter-show-schools.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/starter-show-schools.png" alt="The PropSight schools tool"><span class="ftl">The schools tool</span></a><a class="ft" href="posts/starter-photo-sky.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/starter-photo-sky.png" alt="Singapore CBD skyline behind Chinatown shophouses"><span class="ftl">Photo · Skyline</span></a><a class="ft" href="posts/2026-06-30-w1-costs.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w1-costs.png" alt="The real cost of a home"><span class="ftl">Hidden costs</span></a><a class="ft" href="posts/2026-06-30-w1-show-afford.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w1-show-afford.png" alt="The PropSight affordability tool"><span class="ftl">The affordability tool</span></a><a class="ft" href="posts/2026-06-30-w1-value.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w1-value.png" alt="What a flat in Tampines is worth"><span class="ftl">Home value</span></a><a class="ft" href="posts/2026-06-30-w1-myth.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w1-myth.png" alt="Property myth vs fact"><span class="ftl">Myth buster</span></a><a class="ft" href="posts/2026-06-30-w0-editorial.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w0-editorial.png" alt="Know what a home is really worth"><span class="ftl">Editorial</span></a><a class="ft" href="posts/2026-06-30-w0-insights.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w0-insights.png" alt="Market insight, Resale flats are out-earning condos for landlords"><span class="ftl">Market Insights</span></a><a class="ft" href="posts/2026-06-30-w0-show-value.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w0-show-value.png" alt="The PropSight value tool"><span class="ftl">The value tool</span></a><a class="ft" href="posts/2026-06-30-w0-afford.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w0-afford.png" alt="What you can afford"><span class="ftl">Affordability</span></a></div></div>
   </div>
   <div class="fnote">Scroll the grid to see your whole feed. Newest posts sit top-left like Instagram, your pinned first post stays up top, and it fills out as you post each week.</div>
 </section>
-<section><div class="shead"><h2>Your first post</h2><span class="sub">post this, then pin it to your profile</span></div><div class="grid one"><article class="day">
-  <div class="dwhen"><span class="dday">Pin first</span><span class="dtime">Your first post</span><span class="dcat pin">Pin first</span></div>
-  <div class="dnote">Your intro post. Post this first, then pin it to the top of your profile.</div>
-  <div class="dloc"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z'/><circle cx='12' cy='11' r='2.2'/></svg><span>Tag location <b>Singapore</b></span></div>
-  <div class="phone"><div class="screen">
-    <div class="sbar"><span class="sbt">9:41</span><span class="sbic"><svg viewBox="0 0 22 12" fill="currentColor"><rect x="0" y="6" width="3" height="6" rx="1"/><rect x="4.5" y="4" width="3" height="8" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1" opacity=".4"/></svg><svg viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="1.5" width="20" height="9" rx="2.5"/><rect x="3" y="3.5" width="14" height="5" rx="1" fill="currentColor"/><rect x="22" y="4" width="2" height="4" rx="1" fill="currentColor"/></svg></span></div>
-    <div class="igh"><span class="av"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="who"><b>propsightsg</b><i>Singapore</i></span><span class="more"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></span></div>
-    <div class="pimg"><img loading="lazy" src="posts/launch-propsight.png" alt="PropSight on a laptop and a phone, free Singapore property intelligence at propsight.sg"></div>
-    <div class="acts"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-6.6-4.2-9-7.8C1.2 9.7 2.6 6.1 6 6.1c2.2 0 3.7 1.6 6 4 2.3-2.4 3.8-4 6-4 3.4 0 4.8 3.6 3 6.1C18.6 15.8 12 20 12 20z"/></svg></span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-5A8 8 0 1 1 21 11.5z"/></svg></span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3 11 14M22 3l-7 18-4-7-7-4 18-7z"/></svg></span><span class="ic save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg></span></div>
-    <div class="pcap"><b>propsightsg</b> PropSight is live. The free way to see Singapore property clearly. <span class="tags">#singaporeproperty #propertysg #hdb</span></div>
-  </div></div>
-  <div class="pbtns"><a class="btn dl" href="posts/launch-propsight.png" download>Download</a>
-    <button class="btn cp" data-cap="PropSight is live. The free way to see Singapore property clearly.
+<section><div class="shead"><h2>Start here, your first 3 days</h2><span class="sub">post these 5 to fill your grid, then follow the weekly plan below</span></div><div class="howto"><b>Just follow the day and time on each card.</b> Day 1: post the launch, then press and hold it on your profile to <b>Pin</b> it. Day 2: the two cards marked Day 2. Day 3: the two marked Day 3. By Day 3 your grid already looks like a real brand, and the weekly carousels below keep it growing.</div><div class="cgrid"><article class="dcard pin">
+  <div class="dwhen"><span class="dday">Day 1</span><span class="dtime">8:00 PM</span><span class="dcat pin">Pin first</span></div>
+  <div class="cslides"><a class="cslide" href="posts/launch-propsight.png" download title="Download slide 1"><span class="cn">1 · EN</span><img loading="lazy" src="posts/launch-propsight.png" alt="PropSight on a laptop and a phone, free Singapore property intelligence at propsight.sg"></a><a class="cslide" href="posts/launch-propsight-zh.png" download title="Download slide 2"><span class="cn zh">2 · 中文</span><img loading="lazy" src="posts/launch-propsight-zh.png" alt="PropSight on a laptop and a phone, free Singapore property intelligence at propsight.sg 中文"></a></div>
+  <div class="dnote">Post this first, then PIN it to the top of your profile.</div>
+  <button class="btn cp wide" data-cap="PropSight is live. The free way to see Singapore property clearly.
 
 Value any HDB or condo on real recent sales. Work out what you can truly afford. Dig into deep research on every project and town. Read the news that actually matters, in plain English.
 
@@ -152,111 +161,229 @@ And Aillie, your property intelligence, answers anything, anytime.
 
 Start free at propsight.sg (link in bio). Join free to unlock the full research, a weekly newsletter and live market signals.
 
-#singaporeproperty #propertysg #hdb #condosingapore #propertyinvestment">Copy caption</button></div>
+#singaporeproperty #propertysg #hdb #condosingapore #propertyinvestment
+
+· · ·
+
+PropSight 正式上线了。看清新加坡房产，免费就能办到。
+
+根据真实近期成交，为任何 HDB 或 condo 估值。算清楚自己真正能负担多少。深入研究每个项目和地区的详细资料。用简单易懂的英文，读到真正重要的资讯。
+
+还有你的房产智能助手 Aillie，随时随地解答任何问题。
+
+免费上手，访问 propsight.sg（链接在简介）。注册免费，解锁完整研究资料、每周通讯和实时市场动态。
+
+#singaporeproperty #propertysg #hdb #condosingapore #propertyinvestment">Copy caption · EN + 中文</button>
+</article><article class="dcard">
+  <div class="dwhen"><span class="dday">Day 2</span><span class="dtime">12:30 PM</span><span class="dcat">The value tool</span></div>
+  <div class="cslides"><a class="cslide" href="posts/starter-show-value.png" download title="Download slide 1"><span class="cn">1 · EN</span><img loading="lazy" src="posts/starter-show-value.png" alt="The PropSight value tool"></a><a class="cslide" href="posts/starter-show-value-zh.png" download title="Download slide 2"><span class="cn zh">2 · 中文</span><img loading="lazy" src="posts/starter-show-value-zh.png" alt="The PropSight value tool 中文"></a></div>
+  <div class="dnote">Your strongest tool first. Real home values, free, from recent sales.</div>
+  <button class="btn cp wide" data-cap="Tampines 4-room HDB resale is sitting near $710k
+Before you list or lowball an offer, check what your exact flat is actually worth from recent sales, not your neighbour's hopeful asking price.
+Same goes for any condo. Real numbers, free, in under a minute.
+Check yours free at propsight.sg (link in bio)
+#singaporeproperty #propertysg #hdbresale #tampines #propertyinvestment
+
+· · ·
+
+淡滨尼四房式 HDB 转售价格已经接近 $710k。
+
+不管是挂牌卖房还是压价出价，先看看你的组屋按近期成交记录到底值多少，别光靠邻居那个一厢情愿的开价。
+
+Condo 也是同样道理。真实数据，免费，不到一分钟。
+
+免费在 propsight.sg 查询你家的估值（链接在简介）
+
+#singaporeproperty #propertysg #hdbresale #tampines #propertyinvestment">Copy caption · EN + 中文</button>
+</article><article class="dcard">
+  <div class="dwhen"><span class="dday">Day 2</span><span class="dtime">7:00 PM</span><span class="dcat">The affordability tool</span></div>
+  <div class="cslides"><a class="cslide" href="posts/starter-show-afford.png" download title="Download slide 1"><span class="cn">1 · EN</span><img loading="lazy" src="posts/starter-show-afford.png" alt="The PropSight affordability tool"></a><a class="cslide" href="posts/starter-show-afford-zh.png" download title="Download slide 2"><span class="cn zh">2 · 中文</span><img loading="lazy" src="posts/starter-show-afford-zh.png" alt="The PropSight affordability tool 中文"></a></div>
+  <div class="dnote">The affordability angle, the question every buyer has.</div>
+  <button class="btn cp wide" data-cap="Earn 10k a month? Here's what fits.
+
+Your real budget comes from income, savings and age, not just the price tag. Work it out before you fall for the wrong home.
+
+Find your number free at propsight.sg (link in bio).
+
+#singaporeproperty #propertysg #sgproperty #homeloan #affordability
+
+· · ·
+
+月入 10k，能买什么？
+
+真正的购房预算，取决于你的收入、存款和年龄，不只是看价格。先把自己的数字搞清楚，别等爱上了一套不适合的家才后悔。
+
+到 propsight.sg 免费算出你的预算（链接在简介）。
+
+#singaporeproperty #propertysg #sgproperty #homeloan #affordability">Copy caption · EN + 中文</button>
+</article><article class="dcard">
+  <div class="dwhen"><span class="dday">Day 3</span><span class="dtime">12:30 PM</span><span class="dcat">The schools tool</span></div>
+  <div class="cslides"><a class="cslide" href="posts/starter-show-schools.png" download title="Download slide 1"><span class="cn">1 · EN</span><img loading="lazy" src="posts/starter-show-schools.png" alt="The PropSight schools tool"></a><a class="cslide" href="posts/starter-show-schools-zh.png" download title="Download slide 2"><span class="cn zh">2 · 中文</span><img loading="lazy" src="posts/starter-show-schools-zh.png" alt="The PropSight schools tool 中文"></a></div>
+  <div class="dnote">Schools, very shareable with parents looking at P1.</div>
+  <button class="btn cp wide" data-cap="Nanyang Primary has 47 condos within 1km, ranked by walking distance.
+If you are buying near a top primary school, distance is the whole game for Phase 2C balloting.
+We mapped every single one so you can sort by who actually walks in, not who guesses.
+Save this before your next viewing and check the real list yourself.
+Check yours free at propsight.sg (link in bio)
+#singaporeproperty #propertysg #condosingapore #primaryschool #nanyangprimary
+
+· · ·
+
+南洋小学1公里范围内有47个condo，全部按步行距离排好了。
+
+如果你正在考虑买名小学附近的房子，Phase 2C抽签拼的就是距离，这才是关键所在。
+
+我们把每一个都标出来了，让你按实际步行距离来筛选，不用靠猜测。
+
+下次看房之前先收藏这个，自己来查真实名单。
+
+到propsight.sg免费查看你的情况（链接在简介）
+
+#singaporeproperty #propertysg #condosingapore #primaryschool #nanyangprimary">Copy caption · EN + 中文</button>
+</article><article class="dcard">
+  <div class="dwhen"><span class="dday">Day 3</span><span class="dtime">7:00 PM</span><span class="dcat">Photo · Skyline</span></div>
+  <div class="cslides"><a class="cslide" href="posts/starter-photo-sky.png" download title="Download slide 1"><span class="cn">1 · EN</span><img loading="lazy" src="posts/starter-photo-sky.png" alt="Singapore CBD skyline behind Chinatown shophouses"></a><a class="cslide" href="posts/starter-photo-sky-zh.png" download title="Download slide 2"><span class="cn zh">2 · 中文</span><img loading="lazy" src="posts/starter-photo-sky-zh.png" alt="Singapore CBD skyline behind Chinatown shophouses 中文"></a></div>
+  <div class="dnote">A clean Singapore brand photo to round out the grid.</div>
+  <button class="btn cp wide" data-cap="What your Singapore home is actually worth, free
+
+Most valuations are guesses. This one runs on real recent sales near you, CBD condo or heartland HDB, no agent needed.
+Check the number yourself before anyone quotes you one.
+
+Check yours free at propsight.sg (link in bio)
+
+#singaporeproperty #propertysg #sgproperty #hdbresale #condosingapore
+
+· · ·
+
+你的新加坡房子到底值多少，免费查
+
+大多数估价都只是猜猜看。这个工具根据你附近真实的近期成交数据来运算，不管是市区condo还是组屋区的HDB，完全不需要经纪人。
+在别人开口报价之前，先自己把数字查清楚。
+
+免费到 propsight.sg 查你的估价（链接在简介）
+
+#singaporeproperty #propertysg #sgproperty #hdbresale #condosingapore">Copy caption · EN + 中文</button>
 </article></div></section>
-<section><div class="shead"><h2>Feed posts</h2><span class="sub">four this week, post one on its day</span></div>
+<section><div class="shead"><h2>Then every week</h2><span class="sub">four carousels, post each on the day + time shown · slide 1 EN + slide 2 中文</span></div>
   <div class="howto checklist"><b>Before you tap Share</b>
     <span class="ck"><i>1</i>Set the location. Use the one shown on each post, it surfaces you to locals searching that spot. This matters more than hashtags now.</span>
     <span class="ck"><i>2</i>Tagging people, skip it. Only tag on a new launch (the developer's account) or a real collaborator. Random tags get a post throttled.</span>
     <span class="ck"><i>3</i>Drop a first comment with two or three extra hashtags, or "Value your flat free, link in bio". Keeps the caption clean.</span>
     <span class="ck"><i>4</i>Post on the day and time on the card, then reshare it to your story.</span>
   </div>
-  <div class="grid"><article class="day">
-  <div class="dwhen"><span class="dday">Mon</span><span class="dtime">8:00 PM</span><span class="dcat">Editorial</span></div>
+  <div class="cgrid"><article class="dcard">
+  <div class="dwhen"><span class="dday">Mon</span><span class="dtime">8:00 PM</span><span class="dcat">Myth buster</span></div>
+  <div class="cslides"><a class="cslide" href="posts/2026-06-30-w1-myth.png" download title="Download slide 1"><span class="cn">1 · EN</span><img loading="lazy" src="posts/2026-06-30-w1-myth.png" alt="Property myth vs fact"></a><a class="cslide" href="posts/2026-06-30-w1-myth-zh.png" download title="Download slide 2"><span class="cn zh">2 · 中文</span><img loading="lazy" src="posts/2026-06-30-w1-myth-zh.png" alt="Property myth vs fact 中文"></a></div>
   <div class="dnote">Start of the week, strongest reach. A hook or myth to stop the scroll.</div>
-  <div class="dloc"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z'/><circle cx='12' cy='11' r='2.2'/></svg><span>Tag location <b>Singapore</b></span></div>
-  <div class="phone"><div class="screen">
-    <div class="sbar"><span class="sbt">9:41</span><span class="sbic"><svg viewBox="0 0 22 12" fill="currentColor"><rect x="0" y="6" width="3" height="6" rx="1"/><rect x="4.5" y="4" width="3" height="8" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1" opacity=".4"/></svg><svg viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="1.5" width="20" height="9" rx="2.5"/><rect x="3" y="3.5" width="14" height="5" rx="1" fill="currentColor"/><rect x="22" y="4" width="2" height="4" rx="1" fill="currentColor"/></svg></span></div>
-    <div class="igh"><span class="av"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="who"><b>propsightsg</b><i>Singapore</i></span><span class="more"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></span></div>
-    <div class="pimg"><img loading="lazy" src="posts/2026-06-30-w0-editorial.png" alt="Know what a home is really worth"></div>
-    <div class="acts"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-6.6-4.2-9-7.8C1.2 9.7 2.6 6.1 6 6.1c2.2 0 3.7 1.6 6 4 2.3-2.4 3.8-4 6-4 3.4 0 4.8 3.6 3 6.1C18.6 15.8 12 20 12 20z"/></svg></span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-5A8 8 0 1 1 21 11.5z"/></svg></span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3 11 14M22 3l-7 18-4-7-7-4 18-7z"/></svg></span><span class="ic save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg></span></div>
-    <div class="pcap"><b>propsightsg</b> Real value of any home in Singapore, free <span class="tags">#singaporeproperty #propertysg #hdbresale</span></div>
-  </div></div>
-  <div class="pbtns"><a class="btn dl" href="posts/2026-06-30-w0-editorial.png" download>Download</a>
-    <button class="btn cp" data-cap="Real value of any home in Singapore, free
-PropSight shows you what a home is actually worth, your true budget, the hidden costs most buyers forget, and the schools nearby, all in one place.
-One tab before you make an offer or list. No agent, no guessing, just real property intelligence.
+  <button class="btn cp wide" data-cap="Stamp duty on your first home? Here's the truth.
+Everyone swears you pay extra ABSD the moment you buy. Not true.
+A Singapore citizen pays 0% ABSD on their first home.
+It only starts from your second property, so your first buy is cleaner than people warn you.
 Check yours free at propsight.sg (link in bio)
-#singaporeproperty #propertysg #hdbresale #condosingapore #propertyinvestment">Copy caption</button></div>
-</article><article class="day">
-  <div class="dwhen"><span class="dday">Wed</span><span class="dtime">8:00 PM</span><span class="dcat">Market Insights</span></div>
-  <div class="dnote">Midweek. A market read, insight or news story people save and share.</div>
-  <div class="dloc"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z'/><circle cx='12' cy='11' r='2.2'/></svg><span>Tag location <b>Singapore</b></span></div>
-  <div class="phone"><div class="screen">
-    <div class="sbar"><span class="sbt">9:41</span><span class="sbic"><svg viewBox="0 0 22 12" fill="currentColor"><rect x="0" y="6" width="3" height="6" rx="1"/><rect x="4.5" y="4" width="3" height="8" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1" opacity=".4"/></svg><svg viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="1.5" width="20" height="9" rx="2.5"/><rect x="3" y="3.5" width="14" height="5" rx="1" fill="currentColor"/><rect x="22" y="4" width="2" height="4" rx="1" fill="currentColor"/></svg></span></div>
-    <div class="igh"><span class="av"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="who"><b>propsightsg</b><i>Singapore</i></span><span class="more"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></span></div>
-    <div class="pimg"><img loading="lazy" src="posts/2026-06-30-w0-insights.png" alt="Market insight, Resale flats are out-earning condos for landlords"></div>
-    <div class="acts"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-6.6-4.2-9-7.8C1.2 9.7 2.6 6.1 6 6.1c2.2 0 3.7 1.6 6 4 2.3-2.4 3.8-4 6-4 3.4 0 4.8 3.6 3 6.1C18.6 15.8 12 20 12 20z"/></svg></span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-5A8 8 0 1 1 21 11.5z"/></svg></span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3 11 14M22 3l-7 18-4-7-7-4 18-7z"/></svg></span><span class="ic save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg></span></div>
-    <div class="pcap"><b>propsightsg</b> HDB resale flats are out-earning condos for landlords right now. <span class="tags">#singaporeproperty #propertysg #hdbresale</span></div>
-  </div></div>
-  <div class="pbtns"><a class="btn dl" href="posts/2026-06-30-w0-insights.png" download>Download</a>
-    <button class="btn cp" data-cap="HDB resale flats are out-earning condos for landlords right now.
-Rental yield is the story, not the price tag.
-Condo prices are holding steady, led by the suburbs and the city fringe.
-HDB resale is holding steady too, so sellers, you have time.
-Check your own numbers free at propsight.sg (link in bio)
-#singaporeproperty #propertysg #hdbresale #rentalyield #condosingapore">Copy caption</button></div>
-</article><article class="day">
-  <div class="dwhen"><span class="dday">Fri</span><span class="dtime">7:00 PM</span><span class="dcat">The value tool</span></div>
-  <div class="dnote">Friday feed. A striking photo post pulls in reach.</div>
-  <div class="dloc"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z'/><circle cx='12' cy='11' r='2.2'/></svg><span>Tag location <b>Tampines, Singapore</b></span></div>
-  <div class="phone"><div class="screen">
-    <div class="sbar"><span class="sbt">9:41</span><span class="sbic"><svg viewBox="0 0 22 12" fill="currentColor"><rect x="0" y="6" width="3" height="6" rx="1"/><rect x="4.5" y="4" width="3" height="8" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1" opacity=".4"/></svg><svg viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="1.5" width="20" height="9" rx="2.5"/><rect x="3" y="3.5" width="14" height="5" rx="1" fill="currentColor"/><rect x="22" y="4" width="2" height="4" rx="1" fill="currentColor"/></svg></span></div>
-    <div class="igh"><span class="av"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="who"><b>propsightsg</b><i>Singapore</i></span><span class="more"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></span></div>
-    <div class="pimg"><img loading="lazy" src="posts/2026-06-30-w0-show-value.png" alt="The PropSight value tool"></div>
-    <div class="acts"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-6.6-4.2-9-7.8C1.2 9.7 2.6 6.1 6 6.1c2.2 0 3.7 1.6 6 4 2.3-2.4 3.8-4 6-4 3.4 0 4.8 3.6 3 6.1C18.6 15.8 12 20 12 20z"/></svg></span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-5A8 8 0 1 1 21 11.5z"/></svg></span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3 11 14M22 3l-7 18-4-7-7-4 18-7z"/></svg></span><span class="ic save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg></span></div>
-    <div class="pcap"><b>propsightsg</b> A 4-room HDB in Tampines is about $710k right now. <span class="tags">#singaporeproperty #propertysg #hdbresale</span></div>
-  </div></div>
-  <div class="pbtns"><a class="btn dl" href="posts/2026-06-30-w0-show-value.png" download>Download</a>
-    <button class="btn cp" data-cap="A 4-room HDB in Tampines is about $710k right now.
-That is the resale number from real recent sales, not a guess.
-Before you list or lowball an offer, know what your own flat is actually worth.
-Free for any HDB or condo, takes a minute.
-Check yours free at propsight.sg (link in bio)
-#singaporeproperty #propertysg #hdbresale #hdb #tampines">Copy caption</button></div>
-</article><article class="day">
-  <div class="dwhen"><span class="dday">Sat</span><span class="dtime">11:00 AM</span><span class="dcat">Affordability</span></div>
-  <div class="dnote">Weekend scroll. A quick tool or tip people act on.</div>
-  <div class="dloc"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z'/><circle cx='12' cy='11' r='2.2'/></svg><span>Tag location <b>Singapore</b></span></div>
-  <div class="phone"><div class="screen">
-    <div class="sbar"><span class="sbt">9:41</span><span class="sbic"><svg viewBox="0 0 22 12" fill="currentColor"><rect x="0" y="6" width="3" height="6" rx="1"/><rect x="4.5" y="4" width="3" height="8" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1" opacity=".4"/></svg><svg viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="1.5" width="20" height="9" rx="2.5"/><rect x="3" y="3.5" width="14" height="5" rx="1" fill="currentColor"/><rect x="22" y="4" width="2" height="4" rx="1" fill="currentColor"/></svg></span></div>
-    <div class="igh"><span class="av"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="who"><b>propsightsg</b><i>Singapore</i></span><span class="more"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></span></div>
-    <div class="pimg"><img loading="lazy" src="posts/2026-06-30-w0-afford.png" alt="What you can afford"></div>
-    <div class="acts"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-6.6-4.2-9-7.8C1.2 9.7 2.6 6.1 6 6.1c2.2 0 3.7 1.6 6 4 2.3-2.4 3.8-4 6-4 3.4 0 4.8 3.6 3 6.1C18.6 15.8 12 20 12 20z"/></svg></span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-5A8 8 0 1 1 21 11.5z"/></svg></span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3 11 14M22 3l-7 18-4-7-7-4 18-7z"/></svg></span><span class="ic save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg></span></div>
-    <div class="pcap"><b>propsightsg</b> Earn $10,000 a month? Here's the home that fits. <span class="tags">#singaporeproperty #propertysg #sgproperty</span></div>
-  </div></div>
-  <div class="pbtns"><a class="btn dl" href="posts/2026-06-30-w0-afford.png" download>Download</a>
-    <button class="btn cp" data-cap="Earn $10,000 a month? Here's the home that fits.
+#singaporeproperty #propertysg #absd #stampduty #firsthome
 
-On a 25-year loan at 75% financing, that stretches to about $1.39M. Your savings and age move the number.
+· · ·
+
+买第一套房要交印花税？来，把这件事说清楚。
+
+很多人斩钉截铁地说，一买房就得多交 ABSD。其实不对。
+
+新加坡公民买第一套房，ABSD 是 0%。
+
+从第二套房开始才算，所以买第一套，比大家讲的要简单多了。
+
+免费到 propsight.sg 查一查你的情况（链接在简介）
+
+#singaporeproperty #propertysg #absd #stampduty #firsthome">Copy caption · EN + 中文</button>
+</article><article class="dcard">
+  <div class="dwhen"><span class="dday">Wed</span><span class="dtime">8:00 PM</span><span class="dcat">Home value</span></div>
+  <div class="cslides"><a class="cslide" href="posts/2026-06-30-w1-value.png" download title="Download slide 1"><span class="cn">1 · EN</span><img loading="lazy" src="posts/2026-06-30-w1-value.png" alt="What a flat in Tampines is worth"></a><a class="cslide" href="posts/2026-06-30-w1-value-zh.png" download title="Download slide 2"><span class="cn zh">2 · 中文</span><img loading="lazy" src="posts/2026-06-30-w1-value-zh.png" alt="What a flat in Tampines is worth 中文"></a></div>
+  <div class="dnote">Midweek. A market read, insight or news story people save and share.</div>
+  <button class="btn cp wide" data-cap="Tampines 4-room HDB resale is sitting around $710k
+
+That figure comes from 2526 real sales this year, not one agent's guess.
+Before you list or lowball an offer, check what your exact flat is actually worth.
+Save this so you have it when the WhatsApp offer lands.
+Check yours free at propsight.sg (link in bio)
+
+#singaporeproperty #propertysg #hdbresale #hdbtampines #resaleflat
+
+· · ·
+
+淡滨尼四房式HDB转售价，大约落在$710k。
+
+这个数字来自今年2526宗真实成交记录，不是哪个经纪人估出来的。
+不管你是准备挂牌出售，还是想压低出价，都先搞清楚你那间单位到底值多少。
+把这篇存起来，等WhatsApp的出价一来，你心里就有底了。
+免费到propsight.sg查你的单位估值（链接在简介）
+
+#singaporeproperty #propertysg #hdbresale #hdbtampines #resaleflat">Copy caption · EN + 中文</button>
+</article><article class="dcard">
+  <div class="dwhen"><span class="dday">Fri</span><span class="dtime">7:00 PM</span><span class="dcat">The affordability tool</span></div>
+  <div class="cslides"><a class="cslide" href="posts/2026-06-30-w1-show-afford.png" download title="Download slide 1"><span class="cn">1 · EN</span><img loading="lazy" src="posts/2026-06-30-w1-show-afford.png" alt="The PropSight affordability tool"></a><a class="cslide" href="posts/2026-06-30-w1-show-afford-zh.png" download title="Download slide 2"><span class="cn zh">2 · 中文</span><img loading="lazy" src="posts/2026-06-30-w1-show-afford-zh.png" alt="The PropSight affordability tool 中文"></a></div>
+  <div class="dnote">Friday feed. A striking photo post pulls in reach.</div>
+  <button class="btn cp wide" data-cap="Earn 10k a month? Here's what fits.
+
+Your real budget comes from income, savings and age, not just the price tag. Work it out before you fall for the wrong home.
 
 Find your number free at propsight.sg (link in bio).
 
-#singaporeproperty #propertysg #sgproperty #homeloan #affordability">Copy caption</button></div>
+#singaporeproperty #propertysg #sgproperty #homeloan #affordability
+
+· · ·
+
+月入 10k，能买什么？
+
+真正的购房预算，取决于你的收入、存款和年龄，不只是看价格。先把自己的数字搞清楚，别等爱上了一套不适合的家才后悔。
+
+到 propsight.sg 免费算出你的预算（链接在简介）。
+
+#singaporeproperty #propertysg #sgproperty #homeloan #affordability">Copy caption · EN + 中文</button>
+</article><article class="dcard">
+  <div class="dwhen"><span class="dday">Sat</span><span class="dtime">11:00 AM</span><span class="dcat">Hidden costs</span></div>
+  <div class="cslides"><a class="cslide" href="posts/2026-06-30-w1-costs.png" download title="Download slide 1"><span class="cn">1 · EN</span><img loading="lazy" src="posts/2026-06-30-w1-costs.png" alt="The real cost of a home"></a><a class="cslide" href="posts/2026-06-30-w1-costs-zh.png" download title="Download slide 2"><span class="cn zh">2 · 中文</span><img loading="lazy" src="posts/2026-06-30-w1-costs-zh.png" alt="The real cost of a home 中文"></a></div>
+  <div class="dnote">Weekend scroll. A quick tool or tip people act on.</div>
+  <button class="btn cp wide" data-cap="The price is never the price.
+
+On a $1.65M home you're really looking at about $117k more, stamp duty, legal fees and renovation, before you get the keys.
+
+Work out your real total free at propsight.sg (link in bio).
+
+#singaporeproperty #propertysg #sgproperty #stampduty #homebuying
+
+· · ·
+
+价格，从来都不只是价格。
+
+买一套 $1.65M 的房子，你实际要准备的，可不止这个数。印花税、律师费、装修费全加起来，差不多还要多付约 $117k，才能真正拿到钥匙。
+
+免费在 propsight.sg 算出你的实际总开销（链接在简介）。
+
+#singaporeproperty #propertysg #sgproperty #stampduty #homebuying">Copy caption · EN + 中文</button>
 </article></div></section>
 <section><div class="shead"><h2>Stories</h2><span class="sub">quick daily presence, the algorithm loves it</span></div>
   <div class="howto"><b>The weekly story rhythm.</b> Post the three stories below on their days, plus tap reshare every feed post to your story when it goes up. That keeps something on your story almost every day, which is what grows reach. Polls and link stickers are added inside Instagram, the cards show you where.</div>
   <div class="grid"><article class="day">
   <div class="dwhen"><span class="dday">Tue</span><span class="dtime">12:30 PM</span><span class="dcat sty">Story</span></div>
   <div class="dnote">Midday scroll. A quick value hit, drives a tap to your link.</div>
-  <div class="vphone"><div class="vscreen"><img loading="lazy" src="posts/2026-06-30-w0-story-stat.png" alt="This week's number, $710k in Tampines"></div></div>
+  <div class="vphone"><div class="vscreen"><img loading="lazy" src="posts/2026-06-30-w1-story-stat.png" alt="This week's number, $660k in Sengkang"></div></div>
   <div class="sinstr"><b>To post:</b> Add a link sticker to propsight.sg near the bottom arrow before you post.</div>
-  <div class="pbtns"><a class="btn dl" href="posts/2026-06-30-w0-story-stat.png" download>Download</a></div>
+  <div class="pbtns"><a class="btn dl" href="posts/2026-06-30-w1-story-stat.png" download>Download</a></div>
 </article><article class="day">
   <div class="dwhen"><span class="dday">Thu</span><span class="dtime">7:00 PM</span><span class="dcat sty">Story</span></div>
   <div class="dnote">Evening. A poll, pure engagement that the algorithm loves.</div>
-  <div class="vphone"><div class="vscreen"><img loading="lazy" src="posts/2026-06-30-w0-story-poll.png" alt="Guess the price of a 4-room in Woodlands"></div></div>
+  <div class="vphone"><div class="vscreen"><img loading="lazy" src="posts/2026-06-30-w1-story-poll.png" alt="Guess the price of a 4-room in Yishun"></div></div>
   <div class="sinstr"><b>To post:</b> Drop an IG poll or quiz sticker in the dashed box. Reveal the real number in a follow-up story.</div>
-  <div class="pbtns"><a class="btn dl" href="posts/2026-06-30-w0-story-poll.png" download>Download</a></div>
+  <div class="pbtns"><a class="btn dl" href="posts/2026-06-30-w1-story-poll.png" download>Download</a></div>
 </article><article class="day">
   <div class="dwhen"><span class="dday">Sun</span><span class="dtime">11:00 AM</span><span class="dcat sty">Story</span></div>
   <div class="dnote">Weekend. The link story that sends people to value their home.</div>
-  <div class="vphone"><div class="vscreen"><img loading="lazy" src="posts/2026-06-30-w0-story-link.png" alt="Know what your home is really worth, free at propsight.sg"></div></div>
+  <div class="vphone"><div class="vscreen"><img loading="lazy" src="posts/2026-06-30-w1-story-link.png" alt="Know what your home is really worth, free at propsight.sg"></div></div>
   <div class="sinstr"><b>To post:</b> Add an IG link sticker to propsight.sg over the bottom arrow before posting.</div>
-  <div class="pbtns"><a class="btn dl" href="posts/2026-06-30-w0-story-link.png" download>Download</a></div>
+  <div class="pbtns"><a class="btn dl" href="posts/2026-06-30-w1-story-link.png" download>Download</a></div>
 </article></div></section>
 <section><div class="shead"><h2>Highlight covers</h2><span class="sub">set these on your profile highlights</span></div><div class="howto">Create a highlight for each, then set these as the covers. A tidy highlights row makes the profile look like a real brand and keeps new visitors longer. Save each at full size.</div><div class="hgrid"><div class="hcov"><a href="posts/cover-start.png" download><span class="hc"><img loading="lazy" src="posts/cover-start.png" alt="Start here highlight cover"></span><b>Start here</b></a></div><div class="hcov"><a href="posts/cover-value.png" download><span class="hc"><img loading="lazy" src="posts/cover-value.png" alt="Value highlight cover"></span><b>Value</b></a></div><div class="hcov"><a href="posts/cover-market.png" download><span class="hc"><img loading="lazy" src="posts/cover-market.png" alt="Market highlight cover"></span><b>Market</b></a></div><div class="hcov"><a href="posts/cover-tips.png" download><span class="hc"><img loading="lazy" src="posts/cover-tips.png" alt="Tips highlight cover"></span><b>Tips</b></a></div><div class="hcov"><a href="posts/cover-news.png" download><span class="hc"><img loading="lazy" src="posts/cover-news.png" alt="News highlight cover"></span><b>News</b></a></div></div></section>
-<section id="archive"><div class="shead"><h2>Archive</h2><span class="sub">every past week</span></div><span class="empty">Each week's plan moves here once the next one lands.</span></section>
+<section id="archive"><div class="shead"><h2>Archive</h2><span class="sub">every past week</span></div><div class="aweek"><div class="awh"><b>Week of 30 June 2026</b><span>4 designs</span></div><div class="agrid"><a class="ft" href="posts/2026-06-30-w0-editorial.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w0-editorial.png" alt="Know what a home is really worth"><span class="ftl">Editorial</span></a><a class="ft" href="posts/2026-06-30-w0-insights.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w0-insights.png" alt="Market insight, Resale flats are out-earning condos for landlords"><span class="ftl">Market Insights</span></a><a class="ft" href="posts/2026-06-30-w0-show-value.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w0-show-value.png" alt="The PropSight value tool"><span class="ftl">The value tool</span></a><a class="ft" href="posts/2026-06-30-w0-afford.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w0-afford.png" alt="What you can afford"><span class="ftl">Affordability</span></a></div></div></section>
 </div>
 <footer>PropSight Studio &middot; made for <a href="https://propsight.sg">propsight.sg</a></footer>
 <script>
