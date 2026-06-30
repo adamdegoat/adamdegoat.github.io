@@ -202,6 +202,42 @@
     'Home price': '房价', 'the ceiling for your search': '你选房的上限',
     "Loan you'd take": '你要借的贷款', 'You put down': '你的首付', 'Monthly repayment': '每月还款',
     'Cash needed upfront': '前期所需现金', 'min cash + stamp duty + ~$3k legal/fees allowance': '最低现金 + 印花税 + 约 $3k 律师费等',
+    // afford result sentences (templates + fragments)
+    'about {pct}% of the price': '约为房价的 {pct}%',
+    'cash ~{cash} + CPF ~{cpf}': '现金约 {cash} + CPF 约 {cpf}',
+    'tested at {sr}%, your actual will be lower': '按 {sr}% 压力测试，你实际会更低',
+    'That lease is too short to finance.': '这屋契太短，无法贷款。',
+    "With under ~20 years left, banks won't lend and CPF can't be used, these homes are effectively cash-only. Tell us the exact lease and we'll work out the cash price.":
+      '剩余不到约20年时，银行不放贷，CPF 也不能用，这类房子基本只能全款。告诉我们确切的屋契年限，我们帮你算出现金价。',
+    'Your existing monthly debts already use up the borrowing limit.': '你现有的每月债务已经用完了可借额度。',
+    'Banks cap all your debt repayments at {tdsr}% of your income, clearing some debt, or a higher/combined income, would free up some budget.':
+      '银行将你所有债务还款上限设为收入的 {tdsr}%。还清部分债务，或提高/合并收入，能腾出一些预算。',
+    "You'll need some cash to start.": '你需要一些现金才能开始。',
+    "At least {minCash}% of the price must be paid in cash, CPF can't cover that part.": '房价的至少 {minCash}% 必须用现金支付，CPF 无法覆盖这部分。',
+    "With these numbers there isn't a workable budget yet, try a longer loan, more savings, or message us and we'll look at it together.":
+      '以这些数字目前还算不出可行的预算，试试更长的贷款年限、更多存款，或联系我们一起看看。',
+    "the remaining lease won't cover you to age 95": '剩余屋契无法覆盖你到95岁',
+    'the loan would run past age 65': '贷款期会超过65岁',
+    'the loan is longer than {maxTen} years': '贷款期长于 {maxTen} 年',
+    'On a short lease your usable CPF is also pro-rated down, so the real budget is lower.': '屋契短时，你可用的 CPF 也会按比例减少，所以实际预算更低。',
+    'A shorter loan, or buying younger, lifts this.': '缩短贷款年限，或趁年轻购买，能提高这个上限。',
+    'Because {why}, banks cap your loan at <b>{pct}%</b> (not 75%), so you need a much bigger down payment. {extra}':
+      '由于{why}，银行将你的贷款上限设为 <b>{pct}%</b>（而非75%），所以你需要大得多的首付。{extra}',
+    'Your income is the limit here.': '这里的限制是你的收入。',
+    'Banks cap your loan at a share of your income, a longer loan, a co-borrower, or clearing existing debt would lift your budget.':
+      '银行按你收入的一定比例限制贷款。更长的贷款年限、增加共同借款人，或还清现有债务，都能提高你的预算。',
+    'Your savings are the limit here.': '这里的限制是你的存款。',
+    "You could borrow more, but the down payment needs cash + CPF you don't have yet. Building savings raises your ceiling fastest.":
+      '你本可以借更多，但首付需要你目前还没有的现金 + CPF。积累存款能最快提高你的上限。',
+    'Your cash is the limit here.': '这里的限制是你的现金。',
+    "At least {minCash}% of the price must be paid in cash (CPF can't cover that part).": '房价的至少 {minCash}% 必须用现金支付（CPF 无法覆盖这部分）。',
+    'This uses the real rules: a bank can lend up to <b>{tdsr}% of your income for all debts</b>{msr}, stress-tested at <b>{sr}%</b>{hdb} even though real rates are usually lower.':
+      '这采用真实规则：银行最多可按你<b>收入的 {tdsr}% 用于所有债务</b>放贷{msr}，并按 <b>{sr}%</b> 做压力测试{hdb}，尽管实际利率通常更低。',
+    " and, for an HDB flat or new EC, the home loan alone can't exceed <b>{msr}%</b>": '，并且对于组屋或新 EC，单是房贷就不能超过<b>{msr}%</b>',
+    ' (the HDB-loan rate; no minimum cash needed)': '（HDB 贷款利率；无需最低现金）',
+    'an <b>HDB loan</b>': '一笔 <b>HDB 贷款</b>', 'a <b>bank loan</b>': '一笔 <b>银行贷款</b>',
+    "Indicative only, not financial advice. Assumes {loan} and your <b>first home</b>. Your loan and CPF only stretch up to the bank's valuation, if you buy <b>above</b> valuation, the extra is cash on top of these figures. CPF use is also capped at valuation and you may keep a buffer in your OA, so treat the CPF figure as a maximum. If your income is mainly commission or self-employed, banks count only about <b>70%</b> of it, your real figure would be lower. For an <b>older home</b>, a short remaining lease cuts how much CPF and loan you can use (CPF needs the lease to cover you to age 95). HDB buyers using CPF also pay a small <b>Home Protection Scheme</b> premium from their OA. A precise number depends on your credit and the bank's valuation. Rules as of {as_of}. Always confirm with a banker.":
+      '仅供参考，不构成财务建议。假设为{loan}且是你的<b>第一套房</b>。你的贷款和 CPF 最多只能用到银行估值；如果你买得<b>高于</b>估值，超出部分要额外用现金支付。CPF 的使用同样以估值为上限，你也可能在 OA 中保留一些缓冲，所以请把 CPF 数字当作上限。如果你的收入主要是佣金或自雇，银行通常只计算其中约 <b>70%</b>，你的实际数字会更低。对于<b>较旧的房子</b>，剩余屋契短会减少你能用的 CPF 和贷款（CPF 需要屋契覆盖你到95岁）。使用 CPF 的组屋买家还需从 OA 支付少量<b>房屋保障计划</b> (HPS) 保费。准确数字取决于你的信用和银行估值。规则截至 {as_of}。请务必向银行人员确认。',
 
     // ══ stamp-duty.html ══
     "Buyer's stamp duty": '买方印花税', 'How much stamp duty will you pay?': '你要付多少印花税？',
