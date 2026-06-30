@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-29T23:30:00.273645+08:00",
+  "updated": "2026-06-30T09:00:00.393860+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -169,9 +169,57 @@
   },
   "news": [
     {
+      "title": "UFC 329: Conor McGregor vs. Max Holloway card finalized with late replacement",
+      "link": "https://www.mmafighting.com/ufc/496826/ufc-329-conor-mcgregor-vs-max-holloway-card-finalized-with-late-replacement",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
+      "title": "UFC 329: Injury scratches fighter days before McGregor vs. Holloway 2 event",
+      "link": "https://www.mmafighting.com/ufc/496992/ufc-329-injury-scratches-fighter-days-before-mcgregor-vs-holloway-2-event",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
+      "title": "Oleksandr Usyk targeting Jon Jones for retirement fight (seriously)",
+      "link": "https://www.mmamania.com/boxing/454153/oleksandr-usyk-targeting-jon-jones-for-retirement-fight-seriously",
+      "source": "MMA Mania",
+      "priority": true
+    },
+    {
+      "title": "Paulo Costa frustrated with delay in booking final fight on current UFC deal",
+      "link": "https://www.sherdog.com/news/news/Paulo-Costa-frustrated-with-delay-in-booking-final-fight-on-current-UFC-deal-201691",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
+      "title": "UFC 329 loses up-and-coming prospect due to injury",
+      "link": "https://www.sherdog.com/news/news/UFC-329-loses-upandcoming-prospect-due-to-injury-201690",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
+      "title": "Terence Crawford won’t end retirement to fight Jaron Ennis",
+      "link": "https://www.sherdog.com/news/news/Terence-Crawford-wont-end-retirement-to-fight-Jaron-Ennis-201682",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
       "title": "UFC veteran, ex-KSW champ announces retirement from MMA",
       "link": "https://www.sherdog.com/news/news/UFC-veteran-exKSW-champ-announces-retirement-from-MMA-201679",
       "source": "Sherdog",
+      "priority": true
+    },
+    {
+      "title": "Kamaru Usman hits back at Dricus du Plessis after recent UFC OKC booking claims",
+      "link": "https://www.bjpenn.com/mma-news/kamaru-usman/kamaru-usman-hits-back-dricus-du-plessis-ufc-okc-claims/?utm_source=rss&utm_medium=rss&utm_campaign=kamaru-usman-hits-back-dricus-du-plessis-ufc-okc-claims",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
+      "title": "Arman Tsarukyan doesn’t plan to wait for UFC title shot, manager doesn’t expect Justin Gaethje to return anytime soon",
+      "link": "https://www.bjpenn.com/mma-news/ufc/arman-tsarukyan-doesnt-plan-to-wait-for-ufc-title-shot-manager-doesnt-expect-justin-gaethje-to-return-anytime-soon/?utm_source=rss&utm_medium=rss&utm_campaign=arman-tsarukyan-doesnt-plan-to-wait-for-ufc-title-shot-manager-doesnt-expect-justin-gaethje-to-return-anytime-soon",
+      "source": "BJPenn",
       "priority": true
     },
     {
@@ -181,81 +229,33 @@
       "priority": true
     },
     {
+      "title": "On To the Next One: Matches to make after UFC Baku",
+      "link": "https://www.mmafighting.com/ufc/496906/on-to-the-next-one-matches-to-make-after-ufc-baku",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "PFL San Diego medical suspensions: 2 fighters looking at 6 month suspension after possible broken bones",
+      "link": "https://www.mmafighting.com/pfl/497016/pfl-san-diego-medical-suspensions-2-fighters-looking-at-6-month-suspension-after-possible-broken-bones",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "PFL San Diego fight night weights: A.J. McKee gains over 25 pounds for his main event fight",
+      "link": "https://www.mmafighting.com/pfl/497012/pfl-san-diego-fight-night-weights-a-j-mckee-gains-over-25-pounds-for-his-main-event-fight",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "Merab Dvalishvili reveals Ilia Topuria was ‘fighting blind’ after first round against Justin Gaethje",
       "link": "https://www.mmafighting.com/ufc/496915/merab-dvalishvili-reveals-ilia-topuria-was-fighting-blind-after-first-round-against-justin-gaethje",
       "source": "MMA Fighting",
       "priority": false
-    },
-    {
-      "title": "UFC 330: Makhachev vs. Machado Garry adds top middleweight prospect to lineup",
-      "link": "https://www.mmafighting.com/ufc/496491/ufc-330-makhachev-vs-machado-garry-adds-top-middleweight-prospect-to-lineup",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "GiGi Canuto proud to be first fighter to ‘make it rain’ in octagon after winning Daniel Cormier bet on TUF 34",
-      "link": "https://www.mmafighting.com/ufc/496470/gigi-canuto-proud-to-be-first-fighter-to-make-it-rain-in-octagon-after-winning-daniel-cormier-bet-on-tuf-34",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Shara Bullet breaks down UFC Baku comeback victory over Michel Pereira: ‘He would have to kill me’",
-      "link": "https://www.mmafighting.com/ufc/496811/shara-bullet-breaks-down-ufc-baku-comeback-victory-over-michel-pereira-he-would-have-to-kill-me",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Rafael Fiziev blasts UFC’s new ‘elephant sh*t’ rankings system following UFC Baku knockout win",
-      "link": "https://www.mmafighting.com/ufc/496808/rafael-fiziev-blasts-ufcs-new-elephant-sht-rankings-system-following-ufc-baku-knockout-win",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Brian Ortega reflects on UFC Shanghai weigh-in debacle that led to lightweight move: ‘This one scared me a little bit’",
-      "link": "https://www.mmafighting.com/ufc/496672/brian-ortega-reflects-on-ufc-shanghai-weigh-in-debacle-that-led-to-lightweight-move-this-one-scared-me-a-little-bit",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "New Conor McGregor vs. Max Holloway UFC 329 promo drops: ‘I’m going through Max’",
-      "link": "https://www.mmamania.com/ufc-news/454034/new-conor-mcgregor-vs-max-holloway-ufc-329-promo-drops-im-going-through-max",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "UFC Baku results: Matches to make for ‘Fiziev vs. Torres’ main card winners",
-      "link": "https://www.mmamania.com/ufc-results/453721/ufc-baku-results-matches-to-make-for-fiziev-vs-torres-main-card-winners",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "Rookie Report Card: Grading all Octagon newcomers UFC Baku post-mortem",
-      "link": "https://www.mmamania.com/latest-news/453399/rookie-report-card-grading-all-octagon-newcomers-ufc-baku-post-mortem",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "Alex Pereira wants referee Herb Dean banned from UFC after ‘cowardly’ Baku performance",
-      "link": "https://www.mmamania.com/ufc-news/454014/alex-pereira-wants-referee-herb-dean-banned-from-ufc-after-cowardly-baku-performance",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "UFC Baku, The Morning After: Fouls galore as Herb Dean drops the ball yet again",
-      "link": "https://www.mmamania.com/ufc-results/453779/ufc-baku-the-morning-after-fouls-galore-as-herb-dean-drops-the-ball-yet-again",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "Rafael Fiziev: Vision was impaired when landing spinning wheel kick at UFC Baku",
-      "link": "https://www.sherdog.com/news/news/Rafael-Fiziev-Vision-was-impaired-when-landing-spinning-wheel-kick-at-UFC-Baku-201677",
-      "source": "Sherdog",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor clashes with Holloway Sunday 12 July, 9am SGT - featherweight fireworks await.",
-    "prefight": "McGregor takes on Holloway July 12 — pure striking masterclass incoming.",
-    "results": "Fiziev's spinning wheel kick ends Torres in the second round."
+    "week": "McGregor clashes with Holloway this Sunday at 9 AM SGT—pure striking chaos ensues.",
+    "prefight": "The Notorious meets The Blessed this Sunday for featherweight supremacy in a legendary showdown.",
+    "results": "Fiziev devastates Torres with spinning wheel kick, round two KO."
   }
 }
