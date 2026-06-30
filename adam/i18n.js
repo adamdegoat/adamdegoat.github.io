@@ -114,21 +114,105 @@
     'Message us': '联系我们',
     'Prefer email? Reach us anytime, about anything:': '更喜欢电邮？任何事都可以随时找我们：',
     'Add this hub to your phone, one tap to every tool →': '把这个平台添加到手机，一键直达所有工具 →',
-    'PropSight · Singapore · built on official data · indicative, not financial advice': 'PropSight · 新加坡 · 基于官方数据 · 仅供参考，不构成财务建议'
+    'PropSight · Singapore · built on official data · indicative, not financial advice': 'PropSight · 新加坡 · 基于官方数据 · 仅供参考，不构成财务建议',
+
+    // ══ TOOLS: shared across all tool pages ══
+    'More free tools': '更多免费工具',
+    'Not sure about your situation?': '不确定自己的情况？',
+    'Get a straight answer from our team.': '让我们团队给你一个直接的答案。',
+    'Every number here is a guide. For your exact case — financing, timing, the smartest move — have a quick chat. No pressure, no sales script.':
+      '这里的每个数字都只是参考。想了解你的具体情况，融资、时机、最聪明的做法，找我们聊几句就好。没有压力，没有推销话术。',
+    'WhatsApp us →': 'WhatsApp 联系我们 →',
+    'Value a home': '估算房价', 'Stamp duty & ABSD': '印花税与 ABSD', "What you'll pay": '你要付多少',
+    'Find your grant': '查找你的补贴', '1km / 2km finder': '1公里 / 2公里查找',
+    'Net sale proceeds': '卖房净得', 'Eligibility check': '购买资格查询',
+    // common form vocabulary (appears across several tools)
+    'HDB flat': '组屋', 'Private / condo': '公寓 / 私宅', 'New EC': '新 EC', 'Private / condo ': '公寓 / 私宅',
+    '(optional)': '（可选）', 'Which loan?': '哪种贷款？', 'Bank loan': '银行贷款', 'HDB loan': 'HDB 贷款',
+    'Loan length': '贷款年限', 'Who\'s buying?': '谁来买？', 'What are you buying?': '你想买什么？',
+    'Singapore Citizen': '新加坡公民', 'PR': '永久居民 (PR)', 'Foreigner': '外国人', 'Yes': '是', 'No': '否',
+
+    // ══ value.html ══
+    "What's your home worth?": '你的房子值多少？',
+    'Home valuation': '房产估值',
+    'A real estimate for any HDB flat or condo, plus reference prices for landed homes and new launches, built from actual, recent transactions. No sign-up, no agent calling you after.':
+      '为任何组屋或公寓提供真实估算，还有有地住宅和新盘的参考价格，全部基于真实的近期成交。无需注册，事后也不会有中介打电话给你。',
+    'Condo / private': '公寓 / 私宅', 'Landed': '有地住宅', 'New launch': '新盘',
+    'Your address': '你的地址',
+    'Just start typing your street, then pick it from the list.': '开始输入你的街道名，然后从列表中选择。',
+    'Block': '座号', 'Values your exact block.': '估算你具体那一座。',
+    'Flat type': '组屋类型', 'Pick your street first…': '请先选择街道…',
+    'Floor area': '面积', 'In sqft. Leave blank for a typical unit.': '单位为平方英尺。留空则按典型单位计算。',
+    'Storey': '楼层', 'Roughly which floor': '大约第几层',
+    'Project name': '楼盘名称', 'Start typing a condo…': '开始输入公寓名…',
+    'Floor': '楼层', 'Roughly which level': '大约第几层',
+    'Street or area': '街道或区域',
+    'Type at least 2 letters, then pick your street from the list.': '至少输入2个字母，然后从列表中选择街道。',
+    'Landed type': '有地住宅类型',
+    'Terrace, semi-detached or detached. Leave on "All landed" to see everything.': '排屋、半独立式或独立式。保持“所有有地住宅”可查看全部。',
+    'All landed': '所有有地住宅', 'Terrace': '排屋', 'Semi-detached': '半独立式', 'Detached': '独立式',
+    'New launch project': '新盘楼盘', 'Start typing, then pick the launch from the list.': '开始输入，然后从列表中选择新盘。',
+    'Value this home →': '估算这套房 →',
+    'Estimated value range': '估算价值区间', 'Ask us for a precise valuation →': '向我们咨询精确估值 →',
+    'Estimated value': '估算价值', 'High confidence': '高度可信', 'Fair confidence': '中等可信', 'Indicative': '仅供参考',
+    'Price per sqft': '每平方英尺价格', 'what comparable homes fetch': '同类房子的成交价',
+    'Recent sales ranged': '近期成交区间', 'actual transacted prices, low to high': '实际成交价，从低到高',
+    'Based on': '依据', 'The recent sales behind this number': '支撑这个数字的近期成交',
+    'Type your street and pick it from the list.': '输入你的街道并从列表中选择。',
+    'Pick a flat type.': '请选择组屋类型。', 'Pick a project from the list.': '请从列表中选择楼盘。',
+    'Type a project and pick it from the list.': '输入楼盘并从列表中选择。',
+    'No data': '暂无数据', 'No matching street, try fewer words.': '没有匹配的街道，试试少输入几个字。',
+    'No matching project.': '没有匹配的楼盘。', 'No matching launch.': '没有匹配的新盘。',
+    'Something went wrong, try again.': '出了点问题，请重试。', 'Working…': '处理中…',
+    'lots of recent, similar sales nearby, this is a solid estimate': '附近有很多近期的同类成交，这是一个可靠的估算',
+    'a fair number of comparable sales, a reasonable guide': '有相当数量的同类成交，可作合理参考',
+    'fewer or more varied sales, so treat this as a rough guide': '成交较少或差异较大，请当作粗略参考',
+
+    // ══ afford.html ══
+    'What can you actually afford?': '你到底能负担多少？',
+    'Work out the home price that fits your income and savings, using the same lending rules the banks must follow. Do this before you fall for anything.':
+      '用银行必须遵守的贷款规则，算出适合你收入和存款的房价。在心动之前先算清楚。',
+    'New to this? Start with the Guide →': '新手？先看购房指南 →',
+    'HDB flats and new ECs have a stricter cap, the loan alone can\'t exceed 30% of your income.': '组屋和新 EC 有更严格的上限，单是贷款就不能超过你收入的 30%。',
+    'Your gross monthly income': '你的每月税前收入', 'Before CPF. Combine both incomes if buying together.': '扣 CPF 之前。两人同买就把收入加在一起。',
+    'Monthly debt repayments': '每月债务还款', 'Car, other loans, card minimums': '车贷、其他贷款、信用卡最低还款',
+    'Your age': '你的年龄', 'The oldest borrower': '年龄最大的借款人',
+    'Cash savings': '现金存款', 'For the home': '用于买房',
+    'CPF you\'ll use': '你会动用的 CPF',
+    'Your CPF Ordinary Account (OA), goes toward the down payment & stamp duty, not the minimum cash. Wise to keep a little as buffer.': '你的 CPF 普通账户 (OA)，用于首付和印花税，不能抵最低现金。留一点作缓冲比较明智。',
+    'Housing grant': '购房补贴', 'First-timer HDB/EC? Find your grant → (it\'s added to your CPF)': '首次购房 HDB/EC？查找你的补贴 →（会加入你的 CPF）',
+    '25 years': '25 年', 'Remaining lease': '剩余屋契',
+    'Only for an older home. Leave blank for a new or freehold one. On a short lease, the rules cut how much CPF and loan you can use.': '只用于较旧的房子。新房或永久地契请留空。屋契短的话，规则会减少你能用的 CPF 和贷款。',
+    'Your realistic ceiling': '你的实际上限', 'Get a proper assessment from our team →': '让我们团队为你做正式评估 →',
+    'Stamp duty calculator': '印花税计算器',
+    'Enter your monthly income to see what you can afford.': '输入你的每月收入，看看你能负担多少。',
+    'Indicative only, not financial advice. Always confirm with a banker.': '仅供参考，不构成财务建议。请务必向银行人员确认。',
+    'the most you should look at, many buyers aim a bit below this for breathing room': '这是你最高应考虑的价位，很多买家会留一点余地，看得略低一些',
+    'Home price': '房价', 'the ceiling for your search': '你选房的上限',
+    "Loan you'd take": '你要借的贷款', 'You put down': '你的首付', 'Monthly repayment': '每月还款',
+    'Cash needed upfront': '前期所需现金', 'min cash + stamp duty + ~$3k legal/fees allowance': '最低现金 + 印花税 + 约 $3k 律师费等'
   };
 
   var LANG = (function () { try { return localStorage.getItem('ps_lang') === 'zh' ? 'zh' : 'en'; } catch (e) { return 'en'; } })();
   if (window.PS_I18N_ZH) { for (var k in window.PS_I18N_ZH) DICT[k] = window.PS_I18N_ZH[k]; }  // pages may pre-register strings
 
-  function t(s) { return (LANG === 'zh' && DICT[s]) ? DICT[s] : s; }
+  // normalize curly/straight apostrophes + quotes + whitespace so matching is punctuation-insensitive
+  function norm(s) { return s.replace(/[‘’′]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, ' ').trim(); }
+  var NORM = {};
+  function buildNorm() { NORM = {}; for (var k in DICT) NORM[norm(k)] = DICT[k]; }
+  buildNorm();
+
+  function t(s) { return (LANG === 'zh' && (DICT[s] || NORM[norm(s)])) ? (DICT[s] || NORM[norm(s)]) : s; }
 
   // ── text-node auto-translation (zh only). Touches only text nodes, so structure survives. ──
   var SKIP = { SCRIPT: 1, STYLE: 1, NOSCRIPT: 1, TIME: 1, CODE: 1, TEXTAREA: 1, PRE: 1 };
   function translateTextNode(n) {
     var p = n.parentNode;
     if (p && (SKIP[p.nodeName] || (p.hasAttribute && p.hasAttribute('data-i18n')))) return;
-    var raw = n.nodeValue, key = raw.trim();
-    if (key && DICT[key]) n.nodeValue = raw.replace(key, DICT[key]);
+    var raw = n.nodeValue, key = norm(raw);
+    if (!key) return;
+    var val = NORM[key];
+    if (val) n.nodeValue = (raw.match(/^\s*/) || [''])[0] + val + (raw.match(/\s*$/) || [''])[0];
   }
   function translateTree(root) {
     if (LANG !== 'zh' || !root) return;
@@ -177,7 +261,7 @@
   window.PSI18N = {
     lang: LANG, t: t, apply: apply, set: set,
     toggle: function () { set(LANG === 'zh' ? 'en' : 'zh'); },
-    add: function (d) { for (var k in d) DICT[k] = d[k]; apply(); }
+    add: function (d) { for (var k in d) DICT[k] = d[k]; buildNorm(); apply(); }
   };
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', apply);
