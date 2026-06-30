@@ -211,7 +211,23 @@ h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5.4vw,52px);let
     <span class="gk">For everyone</span>
     <h2>The words you'll keep hearing.</h2>
     <p class="gsub">Every term the tools and agents throw at you, translated once, with what it actually means for you.</p>
-    <div class="terms">
+    <div class="terms" data-lang="zh" style="display:none">
+      <div class="term"><div class="t">OTP <span>· 购买选择权</span></div><p>这份小合同<b>为你保留这套房</b>约两周，让你有时间敲定贷款。你为此付一小笔费用。<span class="you">一旦你“行使”它，交易就确定了。</span></p></div>
+      <div class="term"><div class="t">TDSR <span>· 贷款上限</span></div><p>银行不会让你<b>所有</b>每月还款加起来超过收入的 55%。<span class="you">收入更高或债务更少 → 预算更大。</span></p></div>
+      <div class="term"><div class="t">MSR <span>· 仅限组屋和 EC</span></div><p>更严格的上限：你的<b>房贷本身</b>不能超过收入的 30%。<span class="you">这就是为什么组屋的预算感觉比公寓小。</span></p></div>
+      <div class="term"><div class="t">LTV <span>· 能借多少</span></div><p>银行最多能借的，第一笔贷款通常是房价的 <b>75%</b>。其余 25% 你自己出。<span class="you">如果贷款期超过 65 岁或 30 年，降到 55%，第二套房贷更低。</span></p></div>
+      <div class="term"><div class="t">压力测试</div><p>银行会核查，即使利率跳到约 <b>4%</b> 你是否仍付得起，尽管你实际可能付得更少。<span class="you">这就是为什么“安全”的贷款感觉保守，这正是目的。</span></p></div>
+      <div class="term"><div class="t">BSD <span>· 买方印花税</span></div><p><b>人人</b>都要按房价缴的税，大约 1-6%，取决于房子多贵。<span class="you">用现金预留，且在首付之外。</span></p></div>
+      <div class="term"><div class="t">ABSD <span>· 额外买方印花税</span></div><p>如果<b>不是你的第一套房</b>，或你是永久居民/外国人，要缴额外印花税。可能非常高。<span class="you">换房时最大的成本意外。</span></p></div>
+      <div class="term"><div class="t">SSD <span>· 卖方印花税</span></div><p>买入<b>私宅</b>后几年内卖出的罚金。<span class="you">持有过了那段期限就是零。</span></p></div>
+      <div class="term"><div class="t">CPF + 累计利息</div><p>你可以用 CPF 买房，但卖房时必须<b>把用掉的连同它本可赚的利息一起还回</b>。<span class="you">它悄悄吃掉你的现金所得。</span></p></div>
+      <div class="term"><div class="t">估值差额</div><p>银行只借、CPF 也只能用，到房子<b>自身的估值</b>为止。<span class="you">付得高于估值，差额就要额外用现金。</span></p></div>
+      <div class="term"><div class="t">最低现金</div><p>房价的至少 <b>5%</b> 必须用真正的现金付，CPF 不能覆盖这部分。<span class="you">第一道真正要迈过的现金门槛。</span></p></div>
+      <div class="term"><div class="t">MOP <span>· 最低居住期</span></div><p>通常要在组屋<b>住满 5 年</b>，才能卖出或购买私宅。<span class="you">决定你最早何时能换房。</span></p></div>
+      <div class="term"><div class="t">屋契递减</div><p>99 年的房子随着屋契倒计时慢慢<b>贬值</b>，贷款/CPF 资格也随之下降。<span class="you">对较旧的组屋和转售最关键。</span></p></div>
+      <div class="term"><div class="t">HFE <span>· 组屋购买资格</span></div><p>HDB 出具的在线信，在你开始前确认<b>你能买什么、借多少、领多少补贴</b>。<span class="you">任何组屋购买的第一步。</span></p></div>
+    </div>
+    <div class="terms" data-lang="en">
       <div class="term"><div class="t">OTP <span>· Option to Purchase</span></div><p>The little contract that <b>reserves the home for you</b> for about two weeks while you sort your loan. You pay a small fee for it.<span class="you">Once you "exercise" it, the deal is firm.</span></p></div>
       <div class="term"><div class="t">TDSR <span>· the loan cap</span></div><p>Banks won't let <b>all</b> your monthly repayments add up to more than 55% of your income.<span class="you">More income or less debt → bigger budget.</span></p></div>
       <div class="term"><div class="t">MSR <span>· HDB &amp; EC only</span></div><p>A tighter cap: your <b>home loan alone</b> can't exceed 30% of your income.<span class="you">Why HDB budgets feel smaller than condo ones.</span></p></div>
@@ -371,7 +387,7 @@ var TIPS=[
 (function(){
  var g=document.getElementById('tipgrid'),h='';
  TIPS.forEach(function(tp,i){
-   h+='<details class="tip"><summary><span class="tnum">'+(i+1<10?'0':'')+(i+1)+'</span><span class="tt">'+tp.t+'</span><span class="tx">+</span></summary><div class="tbody">'+tp.b+'</div></details>';
+   h+='<details class="tip"><summary><span class="tnum">'+(i+1<10?'0':'')+(i+1)+'</span><span class="tt">'+T(tp.t)+'</span><span class="tx">+</span></summary><div class="tbody">'+T(tp.b)+'</div></details>';
  });
  g.innerHTML=h;
 })();
