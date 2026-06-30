@@ -122,6 +122,32 @@
 
   function t(s) { return (LANG === 'zh' && DICT[s]) ? DICT[s] : s; }
 
+  // ── text-node auto-translation (zh only). Touches only text nodes, so structure survives. ──
+  var SKIP = { SCRIPT: 1, STYLE: 1, NOSCRIPT: 1, TIME: 1, CODE: 1, TEXTAREA: 1, PRE: 1 };
+  function translateTextNode(n) {
+    var p = n.parentNode;
+    if (p && (SKIP[p.nodeName] || (p.hasAttribute && p.hasAttribute('data-i18n')))) return;
+    var raw = n.nodeValue, key = raw.trim();
+    if (key && DICT[key]) n.nodeValue = raw.replace(key, DICT[key]);
+  }
+  function translateTree(root) {
+    if (LANG !== 'zh' || !root) return;
+    if (root.nodeType === 3) return translateTextNode(root);
+    if (root.nodeType !== 1) return;
+    var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null), nodes = [];
+    while (w.nextNode()) nodes.push(w.currentNode);
+    nodes.forEach(translateTextNode);
+  }
+  // Watch for JS-rendered content (tool results, Aillie messages, news cards) and translate it too.
+  var moStarted = false;
+  function startObserver() {
+    if (moStarted || LANG !== 'zh' || typeof MutationObserver === 'undefined' || !document.body) return;
+    moStarted = true;
+    new MutationObserver(function (muts) {
+      muts.forEach(function (m) { for (var i = 0; i < m.addedNodes.length; i++) translateTree(m.addedNodes[i]); });
+    }).observe(document.body, { childList: true, subtree: true });
+  }
+
   function apply() {
     var html = document.documentElement;
     html.lang = (LANG === 'zh' ? 'zh-Hans' : 'en');
@@ -136,19 +162,9 @@
       var key = el.getAttribute('data-i18n-ph') || el._enPh;
       el.setAttribute('placeholder', (LANG === 'zh' && DICT[key]) ? DICT[key] : el._enPh);
     });
-    // Bulk: auto-translate any TEXT NODE whose trimmed text exactly matches a dictionary key.
-    // Touches only text nodes, so arrows / dots / svgs / <b> structure are all preserved.
-    // Runs in Chinese mode only; English is the untouched DOM, restored by the reload on toggle.
-    if (LANG === 'zh') {
-      var SKIP = { SCRIPT: 1, STYLE: 1, NOSCRIPT: 1, TIME: 1, CODE: 1, TEXTAREA: 1 };
-      var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null), nodes = [];
-      while (w.nextNode()) nodes.push(w.currentNode);
-      nodes.forEach(function (n) {
-        if (n.parentNode && (SKIP[n.parentNode.nodeName] || n.parentNode.hasAttribute('data-i18n'))) return;
-        var raw = n.nodeValue, key = raw.trim();
-        if (key && DICT[key]) n.nodeValue = raw.replace(key, DICT[key]);
-      });
-    }
+    // Bulk: auto-translate matching text nodes now, then keep watching for JS-rendered content.
+    translateTree(document.body);
+    startObserver();
     // any element tagged data-ps-langtoggle becomes a working 中文/EN switch
     document.querySelectorAll('[data-ps-langtoggle]').forEach(function (el) {
       el.textContent = (LANG === 'zh' ? 'EN' : '中文');
