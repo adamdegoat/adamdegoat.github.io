@@ -4,6 +4,15 @@
    never lose the English text. Pages opt content in with data-i18n / data-i18n-ph.
    Public API: window.PSI18N { lang, t(s), apply(), add(dict), set(lang) }. */
 (function () {
+  // PropSight has its own EN/中文 toggle, so tell Chrome not to pop its "translate this page?" bar
+  // (it would fight our own language switch on every toggle). Runs as early as the script executes.
+  try {
+    document.documentElement.setAttribute('translate', 'no');
+    if (!document.querySelector('meta[name="google"][content="notranslate"]')) {
+      var _nt = document.createElement('meta'); _nt.name = 'google'; _nt.content = 'notranslate';
+      (document.head || document.documentElement).appendChild(_nt);
+    }
+  } catch (e) {}
   var DICT = {
     // ── shared chrome (nav + footer + badges), keyed by the English string ──
     'Tools': '工具', 'Research': '楼盘研究', 'New Launches': '新盘', 'Market Pulse': '市场动态',
