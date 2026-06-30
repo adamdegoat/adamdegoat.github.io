@@ -388,6 +388,45 @@
     'Yes, a single Singapore Citizen aged 35+ can buy a resale flat.': '可以，年满35岁的单身新加坡公民可以购买转售组屋。',
     'Yes, as a Singapore Citizen you can buy a resale flat.': '可以，作为新加坡公民你可以购买转售组屋。',
     "New ECs aren't open to foreigners.": '新 EC 不向外国人开放。', 'Yes, you can buy a new EC.': '可以，你可以购买新 EC。',
+    // eligibility verdict points
+    "As a foreigner you pay <b>60% Additional Buyer's Stamp Duty</b> on the price (nationals of the US, Iceland, Liechtenstein, Norway & Switzerland are taxed at citizen rates under treaties).":
+      '作为外国人，你需按房价缴 <b>60% 额外买方印花税 (ABSD)</b>（美国、冰岛、列支敦士登、挪威和瑞士的国民根据条约按公民税率征税）。',
+    "<b>Landed houses</b> need special government approval, condos/apartments don't.": '<b>有地住宅</b>需要政府特别批准，公寓则不需要。',
+    'Any Singapore Citizen or PR can buy a private condo. No income ceiling, no citizenship scheme.': '任何新加坡公民或永久居民都可以购买私人公寓。没有收入上限，也没有公民身份计划要求。',
+    'Stamp duty depends on how many homes you\'ll own, check the <a href="stamp-duty.html" style="color:var(--green2);font-weight:700">Stamp Duty tool</a>.':
+      '印花税取决于你将拥有几套房，查看<a href="stamp-duty.html" style="color:var(--green2);font-weight:700">印花税工具</a>。',
+    "<b>No minimum occupation period</b>, you can sell anytime (but Seller's Stamp Duty applies if you sell within ~3-4 years).":
+      '<b>没有最低居住年限</b>，你随时可以卖（但如果在约3-4年内卖出，需缴卖方印花税）。',
+    'HDB flats are public housing, for Singapore Citizens and PRs only. Private property is your route.': '组屋是公共住房，仅限新加坡公民和永久居民。私宅才是你的途径。',
+    'You can only buy <b>with a Singapore Citizen</b>, or <b>with another PR, and both of you must have held PR for at least 3 years</b>. Either way you need a recognised family nucleus.':
+      '你只能<b>与新加坡公民</b>，或<b>与另一位永久居民（你们两人都必须持有 PR 至少3年）</b>一起购买。无论哪种，你都需要符合家庭核心要求。',
+    'As a PR your first home carries <b>5% ABSD</b> (refundable only in limited cases).': '作为永久居民，你的第一套房需缴 <b>5% ABSD</b>（仅在有限情况下可退）。',
+    'The <b>Single Singapore Citizen Scheme</b> starts at <b>age 35</b>. Until then, you can buy <b>with a family nucleus</b> (a spouse, or your parents), or look at renting or a private property.':
+      '<b>单身新加坡公民计划</b>从 <b>35岁</b>开始。在那之前，你可以<b>与家庭核心</b>（配偶，或你的父母）一起购买，或考虑租房或私宅。',
+    "Turning 35 soon? You'll be able to buy a resale flat on your own then.": '快35岁了？到时你就能独自购买转售组屋了。',
+    'On your own under the <b>singles scheme</b> (age 35+).': '以<b>单身计划</b>（35岁以上）独自购买。',
+    'With your family nucleus, a spouse, parents, or children.': '与你的家庭核心一起：配偶、父母或子女。',
+    '<b>No income ceiling</b> to buy a resale flat, income limits only apply to HDB loans (≤{fam} for families) and grants.':
+      '购买转售组屋<b>没有收入上限</b>，收入限制只适用于 HDB 贷款（家庭 ≤{fam}）和补贴。',
+    "<b>Good news:</b> a Singapore Citizen aged 55+ buying a 4-room-or-smaller resale flat is <b>exempt from the wait-out</b>. You still sell your private property first, but there's no waiting period after that.":
+      '<b>好消息：</b>55岁以上的新加坡公民购买4房式或更小的转售组屋，<b>免除等待期</b>。你仍需先卖掉私宅，但之后没有等待期。',
+    "You own / recently sold private property: <b>sell it first</b>, then serve a <b>30-month wait</b> before you can buy, because you're taking an HDB loan or a CPF housing grant.":
+      '你拥有/近期卖出过私宅：需<b>先卖掉</b>，然后<b>等待30个月</b>才能购买，因为你要用 HDB 贷款或 CPF 购房补贴。',
+    'You own / recently sold private property: <b>sell it first</b>, then serve a <b>15-month wait</b> before you can buy (a non-subsidised resale flat, with no HDB loan or grant).':
+      '你拥有/近期卖出过私宅：需<b>先卖掉</b>，然后<b>等待15个月</b>才能购买（不带补贴的转售组屋，不用 HDB 贷款或补贴）。',
+    "You can't own a flat and a private property at the same time (beyond a short grace period).": '你不能同时拥有组屋和私宅（短暂的宽限期除外）。',
+    "After buying, there's a <b>5-year Minimum Occupation Period</b>, you can't sell it or buy private property until then. <b>Plus / Prime</b> flats have a 10-year MOP.":
+      '购买后有 <b>5年最低居住年限 (MOP)</b>，在此之前你不能卖出或购买私宅。<b>Plus / Prime</b> 组屋的 MOP 为10年。',
+    'At least one buyer must be a Singapore Citizen. Look at private condos instead.': '至少一位买家必须是新加坡公民。可以考虑私人公寓。',
+    "You're above the {ec} income ceiling for a new EC.": '你超过了新 EC 的 {ec} 收入上限。',
+    'New ECs from a developer have a <b>{ec}</b> household income ceiling, your {income} is over it.': '向发展商购买的新 EC 有 <b>{ec}</b> 的家庭收入上限，你的 {income} 超过了。',
+    "Options: a <b>resale EC</b> (no income ceiling once it's 5+ years old) or <b>private property</b>.": '选择：<b>转售 EC</b>（满5年后没有收入上限）或<b>私宅</b>。',
+    'At least one buyer must be a <b>Singapore Citizen</b>, with a co-applicant (SC or PR) forming a family nucleus.': '至少一位买家必须是<b>新加坡公民</b>，并有一位共同申请人（公民或永久居民）组成家庭核心。',
+    "Household income <b>≤ {ec}</b>, you're within it.": '家庭收入 <b>≤ {ec}</b>，你在范围内。',
+    'You must <b>not have owned or sold any private property in the last 30 months</b>.': '你必须<b>在过去30个月内没有拥有或卖出过任何私宅</b>。',
+    ", you said you have, so you'd need to wait it out.": '，你说你有，所以需要等过这段期限。',
+    "<b>5-year Minimum Occupation Period</b> (10 years for the newest EC sites launched from May 2026). A resale levy may apply if you've taken a housing subsidy before.":
+      '<b>5年最低居住年限 (MOP)</b>（2026年5月起推出的最新 EC 地段为10年）。如果你以前领过购房补贴，可能需缴转售税。',
     '💬 WhatsApp us →': '💬 WhatsApp 联系我们 →',
 
     // ══ schools.html ══
