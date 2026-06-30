@@ -190,7 +190,144 @@
     'the most you should look at, many buyers aim a bit below this for breathing room': '这是你最高应考虑的价位，很多买家会留一点余地，看得略低一些',
     'Home price': '房价', 'the ceiling for your search': '你选房的上限',
     "Loan you'd take": '你要借的贷款', 'You put down': '你的首付', 'Monthly repayment': '每月还款',
-    'Cash needed upfront': '前期所需现金', 'min cash + stamp duty + ~$3k legal/fees allowance': '最低现金 + 印花税 + 约 $3k 律师费等'
+    'Cash needed upfront': '前期所需现金', 'min cash + stamp duty + ~$3k legal/fees allowance': '最低现金 + 印花税 + 约 $3k 律师费等',
+
+    // ══ stamp-duty.html ══
+    "Buyer's stamp duty": '买方印花税', 'How much stamp duty will you pay?': '你要付多少印花税？',
+    "Enter the price and a couple of details, we'll show you the tax you'll pay on a Singapore home, to the dollar. Updated to the latest official rates.":
+      '输入价格和几个细节，我们就告诉你在新加坡买房要付的税，精确到元。已更新至最新官方税率。',
+    "The home's price": '房子的价格',
+    "Your residency sets the extra duty (ABSD). If buying jointly, the highest-duty owner's status applies to the whole purchase.":
+      '你的居民身份决定额外的印花税 (ABSD)。如果联名购买，整笔交易按税率最高的那位业主的身份计算。',
+    'Is this your…': '这是你第几套房？',
+    "Count every home you (and your spouse) already own or part-own, that's what decides the ABSD tier, not just homes in your name.":
+      '把你（和配偶）已经拥有或部分拥有的每一套房都算进去，这才是决定 ABSD 档次的依据，不只是登记在你名下的。',
+    '1st home': '第1套房', '2nd home': '第2套房', '3rd+ home': '第3套及以上',
+    'Total stamp duty': '印花税总额', 'Ask us about your purchase →': '就你的购房咨询我们 →',
+    "Buyer's Stamp Duty": '买方印花税', 'everyone pays this': '人人都要付',
+    'Additional Stamp Duty': '额外印花税', 'none for this profile': '此情况无需缴纳',
+
+    // ══ sell.html ══
+    'Sale proceeds': '卖房净收益', 'What will you walk away with?': '你最后能拿到多少？',
+    "Selling a home? See if Seller's Stamp Duty applies, and exactly what lands in your pocket after the loan, your CPF refund and selling costs.":
+      '要卖房？看看是否需缴卖方印花税 (SSD)，以及扣除贷款、CPF 退还和卖房成本后，你实际能拿到多少。',
+    'What are you selling?': '你要卖什么？',
+    "HDB flats are exempt from Seller's Stamp Duty, the minimum occupation period already covers it.":
+      '组屋免缴卖方印花税，最低居住年限 (MOP) 已经覆盖了这段时间。',
+    'When did you buy it?': '你什么时候买的？', 'The date you signed the purchase': '你签购房合同的日期',
+    'When are you selling?': '你打算什么时候卖？', 'Leave as today if unsure': '不确定就保留今天的日期',
+    'What you paid': '你的买入价', 'Your purchase price': '你当初的购买价',
+    'Expected sale price': '预期售价', "What you'll sell for": '你打算卖多少',
+    'Outstanding home loan': '未还清的房贷', 'Left to repay the bank': '还要还给银行的部分',
+    'CPF to refund': '需退还的 CPF', 'Used + accrued interest, from your CPF statement': '已动用金额 + 累计利息，见你的 CPF 对账单',
+    'Agent fee': '中介佣金', '% of sale price (GST added)': '售价的百分比（加 GST）',
+    'Legal & misc': '律师费及杂费', 'Conveyancing, admin': '产权过户、行政费',
+    'Cash in your pocket': '你实拿的现金', 'Get a proper sale plan from our team →': '让我们团队为你制定卖房方案 →',
+    'What can I afford next?': '下一套我能负担多少？',
+    'Sale price': '售价', 'what the buyer pays': '买家支付的金额',
+    'Repay your home loan': '偿还房贷', 'released to the bank': '支付给银行',
+    "Seller's Stamp Duty": '卖方印花税', 'Agent fee + GST': '中介佣金 + GST',
+    'conveyancing, admin': '产权过户、行政费', 'Refund to your CPF': '退还到你的 CPF',
+    'principal + accrued interest → your OA': '本金 + 累计利息 → 你的 OA',
+    'what you can actually use': '你实际可动用的', 'what lands in your bank after everything is settled': '一切结清后到账的金额',
+    'Enter when you bought to check Seller\'s Stamp Duty.': '输入你的买入日期，查看是否需缴卖方印花税。',
+
+    // ══ grants.html ══
+    'Housing grants': '购房补贴', 'What grants can you get?': '你能拿到哪些补贴？',
+    'First-time buyers can get tens of thousands in CPF housing grants, most people have no idea how much. Answer a few things and see your likely total.':
+      '首次购房者可以拿到数万元的 CPF 购房补贴，多数人根本不知道有多少。回答几个问题，看看你大概能拿多少。',
+    'Have you taken a housing subsidy before?': '你以前领过购房补贴吗？',
+    'A "first-timer" has never received an HDB/CPF housing grant or subsidised flat.': '“首次购房者”指从未领过 HDB/CPF 购房补贴或津贴组屋的人。',
+    'First-timer': '首次购房者', 'Taken one before': '以前领过',
+    'Your first subsidised flat was a…': '你第一套津贴组屋是…',
+    "Second-timers pay a resale levy when buying another subsidised flat. It's based on this first flat.":
+      '二次购房者再买津贴组屋时要缴转售税 (resale levy)，按这第一套房计算。',
+    '2-room': '2房式', '3-room': '3房式', '4-room': '4房式', '5-room': '5房式', 'Executive': '公寓式',
+    'Couple (both SC)': '夫妻（双方都是公民）', 'SC + PR': '公民 + 永久居民', 'Single (SC, 35+)': '单身（公民，35岁以上）',
+    'Resale HDB': '转售组屋', 'BTO (new HDB)': 'BTO（新组屋）', 'Flat size': '组屋面积',
+    '4-room or smaller': '4房式或更小', '5-room or bigger': '5房式或更大',
+    'Buying near family?': '买在家人附近？',
+    "Living with, or within 4km of, your parents' or kids' home (resale only).": '与父母或子女同住，或在其住所 4 公里内（仅限转售）。',
+    'Within 4km': '4公里内', 'Living together': '同住',
+    'Average monthly household income': '家庭平均月收入', 'Gross, before CPF, combine both incomes.': '税前（扣 CPF 前），两人收入相加。',
+    'You could get about': '你大概能拿到', 'Add this to "What can I afford?" →': '把这个加进“我能负担多少？” →',
+    'Ask us to confirm →': '让我们帮你确认 →',
+    'Enhanced CPF Housing Grant (EHG)': '强化版 CPF 购房补贴 (EHG)', 'CPF Housing Grant (Family)': 'CPF 购房补贴（家庭）',
+    'Proximity Housing Grant': '就近购房补贴 (PHG)', 'EC Family Grant': 'EC 家庭补贴',
+    'into your CPF, to help pay for the home': '存入你的 CPF，用于支付房款',
+    'no grants for this combination, see the notes': '这种组合没有补贴，详见说明',
+    'No grants apply to these answers.': '根据你的回答，没有适用的补贴。',
+    "Resale levy you'll owe": '你需缴的转售税',
+    'EHG is for first-timers only.': 'EHG 仅限首次购房者。',
+    'The EC grant is for first-timers.': 'EC 补贴仅限首次购房者。',
+    'Proximity & Family grants are for resale flats, not BTO.': '就近补贴和家庭补贴适用于转售组屋，不适用于 BTO。',
+
+    // ══ eligibility.html ══
+    'Can you actually buy it?': '你到底能不能买？',
+    "Before you fall for a flat or a condo, check if you're even allowed to buy it. Citizenship, income limits, owning private property, and how long you're locked in.":
+      '在你看上某套组屋或公寓之前，先确认你到底有没有资格买。公民身份、收入限制、是否拥有私宅，以及锁定期有多长。',
+    'What do you want to buy?': '你想买什么？', 'HDB resale flat': '转售组屋', 'Private condo': '私人公寓',
+    'You are a…': '你是…', 'With family / partner': '与家人 / 伴侣', 'On my own': '我自己一个人',
+    'Are you 35 or older?': '你年满35岁吗？',
+    'A single can buy a resale flat on their own only from age 35.': '单身者只有年满35岁才能独自购买转售组屋。',
+    'Do you own, or sold in the last ~2.5 years, a private property?': '你是否拥有、或在过去约2.5年内卖出过私宅？',
+    'Household monthly income': '家庭月收入', 'New ECs have a $16,000 income ceiling.': '新 EC 的收入上限为 $16,000。',
+    'Will you take an HDB loan or a CPF housing grant?': '你会用 HDB 贷款或 CPF 购房补贴吗？',
+    'This sets your wait-out, 15 months without, 30 months with.': '这决定你的等待期：不用为15个月，用了为30个月。',
+    'A Singapore Citizen aged 55+, buying a 4-room or smaller flat?': '55岁以上的新加坡公民，购买4房式或更小的组屋？',
+    "If yes, you're exempt from the wait-out entirely.": '如果是，你完全无需等待期。',
+    'Ask us to check your case →': '让我们帮你核查情况 →',
+    'You can, with extra cost': '可以，但有额外成本', "You're good": '你没问题', 'Not allowed': '不允许',
+    'Only with the right partner': '需符合条件的共同买家', 'Not yet': '还不行', "You're eligible": '你符合资格',
+    'Over the limit': '超过上限', 'Eligible, a few conditions': '符合资格，有几个条件',
+    'Eligible, but sell & wait first': '符合资格，但需先卖房并等待', 'Eligible, but sell &amp; wait first': '符合资格，但需先卖房并等待',
+    'Yes, foreigners can buy a private condo.': '可以，外国人可以购买私人公寓。',
+    'Yes, no eligibility limits on private property.': '可以，私宅没有资格限制。',
+    "Foreigners can't buy HDB flats.": '外国人不能购买组屋。',
+    "A PR can't buy a resale flat alone.": '永久居民不能独自购买转售组屋。',
+    'As a single Singapore Citizen, you can buy a resale flat on your own only from age 35.': '作为单身新加坡公民，你只有年满35岁才能独自购买转售组屋。',
+    'Yes, a single Singapore Citizen aged 35+ can buy a resale flat.': '可以，年满35岁的单身新加坡公民可以购买转售组屋。',
+    'Yes, as a Singapore Citizen you can buy a resale flat.': '可以，作为新加坡公民你可以购买转售组屋。',
+    "New ECs aren't open to foreigners.": '新 EC 不向外国人开放。', 'Yes, you can buy a new EC.': '可以，你可以购买新 EC。',
+    '💬 WhatsApp us →': '💬 WhatsApp 联系我们 →',
+
+    // ══ schools.html ══
+    'School proximity': '学校距离', 'Homes near a primary school': '小学周边的房子',
+    'Buying with P1 registration in mind? Pick a school and see which condos sit within 1km (top priority) and 1-2km (next in line), measured straight-line, the same way MOE does.':
+      '考虑小一报名 (P1)？选一所学校，看看哪些公寓在 1 公里内（最高优先）和 1-2 公里（其次），按直线距离测量，和教育部的算法一样。',
+    'Search a primary school': '搜索小学', 'Popular:': '热门：', 'Private condos': '私人公寓',
+    'Both groups below get registration priority over homes more than 2km away. The 1km group is first, then 1-2km.':
+      '下面两组都比 2 公里以外的住宅享有报名优先权。1 公里组排第一，然后是 1-2 公里。',
+    '1 km': '1 公里', '1-2 km': '1-2 公里',
+    'Within 1km, top priority for P1 registration': '1公里内，P1 报名最高优先',
+    'Highest priority in the ballot for Singapore Citizens': '在抽签中对新加坡公民优先级最高',
+    '1-2km, next priority': '1-2公里，其次优先',
+    'Comes after the 1km group, ahead of homes beyond 2km': '排在 1 公里组之后，2 公里以外之前',
+    'HDB streets within 1km': '1公里内的组屋街道', 'Top priority distance for P1 registration': 'P1 报名的最高优先距离',
+    'HDB streets 1-2km': '1-2公里的组屋街道', 'Next priority after the 1km group': '1公里组之后的次优先',
+    'Ask us about a school-zone home →': '就学区房咨询我们 →',
+    "Couldn't load school data, please refresh.": '无法加载学校数据，请刷新。', 'No primary school matches that.': '没有匹配的小学。',
+
+    // ══ mortgage.html ══
+    'Mortgage': '房贷', 'What will your home loan cost a month?': '你的房贷每月要还多少？',
+    "See your monthly repayment, the total interest you'll pay, and the full cost of the loan, for a bank loan or an HDB loan, at any rate and tenure.":
+      '查看你的每月还款、总利息和贷款总成本，适用于银行贷款或 HDB 贷款，任意利率和年限。',
+    'Not sure of your budget? Check what you can afford →': '不确定预算？看看你能负担多少 →',
+    'An HDB loan uses the concessionary rate. Bank packages move with the market, so set your own rate below.':
+      'HDB 贷款采用优惠利率。银行配套随市场浮动，请在下方设置你自己的利率。',
+    'Property price': '房产价格', 'The purchase price of the home.': '房子的购买价格。',
+    'Down payment': '首付', 'The part you pay yourself': '你自己支付的部分',
+    'Down payment %': '首付百分比', 'Of the price': '占房价的比例',
+    'Interest rate': '利率', "Your loan's yearly interest rate. Bank packages are typically around 3 to 4%.": '你贷款的年利率。银行配套通常在 3 到 4% 左右。',
+    'Your monthly repayment': '你的每月还款',
+    'Loan amount': '贷款金额', 'Total interest': '总利息', 'Total you repay': '你总共偿还', 'Interest vs loan': '利息占贷款比例',
+    'price minus your down payment': '房价减去首付', 'principal + interest': '本金 + 利息',
+    'interest as a share of the amount borrowed': '利息占借款金额的比例',
+    'Your down payment covers the whole price, so there is no loan to repay.': '你的首付已覆盖全部房价，无需偿还贷款。',
+    'Enter a property price to see your repayment.': '输入房产价格，查看你的还款。',
+    'Talk to our team about financing →': '就融资问题联系我们团队 →', 'Not sure which package?': '不确定选哪个配套？',
+    'Every number here is a guide. For your exact case, the right loan, the timing, the smartest move, have a quick chat. No pressure, no sales script.':
+      '这里的每个数字都只是参考。想了解你的具体情况，合适的贷款、时机、最聪明的做法，找我们聊几句就好。没有压力，没有推销话术。'
   };
 
   var LANG = (function () { try { return localStorage.getItem('ps_lang') === 'zh' ? 'zh' : 'en'; } catch (e) { return 'en'; } })();
