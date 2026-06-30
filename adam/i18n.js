@@ -599,9 +599,10 @@
     // Bulk: auto-translate matching text nodes now, then keep watching for JS-rendered content.
     translateTree(document.body);
     startObserver();
-    // any element tagged data-ps-langtoggle becomes a working 中文/EN switch
+    // any element tagged data-ps-langtoggle becomes a working 中文/EN switch (globe icon + label)
+    var GLOBE = '<svg viewBox="0 0 24 24" aria-hidden="true" style="width:15px;height:15px;flex:none;stroke:currentColor;fill:none;stroke-width:1.7;vertical-align:-3px"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"/></svg>';
     document.querySelectorAll('[data-ps-langtoggle]').forEach(function (el) {
-      el.textContent = (LANG === 'zh' ? 'EN' : '中文');
+      el.innerHTML = GLOBE + ' ' + (LANG === 'zh' ? 'EN' : '中文');
       if (!el._wired) { el._wired = true; el.addEventListener('click', function () { set(LANG === 'zh' ? 'en' : 'zh'); }); }
     });
     // dual-language blocks (for long-form prose): show only the block matching the current language
