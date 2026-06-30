@@ -894,57 +894,59 @@ if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}
 
 <section class="foot" id="talk"><div class="wrap">
   <span class="fhalo" aria-hidden="true"></span>
-  <svg class="skyline" id="skyline" viewBox="0 0 1040 165" fill="none" stroke="#0f7a82" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <svg class="skyline" id="skyline" viewBox="0 0 1040 165" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <defs>
-      <linearGradient id="skrefl" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#0f7a82" stop-opacity=".16"/><stop offset="1" stop-color="#0f7a82" stop-opacity="0"/>
-      </linearGradient>
+      <linearGradient id="skNear" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#3a766a"/><stop offset="1" stop-color="#163e36"/></linearGradient>
+      <linearGradient id="skBoat" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#2c6c66"/><stop offset="1" stop-color="#184a48"/></linearGradient>
+      <linearGradient id="skReflF" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#1c5650" stop-opacity=".2"/><stop offset="1" stop-color="#1c5650" stop-opacity="0"/></linearGradient>
       <radialGradient id="skflyer" cx="50%" cy="50%" r="50%">
-        <stop offset="0" stop-color="#15a0a0" stop-opacity=".14"/><stop offset="1" stop-color="#15a0a0" stop-opacity="0"/>
-      </radialGradient>
+        <stop offset="0" stop-color="#15a0a0" stop-opacity=".16"/><stop offset="1" stop-color="#15a0a0" stop-opacity="0"/></radialGradient>
     </defs>
-    <!-- depth: faded filled silhouettes far behind -->
-    <g fill="#0f7a82" fill-opacity=".055" stroke="none">
-      <rect x="96" y="96" width="44" height="34"/><rect x="226" y="84" width="40" height="46"/>
-      <rect x="430" y="80" width="52" height="50"/><rect x="640" y="92" width="42" height="38"/>
-      <rect x="804" y="86" width="38" height="44"/><rect x="966" y="98" width="40" height="32"/>
+
+    <!-- far haze layer -->
+    <path d="M40 130 V98 H78 V130 Z M250 130 V104 H286 V130 Z M414 130 V92 H470 V130 Z M700 130 V100 H742 V130 Z M866 130 V96 H910 V130 Z M998 130 V102 H1030 V130 Z" fill="#c4dcd5" stroke="none"/>
+    <!-- mid layer -->
+    <path d="M120 130 V84 H148 V130 Z M232 130 V90 H258 V130 Z M470 130 V82 H496 V130 Z M812 130 V88 H838 V130 Z M962 130 V92 H988 V130 Z" fill="#8cb8ae" stroke="#6a9a8f" stroke-width="1.2" stroke-opacity=".5"/>
+
+    <!-- reflection (flipped near, faded; no blur) -->
+    <g transform="matrix(1,0,0,-1,0,260)" opacity=".5">
+      <path d="M44 130 V64 C44 52 86 52 86 64 V130 Z M94 130 V56 H102 V48 H130 V56 H138 V130 Z M146 130 V60 L162 44 L178 60 V130 Z M184 130 V52 H206 V130 Z M212 130 V72 H244 V130 Z M376 130 L390 56 L406 56 L416 130 Z M428 130 L440 50 L456 50 L468 130 Z M484 130 L496 56 L512 56 L522 130 Z M986 130 V74 H1008 V130 Z M1010 130 V86 H1022 V130 Z M368 58 L548 46 L560 45 Q571 45 572 50 Q572 56 561 55 L368 66 Z M258 130 C258 107 302 107 302 130 Z M306 130 C306 111 342 111 342 130 Z M588 130 C588 119 626 119 626 130 Z" fill="url(#skReflF)" stroke="none"/>
     </g>
-    <g stroke-width="1.1" stroke-opacity=".34">
-      <path d="M232 130 V78 H258 V130 M610 130 V82 H634 V130 M648 130 V92 H668 V130 M860 130 V84 H884 V130"/>
+    <!-- water baseline -->
+    <path d="M8 130 H1032" stroke="#0c5b60" stroke-width="1.6" stroke-opacity=".45"/>
+
+    <!-- ===== NEAR foreground: shaded masses + bold ink linework ===== -->
+    <g fill="url(#skNear)" stroke="#0b4f54" stroke-width="2.6">
+      <path d="M44 130 V64 C44 52 86 52 86 64 V130 Z M94 130 V56 H102 V48 H130 V56 H138 V130 Z M146 130 V60 L162 44 L178 60 V130 Z M184 130 V52 H206 V130 Z M212 130 V72 H244 V130 Z M376 130 L390 56 L406 56 L416 130 Z M428 130 L440 50 L456 50 L468 130 Z M484 130 L496 56 L512 56 L522 130 Z M986 130 V74 H1008 V130 Z M1010 130 V86 H1022 V130 Z"/>
+      <path d="M368 58 L548 46 L560 45 Q571 45 572 50 Q572 56 561 55 L368 66 Z" fill="url(#skBoat)"/>
+      <path d="M258 130 C258 107 302 107 302 130 Z M306 130 C306 111 342 111 342 130 Z"/>
+      <path d="M588 130 C588 119 626 119 626 130 Z"/>
     </g>
-    <!-- grounded base: reflection wash + crisp baseline -->
-    <rect x="8" y="130" width="1024" height="30" fill="url(#skrefl)" stroke="none"/>
-    <path d="M8 130 H1032" stroke-width="1.4" stroke-opacity=".4"/>
-    <!-- front skyline -->
-    <g stroke-width="2.1">
-      <path d="M24 130 V44 H58 V130"/><path d="M41 44 V26"/>
-      <g stroke-width="1.05" stroke-opacity=".5"><path d="M30 62 H52 M30 76 H52 M30 90 H52 M30 104 H52"/></g>
-      <path d="M66 130 V54 H74 V44 H90 V54 H98 V130"/>
-      <path d="M104 130 V58 L123 40 L142 58 V130"/>
-      <path d="M148 130 V66 C148 50 180 50 180 66 V130"/>
-      <path d="M186 130 V50 H214 V130"/><path d="M200 50 V32"/>
-      <g stroke-width="1.05" stroke-opacity=".5"><path d="M192 66 H208 M192 80 H208 M192 94 H208"/></g>
-      <path d="M262 130 L270 42 L286 42 L278 130"/>
-      <path d="M320 130 L328 42 L344 42 L336 130"/>
-      <path d="M378 130 L386 42 L402 42 L394 130"/>
-      <path d="M256 42 L472 35 L472 28 L256 35 Z" fill="#0f7a82" fill-opacity=".07"/>
-      <path d="M472 31 L496 27"/>
-      <g stroke-width="1.4" stroke-opacity=".75"><path d="M300 35 V28 M340 34 V27 M380 33 V26"/></g>
-      <path d="M676 130 V52 H708 V130"/><path d="M692 52 V36"/>
-      <g stroke-width="1.05" stroke-opacity=".5"><path d="M682 70 H702 M682 84 H702 M682 98 H702"/></g>
-      <path d="M716 130 V60 H724 V48 H742 V60 H750 V130"/>
-      <path d="M756 130 V64 C756 48 788 48 788 64 V130"/>
-      <path d="M794 130 V54 L813 38 L832 54 V130"/>
-      <path d="M838 130 V58 H866 V130"/><path d="M852 58 V40"/>
-      <path d="M872 130 V70 H900 V130"/>
-      <path d="M906 130 V50 H918 V130"/><path d="M912 50 V34"/>
-    </g>
-    <!-- accent focal: Singapore Flyer in brass -->
-    <circle cx="576" cy="62" r="50" fill="url(#skflyer)" stroke="none"/>
-    <g stroke="#13868c">
-      <circle cx="576" cy="62" r="50" stroke-width="2.6"/><circle cx="576" cy="62" r="43" stroke-width="1.5" stroke-opacity=".7"/>
-      <path d="M576 62 L626 62 M576 62 L611 97 M576 62 L601 105 M576 62 L576 112 M576 62 L551 105 M576 62 L541 97 M576 62 L526 62 M576 62 L541 27 M576 62 L551 19 M576 62 L576 12 M576 62 L601 19 M576 62 L611 27" stroke-width="1.05" stroke-opacity=".55"/>
-      <path d="M552 130 L572 70 M600 130 L580 70" stroke-width="2.1"/><path d="M544 130 H608" stroke-width="2.1"/>
+    <path d="M116 48 V33 M195 52 V38 M993 74 V60" stroke="#0b4f54" stroke-width="2.2"/>
+
+    <!-- durian diagrid + lotus petals: bold obvious linework -->
+    <path d="M268 128 L284 110 M276 128 L292 109 M284 128 L298 112 M292 128 L300 118 M278 110 L294 128 M286 109 L300 122 M314 128 L328 113 M322 128 L336 114 M330 128 L340 119 M320 113 L332 128 M328 113 L338 124" stroke="#0b4f54" stroke-width="1.3" stroke-opacity=".7"/>
+    <path d="M607 120 C607 100 607 88 607 74 M607 120 C600 102 595 92 588 80 M607 120 C614 102 619 92 626 80 M607 120 C596 107 587 101 578 94 M607 120 C618 107 627 101 636 94 M607 120 C602 102 600 93 596 84 M607 120 C612 102 614 93 618 84" stroke="#0b4f54" stroke-width="2.2"/>
+
+    <!-- supertrees -->
+    <path d="M852 130 V64 M900 130 V52 M948 130 V72" stroke="#0b4f54" stroke-width="2.6"/>
+    <path d="M852 64 L830 42 M852 64 L841 32 M852 64 L852 28 M852 64 L863 32 M852 64 L874 42 M900 52 L878 30 M900 52 L889 20 M900 52 L900 16 M900 52 L911 20 M900 52 L922 30 M948 72 L926 50 M948 72 L937 40 M948 72 L948 36 M948 72 L959 40 M948 72 L970 50" stroke="#13868c" stroke-width="1.6"/>
+    <path d="M830 42 C839 28 865 28 874 42 M878 30 C887 16 913 16 922 30 M926 50 C935 36 961 36 970 50" stroke="#13868c" stroke-width="1.8"/>
+
+    <!-- windows: lit (warm) + dim -->
+    <path d="M50 80 H82 M50 104 H82 M104 72 H134 M104 100 H134 M154 78 H174 M154 106 H174 M392 72 H408 M392 96 H408 M392 120 H408 M444 64 H460 M444 88 H460 M444 112 H460 M498 72 H514 M498 96 H514 M498 120 H514 M990 92 H1004 M990 116 H1004" stroke="#ecc274" stroke-width="1.4" stroke-opacity=".9"/>
+    <path d="M50 92 H82 M50 116 H82 M104 86 H134 M104 114 H134 M154 92 H174 M154 118 H174 M190 70 H204 M190 90 H204 M190 110 H204 M218 88 H242 M218 112 H242 M392 84 H408 M392 108 H408 M444 76 H460 M444 100 H460 M444 124 H460 M498 84 H514 M498 108 H514" stroke="#0b4f54" stroke-width="1.1" stroke-opacity=".4"/>
+
+    <!-- Singapore Flyer (brass focal) -->
+    <circle cx="752" cy="64" r="50" fill="url(#skflyer)" stroke="none"/>
+    <g stroke="#13868c" fill="none">
+      <circle cx="752" cy="64" r="46" stroke-width="2.8"/><circle cx="752" cy="64" r="39" stroke-width="1.5" stroke-opacity=".7"/>
+      <path d="M752 64 L798.0 64.0 M752 64 L791.8 87.0 M752 64 L775.0 103.8 M752 64 L752.0 110.0 M752 64 L729.0 103.8 M752 64 L712.2 87.0 M752 64 L706.0 64.0 M752 64 L712.2 41.0 M752 64 L729.0 24.2 M752 64 L752.0 18.0 M752 64 L775.0 24.2 M752 64 L791.8 41.0" stroke-width="1.1" stroke-opacity=".5"/>
+      <g stroke-width="1.2" stroke-opacity=".85"><circle cx="798.0" cy="64.0" r="2.6"/><circle cx="791.8" cy="87.0" r="2.6"/><circle cx="775.0" cy="103.8" r="2.6"/><circle cx="752.0" cy="110.0" r="2.6"/><circle cx="729.0" cy="103.8" r="2.6"/><circle cx="712.2" cy="87.0" r="2.6"/><circle cx="706.0" cy="64.0" r="2.6"/><circle cx="712.2" cy="41.0" r="2.6"/><circle cx="729.0" cy="24.2" r="2.6"/><circle cx="752.0" cy="18.0" r="2.6"/><circle cx="775.0" cy="24.2" r="2.6"/><circle cx="791.8" cy="41.0" r="2.6"/></g>
+      <path d="M734 130 L749 70 M770 130 L755 70" stroke-width="2.6"/><path d="M724 130 H780" stroke-width="2.6"/>
     </g>
   </svg>
   <span class="eyebrow rv" style="justify-content:center">When you're ready</span>
