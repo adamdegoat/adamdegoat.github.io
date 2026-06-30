@@ -1,4 +1,4 @@
-/* PropSight i18n — shared, tiny, English-default language layer.
+/* PropSight i18n, shared, tiny, English-default language layer.
    Load this on EVERY page (before nav.js). Chinese is an ADDITIVE swap layer:
    English always stays in the DOM as the fallback, so a missing/broken key can
    never lose the English text. Pages opt content in with data-i18n / data-i18n-ph.
@@ -120,7 +120,7 @@
     'More free tools': '更多免费工具',
     'Not sure about your situation?': '不确定自己的情况？',
     'Get a straight answer from our team.': '让我们团队给你一个直接的答案。',
-    'Every number here is a guide. For your exact case — financing, timing, the smartest move — have a quick chat. No pressure, no sales script.':
+    'Every number here is a guide. For your exact case, financing, timing, the smartest move, have a quick chat. No pressure, no sales script.':
       '这里的每个数字都只是参考。想了解你的具体情况，融资、时机、最聪明的做法，找我们聊几句就好。没有压力，没有推销话术。',
     'WhatsApp us →': 'WhatsApp 联系我们 →',
     'Value a home': '估算房价', 'Stamp duty & ABSD': '印花税与 ABSD', "What you'll pay": '你要付多少',
@@ -514,7 +514,7 @@
   if (window.PS_I18N_ZH) { for (var k in window.PS_I18N_ZH) DICT[k] = window.PS_I18N_ZH[k]; }  // pages may pre-register strings
 
   // normalize curly/straight apostrophes + quotes + whitespace so matching is punctuation-insensitive
-  function norm(s) { return s.replace(/[‘’′]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, ' ').trim(); }
+  function norm(s) { return s.replace(/\s*[\u2014\u2013]\s*/g, ', ').replace(/[‘’′]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, ' ').trim(); }
   var NORM = {};
   function buildNorm() { NORM = {}; for (var k in DICT) NORM[norm(k)] = DICT[k]; }
   buildNorm();
