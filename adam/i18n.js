@@ -445,6 +445,14 @@
     'HDB streets 1-2km': '1-2公里的组屋街道', 'Next priority after the 1km group': '1公里组之后的次优先',
     'Ask us about a school-zone home →': '就学区房咨询我们 →',
     "Couldn't load school data, please refresh.": '无法加载学校数据，请刷新。', 'No primary school matches that.': '没有匹配的小学。',
+    // schools result sentences
+    'within 1km': '1公里内', 'within 1-2km': '1-2公里内',
+    'No condos {near} of this school.': '这所学校 {near} 没有公寓。',
+    '+ {n} more {near}, message us for the full list': '{near}还有 {n} 个，联系我们获取完整名单',
+    'No HDB streets {near} of this school.': '这所学校 {near} 没有组屋街道。',
+    '+ {n} more {near}': '{near}还有 {n} 个',
+    '{p1} condos within 1km · {p2} between 1-2km': '1公里内 {p1} 个公寓 · 1-2公里 {p2} 个',
+    '{p1} HDB streets within 1km · {p2} between 1-2km': '1公里内 {p1} 条组屋街道 · 1-2公里 {p2} 条',
 
     // ══ mortgage.html ══
     'Mortgage': '房贷', 'What will your home loan cost a month?': '你的房贷每月要还多少？',
