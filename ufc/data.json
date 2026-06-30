@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-30T21:00:00.211785+08:00",
+  "updated": "2026-06-30T23:30:00.228724+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -247,15 +247,15 @@
       "priority": false
     },
     {
-      "title": "Merab Dvalishvili reveals Ilia Topuria was ‘fighting blind’ after first round against Justin Gaethje",
-      "link": "https://www.mmafighting.com/ufc/496915/merab-dvalishvili-reveals-ilia-topuria-was-fighting-blind-after-first-round-against-justin-gaethje",
-      "source": "MMA Fighting",
+      "title": "John Pork, ‘Contender Series’ hero who snuck Dillon Danis, books UFC debut for July 25 in Abu Dhabi",
+      "link": "https://www.mmamania.com/ufc-news/454209/john-pork-contender-series-dillon-danis-ufc-debut-july-25-abu-dhabi-mma",
+      "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor faces Holloway this Sunday 9 AM SGT. Championship fireworks guaranteed.",
-    "prefight": "McGregor takes on Holloway this Sunday morning in an elite featherweight battle.",
-    "results": "Fiziev floors Torres with a spinning wheel kick, then finishes with strikes in round two."
+    "week": "McGregor versus Holloway this Sunday at 9 AM SGT—elite striking warfare awaits.",
+    "prefight": "McGregor and Holloway headline UFC fight week Sunday July 12 at 9 AM SGT.",
+    "results": "Spinning wheel kick and punches: Fiziev KOs Torres in the second round."
   }
 }
