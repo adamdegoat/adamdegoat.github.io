@@ -578,6 +578,10 @@
       el.textContent = (LANG === 'zh' ? 'EN' : '中文');
       if (!el._wired) { el._wired = true; el.addEventListener('click', function () { set(LANG === 'zh' ? 'en' : 'zh'); }); }
     });
+    // dual-language blocks (for long-form prose): show only the block matching the current language
+    document.querySelectorAll('[data-lang]').forEach(function (el) {
+      el.style.display = (el.getAttribute('data-lang') === LANG) ? '' : 'none';
+    });
   }
 
   function set(l) { try { localStorage.setItem('ps_lang', l); } catch (e) {} location.reload(); }
