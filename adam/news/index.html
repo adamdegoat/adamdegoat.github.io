@@ -143,7 +143,8 @@ h1 em{font-style:normal;color:inherit}
   <div class="wrap nh-in">
     <div class="head">
       <span class="kick">Singapore property news</span>
-      <h1>What's moving in the <em>market</em>.</h1>
+      <h1 data-lang="en">What's moving in the <em>market</em>.</h1>
+      <h1 data-lang="zh" style="display:none">市场<em>动向</em>，一手掌握。</h1>
       <p class="sub">The headlines that matter for your home, with what each one actually means for you. Pulled from across Singapore's property press, with the latest on top. Free, no sign-up.</p>
     </div>
     <div class="folio">
@@ -156,61 +157,79 @@ h1 em{font-style:normal;color:inherit}
   <div id="newsAll"><div class="newsload">Loading the latest brief…</div></div>
   <div class="foot">Headlines are sourced from across the Singapore property press; tap any item to read the full story at its original source. PropSight summarises each in its own words and is not the original publisher. <a href="../">Back to PropSight</a></div>
 </div>
+<script>
+/* page-local zh strings for the news chrome (merged by i18n.js, keyed by exact English) */
+window.PS_I18N_ZH = Object.assign(window.PS_I18N_ZH || {}, {
+  "Singapore property news": "新加坡房产新闻",
+  "The headlines that matter for your home, with what each one actually means for you. Pulled from across Singapore's property press, with the latest on top. Free, no sign-up.": "影响你买房卖房的重要新闻，每条都告诉你这对你意味着什么。汇集新加坡各大房产媒体，最新消息置顶。免费，无需注册。",
+  "PropSight wire": "PropSight 快讯",
+  "Loading the latest brief…": "正在加载最新简报…",
+  "Headlines are sourced from across the Singapore property press; tap any item to read the full story at its original source. PropSight summarises each in its own words and is not the original publisher.": "新闻标题汇集自新加坡各大房产媒体；点击任一条可前往原文出处阅读全文。PropSight 以自己的话概括每条新闻，并非原始发布方。",
+  "Back to PropSight": "返回 PropSight"
+});
+</script>
+<script src="/adam/i18n.js" defer></script>
 <script src="/adam/nav.js" defer></script>
 <script>
 (function(){
   var mount=document.getElementById('newsAll'), upd=document.getElementById('upd');
+  var ZH=false;  // set inside the fetch callback, after i18n.js has loaded
+  function tx(en,zh){return ZH?zh:en;}
+  function F(it,k){return (ZH&&it[k+'_zh'])?it[k+'_zh']:(it[k]||'');}  // _zh field with English fallback
   function esc(s){return (s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   function tagClass(t){var M={HDB:'t-HDB',Condo:'t-Condo',Policy:'t-Policy',Market:'t-Market','New Launch':'t-New',Rates:'t-Rates'};return M[t]||'t-Market';}
-  function kicker(t){var K={Policy:'New ruling','New Launch':'New launch',Market:'Market move',Rates:'Rate move',HDB:'HDB update',Condo:'Condo update'};return K[t]||'Latest news';}
-  function lbl(l){return l?'<span class="statlbl">'+esc(l)+'</span>':'';}
+  function tagTx(t){var Z={HDB:'HDB',Condo:'公寓',Policy:'政策','New Launch':'新盘',Market:'市场',Rates:'利率'};return ZH?(Z[t]||t):t;}
+  function kicker(t){if(ZH){return ({Policy:'新规','New Launch':'新盘',Market:'市场动向',Rates:'利率变动',HDB:'HDB 动态',Condo:'公寓动态'})[t]||'最新动态';}
+    var K={Policy:'New ruling','New Launch':'New launch',Market:'Market move',Rates:'Rate move',HDB:'HDB update',Condo:'Condo update'};return K[t]||'Latest news';}
+  function lbl(it){var l=F(it,'stat_label');return l?'<span class="statlbl">'+esc(l)+'</span>':'';}
   function splitStat(s){var m=String(s).match(/^(.*\S)\s*(psf|ppr|M|B|k|%|\+)$/i);if(m&&m[1])return{base:m[1],unit:m[2]};return{base:String(s),unit:''};}
   function hook(it){
     if(it.stat){
       var sp=splitStat(it.stat);
       var u=sp.unit?'<span class="u">'+esc(sp.unit)+'</span>':'';
-      return '<span class="stat">'+esc(sp.base)+u+'</span>'+lbl(it.stat_label);
+      return '<span class="stat">'+esc(sp.base)+u+'</span>'+lbl(it);
     }
     if(it.trend==='up'||it.trend==='down'){
       var dn=it.trend==='down';
-      var isRent=/rent/i.test((it.headline||'')+' '+(it.summary||''));
-      var phrase=dn?(isRent?'Rents ease':'Prices ease'):(isRent?'Rents up':'Prices up');
+      var isRent=/rent|租/i.test((it.headline||'')+' '+(it.summary||'')+' '+F(it,'headline')+' '+F(it,'summary'));
+      var phrase=dn?(isRent?tx('Rents ease','租金回落'):tx('Prices ease','价格回落')):(isRent?tx('Rents up','租金上涨'):tx('Prices up','价格上涨'));
       var svg=dn?'<svg viewBox="0 0 24 24"><path d="M12 18L4 6h16z"/></svg>'
                :'<svg viewBox="0 0 24 24"><path d="M12 6l8 12H4z"/></svg>';
-      return '<span class="trend '+(dn?'dn':'up')+'">'+svg+esc(phrase)+'</span>'+lbl(it.stat_label);
+      return '<span class="trend '+(dn?'dn':'up')+'">'+svg+esc(phrase)+'</span>'+lbl(it);
     }
-    return '<span class="rule">'+esc(kicker(it.tag))+'</span>'+lbl(it.stat_label);
+    return '<span class="rule">'+esc(kicker(it.tag))+'</span>'+lbl(it);
   }
   function leadCard(it){
     return '<a class="lead" href="'+esc(it.link)+'" target="_blank" rel="noopener">'+
-      '<div class="lead-stat"><span class="hot">Hot this week</span>'+hook(it)+'</div>'+
+      '<div class="lead-stat"><span class="hot">'+tx('Hot this week','本周热点')+'</span>'+hook(it)+'</div>'+
       '<div class="lead-tx">'+
-        '<span class="tag '+tagClass(it.tag)+'">'+esc(it.tag)+'</span>'+
-        '<h2>'+esc(it.headline)+'</h2>'+
-        (it.meaning?'<p class="mean"><b>What it means for you:</b> '+esc(it.meaning)+'</p>':'')+
+        '<span class="tag '+tagClass(it.tag)+'">'+esc(tagTx(it.tag))+'</span>'+
+        '<h2>'+esc(F(it,'headline'))+'</h2>'+
+        (F(it,'meaning')?'<p class="mean"><b>'+tx('What it means for you:','这对你意味着什么：')+'</b> '+esc(F(it,'meaning'))+'</p>':'')+
         '<div class="meta"><span>'+esc(it.source)+(it.date_label?' · '+esc(it.date_label):'')+'</span>'+
-          '<span class="go">Read the full story →</span></div>'+
+          '<span class="go">'+tx('Read the full story →','阅读全文 →')+'</span></div>'+
       '</div></a>';
   }
   function gridCard(it){
     return '<a class="card" href="'+esc(it.link)+'" target="_blank" rel="noopener">'+
       '<div class="cmeta"><span class="dt">'+esc(it.date_label)+'</span>'+
         '<span class="src">'+esc(it.source)+'</span>'+
-        '<span class="tag '+tagClass(it.tag)+'">'+esc(it.tag)+'</span></div>'+
+        '<span class="tag '+tagClass(it.tag)+'">'+esc(tagTx(it.tag))+'</span></div>'+
       '<div class="hook">'+hook(it)+'</div>'+
-      '<h3>'+esc(it.headline)+'</h3>'+
-      (it.meaning?'<p class="mean"><b>What it means:</b> '+esc(it.meaning)+'</p>':'')+
-      '<div class="rd"><span class="go">Read the full story →</span></div>'+
+      '<h3>'+esc(F(it,'headline'))+'</h3>'+
+      (F(it,'meaning')?'<p class="mean"><b>'+tx('What it means:','这意味着：')+'</b> '+esc(F(it,'meaning'))+'</p>':'')+
+      '<div class="rd"><span class="go">'+tx('Read the full story →','阅读全文 →')+'</span></div>'+
     '</a>';
   }
   fetch('../data/news.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(d){
-    if(upd&&d.updated_label) upd.innerHTML='<span class="d"></span>Updated <b>'+esc(d.updated_label)+'</b> <span class="soft">· kept up to date</span>';
+    ZH=!!(window.PSI18N&&PSI18N.lang==='zh');
+    if(upd&&d.updated_label) upd.innerHTML='<span class="d"></span>'+tx('Updated','更新于')+' <b>'+esc(d.updated_label)+'</b> <span class="soft">· '+tx('kept up to date','持续更新')+'</span>';
     var items=d.items||[];
-    if(!items.length){mount.innerHTML='<div class="newsload">No news right now, check back soon.</div>';return;}
+    if(!items.length){mount.innerHTML='<div class="newsload">'+tx('No news right now, check back soon.','暂时没有新闻，请稍后再来。')+'</div>';return;}
     var lead=leadCard(items[0]);
     var grid=items.slice(1).map(gridCard).join('');
-    mount.innerHTML=lead+(grid?'<div class="feedhd">More on the wire</div><div class="grid">'+grid+'</div>':'');
-  }).catch(function(){mount.innerHTML='<div class="newsload">Could not load news right now. Please try again shortly.</div>';});
+    mount.innerHTML=lead+(grid?'<div class="feedhd">'+tx('More on the wire','更多动态')+'</div><div class="grid">'+grid+'</div>':'');
+  }).catch(function(){mount.innerHTML='<div class="newsload">'+tx('Could not load news right now. Please try again shortly.','暂时无法加载新闻，请稍后再试。')+'</div>';});
 })();
 </script>
 </body></html>
