@@ -12,7 +12,7 @@
 <script>if('serviceWorker' in navigator){addEventListener('load',function(){navigator.serviceWorker.register('../sw.js').catch(function(){});});}</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b3a2d'/%3E%3Cg fill='none' stroke='%23cfeae0' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='13.5' cy='13.5' r='9.5'/%3E%3Cpath d='M8.75 16 L13.5 11 L18.25 16'/%3E%3Cpath d='M10.5 18.2 L16.5 18.2'/%3E%3C/g%3E%3Ccircle cx='13.5' cy='16.5' r='1' fill='%2315a0a0'/%3E%3Cpath d='M20.25 20.25 L26.5 26.5' fill='none' stroke='%2315a0a0' stroke-width='2.8' stroke-linecap='round'/%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600&family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<script src="/adam/i18n.js?v=14" defer></script><script src="/adam/nav.js" defer></script>
+<script src="/adam/i18n.js?v=15" defer></script><script src="/adam/nav.js" defer></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#eaf6f4;--ink:#191512;--ink2:#404f4c;--ink3:#536b66;--line:#d2e7e3;--line2:#bfdbd5;
@@ -505,26 +505,29 @@ async function genNewLaunch(){
 }
 
 function render(r,label,subj){
-  $('#res .tot-k').textContent='Estimated value range';
+  var T=function(s){return window.PSI18N?PSI18N.t(s):s;};
+  var TF=function(e,v){return window.PSI18N?PSI18N.tf(e,v):e.replace(/\{(\w+)\}/g,function(m,k){return v&&v[k]!=null?v[k]:m;});};
+  var zh=!!(window.PSI18N&&PSI18N.lang==='zh');
+  $('#res .tot-k').textContent=T('Estimated value range');
   $('#tot').textContent=`${fmtM(r.low)}, ${fmtM(r.high)}`;
   const rough = r.confidence==='Lower' || (r.n_comps||99) < 4;
   $('#totsub').innerHTML = rough
-    ? `<b style="color:#b4452f">Limited recent sales for this one.</b> Treat the range above as a rough guide only, not a reliable valuation. For an accurate figure, <a href="https://wa.me/6583219747" style="color:var(--green2);font-weight:700">get a proper valuation</a>.`
-    : `<b>${label}</b>, the likely range, from real recent comparable sales${r.area_assumed?' (typical unit size, add yours to sharpen)':''}.`;
-  const cm={High:'High confidence',Medium:'Fair confidence',Lower:'Indicative'}[r.confidence]||r.confidence;
+    ? '<b style="color:#b4452f">'+T("Limited recent sales for this one.")+'</b> '+T("Treat the range above as a rough guide only, not a reliable valuation. For an accurate figure,")+' <a href="https://wa.me/6583219747" style="color:var(--green2);font-weight:700">'+T("get a proper valuation")+'</a>'+(zh?'。':'.')
+    : '<b>'+label+'</b>'+(r.area_assumed?T(", the likely range, from real recent comparable sales (typical unit size, add yours to sharpen)."):T(", the likely range, from real recent comparable sales."));
+  const cm=T({High:'High confidence',Medium:'Fair confidence',Lower:'Indicative'}[r.confidence]||r.confidence);
   $('#conf').className='chip '+r.confidence;$('#conftxt').textContent=cm;
   const html=[
-    rowHTML('Price per sqft','what comparable homes fetch',fmt(r.estimate_psf)+' psf'),
-    rowHTML('Floor area',r.area_assumed?'typical size assumed, add yours to sharpen':'as you entered',`${r.area_sqf.toLocaleString()} sqft`),
-    rowHTML('Recent sales ranged','actual transacted prices, low to high',`${fmtM(r.obs_low)}-${fmtM(r.obs_high)}`),
-    rowHTML('Based on',`${r.n_comps} recent sale${r.n_comps===1?'':'s'} · ${title(r.scope||'')}`,''),
+    rowHTML(T('Price per sqft'),T('what comparable homes fetch'),fmt(r.estimate_psf)+' psf'),
+    rowHTML(T('Floor area'),r.area_assumed?T('typical size assumed, add yours to sharpen'):T('as you entered'),`${r.area_sqf.toLocaleString()} sqft`),
+    rowHTML(T('Recent sales ranged'),T('actual transacted prices, low to high'),`${fmtM(r.obs_low)}-${fmtM(r.obs_high)}`),
+    rowHTML(T('Based on'),TF('{n} recent sales · {scope}',{n:r.n_comps,scope:T(title(r.scope||''))}),''),
   ].join('');
   $('#rows').innerHTML=html;
   renderComps(mode,r.comps);
-  const cTxt={High:'lots of recent, similar sales nearby, this is a solid estimate',
+  const cTxt=T({High:'lots of recent, similar sales nearby, this is a solid estimate',
     Medium:'a fair number of comparable sales, a reasonable guide',
-    Lower:'fewer or more varied sales, so treat this as a rough guide'}[r.confidence]||'';
-  $('#note').innerHTML=`<b>${cm}:</b> ${cTxt}.${r.area_assumed?' Add your floor area above for a tighter number.':''} Want it pinned to your exact unit, floor and condition? <a href="https://wa.me/6583219747" style="color:var(--green2);font-weight:700">Message us</a>.`;
+    Lower:'fewer or more varied sales, so treat this as a rough guide'}[r.confidence]||'');
+  $('#note').innerHTML='<b>'+cm+(zh?'：':': ')+'</b>'+cTxt+(zh?'。':'.')+' '+(r.area_assumed?T('Add your floor area above for a tighter number.')+' ':'')+T('Want it pinned to your exact unit, floor and condition?')+' <a href="https://wa.me/6583219747" style="color:var(--green2);font-weight:700">'+T('Message us')+'</a>'+(zh?'。':'.');
   $('#res').classList.add('on');$('#res').scrollIntoView({behavior:'smooth',block:'start'});
 }
 function rowHTML(k,sub,v){return `<div class="row"><span class="k">${k}${sub?`<small>${sub}</small>`:''}</span>${v?`<span class="v">${v}</span>`:''}</div>`;}
