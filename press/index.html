@@ -1,424 +1,238 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>PropSight Studio</title><meta name="theme-color" content="#123831">
-<link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="icons/icon-180.png">
-<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Studio">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23123831'/%3E%3Cg fill='none' stroke='%23cfeae0' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='13.5' cy='13.5' r='9.5'/%3E%3Cpath d='M8.75 16 L13.5 11 L18.25 16'/%3E%3Cpath d='M10.5 18.2 L16.5 18.2'/%3E%3C/g%3E%3Ccircle cx='13.5' cy='16.5' r='1' fill='%2315a0a0'/%3E%3Cpath d='M20.25 20.25 L26.5 26.5' fill='none' stroke='%2315a0a0' stroke-width='2.8' stroke-linecap='round'/%3E%3C/svg%3E">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,900&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow"><title>PropSight Studio</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:radial-gradient(900px 620px at 82% -10%,#f4f8f6,transparent 60%),linear-gradient(170deg,#eef3f1,#e1ebe6);color:#163a2d;font-family:'Schibsted Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh}
-.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
-a{color:inherit;text-decoration:none}
-header{padding:30px 0 6px}
-.brand{display:flex;align-items:center;gap:13px}
-.brand .mk{width:46px;height:46px;border-radius:13px;background:linear-gradient(150deg,#163a2d,#0c211a);display:grid;place-items:center;color:#cfeae0;flex:none}
-.brand .mk svg{width:30px;height:30px}
-.brand b{font-family:Fraunces;font-weight:600;font-size:23px;letter-spacing:.01em;line-height:1}
-.brand b span{color:#0f7a82} .brand .bs{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#7a8a82;font-weight:700;margin-top:5px}
-.topbar{padding:8px 0 2px}
+:root{--bg:#eef3f1;--bg2:#dce7e3;--card:#ffffff;--ink:#143a2d;--sub:#5c7268;--acc:#0f7a82;--hi:#2f9a8f;--line:#d2e0db;--ok:#1f9d6b}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(900px 600px at 82% -8%,#f4faf8,transparent 60%),linear-gradient(168deg,var(--bg),var(--bg2));color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;min-height:100vh;padding:env(safe-area-inset-top) 0 80px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:0 18px}
+header{padding:40px 0 6px}
+.kick{color:var(--acc);font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:700}
+h1{font-size:30px;margin:6px 0 2px;letter-spacing:-.01em}
+.lead{color:var(--sub);font-size:15px;margin:0}
+.prog{margin:16px 0 0;font-size:13px;color:var(--sub)}
+.bar{height:7px;background:#cddcd6;border-radius:6px;overflow:hidden;margin-top:6px}
+.bar>i{display:block;height:100%;background:var(--hi);width:0;transition:width .3s}
+.banner{background:#0f231a;color:#eaf4ef;border-radius:14px;padding:15px 18px;margin:22px 0 8px;font-size:14.5px}
+.banner b{color:#7fd0bb}
+.sec{margin:30px 0 10px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub);font-weight:700}
+.profile{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.field{display:flex;gap:10px;align-items:flex-start;margin:8px 0;flex-wrap:wrap}
+.field .k{font-size:12px;color:var(--sub);min-width:74px;padding-top:8px;text-transform:uppercase;letter-spacing:.08em}
+.field .v{flex:1;min-width:200px;background:#f3f8f6;border:1px solid var(--line);border-radius:10px;padding:9px 12px;font-size:14.5px}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin:14px 0;box-shadow:0 16px 40px -30px rgba(0,40,30,.5)}
+.card.is-done{opacity:.5}
+.when{position:absolute;top:16px;right:96px;font-size:12.5px;color:var(--sub)}
+.done{position:absolute;top:14px;right:14px;display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--sub);cursor:pointer;user-select:none}
+.done input{width:17px;height:17px;accent-color:var(--ok)}
+.grid{display:grid;grid-template-columns:230px 1fr;gap:18px}
+@media(max-width:640px){.grid{grid-template-columns:1fr}.when{right:96px}}
+.thumb{position:relative;border-radius:12px;overflow:hidden;background:#08221c;aspect-ratio:4/5}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb.video{aspect-ratio:9/16}
+.thumb .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:46px;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.5)}
+.thumb .dl,.dls a{position:absolute;left:8px;bottom:8px;background:rgba(255,255,255,.92);color:#0f231a;font-size:11.5px;font-weight:700;padding:5px 9px;border-radius:8px;text-decoration:none}
+.thumb .cnt{position:absolute;right:8px;top:8px;background:rgba(8,34,28,.8);color:#cfeee4;font-size:11px;padding:4px 8px;border-radius:7px}
+.thumb.caro .strip{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory}
+.thumb.caro .strip img{flex:0 0 100%;scroll-snap-align:start}
+.dls{position:absolute;left:8px;bottom:8px;display:flex;gap:5px;flex-wrap:wrap;max-width:90%}
+.dls a{position:static}
+.thumb.empty{display:flex;align-items:center;justify-content:center;color:#7fd0bb;font-size:12px}
+.badge{display:inline-block;background:#e3f1ee;color:var(--acc);font-size:12px;font-weight:700;padding:4px 10px;border-radius:20px}
+h3{font-size:20px;margin:9px 0 10px;line-height:1.2}
+.row{margin:10px 0}
+.lbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--sub);margin-bottom:4px}
+.val{background:#f3f8f6;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:14px;position:relative}
+.val.cap{white-space:normal;line-height:1.5}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;word-break:break-word}
+.cp{display:inline-block;margin-top:8px;background:var(--acc);color:#fff;border:0;border-radius:8px;padding:6px 11px;font-size:12.5px;font-weight:700;cursor:pointer}
+.cp.done{background:var(--ok)}
+.steps{margin:0;padding-left:20px;font-size:13.5px;color:var(--ink)}
+.steps li{margin:3px 0}
+.boost{margin-top:10px;background:#eaf4f1;border-left:3px solid var(--hi);border-radius:8px;padding:9px 12px;font-size:13px;color:#28564a}
+.boost b{color:var(--acc)}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:14px}
+td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+td.d{font-weight:700;width:60px}td.t{color:var(--sub);width:78px;white-space:nowrap}
+.tt{background:#e3f1ee;color:var(--acc);font-size:12px;font-weight:700;padding:2px 8px;border-radius:12px;white-space:nowrap}
+footer{color:var(--sub);font-size:12.5px;margin-top:30px;text-align:center}
+</style></head><body><div class="wrap">
+<header>
+  <div class="kick">PropSight Studio</div>
+  <h1>Your Instagram plan</h1>
+  <p class="lead">Do the cards top to bottom. Each one tells you exactly what to post, the caption to paste, and how. Tick Done as you go.</p>
+  <div class="prog"><span id="pt">0 of 8 done</span><div class="bar"><i id="pb"></i></div></div>
+</header>
 
+<div class="banner"><b>Launch mode.</b> Your account is empty, so post the <b>foundation set below in order first</b> over your first few days. This gives visitors a real, credible profile before we push for reach. The weekly rhythm starts after.</div>
 
-.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
-.chip{background:#fff;border:1px solid #d3e1da;border-radius:30px;padding:9px 16px;font-size:13px;font-weight:600}
-.chip b{color:#0f7a82;font-weight:800}
-section{padding:34px 0 6px}
-.shead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:20px}
-.shead h2{font-family:Fraunces;font-weight:600;font-size:27px;letter-spacing:-.01em}
-.shead .sub{font-size:13px;color:#7a8a82;font-weight:600}
-/* feed preview */
-.feedwrap{max-width:560px;margin:0 auto;background:#fff;border-radius:26px;overflow:hidden;box-shadow:0 30px 70px rgba(15,35,26,.14);border:1px solid #dbe7e2}
-.fhead{padding:22px 22px 16px;display:flex;align-items:center;gap:18px;border-bottom:1px solid #eef3f1}
-.fhead .av{width:72px;height:72px;border-radius:50%;background:linear-gradient(150deg,#163a2d,#0c211a);display:grid;place-items:center;color:#cfeae0;flex:none}
-.fhead .av svg{width:44px;height:44px}
-.fstats{display:flex;gap:26px;text-align:center}
-.fstats b{font-weight:700;font-size:18px;display:block} .fstats span{font-size:12px;color:#7a8a82}
-.fbio{padding:6px 22px 16px} .fbio b{font-size:14px} .fbio p{font-size:13.5px;color:#4a5a52;margin-top:3px;line-height:1.45} .fbio .u{color:#0f7a82;font-weight:600;font-family:Fraunces;margin-top:4px;display:block}
-.fscroll{max-height:430px;overflow-y:auto;-webkit-overflow-scrolling:touch}
-.fscroll::-webkit-scrollbar{width:8px} .fscroll::-webkit-scrollbar-thumb{background:#cbdcd5;border-radius:8px}
-.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
-.ft{position:relative;display:block;aspect-ratio:4/5;overflow:hidden;background:#eaf1ee}
-.ft img{width:100%;height:100%;object-fit:cover;display:block}
-.ft .ftl{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(0deg,rgba(12,23,20,.8),transparent);color:#fff;font-size:8.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:14px 6px 5px}
-.fnote{text-align:center;color:#7a8a82;font-size:12.5px;margin-top:12px}
-/* plan cards */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:30px}
-.day{display:flex;flex-direction:column;gap:13px}
-.dwhen{display:flex;align-items:center;gap:10px}
-.dday{background:#163a2d;color:#eef4f1;font-weight:800;font-size:14px;padding:6px 13px;border-radius:9px;letter-spacing:.02em}
-.dtime{font-weight:700;font-size:13px;color:#0f7a82}
-.dcat{margin-left:auto;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#7a8a82}
-.dnote{font-size:13px;color:#5a6f67;line-height:1.4;min-height:36px}
-.phone{background:#0c1714;border-radius:32px;padding:8px;box-shadow:0 26px 54px rgba(15,35,26,.18)}
-.screen{background:#fff;border-radius:26px;overflow:hidden;color:#0f1a16}
-.sbar{display:flex;justify-content:space-between;align-items:center;padding:8px 17px 5px} .sbar .sbt{font-weight:700;font-size:12px} .sbar .sbic svg{height:11px}
-.igh{display:flex;align-items:center;gap:9px;padding:6px 12px}
-.igh .av{width:30px;height:30px;border-radius:50%;background:#eaf1ee;display:grid;place-items:center;color:#163a2d;flex:none} .igh .av svg{width:20px;height:20px}
-.igh .who{display:flex;flex-direction:column;line-height:1.15;flex:1;min-width:0} .igh .who b{font-size:12.5px;font-weight:700} .igh .who i{font-style:normal;font-size:10.5px;color:#7a8a82}
-.igh .more svg{width:18px;height:18px;display:block}
-.pimg{aspect-ratio:4/5;background:#eaf1ee} .pimg img{width:100%;height:100%;object-fit:cover;display:block}
-.acts{display:flex;align-items:center;gap:15px;padding:10px 13px 4px} .acts .ic svg{width:23px;height:23px;display:block} .acts .save{margin-left:auto}
-.pcap{padding:1px 13px 13px;font-size:12.5px;line-height:1.45} .pcap .tags{display:block;color:#0f6f78;margin-top:3px}
-.pbtns{display:flex;gap:9px}
-.btn{flex:1;text-align:center;border-radius:30px;padding:12px;font-weight:700;font-size:13.5px;cursor:pointer;border:1px solid transparent}
-.btn.dl{background:#163a2d;color:#eef4f1} .btn.cp{background:#fff;border-color:#cbdcd5;color:#163a2d} .btn.cp.done{background:#cdeee2;border-color:#7fd0bb;color:#0f7a4a}
-.btn.wide{width:100%}
-.dcard .dloc{margin-top:1px} .dcard .dtip{font-size:11.5px;color:#7a8a82;text-align:center;margin-top:9px} .dcard .dtip b{color:#0f7a82;font-weight:700}
-/* compact carousel cards (less scrolling) */
-.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
-.dcard{background:#fff;border:1px solid #dbe7e2;border-radius:18px;padding:15px 15px 16px;display:flex;flex-direction:column;gap:11px;box-shadow:0 10px 26px rgba(15,35,26,.07)}
-.dcard.pin{border-color:#7fd0bb;box-shadow:0 0 0 1.5px #cdeee2}
-.cslides{display:flex;gap:9px}
-.cslide{position:relative;flex:1;aspect-ratio:4/5;border-radius:11px;overflow:hidden;background:#eaf1ee;display:block}
-.cslide img{width:100%;height:100%;object-fit:cover;display:block}
-.cslide .cn{position:absolute;left:7px;top:7px;font-size:10.5px;font-weight:800;letter-spacing:.03em;background:rgba(12,23,20,.82);color:#fff;border-radius:20px;padding:3px 9px;z-index:2}
-.cslide .cn.zh{background:#0f7a82}
-.cslide::after{content:"Save";position:absolute;right:7px;bottom:7px;font-size:10px;font-weight:700;background:rgba(255,255,255,.92);color:#163a2d;border-radius:7px;padding:3px 8px;opacity:0;transition:.18s}
-.cslide:hover::after{opacity:1}
-.biobar{background:linear-gradient(135deg,#163a2d,#0c211a);color:#eef4f1;border-radius:18px;padding:17px 22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:6px}
-.biobar .bl{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#9fd9c9;flex:none}
-.biobar .bt{font-size:13.5px;line-height:1.5;flex:1;min-width:200px} .biobar .bt b{font-family:'Noto Sans SC','Schibsted Grotesk'}
-.biobar .btn.cp{flex:none;background:#bfe3d0;border-color:#bfe3d0;color:#13261d}
-/* archive */
-.aweek{margin-bottom:28px}
-.awh{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #d3e1da;padding-bottom:10px;margin-bottom:14px}
-.awh b{font-family:Fraunces;font-weight:600;font-size:20px} .awh span{font-size:12.5px;color:#7a8a82;font-weight:600}
-.agrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
-.agrid .ft{border-radius:12px}
-.empty{color:#7a8a82;font-style:italic}
-footer{padding:34px 0 70px;color:#7a8a82;font-size:13px;text-align:center;border-top:1px solid #d3e1da;margin-top:24px} footer a{color:#0f7a82;font-weight:700}
-.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:#163a2d;color:#eef4f1;padding:12px 22px;border-radius:30px;font-weight:600;font-size:14px;opacity:0;transition:.28s;pointer-events:none;z-index:60}
-.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-.grid.one{grid-template-columns:minmax(300px,360px)}
-.dcat.pin{margin-left:auto;color:#0f7a4a;background:#cdeee2;border-radius:20px;padding:4px 11px}
-.dcat.sty{margin-left:auto;color:#5b62ad;background:#e6e7fb;border-radius:20px;padding:4px 11px}
-.vphone{background:#0c1714;border-radius:34px;padding:8px;box-shadow:0 26px 54px rgba(15,35,26,.18);max-width:232px;margin:0 auto}
-.vscreen{background:#fff;border-radius:27px;overflow:hidden;aspect-ratio:9/16}
-.vscreen img{width:100%;height:100%;object-fit:cover;display:block}
-.sinstr{font-size:12.5px;color:#5a6f67;line-height:1.45;background:#fff;border:1px solid #dbe7e2;border-radius:12px;padding:11px 13px} .sinstr b{color:#0f7a82}
-.howto{background:#fff;border:1px solid #dbe7e2;border-radius:16px;padding:18px 20px;font-size:14px;line-height:1.55;color:#4a5a52;margin-bottom:22px} .howto b{color:#163a2d}
-.dloc{display:flex;align-items:center;gap:7px;font-size:12.5px;color:#5a6f67;background:#eef5f2;border:1px solid #d8e6e0;border-radius:10px;padding:8px 11px}
-.dloc svg{width:15px;height:15px;flex:none;color:#0f7a82} .dloc b{color:#163a2d;font-weight:700}
-.checklist{display:flex;flex-direction:column;gap:11px}
-.checklist b{font-family:Fraunces;font-weight:600;font-size:17px;margin-bottom:3px}
-.checklist .ck{display:flex;gap:11px;align-items:flex-start;font-size:13.5px;color:#4a5a52;line-height:1.5}
-.checklist .ck i{flex:none;width:22px;height:22px;border-radius:50%;background:#163a2d;color:#eef4f1;font-style:normal;font-weight:800;font-size:12px;display:grid;place-items:center;margin-top:1px}
-.hgrid{display:flex;gap:24px;flex-wrap:wrap}
-.hcov{text-align:center}
-.hc{width:92px;height:92px;border-radius:50%;overflow:hidden;display:block;border:2px solid #d3e1da;box-shadow:0 8px 20px rgba(15,35,26,.12)}
-.hc img{width:100%;height:100%;object-fit:cover}
-.hcov b{display:block;font-size:12.5px;margin-top:9px;font-weight:700;color:#163a2d}
-.lightbox{position:fixed;inset:0;background:rgba(8,18,15,.93);display:none;z-index:200;align-items:center;justify-content:center;padding:22px}
-.lightbox.show{display:flex}
-.lbin{max-width:460px;width:100%;display:flex;flex-direction:column;align-items:center;gap:15px}
-.lbin img{max-width:100%;max-height:73vh;border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,.5)}
-.lbhint{color:#cfeae0;font-size:13.5px;text-align:center;line-height:1.5} .lbhint b{color:#fff}
-.lbx{background:#fff;color:#163a2d;border:none;border-radius:30px;padding:11px 28px;font-weight:700;font-size:14px;cursor:pointer;font-family:inherit}
-@media(max-width:560px){
-  .wrap{padding:0 14px}
-  section{padding:22px 0 4px} .shead{margin-bottom:13px} .shead h2{font-size:23px}
-  .grid{grid-template-columns:1fr 1fr;gap:15px} .grid.one{grid-template-columns:1fr}
-  .day{gap:8px} .dnote{display:none} .dwhen{gap:7px} .dday{font-size:12px;padding:5px 10px} .dtime{font-size:11.5px} .dcat{font-size:9.5px}
-  .dloc{font-size:11px;padding:6px 8px;gap:5px} .dloc svg{width:13px;height:13px}
-  .phone{padding:0;background:transparent;box-shadow:none}
-  .screen{border-radius:14px;box-shadow:0 9px 20px rgba(15,35,26,.16)}
-  .sbar,.igh,.acts,.pcap{display:none}
-  .pimg{border-radius:14px;cursor:zoom-in}
-  .pbtns{flex-direction:column;gap:7px} .btn{padding:10px;font-size:12.5px}
-  .vphone{max-width:none;border-radius:18px;padding:5px;cursor:zoom-in} .vscreen{border-radius:14px}
-  .sinstr{font-size:11.5px;padding:9px 10px}
-  .fscroll{max-height:430px} .fhead{padding:16px 16px 12px;gap:12px} .fhead .av{width:56px;height:56px} .fhead .av svg{width:34px;height:34px}
-  .fstats{gap:18px} .fstats b{font-size:16px}
-  .howto{padding:15px 16px;font-size:13px} .checklist .ck{font-size:12.5px}
-  .agrid{grid-template-columns:repeat(auto-fill,minmax(102px,1fr))}
-  .hgrid{gap:16px;justify-content:center} .hc{width:74px;height:74px}
-}
-</style></head><body>
-<div class="wrap">
-<header><div class="brand"><div class="mk"><svg viewBox="0 0 64 64"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-  <div><b>PropSight<span> Studio</span></b><div class="bs">weekly content plan</div></div></div></header>
-<div class="topbar">
-  <div class="meta"><span class="chip">Issue <b>#3</b></span><span class="chip">Week of <b>30 June 2026</b></span><span class="chip"><b>4</b> posts</span><span class="chip"><b>3</b> stories</span><span class="chip">Next plan <b>Mon 6 Jul · 04:00</b></span></div>
+<div class="sec">Step 1, set up the profile</div>
+<div class="profile">
+  <div class="field"><div class="k">Name</div><div class="v" data-copy="PropSight | Singapore Property">PropSight | Singapore Property <button class="cp" data-for="prev">Copy</button></div></div>
+  <div class="field"><div class="k">Bio</div><div class="v" data-copy="See Singapore property clearly. Value any HDB or condo on real sales, what you can afford, grants, schools. Free, no sign-up. 中文 available.">See Singapore property clearly. Value any HDB or condo on real sales, what you can afford, grants, schools. Free, no sign-up. 中文 available. <button class="cp" data-for="prev">Copy</button></div></div>
+  <div class="field"><div class="k">Link</div><div class="v">propsight.sg</div></div>
+  <ol class="steps" style="margin-top:10px"><li>Open Instagram, go to your profile, tap Edit profile.</li><li>Set Name to: PropSight | Singapore Property (keywords help you get found).</li><li>Paste the bio below.</li><li>Set the website link to propsight.sg.</li><li>Make sure it is a Professional account: Settings, Account type, switch to Business.</li><li>Profile photo: the PropSight logo (square version).</li></ol>
 </div>
-<div class="biobar"><span class="bl">Your bio</span><span class="bt">PropSight · <b>新加坡房产，一目了然</b> · Free Singapore property values, research &amp; news · propsight.sg</span><button class="btn cp" data-cap="PropSight · 新加坡房产，一目了然 · Free Singapore property values, research and news · propsight.sg">Copy bio</button></div>
-<section><div class="shead"><h2>Your feed preview</h2><span class="sub">this week on top of recent posts</span></div>
-  <div class="feedwrap">
-    <div class="fhead"><div class="av"><svg viewBox="0 0 64 64"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="fstats"><div><b>312</b><span>posts</span></div><div><b>8.4k</b><span>followers</span></div><div><b>42</b><span>following</span></div></div></div>
-    <div class="fbio"><b>propsightsg</b><p>Singapore property, decoded.<br>Free tools, real numbers, built on URA data.</p><span class="u">propsight.sg</span></div>
-    <div class="fscroll"><div class="fgrid"><a class="ft" href="posts/launch-propsight.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/launch-propsight.png" alt="PropSight on a laptop and a phone, free Singapore property intelligence at propsight.sg"><span class="ftl">Launch</span></a><a class="ft" href="posts/starter-show-value.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/starter-show-value.png" alt="The PropSight value tool"><span class="ftl">The value tool</span></a><a class="ft" href="posts/starter-show-afford.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/starter-show-afford.png" alt="The PropSight affordability tool"><span class="ftl">The affordability tool</span></a><a class="ft" href="posts/starter-show-schools.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/starter-show-schools.png" alt="The PropSight schools tool"><span class="ftl">The schools tool</span></a><a class="ft" href="posts/starter-photo-sky.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/starter-photo-sky.png" alt="Singapore CBD skyline behind Chinatown shophouses"><span class="ftl">Photo · Skyline</span></a><a class="ft" href="posts/2026-06-30-w2-schools.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w2-schools.png" alt="Homes near Chij (Katong) Primary"><span class="ftl">School finder</span></a><a class="ft" href="posts/2026-06-30-w2-show-schools.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w2-show-schools.png" alt="The PropSight schools tool"><span class="ftl">The schools tool</span></a><a class="ft" href="posts/2026-06-30-w2-news.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w2-news.png" alt="Property news, Over 1 Million HDB Households to Receive Utility and Service Charge Rebates in July"><span class="ftl">Property News</span></a><a class="ft" href="posts/2026-06-30-w2-statement.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w2-statement.png" alt="PropSight is proof"><span class="ftl">Statement</span></a><a class="ft" href="posts/2026-06-30-w1-myth.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w1-myth.png" alt="Property myth vs fact"><span class="ftl">Myth buster</span></a><a class="ft" href="posts/2026-06-30-w1-value.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w1-value.png" alt="What a flat in Tampines is worth"><span class="ftl">Home value</span></a><a class="ft" href="posts/2026-06-30-w1-show-afford.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w1-show-afford.png" alt="The PropSight affordability tool"><span class="ftl">The affordability tool</span></a><a class="ft" href="posts/2026-06-30-w1-costs.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w1-costs.png" alt="The real cost of a home"><span class="ftl">Hidden costs</span></a><a class="ft" href="posts/2026-06-30-w0-editorial.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w0-editorial.png" alt="Know what a home is really worth"><span class="ftl">Editorial</span></a><a class="ft" href="posts/2026-06-30-w0-insights.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w0-insights.png" alt="Market insight, Resale flats are out-earning condos for landlords"><span class="ftl">Market Insights</span></a><a class="ft" href="posts/2026-06-30-w0-show-value.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w0-show-value.png" alt="The PropSight value tool"><span class="ftl">The value tool</span></a><a class="ft" href="posts/2026-06-30-w0-afford.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w0-afford.png" alt="What you can afford"><span class="ftl">Affordability</span></a></div></div>
-  </div>
-  <div class="fnote">Scroll the grid to see your whole feed. Newest posts sit top-left like Instagram, your pinned first post stays up top, and it fills out as you post each week.</div>
-</section>
-<section><div class="shead"><h2>Start here, your first 3 days</h2><span class="sub">post these 5 to fill your grid, then follow the weekly plan below</span></div><div class="howto"><b>Just follow the day and time on each card.</b> Day 1: post the launch, then press and hold it on your profile to <b>Pin</b> it. Day 2: the two cards marked Day 2. Day 3: the two marked Day 3. By Day 3 your grid already looks like a real brand, and the weekly carousels below keep it growing.</div><div class="cgrid"><article class="dcard pin">
-  <div class="dwhen"><span class="dday">Day 1</span><span class="dtime">8:00 PM</span><span class="dcat pin">Pin first</span></div>
-  <div class="cslides"><a class="cslide" href="posts/launch-propsight.png" download title="Download slide 1"><span class="cn">1 · EN</span><img loading="lazy" src="posts/launch-propsight.png" alt="PropSight on a laptop and a phone, free Singapore property intelligence at propsight.sg"></a><a class="cslide" href="posts/launch-propsight-zh.png" download title="Download slide 2"><span class="cn zh">2 · 中文</span><img loading="lazy" src="posts/launch-propsight-zh.png" alt="PropSight on a laptop and a phone, free Singapore property intelligence at propsight.sg 中文"></a></div>
-  <div class="dnote">Post this first, then PIN it to the top of your profile.</div>
-  <div class="dloc"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z'/><circle cx='12' cy='11' r='2.2'/></svg><span>Tag location <b>Singapore</b></span></div>
-  <button class="btn cp wide" data-cap="PropSight is live. The free way to see Singapore property clearly.
 
-Value any HDB or condo on real recent sales. Work out what you can truly afford. Dig into deep research on every project and town. Read the news that actually matters, in plain English.
-
-And Aillie, your property intelligence, answers anything, anytime.
-
-Start free at propsight.sg (link in bio). Join free to unlock the full research, a weekly newsletter and live market signals.
-
-· · ·
-
-PropSight 正式上线了。看清新加坡房产，免费就能办到。
-
-根据真实近期成交，为任何 HDB 或 condo 估值。算清楚自己真正能负担多少。深入研究每个项目和地区的详细资料。用简单易懂的英文，读到真正重要的资讯。
-
-还有你的房产智能助手 Aillie，随时随地解答任何问题。
-
-免费上手，访问 propsight.sg（链接在简介）。注册免费，解锁完整研究资料、每周通讯和实时市场动态。
-
-#singaporeproperty #propertysg #hdb #condosingapore #propertyinvestment">Copy caption · EN + 中文</button>
-  <div class="dtip">After posting, tap <b>reshare to your story</b>.</div>
-</article><article class="dcard">
-  <div class="dwhen"><span class="dday">Day 2</span><span class="dtime">12:30 PM</span><span class="dcat">The value tool</span></div>
-  <div class="cslides"><a class="cslide" href="posts/starter-show-value.png" download title="Download slide 1"><span class="cn">1 · EN</span><img loading="lazy" src="posts/starter-show-value.png" alt="The PropSight value tool"></a><a class="cslide" href="posts/starter-show-value-zh.png" download title="Download slide 2"><span class="cn zh">2 · 中文</span><img loading="lazy" src="posts/starter-show-value-zh.png" alt="The PropSight value tool 中文"></a></div>
-  <div class="dnote">Your strongest tool first. Real home values, free, from recent sales.</div>
-  <div class="dloc"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z'/><circle cx='12' cy='11' r='2.2'/></svg><span>Tag location <b>Tampines, Singapore</b></span></div>
-  <button class="btn cp wide" data-cap="Tampines 4-room HDB resale is sitting around 710k right now
-
-Before you list or lowball an offer, check what your exact flat is worth from real recent sales, not a guess from your neighbour.
-
-PropSight values any HDB or condo for free, so you walk in knowing your number.
-
-Check yours free at propsight.sg (link in bio)
-
-· · ·
-
-淡滨尼四房式HDB转售，目前的价位大概在71万左右。
-
-无论你是准备挂牌，还是想出低价，都先弄清楚你的组屋到底值多少，要看真实的近期成交记录，不是靠邻居猜出来的价格。
-
-PropSight可以免费为任何HDB或condo估值，让你进场的时候心里有数。
-
-马上到propsight.sg免费查你的估值（链接在简介）
-
-#singaporeproperty #propertysg #hdbresale #tampines #condosingapore">Copy caption · EN + 中文</button>
-  <div class="dtip">After posting, tap <b>reshare to your story</b>.</div>
-</article><article class="dcard">
-  <div class="dwhen"><span class="dday">Day 2</span><span class="dtime">7:00 PM</span><span class="dcat">The affordability tool</span></div>
-  <div class="cslides"><a class="cslide" href="posts/starter-show-afford.png" download title="Download slide 1"><span class="cn">1 · EN</span><img loading="lazy" src="posts/starter-show-afford.png" alt="The PropSight affordability tool"></a><a class="cslide" href="posts/starter-show-afford-zh.png" download title="Download slide 2"><span class="cn zh">2 · 中文</span><img loading="lazy" src="posts/starter-show-afford-zh.png" alt="The PropSight affordability tool 中文"></a></div>
-  <div class="dnote">The affordability angle, the question every buyer has.</div>
-  <div class="dloc"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z'/><circle cx='12' cy='11' r='2.2'/></svg><span>Tag location <b>Singapore</b></span></div>
-  <button class="btn cp wide" data-cap="Earn 10k a month? Here's what fits.
-
-Your real budget comes from income, savings and age, not just the price tag. Work it out before you fall for the wrong home.
-
-Find your number free at propsight.sg (link in bio).
-
-· · ·
-
-月入 10k，能买什么？
-
-真正的购房预算，取决于你的收入、存款和年龄，不只是看价格。先把自己的数字搞清楚，别等爱上了一套不适合的家才后悔。
-
-到 propsight.sg 免费算出你的预算（链接在简介）。
-
-#singaporeproperty #propertysg #sgproperty #homeloan #affordability">Copy caption · EN + 中文</button>
-  <div class="dtip">After posting, tap <b>reshare to your story</b>.</div>
-</article><article class="dcard">
-  <div class="dwhen"><span class="dday">Day 3</span><span class="dtime">12:30 PM</span><span class="dcat">The schools tool</span></div>
-  <div class="cslides"><a class="cslide" href="posts/starter-show-schools.png" download title="Download slide 1"><span class="cn">1 · EN</span><img loading="lazy" src="posts/starter-show-schools.png" alt="The PropSight schools tool"></a><a class="cslide" href="posts/starter-show-schools-zh.png" download title="Download slide 2"><span class="cn zh">2 · 中文</span><img loading="lazy" src="posts/starter-show-schools-zh.png" alt="The PropSight schools tool 中文"></a></div>
-  <div class="dnote">Schools, very shareable with parents looking at P1.</div>
-  <div class="dloc"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z'/><circle cx='12' cy='11' r='2.2'/></svg><span>Tag location <b>Singapore</b></span></div>
-  <button class="btn cp wide" data-cap="Nanyang Primary School: 47 condos sit within 1km
-Every single one ranked by actual walking distance to the gate, free.
-If you are chasing that 1km priority for P1 registration, this is the list you check before you fall in love with a unit.
-Save it, send it to whoever in the family is buying near the school.
-Check yours free at propsight.sg (link in bio)
-
-· · ·
-
-南洋小学：1公里范围内一共有47个condo。
-
-每一个都按照实际步行到校门口的距离排好了序，完全免费。
-
-如果你正在争取P1报名的1公里优先权，在爱上某个单位之前，这份名单先看一下。
-
-收藏起来，也转给家里负责在学校附近买房的人。
-
-免费到propsight.sg查询（链接在简介）
-
-#singaporeproperty #propertysg #condosingapore #1kmtoschool #nanyangprimary">Copy caption · EN + 中文</button>
-  <div class="dtip">After posting, tap <b>reshare to your story</b>.</div>
-</article><article class="dcard">
-  <div class="dwhen"><span class="dday">Day 3</span><span class="dtime">7:00 PM</span><span class="dcat">Photo · Skyline</span></div>
-  <div class="cslides"><a class="cslide" href="posts/starter-photo-sky.png" download title="Download slide 1"><span class="cn">1 · EN</span><img loading="lazy" src="posts/starter-photo-sky.png" alt="Singapore CBD skyline behind Chinatown shophouses"></a><a class="cslide" href="posts/starter-photo-sky-zh.png" download title="Download slide 2"><span class="cn zh">2 · 中文</span><img loading="lazy" src="posts/starter-photo-sky-zh.png" alt="Singapore CBD skyline behind Chinatown shophouses 中文"></a></div>
-  <div class="dnote">A clean Singapore brand photo to round out the grid.</div>
-  <div class="dloc"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z'/><circle cx='12' cy='11' r='2.2'/></svg><span>Tag location <b>Singapore</b></span></div>
-  <button class="btn cp wide" data-cap="hard truth about HDB resale and condo prices in singapore
-Most people guess their home's value, then anchor to a number that is months old.
-PropSight values any Singapore home, CBD or heartland, on real recent sales, free.
-Save this so you stop relying on a stale estimate before you list or offer.
-Check yours free at propsight.sg (link in bio)
-
-· · ·
-
-关于新加坡 HDB 转售和 condo 价格的真相
-
-很多人都是凭感觉猜自己房子的价值，然后死守着一个已经过时好几个月的数字。
-
-PropSight 能根据真实近期成交价，免费帮你估算新加坡任何一套房产的价值，无论是 CBD 还是组屋区，都没问题。
-
-收藏这篇，别在挂牌出售或出价之前还在依赖过时的估价。
-
-免费到 propsight.sg 查看你的房产估值（链接在简介）
-
-#singaporeproperty #propertysg #hdbresale #condosingapore #sgproperty">Copy caption · EN + 中文</button>
-  <div class="dtip">After posting, tap <b>reshare to your story</b>.</div>
-</article></div></section>
-<section><div class="shead"><h2>Then every week</h2><span class="sub">four carousels, post each on the day + time shown · slide 1 EN + slide 2 中文</span></div>
-  <div class="howto checklist"><b>Before you tap Share</b>
-    <span class="ck"><i>1</i>Set the location. Use the one shown on each post, it surfaces you to locals searching that spot. This matters more than hashtags now.</span>
-    <span class="ck"><i>2</i>Tagging people, skip it. Only tag on a new launch (the developer's account) or a real collaborator. Random tags get a post throttled.</span>
-    <span class="ck"><i>3</i>Drop a first comment with two or three extra hashtags, or "Value your flat free, link in bio". Keeps the caption clean.</span>
-    <span class="ck"><i>4</i>Post on the day and time on the card, then reshare it to your story.</span>
-  </div>
-  <div class="cgrid"><article class="dcard">
-  <div class="dwhen"><span class="dday">Mon</span><span class="dtime">8:00 PM</span><span class="dcat">Statement</span></div>
-  <div class="cslides"><a class="cslide" href="posts/2026-06-30-w2-statement.png" download title="Download slide 1"><span class="cn">1 · EN</span><img loading="lazy" src="posts/2026-06-30-w2-statement.png" alt="PropSight is proof"></a><a class="cslide" href="posts/2026-06-30-w2-statement-zh.png" download title="Download slide 2"><span class="cn zh">2 · 中文</span><img loading="lazy" src="posts/2026-06-30-w2-statement-zh.png" alt="PropSight is proof 中文"></a></div>
-  <div class="dnote">Start of the week, strongest reach. A hook or myth to stop the scroll.</div>
-  <div class="dloc"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z'/><circle cx='12' cy='11' r='2.2'/></svg><span>Tag location <b>Singapore</b></span></div>
-  <button class="btn cp wide" data-cap="Free HDB and condo data tools, built on URA and HDB
-Before you trust any agent's price guess, pull the actual URA and HDB numbers yourself.
-Every PropSight tool and number is completely free, no sign up wall, no catch.
-Check yours free at propsight.sg (link in bio)
-
-· · ·
-
-免费 HDB 和 condo 数据工具，数据直接来自 URA 和 HDB。
-在你轻信任何经纪人的估价之前，先自己去查 URA 和 HDB 的实际数字。
-PropSight 所有工具和数字，完全免费，无需注册，没有任何附带条件。
-现在就免费查，上 propsight.sg（链接在简介）
-
-#singaporeproperty #propertysg #hdbresale #condosingapore #sgproperty">Copy caption · EN + 中文</button>
-  <div class="dtip">After posting, tap <b>reshare to your story</b>.</div>
-</article><article class="dcard">
-  <div class="dwhen"><span class="dday">Wed</span><span class="dtime">8:00 PM</span><span class="dcat">Property News</span></div>
-  <div class="cslides"><a class="cslide" href="posts/2026-06-30-w2-news.png" download title="Download slide 1"><span class="cn">1 · EN</span><img loading="lazy" src="posts/2026-06-30-w2-news.png" alt="Property news, Over 1 Million HDB Households to Receive Utility and Service Charge Rebates in July"></a><a class="cslide" href="posts/2026-06-30-w2-news-zh.png" download title="Download slide 2"><span class="cn zh">2 · 中文</span><img loading="lazy" src="posts/2026-06-30-w2-news-zh.png" alt="Property news, Over 1 Million HDB Households to Receive Utility and Service Charge Rebates in July 中文"></a></div>
-  <div class="dnote">Midweek. A market read, insight or news story people save and share.</div>
-  <div class="dloc"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z'/><circle cx='12' cy='11' r='2.2'/></svg><span>Tag location <b>Singapore</b></span></div>
-  <button class="btn cp wide" data-cap="Over 1 million HDB households get July utility and service charge rebates
-The rebate lands automatically on your July utility bill and town council statement, so you pay less without doing anything.
-One move: open both statements side by side in July and confirm the rebate actually showed up, because errors happen and nobody refunds what you never checked.
-Check yours free at propsight.sg (link in bio)
-
-· · ·
-
-超过100万个HDB住户将在7月收到水电费及服务费回扣。
-
-回扣会自动反映在你7月的水电账单和市镇理事会账单上，什么都不需要做，账单自然就少了。
-
-只做一件事：7月份把这两张账单并排对照一下，确认回扣真的有到账。毕竟难免出错，没有查过的钱，没有人会主动退给你。
-
-免费到propsight.sg查看你的情况（链接在简介）
-
-#singaporeproperty #propertysg #hdb #hdbresale #towncouncil">Copy caption · EN + 中文</button>
-  <div class="dtip">After posting, tap <b>reshare to your story</b>.</div>
-</article><article class="dcard">
-  <div class="dwhen"><span class="dday">Fri</span><span class="dtime">7:00 PM</span><span class="dcat">The schools tool</span></div>
-  <div class="cslides"><a class="cslide" href="posts/2026-06-30-w2-show-schools.png" download title="Download slide 1"><span class="cn">1 · EN</span><img loading="lazy" src="posts/2026-06-30-w2-show-schools.png" alt="The PropSight schools tool"></a><a class="cslide" href="posts/2026-06-30-w2-show-schools-zh.png" download title="Download slide 2"><span class="cn zh">2 · 中文</span><img loading="lazy" src="posts/2026-06-30-w2-show-schools-zh.png" alt="The PropSight schools tool 中文"></a></div>
-  <div class="dnote">Friday feed. A striking photo post pulls in reach.</div>
-  <div class="dloc"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z'/><circle cx='12' cy='11' r='2.2'/></svg><span>Tag location <b>Singapore</b></span></div>
-  <button class="btn cp wide" data-cap="Nanyang Primary has 47 condos within 1km, ranked by walk
-
-Buying near a top school? Distance to the gate decides everything, not the postcode.
-
-PropSight maps all 47, sorted by actual walking distance, free.
-
-Pick any primary school and see the real list yourself.
-
-Check yours free at propsight.sg (link in bio)
-
-· · ·
-
-南洋小学1公里内共有47个condo，已按步行距离排名
-
-想在名校附近买房？到校门的距离才是关键，不是邮区。
-
-PropSight 把全部47个都标出来了，按实际步行距离排序，完全免费。
-
-选一所你想了解的小学，自己来看真实排名。
-
-免费到 propsight.sg 查一查（链接在简介）
-
-#singaporeproperty #propertysg #condosingapore #primaryschool #nanyangprimary">Copy caption · EN + 中文</button>
-  <div class="dtip">After posting, tap <b>reshare to your story</b>.</div>
-</article><article class="dcard">
-  <div class="dwhen"><span class="dday">Sat</span><span class="dtime">11:00 AM</span><span class="dcat">School finder</span></div>
-  <div class="cslides"><a class="cslide" href="posts/2026-06-30-w2-schools.png" download title="Download slide 1"><span class="cn">1 · EN</span><img loading="lazy" src="posts/2026-06-30-w2-schools.png" alt="Homes near Chij (Katong) Primary"></a><a class="cslide" href="posts/2026-06-30-w2-schools-zh.png" download title="Download slide 2"><span class="cn zh">2 · 中文</span><img loading="lazy" src="posts/2026-06-30-w2-schools-zh.png" alt="Homes near Chij (Katong) Primary 中文"></a></div>
-  <div class="dnote">Weekend scroll. A quick tool or tip people act on.</div>
-  <div class="dloc"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z'/><circle cx='12' cy='11' r='2.2'/></svg><span>Tag location <b>Katong, Singapore</b></span></div>
-  <button class="btn cp wide" data-cap="Buying near Chij Katong Primary for the P1 ballot?
-
-129+ homes sit inside that 1km radius, all qualifying for P1 priority.
-
-Before you fall for a listing, check the exact distance yourself. Some &quot;near the school&quot; homes miss the cutoff by metres.
-
-Check yours free at propsight.sg (link in bio)
-
-· · ·
-
-正在考虑买Chij Katong Primary附近的房子，为P1报名做准备？
-
-该校1km范围内有129套以上的住宅，全部符合P1优先报名资格。
-
-在你心动某个listing之前，先自己核实一下确切距离。不少标榜&quot;靠近学校&quot;的房子，其实差了几米就出局了。
-
-立即在propsight.sg免费查询（链接在简介）
-
-#singaporeproperty #propertysg #sgproperty #katong #primaryschool">Copy caption · EN + 中文</button>
-  <div class="dtip">After posting, tap <b>reshare to your story</b>.</div>
-</article></div></section>
-<section><div class="shead"><h2>Stories</h2><span class="sub">quick daily presence, the algorithm loves it</span></div>
-  <div class="howto"><b>The weekly story rhythm.</b> Post the three stories below on their days, plus tap reshare every feed post to your story when it goes up. That keeps something on your story almost every day, which is what grows reach. Polls and link stickers are added inside Instagram, the cards show you where.</div>
-  <div class="grid"><article class="day">
-  <div class="dwhen"><span class="dday">Tue</span><span class="dtime">12:30 PM</span><span class="dcat sty">Story</span></div>
-  <div class="dnote">Midday scroll. A quick value hit, drives a tap to your link.</div>
-  <div class="vphone"><div class="vscreen"><img loading="lazy" src="posts/2026-06-30-w2-story-stat.png" alt="This week's number, $590k in Woodlands"></div></div>
-  <div class="sinstr"><b>To post:</b> Add a link sticker to propsight.sg near the bottom arrow before you post.</div>
-  <div class="pbtns"><a class="btn dl" href="posts/2026-06-30-w2-story-stat.png" download>Download</a></div>
-</article><article class="day">
-  <div class="dwhen"><span class="dday">Thu</span><span class="dtime">7:00 PM</span><span class="dcat sty">Story</span></div>
-  <div class="dnote">Evening. A poll, pure engagement that the algorithm loves.</div>
-  <div class="vphone"><div class="vscreen"><img loading="lazy" src="posts/2026-06-30-w2-story-poll.png" alt="Guess the price of a 4-room in Punggol"></div></div>
-  <div class="sinstr"><b>To post:</b> Drop an IG poll or quiz sticker in the dashed box. Reveal the real number in a follow-up story.</div>
-  <div class="pbtns"><a class="btn dl" href="posts/2026-06-30-w2-story-poll.png" download>Download</a></div>
-</article><article class="day">
-  <div class="dwhen"><span class="dday">Sun</span><span class="dtime">11:00 AM</span><span class="dcat sty">Story</span></div>
-  <div class="dnote">Weekend. The link story that sends people to value their home.</div>
-  <div class="vphone"><div class="vscreen"><img loading="lazy" src="posts/2026-06-30-w2-story-link.png" alt="Know what your home is really worth, free at propsight.sg"></div></div>
-  <div class="sinstr"><b>To post:</b> Add an IG link sticker to propsight.sg over the bottom arrow before posting.</div>
-  <div class="pbtns"><a class="btn dl" href="posts/2026-06-30-w2-story-link.png" download>Download</a></div>
-</article></div></section>
-<section><div class="shead"><h2>Highlight covers</h2><span class="sub">set these on your profile highlights</span></div><div class="howto">Create a highlight for each, then set these as the covers. A tidy highlights row makes the profile look like a real brand and keeps new visitors longer. Save each at full size.</div><div class="hgrid"><div class="hcov"><a href="posts/cover-start.png" download><span class="hc"><img loading="lazy" src="posts/cover-start.png" alt="Start here highlight cover"></span><b>Start here</b></a></div><div class="hcov"><a href="posts/cover-value.png" download><span class="hc"><img loading="lazy" src="posts/cover-value.png" alt="Value highlight cover"></span><b>Value</b></a></div><div class="hcov"><a href="posts/cover-market.png" download><span class="hc"><img loading="lazy" src="posts/cover-market.png" alt="Market highlight cover"></span><b>Market</b></a></div><div class="hcov"><a href="posts/cover-tips.png" download><span class="hc"><img loading="lazy" src="posts/cover-tips.png" alt="Tips highlight cover"></span><b>Tips</b></a></div><div class="hcov"><a href="posts/cover-news.png" download><span class="hc"><img loading="lazy" src="posts/cover-news.png" alt="News highlight cover"></span><b>News</b></a></div></div></section>
-<section id="archive"><div class="shead"><h2>Archive</h2><span class="sub">every past week</span></div><div class="aweek"><div class="awh"><b>Week of 30 June 2026</b><span>4 designs</span></div><div class="agrid"><a class="ft" href="posts/2026-06-30-w1-myth.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w1-myth.png" alt="Property myth vs fact"><span class="ftl">Myth buster</span></a><a class="ft" href="posts/2026-06-30-w1-value.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w1-value.png" alt="What a flat in Tampines is worth"><span class="ftl">Home value</span></a><a class="ft" href="posts/2026-06-30-w1-show-afford.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w1-show-afford.png" alt="The PropSight affordability tool"><span class="ftl">The affordability tool</span></a><a class="ft" href="posts/2026-06-30-w1-costs.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w1-costs.png" alt="The real cost of a home"><span class="ftl">Hidden costs</span></a></div></div><div class="aweek"><div class="awh"><b>Week of 30 June 2026</b><span>4 designs</span></div><div class="agrid"><a class="ft" href="posts/2026-06-30-w0-editorial.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w0-editorial.png" alt="Know what a home is really worth"><span class="ftl">Editorial</span></a><a class="ft" href="posts/2026-06-30-w0-insights.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w0-insights.png" alt="Market insight, Resale flats are out-earning condos for landlords"><span class="ftl">Market Insights</span></a><a class="ft" href="posts/2026-06-30-w0-show-value.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w0-show-value.png" alt="The PropSight value tool"><span class="ftl">The value tool</span></a><a class="ft" href="posts/2026-06-30-w0-afford.png" target="_blank" rel="noopener"><img loading="lazy" src="posts/2026-06-30-w0-afford.png" alt="What you can afford"><span class="ftl">Affordability</span></a></div></div></section>
+<div class="sec">Step 2, post the foundation set, in order</div>
+
+    <article class="card" data-id="f1">
+      <label class="done"><input type="checkbox" data-id="f1"><span>Done</span></label>
+      <div class="when">Day 1</div>
+      <div class="grid">
+        <div class="left"><div class="thumb video"><img src="/press/studio/f1.png" alt=""><span class="play">&#9654;</span><a class="dl" href="/reels/" target="_blank">Open Reel</a></div></div>
+        <div class="right">
+          <div class="badge">Reel (pin this)</div>
+          <h3>PropSight, see Singapore property clearly.</h3>
+          <div class="row"><div class="lbl">Caption</div>
+            <div class="val cap" data-copy="Singapore property, seen clearly. PropSight values any HDB or condo on real recent URA and HDB sales, shows what you can afford, stamp duty, grants, and schools nearby, and lets you ask Aillie anything about any home. Free, and no sign-up for the tools. Start at propsight.sg, link in bio.
+
+Save this for your next property move.
+
+新加坡房产，一目了然。免费查任何组屋或公寓的真实成交价。">Singapore property, seen clearly. PropSight values any HDB or condo on real recent URA and HDB sales, shows what you can afford, stamp duty, grants, and schools nearby, and lets you ask Aillie anything about any home. Free, and no sign-up for the tools. Start at propsight.sg, link in bio.<br><br>Save this for your next property move.<br><br>新加坡房产，一目了然。免费查任何组屋或公寓的真实成交价。
+              <button class="cp" data-for="prev">Copy caption</button></div></div>
+          <div class="row"><div class="lbl">Hashtags</div><div class="val mono" data-copy="#singaporeproperty #hdb #sgcondo #propertysingapore #singaporerealestate">#singaporeproperty #hdb #sgcondo #propertysingapore #singaporerealestate<button class="cp" data-for="prev">Copy</button></div></div>
+          <div class="row"><div class="lbl">How to post</div>
+            <ol class="steps"><li>Open the Reel file from your Reels page (link in the dashboard).</li><li>IG, plus, Reel, upload the file.</li><li>Paste caption, add location Singapore.</li><li>Pick a calm trending audio at low volume.</li><li>Share. Then go to your profile and Pin this Reel to the top.</li></ol></div>
+          <div class="boost"><b>Ads</b> After it gets a few days of organic plays, boost SGD 10 for 4 days. Target: Singapore, age 28 to 48, interests property, HDB, mortgage. Objective: profile visits.</div>
+        </div>
+      </div>
+    </article>
+    <article class="card" data-id="f2">
+      <label class="done"><input type="checkbox" data-id="f2"><span>Done</span></label>
+      <div class="when">Day 1</div>
+      <div class="grid">
+        <div class="left"><div class="thumb caro"><div class="strip"><img src="/press/studio/f2-1.png" alt=""><img src="/press/studio/f2-2.png" alt=""><img src="/press/studio/f2-3.png" alt=""><img src="/press/studio/f2-4.png" alt=""><img src="/press/studio/f2-5.png" alt=""><img src="/press/studio/f2-6.png" alt=""></div><span class="cnt">6 slides, swipe</span><div class="dls"><a href="/press/studio/f2-1.png" download>Slide 1</a><a href="/press/studio/f2-2.png" download>Slide 2</a><a href="/press/studio/f2-3.png" download>Slide 3</a><a href="/press/studio/f2-4.png" download>Slide 4</a><a href="/press/studio/f2-5.png" download>Slide 5</a><a href="/press/studio/f2-6.png" download>Slide 6</a></div></div></div>
+        <div class="right">
+          <div class="badge">Carousel</div>
+          <h3>Everything you need to read a Singapore home, free.</h3>
+          <div class="row"><div class="lbl">Caption</div>
+            <div class="val cap" data-copy="Everything you need to read a Singapore home, in one free place. Value on real recent sales, your real budget, stamp duty, grants, eligibility, what a seller walks away with, and schools nearby. No sign-up for any of the tools. Try it free, link in bio.">Everything you need to read a Singapore home, in one free place. Value on real recent sales, your real budget, stamp duty, grants, eligibility, what a seller walks away with, and schools nearby. No sign-up for any of the tools. Try it free, link in bio.
+              <button class="cp" data-for="prev">Copy caption</button></div></div>
+          <div class="row"><div class="lbl">Hashtags</div><div class="val mono" data-copy="#singaporeproperty #hdbresale #sgcondo #propertytips #singaporehome">#singaporeproperty #hdbresale #sgcondo #propertytips #singaporehome<button class="cp" data-for="prev">Copy</button></div></div>
+          <div class="row"><div class="lbl">How to post</div>
+            <ol class="steps"><li>IG, plus, Post.</li><li>Upload all slides in order.</li><li>Paste caption, add location Singapore.</li><li>Share.</li></ol></div>
+          <div class="boost"><b>Ads</b> Do not boost. This is a foundation post for profile visitors.</div>
+        </div>
+      </div>
+    </article>
+    <article class="card" data-id="f3">
+      <label class="done"><input type="checkbox" data-id="f3"><span>Done</span></label>
+      <div class="when">Day 2</div>
+      <div class="grid">
+        <div class="left"><div class="thumb"><img src="/press/studio/f3.png" alt=""><a class="dl" href="/press/studio/f3.png" download>Download</a></div></div>
+        <div class="right">
+          <div class="badge">Single post</div>
+          <h3>The data behind every number.</h3>
+          <div class="row"><div class="lbl">Caption</div>
+            <div class="val cap" data-copy="Every private caveat from URA. Every HDB resale. OneMap school and amenity records. Read weekly and turned into plain answers. That is what sits behind every PropSight number, so the figures always agree with each other. Look up any home free at propsight.sg, link in bio.">Every private caveat from URA. Every HDB resale. OneMap school and amenity records. Read weekly and turned into plain answers. That is what sits behind every PropSight number, so the figures always agree with each other. Look up any home free at propsight.sg, link in bio.
+              <button class="cp" data-for="prev">Copy caption</button></div></div>
+          <div class="row"><div class="lbl">Hashtags</div><div class="val mono" data-copy="#singaporeproperty #uradata #hdb #propertydata #singaporerealestate">#singaporeproperty #uradata #hdb #propertydata #singaporerealestate<button class="cp" data-for="prev">Copy</button></div></div>
+          <div class="row"><div class="lbl">How to post</div>
+            <ol class="steps"><li>IG, plus, Post.</li><li>Upload the image.</li><li>Paste caption, add location Singapore.</li><li>Share.</li></ol></div>
+          <div class="boost"><b>Ads</b> Do not boost.</div>
+        </div>
+      </div>
+    </article>
+    <article class="card" data-id="f4">
+      <label class="done"><input type="checkbox" data-id="f4"><span>Done</span></label>
+      <div class="when">Day 3</div>
+      <div class="grid">
+        <div class="left"><div class="thumb caro"><div class="strip"><img src="/press/studio/f4-1.png" alt=""><img src="/press/studio/f4-2.png" alt=""><img src="/press/studio/f4-3.png" alt=""><img src="/press/studio/f4-4.png" alt=""><img src="/press/studio/f4-5.png" alt=""><img src="/press/studio/f4-6.png" alt=""><img src="/press/studio/f4-7.png" alt=""></div><span class="cnt">7 slides, swipe</span><div class="dls"><a href="/press/studio/f4-1.png" download>Slide 1</a><a href="/press/studio/f4-2.png" download>Slide 2</a><a href="/press/studio/f4-3.png" download>Slide 3</a><a href="/press/studio/f4-4.png" download>Slide 4</a><a href="/press/studio/f4-5.png" download>Slide 5</a><a href="/press/studio/f4-6.png" download>Slide 6</a><a href="/press/studio/f4-7.png" download>Slide 7</a></div></div></div>
+        <div class="right">
+          <div class="badge">Carousel</div>
+          <h3>5 grants first-time buyers quietly leave on the table.</h3>
+          <div class="row"><div class="lbl">Caption</div>
+            <div class="val cap" data-copy="First-time buyers in Singapore can stack more housing grants than most people realise. Here are the ones people quietly leave on the table. Check exactly what you qualify for, free, no sign-up, link in bio.
+
+Save this before you book a flat.">First-time buyers in Singapore can stack more housing grants than most people realise. Here are the ones people quietly leave on the table. Check exactly what you qualify for, free, no sign-up, link in bio.<br><br>Save this before you book a flat.
+              <button class="cp" data-for="prev">Copy caption</button></div></div>
+          <div class="row"><div class="lbl">Hashtags</div><div class="val mono" data-copy="#hdbgrants #firsttimebuyer #bto #hdbresale #singaporeproperty">#hdbgrants #firsttimebuyer #bto #hdbresale #singaporeproperty<button class="cp" data-for="prev">Copy</button></div></div>
+          <div class="row"><div class="lbl">How to post</div>
+            <ol class="steps"><li>IG, plus, Post.</li><li>Upload all slides in order.</li><li>Paste caption, add location Singapore.</li><li>Share.</li></ol></div>
+          <div class="boost"><b>Ads</b> Strong save-bait. If it performs organically, boost SGD 15 for 5 days. Target Singapore, age 26 to 40, interests BTO, HDB, first home.</div>
+        </div>
+      </div>
+    </article>
+    <article class="card" data-id="f5">
+      <label class="done"><input type="checkbox" data-id="f5"><span>Done</span></label>
+      <div class="when">Day 4</div>
+      <div class="grid">
+        <div class="left"><div class="thumb"><img src="/press/studio/f5.png" alt=""><a class="dl" href="/press/studio/f5.png" download>Download</a></div></div>
+        <div class="right">
+          <div class="badge">Single post</div>
+          <h3>Ask Aillie about any home.</h3>
+          <div class="row"><div class="lbl">Caption</div>
+            <div class="val cap" data-copy="Ask Aillie. Type any question about any Singapore home, what it is worth, whether you can afford it, what the area is like, and get a plain answer built on official data. Free to use at propsight.sg, link in bio. Aillie is property intelligence, here to help you decide, not to sell you anything.">Ask Aillie. Type any question about any Singapore home, what it is worth, whether you can afford it, what the area is like, and get a plain answer built on official data. Free to use at propsight.sg, link in bio. Aillie is property intelligence, here to help you decide, not to sell you anything.
+              <button class="cp" data-for="prev">Copy caption</button></div></div>
+          <div class="row"><div class="lbl">Hashtags</div><div class="val mono" data-copy="#singaporeproperty #propertyintelligence #hdb #sgcondo #homebuyingsingapore">#singaporeproperty #propertyintelligence #hdb #sgcondo #homebuyingsingapore<button class="cp" data-for="prev">Copy</button></div></div>
+          <div class="row"><div class="lbl">How to post</div>
+            <ol class="steps"><li>IG, plus, Post.</li><li>Upload the image.</li><li>Paste caption, add location Singapore.</li><li>Share.</li></ol></div>
+          <div class="boost"><b>Ads</b> Do not boost yet.</div>
+        </div>
+      </div>
+    </article>
+    <article class="card" data-id="f6">
+      <label class="done"><input type="checkbox" data-id="f6"><span>Done</span></label>
+      <div class="when">Day 5</div>
+      <div class="grid">
+        <div class="left"><div class="thumb"><img src="/press/studio/f6.png" alt=""><a class="dl" href="/press/studio/f6.png" download>Download</a></div></div>
+        <div class="right">
+          <div class="badge">Single post</div>
+          <h3>Free, and no sign-up.</h3>
+          <div class="row"><div class="lbl">Caption</div>
+            <div class="val cap" data-copy="The tools are free and there is no sign-up. Value a home, work out your real budget, check stamp duty and grants, and see what you would walk away with as a seller. All on real URA and HDB data. propsight.sg, link in bio.">The tools are free and there is no sign-up. Value a home, work out your real budget, check stamp duty and grants, and see what you would walk away with as a seller. All on real URA and HDB data. propsight.sg, link in bio.
+              <button class="cp" data-for="prev">Copy caption</button></div></div>
+          <div class="row"><div class="lbl">Hashtags</div><div class="val mono" data-copy="#singaporeproperty #hdb #propertycalculator #sgcondo #singaporerealestate">#singaporeproperty #hdb #propertycalculator #sgcondo #singaporerealestate<button class="cp" data-for="prev">Copy</button></div></div>
+          <div class="row"><div class="lbl">How to post</div>
+            <ol class="steps"><li>IG, plus, Post.</li><li>Upload the image.</li><li>Paste caption, add location Singapore.</li><li>Share.</li></ol></div>
+          <div class="boost"><b>Ads</b> Do not boost.</div>
+        </div>
+      </div>
+    </article>
+
+<div class="sec">Step 3, daily stories</div>
+
+    <article class="card story" data-id="s1">
+      <label class="done"><input type="checkbox" data-id="s1"><span>Done</span></label>
+      <div class="grid">
+        <div class="left"><div class="thumb"><img src="/press/studio/s1.png" alt="">
+          <a class="dl" href="/press/studio/s1.png" download>Download</a></div></div>
+        <div class="right"><div class="badge">Story</div>
+          <h3>Your flat may be worth more than the agent says.</h3>
+          <div class="row"><div class="lbl">What to do</div>
+            <div class="val">Post as a Story. Add a poll sticker: Higher or lower than you think?</div></div>
+        </div>
+      </div>
+    </article>
+    <article class="card story" data-id="s2">
+      <label class="done"><input type="checkbox" data-id="s2"><span>Done</span></label>
+      <div class="grid">
+        <div class="left"><div class="thumb"><img src="/press/studio/s2.png" alt="">
+          <a class="dl" href="/press/studio/s2.png" download>Download</a></div></div>
+        <div class="right"><div class="badge">Story</div>
+          <h3>The PropSight tools are free. No sign-up.</h3>
+          <div class="row"><div class="lbl">What to do</div>
+            <div class="val">Post as a Story. Add a link sticker to propsight.sg.</div></div>
+        </div>
+      </div>
+    </article>
+
+<div class="sec">After launch, your weekly rhythm</div>
+<table><tbody><tr><td class='d'>Mon</td><td class='t'>8:00pm</td><td><span class='tt'>Reel</span></td><td>Data hook, for example: this flat looks cheaper, it is not.</td></tr><tr><td class='d'>Tue</td><td class='t'>1:00pm</td><td><span class='tt'>Carousel</span></td><td>Educational, for example: 5 costs buyers forget.</td></tr><tr><td class='d'>Wed</td><td class='t'>8:00pm</td><td><span class='tt'>Reel</span></td><td>Town spotlight, hyper-local, one neighbourhood.</td></tr><tr><td class='d'>Thu</td><td class='t'>8:00pm</td><td><span class='tt'>Reel</span></td><td>Myth-bust or a client win.</td></tr><tr><td class='d'>Fri</td><td class='t'>7:00pm</td><td><span class='tt'>Single post</span></td><td>Lighter, lifestyle or a single sharp number.</td></tr><tr><td class='d'>Sat</td><td class='t'>11:00am</td><td><span class='tt'>Carousel</span></td><td>Local guide or the weekly Market Pulse.</td></tr><tr><td class='d'>Daily</td><td class='t'>-</td><td><span class='tt'>Stories</span></td><td>1 to 2 a day, and share each new post to your Story.</td></tr></tbody></table>
+<p class="lead" style="margin-top:10px">Once the foundation set is up, this is the steady cadence. Fresh assets and captions for each week will appear here automatically.</p>
+
+<footer>PropSight Studio, private. Not indexed. <a href="/reels/" style="color:var(--acc)">Reels gallery</a></footer>
 </div>
-<footer>PropSight Studio &middot; made for <a href="https://propsight.sg">propsight.sg</a></footer>
 <script>
-const toast=document.createElement('div');toast.className='toast';document.body.appendChild(toast);
-let tt;function pop(m){toast.textContent=m;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('show')},1700);}
-document.addEventListener('click',function(e){var b=e.target.closest('.cp');if(!b)return;var t=(b.dataset.cap||'').replace(/&quot;/g,'"');
-navigator.clipboard.writeText(t).then(function(){b.classList.add('done');var o=b.textContent;b.textContent='Copied';pop('Caption copied');setTimeout(function(){b.classList.remove('done');b.textContent=o;},1500);}).catch(function(){pop('Copy failed, select manually');});});
-var lb=document.createElement('div');lb.className='lightbox';
-lb.innerHTML='<div class="lbin"><img alt="post preview"><div class="lbhint">Press and hold the image, then tap <b>Save to Photos</b>.</div><button class="lbx">Close</button></div>';
-document.body.appendChild(lb);var lbimg=lb.querySelector('img');
-function openLb(s){lbimg.src=s;lb.classList.add('show');document.body.style.overflow='hidden';}
-function closeLb(){lb.classList.remove('show');document.body.style.overflow='';}
-lb.addEventListener('click',function(e){if(e.target===lb||e.target.closest('.lbx'))closeLb();});
-var coarse=matchMedia('(pointer:coarse)').matches;
-document.addEventListener('click',function(e){
- var cs=e.target.closest('.cslide');
- if(cs&&coarse){e.preventDefault();var ci=cs.querySelector('img');openLb(ci?(ci.currentSrc||ci.src):cs.href);return;}
- var im=e.target.closest('.pimg img,.vscreen img,.ft img,.hc img');
- if(im){e.preventDefault();openLb(im.currentSrc||im.src);return;}
- var dl=e.target.closest('.btn.dl');
- if(dl&&coarse){e.preventDefault();var c=dl.closest('.day');var i=c?c.querySelector('.pimg img,.vscreen img'):null;openLb(i?(i.currentSrc||i.src):dl.href);}
-});
-if('serviceWorker' in navigator){addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
-</script></body></html>
+function copy(txt,btn){navigator.clipboard.writeText(txt).then(function(){var o=btn.textContent;btn.classList.add('done');btn.textContent='Copied';setTimeout(function(){btn.classList.remove('done');btn.textContent=o;},1400);});}
+document.querySelectorAll('.cp').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();var host=b.closest('[data-copy]');if(host)copy(host.getAttribute('data-copy'),b);});});
+var KEY='pstudio_done';
+var done=JSON.parse(localStorage.getItem(KEY)||'{}');
+function refresh(){var boxes=document.querySelectorAll('.done input');var n=0;boxes.forEach(function(c){var id=c.dataset.id;c.checked=!!done[id];c.closest('.card').classList.toggle('is-done',!!done[id]);if(done[id])n++;});
+document.getElementById('pt').textContent=n+' of '+boxes.length+' done';
+document.getElementById('pb').style.width=(boxes.length?Math.round(n/boxes.length*100):0)+'%';}
+document.querySelectorAll('.done input').forEach(function(c){c.addEventListener('change',function(){done[c.dataset.id]=c.checked;localStorage.setItem(KEY,JSON.stringify(done));refresh();});});
+refresh();
+</script>
+</body></html>

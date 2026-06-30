@@ -1,0 +1,37 @@
+{
+ "f2": [
+  "studio/f2-1.png",
+  "studio/f2-2.png",
+  "studio/f2-3.png",
+  "studio/f2-4.png",
+  "studio/f2-5.png",
+  "studio/f2-6.png"
+ ],
+ "f4": [
+  "studio/f4-1.png",
+  "studio/f4-2.png",
+  "studio/f4-3.png",
+  "studio/f4-4.png",
+  "studio/f4-5.png",
+  "studio/f4-6.png",
+  "studio/f4-7.png"
+ ],
+ "f3": [
+  "studio/f3.png"
+ ],
+ "f5": [
+  "studio/f5.png"
+ ],
+ "f6": [
+  "studio/f6.png"
+ ],
+ "s1": [
+  "studio/s1.png"
+ ],
+ "s2": [
+  "studio/s2.png"
+ ],
+ "f1": [
+  "studio/f1.png"
+ ]
+}
