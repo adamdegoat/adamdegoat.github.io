@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-30T09:00:00.393860+08:00",
+  "updated": "2026-06-30T13:00:00.212474+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -181,6 +181,12 @@
       "priority": true
     },
     {
+      "title": "Bummer! UFC 329 just lost one of its best prelim fights, replacement search underway",
+      "link": "https://www.mmamania.com/ufc-fight-announcements/454183/bummer-ufc-329-just-lost-one-of-its-best-prelim-fights-ethyn-ewing-replacement-being-looked-for",
+      "source": "MMA Mania",
+      "priority": true
+    },
+    {
       "title": "Oleksandr Usyk targeting Jon Jones for retirement fight (seriously)",
       "link": "https://www.mmamania.com/boxing/454153/oleksandr-usyk-targeting-jon-jones-for-retirement-fight-seriously",
       "source": "MMA Mania",
@@ -223,12 +229,6 @@
       "priority": true
     },
     {
-      "title": "UFC Baku winner Rafael Fiziev targets BMF title fight given ‘little story’ with Charles Oliveira",
-      "link": "https://www.bjpenn.com/mma-news/ufc/ufc-baku-winner-rafael-fiziev-targets-bmf-title-fight-given-little-story-with-charles-oliveira/?utm_source=rss&utm_medium=rss&utm_campaign=ufc-baku-winner-rafael-fiziev-targets-bmf-title-fight-given-little-story-with-charles-oliveira",
-      "source": "BJPenn",
-      "priority": true
-    },
-    {
       "title": "On To the Next One: Matches to make after UFC Baku",
       "link": "https://www.mmafighting.com/ufc/496906/on-to-the-next-one-matches-to-make-after-ufc-baku",
       "source": "MMA Fighting",
@@ -254,8 +254,8 @@
     }
   ],
   "hooks": {
-    "week": "McGregor clashes with Holloway this Sunday at 9 AM SGT—pure striking chaos ensues.",
-    "prefight": "The Notorious meets The Blessed this Sunday for featherweight supremacy in a legendary showdown.",
-    "results": "Fiziev devastates Torres with spinning wheel kick, round two KO."
+    "week": "McGregor versus Holloway drops Sunday morning—two legends collide on July 12 at 9 AM SGT.",
+    "prefight": "McGregor and Holloway clash this Sunday—mark your calendars for an absolute war.",
+    "results": "Fiziev brutally KOs Torres in round two with a spinning wheel kick and punches."
   }
 }
