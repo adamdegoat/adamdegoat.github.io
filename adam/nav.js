@@ -14,6 +14,14 @@
     ['About us', BASE + '/adam/about/', ''],
     ['Contact', BASE + '/adam/#talk', '']
   ];
+
+  /* Language: delegate to the shared engine in i18n.js (English-default).
+     If a sub-page included nav.js but not i18n.js, lazy-load it so the toggle still works. */
+  if (!window.PSI18N && !document.querySelector('script[src*="i18n.js"]')) {
+    var _i18 = document.createElement('script'); _i18.src = BASE + '/adam/i18n.js'; document.head.appendChild(_i18);
+  }
+  function t(s) { return (window.PSI18N && window.PSI18N.t) ? window.PSI18N.t(s) : s; }
+  function curLang() { return (window.PSI18N && window.PSI18N.lang) || 'en'; }
   var p = location.pathname;
   function active(href) {
     if (/\/thesis\//.test(p)) return /\/thesis\//.test(href);
@@ -92,7 +100,14 @@
     '.psftr-links a{font-size:13px;font-weight:600;color:#485a56;text-decoration:none;transition:color .2s}.psftr-links a:hover{color:#191512}' +
     '.psftr-cr{font-size:12.5px;color:#758a86;font-weight:600}' +
     '.psftr-disc{flex-basis:100%;font-size:12px;color:#758a86;line-height:1.5;margin-top:4px;max-width:78ch}' +
-    '@media(max-width:560px){.psftr-in{padding:0 20px}}';
+    '@media(max-width:560px){.psftr-in{padding:0 20px}}' +
+    /* language toggle (desktop pill + mobile menu button) */
+    '.psnav-lang{margin-left:8px;flex:none;background:none;border:1px solid #bfdbd5;border-radius:30px;font-family:inherit;font-size:12.5px;font-weight:700;color:#1b3a2d;cursor:pointer;padding:7px 13px;white-space:nowrap;transition:background .2s,border-color .2s}' +
+    '.psnav-lang:hover{background:#dff0ec;border-color:#27513f}' +
+    '@media(max-width:1200px){.psnav-lang{display:none}}' +
+    '.psnav-mlang{width:100%;background:#dff0ec;border:1px solid #bfdbd5;border-radius:14px;font-family:"Schibsted Grotesk",system-ui,sans-serif;font-weight:800;font-size:15px;color:#1b3a2d;padding:13px;margin-bottom:14px;cursor:pointer}' +
+    /* Chinese versions of the CSS-rendered nav badges */
+    'html.lang-zh .psnav-links a.feat::before{content:"精选"}html.lang-zh .psnav-links a.smart::before{content:"智能"}html.lang-zh .psnav-links a.soon::before{content:"即将"}';
 
   function linkHtml(l, mobile) {
     var cls = [];
@@ -101,30 +116,32 @@
     if (l[2] === 'soon' && !mobile) cls.push('soon');
     if (l[2] === 'cta' && !mobile) cls.push('cta');
     if (active(l[1])) cls.push('cur');
-    var label = l[0];
-    if (mobile && l[2] === 'feat') label += ' <span class="psm-pill">Featured</span>';
-    if (mobile && l[2] === 'smart') label += ' <span class="psm-pill">Smart</span>';
-    if (mobile && l[2] === 'soon') label += ' <span class="psm-pill psm-soon">Soon</span>';
+    var label = t(l[0]);
+    if (mobile && l[2] === 'feat') label += ' <span class="psm-pill">' + t('Featured') + '</span>';
+    if (mobile && l[2] === 'smart') label += ' <span class="psm-pill">' + t('Smart') + '</span>';
+    if (mobile && l[2] === 'soon') label += ' <span class="psm-pill psm-soon">' + t('Soon') + '</span>';
     return '<a href="' + l[1] + '"' + (cls.length ? ' class="' + cls.join(' ') + '"' : '') + '>' + label + '</a>';
   }
   var navHTML = '<header class="psnav"><div class="psnav-in">' +
     '<button class="psnav-back" id="psBack" type="button" aria-label="Go back"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>' +
-    '<a class="psnav-brand" href="' + BASE + '/adam/">' + MARK + '<span class="bw"><b>PropSight</b><span>Singapore</span></span></a>' +
+    '<a class="psnav-brand" href="' + BASE + '/adam/">' + MARK + '<span class="bw"><b>PropSight</b><span>' + t('Singapore') + '</span></span></a>' +
     '<nav class="psnav-links">' + LINKS.map(function (l) { return linkHtml(l, false); }).join('') + '</nav>' +
     '<a class="psnav-door' + (active(LISTINGS) ? ' cur' : '') + '" href="' + LISTINGS + '">' +
-      '<span class="pd-top">Listing Platform' + ARROW + '</span>' +
-      '<span class="pd-sub"><span class="pd-dot"></span>Coming soon</span>' +
+      '<span class="pd-top">' + t('Listing Platform') + ARROW + '</span>' +
+      '<span class="pd-sub"><span class="pd-dot"></span>' + t('Coming soon') + '</span>' +
     '</a>' +
-    '<button class="psnav-signin ps-signin-cta" type="button" onclick="window.PS&&PS.login(\'nav\')">Sign in</button>' +
-    '<button class="psnav-join ps-join-cta" type="button" onclick="window.PS&&PS.cta(\'nav\')">Join free</button>' +
+    '<button class="psnav-lang" id="psLang" type="button" aria-label="Switch language">' + (curLang() === 'zh' ? 'EN' : '中文') + '</button>' +
+    '<button class="psnav-signin ps-signin-cta" type="button" onclick="window.PS&&PS.login(\'nav\')">' + t('Sign in') + '</button>' +
+    '<button class="psnav-join ps-join-cta" type="button" onclick="window.PS&&PS.cta(\'nav\')">' + t('Join free') + '</button>' +
     '<button class="psnav-burger" id="psBurger" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>' +
     '</div></header>';
   var menuHTML = '<div class="psnav-menu" id="psMenu">' +
-    '<button class="psnav-mjoin ps-join-cta" type="button" onclick="window.PS&&PS.cta(\'menu\')">Join free →</button>' +
-    '<button class="psnav-msignin ps-signin-cta" type="button" onclick="window.PS&&PS.login(\'menu\')">Already a member? Sign in</button>' +
+    '<button class="psnav-mlang" id="psLangM" type="button">' + (curLang() === 'zh' ? 'English' : '切换中文') + '</button>' +
+    '<button class="psnav-mjoin ps-join-cta" type="button" onclick="window.PS&&PS.cta(\'menu\')">' + t('Join free →') + '</button>' +
+    '<button class="psnav-msignin ps-signin-cta" type="button" onclick="window.PS&&PS.login(\'menu\')">' + t('Already a member? Sign in') + '</button>' +
     LINKS.map(function (l) { return linkHtml(l, true); }).join('') +
     '<a class="psm-door' + (active(LISTINGS) ? ' cur' : '') + '" href="' + LISTINGS + '">' +
-      '<span><span class="psm-door-t">Listing Platform</span><span class="psm-door-d">Coming soon, step into the platform</span></span>' +
+      '<span><span class="psm-door-t">' + t('Listing Platform') + '</span><span class="psm-door-d">' + t('Coming soon, step into the platform') + '</span></span>' +
       '<span class="psm-arr">' + ARROW + '</span>' +
     '</a>' + '</div>';
 
@@ -132,12 +149,12 @@
   var footerHTML = '<footer class="psftr" id="psFtr"><div class="psftr-in">' +
     '<span class="psftr-cr">© ' + year + ' PropSight</span>' +
     '<nav class="psftr-links">' +
-      '<a href="' + BASE + '/adam/about/">About</a>' +
-      '<a href="' + BASE + '/adam/privacy/">Privacy</a>' +
-      '<a href="' + BASE + '/adam/terms/">Terms</a>' +
-      '<a href="mailto:propsightsg@gmail.com">Contact</a>' +
+      '<a href="' + BASE + '/adam/about/">' + t('About') + '</a>' +
+      '<a href="' + BASE + '/adam/privacy/">' + t('Privacy') + '</a>' +
+      '<a href="' + BASE + '/adam/terms/">' + t('Terms') + '</a>' +
+      '<a href="mailto:propsightsg@gmail.com">' + t('Contact') + '</a>' +
     '</nav>' +
-    '<p class="psftr-disc">PropSight is information only, not financial or property advice. Figures are estimates; verify before acting.</p>' +
+    '<p class="psftr-disc">' + t('PropSight is information only, not financial or property advice. Figures are estimates; verify before acting.') + '</p>' +
   '</div></footer>';
 
   // self-referential canonical → https://propsight.sg + pathname (index.html stripped)
@@ -176,6 +193,12 @@
       var fh = document.createElement('div'); fh.innerHTML = footerHTML;
       document.body.appendChild(fh.firstChild);
     }
+    function doToggle() { if (window.PSI18N) window.PSI18N.toggle(); }
+    var lang = document.getElementById('psLang');
+    if (lang) lang.addEventListener('click', doToggle);
+    var langM = document.getElementById('psLangM');
+    if (langM) langM.addEventListener('click', doToggle);
+    if (window.PSI18N) window.PSI18N.apply();   // translate any data-i18n page content
     if (window.PS && PS.applyAuthUI) PS.applyAuthUI();   // relabel Join→name if already signed in
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
