@@ -295,6 +295,25 @@
     'principal + accrued interest → your OA': '本金 + 累计利息 → 你的 OA',
     'what you can actually use': '你实际可动用的', 'what lands in your bank after everything is settled': '一切结清后到账的金额',
     'Enter when you bought to check Seller\'s Stamp Duty.': '输入你的买入日期，查看是否需缴卖方印花税。',
+    // sell result sentences
+    'plus {cpf} returned to your CPF (still yours), {total} in total': '另有 {cpf} 退回你的 CPF（仍是你的钱），共计 {total}',
+    '{rate}%, sold within the holding period': '{rate}%，在持有期内出售',
+    "No Seller's Stamp Duty.": '无需缴卖方印花税。',
+    'HDB flats are exempt, the minimum occupation period already runs longer than the SSD holding period, so by the time you can sell, SSD no longer applies.':
+      '组屋免缴，最低居住年限 (MOP) 已经长于 SSD 的持有期，所以到你能卖的时候，SSD 已不再适用。',
+    "<b>Seller's Stamp Duty applies: {rate}% = {ssd}.</b> You've held this for about <b>{yrs} years</b>, within the {hold} holding period for a home bought {when}. Waiting until the period is up removes it entirely. (Charged on the higher of price or valuation.)":
+      '<b>需缴卖方印花税：{rate}% = {ssd}。</b>你持有约 <b>{yrs} 年</b>，在 {when} 购买房子的 {hold} 持有期内。等到持有期满即可完全免除。（按房价或估值中较高者计征。）',
+    '3-year': '3年', '4-year': '4年', 'before 4 Jul 2025': '2025年7月4日之前', 'on/after 4 Jul 2025': '2025年7月4日当天或之后',
+    "<b>No Seller's Stamp Duty.</b> You've held this for about <b>{yrs} years</b>, past the holding period, so nothing is due.":
+      '<b>无需缴卖方印花税。</b>你已持有约 <b>{yrs} 年</b>，超过持有期，所以无需缴纳。',
+    "Before costs, you're selling <b>{gross}</b> above what you paid. After the loan, CPF refund and costs above, your usable cash is <b>{cash}</b>":
+      '扣除成本前，你比当初买入价高 <b>{gross}</b> 卖出。扣掉贷款、CPF 退还和上面的成本后，你可用的现金是 <b>{cash}</b>',
+    ' (your CPF also gets <b>{cpf}</b> back).': '（你的 CPF 另外退回 <b>{cpf}</b>）。',
+    'Heads up, this sale is <b>{gross}</b> below what you paid': '提醒一下，这笔交易比你当初买入价低 <b>{gross}</b>',
+    ", and the proceeds don't cover the loan + CPF refund, so you'd need to top up <b>{cash}</b> in cash.": '，而且这笔收益不够偿还贷款 + CPF 退还，所以你需要额外补 <b>{cash}</b> 现金。',
+    'Worth a chat before you commit.': '动手之前值得聊一聊。',
+    "Indicative only, not financial or legal advice. Seller's Stamp Duty is charged on the <b>higher of price or market valuation</b>; this uses your sale price. Your <b>CPF refund</b> (the amount you withdrew plus 2.5% accrued interest) goes back to your CPF account, it's still your money but can't be spent as cash; get the exact figure from your CPF statement. Figures exclude any outstanding property tax, maintenance, or early-redemption penalty. Rules as of {as_of}. Always confirm with your conveyancing lawyer and banker.":
+      '仅供参考，不构成财务或法律建议。卖方印花税按<b>房价或市场估值中较高者</b>计征；这里用的是你的售价。你的 <b>CPF 退还</b>（你提取的金额加 2.5% 累计利息）会退回你的 CPF 账户，仍是你的钱但不能当现金花；确切数字请查你的 CPF 对账单。数字不含任何欠缴的房产税、管理费或提前赎回罚金。规则截至 {as_of}。请务必向你的产权过户律师和银行人员确认。',
 
     // ══ grants.html ══
     'Housing grants': '购房补贴', 'What grants can you get?': '你能拿到哪些补贴？',

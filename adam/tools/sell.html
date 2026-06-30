@@ -90,7 +90,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
 .mt-grid a b{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:15.5px;color:#191512;display:block}
 .mt-grid a span{font-size:12.5px;color:#7e9893;margin-top:2px;display:block}
 @media(max-width:680px){.mt-grid{grid-template-columns:1fr 1fr}.ask{padding:24px}}
-@media(max-width:420px){.mt-grid{grid-template-columns:1fr}}:focus-visible{outline:2.5px solid #0f7a82;outline-offset:2px;border-radius:3px}.eyebrow,.kick,.free,.rdate,.note .date,.lp-k,.tool .free{color:#0d6f78}</style><script src="/adam/i18n.js?v=17" defer></script><script src="/adam/nav.js" defer></script>
+@media(max-width:420px){.mt-grid{grid-template-columns:1fr}}:focus-visible{outline:2.5px solid #0f7a82;outline-offset:2px;border-radius:3px}.eyebrow,.kick,.free,.rdate,.note .date,.lp-k,.tool .free{color:#0d6f78}</style><script src="/adam/i18n.js?v=18" defer></script><script src="/adam/nav.js" defer></script>
   <link rel="canonical" href="https://propsight.sg/tools/sell.html">
   <script type="application/ld+json">
 {"@context": "https://schema.org","@graph": [{"@type": "WebApplication","name": "What Will I Walk Away With?","url": "https://propsight.sg/tools/sell.html","applicationCategory": "FinanceApplication","operatingSystem": "Any","browserRequirements": "Requires JavaScript","offers": {"@type": "Offer","price": "0","priceCurrency": "SGD"},"provider": {"@id": "https://propsight.sg/#org"},"inLanguage": "en-SG"},{"@type": "BreadcrumbList","itemListElement": [{"@type": "ListItem","position": 1,"name": "PropSight","item": "https://propsight.sg/"},{"@type": "ListItem","position": 2,"name": "What Will I Walk Away With?","item": "https://propsight.sg/tools/sell.html"}]}]}
@@ -217,36 +217,39 @@ function compute(){
 
 function calc(){
   const r=compute();
+  var T=function(s){return window.PSI18N?PSI18N.t(s):s;};
+  var TF=function(e,v){return window.PSI18N?PSI18N.tf(e,v):e.replace(/\{(\w+)\}/g,function(m,k){return v&&v[k]!=null?v[k]:m;});};
+  var zh=!!(window.PSI18N&&PSI18N.lang==='zh');
   $('#tot').textContent=fmtM(r.cash);
   $('#totsub').textContent = r.cpf>0
-    ? 'plus '+fmt(r.cpf)+' returned to your CPF (still yours), '+fmt(r.totalBack)+' in total'
-    : 'what lands in your bank after everything is settled';
+    ? TF('plus {cpf} returned to your CPF (still yours), {total} in total',{cpf:fmt(r.cpf),total:fmt(r.totalBack)})
+    : T('what lands in your bank after everything is settled');
   const rows=[
-    ['Sale price','what the buyer pays','+'+fmt(r.sell),'plus'],
-    ['Repay your home loan','released to the bank','−'+fmt(r.loan),'minus'],
+    [T('Sale price'),T('what the buyer pays'),'+'+fmt(r.sell),'plus'],
+    [T('Repay your home loan'),T('released to the bank'),'−'+fmt(r.loan),'minus'],
   ];
-  if(r.ssd>0) rows.push(["Seller's Stamp Duty",Math.round(r.info.rate)+'%, sold within the holding period','−'+fmt(r.ssd),'minus']);
-  rows.push(['Agent fee + GST',r.agentPct+'% + 9% GST','−'+fmt(r.agent+r.gst),'minus']);
-  rows.push(['Legal & misc','conveyancing, admin','−'+fmt(r.legal),'minus']);
-  if(r.cpf>0) rows.push(['Refund to your CPF','principal + accrued interest → your OA','−'+fmt(r.cpf),'minus']);
-  rows.push(['Cash in your pocket','what you can actually use','='+fmt(r.cash),'plus']);
+  if(r.ssd>0) rows.push([T("Seller's Stamp Duty"),TF('{rate}%, sold within the holding period',{rate:Math.round(r.info.rate)}),'−'+fmt(r.ssd),'minus']);
+  rows.push([T('Agent fee + GST'),r.agentPct+'% + 9% GST','−'+fmt(r.agent+r.gst),'minus']);
+  rows.push([T('Legal & misc'),T('conveyancing, admin'),'−'+fmt(r.legal),'minus']);
+  if(r.cpf>0) rows.push([T('Refund to your CPF'),T('principal + accrued interest → your OA'),'−'+fmt(r.cpf),'minus']);
+  rows.push([T('Cash in your pocket'),T('what you can actually use'),'='+fmt(r.cash),'plus']);
   $('#rows').innerHTML=rows.map(x=>`<div class="row"><span class="k">${x[0]}<small>${x[1]}</small></span><span class="v ${x[3]}">${x[2]}</span></div>`).join('');
 
   // SSD explainer
   const box=$('#ssd'); const inf=r.info;
-  if(ptype==='hdb'){ box.className='ssd clear'; box.innerHTML="<b>No Seller's Stamp Duty.</b> HDB flats are exempt, the minimum occupation period already runs longer than the SSD holding period, so by the time you can sell, SSD no longer applies."; }
-  else if(!$('#bought').valueAsDate){ box.className='ssd clear'; box.innerHTML="Enter <b>when you bought</b> to check Seller's Stamp Duty."; }
+  if(ptype==='hdb'){ box.className='ssd clear'; box.innerHTML='<b>'+T("No Seller's Stamp Duty.")+'</b> '+T("HDB flats are exempt, the minimum occupation period already runs longer than the SSD holding period, so by the time you can sell, SSD no longer applies."); }
+  else if(!$('#bought').valueAsDate){ box.className='ssd clear'; box.innerHTML=T("Enter when you bought to check Seller's Stamp Duty."); }
   else if(r.ssd>0){ const yrs=inf.held; box.className='ssd hit';
-    box.innerHTML=`<b>Seller's Stamp Duty applies: ${Math.round(inf.rate)}% = ${fmt(r.ssd)}.</b> You've held this for about <b>${yrs.toFixed(1)} years</b>, within the ${inf.regime==='old'?'3-year':'4-year'} holding period for a home bought ${inf.regime==='old'?'before 4 Jul 2025':'on/after 4 Jul 2025'}. Waiting until the period is up removes it entirely. (Charged on the higher of price or valuation.)`; }
+    box.innerHTML=TF("<b>Seller's Stamp Duty applies: {rate}% = {ssd}.</b> You've held this for about <b>{yrs} years</b>, within the {hold} holding period for a home bought {when}. Waiting until the period is up removes it entirely. (Charged on the higher of price or valuation.)",{rate:Math.round(inf.rate),ssd:fmt(r.ssd),yrs:yrs.toFixed(1),hold:inf.regime==='old'?T('3-year'):T('4-year'),when:inf.regime==='old'?T('before 4 Jul 2025'):T('on/after 4 Jul 2025')}); }
   else { box.className='ssd clear';
-    box.innerHTML=`<b>No Seller's Stamp Duty.</b> You've held this for about <b>${inf.held.toFixed(1)} years</b>, past the holding period, so nothing is due.`; }
+    box.innerHTML=TF("<b>No Seller's Stamp Duty.</b> You've held this for about <b>{yrs} years</b>, past the holding period, so nothing is due.",{yrs:inf.held.toFixed(1)}); }
 
   // gain note
   $('#note').innerHTML = r.gross>=0
-    ? `Before costs, you're selling <b>${fmt(r.gross)}</b> above what you paid. After the loan, CPF refund and costs above, your usable cash is <b>${fmt(r.cash)}</b>${r.cpf>0?` (your CPF also gets <b>${fmt(r.cpf)}</b> back).`:'.'}`
-    : `Heads up, this sale is <b>${fmt(-r.gross)}</b> below what you paid${r.cash<0?`, and the proceeds don't cover the loan + CPF refund, so you'd need to top up <b>${fmt(-r.cash)}</b> in cash.`:'.'} Worth a chat before you commit.`;
+    ? TF("Before costs, you're selling <b>{gross}</b> above what you paid. After the loan, CPF refund and costs above, your usable cash is <b>{cash}</b>",{gross:fmt(r.gross),cash:fmt(r.cash)}) + (r.cpf>0?TF(" (your CPF also gets <b>{cpf}</b> back).",{cpf:fmt(r.cpf)}):(zh?'。':'.'))
+    : TF("Heads up, this sale is <b>{gross}</b> below what you paid",{gross:fmt(-r.gross)}) + (r.cash<0?TF(", and the proceeds don't cover the loan + CPF refund, so you'd need to top up <b>{cash}</b> in cash.",{cash:fmt(-r.cash)}):(zh?'。':'.')) + ' ' + T("Worth a chat before you commit.");
 
-  $('#disc').innerHTML=`Indicative only, not financial or legal advice. Seller's Stamp Duty is charged on the <b>higher of price or market valuation</b>; this uses your sale price. Your <b>CPF refund</b> (the amount you withdrew plus 2.5% accrued interest) goes back to your CPF account, it's still your money but can't be spent as cash; get the exact figure from your CPF statement. Figures exclude any outstanding property tax, maintenance, or early-redemption penalty. Rules as of ${SSD.as_of}. Always confirm with your conveyancing lawyer and banker.`;
+  $('#disc').innerHTML=TF("Indicative only, not financial or legal advice. Seller's Stamp Duty is charged on the <b>higher of price or market valuation</b>; this uses your sale price. Your <b>CPF refund</b> (the amount you withdrew plus 2.5% accrued interest) goes back to your CPF account, it's still your money but can't be spent as cash; get the exact figure from your CPF statement. Figures exclude any outstanding property tax, maintenance, or early-redemption penalty. Rules as of {as_of}. Always confirm with your conveyancing lawyer and banker.",{as_of:SSD.as_of});
 }
 
 ['buy','sell','loan','cpf','legal'].forEach(id=>$('#'+id).addEventListener('input',e=>{const raw=e.target.value.replace(/[^0-9]/g,'');e.target.value=raw?Number(raw).toLocaleString('en-US'):'';calc();}));
