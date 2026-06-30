@@ -431,8 +431,9 @@ a.mq-i{text-decoration:none}a.mq-i:hover{opacity:.82}
  .about-in{grid-template-columns:1fr;gap:30px}.about-in .portrait{width:100%;max-width:320px;margin:0 auto;aspect-ratio:auto;min-height:300px}
  .lp-v{font-size:22px}
 }
-@media(max-width:560px){.lp-grid{grid-template-columns:1fr}.tools .tool{flex-basis:100%;max-width:100%}.nav-install{display:none}.navjoin{font-size:12.5px;padding:9px 13px}.nav-in{gap:8px}}
-@media(max-width:400px){.brand .mark{width:32px;height:32px}.brand b{font-size:19px}.brand{gap:8px}.nav-in{gap:5px}.navjoin{font-size:12px;padding:8px 10px}.navlang{padding:6px 9px;font-size:12.5px}}
+@media(max-width:560px){.lp-grid{grid-template-columns:1fr}.tools .tool{flex-basis:100%;max-width:100%}.nav-install{display:flex;width:36px;height:36px;margin-left:0}.nav-install svg{width:19px;height:19px}.navjoin{font-size:12.5px;padding:9px 13px}.nav-in{gap:8px}}
+@media(max-width:400px){.brand .mark{width:32px;height:32px}.brand b{font-size:19px}.brand{gap:8px}.nav-in{gap:5px}.navjoin{font-size:12px;padding:8px 10px}.navlang{padding:6px 9px;font-size:12.5px}.nav-install{width:33px;height:33px}.nav-install svg{width:17px;height:17px}}
+@media(max-width:359px){.nav-install{display:none}} /* sub-360 screens: too tight for 5 nav items; install stays in the hamburger menu */
 /* router: 3 compact cards across (icon + label) on tablet-portrait + phones, instead of tall stacked ones */
 @media(max-width:760px){
  .router{grid-template-columns:repeat(2,1fr);gap:9px}
