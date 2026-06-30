@@ -452,6 +452,32 @@
     '+ {n} more {near}': '{near}还有 {n} 个',
     '{p1} condos within 1km · {p2} between 1-2km': '1公里内 {p1} 个公寓 · 1-2公里 {p2} 个',
     '{p1} HDB streets within 1km · {p2} between 1-2km': '1公里内 {p1} 条组屋街道 · 1-2公里 {p2} 条',
+    // ══ about page copy ══
+    'About PropSight': '关于 PropSight',
+    "We read Singapore's property records, so you don't have to.": '我们替你读遍新加坡的房产记录。',
+    "A free property hub built on the same official data the professionals use, every private caveat from URA, every HDB resale, OneMap's school and amenity records. Read, refreshed weekly, and turned into plain answers. Look up anything without signing up, and when you want it pulled together, just ask Aillie.":
+      '一个免费的房产平台，建立在专业人士使用的同一份官方数据之上：URA 的每一笔私宅成交、每一笔组屋转售、OneMap 的学校和设施记录。我们读取、每周更新，并转化为大白话的答案。无需注册就能查任何东西，想要汇总分析时，问 Aillie 就好。',
+    'Value any flat or condo': '估算任何组屋或公寓', 'on real recent sales, in seconds': '基于真实近期成交，几秒搞定',
+    'Ask Aillie anything': '有问题尽管问 Aillie', 'real numbers back, instantly': '即时返回真实数据',
+    'See what you can afford': '看看你能负担多少', 'worked out before you view': '看房前就算清楚',
+    'Free, no sign-up needed': '免费，无需注册', 'look up anything you want': '想查什么都行',
+    'Built on official records': '基于官方记录',
+    'The numbers the pros pay for. Yours, free.': '专业人士付费才有的数据，免费给你。',
+    'Every figure on PropSight traces back to source. We pull the official transaction records, what homes actually sold for, not what a listing is asking, and rebuild the picture from the ground up each week.':
+      'PropSight 上的每个数字都能追溯到源头。我们采用官方成交记录，也就是房子实际卖了多少，而不是挂牌要价，并每周从头重建整个画面。',
+    'Open the research →': '打开研究 →',
+    'Real answers, with the receipts': '有理有据的真实答案',
+    'You see the working, not just a number.': '你看到的是推算过程，而不只是一个数字。',
+    "Ask Aillie anything and she pulls the real figures for you. Every valuation comes with the recent comparable sales it's based on, an honest range, and a confidence level, so you see exactly why, not just what.":
+      '有问题尽管问 Aillie，她会为你调出真实数据。每个估值都附上所依据的近期同类成交、诚实的区间和可信度，让你清楚看到为什么，而不只是结果。',
+    'Value a home →': '估算房价 →',
+    'Everything in one place': '全部集中在一处',
+    'Eleven tools, with a twelfth on the way.': '十一个工具，第十二个即将上线。',
+    "Every job in a property move has its own tool, each built on the same official data: value a home, work out your real budget, research any project, check stamp duty, grants and eligibility, see what you'd walk away with as a seller, find homes near a school, and follow the market with Market Pulse, News and the Guide. They all read the same records, so the numbers always agree.":
+      '买卖房子的每件事都有专属工具，全部基于同一份官方数据：估算房价、算出你的真实预算、研究任何楼盘、查印花税、补贴和购买资格、看看作为卖家你能实拿多少、查找名校周边的房子，并通过市场动态、新闻和购房指南关注市场。它们读取同一份记录，所以数字始终一致。',
+    'Join the inside track.': '加入内部圈子。',
+    "Looking around is free and always will be. Join free to open the full research, get the weekly insights and a higher chat limit with Aillie, and get into the members' Telegram channel for live signals.":
+      '随便看看永远免费。免费加入即可解锁完整研究、获得每周洞察和更高的 Aillie 对话额度，并进入会员专属 Telegram 频道获取实时信号。',
 
     // ══ mortgage.html ══
     'Mortgage': '房贷', 'What will your home loan cost a month?': '你的房贷每月要还多少？',
