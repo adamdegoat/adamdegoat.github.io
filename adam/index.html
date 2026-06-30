@@ -1787,7 +1787,7 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
     if(isResearch(q)){researchInChat(q);return;}
     add('me',esc(q));
     const t=typing(),tool=route(q);
-    fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q,history:HIST.slice(-8),ps_token:(window.PS&&PS.get()?PS.get().token:'')})})
+    fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q,history:HIST.slice(-8),ps_token:(window.PS&&PS.get()?PS.get().token:''),lang:(window.PSI18N?window.PSI18N.lang:'en')})})
       .then(r=>r.json()).then(d=>{
         t.remove();
         const reply=(d&&d.reply)||"Let me get our team on that. Want to message us on WhatsApp?";
