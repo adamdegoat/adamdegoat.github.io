@@ -399,6 +399,8 @@ function closeLb(){lb.classList.remove('show');document.body.style.overflow='';}
 lb.addEventListener('click',function(e){if(e.target===lb||e.target.closest('.lbx'))closeLb();});
 var coarse=matchMedia('(pointer:coarse)').matches;
 document.addEventListener('click',function(e){
+ var cs=e.target.closest('.cslide');
+ if(cs&&coarse){e.preventDefault();var ci=cs.querySelector('img');openLb(ci?(ci.currentSrc||ci.src):cs.href);return;}
  var im=e.target.closest('.pimg img,.vscreen img,.ft img,.hc img');
  if(im){e.preventDefault();openLb(im.currentSrc||im.src);return;}
  var dl=e.target.closest('.btn.dl');
