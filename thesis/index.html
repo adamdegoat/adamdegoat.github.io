@@ -506,8 +506,72 @@ select.f{padding:13px 13px;border-radius:13px}
 .modehint{font-size:11.5px;color:var(--ink3);font-weight:500}
 @media(max-width:560px){.modehint{display:none}}
 </style>
+<script>
+/* page-local zh for the Research explorer. JS-rendered content is auto-translated by i18n.js's
+   MutationObserver against these keys; data values stay. Keyed by exact English. */
+window.PS_I18N_ZH = Object.assign(window.PS_I18N_ZH || {}, {
+  "Condo & HDB · official caveats": "公寓和组屋 · 官方成交记录",
+  "loading…": "加载中…", "Loading…": "加载中…",
+  "Condos": "公寓",
+  "Condos · HDB resale · switch anytime": "公寓 · 组屋转售 · 随时切换",
+  "Area guides": "区域指南", "Singapore area guides": "新加坡区域指南", "26 towns": "26 个市镇",
+  "What an HDB or condo really costs in every town, with rental yield, transport, schools and honest pros and cons, in plain language.":
+    "每个市镇的组屋或公寓真实价格，附租金回报、交通、学校和诚实的优缺点，全部用大白话。",
+  "Browse towns →": "浏览市镇 →",
+  "Every HDB town, grouped by region.": "每个组屋市镇，按区域分组。",
+  "Pulling every condo's numbers from official caveats.": "正在从官方成交记录调取每个公寓的数据。",
+  "Could not load research data.": "无法加载研究数据。", "Try refreshing.": "请尝试刷新。",
+  "HDB data unavailable": "暂无 HDB 数据",
+  // section heads (h1 fragments around <em>)
+  "Every Singapore condo,": "每套新加坡公寓，", "by the numbers": "用数字说话", "by the numbers.": "用数字说话。",
+  "Every HDB town & flat type,": "每个组屋市镇和户型，",
+  "About": "关于", "the HDB data": "HDB 数据", "the data": "数据",
+  "Compare,": "比较，", "side by side": "并排对比", "Side by side": "并排对比",
+  // labels + table heads
+  "Price": "价格", "Price / sqft": "每平方英尺价格", "Price range": "价格区间", "Recent price range": "近期价格区间",
+  "Pricing": "定价", "How it's priced": "如何定价", "How active it is": "活跃程度", "Status": "状态",
+  "Size": "面积", "Typical size": "典型面积", "Unit sizes seen": "可见户型面积", "Units": "单位", "Units sold": "已售单位",
+  "Lease": "屋契", "Lease range": "屋契范围", "Remaining lease": "剩余屋契", "Typical lease left": "典型剩余屋契",
+  "Region": "区域", "Storey": "楼层", "Block": "座号", "When": "时间", "Sort": "排序", "Remove": "移除", "Clear all": "清除全部",
+  "Last sale": "最近成交", "Typical price": "典型价格", "Median premium": "中位溢价", "Launch $/sqft": "新盘 $/平方英尺",
+  "Launch PSF": "新盘 PSF", "Launch": "新盘", "Launches in market": "在售新盘",
+  "Actively selling": "正在热卖", "Actively selling now": "目前正在热卖", "Still selling": "仍在销售",
+  "Mostly sold": "大部分已售", "Not selling yet": "尚未开售", "Status": "状态",
+  "How each launch is priced & selling": "每个新盘的定价与销售情况",
+  "vs resale": "对比转售", "vs resale nearby": "对比附近转售", "Resale nearby": "附近转售", "over comparable resale": "对比同类转售",
+  "This condo": "这个公寓", "No condos added yet": "尚未添加公寓", "Watchlist is being built": "关注列表正在建立中",
+  "What each number means": "每个数字的含义", "What it costs": "买入成本", "What it rents for": "租金水平",
+  "What's around it": "周边有什么", "Where the numbers come from": "数据来源", "See the full breakdown →": "查看完整分析 →",
+  "Popular:": "热门：", "Prime": "Prime", "City-fringe": "市区边缘", "Suburban": "郊区",
+  "high": "高", "mid": "中", "low": "低", "green = cheaper": "绿色 = 更便宜", "in line w/ nearby": "与附近持平",
+  "hard to compare": "难以比较", "sorted by premium": "按溢价排序", "sold in the last ~2 months": "过去约2个月内成交",
+  "Official HDB data": "官方 HDB 数据", "Official URA data": "官方 URA 数据", "URA caveats · no login": "URA 成交记录 · 无需登录",
+  "From official caveats": "来自官方成交记录", "Free, no login": "免费，无需登录", "Refreshed weekly": "每周更新",
+  "Always current": "始终最新", "Live": "实时", "Honest limits": "诚实的局限",
+  "Explore HDB resale data →": "查看组屋转售数据 →", "Value a specific flat in Caveat": "在 Caveat 估算具体某套组屋",
+  "Value a specific unit": "估算具体某个单位",
+  "Add Thesis to your phone": "把 Thesis 添加到手机", "Fullscreen, no browser bars": "全屏，无浏览器栏", "Got it": "知道了",
+  "within 1.5km": "1.5公里内", "Within 2km": "2公里内", "within walking distance": "步行可达", "years": "年",
+  "tap any row for the full breakdown →": "点任意行查看完整分析 →", "tap a dot → full condo breakdown": "点一个圆点 → 查看公寓完整分析",
+  // tabs + freshbar
+  "Map": "地图", "New launches": "新盘", "Upcoming": "即将推出", "Compare": "对比", "All districts": "所有区域",
+  "data refreshed": "数据更新于", "auto-updates weekly": "每周自动更新", "next refresh": "下次更新",
+  // search hint
+  "Search any condo to see its": "搜索任意公寓，查看它的", "real transacted prices": "真实成交价",
+  ", how they've moved, rental yield, the nearest MRT & schools, and exactly how it's priced.":
+    "，价格如何变化、租金回报、最近的 MRT 和学校，以及它到底如何定价。",
+  // HDB mode
+  "HDB flats": "组屋", "All towns": "所有市镇", "towns": "个市镇", "resales": "笔转售",
+  "Search a town to see": "搜索一个市镇，查看", "real resale prices": "真实转售价", ", typical": "，典型",
+  "remaining lease": "剩余屋契",
+  ", rental yield, recent sales block by block, and how it's priced against the islandwide median for the same flat type.":
+    "，租金回报、逐座的近期成交，以及相比同户型全岛中位价的定价水平。"
+});
+</script>
+<script src="/adam/i18n.js" defer></script>
 <script src="/adam/nav.js" defer></script>
 <script src="/adam/member.js"></script>
+<style>.navlang{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:inherit;background:transparent;border:1px solid var(--line2);border-radius:30px;padding:6px 12px;cursor:pointer;font-family:inherit;margin-right:10px}.navlang:hover{border-color:var(--green)}</style>
   <link rel="canonical" href="https://propsight.sg/research/">
   <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "PropSight", "item": "https://propsight.sg/"}, {"@type": "ListItem", "position": 2, "name": "Research", "item": "https://propsight.sg/research/"}]}
@@ -517,7 +581,7 @@ select.f{padding:13px 13px;border-radius:13px}
 <nav class="nav" style="position:static"><div class="wrap navwrap">
   <div class="brand"><div><div class="nm" style="font-size:17px">Research</div><div class="sub">Condo &amp; HDB · official caveats</div></div></div>
   <span class="sp"></span>
-
+  <button class="navlang" data-ps-langtoggle type="button" aria-label="Switch language">中文</button>
   <div class="datatag" id="dataTag">loading…</div>
 </div></nav>
 <div class="modebar"><div class="wrap"><div class="modeseg" id="modeseg">
