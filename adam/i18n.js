@@ -327,7 +327,31 @@
     'Enter a property price to see your repayment.': '输入房产价格，查看你的还款。',
     'Talk to our team about financing →': '就融资问题联系我们团队 →', 'Not sure which package?': '不确定选哪个配套？',
     'Every number here is a guide. For your exact case, the right loan, the timing, the smartest move, have a quick chat. No pressure, no sales script.':
-      '这里的每个数字都只是参考。想了解你的具体情况，合适的贷款、时机、最聪明的做法，找我们聊几句就好。没有压力，没有推销话术。'
+      '这里的每个数字都只是参考。想了解你的具体情况，合适的贷款、时机、最聪明的做法，找我们聊几句就好。没有压力，没有推销话术。',
+
+    // ══ member.js (signup / sign-in modal, rendered on demand → MutationObserver translates it) ══
+    'See the full picture.': '看清全貌。',
+    'Join PropSight free, see every condo & HDB in full, plus the weekly insights and live Telegram signals.':
+      '免费加入 PropSight，完整查看每个公寓和组屋，还有每周洞察和实时 Telegram 信号。',
+    'Full research': '完整研究', ', every condo & HDB, ranked, compared & tracked.': '，每个公寓和组屋，排名、对比、持续追踪。',
+    'More of Aillie': '更多 Aillie', ', a higher chat limit with your property assistant.': '，更高的对话额度，畅聊你的房产助手。',
+    'Weekly newsletter': '每周通讯', ', the moves that matter.': '，重要的市场动向。',
+    'Telegram channel': 'Telegram 频道', ', live property signals as they happen.': '，实时房产信号，第一时间送达。',
+    'First name': '名字',
+    'By joining you agree to receive PropSight emails and accept our': '加入即表示你同意接收 PropSight 邮件，并接受我们的',
+    'Privacy Policy': '隐私政策', '. Unsubscribe anytime.': '。可随时退订。',
+    'Free forever · no password · unsubscribe anytime.': '永久免费 · 无需密码 · 可随时退订。',
+    'Sign in to PropSight.': '登录 PropSight。',
+    "No password needed, just enter the email you joined with and you're straight back in.": '无需密码，输入你注册时用的邮箱即可直接登录。',
+    'Sign in →': '登录 →',
+    'Please enter a valid email.': '请输入有效的电邮地址。', 'Joining…': '加入中…',
+    "You're in! Check your email to confirm.": '你已加入！请查收邮件以确认。',
+    'Something went wrong, please try again.': '出了点问题，请重试。', 'Network error, please try again.': '网络错误，请重试。',
+    'Signing in…': '登录中…', 'Signed in ✓': '已登录 ✓', 'Signed in': '已登录',
+    "Couldn't sign you in, please try again.": '无法登录，请重试。',
+    "Full research, the higher Aillie limit, the weekly newsletter and the members' Telegram channel are all unlocked.":
+      '完整研究、更高的 Aillie 额度、每周通讯和会员专属 Telegram 频道均已解锁。',
+    'Join the Telegram channel →': '加入 Telegram 频道 →', 'Sign out': '退出登录'
   };
 
   var LANG = (function () { try { return localStorage.getItem('ps_lang') === 'zh' ? 'zh' : 'en'; } catch (e) { return 'en'; } })();
@@ -351,6 +375,11 @@
     var val = NORM[key];
     if (val) n.nodeValue = (raw.match(/^\s*/) || [''])[0] + val + (raw.match(/\s*$/) || [''])[0];
   }
+  function translatePlaceholder(el) {
+    if (!el.getAttribute) return;
+    var v = el.getAttribute('placeholder'); if (!v) return;
+    var k = norm(v); if (k && NORM[k]) el.setAttribute('placeholder', NORM[k]);
+  }
   function translateTree(root) {
     if (LANG !== 'zh' || !root) return;
     if (root.nodeType === 3) return translateTextNode(root);
@@ -358,6 +387,8 @@
     var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null), nodes = [];
     while (w.nextNode()) nodes.push(w.currentNode);
     nodes.forEach(translateTextNode);
+    if (root.hasAttribute && root.hasAttribute('placeholder')) translatePlaceholder(root);
+    if (root.querySelectorAll) root.querySelectorAll('[placeholder]').forEach(translatePlaceholder);
   }
   // Watch for JS-rendered content (tool results, Aillie messages, news cards) and translate it too.
   var moStarted = false;
