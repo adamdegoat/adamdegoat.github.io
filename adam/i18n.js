@@ -206,6 +206,23 @@
     'Total stamp duty': '印花税总额', 'Ask us about your purchase →': '就你的购房咨询我们 →',
     "Buyer's Stamp Duty": '买方印花税', 'everyone pays this': '人人都要付',
     'Additional Stamp Duty': '额外印花税', 'none for this profile': '此情况无需缴纳',
+    // stamp-duty result sentences (templates + fragments)
+    'on a {price} home': '房价 {price}',
+    '2nd+ home': '第2套及以上', 'foreigner': '外国人',
+    'is the basic tax everyone pays when buying a home, it steps up with the price.': '是买房时人人都要付的基本税，会随房价递增。',
+    "because this isn't your first home": '因为这不是你的第一套房',
+    'because PRs pay additional duty': '因为永久居民需缴额外印花税',
+    '(more from the second home)': '（第二套起更高）',
+    'because foreign buyers pay additional duty': '因为外国买家需缴额外印花税',
+    'adds {ar}% on top, {why}.': '再加收 {ar}%，{why}。',
+    "There's no extra ABSD here, a Singapore Citizen's first home pays only the basic duty.": '这里没有额外的 ABSD，新加坡公民的第一套房只付基本印花税。',
+    'Both are due within 14 days of signing.': '两者都需在签约后 14 天内缴清。',
+    "Additional Buyer's Stamp Duty (ABSD)": '额外买方印花税 (ABSD)', 'Note:': '注意：',
+    "some nationalities are taxed at citizen rates under trade agreements, US citizens, and citizens & PRs of Iceland, Liechtenstein, Norway and Switzerland. If that's you, message us to check.":
+      '根据贸易协定，部分国籍按公民税率征税：美国公民，以及冰岛、列支敦士登、挪威和瑞士的公民及永久居民。如果你符合，请联系我们核实。',
+    'Upgrading as a married couple?': '夫妻换房升级？',
+    "If you're buying your next home before selling your current one, you pay this ABSD upfront, but a married couple with at least one Singapore Citizen can claim it back in full, as long as you sell the first home within 6 months of buying the second (for a completed property). Worth planning the timing with us before you commit.":
+      '如果你在卖掉现有房子之前就买下一套，需先预缴这笔 ABSD；但只要夫妻中至少一方是新加坡公民，并在买第二套后 6 个月内卖出第一套（已建成的房产），就可以全额退回。动手之前值得和我们一起规划好时机。',
 
     // ══ sell.html ══
     'Sale proceeds': '卖房净收益', 'What will you walk away with?': '你最后能拿到多少？',
@@ -426,8 +443,15 @@
 
   function set(l) { try { localStorage.setItem('ps_lang', l); } catch (e) {} location.reload(); }
 
+  // tf(enTemplate, vars): fill a template with {token} placeholders, using the Chinese
+  // template (keyed by the English template) in zh mode. Lets result sentences reorder
+  // words around interpolated numbers. e.g. tf('on a {price} home', {price: '$1.5M'}).
+  function tf(en, vars) {
+    var tpl = (LANG === 'zh' && (DICT[en] || NORM[norm(en)])) ? (DICT[en] || NORM[norm(en)]) : en;
+    return tpl.replace(/\{(\w+)\}/g, function (m, k) { return (vars && vars[k] != null) ? vars[k] : m; });
+  }
   window.PSI18N = {
-    lang: LANG, t: t, apply: apply, set: set,
+    lang: LANG, t: t, tf: tf, apply: apply, set: set,
     toggle: function () { set(LANG === 'zh' ? 'en' : 'zh'); },
     add: function (d) { for (var k in d) DICT[k] = d[k]; buildNorm(); apply(); }
   };
