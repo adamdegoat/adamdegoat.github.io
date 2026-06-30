@@ -384,6 +384,17 @@
     'Down payment %': '首付百分比', 'Of the price': '占房价的比例',
     'Interest rate': '利率', "Your loan's yearly interest rate. Bank packages are typically around 3 to 4%.": '你贷款的年利率。银行配套通常在 3 到 4% 左右。',
     'Your monthly repayment': '你的每月还款',
+    // mortgage result sentences
+    'over {years} years at {rate}% a year': '{years} 年，年利率 {rate}%',
+    'what the loan costs you over {years} years': '这笔贷款 {years} 年下来的成本',
+    'This is your repayment at {rate}% a year.': '这是你在年利率 {rate}% 下的还款。',
+    'Banks must also stress-test you at a higher rate (4% for a bank loan) to make sure you can still cope if rates rise, so check your budget against that too.':
+      '银行还必须按更高的利率（银行贷款为 4%）对你做压力测试，确保利率上升时你仍能负担，所以也要按那个标准核对你的预算。',
+    'A longer loan lowers the monthly figure but you pay more interest overall, a shorter one does the opposite.': '贷款年限越长，每月还款越低，但总利息越多；越短则相反。',
+    'The HDB concessionary rate is currently {hdb}%.': '目前 HDB 优惠利率为 {hdb}%。',
+    'Bank package rates move with the market, so use your own quoted rate for the truest figure.': '银行配套利率随市场浮动，用你自己拿到的报价利率才最准确。',
+    'Indicative only, not financial advice. Assumes a constant interest rate over the whole loan, real packages change after the first few years. Your actual repayment depends on your bank, package and the loan approved against the property valuation. Rates as of {as_of}. Always confirm with a banker.':
+      '仅供参考，不构成财务建议。假设整个贷款期利率不变，实际配套在头几年后会变动。你的实际还款取决于你的银行、配套，以及按房产估值批出的贷款。规则截至 {as_of}。请务必向银行人员确认。',
     'Loan amount': '贷款金额', 'Total interest': '总利息', 'Total you repay': '你总共偿还', 'Interest vs loan': '利息占贷款比例',
     'price minus your down payment': '房价减去首付', 'principal + interest': '本金 + 利息',
     'interest as a share of the amount borrowed': '利息占借款金额的比例',
