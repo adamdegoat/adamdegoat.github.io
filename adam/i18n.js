@@ -427,7 +427,6 @@
     ", you said you have, so you'd need to wait it out.": '，你说你有，所以需要等过这段期限。',
     "<b>5-year Minimum Occupation Period</b> (10 years for the newest EC sites launched from May 2026). A resale levy may apply if you've taken a housing subsidy before.":
       '<b>5年最低居住年限 (MOP)</b>（2026年5月起推出的最新 EC 地段为10年）。如果你以前领过购房补贴，可能需缴转售税。',
-    '💬 WhatsApp us →': '💬 WhatsApp 联系我们 →',
 
     // ══ schools.html ══
     'School proximity': '学校距离', 'Homes near a primary school': '小学周边的房子',
