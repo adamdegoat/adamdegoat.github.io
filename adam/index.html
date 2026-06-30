@@ -76,8 +76,8 @@ em{font-style:italic;color:var(--brass)}
 .navlang{display:inline-flex;align-items:center;gap:6px;flex:none;margin-left:6px;background:#eaf6f4;border:1.5px solid #27513f;border-radius:30px;font:800 13px/1 inherit;color:#1b3a2d;cursor:pointer;padding:9px 14px;white-space:nowrap;transition:background .2s,color .2s}
 .navlang svg{width:15px;height:15px;flex:none;stroke:currentColor;fill:none;stroke-width:1.7}
 .navlang:hover{background:#1b3a2d;color:#eaf6f4}
-/* mobile: shrink the language pill to icon-only so the burger fits */
-@media(max-width:880px){.navlang{font-size:0;gap:0;padding:8px 9px}}
+/* mobile: keep the 中文/EN text (that's what tells people the language); drop the globe to save width */
+@media(max-width:880px){.navlang{gap:0;padding:7px 12px;font-size:13px}.navlang svg{display:none}}
 /* the "doorway" into the Listing Platform, a separate destination, set apart from the menu + the Join button */
 .navdoor{display:flex;flex-direction:column;gap:2px;text-decoration:none;margin-left:6px;padding:7px 13px;border:1px solid rgba(231,246,243,.42);border-radius:12px;background:rgba(255,255,255,.1);position:relative;flex:none;transition:.25s var(--ease)}
 .navdoor::before{content:"";position:absolute;left:-9px;top:50%;transform:translateY(-50%);width:1px;height:28px;background:rgba(231,246,243,.3)}
@@ -432,7 +432,7 @@ a.mq-i{text-decoration:none}a.mq-i:hover{opacity:.82}
  .lp-v{font-size:22px}
 }
 @media(max-width:560px){.lp-grid{grid-template-columns:1fr}.tools .tool{flex-basis:100%;max-width:100%}.nav-install{display:none}.navjoin{font-size:12.5px;padding:9px 13px}.nav-in{gap:8px}}
-@media(max-width:400px){.brand .mark{width:32px;height:32px}.brand b{font-size:19px}.brand{gap:8px}.nav-in{gap:6px}.navjoin{font-size:12px;padding:8px 11px}}
+@media(max-width:400px){.brand .mark{width:32px;height:32px}.brand b{font-size:19px}.brand{gap:8px}.nav-in{gap:5px}.navjoin{font-size:12px;padding:8px 10px}.navlang{padding:6px 9px;font-size:12.5px}}
 /* router: 3 compact cards across (icon + label) on tablet-portrait + phones, instead of tall stacked ones */
 @media(max-width:760px){
  .router{grid-template-columns:repeat(2,1fr);gap:9px}
