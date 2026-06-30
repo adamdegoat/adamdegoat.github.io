@@ -138,7 +138,31 @@ a{color:inherit;text-decoration:none}
 .freshbar .sep{color:var(--line2)}.freshbar b{color:var(--ink2);font-weight:600}
 .pgbot{padding-bottom:40px}
 </style>
+<script>
+window.PS_I18N_ZH = Object.assign(window.PS_I18N_ZH || {}, {
+  "area guides": "区域指南",
+  "What an HDB or condo really costs in every town, with rental yield, transport, schools and honest pros and cons. Real numbers from official URA and HDB transactions.":
+    "每个市镇的组屋或公寓真实价格，附租金回报、交通、学校和诚实的优缺点。数据来自官方 URA 和 HDB 成交。",
+  "Central": "中部", "North-East": "东北部", "East": "东部", "West": "西部", "North": "北部",
+  "Open guide →": "打开指南 →",
+  "← All of Research": "← 返回 Research 全部",
+  "Area guides are built on official URA and HDB data.": "区域指南基于官方 URA 和 HDB 数据。",
+  "Indicative analysis only, not financial or property advice.": "仅供参考分析，不构成财务或房产建议。",
+  "Back to Research →": "返回 Research →"
+});
+</script>
+<script src="/adam/i18n.js" defer></script>
 <script src="/adam/nav.js" defer></script>
+<script defer>
+/* in 中文 mode, localise the per-card data lines (data + names stay; only the words swap) */
+addEventListener('DOMContentLoaded', function(){
+  if(!(window.PSI18N && PSI18N.lang==='zh')) return;
+  document.querySelectorAll('.agc .m').forEach(function(e){
+    e.textContent = e.textContent.replace(/\bfrom\b/g,'起价').replace(/\byield\b/g,'回报');
+  });
+});
+</script>
+<style>.navlang{margin-left:14px;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:inherit;background:transparent;border:1px solid var(--line2);border-radius:30px;padding:6px 12px;cursor:pointer;font-family:inherit}.navlang:hover{border-color:var(--green-d)}</style>
 <link rel="canonical" href="https://propsight.sg/research/area-guides.html">
 <style>
 .agwrap{max-width:1100px}
@@ -154,7 +178,7 @@ a{color:inherit;text-decoration:none}
 </style>
 </head>
 <body>
-<div class="subnav"><div class="wrap navwrap"><div class="crumb"><a href="https://adamdegoat.github.io/thesis/">Research</a><span class="sep">/</span><b>Area guides</b></div><span class="sp"></span><a class="navback" href="https://adamdegoat.github.io/thesis/">← All of Research</a></div></div>
+<div class="subnav"><div class="wrap navwrap"><div class="crumb"><a href="https://adamdegoat.github.io/thesis/">Research</a><span class="sep">/</span><b>Area guides</b></div><span class="sp"></span><a class="navback" href="https://adamdegoat.github.io/thesis/">← All of Research</a><button class="navlang" data-ps-langtoggle type="button" aria-label="Switch language">中文</button></div></div>
 <div class="wrap agwrap">
   <section class="lede2"><span class="eyebrow">PropSight Research</span><h1>Singapore <em>area guides</em></h1><p>What an HDB or condo really costs in every town, with rental yield, transport, schools and honest pros and cons. Real numbers from official URA and HDB transactions.</p></section>
   <div class="agreg">Central</div>
