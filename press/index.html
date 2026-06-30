@@ -91,7 +91,31 @@ footer{padding:34px 0 70px;color:#7a8a82;font-size:13px;text-align:center;border
 .hc{width:92px;height:92px;border-radius:50%;overflow:hidden;display:block;border:2px solid #d3e1da;box-shadow:0 8px 20px rgba(15,35,26,.12)}
 .hc img{width:100%;height:100%;object-fit:cover}
 .hcov b{display:block;font-size:12.5px;margin-top:9px;font-weight:700;color:#163a2d}
-@media(max-width:560px){.grid{grid-template-columns:1fr;gap:28px}.grid.one{grid-template-columns:1fr}.agrid{grid-template-columns:repeat(auto-fill,minmax(102px,1fr))}}
+.lightbox{position:fixed;inset:0;background:rgba(8,18,15,.93);display:none;z-index:200;align-items:center;justify-content:center;padding:22px}
+.lightbox.show{display:flex}
+.lbin{max-width:460px;width:100%;display:flex;flex-direction:column;align-items:center;gap:15px}
+.lbin img{max-width:100%;max-height:73vh;border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.lbhint{color:#cfeae0;font-size:13.5px;text-align:center;line-height:1.5} .lbhint b{color:#fff}
+.lbx{background:#fff;color:#163a2d;border:none;border-radius:30px;padding:11px 28px;font-weight:700;font-size:14px;cursor:pointer;font-family:inherit}
+@media(max-width:560px){
+  .wrap{padding:0 14px}
+  section{padding:22px 0 4px} .shead{margin-bottom:13px} .shead h2{font-size:23px}
+  .grid{grid-template-columns:1fr 1fr;gap:15px} .grid.one{grid-template-columns:1fr}
+  .day{gap:8px} .dnote{display:none} .dwhen{gap:7px} .dday{font-size:12px;padding:5px 10px} .dtime{font-size:11.5px} .dcat{font-size:9.5px}
+  .dloc{font-size:11px;padding:6px 8px;gap:5px} .dloc svg{width:13px;height:13px}
+  .phone{padding:0;background:transparent;box-shadow:none}
+  .screen{border-radius:14px;box-shadow:0 9px 20px rgba(15,35,26,.16)}
+  .sbar,.igh,.acts,.pcap{display:none}
+  .pimg{border-radius:14px;cursor:zoom-in}
+  .pbtns{flex-direction:column;gap:7px} .btn{padding:10px;font-size:12.5px}
+  .vphone{max-width:none;border-radius:18px;padding:5px;cursor:zoom-in} .vscreen{border-radius:14px}
+  .sinstr{font-size:11.5px;padding:9px 10px}
+  .fscroll{max-height:430px} .fhead{padding:16px 16px 12px;gap:12px} .fhead .av{width:56px;height:56px} .fhead .av svg{width:34px;height:34px}
+  .fstats{gap:18px} .fstats b{font-size:16px}
+  .howto{padding:15px 16px;font-size:13px} .checklist .ck{font-size:12.5px}
+  .agrid{grid-template-columns:repeat(auto-fill,minmax(102px,1fr))}
+  .hgrid{gap:16px;justify-content:center} .hc{width:74px;height:74px}
+}
 </style></head><body>
 <div class="wrap">
 <header><div class="brand"><div class="mk"><svg viewBox="0 0 64 64"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -239,5 +263,18 @@ const toast=document.createElement('div');toast.className='toast';document.body.
 let tt;function pop(m){toast.textContent=m;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('show')},1700);}
 document.addEventListener('click',function(e){var b=e.target.closest('.cp');if(!b)return;var t=(b.dataset.cap||'').replace(/&quot;/g,'"');
 navigator.clipboard.writeText(t).then(function(){b.classList.add('done');var o=b.textContent;b.textContent='Copied';pop('Caption copied');setTimeout(function(){b.classList.remove('done');b.textContent=o;},1500);}).catch(function(){pop('Copy failed, select manually');});});
+var lb=document.createElement('div');lb.className='lightbox';
+lb.innerHTML='<div class="lbin"><img alt="post preview"><div class="lbhint">Press and hold the image, then tap <b>Save to Photos</b>.</div><button class="lbx">Close</button></div>';
+document.body.appendChild(lb);var lbimg=lb.querySelector('img');
+function openLb(s){lbimg.src=s;lb.classList.add('show');document.body.style.overflow='hidden';}
+function closeLb(){lb.classList.remove('show');document.body.style.overflow='';}
+lb.addEventListener('click',function(e){if(e.target===lb||e.target.closest('.lbx'))closeLb();});
+var coarse=matchMedia('(pointer:coarse)').matches;
+document.addEventListener('click',function(e){
+ var im=e.target.closest('.pimg img,.vscreen img,.ft img,.hc img');
+ if(im){e.preventDefault();openLb(im.currentSrc||im.src);return;}
+ var dl=e.target.closest('.btn.dl');
+ if(dl&&coarse){e.preventDefault();var c=dl.closest('.day');var i=c?c.querySelector('.pimg img,.vscreen img'):null;openLb(i?(i.currentSrc||i.src):dl.href);}
+});
 if('serviceWorker' in navigator){addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
 </script></body></html>
