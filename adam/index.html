@@ -1183,6 +1183,8 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
 /* ─── Inline valuation card for the chat, reuses Caveat's live engine, so numbers match the "Value a home" tool exactly ─── */
 (function(){
   let ready=null, IDX=null, STREETS=[];
+  const _ADDR_EXP={BT:'BUKIT',ST:'STREET',RD:'ROAD',AVE:'AVENUE',DR:'DRIVE',CRES:'CRESCENT',NTH:'NORTH',STH:'SOUTH',JLN:'JALAN',CTRL:'CENTRAL',LOR:'LORONG',CL:'CLOSE',UPP:'UPPER',PK:'PARK',PL:'PLACE'};
+  function normAddr(s){return (s||'').toUpperCase().replace(/\b(BT|ST|RD|AVE|DR|CRES|NTH|STH|JLN|CTRL|LOR|CL|UPP|PK|PL)\b/g,m=>_ADDR_EXP[m]);}
   const SQF=10.7639;
   const AREAS={1:'City Centre',2:'Tanjong Pagar',3:'Queenstown / Tiong Bahru',4:'Sentosa / Harbourfront',5:'Clementi / West Coast',6:'City Hall',7:'Bugis / Beach Road',8:'Little India',9:'Orchard',10:'Bukit Timah / Holland',11:'Novena / Newton',12:'Toa Payoh / Balestier',13:'Macpherson / Potong Pasir',14:'Geylang / Paya Lebar',15:'East Coast (Katong)',16:'Bedok / Upper East Coast',17:'Changi / Loyang',18:'Tampines / Pasir Ris',19:'Serangoon / Hougang',20:'Bishan / Ang Mo Kio',21:'Upper Bukit Timah',22:'Jurong',23:'Bukit Panjang / Choa Chu Kang',24:'Tengah / Lim Chu Kang',25:'Woodlands',26:'Upper Thomson',27:'Yishun / Sembawang',28:'Seletar / Yio Chu Kang'};
   const area=d=>AREAS[parseInt(d,10)]||('District '+d);
@@ -1217,7 +1219,7 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
     const card=document.createElement('div');card.className='cval';
     card.innerHTML='<div class="cval-seg"><button class="on" data-m="hdb">HDB flat</button><button data-m="condo">Condo</button></div>'+
       '<div class="cval-f"><input class="cval-in cv-search" placeholder="Type your street…" autocomplete="off"><div class="cval-ac"></div></div>'+
-      '<div class="cv-hdb"><div class="cval-f"><select class="cval-sel cv-ft"><option value="">Pick your street first…</option></select></div>'+
+      '<div class="cv-hdb"><div class="cval-f"><select class="cval-sel cv-ft"><option value="">Select flat type (pick street first)</option></select></div>'+
         '<div class="cval-f" style="display:flex;gap:8px"><input class="cval-in cv-block" placeholder="Block (optional)" autocomplete="off" style="flex:1;min-width:0"><input class="cval-in cv-storey" placeholder="Floor (optional)" inputmode="numeric" style="flex:1;min-width:0"></div></div>'+
       '<div class="cv-condo" style="display:none"><div class="cval-f"><input class="cval-in cv-floor" placeholder="Floor (optional)" inputmode="numeric"></div></div>'+
       '<div class="cval-f"><input class="cval-in cv-size" placeholder="Floor area in sqft (optional)" inputmode="numeric"></div>'+
@@ -1238,7 +1240,7 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
     search.addEventListener('input',async()=>{try{await ensureEngine();}catch(e){err.textContent='Valuation data is loading… try again in a second.';err.style.display='block';return;}
       const v=search.value.trim().toUpperCase();cur=-1;town='';street='';projSel=null;
       if(v.length<2){ac.classList.remove('on');return;}
-      if(mode==='hdb'){ftSel.innerHTML='<option value="">Pick your street first…</option>';list=STREETS.filter(o=>o.s.includes(v)).slice(0,7);}
+      if(mode==='hdb'){ftSel.innerHTML='<option value="">Select flat type (pick street first)</option>';const nv=normAddr(v);list=STREETS.filter(o=>normAddr(o.s).includes(nv)||(o.t&&normAddr(o.t).includes(nv))).slice(0,7);}
       else{list=(IDX?IDX.condo_projects.filter(p=>p[0].includes(v)):[]).slice(0,7);}
       showAc();
     });
