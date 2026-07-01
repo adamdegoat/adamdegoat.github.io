@@ -150,7 +150,7 @@
     'Your address': '你的地址',
     'Just start typing your street, then pick it from the list.': '开始输入你的街道名，然后从列表中选择。',
     'Block': '座号', 'Values your exact block.': '估算你具体那一座。',
-    'Flat type': '组屋类型', 'Pick your street first…': '请先选择街道…',
+    'Flat type': '组屋类型', 'Select flat type (pick street first)': '选择组屋类型（先选街道）',
     'Floor area': '面积', 'In sqft. Leave blank for a typical unit.': '单位为平方英尺。留空则按典型单位计算。',
     'Storey': '楼层', 'Roughly which floor': '大约第几层',
     'Project name': '楼盘名称', 'Start typing a condo…': '开始输入公寓名…',

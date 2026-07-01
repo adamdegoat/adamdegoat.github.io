@@ -148,7 +148,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
       </div>
       <div class="two">
         <div class="field"><label>Block <span style="font-weight:500;color:var(--ink3)">(optional)</span><small>Values your exact block.</small></label><input type="text" id="block" placeholder="e.g. 314"></div>
-        <div class="field"><label>Flat type</label><select id="ftype"><option value="">Pick your street first…</option></select></div>
+        <div class="field"><label>Flat type</label><select id="ftype"><option value="">Select flat type (pick street first)</option></select></div>
       </div>
       <div class="two">
         <div class="field"><label>Floor area <span style="font-weight:500;color:var(--ink3)">(optional)</span><small>In sqft. Leave blank for a typical unit.</small></label><input type="text" id="hsize" inputmode="numeric" placeholder="e.g. 990"></div>
@@ -322,7 +322,7 @@ const _ADDR_EXP={BT:'BUKIT',ST:'STREET',RD:'ROAD',AVE:'AVENUE',DR:'DRIVE',CRES:'
 function normAddr(s){ return (s||'').toUpperCase().replace(/\b(BT|ST|RD|AVE|DR|CRES|NTH|STH|JLN|CTRL|LOR|CL|UPP|PK|PL)\b/g, m=>_ADDR_EXP[m]); }
 $('#addr').addEventListener('input',e=>{
   const v=e.target.value.trim().toUpperCase(); addrTown=''; addrStreet=''; acur=-1;
-  $('#ftype').innerHTML='<option value="">Pick your street first…</option>';
+  $('#ftype').innerHTML='<option value="">Select flat type (pick street first)</option>';
   if(v.length<2||!STREET_LIST.length){$('#addrac').classList.remove('on');return;}
   const nv=normAddr(v);
   // match street OR town, both normalised, so "Bukit Batok" finds "BT BATOK …" and the whole town
