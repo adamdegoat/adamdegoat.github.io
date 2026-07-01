@@ -155,7 +155,7 @@ h1 em{font-style:normal;color:inherit}
 </section>
 <div class="wrap newsbody">
   <div id="newsAll"><div class="newsload">Loading the latest brief…</div></div>
-  <div class="foot">Headlines are sourced from across the Singapore property press; tap any item to read the full story at its original source. PropSight summarises each in its own words and is not the original publisher. <a href="../">Back to PropSight</a></div>
+  <div class="foot">Stories are sourced from across the Singapore property press and written up in PropSight's own words, with a link to the original report. PropSight is not the original publisher. <a href="../">Back to PropSight</a></div>
 </div>
 <script>
 /* page-local zh strings for the news chrome (merged by i18n.js, keyed by exact English) */
@@ -164,7 +164,7 @@ window.PS_I18N_ZH = Object.assign(window.PS_I18N_ZH || {}, {
   "The headlines that matter for your home, with what each one actually means for you. Pulled from across Singapore's property press, with the latest on top. Free, no sign-up.": "影响你买房卖房的重要新闻，每条都告诉你这对你意味着什么。汇集新加坡各大房产媒体，最新消息置顶。免费，无需注册。",
   "PropSight wire": "PropSight 快讯",
   "Loading the latest brief…": "正在加载最新简报…",
-  "Headlines are sourced from across the Singapore property press; tap any item to read the full story at its original source. PropSight summarises each in its own words and is not the original publisher.": "新闻标题汇集自新加坡各大房产媒体；点击任一条可前往原文出处阅读全文。PropSight 以自己的话概括每条新闻，并非原始发布方。",
+  "Stories are sourced from across the Singapore property press and written up in PropSight's own words, with a link to the original report. PropSight is not the original publisher.": "新闻汇集自新加坡各大房产媒体，由 PropSight 以自己的话重新撰写，并附上原文出处链接。PropSight 并非原始发布方。",
   "Back to PropSight": "返回 PropSight"
 });
 </script>
@@ -200,7 +200,7 @@ window.PS_I18N_ZH = Object.assign(window.PS_I18N_ZH || {}, {
     return '<span class="rule">'+esc(kicker(it.tag))+'</span>'+lbl(it);
   }
   function leadCard(it){
-    return '<a class="lead" href="'+esc(it.link)+'" target="_blank" rel="noopener">'+
+    return '<a class="lead" href="'+(it.slug?esc(it.slug)+'.html':esc(it.link))+'"+(it.slug?'':' target=_blank rel=noopener')>'+
       '<div class="lead-stat"><span class="hot">'+tx('Hot this week','本周热点')+'</span>'+hook(it)+'</div>'+
       '<div class="lead-tx">'+
         '<span class="tag '+tagClass(it.tag)+'">'+esc(tagTx(it.tag))+'</span>'+
@@ -211,7 +211,7 @@ window.PS_I18N_ZH = Object.assign(window.PS_I18N_ZH || {}, {
       '</div></a>';
   }
   function gridCard(it){
-    return '<a class="card" href="'+esc(it.link)+'" target="_blank" rel="noopener">'+
+    return '<a class="card" href="'+(it.slug?esc(it.slug)+'.html':esc(it.link))+'"+(it.slug?'':' target=_blank rel=noopener')>'+
       '<div class="cmeta"><span class="dt">'+esc(it.date_label)+'</span>'+
         '<span class="src">'+esc(it.source)+'</span>'+
         '<span class="tag '+tagClass(it.tag)+'">'+esc(tagTx(it.tag))+'</span></div>'+
