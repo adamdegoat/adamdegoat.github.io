@@ -283,6 +283,7 @@ Caveat.getJSON('new_launch.json').then(t=>{ NL_LIST=Caveat.expand(t); }).catch((
   if(!P.get('t'))return;
   for(let i=0;i<70 && (!IDX || !STREET_LIST.length); i++){ await new Promise(r=>setTimeout(r,100)); }
   try{
+    if(P.get('t')==='landed'||P.get('t')==='newlaunch'){ document.querySelectorAll('#mode .opt').forEach(o=>{ if(o.dataset.m===P.get('t')) o.click(); }); return; }
     if(P.get('t')==='condo'){
       document.querySelectorAll('#mode .opt').forEach(o=>{ if(o.dataset.m==='condo') o.click(); });
       const proj=(P.get('proj')||'').toUpperCase();

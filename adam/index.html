@@ -1217,19 +1217,26 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
   window.psValueCard=function(mount){
     ensureEngine().catch(()=>{});
     const card=document.createElement('div');card.className='cval';
-    card.innerHTML='<div class="cval-seg"><button class="on" data-m="hdb">HDB flat</button><button data-m="condo">Condo</button></div>'+
+    card.innerHTML='<div class="cval-seg"><button class="on" data-m="hdb">HDB flat</button><button data-m="condo">Condo</button><button data-m="landed">Landed</button><button data-m="newlaunch">New launch</button></div>'+
       '<div class="cval-f"><input class="cval-in cv-search" placeholder="Type your street…" autocomplete="off"><div class="cval-ac"></div></div>'+
       '<div class="cv-hdb"><div class="cval-f"><select class="cval-sel cv-ft"><option value="">Select flat type (pick street first)</option></select></div>'+
         '<div class="cval-f" style="display:flex;gap:8px"><input class="cval-in cv-block" placeholder="Block (optional)" autocomplete="off" style="flex:1;min-width:0"><input class="cval-in cv-storey" placeholder="Floor (optional)" inputmode="numeric" style="flex:1;min-width:0"></div></div>'+
       '<div class="cv-condo" style="display:none"><div class="cval-f"><input class="cval-in cv-floor" placeholder="Floor (optional)" inputmode="numeric"></div></div>'+
       '<div class="cval-f"><input class="cval-in cv-size" placeholder="Floor area in sqft (optional)" inputmode="numeric"></div>'+
       '<button class="cval-go cv-go">Value it →</button>'+
+      '<div class="cv-ref" style="display:none;padding:6px 2px 4px"><p class="cv-refnote" style="font-size:15px;line-height:1.5;color:#5f7a70;margin:0 0 12px"></p><a class="cv-reflink" href="tools/value.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;font-weight:700;padding:14px 20px;border-radius:12px;text-decoration:none;font-size:16px"></a></div>'+
       '<div class="cval-err cv-err" style="display:none"></div><div class="cval-res cv-res"></div>';
     mount.appendChild(card);
     const q=s=>card.querySelector(s);
     let mode='hdb',town='',street='',projSel=null,list=[],cur=-1;
     const search=q('.cv-search'),ac=q('.cval-ac'),ftWrap=q('.cv-hdb'),ftSel=q('.cv-ft'),blockI=q('.cv-block'),storeyI=q('.cv-storey'),floorI=q('.cv-floor'),condoWrap=q('.cv-condo'),sizeI=q('.cv-size'),go=q('.cv-go'),err=q('.cv-err'),res=q('.cv-res');
-    function setMode(m){mode=m;card.querySelectorAll('.cval-seg button').forEach(b=>b.classList.toggle('on',b.dataset.m===m));ftWrap.style.display=m==='hdb'?'':'none';condoWrap.style.display=m==='condo'?'':'none';search.placeholder=m==='hdb'?'Type your street…':'Type the condo project…';search.value='';ac.classList.remove('on');town='';street='';projSel=null;}
+    function setMode(m){mode=m;card.querySelectorAll('.cval-seg button').forEach(b=>b.classList.toggle('on',b.dataset.m===m));
+      const ref=(m==='landed'||m==='newlaunch');
+      ftWrap.style.display=m==='hdb'?'':'none';condoWrap.style.display=m==='condo'?'':'none';
+      search.closest('.cval-f').style.display=ref?'none':'';sizeI.closest('.cval-f').style.display=ref?'none':'';go.style.display=ref?'none':'';
+      const refBox=q('.cv-ref');refBox.style.display=ref?'block':'none';
+      if(ref){const isL=m==='landed';q('.cv-refnote').textContent=isL?'Landed homes are valued from recent nearby sales, not a single number. Open the full tool to see them.':'New launches are shown against nearby recent prices as a benchmark. Open the full tool to see it.';const lk=q('.cv-reflink');lk.href='tools/value.html?t='+m;lk.innerHTML=(isL?'See landed sales':'See launch benchmark')+' &rarr;';}
+      search.placeholder=m==='hdb'?'Type your street…':'Type the condo project…';search.value='';ac.classList.remove('on');town='';street='';projSel=null;}
     card.querySelectorAll('.cval-seg button').forEach(b=>b.onclick=()=>setMode(b.dataset.m));
     function showAc(){ if(!list.length){ac.classList.remove('on');return;}
       ac.innerHTML=list.map((o,i)=>mode==='hdb'?'<div data-i="'+i+'" class="'+(i===cur?'hl':'')+'">'+title(o.s)+' <span class="m">· '+title(o.t)+'</span></div>':'<div data-i="'+i+'" class="'+(i===cur?'hl':'')+'">'+title(o[0])+' <span class="m">· '+area(o[1])+'</span></div>').join('');
