@@ -131,7 +131,7 @@
         if (r && r.ok && r.token) {
           setMember(r.token, r.name || name);
           applyAuthUI();
-          msg.className = 'psj-msg ok'; msg.textContent = 'You’re in! Check your email to confirm.';
+          msg.className = 'psj-msg ok'; msg.textContent = 'You’re in! Check your email to confirm. If it is not in your inbox, look in Spam or Promotions and mark it Not Spam.';
           if (onDone) onDone(get());
         } else {
           btn.disabled = false; btn.textContent = 'Join free →';
