@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-01T09:00:00.302735+08:00",
+  "updated": "2026-07-01T13:00:00.213782+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -187,12 +187,6 @@
       "priority": true
     },
     {
-      "title": "UFC veteran, ex-KSW champ announces retirement from MMA",
-      "link": "https://www.sherdog.com/news/news/UFC-veteran-exKSW-champ-announces-retirement-from-MMA-201679",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
       "title": "Bruce Buffer details updated timeframe for retirement as UFC’s Octagon announcer",
       "link": "https://www.bjpenn.com/mma-news/bruce-buffer/bruce-buffer-details-updated-timeframe-for-retirement-as-ufcs-octagon-announcer/?utm_source=rss&utm_medium=rss&utm_campaign=bruce-buffer-details-updated-timeframe-for-retirement-as-ufcs-octagon-announcer",
       "source": "BJPenn",
@@ -247,15 +241,21 @@
       "priority": false
     },
     {
-      "title": "Pic: Ilia Topuria shows face for the first time since UFC Freedom 250 beatdown",
+      "title": "Video: Regional fighter left furious after opponent immediately taps to … motorcycle crash?!?",
+      "link": "https://www.mmamania.com/regional-mma-news-results/454409/video-regional-fighter-left-furious-after-opponent-immediately-taps-to-motorcycle-crash",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
+      "title": "Pic: Sunglass-wearing Ilia Topuria shows face for first time since UFC Freedom 250 beatdown",
       "link": "https://www.mmamania.com/ufc-white-house-2026-fight-card-start-time-full-results-dana-white-conor-mcgregor-cbs-mma/454421/pic-ilia-topuria-shows-face-for-the-first-time-since-ufc-freedom-250-beatdown",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor versus Holloway this Sunday — elite featherweights collide in a striking showcase.",
-    "prefight": "McGregor versus Holloway Sunday 9am SGT—featherweight supremacy on the line.",
-    "results": "Rafael Fiziev knocked out Manuel Torres with a devastating spinning wheel kick combo in round two."
+    "week": "McGregor versus Holloway — Sunday 9AM SGT for an unforgettable featherweight clash.",
+    "prefight": "McGregor meets Holloway Sunday July 12 at 9 AM SGT for fight week glory.",
+    "results": "Fiziev finishes Torres in round two with a spinning wheel kick KO."
   }
 }
