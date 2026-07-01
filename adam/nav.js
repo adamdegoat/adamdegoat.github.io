@@ -98,8 +98,10 @@
     '.psf-in{max-width:1120px;margin:0 auto;padding:0 32px}' +
     '.psf-cols{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:44px;padding-bottom:44px}' +
     '.psf-logo{display:flex;align-items:center;gap:11px}' +
-    '.psf-mk{width:42px;height:42px;border-radius:11px;background:rgba(255,255,255,.08);display:grid;place-items:center;color:#84e6d4;flex:0 0 auto}' +
-    '.psf-mk svg{width:25px;height:25px}.psf-logo b{font-size:26px;color:#fff}' +
+    '.psf-mark{width:42px;height:42px;flex:none;color:#cfe4dc}' +
+    '.psf-bw{display:flex;flex-direction:column;line-height:1}' +
+    '.psf-bw b{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:25px;color:#fff;letter-spacing:.01em}' +
+    '.psf-bw span{font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:rgba(207,228,220,.7);font-weight:700;margin-top:5px}' +
     '.psf-tag{margin:16px 0 20px;font-size:14.5px;line-height:1.6;color:rgba(207,228,220,.72);max-width:310px}' +
     '.psf-soc{display:flex;align-items:center;gap:11px;margin-bottom:16px}' +
     '.psf-ico{width:40px;height:40px;border:1px solid rgba(255,255,255,.15);border-radius:11px;display:inline-flex;align-items:center;justify-content:center;color:rgba(207,228,220,.82);transition:.2s}' +
@@ -160,14 +162,14 @@
     '</a>' + '</div>';
 
   var year = new Date().getFullYear();
-  var _MK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="7"/><path d="M16 16l5 5"/><path d="M7.5 11.5l3-3 3 3"/><path d="M9 11v3h3v-3"/></svg>';
+  var _MK = '<svg class="psf-mark" aria-hidden="true" viewBox="0 0 64 64"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#84e6d4"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#84e6d4" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   var _TG = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3l-3.3 15.6c-.2 1.1-.9 1.4-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.2L18.5 6c.4-.3-.1-.5-.6-.2L7.4 12.6l-4.8-1.5c-1-.3-1-1 .2-1.5l18.7-7.2c.9-.3 1.6.2 1.4 1.9z"/></svg>';
   var _IG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>';
   var _PHN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10.5 18.5h3"/></svg>';
   function _fl(href, label) { return '<a href="' + href + '">' + t(label) + '</a>'; }
   var footerHTML = '<footer class="psf" id="psFtr"><div class="psf-in"><div class="psf-cols">' +
     '<div class="psf-brand">' +
-      '<div class="psf-logo"><span class="psf-mk">' + _MK + '</span><b>PropSight</b></div>' +
+      '<div class="psf-logo">' + _MK + '<span class="psf-bw"><b>PropSight</b><span>' + t('Singapore') + '</span></span></div>' +
       '<p class="psf-tag">' + t('Singapore property, decoded. Every value, grant and guide, free.') + '</p>' +
       '<div class="psf-soc"><a class="psf-ico" href="https://t.me/propsightsg" target="_blank" rel="noopener" aria-label="Telegram">' + _TG + '</a>' +
         '<a class="psf-ico" href="https://instagram.com/propsightsg" target="_blank" rel="noopener" aria-label="Instagram">' + _IG + '</a></div>' +

@@ -28,11 +28,22 @@
 
     // ── site footer (English-text keys; shared by homepage + sub-page footers) ──
     'Explore': '探索', 'Company': '关于',
+    'Monthly repayment': '每月还款', 'Your mortgage': '你的房贷',
     'Value a home': '房屋估价', 'What you can afford': '负担能力', 'Stamp duty': '印花税',
     'Grants': '政府补贴', 'Schools nearby': '附近学校', 'Selling': '卖房', 'Eligibility': '购房资格',
     'Add PropSight to your phone': '把 PropSight 添加到手机',
     'Singapore property, decoded. Every value, grant and guide, free.': '新加坡房产，一目了然。估价、补贴、指南，全部免费。',
     'Built on official URA and HDB data. Indicative, not financial advice.': '基于 URA 与 HDB 官方数据。仅供参考，非财务建议。',
+
+    // Market Pulse + membership strings that were leaking English in 中文
+    'Never miss one': '不错过任何一期',
+    "Get each week's pulse on your phone.": '每周动态，直接送到你手机。',
+    'Add to phone': '添加到手机',
+    'Market Pulse is our read on the market to help you think it through, not financial advice, and your own situation can differ. Figures are indicative and based on transactions lodged to date.': 'Market Pulse 是我们对市场的解读，帮你理清思路，并非财务建议，你的情况可能有所不同。数据仅供参考，基于目前已登记的成交。',
+    'Welcome back': '欢迎回来',
+    '← New here? Join free': '← 新用户？免费加入',
+    'Open the full research →': '打开完整研究 →',
+    "You're in! Your full research is unlocked. We also emailed you a sign-in link for your other devices.": '你已加入！完整研究已解锁。我们也给你发送了登录链接，方便在其他设备上使用。',
 
     // ── homepage hero (explicit keys) ──
     'hero.eyebrow': '新加坡房产洞察',
@@ -87,7 +98,7 @@
     'See the Market Pulse': '查看市场动态',
 
     // ── homepage: toolkit ──
-    'Free · no sign-up': '免费 · 无需注册',
+    'Free to use': '免费使用',
     'The toolkit.': '工具箱。',
     'The kind of data the portals keep behind a wall, here, free, for you.': '房产网站收费才给你的数据，这里免费，全给你。',
     'All tools': '全部工具', 'For buyers': '买家', 'For sellers': '卖家', 'For exploring': '探索',
@@ -152,8 +163,8 @@
     // ══ value.html ══
     "What's your home worth?": '你的房子值多少？',
     'Home valuation': '房产估值',
-    'A real estimate for any HDB flat or condo, plus reference prices for landed homes and new launches, built from actual, recent transactions. No sign-up, no agent calling you after.':
-      '为任何组屋或公寓提供真实估算，还有有地住宅和新盘的参考价格，全部基于真实的近期成交。无需注册，事后也不会有中介打电话给你。',
+    'A real estimate for any HDB flat or condo, plus reference prices for landed homes and new launches, built from actual, recent transactions. No agent calling you after.':
+      '为任何组屋或公寓提供真实估算，还有有地住宅和新盘的参考价格，全部基于真实的近期成交。事后也不会有中介打电话给你。',
     'Condo / private': '公寓 / 私宅', 'Landed': '有地住宅', 'New launch': '新盘',
     'Your address': '你的地址',
     'Just start typing your street, then pick it from the list.': '开始输入你的街道名，然后从列表中选择。',
@@ -472,12 +483,12 @@
     // ══ about page copy ══
     'About PropSight': '关于 PropSight',
     "We read Singapore's property records, so you don't have to.": '我们替你读遍新加坡的房产记录。',
-    "A free property hub built on the same official data the professionals use, every private caveat from URA, every HDB resale, OneMap's school and amenity records. Read, refreshed weekly, and turned into plain answers. Look up anything without signing up, and when you want it pulled together, just ask Aillie.":
-      '一个免费的房产平台，建立在专业人士使用的同一份官方数据之上：URA 的每一笔私宅成交、每一笔组屋转售、OneMap 的学校和设施记录。我们读取、每周更新，并转化为大白话的答案。无需注册就能查任何东西，想要汇总分析时，问 Aillie 就好。',
+    "A free property hub built on the same official data the professionals use, every private caveat from URA, every HDB resale, OneMap's school and amenity records. Read, refreshed weekly, and turned into plain answers. Look up anything for free, and when you want it pulled together, just ask Aillie.":
+      '一个免费的房产平台，建立在专业人士使用的同一份官方数据之上：URA 的每一笔私宅成交、每一笔组屋转售、OneMap 的学校和设施记录。我们读取、每周更新，并转化为大白话的答案。免费查任何东西，想要汇总分析时，问 Aillie 就好。',
     'Value any flat or condo': '估算任何组屋或公寓', 'on real recent sales, in seconds': '基于真实近期成交，几秒搞定',
     'Ask Aillie anything': '有问题尽管问 Aillie', 'real numbers back, instantly': '即时返回真实数据',
     'See what you can afford': '看看你能负担多少', 'worked out before you view': '看房前就算清楚',
-    'Free, no sign-up needed': '免费，无需注册', 'look up anything you want': '想查什么都行',
+    'Free to use': '免费使用', 'look up anything you want': '想查什么都行',
     'Built on official records': '基于官方记录',
     'The numbers the pros pay for. Yours, free.': '专业人士付费才有的数据，免费给你。',
     'Every figure on PropSight traces back to source. We pull the official transaction records, what homes actually sold for, not what a listing is asking, and rebuild the picture from the ground up each week.':
@@ -544,7 +555,6 @@
     "No password needed, just enter the email you joined with and you're straight back in.": '无需密码，输入你注册时用的邮箱即可直接登录。',
     'Sign in →': '登录 →',
     'Please enter a valid email.': '请输入有效的电邮地址。', 'Joining…': '加入中…',
-    "You're in! Check your email to confirm.": '你已加入！请查收邮件以确认。',
     'Something went wrong, please try again.': '出了点问题，请重试。', 'Network error, please try again.': '网络错误，请重试。',
     'Signing in…': '登录中…', 'Signed in ✓': '已登录 ✓', 'Signed in': '已登录',
     "Couldn't sign you in, please try again.": '无法登录，请重试。',

@@ -166,6 +166,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
       <a href="schools.html" data-self="schools"><b>Homes near a school</b><span>1km / 2km finder</span></a>
       <a href="sell.html" data-self="sell"><b>Net sale proceeds</b><span>What you pocket</span></a>
       <a href="eligibility.html" data-self="eligibility"><b>Can I buy it?</b><span>Eligibility check</span></a>
+      <a href="mortgage.html" data-self="mortgage"><b>Monthly repayment</b><span>Your mortgage</span></a>
     </div>
   </div>
   <script>(function(){var c=location.pathname.split('/').pop().replace('.html','');document.querySelectorAll('.mt-grid a').forEach(function(a){if(a.dataset.self===c)a.style.display='none';});})();</script>
@@ -251,7 +252,7 @@ function compute(){
       P.push([CHECK,T('At least one buyer must be a <b>Singapore Citizen</b>, with a co-applicant (SC or PR) forming a family nucleus.')]);
       P.push([CHECK,TF("Household income <b>≤ {ec}</b>, you're within it.",{ec:'$'+EL.ec.toLocaleString()})]);
       P.push([ownPriv?WARN:CHECK,T('You must <b>not have owned or sold any private property in the last 30 months</b>.')+(ownPriv?T(", you said you have, so you'd need to wait it out."):'')]);
-      P.push([WARN,T("<b>5-year Minimum Occupation Period</b> (10 years for the newest EC sites launched from May 2026). A resale levy may apply if you've taken a housing subsidy before.")]);
+      P.push([WARN,T("<b>5-year Minimum Occupation Period</b>. A resale levy may apply if you've taken a housing subsidy before.")]);
     }
   }
 
