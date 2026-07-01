@@ -328,6 +328,7 @@ $('#addr').addEventListener('input',e=>{
   const nv=normAddr(v);
   // match street OR town, both normalised, so "Bukit Batok" finds "BT BATOK …" and the whole town
   addrList=STREET_LIST.filter(o=>normAddr(o.s).includes(nv) || (o.t&&normAddr(o.t).includes(nv))).slice(0,8);
+  acur=addrList.length?0:-1;   // auto-highlight the first suggestion
   renderAddrAc();
 });
 function renderAddrAc(){
@@ -355,6 +356,7 @@ $('#proj').addEventListener('input',e=>{
   const v=e.target.value.trim().toUpperCase();projSel=null;cur=-1;
   if(!v||!IDX){$('#projac').classList.remove('on');return;}
   projList=IDX.condo_projects.filter(p=>p[0].includes(v)).slice(0,9);
+  cur=projList.length?0:-1;   // auto-highlight the first suggestion
   renderAc();
 });
 function renderAc(){
@@ -376,6 +378,7 @@ $('#lstreet').addEventListener('input',e=>{
   const v=e.target.value.trim().toUpperCase(); landedSel=null; lcur=-1;
   if(v.length<2||!LANDED_STREETS.length){$('#lstreetac').classList.remove('on');return;}
   landedList=LANDED_STREETS.filter(o=>o.street.includes(v)).sort((a,b)=>b.n-a.n).slice(0,8);
+  lcur=landedList.length?0:-1;   // auto-highlight the first suggestion
   renderLandedAc();
 });
 function renderLandedAc(){
@@ -405,6 +408,7 @@ function nlUpdate(){
   const v=$('#nlproj').value.trim().toUpperCase(); nlSel=null; nlcur=-1;
   if(!NL_LIST.length){$('#nlac').classList.remove('on');return;}
   nlList = v.length===0 ? NL_LIST.slice(0,14) : NL_LIST.filter(p=>p.project.toUpperCase().includes(v)).slice(0,12);
+  nlcur=nlList.length?0:-1;   // auto-highlight the first suggestion
   renderNlAc();
 }
 $('#nlproj').addEventListener('focus',nlUpdate);

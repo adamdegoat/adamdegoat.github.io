@@ -1249,7 +1249,15 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
       if(v.length<2){ac.classList.remove('on');return;}
       if(mode==='hdb'){ftSel.innerHTML='<option value="">Select flat type (pick street first)</option>';const nv=normAddr(v);list=STREETS.filter(o=>normAddr(o.s).includes(nv)||(o.t&&normAddr(o.t).includes(nv))).slice(0,7);}
       else{list=(IDX?IDX.condo_projects.filter(p=>p[0].includes(v)):[]).slice(0,7);}
+      cur=list.length?0:-1;   // auto-highlight the first suggestion
       showAc();
+    });
+    search.addEventListener('keydown',e=>{
+      if(!ac.classList.contains('on')||!list.length)return;
+      if(e.key==='ArrowDown'){cur=Math.min(cur+1,list.length-1);showAc();e.preventDefault();}
+      else if(e.key==='ArrowUp'){cur=Math.max(cur-1,0);showAc();e.preventDefault();}
+      else if(e.key==='Enter'){pick(list[cur>=0?cur:0]);e.preventDefault();}
+      else if(e.key==='Escape'){ac.classList.remove('on');}
     });
     go.onclick=async()=>{
       err.style.display='none';res.classList.remove('on');go.disabled=true;go.textContent='Valuing…';
