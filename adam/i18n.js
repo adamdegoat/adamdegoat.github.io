@@ -28,7 +28,7 @@
 
     // ── site footer (English-text keys; shared by homepage + sub-page footers) ──
     'Explore': '探索', 'Company': '关于',
-    'Monthly repayment': '每月还款', 'Your mortgage': '你的房贷',
+    'Monthly repayment': '每月还款', 'Your mortgage': '你的房贷', 'Mortgage': '房贷计算器',
     'Value a home': '房屋估价', 'What you can afford': '负担能力', 'Stamp duty': '印花税',
     'Grants': '政府补贴', 'Schools nearby': '附近学校', 'Selling': '卖房', 'Eligibility': '购房资格',
     'Add PropSight to your phone': '把 PropSight 添加到手机',

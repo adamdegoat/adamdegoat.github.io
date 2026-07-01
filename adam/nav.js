@@ -179,7 +179,7 @@
       _fl(BASE + '/adam/tools/value.html', 'Value a home') + _fl(BASE + '/adam/tools/afford.html', 'What you can afford') +
       _fl(BASE + '/adam/tools/stamp-duty.html', 'Stamp duty') + _fl(BASE + '/adam/tools/grants.html', 'Grants') +
       _fl(BASE + '/adam/tools/schools.html', 'Schools nearby') + _fl(BASE + '/adam/tools/sell.html', 'Selling') +
-      _fl(BASE + '/adam/tools/eligibility.html', 'Eligibility') +
+      _fl(BASE + '/adam/tools/eligibility.html', 'Eligibility') + _fl(BASE + '/adam/tools/mortgage.html', 'Mortgage') +
     '</div>' +
     '<div class="psf-col"><h4>' + t('Explore') + '</h4>' +
       _fl(BASE + '/thesis/', 'Research') + _fl(BASE + '/adam/notes/', 'Market Pulse') + _fl(BASE + '/adam/news/', 'News') +

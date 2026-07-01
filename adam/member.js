@@ -8,9 +8,10 @@
 
   function get() { try { return JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { return null; } }
   function isMember() { var m = get(); return !!(m && m.token); }
-  function setMember(token, name) { localStorage.setItem(KEY, JSON.stringify({ token: token, name: name || '', ts: Date.now() })); }
+  function _safeName(n) { return (n || '').replace(/[<>"'&]/g, '').slice(0, 40); }   // names never contain these; strips any injected markup
+  function setMember(token, name) { localStorage.setItem(KEY, JSON.stringify({ token: token, name: _safeName(name), ts: Date.now() })); }
   function clear() { localStorage.removeItem(KEY); }
-  function firstName() { var m = get(); return (m && m.name) || ''; }
+  function firstName() { var m = get(); return _safeName((m && m.name) || ''); }   // sanitise on read too (covers names stored before this fix)
 
   function post(path, body) {
     return fetch(API + path, {
