@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-01T13:00:00.213782+08:00",
+  "updated": "2026-07-01T21:00:00.237473+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -169,20 +169,14 @@
   },
   "news": [
     {
-      "title": "Paulo Costa frustrated with delay in booking final fight on current UFC deal",
-      "link": "https://www.sherdog.com/news/news/Paulo-Costa-frustrated-with-delay-in-booking-final-fight-on-current-UFC-deal-201691",
+      "title": "UFC champ wants to fight PFL ace Johnny Eblen for the title",
+      "link": "https://www.sherdog.com/news/news/UFC-champ-wants-to-fight-PFL-ace-Johnny-Eblen-for-the-title-201715",
       "source": "Sherdog",
       "priority": true
     },
     {
-      "title": "UFC 329 loses up-and-coming prospect due to injury",
-      "link": "https://www.sherdog.com/news/news/UFC-329-loses-upandcoming-prospect-due-to-injury-201690",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "Terence Crawford won’t end retirement to fight Jaron Ennis",
-      "link": "https://www.sherdog.com/news/news/Terence-Crawford-wont-end-retirement-to-fight-Jaron-Ennis-201682",
+      "title": "Gillian Robertson explains marijuana use ahead of UFC 330 title shot",
+      "link": "https://www.sherdog.com/news/news/Gillian-Robertson-explains-marijuana-use-ahead-of-UFC-330-title-shot-201713",
       "source": "Sherdog",
       "priority": true
     },
@@ -191,6 +185,12 @@
       "link": "https://www.bjpenn.com/mma-news/bruce-buffer/bruce-buffer-details-updated-timeframe-for-retirement-as-ufcs-octagon-announcer/?utm_source=rss&utm_medium=rss&utm_campaign=bruce-buffer-details-updated-timeframe-for-retirement-as-ufcs-octagon-announcer",
       "source": "BJPenn",
       "priority": true
+    },
+    {
+      "title": "Morning Report | Daniel Cormier explains why Brock Lesnar fight fell through",
+      "link": "https://www.mmafighting.com/latest-news/497079/morning-report-daniel-cormier-explains-why-brock-lesnar-fight-fell-through",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "Anything but Fighting: Megan Olivi answers random questions",
@@ -235,12 +235,6 @@
       "priority": false
     },
     {
-      "title": "PFL San Diego medical suspensions: 2 fighters looking at 6 month suspension after possible broken bones",
-      "link": "https://www.mmafighting.com/pfl/497016/pfl-san-diego-medical-suspensions-2-fighters-looking-at-6-month-suspension-after-possible-broken-bones",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
       "title": "Video: Regional fighter left furious after opponent immediately taps to … motorcycle crash?!?",
       "link": "https://www.mmamania.com/regional-mma-news-results/454409/video-regional-fighter-left-furious-after-opponent-immediately-taps-to-motorcycle-crash",
       "source": "MMA Mania",
@@ -251,11 +245,17 @@
       "link": "https://www.mmamania.com/ufc-white-house-2026-fight-card-start-time-full-results-dana-white-conor-mcgregor-cbs-mma/454421/pic-ilia-topuria-shows-face-for-the-first-time-since-ufc-freedom-250-beatdown",
       "source": "MMA Mania",
       "priority": false
+    },
+    {
+      "title": "‘On the UFC payroll’ Michael Bisping claps back at ‘horse sh*t’ Eddie Hearn – ‘I care about fighters!’",
+      "link": "https://www.mmamania.com/latest-news/454417/on-the-ufc-payroll-michael-bisping-claps-back-at-horse-sht-eddie-hearn-i-care-about-fighters",
+      "source": "MMA Mania",
+      "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor versus Holloway — Sunday 9AM SGT for an unforgettable featherweight clash.",
-    "prefight": "McGregor meets Holloway Sunday July 12 at 9 AM SGT for fight week glory.",
-    "results": "Fiziev finishes Torres in round two with a spinning wheel kick KO."
+    "week": "McGregor and Holloway collide Sunday 12 July, 9 AM SGT—featherweight striking fireworks incoming.",
+    "prefight": "McGregor versus Holloway this Sunday in Singapore—featherweight fireworks at 9 AM.",
+    "results": "Fiziev stuns Torres with a spinning wheel kick, finishes with punches in round two."
   }
 }
