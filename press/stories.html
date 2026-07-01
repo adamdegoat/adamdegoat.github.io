@@ -1,0 +1,170 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow"><meta http-equiv="Cache-Control" content="no-cache"><title>PropSight Studio</title><style>
+:root{--bg:#eef3f1;--bg2:#dce7e3;--card:#fff;--ink:#143a2d;--sub:#5c7268;--acc:#0f7a82;--hi:#2f9a8f;--line:#d7e3de;--ok:#1f9d6b}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(168deg,var(--bg),var(--bg2));color:var(--ink);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;min-height:100vh;padding:env(safe-area-inset-top) 0 calc(84px + env(safe-area-inset-bottom));-webkit-font-smoothing:antialiased}
+.wrap{max-width:620px;margin:0 auto;padding:0 14px}
+header{padding:26px 0 4px}
+.kick{color:var(--acc);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+h1{font-size:25px;margin:5px 0 2px}
+.lead{color:var(--sub);font-size:14px;margin:0}
+.sec{margin:24px 0 8px;font-size:13px;color:var(--ink);font-weight:800;display:flex;align-items:baseline;gap:9px}
+.sec .sc{font-size:11.5px;font-weight:600;color:var(--sub)}
+.hlgrp{margin:20px 0 6px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);font-weight:800}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:16px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;text-decoration:none;color:var(--ink);box-shadow:0 10px 26px -22px rgba(0,40,30,.5)}
+.tile .ti{display:block;width:34px;height:34px;color:var(--acc)}.tile .ti svg{display:block;width:100%;height:100%}
+.tile b{display:block;font-size:16px;margin:9px 0 1px}.tile span{font-size:12.5px;color:var(--sub)}
+.profile{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:12px}
+.field{display:flex;gap:9px;align-items:center;margin:7px 0}
+.field .k{font-size:11px;color:var(--sub);min-width:46px;text-transform:uppercase;letter-spacing:.06em}
+.field .v{flex:1;min-width:0;background:#f3f8f6;border:1px solid var(--line);border-radius:9px;padding:8px 10px;font-size:13.5px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.field .v span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px;margin:11px 0;box-shadow:0 10px 26px -22px rgba(0,40,30,.5)}
+.card.is-done{opacity:.55}.card.is-done .media,.card.is-done .btns,.card.is-done .row,.card.is-done .hlnote{display:none}
+.card.is-done h3{font-size:13px;margin:2px 0 0;font-weight:600;color:var(--sub)}
+.ck{position:absolute;top:11px;right:11px}.ck input{width:22px;height:22px;accent-color:var(--ok)}
+.meta{padding-right:30px}
+.kind{display:inline-block;background:#e3f1ee;color:var(--acc);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:20px}
+h3{font-size:16px;margin:8px 0 10px;line-height:1.25}
+.media{margin:2px 0 11px}
+.strip{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:5px;scrollbar-width:thin}
+.strip img{flex:0 0 60%;min-width:0;width:60%;scroll-snap-align:start;border-radius:11px;aspect-ratio:4/5;object-fit:cover;background:#08221c;border:1px solid var(--line)}
+.single{width:190px;border-radius:11px;aspect-ratio:4/5;object-fit:cover;display:block;border:1px solid var(--line)}
+.single.tall{aspect-ratio:9/16;width:150px}
+.reel{position:relative;display:block;width:150px;border-radius:11px;overflow:hidden;border:1px solid var(--line)}
+.reel img{width:100%;aspect-ratio:9/16;object-fit:cover;display:block}
+.pl{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:34px;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+.rl{position:absolute;left:0;right:0;bottom:0;background:rgba(8,34,28,.82);color:#cfeee4;font-size:10.5px;text-align:center;padding:4px 2px}
+.hint{font-size:11.5px;color:var(--sub);margin-top:6px}.hint b{color:var(--ink);font-weight:700}
+.row{display:flex;gap:8px;font-size:12.5px;color:var(--sub);padding:5px 0;border-top:1px solid #eef4f1}
+.row .rk{min-width:64px;font-weight:700;color:var(--ink);text-transform:uppercase;font-size:10.5px;letter-spacing:.06em;padding-top:1px}
+.row .rv{flex:1;line-height:1.4}.row .rv b{color:var(--ink)}
+.hlnote{font-size:12.5px;color:#4d6a61;background:#eef4f2;border:1px solid #d9e8e3;border-radius:9px;padding:9px 11px;margin:9px 0 0}.hlnote b{color:var(--ink)}
+.btns{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.b{display:inline-block;background:var(--acc);color:#fff;border:0;border-radius:8px;padding:9px 13px;font-size:12.5px;font-weight:700;cursor:pointer;text-decoration:none}
+.b.ghost{background:#eaf2ef;color:var(--acc)}.b.done{background:var(--ok)}
+.dd{display:inline-block}.dd summary{list-style:none}.dd summary::-webkit-details-marker{display:none}
+.ad{margin-top:6px;background:#eaf4f1;border-left:3px solid var(--hi);border-radius:7px;padding:8px 10px;font-size:12.5px;color:#28564a}
+.covers{display:flex;gap:14px;overflow-x:auto;padding:8px 2px 4px}
+.covers a{flex:0 0 auto;text-align:center;text-decoration:none}.covers img{width:88px;height:88px;border-radius:50%;display:block;border:1px solid #d9e8e3}
+.covers span{display:block;font-size:12px;font-weight:600;color:#4d6a61;margin-top:7px}
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;padding:9px 0 calc(9px + env(safe-area-inset-bottom))}
+.tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:var(--sub);font-size:10.5px;font-weight:700}
+.tabbar a svg{width:23px;height:23px}.tabbar a.on{color:var(--acc)}
+footer{color:var(--sub);font-size:12px;margin:22px 0 4px;text-align:center}footer a{color:var(--acc)}
+</style></head><body><div class="wrap">
+<header><div class="kick">PropSight Studio</div><h1>Stories & Highlights</h1><p class="lead">Build your Highlights into a menu of PropSight.</p></header>
+
+<div class="sec">Highlight covers<span class="sc">save each, set as your Highlight cover</span></div>
+<div class="covers"><a href="/press/studio/highlights/hl-start.png?b=1782925404" download><img src="/press/studio/highlights/hl-start.png?b=1782925404" alt=""><span>Start Here</span></a><a href="/press/studio/highlights/hl-value.png?b=1782925404" download><img src="/press/studio/highlights/hl-value.png?b=1782925404" alt=""><span>Value a Home</span></a><a href="/press/studio/highlights/hl-week.png?b=1782925404" download><img src="/press/studio/highlights/hl-week.png?b=1782925404" alt=""><span>This Week</span></a><a href="/press/studio/highlights/hl-guides.png?b=1782925404" download><img src="/press/studio/highlights/hl-guides.png?b=1782925404" alt=""><span>Guides</span></a><a href="/press/studio/highlights/hl-areas.png?b=1782925404" download><img src="/press/studio/highlights/hl-areas.png?b=1782925404" alt=""><span>Areas</span></a></div>
+<div class="sec">Showcase series<span class="sc">evergreen, post into your Highlights</span></div>
+<div class="hlgrp">Start Here</div>
+    <article class="card" data-id="sc1">
+      <label class="ck"><input type="checkbox" data-id="sc1"></label>
+      <div class="media"><img class="single tall" src="/press/studio/showcase/sc-1.png?b=1782925404" alt=""><div class="hint">Long-press to save</div></div>
+      <div class="hlnote"><b>Save to Highlight:</b> Start Here</div>
+      <div class="btns"><details class="dd"><summary class="b ghost">What to do</summary><div class="ad">Add a link sticker to propsight.sg.</div></details></div>
+    </article>
+    <article class="card" data-id="sc2">
+      <label class="ck"><input type="checkbox" data-id="sc2"></label>
+      <div class="media"><img class="single tall" src="/press/studio/showcase/sc-2.png?b=1782925404" alt=""><div class="hint">Long-press to save</div></div>
+      <div class="hlnote"><b>Save to Highlight:</b> Start Here</div>
+      <div class="btns"><details class="dd"><summary class="b ghost">What to do</summary><div class="ad">Add a link sticker to propsight.sg.</div></details></div>
+    </article>
+    <article class="card" data-id="sc3">
+      <label class="ck"><input type="checkbox" data-id="sc3"></label>
+      <div class="media"><img class="single tall" src="/press/studio/showcase/sc-3.png?b=1782925404" alt=""><div class="hint">Long-press to save</div></div>
+      <div class="hlnote"><b>Save to Highlight:</b> Start Here</div>
+      <div class="btns"><details class="dd"><summary class="b ghost">What to do</summary><div class="ad">Add a link sticker to propsight.sg/#tools.</div></details></div>
+    </article>
+    <article class="card" data-id="sc4">
+      <label class="ck"><input type="checkbox" data-id="sc4"></label>
+      <div class="media"><img class="single tall" src="/press/studio/showcase/sc-4.png?b=1782925404" alt=""><div class="hint">Long-press to save</div></div>
+      <div class="hlnote"><b>Save to Highlight:</b> Start Here</div>
+      <div class="btns"><details class="dd"><summary class="b ghost">What to do</summary><div class="ad">Add a link sticker to propsight.sg/essentials/.</div></details></div>
+    </article><div class="hlgrp">Value a Home</div>
+    <article class="card" data-id="sc5">
+      <label class="ck"><input type="checkbox" data-id="sc5"></label>
+      <div class="media"><img class="single tall" src="/press/studio/showcase/sc-5.png?b=1782925404" alt=""><div class="hint">Long-press to save</div></div>
+      <div class="hlnote"><b>Save to Highlight:</b> Value a Home</div>
+      <div class="btns"><details class="dd"><summary class="b ghost">What to do</summary><div class="ad">Add a link sticker to propsight.sg/tools/value.html.</div></details></div>
+    </article>
+    <article class="card" data-id="sc6">
+      <label class="ck"><input type="checkbox" data-id="sc6"></label>
+      <div class="media"><img class="single tall" src="/press/studio/showcase/sc-6.png?b=1782925404" alt=""><div class="hint">Long-press to save</div></div>
+      <div class="hlnote"><b>Save to Highlight:</b> Value a Home</div>
+      <div class="btns"><details class="dd"><summary class="b ghost">What to do</summary><div class="ad">Add a poll sticker: More or less than you think?</div></details></div>
+    </article>
+    <article class="card" data-id="sc7">
+      <label class="ck"><input type="checkbox" data-id="sc7"></label>
+      <div class="media"><img class="single tall" src="/press/studio/showcase/sc-7.png?b=1782925404" alt=""><div class="hint">Long-press to save</div></div>
+      <div class="hlnote"><b>Save to Highlight:</b> Value a Home</div>
+      <div class="btns"><details class="dd"><summary class="b ghost">What to do</summary><div class="ad">Add a link sticker to propsight.sg.</div></details></div>
+    </article><div class="hlgrp">Guides</div>
+    <article class="card" data-id="sc8">
+      <label class="ck"><input type="checkbox" data-id="sc8"></label>
+      <div class="media"><img class="single tall" src="/press/studio/showcase/sc-8.png?b=1782925404" alt=""><div class="hint">Long-press to save</div></div>
+      <div class="hlnote"><b>Save to Highlight:</b> Guides</div>
+      <div class="btns"><details class="dd"><summary class="b ghost">What to do</summary><div class="ad">Add a link sticker to propsight.sg/tools/grants.html.</div></details></div>
+    </article>
+    <article class="card" data-id="sc9">
+      <label class="ck"><input type="checkbox" data-id="sc9"></label>
+      <div class="media"><img class="single tall" src="/press/studio/showcase/sc-9.png?b=1782925404" alt=""><div class="hint">Long-press to save</div></div>
+      <div class="hlnote"><b>Save to Highlight:</b> Guides</div>
+      <div class="btns"><details class="dd"><summary class="b ghost">What to do</summary><div class="ad">Add a link sticker to propsight.sg/tools/stamp-duty.html.</div></details></div>
+    </article>
+    <article class="card" data-id="sc10">
+      <label class="ck"><input type="checkbox" data-id="sc10"></label>
+      <div class="media"><img class="single tall" src="/press/studio/showcase/sc-10.png?b=1782925404" alt=""><div class="hint">Long-press to save</div></div>
+      <div class="hlnote"><b>Save to Highlight:</b> Guides</div>
+      <div class="btns"><details class="dd"><summary class="b ghost">What to do</summary><div class="ad">Add a link sticker to propsight.sg/essentials/.</div></details></div>
+    </article>
+    <article class="card" data-id="sc11">
+      <label class="ck"><input type="checkbox" data-id="sc11"></label>
+      <div class="media"><img class="single tall" src="/press/studio/showcase/sc-11.png?b=1782925404" alt=""><div class="hint">Long-press to save</div></div>
+      <div class="hlnote"><b>Save to Highlight:</b> Guides</div>
+      <div class="btns"><details class="dd"><summary class="b ghost">What to do</summary><div class="ad">Add a link sticker to propsight.sg/tools/grants.html.</div></details></div>
+    </article><div class="hlgrp">Areas</div>
+    <article class="card" data-id="sc12">
+      <label class="ck"><input type="checkbox" data-id="sc12"></label>
+      <div class="media"><img class="single tall" src="/press/studio/showcase/sc-12.png?b=1782925404" alt=""><div class="hint">Long-press to save</div></div>
+      <div class="hlnote"><b>Save to Highlight:</b> Areas</div>
+      <div class="btns"><details class="dd"><summary class="b ghost">What to do</summary><div class="ad">Add a link sticker to propsight.sg/research/.</div></details></div>
+    </article>
+    <article class="card" data-id="sc13">
+      <label class="ck"><input type="checkbox" data-id="sc13"></label>
+      <div class="media"><img class="single tall" src="/press/studio/showcase/sc-13.png?b=1782925404" alt=""><div class="hint">Long-press to save</div></div>
+      <div class="hlnote"><b>Save to Highlight:</b> Areas</div>
+      <div class="btns"><details class="dd"><summary class="b ghost">What to do</summary><div class="ad">Add a link sticker to propsight.sg/research/.</div></details></div>
+    </article>
+<div class="sec">This week's stories<span class="sc">quick, 24 hours</span></div>
+
+    <article class="card" data-id="s1">
+      <label class="ck"><input type="checkbox" data-id="s1"></label>
+      <div class="meta"><span class="kind">Story</span></div>
+      <h3>Your flat may be worth more than the agent says.</h3>
+      <div class="media"><img class="single tall" src="/press/studio/s1.png?b=1782925404" alt=""><div class="hint">Long-press to save</div></div>
+      <div class="hlnote"><b>Save to Highlight:</b> Value a Home</div>
+      <div class="btns"><details class="dd"><summary class="b ghost">What to do</summary><div class="ad">Post as a Story. Add a POLL sticker, question: Worth more or less than you think?</div></details></div>
+    </article>
+    <article class="card" data-id="s2">
+      <label class="ck"><input type="checkbox" data-id="s2"></label>
+      <div class="meta"><span class="kind">Story</span></div>
+      <h3>The PropSight tools are free to use.</h3>
+      <div class="media"><img class="single tall" src="/press/studio/s2.png?b=1782925404" alt=""><div class="hint">Long-press to save</div></div>
+      <div class="hlnote"><b>Save to Highlight:</b> Start Here</div>
+      <div class="btns"><details class="dd"><summary class="b ghost">What to do</summary><div class="ad">Post as a Story. Add a link sticker to propsight.sg.</div></details></div>
+    </article>
+<footer>PropSight Studio, private &middot; refreshes weekly &middot; updated 1782925404</footer>
+</div><nav class="tabbar"><a href="/press/index.html?b=1782925404" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg><span>Home</span></a><a href="/press/reels.html?b=1782925404" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M10 9l5 3-5 3z"/></svg><span>Reels</span></a><a href="/press/carousels.html?b=1782925404" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="4" width="14" height="15" rx="2"/><path d="M3 7v14h13"/></svg><span>Carousels</span></a><a href="/press/stories.html?b=1782925404" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3.6 3.4"/><circle cx="12" cy="12" r="3.4"/></svg><span>Stories</span></a></nav>
+<script>
+function copy(t,b){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.classList.add('done');b.textContent='Copied';setTimeout(function(){b.classList.remove('done');b.textContent=o;},1300);});}
+document.querySelectorAll('[data-copy]').forEach(function(el){
+  if(el.matches('.b')){el.addEventListener('click',function(e){e.preventDefault();copy(el.getAttribute('data-copy'),el);});}
+  else{var btn=el.querySelector('.b');if(btn)btn.addEventListener('click',function(e){e.preventDefault();copy(el.getAttribute('data-copy'),btn);});}
+});
+var KEY='pstudio_done',done=JSON.parse(localStorage.getItem(KEY)||'{}');
+document.querySelectorAll('.ck input').forEach(function(c){c.checked=!!done[c.dataset.id];c.closest('.card').classList.toggle('is-done',!!done[c.dataset.id]);c.addEventListener('change',function(){done[c.dataset.id]=c.checked;localStorage.setItem(KEY,JSON.stringify(done));c.closest('.card').classList.toggle('is-done',c.checked);});});
+</script></body></html>
