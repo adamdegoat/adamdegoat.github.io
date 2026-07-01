@@ -200,7 +200,7 @@ window.PS_I18N_ZH = Object.assign(window.PS_I18N_ZH || {}, {
     return '<span class="rule">'+esc(kicker(it.tag))+'</span>'+lbl(it);
   }
   function leadCard(it){
-    return '<a class="lead" href="'+(it.slug?esc(it.slug)+'.html':esc(it.link))+'"+(it.slug?'':' target=_blank rel=noopener')>'+
+    return '<a class="lead" href="'+(it.slug?esc(it.slug)+'.html':esc(it.link))+'"'+(it.slug?'':' target="_blank" rel="noopener"')+'>'+
       '<div class="lead-stat"><span class="hot">'+tx('Hot this week','本周热点')+'</span>'+hook(it)+'</div>'+
       '<div class="lead-tx">'+
         '<span class="tag '+tagClass(it.tag)+'">'+esc(tagTx(it.tag))+'</span>'+
@@ -211,7 +211,7 @@ window.PS_I18N_ZH = Object.assign(window.PS_I18N_ZH || {}, {
       '</div></a>';
   }
   function gridCard(it){
-    return '<a class="card" href="'+(it.slug?esc(it.slug)+'.html':esc(it.link))+'"+(it.slug?'':' target=_blank rel=noopener')>'+
+    return '<a class="card" href="'+(it.slug?esc(it.slug)+'.html':esc(it.link))+'"'+(it.slug?'':' target="_blank" rel="noopener"')+'>'+
       '<div class="cmeta"><span class="dt">'+esc(it.date_label)+'</span>'+
         '<span class="src">'+esc(it.source)+'</span>'+
         '<span class="tag '+tagClass(it.tag)+'">'+esc(tagTx(it.tag))+'</span></div>'+
