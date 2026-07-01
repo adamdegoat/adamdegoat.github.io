@@ -94,13 +94,26 @@
     '.psnav-menu a.psm-door .psm-arr svg{width:15px;height:15px;stroke:#e6f3f0}' +
     '@media(max-width:1200px){.psnav-links{display:none}.psnav-door{display:none}.psnav-burger{display:flex}}@media(max-width:560px){.psnav-in{padding:0 13px;gap:8px}.psnav-brand b{font-size:18px}.psnav-brand .pm{width:31px;height:31px}.psnav-back{width:34px;height:34px}.psnav-signin{font-size:12.5px}.psnav-join{font-size:12.5px;padding:8px 12px}}' +
     /* shared site footer, legal links + the global "information only" disclaimer */
-    '.psftr{background:#e1f1ee;border-top:1px solid #d2e7e3;font-family:"Schibsted Grotesk",system-ui,sans-serif;padding:26px 0 calc(28px + env(safe-area-inset-bottom))}' +
-    '.psftr-in{max-width:1120px;margin:0 auto;padding:0 32px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}' +
-    '.psftr-links{display:flex;flex-wrap:wrap;gap:14px;align-items:center}' +
-    '.psftr-links a{font-size:13px;font-weight:600;color:#485a56;text-decoration:none;transition:color .2s}.psftr-links a:hover{color:#191512}' +
-    '.psftr-cr{font-size:12.5px;color:#758a86;font-weight:600}' +
-    '.psftr-disc{flex-basis:100%;font-size:12px;color:#758a86;line-height:1.5;margin-top:4px;max-width:78ch}' +
-    '@media(max-width:560px){.psftr-in{padding:0 20px}}' +
+    '.psf{background:linear-gradient(180deg,#0f231a,#0a1712);color:#cfe4dc;padding:60px 0 0;font-family:"Schibsted Grotesk",system-ui,sans-serif}' +
+    '.psf-in{max-width:1120px;margin:0 auto;padding:0 32px}' +
+    '.psf-cols{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:44px;padding-bottom:44px}' +
+    '.psf-logo{display:flex;align-items:center;gap:11px}' +
+    '.psf-mk{width:42px;height:42px;border-radius:11px;background:rgba(255,255,255,.08);display:grid;place-items:center;color:#84e6d4;flex:0 0 auto}' +
+    '.psf-mk svg{width:25px;height:25px}.psf-logo b{font-size:26px;color:#fff}' +
+    '.psf-tag{margin:16px 0 20px;font-size:14.5px;line-height:1.6;color:rgba(207,228,220,.72);max-width:310px}' +
+    '.psf-soc{display:flex;align-items:center;gap:11px;margin-bottom:16px}' +
+    '.psf-ico{width:40px;height:40px;border:1px solid rgba(255,255,255,.15);border-radius:11px;display:inline-flex;align-items:center;justify-content:center;color:rgba(207,228,220,.82);transition:.2s}' +
+    '.psf-ico svg{width:20px;height:20px}.psf-ico:hover{color:#84e6d4;border-color:rgba(132,230,212,.45)}' +
+    '.psf-inst{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:rgba(207,228,220,.82);text-decoration:none}' +
+    '.psf-inst svg{width:18px;height:18px}.psf-inst:hover{color:#84e6d4}' +
+    '.psf-col h4{font-size:14px;color:#d8b15e;margin-bottom:15px;font-weight:700}' +
+    '.psf-col a{display:block;font-size:14px;color:rgba(207,228,220,.82);text-decoration:none;padding:6px 0;transition:color .2s}.psf-col a:hover{color:#fff}' +
+    '.psf-bar{border-top:1px solid rgba(255,255,255,.1);padding:22px 0 calc(38px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:16px;flex-wrap:wrap}' +
+    '.psf-cr{font-size:13px;font-weight:700;color:#fff}' +
+    '.psf-disc{font-size:12.5px;color:rgba(207,228,220,.55);flex:1;min-width:240px;line-height:1.5}' +
+    '.psf-lang{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#cfe4dc;font-size:13px;font-weight:600;padding:8px 16px;border-radius:9px;cursor:pointer;font-family:inherit}.psf-lang:hover{background:rgba(255,255,255,.14)}' +
+    '@media(max-width:820px){.psf-cols{grid-template-columns:1fr 1fr;gap:36px 24px}.psf-brand{grid-column:1/-1}}' +
+    '@media(max-width:520px){.psf{padding-top:44px}.psf-in{padding:0 20px}}' +
     /* language toggle (desktop pill + mobile menu button) */
     '.psnav-lang{display:inline-flex;align-items:center;gap:6px;margin-left:8px;flex:none;background:#eaf6f4;border:1.5px solid #27513f;border-radius:30px;font-family:inherit;font-size:13px;font-weight:800;color:#1b3a2d;cursor:pointer;padding:8px 14px;white-space:nowrap;transition:background .2s,color .2s,transform .2s}' +
     '.psnav-lang svg{width:15px;height:15px;flex:none;stroke:currentColor;fill:none;stroke-width:1.7}' +
@@ -147,15 +160,38 @@
     '</a>' + '</div>';
 
   var year = new Date().getFullYear();
-  var footerHTML = '<footer class="psftr" id="psFtr"><div class="psftr-in">' +
-    '<span class="psftr-cr">© ' + year + ' PropSight</span>' +
-    '<nav class="psftr-links">' +
-      '<a href="' + BASE + '/adam/about/">' + t('About') + '</a>' +
-      '<a href="' + BASE + '/adam/privacy/">' + t('Privacy') + '</a>' +
-      '<a href="' + BASE + '/adam/terms/">' + t('Terms') + '</a>' +
-      '<a href="mailto:propsightsg@gmail.com">' + t('Contact') + '</a>' +
-    '</nav>' +
-    '<p class="psftr-disc">' + t('PropSight is information only, not financial or property advice. Figures are estimates; verify before acting.') + '</p>' +
+  var _MK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="7"/><path d="M16 16l5 5"/><path d="M7.5 11.5l3-3 3 3"/><path d="M9 11v3h3v-3"/></svg>';
+  var _TG = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3l-3.3 15.6c-.2 1.1-.9 1.4-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.2L18.5 6c.4-.3-.1-.5-.6-.2L7.4 12.6l-4.8-1.5c-1-.3-1-1 .2-1.5l18.7-7.2c.9-.3 1.6.2 1.4 1.9z"/></svg>';
+  var _IG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>';
+  var _PHN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10.5 18.5h3"/></svg>';
+  function _fl(href, label) { return '<a href="' + href + '">' + t(label) + '</a>'; }
+  var footerHTML = '<footer class="psf" id="psFtr"><div class="psf-in"><div class="psf-cols">' +
+    '<div class="psf-brand">' +
+      '<div class="psf-logo"><span class="psf-mk">' + _MK + '</span><b>PropSight</b></div>' +
+      '<p class="psf-tag">' + t('Singapore property, decoded. Every value, grant and guide, free.') + '</p>' +
+      '<div class="psf-soc"><a class="psf-ico" href="https://t.me/propsightsg" target="_blank" rel="noopener" aria-label="Telegram">' + _TG + '</a>' +
+        '<a class="psf-ico" href="https://instagram.com/propsightsg" target="_blank" rel="noopener" aria-label="Instagram">' + _IG + '</a></div>' +
+      '<a class="psf-inst" href="' + BASE + '/adam/install.html">' + _PHN + '<span>' + t('Add PropSight to your phone') + '</span></a>' +
+    '</div>' +
+    '<div class="psf-col"><h4>' + t('Tools') + '</h4>' +
+      _fl(BASE + '/adam/tools/value.html', 'Value a home') + _fl(BASE + '/adam/tools/afford.html', 'What you can afford') +
+      _fl(BASE + '/adam/tools/stamp-duty.html', 'Stamp duty') + _fl(BASE + '/adam/tools/grants.html', 'Grants') +
+      _fl(BASE + '/adam/tools/schools.html', 'Schools nearby') + _fl(BASE + '/adam/tools/sell.html', 'Selling') +
+      _fl(BASE + '/adam/tools/eligibility.html', 'Eligibility') +
+    '</div>' +
+    '<div class="psf-col"><h4>' + t('Explore') + '</h4>' +
+      _fl(BASE + '/thesis/', 'Research') + _fl(BASE + '/adam/notes/', 'Market Pulse') + _fl(BASE + '/adam/news/', 'News') +
+      _fl(BASE + '/adam/essentials/', 'Guide') + _fl(BASE + '/adam/launches/', 'New Launches') +
+    '</div>' +
+    '<div class="psf-col"><h4>' + t('Company') + '</h4>' +
+      _fl(BASE + '/adam/about/', 'About us') + _fl(BASE + '/adam/#talk', 'Contact') +
+      _fl(BASE + '/adam/privacy/', 'Privacy') + _fl(BASE + '/adam/terms/', 'Terms') +
+    '</div>' +
+    '</div>' +
+    '<div class="psf-bar"><span class="psf-cr">&copy; ' + year + ' PropSight</span>' +
+      '<span class="psf-disc">' + t('Built on official URA and HDB data. Indicative, not financial advice.') + '</span>' +
+      '<button class="psf-lang" data-ps-langtoggle type="button" aria-label="Switch language">中文</button>' +
+    '</div>' +
   '</div></footer>';
 
   // self-referential canonical → https://propsight.sg + pathname (index.html stripped)

@@ -26,6 +26,14 @@
     'PropSight is information only, not financial or property advice. Figures are estimates; verify before acting.':
       'PropSight 仅供参考，不构成财务或房产建议。所有数据均为估算，行动前请自行核实。',
 
+    // ── site footer (English-text keys; shared by homepage + sub-page footers) ──
+    'Explore': '探索', 'Company': '关于',
+    'Value a home': '房屋估价', 'What you can afford': '负担能力', 'Stamp duty': '印花税',
+    'Grants': '政府补贴', 'Schools nearby': '附近学校', 'Selling': '卖房', 'Eligibility': '购房资格',
+    'Add PropSight to your phone': '把 PropSight 添加到手机',
+    'Singapore property, decoded. Every value, grant and guide, free.': '新加坡房产，一目了然。估价、补贴、指南，全部免费。',
+    'Built on official URA and HDB data. Indicative, not financial advice.': '基于 URA 与 HDB 官方数据。仅供参考，非财务建议。',
+
     // ── homepage hero (explicit keys) ──
     'hero.eyebrow': '新加坡房产洞察',
     'hero.h1a': '新加坡房产，', 'hero.h1b': '一目了然。',
