@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-30T23:30:00.228724+08:00",
+  "updated": "2026-07-01T09:00:00.302735+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -169,30 +169,6 @@
   },
   "news": [
     {
-      "title": "UFC 329: Conor McGregor vs. Max Holloway card finalized with late replacement",
-      "link": "https://www.mmafighting.com/ufc/496826/ufc-329-conor-mcgregor-vs-max-holloway-card-finalized-with-late-replacement",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
-      "title": "UFC 329: Injury scratches fighter days before McGregor vs. Holloway 2 event",
-      "link": "https://www.mmafighting.com/ufc/496992/ufc-329-injury-scratches-fighter-days-before-mcgregor-vs-holloway-2-event",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
-      "title": "Bummer! UFC 329 just lost one of its best prelim fights, replacement search underway",
-      "link": "https://www.mmamania.com/ufc-fight-announcements/454183/bummer-ufc-329-just-lost-one-of-its-best-prelim-fights-ethyn-ewing-replacement-being-looked-for",
-      "source": "MMA Mania",
-      "priority": true
-    },
-    {
-      "title": "Oleksandr Usyk targeting Jon Jones for retirement fight (seriously)",
-      "link": "https://www.mmamania.com/boxing/454153/oleksandr-usyk-targeting-jon-jones-for-retirement-fight-seriously",
-      "source": "MMA Mania",
-      "priority": true
-    },
-    {
       "title": "Paulo Costa frustrated with delay in booking final fight on current UFC deal",
       "link": "https://www.sherdog.com/news/news/Paulo-Costa-frustrated-with-delay-in-booking-final-fight-on-current-UFC-deal-201691",
       "source": "Sherdog",
@@ -217,16 +193,46 @@
       "priority": true
     },
     {
-      "title": "Kamaru Usman hits back at Dricus du Plessis after recent UFC OKC booking claims",
-      "link": "https://www.bjpenn.com/mma-news/kamaru-usman/kamaru-usman-hits-back-dricus-du-plessis-ufc-okc-claims/?utm_source=rss&utm_medium=rss&utm_campaign=kamaru-usman-hits-back-dricus-du-plessis-ufc-okc-claims",
+      "title": "Bruce Buffer details updated timeframe for retirement as UFC’s Octagon announcer",
+      "link": "https://www.bjpenn.com/mma-news/bruce-buffer/bruce-buffer-details-updated-timeframe-for-retirement-as-ufcs-octagon-announcer/?utm_source=rss&utm_medium=rss&utm_campaign=bruce-buffer-details-updated-timeframe-for-retirement-as-ufcs-octagon-announcer",
       "source": "BJPenn",
       "priority": true
     },
     {
-      "title": "Arman Tsarukyan doesn’t plan to wait for UFC title shot, manager doesn’t expect Justin Gaethje to return anytime soon",
-      "link": "https://www.bjpenn.com/mma-news/ufc/arman-tsarukyan-doesnt-plan-to-wait-for-ufc-title-shot-manager-doesnt-expect-justin-gaethje-to-return-anytime-soon/?utm_source=rss&utm_medium=rss&utm_campaign=arman-tsarukyan-doesnt-plan-to-wait-for-ufc-title-shot-manager-doesnt-expect-justin-gaethje-to-return-anytime-soon",
-      "source": "BJPenn",
-      "priority": true
+      "title": "Anything but Fighting: Megan Olivi answers random questions",
+      "link": "https://www.mmafighting.com/videos/493660/anything-but-fighting-megan-olivi-answers-random-questions",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Tyson Fury announces opponent for July warm-up fight, before Anthony Joshua bout",
+      "link": "https://www.mmafighting.com/boxing/497087/tyson-fury-announces-opponent-for-july-warm-up-fight-before-anthony-joshua-bout",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Ian Machado Garry predicts when and how he finishes Islam Makhachev at UFC 330",
+      "link": "https://www.mmafighting.com/ufc/497060/ian-machado-garry-predicts-when-and-how-he-finishes-islam-makhachev-at-ufc-330",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Magomed ‘Chanco’ Zaynukov finally books UFC debut for next month",
+      "link": "https://www.mmafighting.com/ufc/497076/magomed-chanco-zaynukov-finally-books-ufc-debut-for-next-month",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Brendan Schaub blames Herb Dean for fighters fouling without consequence: ‘Herb ain’t going to do sh*t’",
+      "link": "https://www.mmafighting.com/ufc/497047/brendan-schaub-blames-herb-dean-for-fighters-fouling-without-consequence-herb-aint-going-to-do-sht",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Watch UFC champion Sean Strickland choke fan on a beach",
+      "link": "https://www.mmafighting.com/ufc/497028/watch-ufc-champion-sean-strickland-choke-fan-on-a-beach",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "On To the Next One: Matches to make after UFC Baku",
@@ -241,21 +247,15 @@
       "priority": false
     },
     {
-      "title": "PFL San Diego fight night weights: A.J. McKee gains over 25 pounds for his main event fight",
-      "link": "https://www.mmafighting.com/pfl/497012/pfl-san-diego-fight-night-weights-a-j-mckee-gains-over-25-pounds-for-his-main-event-fight",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "John Pork, ‘Contender Series’ hero who snuck Dillon Danis, books UFC debut for July 25 in Abu Dhabi",
-      "link": "https://www.mmamania.com/ufc-news/454209/john-pork-contender-series-dillon-danis-ufc-debut-july-25-abu-dhabi-mma",
+      "title": "Pic: Ilia Topuria shows face for the first time since UFC Freedom 250 beatdown",
+      "link": "https://www.mmamania.com/ufc-white-house-2026-fight-card-start-time-full-results-dana-white-conor-mcgregor-cbs-mma/454421/pic-ilia-topuria-shows-face-for-the-first-time-since-ufc-freedom-250-beatdown",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor versus Holloway this Sunday at 9 AM SGT—elite striking warfare awaits.",
-    "prefight": "McGregor and Holloway headline UFC fight week Sunday July 12 at 9 AM SGT.",
-    "results": "Spinning wheel kick and punches: Fiziev KOs Torres in the second round."
+    "week": "McGregor versus Holloway this Sunday — elite featherweights collide in a striking showcase.",
+    "prefight": "McGregor versus Holloway Sunday 9am SGT—featherweight supremacy on the line.",
+    "results": "Rafael Fiziev knocked out Manuel Torres with a devastating spinning wheel kick combo in round two."
   }
 }
