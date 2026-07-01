@@ -420,18 +420,18 @@ a.mq-i{text-decoration:none}a.mq-i:hover{opacity:.82}
 .foot p{color:var(--ink2);font-size:16px;margin:16px 0 30px}
 .foot .sig{margin-top:58px;color:var(--ink3);font-size:13px}
 
-@media(max-width:1200px){.nav .links{display:none}.navdoor{display:none}.navsignin{display:none}.menu-toggle{display:flex;flex:none}.navjoin{margin-left:auto}}
+@media(max-width:1200px){.nav .links{display:none}.navdoor{display:none}.menu-toggle{display:flex;flex:none}.navsignin{display:inline-block;margin-left:auto}.navjoin{margin-left:8px}.nav-install{display:none}}
 @media(max-width:880px){
  .wrap{padding:0 22px}.hero-in{grid-template-columns:1fr;gap:34px}.portrait{max-width:400px}
  .tools .tool{flex-basis:calc(50% - 8px);max-width:calc(50% - 8px)}.pov{padding:34px 24px}
  .nav-in{gap:9px}
  .navjoin{font-size:13px;padding:10px 15px}.nav-in .menu-toggle{margin-left:0}
- .nav-install{display:flex;margin-left:0}
+ .nav-install{display:none}
  .sec-h{flex-direction:column;align-items:flex-start}
  .about-in{grid-template-columns:1fr;gap:30px}.about-in .portrait{width:100%;max-width:320px;margin:0 auto;aspect-ratio:auto;min-height:300px}
  .lp-v{font-size:22px}
 }
-@media(max-width:560px){.lp-grid{grid-template-columns:1fr}.tools .tool{flex-basis:100%;max-width:100%}.nav-install{display:flex;width:36px;height:36px;margin-left:0}.nav-install svg{width:19px;height:19px}.navjoin{font-size:12.5px;padding:9px 13px}.nav-in{gap:8px}}
+@media(max-width:560px){.lp-grid{grid-template-columns:1fr}.tools .tool{flex-basis:100%;max-width:100%}.navjoin{font-size:12.5px;padding:9px 13px}.navsignin{font-size:12.5px}.nav-in{gap:7px}}
 @media(max-width:400px){.brand .mark{width:32px;height:32px}.brand b{font-size:19px}.brand{gap:8px}.nav-in{gap:5px}.navjoin{font-size:12px;padding:8px 10px}.navlang{padding:6px 9px;font-size:12.5px}.nav-install{width:33px;height:33px}.nav-install svg{width:17px;height:17px}}
 @media(max-width:359px){.nav-install{display:none}} /* sub-360 screens: too tight for 5 nav items; install stays in the hamburger menu */
 /* router: 3 compact cards across (icon + label) on tablet-portrait + phones, instead of tall stacked ones */
@@ -792,6 +792,7 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
   </button>
 </div></header>
 <div class="mobile-menu" id="mobileMenu">
+  <a class="mm mm-installtop" href="install.html" style="background:linear-gradient(92deg,rgba(15,122,130,.1),rgba(21,160,160,.05));border:1px solid rgba(21,160,160,.28);border-radius:13px;margin-bottom:8px"><span class="mm-t" style="display:flex;align-items:center;gap:12px"><span style="width:40px;height:40px;border-radius:11px;background:var(--brass);display:inline-flex;align-items:center;justify-content:center;color:#fff;flex:0 0 auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:21px;height:21px"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10.5 18.5h3"/></svg></span>Add PropSight to your phone</span><span class="mm-pill" style="background:var(--brass);color:#fff">1 tap</span></a>
   <a class="mm" href="#tools"><span class="mm-t">Tools</span></a>
   <a class="mm" href="/thesis/"><span class="mm-t">Research</span><span class="mm-pill">Featured</span></a>
   <a class="mm" href="launches/"><span class="mm-t">New Launches</span></a>
@@ -805,7 +806,6 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
   <div class="mm-foot">
     <button class="mm-cta ps-join-cta" type="button" style="border:0;font-family:inherit;cursor:pointer;width:100%" onclick="document.getElementById('menuToggle').click();window.PS&&PS.cta('menu')">Join free →</button>
     <button class="mm-signin ps-signin-cta" type="button" style="border:0;background:none;font-family:inherit;cursor:pointer;width:100%;font-size:14px;font-weight:600;color:var(--green2);padding:4px" onclick="document.getElementById('menuToggle').click();window.PS&&PS.login('menu')">Already a member? Sign in</button>
-    <a class="mm-install" href="install.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.5 18.5h3"/></svg>Add to your phone</a>
     <a class="mm-cta" href="https://wa.me/6583219747" style="background:transparent;color:var(--ink);border:1px solid var(--line2);box-shadow:none">Let's talk →</a>
   </div>
 </div>

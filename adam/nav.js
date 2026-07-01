@@ -70,7 +70,7 @@
     '@media(prefers-reduced-motion:reduce){.psnav-door .pd-dot{animation:none}}' +
     '.psnav-door.cur{border-color:#27513f;background:linear-gradient(180deg,#27513f,#1b3a2d)}' +
     '.psnav-door.cur .pd-top{color:#e6f3f0}.psnav-door.cur .pd-sub{color:rgba(230,243,240,.82)}' +
-    '@media(max-width:860px){.psnav-signin{display:none}.psnav-join{margin-left:auto;margin-right:10px;font-size:13px;padding:9px 15px}}' +
+    '@media(max-width:860px){.psnav-signin{display:inline-block;margin-left:auto}.psnav-join{margin-left:9px;margin-right:10px;font-size:13px;padding:9px 15px}}' +
     '.psnav-back{display:none;margin-right:2px;width:40px;height:40px;flex:none;align-items:center;justify-content:center;border:1px solid #bfdbd5;border-radius:11px;background:rgba(255,255,255,.6);cursor:pointer;color:#1b3a2d;-webkit-tap-highlight-color:transparent;transition:background .2s}' +
     '.psnav-back svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}' +
     '.psnav-back:active{background:#dbefeb}' +
@@ -92,7 +92,7 @@
     '.psnav-menu a.psm-door .psm-door-d{display:block;font-family:"Schibsted Grotesk",system-ui,sans-serif;font-size:13px;color:#576b67;margin-top:4px}' +
     '.psnav-menu a.psm-door .psm-arr{flex:none;width:34px;height:34px;border-radius:50%;background:#27513f;display:flex;align-items:center;justify-content:center}' +
     '.psnav-menu a.psm-door .psm-arr svg{width:15px;height:15px;stroke:#e6f3f0}' +
-    '@media(max-width:1200px){.psnav-links{display:none}.psnav-door{display:none}.psnav-burger{display:flex}}@media(max-width:560px){.psnav-in{padding:0 20px}.psnav-brand b{font-size:20px}.psnav-brand .pm{width:34px;height:34px}}' +
+    '@media(max-width:1200px){.psnav-links{display:none}.psnav-door{display:none}.psnav-burger{display:flex}}@media(max-width:560px){.psnav-in{padding:0 13px;gap:8px}.psnav-brand b{font-size:18px}.psnav-brand .pm{width:31px;height:31px}.psnav-back{width:34px;height:34px}.psnav-signin{font-size:12.5px}.psnav-join{font-size:12.5px;padding:8px 12px}}' +
     /* shared site footer, legal links + the global "information only" disclaimer */
     '.psftr{background:#e1f1ee;border-top:1px solid #d2e7e3;font-family:"Schibsted Grotesk",system-ui,sans-serif;padding:26px 0 calc(28px + env(safe-area-inset-bottom))}' +
     '.psftr-in{max-width:1120px;margin:0 auto;padding:0 32px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}' +
