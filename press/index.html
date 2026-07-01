@@ -1,10 +1,10 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="robots" content="noindex,nofollow"><title>PropSight Studio</title><style>
+<meta name="robots" content="noindex,nofollow"><meta http-equiv="Cache-Control" content="no-cache"><title>PropSight Studio</title><style>
 :root{--bg:#eef3f1;--bg2:#dce7e3;--card:#fff;--ink:#143a2d;--sub:#5c7268;--acc:#0f7a82;--hi:#2f9a8f;--line:#d7e3de;--ok:#1f9d6b}
 *{box-sizing:border-box}
 body{margin:0;background:linear-gradient(168deg,var(--bg),var(--bg2));color:var(--ink);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;min-height:100vh;padding:env(safe-area-inset-top) 0 70px;-webkit-font-smoothing:antialiased}
-.wrap{max-width:680px;margin:0 auto;padding:0 14px}
+.wrap{max-width:620px;margin:0 auto;padding:0 14px}
 header{padding:28px 0 4px}
 .kick{color:var(--acc);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
 h1{font-size:25px;margin:5px 0 2px}
@@ -18,26 +18,28 @@ h1{font-size:25px;margin:5px 0 2px}
 .field .k{font-size:11px;color:var(--sub);min-width:46px;text-transform:uppercase;letter-spacing:.06em}
 .field .v{flex:1;min-width:0;background:#f3f8f6;border:1px solid var(--line);border-radius:9px;padding:8px 10px;font-size:13.5px;display:flex;justify-content:space-between;align-items:center;gap:8px}
 .field .v span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.card{position:relative;display:flex;gap:11px;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:11px;margin:9px 0;box-shadow:0 10px 26px -22px rgba(0,40,30,.5)}
-.card.is-done{opacity:.46}
-.ck{position:absolute;top:9px;right:9px}.ck input{width:20px;height:20px;accent-color:var(--ok)}
-.th{width:58px;height:74px;flex:none;border-radius:9px;overflow:hidden;background:#08221c;display:block;position:relative}
-.th img{width:100%;height:100%;object-fit:cover;display:block}
-.th.video{aspect-ratio:auto}
-.th .pl{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;text-shadow:0 1px 6px rgba(0,0,0,.6)}
-.th.empty{background:#dde9e4}
-.bd{flex:1;min-width:0;padding-right:24px}
-.meta{font-size:11.5px;color:var(--sub);font-weight:600}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px;margin:11px 0;box-shadow:0 10px 26px -22px rgba(0,40,30,.5)}
+.card.is-done{opacity:.5}
+.ck{position:absolute;top:11px;right:11px}.ck input{width:22px;height:22px;accent-color:var(--ok)}
+.meta{font-size:11.5px;color:var(--sub);font-weight:600;padding-right:30px}
 .meta .o{display:inline-block;min-width:18px;height:18px;line-height:18px;text-align:center;background:var(--acc);color:#fff;border-radius:50%;font-size:11px;font-weight:800;margin-right:7px}
 .meta b{color:var(--ink)}
-h3{font-size:15.5px;margin:4px 0 8px;line-height:1.25}
+h3{font-size:16px;margin:5px 0 10px;line-height:1.25}
+.media{margin:2px 0 11px}
+.strip{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:5px;scrollbar-width:thin}
+.strip img{flex:0 0 64%;scroll-snap-align:start;border-radius:11px;aspect-ratio:4/5;object-fit:cover;background:#08221c;border:1px solid var(--line)}
+.single{width:190px;border-radius:11px;aspect-ratio:4/5;object-fit:cover;display:block;border:1px solid var(--line)}
+.single.tall{aspect-ratio:9/16;width:150px}
+.reel{position:relative;display:block;width:150px;border-radius:11px;overflow:hidden;border:1px solid var(--line)}
+.reel img{width:100%;aspect-ratio:9/16;object-fit:cover;display:block}
+.pl{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:34px;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+.rl{position:absolute;left:0;right:0;bottom:0;background:rgba(8,34,28,.82);color:#cfeee4;font-size:10.5px;text-align:center;padding:4px 2px}
+.hint{font-size:11.5px;color:var(--sub);margin-top:6px}
 .btns{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
-.b{display:inline-block;background:var(--acc);color:#fff;border:0;border-radius:8px;padding:6px 10px;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none}
-.b.ghost{background:#eaf2ef;color:var(--acc)}
-.b.done{background:var(--ok)}
+.b{display:inline-block;background:var(--acc);color:#fff;border:0;border-radius:8px;padding:8px 12px;font-size:12.5px;font-weight:700;cursor:pointer;text-decoration:none}
+.b.ghost{background:#eaf2ef;color:var(--acc)}.b.done{background:var(--ok)}
 .dd{display:inline-block}.dd summary{list-style:none}.dd summary::-webkit-details-marker{display:none}
-.links{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}.links a{background:#eaf2ef;color:var(--acc);font-size:11.5px;font-weight:700;padding:5px 8px;border-radius:7px;text-decoration:none}
-.ad{margin-top:6px;background:#eaf4f1;border-left:3px solid var(--hi);border-radius:7px;padding:8px 10px;font-size:12.5px;color:#28564a;max-width:420px}
+.ad{margin-top:6px;background:#eaf4f1;border-left:3px solid var(--hi);border-radius:7px;padding:8px 10px;font-size:12.5px;color:#28564a}
 table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:13px}
 td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
 td.d{font-weight:700;width:46px}td.t{color:var(--sub);width:66px;white-space:nowrap}
@@ -45,10 +47,10 @@ td.d{font-weight:700;width:46px}td.t{color:var(--sub);width:66px;white-space:now
 footer{color:var(--sub);font-size:12px;margin-top:24px;text-align:center}footer a{color:var(--acc)}
 </style></head><body><div class="wrap">
 <header><div class="kick">PropSight Studio</div><h1>Your Instagram plan</h1>
-<p class="lead">Follow the numbers in order. Each card shows the day, time, and what to post. Copy the caption, save the image, post, tick done.</p>
+<p class="lead">Follow the numbers in order. Copy the caption, long-press the image to save, post, tick done.</p>
 <div class="prog"><span id="pt">0 of 8 done</span><div class="bar"><i id="pb"></i></div></div></header>
 
-<div class="banner"><b>Start here.</b> Your account is empty, so set up the profile, then post the foundation set in number order over the next few days.</div>
+<div class="banner"><b>Start here.</b> Set up the profile, then post the foundation set in number order over the next few days.</div>
 
 <div class="sec">Profile</div>
 <div class="profile">
@@ -59,112 +61,73 @@ footer{color:var(--sub);font-size:12px;margin-top:24px;text-align:center}footer 
 
 <div class="sec">Post in this order</div>
 
-  <article class="card" data-id="f1">
-    <label class="ck"><input type="checkbox" data-id="f1"></label>
-    <a class="th video" href="/reels/" target="_blank"><img src="/press/studio/f1.png" alt=""><span class="pl">&#9654;</span></a>
-    <div class="bd">
+    <article class="card" data-id="f1">
+      <label class="ck"><input type="checkbox" data-id="f1"></label>
       <div class="meta"><span class="o">1</span>Thu 2 Jul &middot; 8:00pm &middot; <b>Reel (pin this)</b></div>
       <h3>PropSight, see Singapore property clearly.</h3>
-      <div class="btns">
-        <button class="b" data-copy="Singapore property, seen clearly. PropSight values any HDB or condo on real recent URA and HDB sales, shows what you can afford, stamp duty, grants, and schools nearby, and lets you ask Aillie anything about any home. Free to use. Start at propsight.sg, link in bio.
+      <div class="media"><a class="reel" href="/reels/?b=1782876216" target="_blank"><img src="/press/studio/f1.png?b=1782876216" alt=""><span class="pl">&#9654;</span><span class="rl">Open Reel to save</span></a></div>
+      <div class="btns"><button class="b" data-copy="Singapore property, seen clearly. PropSight values any HDB or condo on real recent URA and HDB sales, shows what you can afford, stamp duty, grants, and schools nearby, and lets you ask Aillie anything about any home. Free to use. Start at propsight.sg, link in bio.
 
 Save this for your next property move.
 
-新加坡房产，一目了然。免费查任何组屋或公寓的真实成交价。">Copy caption</button>
-        <button class="b ghost" data-copy="#singaporeproperty #hdb #sgcondo #propertysingapore #singaporerealestate">Tags</button><a class="b" href="/reels/" target="_blank">Get Reel</a><details class="dd"><summary class="b ghost">Ads tip</summary><div class="ad">After it gets a few days of organic plays, boost SGD 10 for 4 days. Target: Singapore, age 28 to 48, interests property, HDB, mortgage. Objective: profile visits.</div></details>
-      </div>
-    </div>
-  </article>
-  <article class="card" data-id="f2">
-    <label class="ck"><input type="checkbox" data-id="f2"></label>
-    <a class="th" href="/press/studio/f2-1.png" target="_blank"><img src="/press/studio/f2-1.png" alt=""></a>
-    <div class="bd">
+新加坡房产，一目了然。免费查任何组屋或公寓的真实成交价。">Copy caption</button><button class="b ghost" data-copy="#singaporeproperty #hdb #sgcondo #propertysingapore #singaporerealestate">Tags</button><details class="dd"><summary class="b ghost">Ads tip</summary><div class="ad">After it gets a few days of organic plays, boost SGD 10 for 4 days. Target: Singapore, age 28 to 48, interests property, HDB, mortgage. Objective: profile visits.</div></details></div>
+    </article>
+    <article class="card" data-id="f2">
+      <label class="ck"><input type="checkbox" data-id="f2"></label>
       <div class="meta"><span class="o">2</span>Fri 3 Jul &middot; 1:00pm &middot; <b>Carousel</b></div>
       <h3>Everything you need to read a Singapore home, free.</h3>
-      <div class="btns">
-        <button class="b" data-copy="Everything you need to read a Singapore home, in one free place. Value on real recent sales, your real budget, stamp duty, grants, eligibility, what a seller walks away with, and schools nearby. All free to use. Try it, link in bio.">Copy caption</button>
-        <button class="b ghost" data-copy="#singaporeproperty #hdbresale #sgcondo #propertytips #singaporehome">Tags</button><details class="dd"><summary class="b">Save 6 slides</summary><div class="links"><a href="/press/studio/f2-1.png" download>Slide 1</a><a href="/press/studio/f2-2.png" download>Slide 2</a><a href="/press/studio/f2-3.png" download>Slide 3</a><a href="/press/studio/f2-4.png" download>Slide 4</a><a href="/press/studio/f2-5.png" download>Slide 5</a><a href="/press/studio/f2-6.png" download>Slide 6</a></div></details>
-      </div>
-    </div>
-  </article>
-  <article class="card" data-id="f3">
-    <label class="ck"><input type="checkbox" data-id="f3"></label>
-    <a class="th" href="/press/studio/f3.png" target="_blank"><img src="/press/studio/f3.png" alt=""></a>
-    <div class="bd">
+      <div class="media"><div class="strip"><img src="/press/studio/f2-1.png?b=1782876216" alt="slide 1"><img src="/press/studio/f2-2.png?b=1782876216" alt="slide 2"><img src="/press/studio/f2-3.png?b=1782876216" alt="slide 3"><img src="/press/studio/f2-4.png?b=1782876216" alt="slide 4"><img src="/press/studio/f2-5.png?b=1782876216" alt="slide 5"><img src="/press/studio/f2-6.png?b=1782876216" alt="slide 6"></div><div class="hint">Swipe, long-press each slide to save (6 slides)</div></div>
+      <div class="btns"><button class="b" data-copy="Everything you need to read a Singapore home, in one free place. Value on real recent sales, your real budget, stamp duty, grants, eligibility, what a seller walks away with, and schools nearby. All free to use. Try it, link in bio.">Copy caption</button><button class="b ghost" data-copy="#singaporeproperty #hdbresale #sgcondo #propertytips #singaporehome">Tags</button></div>
+    </article>
+    <article class="card" data-id="f3">
+      <label class="ck"><input type="checkbox" data-id="f3"></label>
       <div class="meta"><span class="o">3</span>Sat 4 Jul &middot; 7:00pm &middot; <b>Single post</b></div>
       <h3>The data behind every number.</h3>
-      <div class="btns">
-        <button class="b" data-copy="Every private caveat from URA. Every HDB resale. OneMap school and amenity records. Read weekly and turned into plain answers. That is what sits behind every PropSight number, so the figures always agree with each other. Look up any home free at propsight.sg, link in bio.">Copy caption</button>
-        <button class="b ghost" data-copy="#singaporeproperty #uradata #hdb #propertydata #singaporerealestate">Tags</button><a class="b" href="/press/studio/f3.png" download>Save image</a>
-      </div>
-    </div>
-  </article>
-  <article class="card" data-id="f4">
-    <label class="ck"><input type="checkbox" data-id="f4"></label>
-    <a class="th" href="/press/studio/f4-1.png" target="_blank"><img src="/press/studio/f4-1.png" alt=""></a>
-    <div class="bd">
+      <div class="media"><img class="single" src="/press/studio/f3.png?b=1782876216" alt=""><div class="hint">Long-press the image to save</div></div>
+      <div class="btns"><button class="b" data-copy="Every private caveat from URA. Every HDB resale. OneMap school and amenity records. Read weekly and turned into plain answers. That is what sits behind every PropSight number, so the figures always agree with each other. Look up any home free at propsight.sg, link in bio.">Copy caption</button><button class="b ghost" data-copy="#singaporeproperty #uradata #hdb #propertydata #singaporerealestate">Tags</button></div>
+    </article>
+    <article class="card" data-id="f4">
+      <label class="ck"><input type="checkbox" data-id="f4"></label>
       <div class="meta"><span class="o">4</span>Sun 5 Jul &middot; 1:00pm &middot; <b>Carousel</b></div>
       <h3>5 grants first-time buyers quietly leave on the table.</h3>
-      <div class="btns">
-        <button class="b" data-copy="First-time buyers in Singapore can stack more housing grants than most people realise. Here are the ones people quietly leave on the table. Check exactly what you qualify for, free, link in bio.
+      <div class="media"><div class="strip"><img src="/press/studio/f4-1.png?b=1782876216" alt="slide 1"><img src="/press/studio/f4-2.png?b=1782876216" alt="slide 2"><img src="/press/studio/f4-3.png?b=1782876216" alt="slide 3"><img src="/press/studio/f4-4.png?b=1782876216" alt="slide 4"><img src="/press/studio/f4-5.png?b=1782876216" alt="slide 5"></div><div class="hint">Swipe, long-press each slide to save (5 slides)</div></div>
+      <div class="btns"><button class="b" data-copy="First-time buyers in Singapore can stack more housing grants than most people realise. Here are the ones people quietly leave on the table. Check exactly what you qualify for, free, link in bio.
 
-Save this before you book a flat.">Copy caption</button>
-        <button class="b ghost" data-copy="#hdbgrants #firsttimebuyer #bto #hdbresale #singaporeproperty">Tags</button><details class="dd"><summary class="b">Save 5 slides</summary><div class="links"><a href="/press/studio/f4-1.png" download>Slide 1</a><a href="/press/studio/f4-2.png" download>Slide 2</a><a href="/press/studio/f4-3.png" download>Slide 3</a><a href="/press/studio/f4-4.png" download>Slide 4</a><a href="/press/studio/f4-5.png" download>Slide 5</a></div></details><details class="dd"><summary class="b ghost">Ads tip</summary><div class="ad">Strong save-bait. If it performs organically, boost SGD 15 for 5 days. Target Singapore, age 26 to 40, interests BTO, HDB, first home.</div></details>
-      </div>
-    </div>
-  </article>
-  <article class="card" data-id="f5">
-    <label class="ck"><input type="checkbox" data-id="f5"></label>
-    <a class="th" href="/press/studio/f5.png" target="_blank"><img src="/press/studio/f5.png" alt=""></a>
-    <div class="bd">
+Save this before you book a flat.">Copy caption</button><button class="b ghost" data-copy="#hdbgrants #firsttimebuyer #bto #hdbresale #singaporeproperty">Tags</button><details class="dd"><summary class="b ghost">Ads tip</summary><div class="ad">Strong save-bait. If it performs organically, boost SGD 15 for 5 days. Target Singapore, age 26 to 40, interests BTO, HDB, first home.</div></details></div>
+    </article>
+    <article class="card" data-id="f5">
+      <label class="ck"><input type="checkbox" data-id="f5"></label>
       <div class="meta"><span class="o">5</span>Mon 6 Jul &middot; 7:00pm &middot; <b>Single post</b></div>
       <h3>Ask Aillie about any home.</h3>
-      <div class="btns">
-        <button class="b" data-copy="Ask Aillie. Type any question about any Singapore home, what it is worth, whether you can afford it, what the area is like, and get a plain answer built on official data. Free to use at propsight.sg, link in bio. Aillie is property intelligence, here to help you decide, not to sell you anything.">Copy caption</button>
-        <button class="b ghost" data-copy="#singaporeproperty #propertyintelligence #hdb #sgcondo #homebuyingsingapore">Tags</button><a class="b" href="/press/studio/f5.png" download>Save image</a>
-      </div>
-    </div>
-  </article>
-  <article class="card" data-id="f6">
-    <label class="ck"><input type="checkbox" data-id="f6"></label>
-    <a class="th" href="/press/studio/f6.png" target="_blank"><img src="/press/studio/f6.png" alt=""></a>
-    <div class="bd">
+      <div class="media"><img class="single" src="/press/studio/f5.png?b=1782876216" alt=""><div class="hint">Long-press the image to save</div></div>
+      <div class="btns"><button class="b" data-copy="Ask Aillie. Type any question about any Singapore home, what it is worth, whether you can afford it, what the area is like, and get a plain answer built on official data. Free to use at propsight.sg, link in bio. Aillie is property intelligence, here to help you decide, not to sell you anything.">Copy caption</button><button class="b ghost" data-copy="#singaporeproperty #propertyintelligence #hdb #sgcondo #homebuyingsingapore">Tags</button></div>
+    </article>
+    <article class="card" data-id="f6">
+      <label class="ck"><input type="checkbox" data-id="f6"></label>
       <div class="meta"><span class="o">6</span>Tue 7 Jul &middot; 7:00pm &middot; <b>Single post</b></div>
       <h3>Free to use.</h3>
-      <div class="btns">
-        <button class="b" data-copy="The tools are free to use. Value a home, work out your real budget, check stamp duty and grants, and see what you would walk away with as a seller. All on real URA and HDB data. propsight.sg, link in bio.">Copy caption</button>
-        <button class="b ghost" data-copy="#singaporeproperty #hdb #propertycalculator #sgcondo #singaporerealestate">Tags</button><a class="b" href="/press/studio/f6.png" download>Save image</a>
-      </div>
-    </div>
-  </article>
-
+      <div class="media"><img class="single" src="/press/studio/f6.png?b=1782876216" alt=""><div class="hint">Long-press the image to save</div></div>
+      <div class="btns"><button class="b" data-copy="The tools are free to use. Value a home, work out your real budget, check stamp duty and grants, and see what you would walk away with as a seller. All on real URA and HDB data. propsight.sg, link in bio.">Copy caption</button><button class="b ghost" data-copy="#singaporeproperty #hdb #propertycalculator #sgcondo #singaporerealestate">Tags</button></div>
+    </article>
 <div class="sec">Stories, every day</div>
 
-  <article class="card" data-id="s1">
-    <label class="ck"><input type="checkbox" data-id="s1"></label>
-    <a class="th" href="/press/studio/s1.png" target="_blank"><img src="/press/studio/s1.png" alt=""></a>
-    <div class="bd">
+    <article class="card" data-id="s1">
+      <label class="ck"><input type="checkbox" data-id="s1"></label>
       <div class="meta"><span class="o">S</span>Every day &middot; anytime 12pm to 9pm &middot; <b>Story</b></div>
       <h3>Your flat may be worth more than the agent says.</h3>
-      <div class="btns"><a class="b" href="/press/studio/s1.png" download>Save image</a>
-        <details class="dd"><summary class="b ghost">Note</summary><div class="ad">Post as a Story. Add a poll sticker: Higher or lower than you think?</div></details></div>
-    </div>
-  </article>
-  <article class="card" data-id="s2">
-    <label class="ck"><input type="checkbox" data-id="s2"></label>
-    <a class="th" href="/press/studio/s2.png" target="_blank"><img src="/press/studio/s2.png" alt=""></a>
-    <div class="bd">
+      <div class="media"><img class="single tall" src="/press/studio/s1.png?b=1782876216" alt=""><div class="hint">Long-press to save</div></div>
+      <div class="btns"><details class="dd"><summary class="b ghost">What to do</summary><div class="ad">Post as a Story. Add a poll sticker: Higher or lower than you think?</div></details></div>
+    </article>
+    <article class="card" data-id="s2">
+      <label class="ck"><input type="checkbox" data-id="s2"></label>
       <div class="meta"><span class="o">S</span>Every day &middot; anytime 12pm to 9pm &middot; <b>Story</b></div>
       <h3>The PropSight tools are free to use.</h3>
-      <div class="btns"><a class="b" href="/press/studio/s2.png" download>Save image</a>
-        <details class="dd"><summary class="b ghost">Note</summary><div class="ad">Post as a Story. Add a link sticker to propsight.sg.</div></details></div>
-    </div>
-  </article>
-
+      <div class="media"><img class="single tall" src="/press/studio/s2.png?b=1782876216" alt=""><div class="hint">Long-press to save</div></div>
+      <div class="btns"><details class="dd"><summary class="b ghost">What to do</summary><div class="ad">Post as a Story. Add a link sticker to propsight.sg.</div></details></div>
+    </article>
 <div class="sec">After launch, weekly rhythm</div>
 <table><tbody><tr><td class='d'>Mon</td><td class='t'>8:00pm</td><td><span class='tt'>Reel</span></td><td>Data hook, for example: this flat looks cheaper, it is not.</td></tr><tr><td class='d'>Tue</td><td class='t'>1:00pm</td><td><span class='tt'>Carousel</span></td><td>Educational, for example: 5 costs buyers forget.</td></tr><tr><td class='d'>Wed</td><td class='t'>8:00pm</td><td><span class='tt'>Reel</span></td><td>Town spotlight, hyper-local, one neighbourhood.</td></tr><tr><td class='d'>Thu</td><td class='t'>8:00pm</td><td><span class='tt'>Reel</span></td><td>Myth-bust or a client win.</td></tr><tr><td class='d'>Fri</td><td class='t'>7:00pm</td><td><span class='tt'>Single post</span></td><td>Lighter, lifestyle or a single sharp number.</td></tr><tr><td class='d'>Sat</td><td class='t'>11:00am</td><td><span class='tt'>Carousel</span></td><td>Local guide or the weekly Market Pulse.</td></tr><tr><td class='d'>Daily</td><td class='t'>-</td><td><span class='tt'>Stories</span></td><td>1 to 2 a day, and share each new post to your Story.</td></tr></tbody></table>
-
-<footer>PropSight Studio, private. <a href="/reels/">Reels gallery</a></footer>
+<footer>PropSight Studio, private. <a href="/reels/?b=1782876216">Reels gallery</a> &middot; updated 1782876216</footer>
 </div>
 <script>
 function copy(t,b){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.classList.add('done');b.textContent='Copied';setTimeout(function(){b.classList.remove('done');b.textContent=o;},1300);});}
