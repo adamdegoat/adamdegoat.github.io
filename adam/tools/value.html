@@ -316,11 +316,17 @@ document.querySelectorAll('#mode .opt').forEach(o=>o.onclick=()=>{
 });
 
 // HDB address autocomplete: type a street → pick → resolves the town + flat types behind the scenes
+// normalise HDB abbreviations so full words match the abbreviated street data
+// (BUKIT to BT, STREET to ST, etc). Applied to both the query and the street data.
+const _ADDR_EXP={BT:'BUKIT',ST:'STREET',RD:'ROAD',AVE:'AVENUE',DR:'DRIVE',CRES:'CRESCENT',NTH:'NORTH',STH:'SOUTH',JLN:'JALAN',CTRL:'CENTRAL',LOR:'LORONG',CL:'CLOSE',UPP:'UPPER',PK:'PARK',PL:'PLACE'};
+function normAddr(s){ return (s||'').toUpperCase().replace(/\b(BT|ST|RD|AVE|DR|CRES|NTH|STH|JLN|CTRL|LOR|CL|UPP|PK|PL)\b/g, m=>_ADDR_EXP[m]); }
 $('#addr').addEventListener('input',e=>{
   const v=e.target.value.trim().toUpperCase(); addrTown=''; addrStreet=''; acur=-1;
   $('#ftype').innerHTML='<option value="">Pick your street first…</option>';
   if(v.length<2||!STREET_LIST.length){$('#addrac').classList.remove('on');return;}
-  addrList=STREET_LIST.filter(o=>o.s.includes(v)).slice(0,8);
+  const nv=normAddr(v);
+  // match street OR town, both normalised, so "Bukit Batok" finds "BT BATOK …" and the whole town
+  addrList=STREET_LIST.filter(o=>normAddr(o.s).includes(nv) || (o.t&&normAddr(o.t).includes(nv))).slice(0,8);
   renderAddrAc();
 });
 function renderAddrAc(){
