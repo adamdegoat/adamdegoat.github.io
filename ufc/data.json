@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-01T21:00:00.237473+08:00",
+  "updated": "2026-07-01T23:30:00.235879+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -229,9 +229,9 @@
       "priority": false
     },
     {
-      "title": "On To the Next One: Matches to make after UFC Baku",
-      "link": "https://www.mmafighting.com/ufc/496906/on-to-the-next-one-matches-to-make-after-ufc-baku",
-      "source": "MMA Fighting",
+      "title": "Paddy Pimblett happy to fight ‘fat featherweight’ Ilia Topuria, if ‘El Matador’ has the cojones",
+      "link": "https://www.mmamania.com/ufc-news/454482/paddy-pimblett-happy-to-fight-fat-featherweight-ilia-topuria-if-el-matador-has-the-cojones",
+      "source": "MMA Mania",
       "priority": false
     },
     {
@@ -254,8 +254,8 @@
     }
   ],
   "hooks": {
-    "week": "McGregor and Holloway collide Sunday 12 July, 9 AM SGT—featherweight striking fireworks incoming.",
-    "prefight": "McGregor versus Holloway this Sunday in Singapore—featherweight fireworks at 9 AM.",
-    "results": "Fiziev stuns Torres with a spinning wheel kick, finishes with punches in round two."
+    "week": "McGregor meets Holloway Sunday 9am SGT. Two combat legends clash for glory.",
+    "prefight": "McGregor vs Holloway this Sunday at 9 AM SGT — fight week is here.",
+    "results": "Spinning wheel kick ignites the combination: Fiziev finishes Torres in round 2."
   }
 }
