@@ -477,7 +477,7 @@ async function genLanded(){
     rowHTML('Wider area for context',`${area(d)} ${type||'landed'}: typically ${fmt(Caveat.median(aPrices))} at $${Math.round(Caveat.median(aPsf))} psf, across ${areaRows.length} recent sale${areaRows.length===1?'':'s'}`,''),
   ].join('');
   renderLandedComps(rows,street);
-  $('#note').innerHTML=`Showing the ${Math.min(rows.length,14)} most recent of ${rows.length} sale${rows.length===1?'':'s'} on ${title(street)}. Because every landed plot is different, treat these as <b>reference points</b>, not a single valuation. Want a proper read on a specific house? <a href="https://wa.me/6583219747" style="color:var(--green2);font-weight:700">Message us</a>.`;
+  $('#note').innerHTML=`Showing the ${Math.min(rows.length,14)} most recent of ${rows.length} sale${rows.length===1?'':'s'} on ${title(street)}. Because every landed plot is different, treat these as <b>reference points</b>, not a single valuation. Want a proper read on a specific house? <a href="https://wa.me/6583219747" style="color:#7fd0bb;font-weight:700;text-decoration:underline">Message us</a>.`;
   $('#res').classList.add('on');$('#res').scrollIntoView({behavior:'smooth',block:'start'});
 }
 function renderLandedComps(rows,street){
@@ -507,7 +507,7 @@ async function genNewLaunch(){
     rowHTML('Latest sale logged','most recent new-sale month',mLabel(p.last)),
   ].join('');
   $('#compsWrap').innerHTML='';
-  $('#note').innerHTML=`This is the developer's <b>new-sale benchmark</b> for ${title(p.project)}, drawn from ${p.txns.toLocaleString()} transaction${p.txns===1?'':'s'}, not a resale valuation. New-launch pricing usually sits above comparable resale stock nearby. Comparing a specific unit or stack? <a href="https://wa.me/6583219747" style="color:var(--green2);font-weight:700">Message us</a>.`;
+  $('#note').innerHTML=`This is the developer's <b>new-sale benchmark</b> for ${title(p.project)}, drawn from ${p.txns.toLocaleString()} transaction${p.txns===1?'':'s'}, not a resale valuation. New-launch pricing usually sits above comparable resale stock nearby. Comparing a specific unit or stack? <a href="https://wa.me/6583219747" style="color:#7fd0bb;font-weight:700;text-decoration:underline">Message us</a>.`;
   $('#res').classList.add('on');$('#res').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
@@ -519,7 +519,7 @@ function render(r,label,subj){
   $('#tot').textContent=`${fmtM(r.low)}, ${fmtM(r.high)}`;
   const rough = r.confidence==='Lower' || (r.n_comps||99) < 4;
   $('#totsub').innerHTML = rough
-    ? '<b style="color:#b4452f">'+T("Limited recent sales for this one.")+'</b> '+T("Treat the range above as a rough guide only, not a reliable valuation. For an accurate figure,")+' <a href="https://wa.me/6583219747" style="color:var(--green2);font-weight:700">'+T("get a proper valuation")+'</a>'+(zh?'。':'.')
+    ? '<b style="color:#f0c9b6">'+T("Limited recent sales for this one.")+'</b> '+T("Treat the range above as a rough guide only, not a reliable valuation. For an accurate figure,")+' <a href="https://wa.me/6583219747" style="color:#7fd0bb;font-weight:700;text-decoration:underline">'+T("get a proper valuation")+'</a>'+(zh?'。':'.')
     : '<b>'+label+'</b>'+(r.area_assumed?T(", the likely range, from real recent comparable sales (typical unit size, add yours to sharpen)."):T(", the likely range, from real recent comparable sales."));
   const cm=T({High:'High confidence',Medium:'Fair confidence',Lower:'Indicative'}[r.confidence]||r.confidence);
   $('#conf').className='chip '+r.confidence;$('#conftxt').textContent=cm;
@@ -534,7 +534,7 @@ function render(r,label,subj){
   const cTxt=T({High:'lots of recent, similar sales nearby, this is a solid estimate',
     Medium:'a fair number of comparable sales, a reasonable guide',
     Lower:'fewer or more varied sales, so treat this as a rough guide'}[r.confidence]||'');
-  $('#note').innerHTML='<b>'+cm+(zh?'：':': ')+'</b>'+cTxt+(zh?'。':'.')+' '+(r.area_assumed?T('Add your floor area above for a tighter number.')+' ':'')+T('Want it pinned to your exact unit, floor and condition?')+' <a href="https://wa.me/6583219747" style="color:var(--green2);font-weight:700">'+T('Message us')+'</a>'+(zh?'。':'.');
+  $('#note').innerHTML='<b>'+cm+(zh?'：':': ')+'</b>'+cTxt+(zh?'。':'.')+' '+(r.area_assumed?T('Add your floor area above for a tighter number.')+' ':'')+T('Want it pinned to your exact unit, floor and condition?')+' <a href="https://wa.me/6583219747" style="color:#7fd0bb;font-weight:700;text-decoration:underline">'+T('Message us')+'</a>'+(zh?'。':'.');
   $('#res').classList.add('on');$('#res').scrollIntoView({behavior:'smooth',block:'start'});
 }
 function rowHTML(k,sub,v){return `<div class="row"><span class="k">${k}${sub?`<small>${sub}</small>`:''}</span>${v?`<span class="v">${v}</span>`:''}</div>`;}
