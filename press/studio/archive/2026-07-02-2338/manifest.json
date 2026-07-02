@@ -1,0 +1,64 @@
+{
+  "date": "2 Jul 2026",
+  "ts": "2026-07-02-2338",
+  "items": [
+    {
+      "type": "Reel",
+      "kind": "Tool demo",
+      "hook": "See your exact stamp duty and ABSD before you commit, free",
+      "caption": "See your exact stamp duty and ABSD before you commit, free. propsight.sg, link in bio.",
+      "cap_zh": "在下手前先看清你的印花税和 ABSD，免费。propsight.sg，链接在简介。",
+      "tags": "#singaporeproperty #hdb #sgproperty #propertysingapore #hdbresale #propertytech",
+      "video": "studio/archive/2026-07-02-2338/media/psreel-f1.mp4",
+      "media": [
+        "studio/archive/2026-07-02-2338/media/rl1.png"
+      ]
+    },
+    {
+      "type": "Carousel",
+      "kind": "Property news",
+      "hook": "Private home prices edge up 0.5% in Q2 while HDB resale falls for second straight quarte",
+      "caption": "Private home prices edge up 0.5% in Q2 while HDB resale falls for second straight quarter. The two markets are pulling in opposite directions: private homes are holding their value while HDB resale flats are gradually getting cheaper. Full story and free tools at propsight.sg, link in bio.\n\nKnow someone flat hunting? Send it their way.",
+      "cap_zh": "Q2私宅价格微涨0.5%，HDB转售价连续第二季下跌。两个市场走势截然相反：私宅价格守稳，HDB转售价格则在慢慢走软。 完整报道和免费工具在 propsight.sg，链接在简介。\n\n认识正在找房的人？转给他。",
+      "tags": "#singaporeproperty #hdb #propertynews #sgproperty #propertysingapore",
+      "media": [
+        "studio/archive/2026-07-02-2338/media/ins1-1.png",
+        "studio/archive/2026-07-02-2338/media/ins1-2.png",
+        "studio/archive/2026-07-02-2338/media/ins1-3.png"
+      ]
+    },
+    {
+      "type": "Carousel",
+      "kind": "Tips & grants",
+      "hook": "5 grants first-time buyers quietly leave on the table.",
+      "caption": "First-time buyers can stack more housing grants than most realise. Here are the ones people quietly miss. Check exactly what you qualify for, free, link in bio. Save this before you book.",
+      "cap_zh": "第一次买房，能拿的津贴比很多人想的多。这些是大家默默错过的。免费查你符合哪些，链接在简介。买房前先存起来。",
+      "tags": "#hdbgrants #firsttimebuyer #bto #hdbresale #singaporeproperty",
+      "media": [
+        "studio/archive/2026-07-02-2338/media/c1-1.png",
+        "studio/archive/2026-07-02-2338/media/c1-2.png",
+        "studio/archive/2026-07-02-2338/media/c1-3.png",
+        "studio/archive/2026-07-02-2338/media/c1-4.png",
+        "studio/archive/2026-07-02-2338/media/c1-5.png"
+      ]
+    },
+    {
+      "type": "Story",
+      "kind": "Story",
+      "hook": "Your flat may be worth more than the agent says.",
+      "highlight": "Value a Home",
+      "media": [
+        "studio/archive/2026-07-02-2338/media/s1.png"
+      ]
+    },
+    {
+      "type": "Story",
+      "kind": "Story",
+      "hook": "The PropSight tools are free to use.",
+      "highlight": "Start Here",
+      "media": [
+        "studio/archive/2026-07-02-2338/media/s2.png"
+      ]
+    }
+  ]
+}
