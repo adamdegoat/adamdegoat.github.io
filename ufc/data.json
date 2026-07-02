@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-01T23:30:00.235879+08:00",
+  "updated": "2026-07-02T09:00:00.238055+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -181,10 +181,40 @@
       "priority": true
     },
     {
-      "title": "Bruce Buffer details updated timeframe for retirement as UFC’s Octagon announcer",
-      "link": "https://www.bjpenn.com/mma-news/bruce-buffer/bruce-buffer-details-updated-timeframe-for-retirement-as-ufcs-octagon-announcer/?utm_source=rss&utm_medium=rss&utm_campaign=bruce-buffer-details-updated-timeframe-for-retirement-as-ufcs-octagon-announcer",
+      "title": "Neil Magny extends UFC welterweight record as UFC 330 return booked",
+      "link": "https://www.bjpenn.com/mma-news/neil-magny/neil-magny-extends-welterweight-record-ufc-330/?utm_source=rss&utm_medium=rss&utm_campaign=neil-magny-extends-welterweight-record-ufc-330",
       "source": "BJPenn",
       "priority": true
+    },
+    {
+      "title": "Dustin Poirier’s arrest post-retirement shouldn’t define him, says ex-UFC star Matt Brown: “He recognized the problem”",
+      "link": "https://www.bjpenn.com/mma-news/ufc/dustin-poirier-arrest-post-retirement-shouldnt-define-him-says-ex-ufc-star-matt-brown-he-recognized-the-problem/?utm_source=rss&utm_medium=rss&utm_campaign=dustin-poirier-arrest-post-retirement-shouldnt-define-him-says-ex-ufc-star-matt-brown-he-recognized-the-problem",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
+      "title": "Anything but Fighting: Heidi Androl remembers Strikeforce",
+      "link": "https://www.mmafighting.com/ufc/474919/anything-but-fighting-heidi-androl-remembers-strikeforce",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Shogun Rua explains why he’s glad to fight Glover Teixeira outside the UFC: ‘It worked out for the best’",
+      "link": "https://www.mmafighting.com/boxing/497166/shogun-rua-explains-why-hes-glad-to-fight-glover-teixeira-outside-the-ufc-it-worked-out-for-the-best",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Justin Gaethje believed UFC undisputed title win was possible despite past results: ‘I never really lost hope’",
+      "link": "https://www.mmafighting.com/ufc/497160/justin-gaethje-believed-ufc-undisputed-title-win-was-possible-despite-past-results-i-never-really-lost-hope",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Diego Lopes ‘in a bit of a tough spot’ at featherweight, wants next fight to be against a top UFC lightweight",
+      "link": "https://www.mmafighting.com/ufc/495854/diego-lopes-in-a-bit-of-a-tough-spot-at-featherweight-wants-next-fight-to-be-against-a-top-ufc-lightweight",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "Morning Report | Daniel Cormier explains why Brock Lesnar fight fell through",
@@ -205,57 +235,27 @@
       "priority": false
     },
     {
-      "title": "Ian Machado Garry predicts when and how he finishes Islam Makhachev at UFC 330",
-      "link": "https://www.mmafighting.com/ufc/497060/ian-machado-garry-predicts-when-and-how-he-finishes-islam-makhachev-at-ufc-330",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Magomed ‘Chanco’ Zaynukov finally books UFC debut for next month",
-      "link": "https://www.mmafighting.com/ufc/497076/magomed-chanco-zaynukov-finally-books-ufc-debut-for-next-month",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Brendan Schaub blames Herb Dean for fighters fouling without consequence: ‘Herb ain’t going to do sh*t’",
-      "link": "https://www.mmafighting.com/ufc/497047/brendan-schaub-blames-herb-dean-for-fighters-fouling-without-consequence-herb-aint-going-to-do-sht",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Watch UFC champion Sean Strickland choke fan on a beach",
-      "link": "https://www.mmafighting.com/ufc/497028/watch-ufc-champion-sean-strickland-choke-fan-on-a-beach",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Paddy Pimblett happy to fight ‘fat featherweight’ Ilia Topuria, if ‘El Matador’ has the cojones",
-      "link": "https://www.mmamania.com/ufc-news/454482/paddy-pimblett-happy-to-fight-fat-featherweight-ilia-topuria-if-el-matador-has-the-cojones",
+      "title": "Video: BKFC fighter pelts opponent with cannoli, nearly starts chair-swinging brawl | BKFC Liberty Brawl",
+      "link": "https://www.mmamania.com/bare-knuckle-boxing-results-rules-ppv/454553/video-bkfc-fighter-pelts-opponent-with-cannoli-nearly-starts-chair-swinging-brawl-bkfc-liberty-brawl",
       "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "Video: Regional fighter left furious after opponent immediately taps to … motorcycle crash?!?",
-      "link": "https://www.mmamania.com/regional-mma-news-results/454409/video-regional-fighter-left-furious-after-opponent-immediately-taps-to-motorcycle-crash",
+      "title": "Umar Nurmagomedov vs. Song Yadong headlines UFC Shanghai on Aug. 29",
+      "link": "https://www.mmamania.com/ufc-fight-announcements/454545/umar-nurmagomedov-vs-song-yadong-headlines-ufc-shanghai-on-aug-29",
       "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "Pic: Sunglass-wearing Ilia Topuria shows face for first time since UFC Freedom 250 beatdown",
-      "link": "https://www.mmamania.com/ufc-white-house-2026-fight-card-start-time-full-results-dana-white-conor-mcgregor-cbs-mma/454421/pic-ilia-topuria-shows-face-for-the-first-time-since-ufc-freedom-250-beatdown",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "‘On the UFC payroll’ Michael Bisping claps back at ‘horse sh*t’ Eddie Hearn – ‘I care about fighters!’",
-      "link": "https://www.mmamania.com/latest-news/454417/on-the-ufc-payroll-michael-bisping-claps-back-at-horse-sht-eddie-hearn-i-care-about-fighters",
+      "title": "WBC creating ‘exclusive belt’ for Tyson Fury’s Thailand fight, which you can only watch At Home With The Furys (literally)",
+      "link": "https://www.mmamania.com/boxing/454539/wbc-creating-exclusive-belt-tyson-furys-thailand-fight-watch-at-home-with-the-furys",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor meets Holloway Sunday 9am SGT. Two combat legends clash for glory.",
-    "prefight": "McGregor vs Holloway this Sunday at 9 AM SGT — fight week is here.",
-    "results": "Spinning wheel kick ignites the combination: Fiziev finishes Torres in round 2."
+    "week": "McGregor versus Holloway drops Sunday — two legendary strikers ready to rewrite history.",
+    "prefight": "Sunday at 9 AM SGT: McGregor meets Holloway in what could be legendary.",
+    "results": "Fiziev KOs Torres with spinning wheel kick and punches in round two."
   }
 }
