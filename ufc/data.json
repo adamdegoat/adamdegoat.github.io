@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-02T09:00:00.238055+08:00",
+  "updated": "2026-07-02T13:00:00.288232+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -235,6 +235,12 @@
       "priority": false
     },
     {
+      "title": "Several fun fights added to UFC 330, including the all-time Welterweight wins leader",
+      "link": "https://www.mmamania.com/ufc-fight-announcements/454564/several-fun-fights-added-to-ufc-330-including-the-all-time-welterweight-wins-leader",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
       "title": "Video: BKFC fighter pelts opponent with cannoli, nearly starts chair-swinging brawl | BKFC Liberty Brawl",
       "link": "https://www.mmamania.com/bare-knuckle-boxing-results-rules-ppv/454553/video-bkfc-fighter-pelts-opponent-with-cannoli-nearly-starts-chair-swinging-brawl-bkfc-liberty-brawl",
       "source": "MMA Mania",
@@ -245,17 +251,11 @@
       "link": "https://www.mmamania.com/ufc-fight-announcements/454545/umar-nurmagomedov-vs-song-yadong-headlines-ufc-shanghai-on-aug-29",
       "source": "MMA Mania",
       "priority": false
-    },
-    {
-      "title": "WBC creating ‘exclusive belt’ for Tyson Fury’s Thailand fight, which you can only watch At Home With The Furys (literally)",
-      "link": "https://www.mmamania.com/boxing/454539/wbc-creating-exclusive-belt-tyson-furys-thailand-fight-watch-at-home-with-the-furys",
-      "source": "MMA Mania",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor versus Holloway drops Sunday — two legendary strikers ready to rewrite history.",
-    "prefight": "Sunday at 9 AM SGT: McGregor meets Holloway in what could be legendary.",
-    "results": "Fiziev KOs Torres with spinning wheel kick and punches in round two."
+    "week": "McGregor versus Holloway—this Sunday's featherweight war brings the heat to fight week.",
+    "prefight": "McGregor and Holloway collide July 12 – two icons competing for lightweight supremacy.",
+    "results": "Fiziev plants a spinning wheel kick, follows with punches, and Torres hits the mat round two."
   }
 }
