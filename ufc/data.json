@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-02T13:00:00.288232+08:00",
+  "updated": "2026-07-02T21:00:00.192813+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -169,6 +169,18 @@
   },
   "news": [
     {
+      "title": "Valter Walker says Shara ‘Bullet’ repeatedly pulled hair during training",
+      "link": "https://www.sherdog.com/news/news/Valter-Walker-says-Shara-Bullet-repeatedly-pulled-hair-during-training-201731",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
+      "title": "UFC 329 Shakeup: late replacement steps in to face Cody Durden",
+      "link": "https://www.sherdog.com/news/news/UFC-329-Shakeup-late-replacement-steps-in-to-face-Cody-Durden-201730",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
       "title": "UFC champ wants to fight PFL ace Johnny Eblen for the title",
       "link": "https://www.sherdog.com/news/news/UFC-champ-wants-to-fight-PFL-ace-Johnny-Eblen-for-the-title-201715",
       "source": "Sherdog",
@@ -191,6 +203,12 @@
       "link": "https://www.bjpenn.com/mma-news/ufc/dustin-poirier-arrest-post-retirement-shouldnt-define-him-says-ex-ufc-star-matt-brown-he-recognized-the-problem/?utm_source=rss&utm_medium=rss&utm_campaign=dustin-poirier-arrest-post-retirement-shouldnt-define-him-says-ex-ufc-star-matt-brown-he-recognized-the-problem",
       "source": "BJPenn",
       "priority": true
+    },
+    {
+      "title": "UFC 330 adds new fights to Islam Makhachev vs. Ian Machado Garry card",
+      "link": "https://www.mmafighting.com/ufc/497240/ufc-330-adds-new-fights-to-islam-makhachev-vs-ian-machado-garry-card",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "Anything but Fighting: Heidi Androl remembers Strikeforce",
@@ -229,33 +247,15 @@
       "priority": false
     },
     {
-      "title": "Tyson Fury announces opponent for July warm-up fight, before Anthony Joshua bout",
-      "link": "https://www.mmafighting.com/boxing/497087/tyson-fury-announces-opponent-for-july-warm-up-fight-before-anthony-joshua-bout",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Several fun fights added to UFC 330, including the all-time Welterweight wins leader",
-      "link": "https://www.mmamania.com/ufc-fight-announcements/454564/several-fun-fights-added-to-ufc-330-including-the-all-time-welterweight-wins-leader",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "Video: BKFC fighter pelts opponent with cannoli, nearly starts chair-swinging brawl | BKFC Liberty Brawl",
-      "link": "https://www.mmamania.com/bare-knuckle-boxing-results-rules-ppv/454553/video-bkfc-fighter-pelts-opponent-with-cannoli-nearly-starts-chair-swinging-brawl-bkfc-liberty-brawl",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "Umar Nurmagomedov vs. Song Yadong headlines UFC Shanghai on Aug. 29",
-      "link": "https://www.mmamania.com/ufc-fight-announcements/454545/umar-nurmagomedov-vs-song-yadong-headlines-ufc-shanghai-on-aug-29",
+      "title": "Jon Jones details ‘perfect storm’ behind Alex Pereira’s UFC White House defeat: ‘Came in too big’",
+      "link": "https://www.mmamania.com/latest-news/454600/jon-jones-details-perfect-storm-behind-alex-pereiras-ufc-white-house-defeat-came-in-too-big",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor versus Holloway—this Sunday's featherweight war brings the heat to fight week.",
-    "prefight": "McGregor and Holloway collide July 12 – two icons competing for lightweight supremacy.",
-    "results": "Fiziev plants a spinning wheel kick, follows with punches, and Torres hits the mat round two."
+    "week": "McGregor and Holloway collide Sunday 9am SGT—two elite strikers, one legendary night.",
+    "prefight": "McGregor clashes Holloway this Sunday 9 AM SGT—fight week ignites now.",
+    "results": "Fiziev knocks out Torres with spinning wheel kick and punches in round two."
   }
 }
