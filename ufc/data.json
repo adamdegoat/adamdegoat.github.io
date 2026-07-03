@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-03T13:00:00.376503+08:00",
+  "updated": "2026-07-03T21:00:03.073531+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -14,7 +14,7 @@
     "location": "Las Vegas, USA",
     "highlights": "https://www.youtube.com/results?search_query=UFC%20329%20McGregor%20vs%20Holloway%202%20highlights",
     "desc": "Nearly 13 years after their initial encounter in 2013—long before either man captured UFC gold—Conor \"The Notorious\" McGregor and Max \"Blessed\" Holloway meet again. This blockbuster clash marks McGregor's highly awaited return to the Octagon since suffering a leg injury in 2021, while also serving as Holloway's official competitive debut in the welterweight division following his spectacular BMF title run.  \r\n\r\nThe co-main event promises fireworks as fan-favorite Paddy \"The Baddy\" Pimblett takes on the dangerous French finisher Benoît Saint Denis in a crucial lightweight matchup.",
-    "badge": "https://r2.thesportsdb.com/images/media/league/badge/bewnz31717531281.png",
+    "badge": "https://www.thesportsdb.com/images/media/event/thumb/n0e9ex1783062734.jpg",
     "bouts": [],
     "finished": false,
     "espn_final": false
@@ -175,18 +175,6 @@
       "priority": true
     },
     {
-      "title": "Valter Walker says Shara ‘Bullet’ repeatedly pulled hair during training",
-      "link": "https://www.sherdog.com/news/news/Valter-Walker-says-Shara-Bullet-repeatedly-pulled-hair-during-training-201731",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "UFC 329 Shakeup: late replacement steps in to face Cody Durden",
-      "link": "https://www.sherdog.com/news/news/UFC-329-Shakeup-late-replacement-steps-in-to-face-Cody-Durden-201730",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
       "title": "Quillan Salkilld booked for first UFC main event against Top 10 lightweight",
       "link": "https://www.bjpenn.com/mma-news/quillan-salkilld/quillan-salkilld-booked-first-ufc-main-event/?utm_source=rss&utm_medium=rss&utm_campaign=quillan-salkilld-booked-first-ufc-main-event",
       "source": "BJPenn",
@@ -251,11 +239,23 @@
       "link": "https://www.mmafighting.com/latest-news/497205/mma-fightings-2026-fighter-of-the-midyear-justin-gaethje",
       "source": "MMA Fighting",
       "priority": false
+    },
+    {
+      "title": "Paddy Pimblett explains viral post-fight vomit clip, worst weight-cutting mistakes",
+      "link": "https://www.mmafighting.com/latest-news/497223/paddy-pimblett-explains-what-happened-in-viral-post-fight-vomit-clip-worst-weight-cutting-mistakes",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Joe Lauzon reveals UFC’s reaction after explaining his desire to come back for BKFC fight",
+      "link": "https://www.mmafighting.com/bkfc/497235/joe-lauzon-explains-why-hes-returning-for-bkfc-fight-reveals-ufcs-reaction-to-his-comeback",
+      "source": "MMA Fighting",
+      "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor versus Holloway this Sunday 9 AM SGT - the most anticipated clash awaits.",
-    "prefight": "McGregor versus Holloway this Sunday 9 AM SGT – elite striking chaos incoming.",
-    "results": "Fiziev finishes Torres with spinning wheel kick then punches, round two knockout."
+    "week": "Conor versus Max: the rivalry reignites Sunday 12 July, 9 AM SGT.",
+    "prefight": "McGregor vs Holloway this Sunday—two legends clash for glory.",
+    "results": "Fiziev stops Torres in round 2 with a spinning wheel kick and punches."
   }
 }
