@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-03T21:00:03.073531+08:00",
+  "updated": "2026-07-03T23:30:00.301882+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -199,10 +199,10 @@
       "priority": true
     },
     {
-      "title": "Dustin Poirier’s arrest post-retirement shouldn’t define him, says ex-UFC star Matt Brown: “He recognized the problem”",
-      "link": "https://www.bjpenn.com/mma-news/ufc/dustin-poirier-arrest-post-retirement-shouldnt-define-him-says-ex-ufc-star-matt-brown-he-recognized-the-problem/?utm_source=rss&utm_medium=rss&utm_campaign=dustin-poirier-arrest-post-retirement-shouldnt-define-him-says-ex-ufc-star-matt-brown-he-recognized-the-problem",
-      "source": "BJPenn",
-      "priority": true
+      "title": "Max Holloway responds to Justin Gaethje’s comments about potential rematch after beating Ilia Topuria at UFC White House",
+      "link": "https://www.mmafighting.com/ufc/497345/max-holloway-responds-to-justin-gaethjes-comments-about-potential-rematch-after-beating-ilia-topuria-at-ufc-white-house",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "BKFC president David Feldman explodes on ‘f*cking punk’ fighter after trying to shove his opponent off stage during weigh-ins",
@@ -247,15 +247,15 @@
       "priority": false
     },
     {
-      "title": "Joe Lauzon reveals UFC’s reaction after explaining his desire to come back for BKFC fight",
-      "link": "https://www.mmafighting.com/bkfc/497235/joe-lauzon-explains-why-hes-returning-for-bkfc-fight-reveals-ufcs-reaction-to-his-comeback",
-      "source": "MMA Fighting",
+      "title": "Video captures Donald Trump’s responds to tiny UFC White House arena plans: ‘That’s terrible’",
+      "link": "https://www.mmamania.com/ufc-white-house-2026-fight-card-start-time-full-results-dana-white-conor-mcgregor-cbs-mma/454712/video-captures-donald-trumps-responds-to-tiny-ufc-white-house-arena-plans-thats-terrible",
+      "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Conor versus Max: the rivalry reignites Sunday 12 July, 9 AM SGT.",
-    "prefight": "McGregor vs Holloway this Sunday—two legends clash for glory.",
-    "results": "Fiziev stops Torres in round 2 with a spinning wheel kick and punches."
+    "week": "McGregor versus Holloway Sunday 9am SGT. Elite featherweight striking coming this week.",
+    "prefight": "McGregor versus Holloway Sunday morning 9am SGT - pure featherweight fireworks incoming.",
+    "results": "Fiziev brutally finishes Torres with a spinning wheel kick and punches in round two."
   }
 }
