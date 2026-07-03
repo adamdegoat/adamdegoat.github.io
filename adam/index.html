@@ -2037,7 +2037,7 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
     btn.classList.add('cbtn-attn');
   }
   form.onsubmit=e=>{e.preventDefault();const v=inp.value.trim();if(!v)return;inp.value='';if(pendingAsk){pendingAsk(v);return;}handle(v);};
-  // nudge: rotating input placeholder (only while empty + unfocused) — translated in zh
+  // nudge: rotating input placeholder (only while empty + unfocused), translated in zh
   const _tz=s=>(window.PSI18N&&window.PSI18N.t?window.PSI18N.t(s):s);
   if(inp)inp.placeholder=_tz(inp.placeholder);
   let phi=0;setInterval(()=>{if(inp&&document.activeElement!==inp&&!inp.value){phi=(phi+1)%PH.length;inp.placeholder=_tz(PH[phi]);}},4200);
