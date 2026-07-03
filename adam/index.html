@@ -12,12 +12,12 @@
 <meta property="og:type" content="website"><meta property="og:site_name" content="PropSight"><meta property="og:url" content="https://propsight.sg/"><meta property="og:title" content="PropSight · See Singapore property clearly"><meta property="og:description" content="Free Singapore property intelligence: value any home on real recent sales, see what you can afford, research any project, and ask Aillie. Just the real numbers."><meta property="og:image" content="https://adamdegoat.github.io/adam/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="PropSight · See Singapore property clearly"><meta name="twitter:description" content="Value any HDB or condo on real recent sales. Free to use."><meta name="twitter:image" content="https://adamdegoat.github.io/adam/og.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b3a2d'/%3E%3Cg fill='none' stroke='%23cfeae0' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='13.5' cy='13.5' r='9.5'/%3E%3Cpath d='M8.75 16 L13.5 11 L18.25 16'/%3E%3Cpath d='M10.5 18.2 L16.5 18.2'/%3E%3C/g%3E%3Ccircle cx='13.5' cy='16.5' r='1' fill='%2315a0a0'/%3E%3Cpath d='M20.25 20.25 L26.5 26.5' fill='none' stroke='%2315a0a0' stroke-width='2.8' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#eaf6f4;--gtex:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='gn'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.06 0 0 0 0 0.05 0 0 0 0 0.02 0 0 0 0.22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23gn)'/%3E%3C/svg%3E");--bg2:#e0f1ee;--ink:#191512;--ink2:#485a56;--ink3:#536b66;--line:#d2e7e3;--line2:#bfdbd5;
  --green:#1b3a2d;--green2:#27513f;--green3:#0f231a;--brass:#0f7a82;--brass2:#15a0a0;--brass3:#7fd0bb;
- --serif:'Fraunces',Georgia,serif;--sans:'Schibsted Grotesk',system-ui,sans-serif;
+ --serif:'Schibsted Grotesk',system-ui,sans-serif;--sans:'Schibsted Grotesk',system-ui,sans-serif;
  --sh1:0 2px 8px rgba(25,21,18,.05);--sh2:0 24px 50px rgba(25,21,18,.10),0 6px 16px rgba(25,21,18,.05);
  --sh3:0 40px 90px rgba(25,21,18,.16),0 14px 30px rgba(25,21,18,.08);--ease:cubic-bezier(.22,.7,.2,1)}
 html{scroll-behavior:smooth;overflow-x:hidden}
@@ -607,7 +607,7 @@ body::before{animation:none}
 .pb-card{display:inline-block;background:rgba(236,247,245,.94);border:1px solid rgba(25,21,18,.08);border-radius:16px;padding:20px 26px;max-width:380px;box-shadow:0 18px 44px rgba(15,35,26,.24);transition:transform .25s,box-shadow .25s}
 .pb-card:hover{transform:translateY(-3px);box-shadow:0 26px 56px rgba(15,35,26,.3)}
 .pb-card .pb-k{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#0d6f78;display:block}
-.pb-card .pb-h{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:24px;line-height:1.12;color:#191512;display:block;margin-top:8px;letter-spacing:-.01em}
+.pb-card .pb-h{font-family:'Schibsted Grotesk',system-ui,sans-serif;font-weight:600;font-size:24px;line-height:1.12;color:#191512;display:block;margin-top:8px;letter-spacing:-.01em}
 .pb-card .pb-go{display:inline-flex;align-items:center;gap:7px;margin-top:13px;font-size:13.5px;font-weight:700;color:#27513f}
 .pb-card .pb-go i{font-style:normal;transition:transform .25s}.pb-card:hover .pb-go i{transform:translateX(5px)}
 @media(max-width:560px){.photoband{height:340px}.pb-card{display:block;max-width:none}}
@@ -771,6 +771,99 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
 </script>
 </head>
 <body>
+<style id="ps-refresh">
+/* ---- de-AI: Fraunces -> Schibsted, kill the swash ---- */
+.hero h1,.sec-h h2,.foot h2,.newsband h2,.serif,h2.serif,.rcard h3,.tool h4,.note h3,#notes .note .chn{font-family:"Schibsted Grotesk",system-ui,sans-serif!important;font-style:normal!important;letter-spacing:-.02em!important}
+.hero h1,.sec-h h2,.foot h2,.newsband h2{font-weight:900!important;letter-spacing:-.03em!important}
+.hero h1 .ln i,em,.hero h1 em,.hero h1 i{font-style:normal!important}
+em{color:var(--brass)}
+.hl{display:none!important}
+/* ---- hero: drop the photo, clean on-brand, text dark ---- */
+.hero-bg,.hero-grad,.herosun{display:none!important}
+.hero{background:var(--bg)!important}
+.hero h1{color:var(--green3)!important}
+.hero .lead{color:var(--ink2)!important}
+.herotop .eyebrow{color:var(--brass)!important}
+.heroclock{color:var(--ink3)!important;border-left-color:var(--line2)!important}
+.heroclock time{color:var(--ink2)!important}.heroclock .hcz{color:var(--brass)!important}
+.hperks b,.hperks .hperks-star,.fresh{color:var(--green2)!important}
+.fresh{color:var(--ink3)!important}
+/* ---- hero market board (replaces the chat in the hero-right) ---- */
+.hboard{background:#fcfffe;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 22px 60px rgba(25,21,18,.1);align-self:center}
+.hboard .bh{display:flex;justify-content:space-between;align-items:center;padding:18px 20px 14px;border-bottom:1px solid var(--line)}
+.hboard .bh b{font-weight:800;font-size:16px}
+.hboard .bh .lv{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--green2);display:inline-flex;align-items:center;gap:7px}
+.hboard .bh .lv .d{width:8px;height:8px;border-radius:50%;background:#2e9e6b}
+.hboard .br{display:flex;justify-content:space-between;align-items:baseline;padding:14px 20px;border-bottom:1px solid var(--line2)}
+.hboard .br .k{font-size:12.5px;font-weight:600;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+.hboard .br .v{font-size:19px;font-weight:800;font-variant-numeric:tabular-nums}
+.hboard .br .v.up{color:#2e9e6b}.hboard .br .v.dn{color:#c0392b}
+.hboard .mv{padding:15px 20px;background:linear-gradient(180deg,#f4fbf9,#e9f5f1);display:flex;justify-content:space-between;align-items:center}
+.hboard .mv .k{font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--ink3)}
+.hboard .mv .nm{font-weight:800;font-size:15px;margin-top:2px}
+.hboard .mv .v{font-weight:800;color:#2e9e6b;font-size:16px}
+.hboard .bf{display:block;padding:13px 20px;text-align:center;font-size:12.5px;font-weight:700;color:var(--brass)}
+/* ---- Aillie band (relocated chat, in-brand) ---- */
+.aillieband{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2)}
+.aillieband .abw{max-width:1200px;margin:0 auto;padding:44px 36px;display:grid;grid-template-columns:.82fr 1.18fr;gap:48px;align-items:center}
+.aillieband .al-lbl{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);display:inline-flex;align-items:center;gap:9px}
+.aillieband .al-lbl .dot{width:7px;height:7px;border-radius:50%;background:var(--brass2)}
+.aillieband h3{font-family:"Schibsted Grotesk",sans-serif;font-weight:900;font-size:30px;letter-spacing:-.02em;color:var(--green3);margin:13px 0 11px}
+.aillieband p{font-size:16px;color:var(--ink2);max-width:36ch}
+.aillieband .allink{display:inline-block;margin-top:14px;font-size:14px;font-weight:700;color:var(--green2);box-shadow:inset 0 -2px 0 var(--brass3)}
+.aillieband #heroChatMount{margin:0;min-height:0}
+/* restyle the Aillie panel to match (no glass) */
+.cpanel.inhero{background:#fcfffe!important;box-shadow:0 18px 48px rgba(25,21,18,.1)!important;height:440px!important;min-height:0!important;max-height:none!important;border:1px solid var(--line)!important}
+.cpanel.inhero .chead{background:linear-gradient(180deg,#f4fbf9,#eaf5f1)!important;color:var(--ink)!important;border-bottom:1px solid var(--line)!important}
+.cpanel.inhero .chead .ct b{color:var(--ink)!important}
+.cpanel.inhero .chead .ct span,.cpanel.inhero .chead .cstat #cliveTxt{color:var(--ink3)!important}
+.cpanel.inhero .cmark{background:var(--green)!important}
+.cpanel.inhero .cmsg.bot{background:var(--bg2)!important;border:1px solid var(--line)!important;color:var(--ink)!important}
+.cpanel.inhero .cfoot{background:transparent!important;border-top:1px solid var(--line)!important}
+.cpanel.inhero .chatcue,.chatcue{display:none!important}
+/* ---- hero no longer dark: darken all the text that was light-for-photo ---- */
+.hero h1{text-shadow:none!important}
+.hero .hperks,.hero .covers{color:var(--ink2)!important}
+.hero .hperks b,.hero .hperks .hperks-star{color:var(--green2)!important}
+.hessentials{color:var(--green2)!important;border-color:var(--line2)!important}
+.hero .btn.brass-out{color:var(--brass)!important;border-color:var(--brass2)!important;background:rgba(15,122,130,.08)!important}
+.hero .btn.btn-ghost{color:var(--ink)!important;border-color:var(--line2)!important;background:rgba(255,255,255,.55)!important}
+/* nav: force the "scrolled" dark-text look (hero is light now) */
+.nav .brand b{color:var(--ink)!important;text-shadow:none!important}
+.nav .brand .bw span{color:var(--ink3)!important}
+.nav .brand .mark{color:#1b3a2d!important;filter:none!important}
+.nav .links a{color:var(--ink2)!important}
+.nav .navsignin{color:var(--ink2)!important}
+.nav .navdoor{border-color:var(--line2)!important;background:rgba(255,255,255,.5)!important}
+.nav .navdoor .nd-top{color:var(--green)!important}
+.nav .navdoor .nd-sub{color:var(--ink3)!important}
+.nav .navdoor .nd-dot{background:#3aa76d!important}
+.nav .nav-install{color:var(--ink)!important;background:rgba(255,255,255,.55)!important;border-color:var(--line2)!important}
+/* ---- Pass 2: cards -> clean rows / index ---- */
+/* "What brings you here" router cards -> editorial rows */
+.router{grid-template-columns:1fr!important;gap:0!important;border-top:2px solid var(--green)}
+.rcard{display:grid!important;grid-template-columns:52px 1fr auto!important;grid-template-rows:auto auto!important;column-gap:20px!important;row-gap:2px!important;align-items:center!important;background:transparent!important;border:0!important;border-bottom:1px solid var(--line)!important;border-radius:0!important;padding:20px 6px!important;box-shadow:none!important;overflow:visible!important}
+.rcard::after{display:none!important}
+.rcard:hover{transform:none!important;box-shadow:none!important;background:var(--bg2)!important;border-color:var(--line)!important}
+.rcard .ic{grid-column:1!important;grid-row:1/3!important;margin:0!important;align-self:center!important}
+.rcard:hover .ic{transform:none!important;box-shadow:none!important}
+.rcard h3{grid-column:2!important;grid-row:1!important;align-self:end!important;margin:0!important}
+.rcard p{grid-column:2!important;grid-row:2!important;align-self:start!important;font-size:14px!important}
+.rcard .go{grid-column:3!important;grid-row:1/3!important;align-self:center!important;margin:0!important}
+/* "The toolkit" grid -> clean 2-col index */
+.tools{grid-template-columns:1fr 1fr!important;gap:0 40px!important}
+.tool{display:grid!important;grid-template-columns:46px 1fr auto!important;grid-template-rows:auto auto!important;column-gap:15px!important;align-items:center!important;text-align:left!important;background:transparent!important;border:0!important;border-bottom:1px solid var(--line)!important;border-radius:0!important;padding:16px 4px!important;box-shadow:none!important}
+.tool:hover{transform:none!important;background:var(--bg2)!important;border-color:var(--green2)!important}
+.tool .ti2{grid-column:1!important;grid-row:1/3!important;align-self:center!important;margin:0!important;width:46px!important;height:46px!important}
+.tool h4{grid-column:2!important;grid-row:1!important;align-self:end!important;text-align:left!important;font-size:16.5px!important}
+.tool p{grid-column:2!important;grid-row:2!important;align-self:start!important;text-align:left!important;font-size:12.5px!important;margin:0!important}
+.tool .free{grid-column:3!important;grid-row:1/3!important;align-self:center!important;position:static!important}
+.tool .badge,.tool .badge2{display:none!important}
+.tool.feat{background:transparent!important}
+.tool.feat .ti2{background:linear-gradient(140deg,var(--green2),var(--green3))!important}
+@media(max-width:880px){.aillieband .abw{grid-template-columns:1fr;gap:22px}.aillieband #heroChatMount{display:none}}
+@media(max-width:720px){.tools{grid-template-columns:1fr!important}}
+</style>
 <script src="/adam/i18n.js"></script>
 <script src="/adam/member.js" defer></script>
 <div class="prog" id="prog"></div>
@@ -832,8 +925,27 @@ if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}
     <div class="fresh rv"><span class="dot"></span>Live · built on official URA data · refreshed weekly</div>
     <a class="hinstall rv" href="install.html">Add this hub to your phone, one tap to every tool</a>
   </div>
-  <aside class="hero-chat-mount" id="heroChatMount" aria-label="Ask Aillie"><div class="chatcue" aria-hidden="true"><b data-i18n="chatcue.t">Ask Aillie anything</b><span data-i18n="chatcue.s">real numbers · free</span></div></aside>
+  <aside class="hboard">
+    <div class="bh"><b>The market today</b><span class="lv"><span class="d"></span>Live</span></div>
+    <div class="br"><span class="k" data-i18n="Private resale">Private resale</span><span class="v up">+0.5%</span></div>
+    <div class="br"><span class="k" data-i18n="HDB resale">HDB resale</span><span class="v dn">&minus;0.3%</span></div>
+    <div class="br"><span class="k" data-i18n="Median condo psf">Median condo psf</span><span class="v">$1,646</span></div>
+    <div class="br"><span class="k" data-i18n="Rental yield">Rental yield</span><span class="v">3.3%</span></div>
+    <div class="br"><span class="k" data-i18n="Condos on record">Condos on record</span><span class="v">2,354</span></div>
+    <div class="mv"><div><div class="k" data-i18n="Biggest mover this quarter">Biggest mover this quarter</div><div class="nm">Parc Clematis · Clementi</div></div><div class="v">↑ 20.9%</div></div>
+    <a class="bf" href="notes/" data-i18n="See the full Market Pulse →">See the full Market Pulse →</a>
+  </aside>
   </div></section>
+
+<section class="aillieband"><div class="abw">
+  <div>
+    <span class="al-lbl"><span class="dot"></span><span data-i18n="Meet Aillie">Meet Aillie</span></span>
+    <h3 data-i18n="Not sure where to start? Just ask.">Not sure where to start? Just ask.</h3>
+    <p data-i18n="Tell Aillie what you're trying to do, in plain English. She answers with the real numbers behind it.">Tell Aillie what you're trying to do, in plain English. She answers with the real numbers behind it.</p>
+    <a class="allink" href="#talk" onclick="if(window.askAillie){event.preventDefault();window.askAillie();}" data-i18n="Open a full conversation →">Open a full conversation →</a>
+  </div>
+  <aside class="hero-chat-mount" id="heroChatMount" aria-label="Ask Aillie"></aside>
+</div></section>
 
 <section class="sec"><div class="wrap">
   <div class="sec-h"><div><span class="eyebrow rv">Start here</span><h2 class="rv">What brings you here?</h2></div>
@@ -968,7 +1080,7 @@ if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}
 </div></section>
 
 <style>
-.psf{background:linear-gradient(180deg,#0f231a,#0a1712);color:#cfe4dc;padding:66px 0 0;position:relative;z-index:2;font-family:inherit}
+.psftr{background:linear-gradient(180deg,#0f231a,#0a1712);color:#cfe4dc;padding:66px 0 0;position:relative;z-index:2;font-family:inherit}
 .psf-in{max-width:1120px;margin:0 auto;padding:0 32px}
 .psf-cols{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:44px;padding-bottom:46px}
 .psf-logo{display:flex;align-items:center;gap:11px}
@@ -992,9 +1104,9 @@ if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}
 .psf-lang{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#cfe4dc;font-size:13px;font-weight:600;padding:8px 16px;border-radius:9px;cursor:pointer;font-family:inherit}
 .psf-lang:hover{background:rgba(255,255,255,.14)}
 @media(max-width:820px){.psf-cols{grid-template-columns:1fr 1fr;gap:38px 24px}.psf-brand{grid-column:1/-1}}
-@media(max-width:520px){.psf{padding-top:48px}.psf-in{padding:0 20px}.psf-bar{gap:12px}}
+@media(max-width:520px){.psftr{padding-top:48px}.psf-in{padding:0 20px}.psf-bar{gap:12px}}
 </style>
-<footer class="psf">
+<footer class="psftr">
   <div class="psf-in">
     <div class="psf-cols">
       <div class="psf-brand">
@@ -1798,7 +1910,7 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
   function renderSchoolHomes(s){ removeSchoolList(); const enc=encodeURIComponent, e=esc;
     const fmt=m=> m>=1000?(m/1000).toFixed(1).replace(/\.0$/,'')+'km':m+'m';
     const row=(href,nm,d)=>'<a href="'+href+'" style="display:flex;justify-content:space-between;gap:10px;padding:7px 11px;margin:4px 0;border:1px solid #d2e7e3;border-radius:10px;color:#191512;text-decoration:none;font-size:13.5px"><span>'+e(nm)+'</span><span style="color:#27513f;font-weight:600;white-space:nowrap">'+fmt(d)+' &rarr;</span></a>';
-    const seclbl=t=>'<div style="font-family:Fraunces,Georgia,serif;font-weight:600;font-size:15px;color:#1b3a2d;margin:14px 0 2px">'+t+'</div>';
+    const seclbl=t=>'<div style="font-family:var(--serif);font-weight:600;font-size:15px;color:#1b3a2d;margin:14px 0 2px">'+t+'</div>';
     const grp=(arr,lbl,mk)=> (arr&&arr.length)?'<div style="margin-top:6px"><div style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#536b66;margin-bottom:2px">'+lbl+'</div>'+arr.slice(0,6).map(mk).join('')+'</div>':'';
     const clink=c=>row('/research/?p='+enc(c.n),c.n,c.d);
     const hlink=x=>row('/research/?town='+enc(x.t),x.s,x.d);

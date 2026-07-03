@@ -11,12 +11,12 @@
 <meta name="apple-mobile-web-app-title" content="PropSight">
 <script>if('serviceWorker' in navigator){addEventListener('load',function(){navigator.serviceWorker.register('../sw.js').catch(function(){});});}</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b3a2d'/%3E%3Cg fill='none' stroke='%23cfeae0' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='13.5' cy='13.5' r='9.5'/%3E%3Cpath d='M8.75 16 L13.5 11 L18.25 16'/%3E%3Cpath d='M10.5 18.2 L16.5 18.2'/%3E%3C/g%3E%3Ccircle cx='13.5' cy='16.5' r='1' fill='%2315a0a0'/%3E%3Cpath d='M20.25 20.25 L26.5 26.5' fill='none' stroke='%2315a0a0' stroke-width='2.8' stroke-linecap='round'/%3E%3C/svg%3E">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600&family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#eaf6f4;--ink:#191512;--ink2:#404f4c;--ink3:#536b66;--line:#d2e7e3;--line2:#bfdbd5;
  --green:#1b3a2d;--green2:#27513f;--green3:#0f231a;--brass:#0f7a82;--brass2:#15a0a0;--brass3:#7fd0bb;
- --serif:'Fraunces',Georgia,serif;--sans:'Schibsted Grotesk',system-ui,sans-serif;--ease:cubic-bezier(.22,.7,.2,1)}
+ --serif:'Schibsted Grotesk',system-ui,sans-serif;--sans:'Schibsted Grotesk',system-ui,sans-serif;--ease:cubic-bezier(.22,.7,.2,1)}
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:-20%;z-index:-2;pointer-events:none;background:radial-gradient(620px 460px at 88% -6%,rgba(60,168,150,.07),transparent 60%),radial-gradient(540px 440px at -4% 10%,rgba(28,58,46,.07),transparent 58%)}
@@ -74,7 +74,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
 .ask{background:linear-gradient(150deg,#1b3a2d,#0f231a);color:#e6f3f0;border-radius:20px;padding:30px 32px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
 .ask-tx{flex:1;min-width:230px}
 .ask-k{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#7fd0bb}
-.ask-h{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:25px;margin:8px 0 0;line-height:1.12;display:inline-block;position:relative}
+.ask-h{font-family:'Schibsted Grotesk',system-ui,sans-serif;font-weight:600;font-size:25px;margin:8px 0 0;line-height:1.12;display:inline-block;position:relative}
 .ask-tx p{font-size:14.5px;color:rgba(230,243,240,.8);margin-top:12px;line-height:1.55}
 .ask-btn{flex:none;background:var(--gtex,none),#1b3a2d;color:#eef6f1;font-weight:700;font-size:15px;padding:15px 24px;border-radius:40px;white-space:nowrap;transition:.2s}
 .ask-btn:hover{transform:translateY(-2px)}
@@ -85,7 +85,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
 .mt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .mt-grid a{display:block;background:#fcfffe;border:1px solid #bfdbd5;border-radius:14px;padding:15px 16px;transition:.2s}
 .mt-grid a:hover{border-color:#27513f;transform:translateY(-3px);box-shadow:0 12px 26px rgba(25,21,18,.08)}
-.mt-grid a b{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:15.5px;color:#191512;display:block}
+.mt-grid a b{font-family:'Schibsted Grotesk',system-ui,sans-serif;font-weight:600;font-size:15.5px;color:#191512;display:block}
 .mt-grid a span{font-size:12.5px;color:#7e9893;margin-top:2px;display:block}
 @media(max-width:680px){.mt-grid{grid-template-columns:1fr 1fr}.ask{padding:24px}}
 @media(max-width:420px){.mt-grid{grid-template-columns:1fr}}:focus-visible{outline:2.5px solid #0f7a82;outline-offset:2px;border-radius:3px}.eyebrow,.kick,.free,.rdate,.note .date,.lp-k,.tool .free{color:#0d6f78}@media(max-width:560px){.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}.opt{min-width:0;flex:none;white-space:normal;line-height:1.25;text-overflow:clip;overflow:visible}}

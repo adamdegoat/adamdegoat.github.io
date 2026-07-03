@@ -44,12 +44,18 @@
     '<path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
   var css = '' +
+    /* ── site-wide de-AI refresh: Fraunces -> Schibsted, kill the hand-drawn swash ── */
+    ':root{--serif:"Schibsted Grotesk",system-ui,sans-serif}' +
+    '.hl,.hl-i,.uline{display:none!important}' +
+    'em,.serif em,h1 em,h2 em,h3 em{font-style:normal!important}' +
+    /* flatten the decorative stock-photo header bands -> clean brand green (no photo) */
+    '.newshero,.nh-bg,.mast-bg,.ghero-bg,.ph-bg{background:linear-gradient(120deg,#123b2a,#0d2418)!important}' +
     ":root{--gtex:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='gn'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.06 0 0 0 0 0.05 0 0 0 0 0.02 0 0 0 0.22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23gn)'/%3E%3C/svg%3E\")}" +
     '.psnav{position:sticky;top:0;z-index:300;background:rgba(236,247,245,.97);border-bottom:1px solid #d2e7e3;font-family:"Schibsted Grotesk",system-ui,sans-serif;padding-top:env(safe-area-inset-top)}' +
     '.psnav-in{max-width:1280px;margin:0 auto;padding:0 32px;height:76px;display:flex;align-items:center;gap:16px}@media(min-width:1201px){.psnav-in{height:84px}}' +
     '.psnav-brand{display:flex;align-items:center;gap:11px;text-decoration:none}.psnav-brand .pm{width:38px;height:38px;flex:none;color:#1b3a2d}' +
     '.psnav-brand .bw{display:flex;flex-direction:column;line-height:1}.psnav-brand .bw span{font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:#758a86;font-weight:700;margin-top:4px}' +
-    '.psnav-brand b{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:22px;color:#191512;letter-spacing:.01em}' +
+    '.psnav-brand b{font-family:"Schibsted Grotesk",system-ui,sans-serif;font-weight:600;font-size:22px;color:#191512;letter-spacing:.01em}' +
     '.psnav-links{display:flex;gap:19px;margin:0 auto;align-items:center}' +
     '.psnav-links a{font-size:13.5px;font-weight:600;color:#485a56;text-decoration:none;white-space:nowrap;transition:color .2s}' +
     '.psnav-links a:hover{color:#191512}.psnav-links a.cur{color:#1b3a2d}' +
@@ -88,19 +94,19 @@
     '.psnav-msignin{width:100%;background:none;border:0;font-family:"Schibsted Grotesk",system-ui,sans-serif;font-size:14px;font-weight:600;color:#27513f;padding:6px;margin-bottom:8px;cursor:pointer}' +
     /* mobile menu: the door becomes a distinct card pinned at the very end */
     '.psnav-menu a.psm-door{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:18px;padding:18px 18px;border:1px solid #cdd9d0;border-bottom:1px solid #cdd9d0;border-radius:15px;background:linear-gradient(180deg,#fff,#eef4ef)}' +
-    '.psnav-menu a.psm-door .psm-door-t{display:block;font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:21px;color:#1b3a2d;line-height:1.1}' +
+    '.psnav-menu a.psm-door .psm-door-t{display:block;font-family:"Schibsted Grotesk",system-ui,sans-serif;font-weight:600;font-size:21px;color:#1b3a2d;line-height:1.1}' +
     '.psnav-menu a.psm-door .psm-door-d{display:block;font-family:"Schibsted Grotesk",system-ui,sans-serif;font-size:13px;color:#576b67;margin-top:4px}' +
     '.psnav-menu a.psm-door .psm-arr{flex:none;width:34px;height:34px;border-radius:50%;background:#27513f;display:flex;align-items:center;justify-content:center}' +
     '.psnav-menu a.psm-door .psm-arr svg{width:15px;height:15px;stroke:#e6f3f0}' +
     '@media(max-width:1200px){.psnav-links{display:none}.psnav-door{display:none}.psnav-burger{display:flex}}@media(max-width:560px){.psnav-in{padding:0 13px;gap:8px}.psnav-brand b{font-size:18px}.psnav-brand .pm{width:31px;height:31px}.psnav-back{width:34px;height:34px}.psnav-signin{font-size:12.5px}.psnav-join{font-size:12.5px;padding:8px 12px}}@media(max-width:400px){.psnav-in{padding:0 10px;gap:6px}.psnav-brand b{font-size:16px}.psnav-brand .pm{width:27px;height:27px}.psnav-back{width:30px;height:30px}.psnav-signin{font-size:11.5px}.psnav-join{font-size:11.5px;padding:8px 10px}}' +
     /* shared site footer, legal links + the global "information only" disclaimer */
-    '.psf{background:linear-gradient(180deg,#0f231a,#0a1712);color:#cfe4dc;padding:60px 0 0;font-family:"Schibsted Grotesk",system-ui,sans-serif}' +
+    '.psftr{background:linear-gradient(180deg,#0f231a,#0a1712);color:#cfe4dc;padding:60px 0 0;font-family:"Schibsted Grotesk",system-ui,sans-serif}' +
     '.psf-in{max-width:1120px;margin:0 auto;padding:0 32px}' +
     '.psf-cols{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:44px;padding-bottom:44px}' +
     '.psf-logo{display:flex;align-items:center;gap:11px}' +
     '.psf-mark{width:42px;height:42px;flex:none;color:#cfe4dc}' +
     '.psf-bw{display:flex;flex-direction:column;line-height:1}' +
-    '.psf-bw b{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:25px;color:#fff;letter-spacing:.01em}' +
+    '.psf-bw b{font-family:"Schibsted Grotesk",system-ui,sans-serif;font-weight:600;font-size:25px;color:#fff;letter-spacing:.01em}' +
     '.psf-bw span{font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:rgba(207,228,220,.7);font-weight:700;margin-top:5px}' +
     '.psf-tag{margin:16px 0 20px;font-size:14.5px;line-height:1.6;color:rgba(207,228,220,.72);max-width:310px}' +
     '.psf-soc{display:flex;align-items:center;gap:11px;margin-bottom:16px}' +
@@ -115,7 +121,7 @@
     '.psf-disc{font-size:12.5px;color:rgba(207,228,220,.55);flex:1;min-width:240px;line-height:1.5}' +
     '.psf-lang{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#cfe4dc;font-size:13px;font-weight:600;padding:8px 16px;border-radius:9px;cursor:pointer;font-family:inherit}.psf-lang:hover{background:rgba(255,255,255,.14)}' +
     '@media(max-width:820px){.psf-cols{grid-template-columns:1fr 1fr;gap:36px 24px}.psf-brand{grid-column:1/-1}}' +
-    '@media(max-width:520px){.psf{padding-top:44px}.psf-in{padding:0 20px}}' +
+    '@media(max-width:520px){.psftr{padding-top:44px}.psf-in{padding:0 20px}}' +
     /* language toggle (desktop pill + mobile menu button) */
     '.psnav-lang{display:inline-flex;align-items:center;gap:6px;margin-left:8px;flex:none;background:#eaf6f4;border:1.5px solid #27513f;border-radius:30px;font-family:inherit;font-size:13px;font-weight:800;color:#1b3a2d;cursor:pointer;padding:8px 14px;white-space:nowrap;transition:background .2s,color .2s,transform .2s}' +
     '.psnav-lang svg{width:15px;height:15px;flex:none;stroke:currentColor;fill:none;stroke-width:1.7}' +
@@ -167,7 +173,7 @@
   var _IG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>';
   var _PHN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10.5 18.5h3"/></svg>';
   function _fl(href, label) { return '<a href="' + href + '">' + t(label) + '</a>'; }
-  var footerHTML = '<footer class="psf" id="psFtr"><div class="psf-in"><div class="psf-cols">' +
+  var footerHTML = '<footer class="psftr" id="psFtr"><div class="psf-in"><div class="psf-cols">' +
     '<div class="psf-brand">' +
       '<div class="psf-logo">' + _MK + '<span class="psf-bw"><b>PropSight</b><span>' + t('Singapore') + '</span></span></div>' +
       '<p class="psf-tag">' + t('Singapore property, decoded. Every value, grant and guide, free.') + '</p>' +

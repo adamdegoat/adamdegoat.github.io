@@ -560,7 +560,19 @@
     "Couldn't sign you in, please try again.": '无法登录，请重试。',
     "Full research, the higher Aillie limit, the weekly newsletter and the members' Telegram channel are all unlocked.":
       '完整研究、更高的 Aillie 额度、每周通讯和会员专属 Telegram 频道均已解锁。',
-    'Join the Telegram channel →': '加入 Telegram 频道 →', 'Sign out': '退出登录'
+    'Join the Telegram channel →': '加入 Telegram 频道 →', 'Sign out': '退出登录',
+
+    // ── homepage refresh: market board + Aillie band ──
+    'The market today': '今日市场',
+    'Private resale': '私宅转售', 'HDB resale': '组屋转售',
+    'Median condo psf': '公寓每尺中位价', 'Rental yield': '租金回报率',
+    'Condos on record': '收录公寓数', 'Biggest mover this quarter': '本季涨幅最大',
+    'See the full Market Pulse →': '查看完整市场动态 →',
+    'Meet Aillie': '认识 Aillie',
+    'Not sure where to start? Just ask.': '不知从何开始？直接问 Aillie。',
+    "Tell Aillie what you're trying to do, in plain English. She answers with the real numbers behind it.":
+      '用简单的话告诉 Aillie 你想做什么，她会用真实数据回答你。',
+    'Open a full conversation →': '展开完整对话 →'
   };
 
   var LANG = (function () { try { return localStorage.getItem('ps_lang') === 'zh' ? 'zh' : 'en'; } catch (e) { return 'en'; } })();
