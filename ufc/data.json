@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-02T21:00:00.192813+08:00",
+  "updated": "2026-07-03T09:00:00.278746+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -169,6 +169,12 @@
   },
   "news": [
     {
+      "title": "Lightweight banger booked for UFC Vegas 120 main attraction",
+      "link": "https://www.sherdog.com/news/news/Lightweight-banger-booked-for-UFC-Vegas-120-main-attraction-201740",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
       "title": "Valter Walker says Shara ‘Bullet’ repeatedly pulled hair during training",
       "link": "https://www.sherdog.com/news/news/Valter-Walker-says-Shara-Bullet-repeatedly-pulled-hair-during-training-201731",
       "source": "Sherdog",
@@ -181,15 +187,21 @@
       "priority": true
     },
     {
-      "title": "UFC champ wants to fight PFL ace Johnny Eblen for the title",
-      "link": "https://www.sherdog.com/news/news/UFC-champ-wants-to-fight-PFL-ace-Johnny-Eblen-for-the-title-201715",
-      "source": "Sherdog",
+      "title": "Quillan Salkilld booked for first UFC main event against Top 10 lightweight",
+      "link": "https://www.bjpenn.com/mma-news/quillan-salkilld/quillan-salkilld-booked-first-ufc-main-event/?utm_source=rss&utm_medium=rss&utm_campaign=quillan-salkilld-booked-first-ufc-main-event",
+      "source": "BJPenn",
       "priority": true
     },
     {
-      "title": "Gillian Robertson explains marijuana use ahead of UFC 330 title shot",
-      "link": "https://www.sherdog.com/news/news/Gillian-Robertson-explains-marijuana-use-ahead-of-UFC-330-title-shot-201713",
-      "source": "Sherdog",
+      "title": "Herb Dean should be suspended due to poor officiating, says retired UFC star Henry Cejudo",
+      "link": "https://www.bjpenn.com/mma-news/ufc/herb-dean-should-be-suspended-due-to-poor-officiating-says-retired-ufc-star-henry-cejudo/?utm_source=rss&utm_medium=rss&utm_campaign=herb-dean-should-be-suspended-due-to-poor-officiating-says-retired-ufc-star-henry-cejudo",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
+      "title": "Ex-UFC vet and former KSW champ retires from MMA with PFL San Diego loss",
+      "link": "https://www.bjpenn.com/mma-news/ex-ufc-vet-and-former-ksw-champ-retires-from-mma-with-pfl-san-diego-loss/?utm_source=rss&utm_medium=rss&utm_campaign=ex-ufc-vet-and-former-ksw-champ-retires-from-mma-with-pfl-san-diego-loss",
+      "source": "BJPenn",
       "priority": true
     },
     {
@@ -205,57 +217,45 @@
       "priority": true
     },
     {
-      "title": "UFC 330 adds new fights to Islam Makhachev vs. Ian Machado Garry card",
-      "link": "https://www.mmafighting.com/ufc/497240/ufc-330-adds-new-fights-to-islam-makhachev-vs-ian-machado-garry-card",
+      "title": "BKFC president David Feldman explodes on ‘f*cking punk’ fighter after trying to shove his opponent off stage during weigh-ins",
+      "link": "https://www.mmafighting.com/bkfc/497395/bkfc-president-david-feldman-explodes-on-fcking-punk-fighter-after-trying-to-shove-his-opponent-off-stage-during-weigh-ins",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "Anything but Fighting: Heidi Androl remembers Strikeforce",
-      "link": "https://www.mmafighting.com/ufc/474919/anything-but-fighting-heidi-androl-remembers-strikeforce",
+      "title": "Jon Jones celebrates impact of UFC White House: ‘It makes me feel a lot more important’",
+      "link": "https://www.mmafighting.com/ufc/497368/jon-jones-celebrates-impact-of-ufc-white-house-it-makes-me-feel-a-lot-more-important",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "Shogun Rua explains why he’s glad to fight Glover Teixeira outside the UFC: ‘It worked out for the best’",
-      "link": "https://www.mmafighting.com/boxing/497166/shogun-rua-explains-why-hes-glad-to-fight-glover-teixeira-outside-the-ufc-it-worked-out-for-the-best",
+      "title": "Mateusz Gamrot vs. Quillan Salkilld announced for UFC Vegas 120 main event",
+      "link": "https://www.mmafighting.com/ufc/497354/mateusz-gamrot-vs-quillan-salkilld-announced-for-ufc-vegas-120-main-event",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "Justin Gaethje believed UFC undisputed title win was possible despite past results: ‘I never really lost hope’",
-      "link": "https://www.mmafighting.com/ufc/497160/justin-gaethje-believed-ufc-undisputed-title-win-was-possible-despite-past-results-i-never-really-lost-hope",
+      "title": "Josh Emmett eyes return to UFC lightweight division for next fight",
+      "link": "https://www.mmafighting.com/ufc/497038/josh-emmett-eyes-return-to-ufc-lightweight-division-for-next-fight",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "Diego Lopes ‘in a bit of a tough spot’ at featherweight, wants next fight to be against a top UFC lightweight",
-      "link": "https://www.mmafighting.com/ufc/495854/diego-lopes-in-a-bit-of-a-tough-spot-at-featherweight-wants-next-fight-to-be-against-a-top-ufc-lightweight",
+      "title": "Umar Nurmagomedov vs. Song Yadong headlines UFC Shanghai",
+      "link": "https://www.mmafighting.com/ufc/495220/umar-nurmagomedov-vs-song-yadong-headlines-ufc-shanghai",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "Morning Report | Daniel Cormier explains why Brock Lesnar fight fell through",
-      "link": "https://www.mmafighting.com/latest-news/497079/morning-report-daniel-cormier-explains-why-brock-lesnar-fight-fell-through",
+      "title": "MMA Fighting’s 2026 Fighter of the Midyear: Justin Gaethje",
+      "link": "https://www.mmafighting.com/latest-news/497205/mma-fightings-2026-fighter-of-the-midyear-justin-gaethje",
       "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Anything but Fighting: Megan Olivi answers random questions",
-      "link": "https://www.mmafighting.com/videos/493660/anything-but-fighting-megan-olivi-answers-random-questions",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Jon Jones details ‘perfect storm’ behind Alex Pereira’s UFC White House defeat: ‘Came in too big’",
-      "link": "https://www.mmamania.com/latest-news/454600/jon-jones-details-perfect-storm-behind-alex-pereiras-ufc-white-house-defeat-came-in-too-big",
-      "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor and Holloway collide Sunday 9am SGT—two elite strikers, one legendary night.",
-    "prefight": "McGregor clashes Holloway this Sunday 9 AM SGT—fight week ignites now.",
-    "results": "Fiziev knocks out Torres with spinning wheel kick and punches in round two."
+    "week": "McGregor returns to face Holloway Sunday—featherweight striking perfection on full display.",
+    "prefight": "McGregor vs Holloway drops Sunday morning—elite featherweight strikers battle for history.",
+    "results": "Fiziev's spinning wheel kick sparked Torres into oblivion, round two knockout."
   }
 }
