@@ -108,7 +108,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
     <div class="field"><label>Have you taken a housing subsidy before?<small>A "first-timer" has never received an HDB/CPF housing grant or subsidised flat.</small></label>
       <div class="opts" id="timer"><div class="opt on" data-v="first">First-timer</div><div class="opt" data-v="second">Taken one before</div></div></div>
     <div class="field hide" id="firstFlatF"><label>Your first subsidised flat was a…<small>Second-timers pay a <b>resale levy</b> when buying another subsidised flat. It's based on this first flat.</small></label>
-      <div class="opts" id="firstFlat"><div class="opt" data-v="2room">2-room</div><div class="opt on" data-v="3room">3-room</div><div class="opt" data-v="4room">4-room</div><div class="opt" data-v="5room">5-room</div><div class="opt" data-v="exec">Executive</div></div></div>
+      <div class="opts" id="firstFlat"><div class="opt" data-v="2room">2-room</div><div class="opt on" data-v="3room">3-room</div><div class="opt" data-v="4room">4-room</div><div class="opt" data-v="5room">5-room</div><div class="opt" data-v="exec">Executive</div><div class="opt" data-v="ec">Executive Condo</div></div></div>
     <div class="field"><label>Who's buying?</label>
       <div class="opts" id="house"><div class="opt on" data-v="couple">Couple (both SC)</div><div class="opt" data-v="scpr">SC + PR</div><div class="opt" data-v="single">Single (SC, 35+)</div></div></div>
     <div class="field"><label>What are you buying?</label>
@@ -167,7 +167,8 @@ const money=n=>'$'+Math.round(n).toLocaleString('en-US');
 let timer='first',house='couple',buy='resale',size='small',prox='none',firstFlat='3room';
 // HDB resale levy, fixed amounts, first subsidised flat sold on/after 3 Mar 2006
 // rate params, defaults below but OVERWRITTEN from /caveat/data/rates.json so policy lives in ONE file
-let LEVY={'2room':15000,'3room':30000,'4room':40000,'5room':45000,'exec':50000};
+let LEVY={'2room':15000,'3room':30000,'4room':40000,'5room':45000,'exec':50000,'ec':55000};
+const FLAT_LABEL={'2room':'2-room','3room':'3-room','4room':'4-room','5room':'5-room','exec':'Executive','ec':'Executive Condo'};
 let EHG_FAM=[[1500,120000],[2000,110000],[2500,105000],[3000,95000],[3500,90000],[4000,80000],[4500,70000],[5000,65000],[5500,55000],[6000,50000],[6500,40000],[7000,30000],[7500,25000],[8000,20000],[8500,10000],[9000,5000]];
 let EHG_SIN=[[750,60000],[1000,55000],[1250,52500],[1500,47500],[1750,45000],[2000,40000],[2250,35000],[2500,32500],[2750,27500],[3000,25000],[3250,20000],[3500,15000],[3750,12500],[4000,10000],[4250,5000],[4500,2500]];
 let GP={ehgCeil:{single:4500,couple:9000},famCeil:{single:7000,couple:14000},fam:{single:{small:40000,big:25000},couple:{small:80000,big:50000},scprDeduct:10000},prox:{single:{'with':15000,near:10000},couple:{'with':30000,near:20000}},ecCeil:16000,ecSc:[[10000,30000],[11000,20000],[12000,10000]],ecScpr:[[10000,20000],[11000,10000]]};
@@ -245,7 +246,7 @@ function render(){
       ? TF('Net picture: <b>{total}</b> of grants into your CPF, minus a <b>{levy}</b> levy = <b>{sign}{net}</b> overall.',{total:money(r.total),levy:money(r.levy),sign:net>=0?'+':'−',net:money(Math.abs(net))})
       : T('This is a cash cost on top of the flat, it can be paid from your sale proceeds, not borrowed.');
     lb.innerHTML = `<div class="lt"><span>${T("Resale levy you'll owe")}</span><span>−${money(r.levy)}</span></div>`
-      +`<div>${TF("As a second-timer, you pay a resale levy {why}, based on your first {size} flat. It's <b>not a grant and not financeable</b>.",{why:r.levyWhy,size:T(firstFlat.replace('room','-room').replace('exec','Executive'))})}</div>`
+      +`<div>${TF("As a second-timer, you pay a resale levy {why}, based on your first {size} flat. It's <b>not a grant and not financeable</b>.",{why:r.levyWhy,size:T(FLAT_LABEL[firstFlat]||firstFlat)})}</div>`
       +`<div class="lnet">${netLine}</div>`;
     lb.classList.remove('hide');
   } else lb.classList.add('hide');

@@ -122,6 +122,7 @@
     "typical_bank_rate_pct": 3.5,
     "hdb_concessionary_rate_pct": 2.6,
     "variable_income_haircut_pct": 30,
+    "hdb_loan_min_cash_pct": 0,
     "ltv": {
       "bank": {
         "1": 75,
@@ -373,7 +374,8 @@
       "3room": 30000,
       "4room": 40000,
       "5room": 45000,
-      "exec": 50000
+      "exec": 50000,
+      "ec": 55000
     }
   }
 }
