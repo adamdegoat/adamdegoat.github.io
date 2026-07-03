@@ -37,11 +37,11 @@
   var LISTINGS = BASE + '/adam/listings/';
   var ARROW = '<svg class="pd-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>';
   var MARK = '<svg class="pm" viewBox="0 0 64 64" aria-hidden="true">' +
-    '<circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>' +
-    '<path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>' +
-    '<path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>' +
-    '<circle cx="27" cy="33" r="1.8" fill="#15a0a0"/>' +
-    '<path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    '<circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>' +
+    '<path d="M17.5 32.5 L27 21.5 L36.5 32.5" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>' +
+    '<path d="M20.5 37 L33.5 37" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>' +
+    '<circle cx="27" cy="33.4" r="2" fill="#15a0a0"/>' +
+    '<path d="M40.5 40.5 L53.5 53.5" fill="none" stroke="#15a0a0" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
   var css = '' +
     /* ── site-wide de-AI refresh: Fraunces -> Schibsted, kill the hand-drawn swash ── */
@@ -168,7 +168,7 @@
     '</a>' + '</div>';
 
   var year = new Date().getFullYear();
-  var _MK = '<svg class="psf-mark" aria-hidden="true" viewBox="0 0 64 64"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#84e6d4"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#84e6d4" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var _MK = '<svg class="psf-mark" aria-hidden="true" viewBox="0 0 64 64"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32.5 L27 21.5 L36.5 32.5" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M20.5 37 L33.5 37" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="27" cy="33.4" r="2" fill="#84e6d4"/><path d="M40.5 40.5 L53.5 53.5" fill="none" stroke="#84e6d4" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   var _TG = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3l-3.3 15.6c-.2 1.1-.9 1.4-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.2L18.5 6c.4-.3-.1-.5-.6-.2L7.4 12.6l-4.8-1.5c-1-.3-1-1 .2-1.5l18.7-7.2c.9-.3 1.6.2 1.4 1.9z"/></svg>';
   var _IG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>';
   var _PHN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10.5 18.5h3"/></svg>';

@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="PropSight">
 <script>if('serviceWorker' in navigator){addEventListener('load',function(){navigator.serviceWorker.register('../sw.js').catch(function(){});});}</script>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b3a2d'/%3E%3Cg fill='none' stroke='%23cfeae0' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='13.5' cy='13.5' r='9.5'/%3E%3Cpath d='M8.75 16 L13.5 11 L18.25 16'/%3E%3Cpath d='M10.5 18.2 L16.5 18.2'/%3E%3C/g%3E%3Ccircle cx='13.5' cy='16.5' r='1' fill='%2315a0a0'/%3E%3Cpath d='M20.25 20.25 L26.5 26.5' fill='none' stroke='%2315a0a0' stroke-width='2.8' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b3a2d'/%3E%3Cg fill='none' stroke='%23cfeae0' stroke-width='2.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='13.5' cy='13.5' r='9.5'/%3E%3Cpath d='M8.75 16 L13.5 11 L18.25 16'/%3E%3Cpath d='M10.5 18.2 L16.5 18.2'/%3E%3C/g%3E%3Ccircle cx='13.5' cy='16.5' r='1' fill='%2315a0a0'/%3E%3Cpath d='M20.25 20.25 L26.5 26.5' fill='none' stroke='%2315a0a0' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -81,6 +81,15 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
 .mt-grid a span{font-size:12.5px;color:#7e9893;margin-top:2px;display:block}
 @media(max-width:680px){.mt-grid{grid-template-columns:1fr 1fr}.ask{padding:24px}}
 @media(max-width:420px){.mt-grid{grid-template-columns:1fr}}:focus-visible{outline:2.5px solid #0f7a82;outline-offset:2px;border-radius:3px}.eyebrow,.kick,.free,.rdate,.note .date,.lp-k,.tool .free{color:#0d6f78}@media(max-width:560px){.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}.opt{min-width:0;flex:none;white-space:normal;line-height:1.25;text-overflow:clip;overflow:visible}}
+
+/* desktop: use the width, 2-col form|results (less scroll, less wasted space) */
+@media(min-width:900px){
+  body>.wrap:not(.more){max-width:1140px;display:grid;grid-template-columns:minmax(0,430px) minmax(0,1fr);column-gap:44px;align-items:start}
+  body>.wrap:not(.more)>*{grid-column:1/-1;min-width:0}
+  body>.wrap:not(.more)>.card{grid-column:1;position:sticky;top:20px;margin-top:24px}
+  body>.wrap:not(.more)>.res{grid-column:2;margin-top:24px;align-self:stretch}
+  .bar .wrap{max-width:1140px}
+}
 </style><script src="/adam/i18n.js" defer></script><script src="/adam/nav.js" defer></script>
   <link rel="canonical" href="https://propsight.sg/tools/eligibility.html">
   <script type="application/ld+json">
@@ -89,7 +98,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
 </head>
 <body>
 <div class="topo" aria-hidden="true"></div>
-<header class="bar"><div class="wrap"><span class="b"><svg class="mark" aria-hidden="true" viewBox="0 0 64 64"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32 L27 22 L36.5 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 36.4 L33 36.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="33" r="1.8" fill="#15a0a0"/><path d="M40.5 40.5 L53 53" fill="none" stroke="#15a0a0" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg>PropSight</span></div></header>
+<header class="bar"><div class="wrap"><span class="b"><svg class="mark" aria-hidden="true" viewBox="0 0 64 64"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32.5 L27 21.5 L36.5 32.5" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M20.5 37 L33.5 37" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="27" cy="33.4" r="2" fill="#15a0a0"/><path d="M40.5 40.5 L53.5 53.5" fill="none" stroke="#15a0a0" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>PropSight</span></div></header>
 
 <div class="wrap">
   <div class="head">
