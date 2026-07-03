@@ -2037,16 +2037,21 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
     btn.classList.add('cbtn-attn');
   }
   form.onsubmit=e=>{e.preventDefault();const v=inp.value.trim();if(!v)return;inp.value='';if(pendingAsk){pendingAsk(v);return;}handle(v);};
-  // nudge: rotating input placeholder (only while empty + unfocused)
-  let phi=0;setInterval(()=>{if(inp&&document.activeElement!==inp&&!inp.value){phi=(phi+1)%PH.length;inp.placeholder=PH[phi];}},4200);
+  // nudge: rotating input placeholder (only while empty + unfocused) — translated in zh
+  const _tz=s=>(window.PSI18N&&window.PSI18N.t?window.PSI18N.t(s):s);
+  if(inp)inp.placeholder=_tz(inp.placeholder);
+  let phi=0;setInterval(()=>{if(inp&&document.activeElement!==inp&&!inp.value){phi=(phi+1)%PH.length;inp.placeholder=_tz(PH[phi]);}},4200);
   // nudge: launcher teaser bubble, surfaces example questions before they open it
   (function(){
     const tz=document.getElementById('cteaser'),tzt=document.getElementById('cteaserT'),tzx=document.getElementById('cteaserX');
     if(!tz)return;let i=0,dismissed=false,shown=false;
     try{dismissed=sessionStorage.getItem('ps_teaser_x')==='1';}catch(e){}
-    const showT=()=>{if(dismissed||panel.classList.contains('open'))return;tzt.textContent=TEASERS[i%TEASERS.length];tz.classList.add('show');shown=true;};
-    setTimeout(showT,2600);
-    setInterval(()=>{if(dismissed||!shown||panel.classList.contains('open'))return;i++;tzt.textContent=TEASERS[i%TEASERS.length];},3800);
+    const showT=()=>{if(dismissed||panel.classList.contains('open'))return;tzt.textContent=_tz(TEASERS[i%TEASERS.length]);tz.classList.add('show');shown=true;};
+    // keep the hero clean on first load: surface the teaser once they scroll into the page, or after a longer fallback
+    let armed=false;const arm=()=>{if(armed)return;armed=true;showT();};
+    addEventListener('scroll',()=>{if(scrollY>420)arm();},{passive:true});
+    setTimeout(arm,7000);
+    setInterval(()=>{if(dismissed||!shown||panel.classList.contains('open'))return;i++;tzt.textContent=_tz(TEASERS[i%TEASERS.length]);},3800);
     tz.addEventListener('click',e=>{if(e.target===tzx)return;tz.classList.remove('show');open();});
     tzx.addEventListener('click',e=>{e.stopPropagation();tz.classList.remove('show');dismissed=true;try{sessionStorage.setItem('ps_teaser_x','1');}catch(e){}});
   })();

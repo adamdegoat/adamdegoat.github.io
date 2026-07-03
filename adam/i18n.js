@@ -572,7 +572,18 @@
     'Not sure where to start? Just ask.': '不知从何开始？直接问 Aillie。',
     "Tell Aillie what you're trying to do, in plain English. She answers with the real numbers behind it.":
       '用简单的话告诉 Aillie 你想做什么，她会用真实数据回答你。',
-    'Open a full conversation →': '展开完整对话 →'
+    'Open a full conversation →': '展开完整对话 →',
+
+    // ── Aillie nudge teasers + rotating input placeholders ──
+    "How's the market in your area?": '你那区的行情如何？',
+    'What can you afford?': '你负担得起多少？',
+    'Research a new launch': '研究一个新盘',
+    'Rental yield of a condo?': '公寓的租金回报率？',
+    'Ask about value, budget, a project…': '问估值、预算或某个楼盘…',
+    "Try: what's my Bishan flat worth?": '试试：我碧山的组屋值多少？',
+    'Try: price trend for Lentor condos?': '试试：Lentor 公寓的价格走势？',
+    'Try: what can I afford on $8k?': '试试：月入 8千 能买什么？',
+    'Try: rental yield of a project?': '试试：某楼盘的租金回报率？'
   };
 
   var LANG = (function () { try { return localStorage.getItem('ps_lang') === 'zh' ? 'zh' : 'en'; } catch (e) { return 'en'; } })();
