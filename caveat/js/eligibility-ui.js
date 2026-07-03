@@ -1,4 +1,4 @@
-/* Caveat, Affordability & stamp-duty tool. */
+/* Caveat — Affordability & stamp-duty tool. */
 const Eligibility = (() => {
   const C = Caveat; let RATES = null; let emode = 'costs';
 
@@ -24,7 +24,7 @@ const Eligibility = (() => {
     const absdRow = (label, o) => `<tr><td>${label}</td><td class="num">${o['1']}%</td><td class="num">${o['2']}%</td><td class="num">${o['3']}%</td></tr>`;
     const bsd = RATES.bsd.tiers.map((t, i) => {
       const lo = i === 0 ? 0 : RATES.bsd.tiers[i - 1].upto;
-      const band = t.upto == null ? `Above $${(lo / 1e6)}m` : `$${(lo / 1000)}k, $${(t.upto / 1000)}k`;
+      const band = t.upto == null ? `Above $${(lo / 1e6)}m` : `$${(lo / 1000)}k – $${(t.upto / 1000)}k`;
       return `<tr><td>${band}</td><td class="num">${t.rate}%</td></tr>`;
     }).join('');
     const ssd = RATES.ssd.tiers.filter(t => t.held_years_upto).map(t =>
@@ -41,7 +41,7 @@ const Eligibility = (() => {
         <p class="ref-note">${a.married_refund_note}</p>
       </div>
       <div class="ref-sec"><h3>Buyer's Stamp Duty (BSD)</h3>
-        <p class="ref-note">${RATES.bsd.note} Progressive, each band taxed at its own rate.</p>
+        <p class="ref-note">${RATES.bsd.note} Progressive — each band taxed at its own rate.</p>
         <table class="ref-tbl"><thead><tr><th>Price band</th><th>Rate</th></tr></thead><tbody>${bsd}</tbody></table>
       </div>
       <div class="ref-sec"><h3>Seller's Stamp Duty (SSD)</h3>
@@ -51,10 +51,10 @@ const Eligibility = (() => {
       </div>
       <div class="ref-sec"><h3>Financing limits</h3>
         <ul class="ref-list">
-          <li><b>TDSR ${f.tdsr_pct}%</b>, total monthly debt repayments can't exceed ${f.tdsr_pct}% of gross income.</li>
-          <li><b>MSR ${f.msr_pct}%</b>, for HDB/EC, the home loan alone can't exceed ${f.msr_pct}% of gross income.</li>
-          <li><b>Stress rate ${f.stress_rate_pct}%</b>, eligibility is tested at a ${f.stress_rate_pct}% notional interest rate (or higher).</li>
-          <li><b>Variable-income haircut ${f.variable_income_haircut_pct}%</b>, only ${100 - f.variable_income_haircut_pct}% of bonuses/commissions/rental counts.</li>
+          <li><b>TDSR ${f.tdsr_pct}%</b> — total monthly debt repayments can't exceed ${f.tdsr_pct}% of gross income.</li>
+          <li><b>MSR ${f.msr_pct}%</b> — for HDB/EC, the home loan alone can't exceed ${f.msr_pct}% of gross income.</li>
+          <li><b>Stress rate ${f.stress_rate_pct}%</b> — eligibility is tested at a ${f.stress_rate_pct}% notional interest rate (or higher).</li>
+          <li><b>Variable-income haircut ${f.variable_income_haircut_pct}%</b> — only ${100 - f.variable_income_haircut_pct}% of bonuses/commissions/rental counts.</li>
         </ul>
         <table class="ref-tbl"><thead><tr><th>Loan-to-Value (bank)</th><th>1st</th><th>2nd</th><th>3rd+</th></tr></thead><tbody>
           <tr><td>Standard</td><td class="num">${f.ltv.bank['1']}%</td><td class="num">${f.ltv.bank['2']}%</td><td class="num">${f.ltv.bank['3']}%</td></tr>
@@ -64,11 +64,11 @@ const Eligibility = (() => {
       </div>
       <div class="ref-sec"><h3>HDB eligibility</h3>
         <ul class="ref-list">
-          <li><b>Income ceilings</b>, Family $${h.income_ceiling.family.toLocaleString()} · Extended $${h.income_ceiling.extended.toLocaleString()} · Singles $${h.income_ceiling.single.toLocaleString()} · EC $${h.income_ceiling.ec.toLocaleString()} /month.</li>
+          <li><b>Income ceilings</b> — Family $${h.income_ceiling.family.toLocaleString()} · Extended $${h.income_ceiling.extended.toLocaleString()} · Singles $${h.income_ceiling.single.toLocaleString()} · EC $${h.income_ceiling.ec.toLocaleString()} /month.</li>
           <li class="ref-sub">${h.income_ceiling_note}</li>
-          <li><b>MOP</b>, Standard ${h.mop_years.standard} yrs · Plus/Prime ${h.mop_years.plus} yrs.</li>
-          <li><b>Grants</b>, ${h.grants_note}</li>
-          <li><b>EIP</b>, ${h.eip_note}</li>
+          <li><b>MOP</b> — Standard ${h.mop_years.standard} yrs · Plus/Prime ${h.mop_years.plus} yrs.</li>
+          <li><b>Grants</b> — ${h.grants_note}</li>
+          <li><b>EIP</b> — ${h.eip_note}</li>
         </ul>
       </div>
       <p class="ref-disc">${RATES.disclaimer}</p>`;
@@ -83,12 +83,12 @@ const Eligibility = (() => {
       <h4>How this was worked out</h4>
       <ul>
         ${li(`ABSD ${r.absd_pct}%`, `${profLabel}, ${nth} property`)}
-        ${li('BSD progressive 1-6%', 'standard residential stamp-duty bands')}
+        ${li('BSD progressive 1–6%', 'standard residential stamp-duty bands')}
         ${li(`LTV ${r.ltvPct}%`, `${nth} housing loan${ctx.isHDB ? ' (HDB)' : ''} → max loan ${C.fmtMoney(r.loan)}`)}
         ${li(`Min. cash ${r.minCashPct}%`, 'minimum cash downpayment')}
         ${li(`TDSR ${RATES.financing.tdsr_pct}%${ctx.isHDB ? ` + MSR ${RATES.financing.msr_pct}%` : ''}`, `tested at ${RATES.financing.stress_rate_pct}% over 25 yrs`)}
       </ul>
-      <button class="rates-link" type="button" onclick="Eligibility.openRates()"><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.15em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 15 4v1H9z"/><path d="M9 10h6M9 14h6M9 18h4"/></svg> See full rates &amp; rules →</button>
+      <button class="rates-link" type="button" onclick="Eligibility.openRates()">📋 See full rates &amp; rules →</button>
     </div>`;
   }
 
@@ -109,7 +109,7 @@ const Eligibility = (() => {
         </select></div>
       <div class="field" id="e_ftaWrap" style="display:none">
         <label>Nationality (FTA check)</label>
-        <select id="e_fta"><option value="">Other</option></select>
+        <select id="e_fta"><option value="">— Other —</option></select>
         <div class="hint">${RATES.absd.fta_as_sc.join(', ')} nationals are taxed as Citizens under FTAs.</div>
       </div>
       <div class="field"><label>This will be their…</label>
@@ -123,7 +123,7 @@ const Eligibility = (() => {
       <label style="display:flex;gap:9px;align-items:center;margin:4px 0 16px;font-size:13.5px;font-weight:600;color:var(--ink-2)">
         <input type="checkbox" id="e_hdb" style="width:auto"> HDB flat (applies MSR 30%)</label>
       <button class="btn-primary" id="e_go">Calculate</button>
-      <button class="rates-link" id="ratesRefBtn" type="button"><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.15em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 15 4v1H9z"/><path d="M9 10h6M9 14h6M9 18h4"/></svg> View all rates &amp; rules</button>
+      <button class="rates-link" id="ratesRefBtn" type="button">📋 View all rates &amp; rules</button>
       <p class="err" id="e_err" style="display:none;margin-top:12px"></p>`;
     const prof = document.getElementById('e_profile'), ftaWrap = document.getElementById('e_ftaWrap'),
       fta = document.getElementById('e_fta');
@@ -179,10 +179,10 @@ const Eligibility = (() => {
       <div class="breakdown">
         ${brow('Loan principal', 'what you borrow', C.fmtMoney(loan))}
         ${brow('Total interest', `at ${rate}% over ${tenure} years`, C.fmtMoney(Math.round(totalPaid - loan)))}
-        ${brow('Interest in year 1', 'interest is front-loaded, most is paid early', C.fmtMoney(Math.round(y1int)))}
+        ${brow('Interest in year 1', 'interest is front-loaded — most is paid early', C.fmtMoney(Math.round(y1int)))}
         <div class="brow total"><div class="bk">Total repayable</div><div class="bv">${C.fmtMoney(Math.round(totalPaid))}</div></div>
       </div>
-      <div class="deck-disc">Indicative, assumes a constant interest rate for the full tenure. Actual repayments move with rate changes and your bank's terms.</div>
+      <div class="deck-disc">Indicative — assumes a constant interest rate for the full tenure. Actual repayments move with rate changes and your bank's terms.</div>
     </div>`;
     out.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
@@ -229,7 +229,7 @@ const Eligibility = (() => {
         <div class="gtrack"><div class="gfill ${pct >= 100 ? 'over' : ''}" style="width:${pct}%"></div></div>
         ${ctx.income ? `<div class="flag ${instOK ? 'ok' : 'warn'}">${instOK
           ? '✓ Instalment fits within ' + (ctx.isHDB ? 'MSR 30% / TDSR 55%' : 'TDSR 55%')
-          : '⚠ Instalment exceeds the ' + (ctx.isHDB ? 'MSR/TDSR' : 'TDSR') + ' cap, loan amount or tenure may need adjusting'}</div>`
+          : '⚠ Instalment exceeds the ' + (ctx.isHDB ? 'MSR/TDSR' : 'TDSR') + ' cap — loan amount or tenure may need adjusting'}</div>`
           : `<div class="hint">Add monthly income to test loan eligibility.</div>`}
       </div>
       ${rulesApplied(r, ctx)}
@@ -243,7 +243,7 @@ const Eligibility = (() => {
   }
 
   function absdNote(ctx, r) {
-    if (ctx.profile === 'Foreigner' && ctx.fta) return `${ctx.fta} national, taxed as Citizen (FTA)`;
+    if (ctx.profile === 'Foreigner' && ctx.fta) return `${ctx.fta} national — taxed as Citizen (FTA)`;
     const names = { SC: 'Citizen', SPR: 'PR', Foreigner: 'Foreigner', Entity: 'Entity' };
     return `${names[ctx.profile]} · ${['1st','2nd','3rd+'][ctx.count - 1]} property · ${r.absd_pct}%`;
   }

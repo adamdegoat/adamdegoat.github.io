@@ -1,8 +1,8 @@
-/* Caveat service worker, offline shell + fresh data.
+/* Caveat service worker — offline shell + fresh data.
    Same-origin only (cross-origin fonts/Leaflet/OneMap handled by the browser).
    Data files: network-first (stay fresh) with cache fallback for offline.
    Everything else: cache-first, populated on demand. */
-const CACHE = 'caveat-v18';
+const CACHE = 'caveat-v17';
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(['./', './index.html'])).then(() => self.skipWaiting()));

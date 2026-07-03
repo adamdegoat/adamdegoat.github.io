@@ -1,16 +1,8 @@
-/* Caveat, interactive valuation map (Leaflet + OneMap tiles).
+/* Caveat — interactive valuation map (Leaflet + OneMap tiles).
    Plots the subject, comparable sales and nearby amenities. All free. */
 const CaveatMap = (() => {
   const maps = {};
-  const _sw = 'fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"';
-  const AMEN = {
-    mrt: `<svg viewBox="0 0 24 24" width="16" height="16" ${_sw}><rect x="5" y="3" width="14" height="13" rx="3"/><path d="M5 10h14"/><path d="M8.5 19l-1.5 2.5M15.5 19l1.5 2.5"/><circle cx="9" cy="13" r="1"/><circle cx="15" cy="13" r="1"/></svg>`,
-    lrt: `<svg viewBox="0 0 24 24" width="16" height="16" ${_sw}><rect x="5" y="3" width="14" height="13" rx="3"/><path d="M5 10h14"/><path d="M8.5 19l-1.5 2.5M15.5 19l1.5 2.5"/><circle cx="9" cy="13" r="1"/><circle cx="15" cy="13" r="1"/></svg>`,
-    school: `<svg viewBox="0 0 24 24" width="16" height="16" ${_sw}><path d="M12 4 2 9l10 5 10-5-10-5z"/><path d="M6 11v5c0 1 3 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg>`,
-    hawker: `<svg viewBox="0 0 24 24" width="16" height="16" ${_sw}><path d="M3 11h18a9 9 0 0 1-18 0z"/><path d="M12 11V8M9 8c0-1.5 1-2 1.5-2.5M15 8c0-1.5-1-2-1.5-2.5"/><path d="M4 20h16"/></svg>`,
-    park: `<svg viewBox="0 0 24 24" width="16" height="16" ${_sw}><path d="M12 22v-6"/><path d="M12 16a5 5 0 0 0 5-5 4 4 0 0 0-1-2.5A4.5 4.5 0 0 0 12 3a4.5 4.5 0 0 0-4 3.5A4 4 0 0 0 7 11a5 5 0 0 0 5 5z"/></svg>`,
-  };
-  const PIN = `<svg viewBox="0 0 24 24" width="16" height="16" ${_sw}><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>`;
+  const AMEN = { mrt: '🚇', lrt: '🚈', school: '🎓', hawker: '🍜', park: '🌳' };
 
   function subjectIcon(color) {
     return L.divIcon({ className: 'cm-sub', iconSize: [30, 30], iconAnchor: [15, 15],
@@ -18,7 +10,7 @@ const CaveatMap = (() => {
   }
   function amenIcon(kind) {
     return L.divIcon({ className: 'cm-amen', iconSize: [26, 26], iconAnchor: [13, 13],
-      html: `<span>${AMEN[kind] || PIN}</span>` });
+      html: `<span>${AMEN[kind] || '📍'}</span>` });
   }
 
   // opts: {subject:{latlng,label}, comps:[{latlng,label,sub}], amenities:[{kind,name,latlng,dist}], color}

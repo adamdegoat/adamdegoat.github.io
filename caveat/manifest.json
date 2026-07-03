@@ -1,7 +1,7 @@
 {
-  "name": "Caveat, SG Property Intelligence",
+  "name": "Caveat — SG Property Intelligence",
   "short_name": "Caveat",
-  "description": "Instant Singapore resale valuations, affordability and live market intelligence, built on official URA, HDB and OneMap data.",
+  "description": "Instant Singapore resale valuations, affordability and live market intelligence — built on official URA, HDB and OneMap data.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
