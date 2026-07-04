@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-04T21:00:00.384433+08:00",
+  "updated": "2026-07-04T23:30:00.247342+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -205,6 +205,18 @@
       "priority": true
     },
     {
+      "title": "UFC Fantasy Draft, Season 5: Which 72 UFC fighters will close out 2026 in style?",
+      "link": "https://www.mmafighting.com/latest-news/497508/ufc-fantasy-draft-season-5-which-72-ufc-fighters-will-close-out-2026-in-style",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "MMA Fighting’s 2026 Submission of the Midyear: Murtazali Magomedov’s mind-blowing Scottish twister",
+      "link": "https://www.mmafighting.com/ufc/497570/mma-fightings-2026-submission-of-the-midyear-murtazali-magomedovs-mind-blowing-scottish-twister",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "UFC Abu Dhabi adds former welterweight contender to lineup",
       "link": "https://www.mmafighting.com/ufc/497449/ufc-abu-dhabi-adds-former-welterweight-contender-to-lineup",
       "source": "MMA Fighting",
@@ -229,33 +241,21 @@
       "priority": false
     },
     {
-      "title": "Max Holloway responds to Justin Gaethje’s comments about potential rematch after beating Ilia Topuria at UFC White House",
-      "link": "https://www.mmafighting.com/ufc/497345/max-holloway-responds-to-justin-gaethjes-comments-about-potential-rematch-after-beating-ilia-topuria-at-ufc-white-house",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "BKFC president David Feldman explodes on ‘f*cking punk’ fighter after trying to shove his opponent off stage during weigh-ins",
-      "link": "https://www.mmafighting.com/bkfc/497395/bkfc-president-david-feldman-explodes-on-fcking-punk-fighter-after-trying-to-shove-his-opponent-off-stage-during-weigh-ins",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Jon Jones celebrates impact of UFC White House: ‘It makes me feel a lot more important’",
-      "link": "https://www.mmafighting.com/ufc/497368/jon-jones-celebrates-impact-of-ufc-white-house-it-makes-me-feel-a-lot-more-important",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
       "title": "Olympic gold medalist Jordan Burroughs headlines RAF 12 versus … UFC’s Sean Brady?!?",
       "link": "https://www.mmamania.com/raf-wrestling-schedule-cards-live-results/454961/olympic-gold-medalist-jordan-burroughs-headlines-raf-12-versus-ufcs-sean-brady",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
+      "title": "Three times?!? Benoit Saint-Denis accused of staph infection  (again) by eagle-eyed fight fans",
+      "link": "https://www.mmamania.com/ufc-news/454940/three-times-benoit-saint-denis-accused-of-staph-infection-again-by-eagle-eyed-fight-fans",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor meets Holloway this Sunday. Two legends, one stage, unforgettable combat awaits.",
-    "prefight": "McGregor and Holloway collide Sunday—two striking masters ready for ultimate warfare.",
-    "results": "Fiziev's spinning wheel kick ended Torres' night in round 2 via knockout."
+    "week": "McGregor faces Holloway Sunday at 9 AM SGT—featherweight warfare awaits.",
+    "prefight": "McGregor vs Holloway this Sunday. Two legends clash in pure combat theater.",
+    "results": "Fiziev demolished Torres with a brutal spinning wheel kick and punches in round two."
   }
 }
