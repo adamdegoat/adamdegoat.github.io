@@ -1,77 +1,76 @@
 {
- "asof": "2026-06-27",
+ "asof": "2026-07-04",
  "disclaimer": "AI-assisted research from public web sources \u2014 indicative, verify before quoting a client.",
  "notes": {
   "ATTITUDE AT KIM YAM": {
-   "note": "999-year leasehold (from 1841) boutique 33-unit development completed in 2011 in River Valley, giving it a tenure advantage over most surrounding 99-year leasehold condos. Within walking distance of Somerset, Fort Canning and the newer Great World MRT stations.",
+   "note": "A boutique 999-year leasehold development (rare near-freehold tenure) of just 33 units completed in 2011 along Kim Yam Road in District 9's River Valley. It sits about 800m from Great World MRT (TE15) on the Thomson-East Coast Line, giving direct links to Orchard.",
    "sources": [
-    "edgeprop.sg",
-    "99.co"
+    "https://www.edgeprop.sg/condo-apartment/attitude-at-kim-yam",
+    "https://www.99.co/singapore/condos-apartments/attitude-at-kim-yam",
+    "https://landtransportguru.net/great-world-station/"
    ]
   },
   "LUMIERE": {
-   "note": "99-year leasehold 168-unit, 45-storey tower at 2 Mistri Road (TOP ~2012) in the Tanjong Pagar/Shenton Way area near Tanjong Pagar and Telok Ayer MRT. Recent transactions averaged roughly S$1,789 psf over the past 12 months.",
+   "note": "A 99-year leasehold, 168-unit development on Mistri Road (D02) completed in 2010, near Tanjong Pagar and Shenton Way (TE19) MRT stations. The new Prince Edward Road MRT (Circle Line Stage 6) begins passenger service in July 2026, and the area is set to benefit from the future Greater Southern Waterfront redevelopment.",
    "sources": [
-    "stackedhomes.com",
-    "propertyguru.com.sg",
-    "99.co"
+    "https://www.edgeprop.sg/condo-apartment/lumiere",
+    "https://landtransportguru.net/prince-edward-road-station/"
    ]
   },
   "SELETAR PARK RESIDENCE": {
-   "note": "99-year leasehold 276-unit condo completed 2015 by Asplenium Land and designed by SCDA Architects, located beside Greenwich V mall in the landed Seletar Hills enclave. Relatively MRT-distant, with Ang Mo Kio MRT about a 5-minute drive and Fernvale LRT roughly 900m away.",
+   "note": "A 99-year leasehold, 276-unit condo at 21 Seletar Road (D28) completed in 2015, developed by Asplenium Land (Tong Eng Group) and designed by SCDA Architects. It is not directly MRT-served (nearest rail is Fernvale LRT roughly 900m away), with nearby malls including Greenwich V and The Seletar Mall.",
    "sources": [
-    "edgeprop.sg",
-    "99.co"
-   ]
-  },
-  "ICON": {
-   "note": "99-year leasehold 646-unit development completed in 2007 by Far East Organization, sitting directly atop the Icon Village retail podium and across the road from Tanjong Pagar MRT. Its large unit count and integrated mall make it a high-liquidity, transit-adjacent CBD project.",
-   "sources": [
-    "stackedhomes.com",
-    "edgeprop.sg"
-   ]
-  },
-  "GUILLEMARD SUITES": {
-   "note": "Freehold boutique 146-unit development completed 2017 by MK25 along Guillemard Road, about an 8-minute (610m) walk to Mountbatten MRT on the Circle Line. Last-12-month transactions averaged around S$1,499 psf.",
-   "sources": [
-    "99.co",
-    "edgeprop.sg"
+    "https://www.edgeprop.sg/condo-apartment/seletar-park-residence",
+    "https://directory.stackedhomes.com/condo/seletar-park-residence/"
    ]
   },
   "ONE-NORTH RESIDENCES": {
-   "note": "99-year leasehold (TOP 2009) by a UOL-Kheng Leong joint venture, comprising 405 units directly above one-north MRT (CC23) and one stop from Buona Vista interchange, in the heart of the one-north research/business hub. No collective sale activity has been reported.",
+   "note": "A 99-year leasehold, 405-unit development completed in 2009 by a UOL and Kheng Leong joint venture, sitting next to one-north MRT (CC23). The immediate one-north area is seeing substantial new supply, including Bloomsbury Residences (358 units, launched 2025), LyndenWoods and Penrith.",
    "sources": [
-    "99.co",
-    "edgeprop.sg"
+    "https://www.99.co/singapore/condos-apartments/one-north-residences",
+    "https://www.edgeprop.sg/property-news/transformative-changes-expected-drive-demand-condos-near-one-north"
+   ]
+  },
+  "ICON": {
+   "note": "A 99-year leasehold, 646-unit development at 10 Gopeng Street (D02) completed in 2007 by Far East Organization, sitting atop the Icon Village retail podium and directly across from Tanjong Pagar MRT. It stands to benefit from the new Prince Edward Road MRT (Circle Line Stage 6, opening July 2026) and the Greater Southern Waterfront transformation.",
+   "sources": [
+    "https://www.edgeprop.sg/condo-apartment/icon",
+    "https://www.99.co/singapore/condos-apartments/icon"
    ]
   },
   "JOOL SUITES": {
-   "note": "Freehold 52-unit development (TOP 2014) at 2 Sing Joo Walk near Farrer Park/Little India, dominated by small one-bedroom units (387-484 sqft) and penthouses, making it a compact investor/rental-oriented project. No collective sale has been reported.",
+   "note": "Freehold boutique development completed in 2014 with 52 units, located within roughly a 2-minute walk of Farrer Park MRT (North East Line) in the Jalan Besar/Kallang area of District 8.",
    "sources": [
-    "edgeprop.sg",
-    "srx.com.sg"
+    "https://www.edgeprop.sg/condo-apartment/jool-suites",
+    "https://www.srx.com.sg/condo/jool-suites-14892"
    ]
   },
   "THE COAST AT SENTOSA COVE": {
-   "note": "99-year leasehold 249-unit waterfront development (TOP 2010) by Ho Bee Land in Sentosa Cove, the only enclave allowing private marina berthing and foreigner landed purchase. Sentosa Cove non-landed prices fell about 18.7% from 2023 (~$2,125 psf) to 2025 (~$1,728 psf) amid 60% foreigner ABSD, though agents cite early signs of recovery.",
+   "note": "A 99-year leasehold waterfront project completed in 2009 with 249 units in the gated Sentosa Cove enclave (District 4); resale history is mixed, with EdgeProp recording both large profits and sizeable losses across transactions and no en-bloc activity reported.",
    "sources": [
-    "propertyguru.com.sg",
-    "propnex.com",
-    "edgeprop.sg"
+    "https://www.edgeprop.sg/condo-apartment/the-coast-at-sentosa-cove",
+    "https://www.edgeprop.sg/property-news/project-spotlight-sentosa-condo-defied-trend-197-profitable-transactions"
    ]
   },
   "TROPIKA EAST": {
-   "note": "Freehold 105-unit development (TOP 2016) by Tong Eng Group at Foo Kim Lin Road off Jalan Eunos, set within a landed-housing enclave with loft and private-pool unit types; nearest MRT is Ubi/Kaki Bukit on the Downtown Line. No collective sale has been reported.",
+   "note": "Freehold development at 1 & 3 Foo Kim Lin Road (District 14) completed in 2016 with 105 units, within reach of Kembangan (EW6) and Eunos (EW7) MRT stations and Paya Lebar Quarter amenities.",
    "sources": [
-    "edgeprop.sg",
-    "99.co"
+    "https://www.srx.com.sg/condo/tropika-east-23972",
+    "https://www.edgeprop.sg/condo-apartment/tropika-east"
    ]
   },
-  "WATERFORD RESIDENCE": {
-   "note": "999-year leasehold 118-unit development (TOP 2010) by Hoi Hup Realty at Kim Yam Road on the River Valley/Orchard fringe, about 900m from Fort Canning MRT (DT20). No collective sale has been reported.",
+  "QUEENS": {
+   "note": "A 99-year leasehold (from 1998) development completed in 2002 with 722 units sitting right beside Queenstown MRT (East-West Line); the surrounding Stirling Road area has seen newer large-scale supply such as the 1,259-unit Stirling Residences (TOP 2022) that competes for buyers and tenants.",
    "sources": [
-    "propertyguru.com.sg",
-    "99.co"
+    "https://www.edgeprop.sg/condo-apartment/queens",
+    "https://www.edgeprop.sg/condo-apartment/stirling-residences"
+   ]
+  },
+  "THE WOODGROVE": {
+   "note": "Located in Woodlands (District 25) near Woodlands and Marsiling MRT stations, it stands to benefit from the Woodlands Regional Centre development and the Johor Bahru\u2013Singapore RTS Link at Woodlands North, whose passenger service is targeted to begin around end-2026/early-2027.",
+   "sources": [
+    "https://www.99.co/singapore/condos-apartments/the-woodgrove",
+    "https://en.wikipedia.org/wiki/Johor_Bahru%E2%80%93Singapore_Rapid_Transit_System"
    ]
   }
  }
