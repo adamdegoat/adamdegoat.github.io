@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-04T13:00:00.354736+08:00",
+  "updated": "2026-07-04T21:00:00.384433+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -247,15 +247,15 @@
       "priority": false
     },
     {
-      "title": "Mateusz Gamrot vs. Quillan Salkilld announced for UFC Vegas 120 main event",
-      "link": "https://www.mmafighting.com/ufc/497354/mateusz-gamrot-vs-quillan-salkilld-announced-for-ufc-vegas-120-main-event",
-      "source": "MMA Fighting",
+      "title": "Olympic gold medalist Jordan Burroughs headlines RAF 12 versus … UFC’s Sean Brady?!?",
+      "link": "https://www.mmamania.com/raf-wrestling-schedule-cards-live-results/454961/olympic-gold-medalist-jordan-burroughs-headlines-raf-12-versus-ufcs-sean-brady",
+      "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor faces Holloway Sunday 9am SGT - featherweight glory awaits in the octagon this week.",
-    "prefight": "McGregor meets Holloway this Sunday at 9 AM SGT—history awaits.",
-    "results": "Fiziev stops Torres cold with a spinning wheel kick in round two."
+    "week": "McGregor meets Holloway this Sunday. Two legends, one stage, unforgettable combat awaits.",
+    "prefight": "McGregor and Holloway collide Sunday—two striking masters ready for ultimate warfare.",
+    "results": "Fiziev's spinning wheel kick ended Torres' night in round 2 via knockout."
   }
 }
