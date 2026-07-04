@@ -1,4 +1,4 @@
-/* Caveat — Market Pulse dashboard. Renders pre-computed pulse.json with full
+/* Caveat, Market Pulse dashboard. Renders pre-computed pulse.json with full
    context: every figure states its period, basis and date range. */
 const Pulse = (() => {
   const C = Caveat;
@@ -72,7 +72,7 @@ const Pulse = (() => {
         ${cell('$' + r.median_rent_psf + '<span> psf</span>', 'Median rent PSF')}
         ${cell('~' + r.implied_gross_yield + '%', 'Implied gross yield')}
       </div>
-      <p class="ptable-legend">Implied gross yield = median rent PSF × 12 ÷ median resale PSF — a market-wide indication before costs &amp; vacancy. Yields for a specific project appear on its valuation.</p>`;
+      <p class="ptable-legend">Implied gross yield = median rent PSF × 12 ÷ median resale PSF, a market-wide indication before costs &amp; vacancy. Yields for a specific project appear on its valuation.</p>`;
   }
 
   // ---- market segments ----
@@ -99,7 +99,7 @@ const Pulse = (() => {
           <th data-k="trend" class="num">3-mo PSF Δ</th>
         </tr></thead><tbody id="townsBody">${townRows(d.hdb_towns)}</tbody>
       </table></div>
-      <p class="ptable-legend">“3-mo PSF Δ” = the town’s median PSF over the latest 3 months versus the 3 months before it — a momentum read, not the headline price change.</p>`;
+      <p class="ptable-legend">“3-mo PSF Δ” = the town’s median PSF over the latest 3 months versus the 3 months before it, a momentum read, not the headline price change.</p>`;
   }
   function townRows(towns) {
     return towns.map(t => `<tr>
@@ -155,20 +155,20 @@ const Pulse = (() => {
           <td class="num">${Math.round(r[4] * 10.7639 / 1000).toLocaleString()}k sf</td>
           <td class="num">${big(r[5])}</td><td class="num hide-sm">${when(r[6])}</td></tr>`).join('')}</tbody>
       </table></div>
-      <p class="ptable-legend">Whole-development sales (excluded from unit comparables). Context only — an en-bloc resets local supply and can lift nearby prices.</p>`;
+      <p class="ptable-legend">Whole-development sales (excluded from unit comparables). Context only, an en-bloc resets local supply and can lift nearby prices.</p>`;
   }
 
   function foot(d) {
-    return `<p class="pulse-foot">Source: official URA private caveats &amp; HDB resale registrations (resale &amp; sub-sale only; private excludes landed). “Median” is the middle transacted value over the stated window — half sold above, half below. “Median PSF” trend spans the full ${d.window.private_months}/${d.window.hdb_months}-month window; “3-month momentum” compares the latest 3 months’ median PSF with the prior 3. Data current as of ${d.built}; refreshes weekly.</p>`;
+    return `<p class="pulse-foot">Source: official URA private caveats &amp; HDB resale registrations (resale &amp; sub-sale only; private excludes landed). “Median” is the middle transacted value over the stated window, half sold above, half below. “Median PSF” trend spans the full ${d.window.private_months}/${d.window.hdb_months}-month window; “3-month momentum” compares the latest 3 months’ median PSF with the prior 3. Data current as of ${d.built}; refreshes weekly.</p>`;
   }
 
   // ---- helpers ----
   const mm = m => m.includes('-') ? +m.split('-')[1] - 1 : +m.slice(2) - 1;
   const yy = m => m.includes('-') ? m.slice(2, 4) : m.slice(0, 2);
-  const range = months => { const m = months.filter(x => x.psf); return m.length ? `${MON[mm(m[0].m)]} ’${yy(m[0].m)} – ${MON[mm(m[m.length - 1].m)]} ’${yy(m[m.length - 1].m)}` : ''; };
+  const range = months => { const m = months.filter(x => x.psf); return m.length ? `${MON[mm(m[0].m)]} ’${yy(m[0].m)}, ${MON[mm(m[m.length - 1].m)]} ’${yy(m[m.length - 1].m)}` : ''; };
 
   function trendBadge(t) {
-    if (t == null) return `<span class="tr flat" title="not enough data">–</span>`;
+    if (t == null) return `<span class="tr flat" title="not enough data">-</span>`;
     if (t > 0.5) return `<span class="tr up">▲ ${t}%</span>`;
     if (t < -0.5) return `<span class="tr down">▼ ${Math.abs(t)}%</span>`;
     return `<span class="tr flat">≈ flat (${t}%)</span>`;

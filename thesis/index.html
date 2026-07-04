@@ -1426,6 +1426,7 @@ if('serviceWorker' in navigator){window.addEventListener('load',function(){navig
 <script>
 /* ── Member gate: cap the data table to a teaser, drop a full join card below it ── */
 function psGate(){
+  return;   // membership removed, research is fully open, no gate
   var app=document.getElementById('app'); if(!app || !window.PS) return;
   if(PS.isMember()) return;                          // members see everything
   var tbl=app.querySelector('.tbl'); if(!tbl) return; // only the data-table views

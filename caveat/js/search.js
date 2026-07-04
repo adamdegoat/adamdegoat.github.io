@@ -1,4 +1,4 @@
-/* Caveat — Find: smart search over the market (condos by budget/region/yield, HDB towns by budget). */
+/* Caveat, Find: smart search over the market (condos by budget/region/yield, HDB towns by budget). */
 const Search = (() => {
   const C = Caveat; let IDX = null, CONDO = null, mode = 'condo';
 
@@ -65,7 +65,7 @@ const Search = (() => {
   }
 
   function renderCondo(out, m) {
-    if (!m.length) { out.innerHTML = `<div class="empty-state"><p>No condos match — widen the budget or region.</p></div>`; return; }
+    if (!m.length) { out.innerHTML = `<div class="empty-state"><p>No condos match, widen the budget or region.</p></div>`; return; }
     const head = `<div class="find-head"><h2>${m.length.toLocaleString()} matching condo${m.length > 1 ? 's' : ''}</h2>
       <span class="hint">showing top ${Math.min(m.length, 40)} · median resale, last 18 months</span></div>`;
     out.innerHTML = head + `<div class="find-list">${m.slice(0, 40).map(p => `
@@ -90,12 +90,12 @@ const Search = (() => {
   }
 
   function runHdb(out) {
-    if (!window.__pulse) { out.innerHTML = `<div class="empty-state"><p class="err">Market data still loading — try again in a moment.</p></div>`; return; }
+    if (!window.__pulse) { out.innerHTML = `<div class="empty-state"><p class="err">Market data still loading, try again in a moment.</p></div>`; return; }
     const bRaw = val('s_budget').trim(), budget = bRaw === '' ? Infinity : +bRaw, sort = val('s_sort');
     let towns = window.__pulse.hdb_towns.filter(t => t.median_price <= budget);
     const sorters = { price: (a, b) => a.median_price - b.median_price, txns: (a, b) => b.txns - a.txns, psf: (a, b) => a.median_psf - b.median_psf };
     towns.sort(sorters[sort] || sorters.price);
-    if (!towns.length) { out.innerHTML = `<div class="empty-state"><p>No towns under that budget — raise it.</p></div>`; return; }
+    if (!towns.length) { out.innerHTML = `<div class="empty-state"><p>No towns under that budget, raise it.</p></div>`; return; }
     out.innerHTML = `<div class="find-head"><h2>${towns.length} matching town${towns.length > 1 ? 's' : ''}</h2>
       <span class="hint">overall median resale price · last 15 months</span></div>
       <div class="find-list">${towns.map(t => `

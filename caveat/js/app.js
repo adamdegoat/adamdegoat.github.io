@@ -1,4 +1,4 @@
-/* Caveat — app shell: routing, agent profile (localStorage), init. */
+/* Caveat, app shell: routing, agent profile (localStorage), init. */
 const App = (() => {
   const PROFILE_KEY = 'caveat_profile';
   let profile = null;
@@ -109,7 +109,7 @@ const App = (() => {
         `<span class="live-dot"></span> Data refreshed <b>${rel}</b> (${fr.built}) · auto-updates weekly · ${counts}`;
       CMA.init(idx); Eligibility.init(); Prospect.init(idx); Pulse.init(); Search.init(idx); Upgrade.init();
     } catch (err) {
-      document.getElementById('freshness').textContent = 'Data failed to load — ' + err.message;
+      document.getElementById('freshness').textContent = 'Data failed to load, ' + err.message;
     }
   }
 

@@ -154,12 +154,12 @@
     '</a>' +
     '<button class="psnav-lang" id="psLang" type="button" aria-label="Switch language"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"/></svg>' + (curLang() === 'zh' ? 'EN' : '中文') + '</button>' +
     '<button class="psnav-signin ps-signin-cta" type="button" onclick="window.PS&&PS.login(\'nav\')">' + t('Sign in') + '</button>' +
-    '<button class="psnav-join ps-join-cta" type="button" onclick="window.PS&&PS.cta(\'nav\')">' + t('Join free') + '</button>' +
+    '<button class="psnav-join ps-join-cta" type="button" onclick="window.PS&&PS.cta(\'nav\')">' + t('Join Telegram') + '</button>' +
     '<button class="psnav-burger" id="psBurger" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>' +
     '</div></header>';
   var menuHTML = '<div class="psnav-menu" id="psMenu">' +
     '<button class="psnav-mlang" id="psLangM" type="button">' + (curLang() === 'zh' ? 'English' : '切换中文') + '</button>' +
-    '<button class="psnav-mjoin ps-join-cta" type="button" onclick="window.PS&&PS.cta(\'menu\')">' + t('Join free →') + '</button>' +
+    '<button class="psnav-mjoin ps-join-cta" type="button" onclick="window.PS&&PS.cta(\'menu\')">' + t('Join our Telegram →') + '</button>' +
     '<button class="psnav-msignin ps-signin-cta" type="button" onclick="window.PS&&PS.login(\'menu\')">' + t('Already a member? Sign in') + '</button>' +
     LINKS.map(function (l) { return linkHtml(l, true); }).join('') +
     '<a class="psm-door' + (active(LISTINGS) ? ' cur' : '') + '" href="' + LISTINGS + '">' +

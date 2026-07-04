@@ -19,7 +19,7 @@
     'News': '房产新闻', 'Guide': '购房指南', 'About us': '关于我们', 'Contact': '联系我们',
     'Listing Platform': '房源平台', 'Coming soon': '即将推出',
     'Coming soon, step into the platform': '即将推出，进入平台看看',
-    'Sign in': '登录', 'Join free': '免费加入', 'Join free →': '免费加入 →',
+    'Sign in': '登录', 'Join free': '免费加入', 'Join free →': '免费加入 →', 'Join Telegram': '加入 Telegram', 'Join our Telegram →': '加入我们的 Telegram →',
     'Already a member? Sign in': '已是会员？登录',
     'Featured': '精选', 'Smart': '智能', 'Soon': '即将',
     'Singapore': '新加坡', 'About': '关于', 'Privacy': '隐私', 'Terms': '条款',
@@ -50,7 +50,7 @@
     'hero.h1a': '新加坡房产，', 'hero.h1b': '一目了然。',
     'hero.leadLg': '免费看懂新加坡房产。用真实的近期成交估算任何组屋或公寓，深入研究每个楼盘和区域，算出你负担得起的预算，读真正重要的房产新闻，全部用大白话。没有中介推销，只有真实数据。再加上 Aillie，让你买卖都心里有数。',
     'hero.leadSm': '免费看懂新加坡房产。真实估值、深入研究、你负担得起的预算，还有真正重要的房产新闻，全部用大白话。再加上 Aillie，让你买卖都心里有数。',
-    'cta.join': '免费加入', 'cta.askAillie': '问 Aillie', 'cta.value': '估算房价',
+    'cta.join': '加入我们的 Telegram', 'cta.askAillie': '问 Aillie', 'cta.value': '估算房价',
     'chatcue.t': '有问题尽管问 Aillie', 'chatcue.s': '真实数据 · 免费',
 
     // ── Aillie chat (display-only: greeting + disclaimer; keyed by the English text) ──

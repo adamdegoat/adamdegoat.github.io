@@ -1,4 +1,4 @@
-/* Caveat — core: data loading, geocoding, amenities, formatting helpers. */
+/* Caveat, core: data loading, geocoding, amenities, formatting helpers. */
 const Caveat = (() => {
   const DATA = 'data/';
   const cache = {};

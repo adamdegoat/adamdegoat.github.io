@@ -191,7 +191,7 @@
   }
 
   // explicit "I already have an account" path → opens the box on the sign-in panel
-  function login(source) { if (isMember()) { openAccount(); return; } openModal(source, true); }
+  function login(source) { window.open(TG, '_blank', 'noopener'); }
 
   function logout() { clear(); try { location.reload(); } catch (e) {} }
 
@@ -218,28 +218,15 @@
     ov.querySelector('[data-psj-logout]').addEventListener('click', logout);
   }
 
-  // every join CTA routes through here: members get the account panel, guests get the join box
-  function cta(source) { if (isMember()) openAccount(); else openModal(source); }
+  // membership removed, every join CTA just opens the public Telegram channel
+  function cta(source) { window.open(TG, '_blank', 'noopener'); }
 
-  // relabel join CTAs based on state (".ps-join-cta" → member's name when signed in)
   function applyAuthUI() {
-    var member = isMember(), label = firstName() || 'My account';
-    var nodes = document.querySelectorAll('.ps-join-cta');
-    for (var i = 0; i < nodes.length; i++) {
-      var el = nodes[i];
-      if (member) {
-        if (!el.dataset.joinlabel) el.dataset.joinlabel = (el.textContent || '').trim();
-        el.textContent = label; el.classList.add('ps-member');
-      } else if (el.dataset.joinlabel) {
-        el.textContent = el.dataset.joinlabel; el.classList.remove('ps-member');
-      }
-    }
-    // "Sign in" entries only make sense for guests, hide them once signed in
+    // no accounts anymore: hide any leftover "Sign in" buttons, always show the Telegram links
     var si = document.querySelectorAll('.ps-signin-cta');
-    for (var j = 0; j < si.length; j++) si[j].style.display = member ? 'none' : '';
-    // Telegram link is a member-only perk, reveal it only once signed in
+    for (var j = 0; j < si.length; j++) si[j].style.display = 'none';
     var tg = document.querySelectorAll('.ps-tg-only');
-    for (var k = 0; k < tg.length; k++) tg[k].style.display = member ? '' : 'none';
+    for (var k = 0; k < tg.length; k++) tg[k].style.display = '';
   }
 
   function _ready(fn) { if (document.readyState !== 'loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }

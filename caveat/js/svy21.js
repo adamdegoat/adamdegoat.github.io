@@ -1,6 +1,6 @@
-/* Caveat — SVY21 (EPSG:3414) <-> WGS84 lat/lng, for the map.
+/* Caveat, SVY21 (EPSG:3414) <-> WGS84 lat/lng, for the map.
    Forward is the exact transverse-Mercator (matches data/svy21.py, validated to
-   ~8cm). Inverse is by Newton-style iteration on the forward — converges to
+   ~8cm). Inverse is by Newton-style iteration on the forward, converges to
    sub-metre in ~5 steps, plenty for plotting pins. */
 const SVY21 = (() => {
   const A = 6378137.0, F = 1 / 298.257223563;
