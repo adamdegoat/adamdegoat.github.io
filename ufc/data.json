@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-04T09:00:00.208528+08:00",
+  "updated": "2026-07-04T13:00:00.354736+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -181,12 +181,6 @@
       "priority": true
     },
     {
-      "title": "Lightweight banger booked for UFC Vegas 120 main attraction",
-      "link": "https://www.sherdog.com/news/news/Lightweight-banger-booked-for-UFC-Vegas-120-main-attraction-201740",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
       "title": "Reinier de Ridder booked for UFC Sacramento return after two-fight skid",
       "link": "https://www.bjpenn.com/mma-news/reinier-de-ridder/reinier-de-ridder-booked-ufc-sacramento-two-fight-skid/?utm_source=rss&utm_medium=rss&utm_campaign=reinier-de-ridder-booked-ufc-sacramento-two-fight-skid",
       "source": "BJPenn",
@@ -207,12 +201,6 @@
     {
       "title": "Herb Dean should be suspended due to poor officiating, says retired UFC star Henry Cejudo",
       "link": "https://www.bjpenn.com/mma-news/ufc/herb-dean-should-be-suspended-due-to-poor-officiating-says-retired-ufc-star-henry-cejudo/?utm_source=rss&utm_medium=rss&utm_campaign=herb-dean-should-be-suspended-due-to-poor-officiating-says-retired-ufc-star-henry-cejudo",
-      "source": "BJPenn",
-      "priority": true
-    },
-    {
-      "title": "Ex-UFC vet and former KSW champ retires from MMA with PFL San Diego loss",
-      "link": "https://www.bjpenn.com/mma-news/ex-ufc-vet-and-former-ksw-champ-retires-from-mma-with-pfl-san-diego-loss/?utm_source=rss&utm_medium=rss&utm_campaign=ex-ufc-vet-and-former-ksw-champ-retires-from-mma-with-pfl-san-diego-loss",
       "source": "BJPenn",
       "priority": true
     },
@@ -251,11 +239,23 @@
       "link": "https://www.mmafighting.com/bkfc/497395/bkfc-president-david-feldman-explodes-on-fcking-punk-fighter-after-trying-to-shove-his-opponent-off-stage-during-weigh-ins",
       "source": "MMA Fighting",
       "priority": false
+    },
+    {
+      "title": "Jon Jones celebrates impact of UFC White House: ‘It makes me feel a lot more important’",
+      "link": "https://www.mmafighting.com/ufc/497368/jon-jones-celebrates-impact-of-ufc-white-house-it-makes-me-feel-a-lot-more-important",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Mateusz Gamrot vs. Quillan Salkilld announced for UFC Vegas 120 main event",
+      "link": "https://www.mmafighting.com/ufc/497354/mateusz-gamrot-vs-quillan-salkilld-announced-for-ufc-vegas-120-main-event",
+      "source": "MMA Fighting",
+      "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor meets Holloway Sunday morning—prepare for maximum striking intensity and pure combat chaos.",
-    "prefight": "McGregor versus Holloway, Sunday 9 AM SGT. Combat mastery on full display.",
-    "results": "Fiziev finishes Torres with a spinning wheel kick in round two."
+    "week": "McGregor faces Holloway Sunday 9am SGT - featherweight glory awaits in the octagon this week.",
+    "prefight": "McGregor meets Holloway this Sunday at 9 AM SGT—history awaits.",
+    "results": "Fiziev stops Torres cold with a spinning wheel kick in round two."
   }
 }
