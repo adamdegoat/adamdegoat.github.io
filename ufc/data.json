@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-03T23:30:00.301882+08:00",
+  "updated": "2026-07-04T09:00:00.208528+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -169,9 +169,33 @@
   },
   "news": [
     {
+      "title": "Alex Pereira’s sister Aline faces former Bellator champ in Karate Combat title fight",
+      "link": "https://www.mmafighting.com/latest-news/497434/alex-pereiras-sister-aline-faces-former-bellator-champ-in-karate-combat-title-fight",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
+      "title": "Missed Fists: Fighter taps out 1 second into fight, blames motorcycle injury",
+      "link": "https://www.mmafighting.com/videos/497385/missed-fists-fighter-taps-out-1-second-into-fight-blames-motorcycle-injury",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
       "title": "Lightweight banger booked for UFC Vegas 120 main attraction",
       "link": "https://www.sherdog.com/news/news/Lightweight-banger-booked-for-UFC-Vegas-120-main-attraction-201740",
       "source": "Sherdog",
+      "priority": true
+    },
+    {
+      "title": "Reinier de Ridder booked for UFC Sacramento return after two-fight skid",
+      "link": "https://www.bjpenn.com/mma-news/reinier-de-ridder/reinier-de-ridder-booked-ufc-sacramento-two-fight-skid/?utm_source=rss&utm_medium=rss&utm_campaign=reinier-de-ridder-booked-ufc-sacramento-two-fight-skid",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
+      "title": "Lito Adiwang gets a new test at ONE Fight Night 45 as Antonio Cesar replaces injured Perreira",
+      "link": "https://www.bjpenn.com/mma-news/lito-adiwang/lito-adiwang-gets-a-new-test-at-one-fight-night-45-as-antonio-cesar-replaces-injured-perreira/?utm_source=rss&utm_medium=rss&utm_campaign=lito-adiwang-gets-a-new-test-at-one-fight-night-45-as-antonio-cesar-replaces-injured-perreira",
+      "source": "BJPenn",
       "priority": true
     },
     {
@@ -193,10 +217,28 @@
       "priority": true
     },
     {
-      "title": "Neil Magny extends UFC welterweight record as UFC 330 return booked",
-      "link": "https://www.bjpenn.com/mma-news/neil-magny/neil-magny-extends-welterweight-record-ufc-330/?utm_source=rss&utm_medium=rss&utm_campaign=neil-magny-extends-welterweight-record-ufc-330",
-      "source": "BJPenn",
-      "priority": true
+      "title": "UFC Abu Dhabi adds former welterweight contender to lineup",
+      "link": "https://www.mmafighting.com/ufc/497449/ufc-abu-dhabi-adds-former-welterweight-contender-to-lineup",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Jon Jones excited for Conor McGregor UFC 329 comeback: ‘I’m proud of him’",
+      "link": "https://www.mmafighting.com/ufc/497514/jon-jones-excited-for-conor-mcgregor-ufc-329-comeback-im-proud-of-him",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Paddy Pimblett explains why he doesn’t expect to fight Ilia Topuria next after UFC 329",
+      "link": "https://www.mmafighting.com/ufc/497370/paddy-pimblett-explains-why-he-doesnt-expect-to-fight-ilia-topuria-next-after-ufc-329",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "MMA Fighting’s 2026 Fight of the Midyear: 2 all-time battles share top spot",
+      "link": "https://www.mmafighting.com/ufc/497176/mma-fightings-2026-fight-of-the-midyear-two-all-time-battles-share-top-spot",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "Max Holloway responds to Justin Gaethje’s comments about potential rematch after beating Ilia Topuria at UFC White House",
@@ -209,53 +251,11 @@
       "link": "https://www.mmafighting.com/bkfc/497395/bkfc-president-david-feldman-explodes-on-fcking-punk-fighter-after-trying-to-shove-his-opponent-off-stage-during-weigh-ins",
       "source": "MMA Fighting",
       "priority": false
-    },
-    {
-      "title": "Jon Jones celebrates impact of UFC White House: ‘It makes me feel a lot more important’",
-      "link": "https://www.mmafighting.com/ufc/497368/jon-jones-celebrates-impact-of-ufc-white-house-it-makes-me-feel-a-lot-more-important",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Mateusz Gamrot vs. Quillan Salkilld announced for UFC Vegas 120 main event",
-      "link": "https://www.mmafighting.com/ufc/497354/mateusz-gamrot-vs-quillan-salkilld-announced-for-ufc-vegas-120-main-event",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Josh Emmett eyes return to UFC lightweight division for next fight",
-      "link": "https://www.mmafighting.com/ufc/497038/josh-emmett-eyes-return-to-ufc-lightweight-division-for-next-fight",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Umar Nurmagomedov vs. Song Yadong headlines UFC Shanghai",
-      "link": "https://www.mmafighting.com/ufc/495220/umar-nurmagomedov-vs-song-yadong-headlines-ufc-shanghai",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "MMA Fighting’s 2026 Fighter of the Midyear: Justin Gaethje",
-      "link": "https://www.mmafighting.com/latest-news/497205/mma-fightings-2026-fighter-of-the-midyear-justin-gaethje",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Paddy Pimblett explains viral post-fight vomit clip, worst weight-cutting mistakes",
-      "link": "https://www.mmafighting.com/latest-news/497223/paddy-pimblett-explains-what-happened-in-viral-post-fight-vomit-clip-worst-weight-cutting-mistakes",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Video captures Donald Trump’s responds to tiny UFC White House arena plans: ‘That’s terrible’",
-      "link": "https://www.mmamania.com/ufc-white-house-2026-fight-card-start-time-full-results-dana-white-conor-mcgregor-cbs-mma/454712/video-captures-donald-trumps-responds-to-tiny-ufc-white-house-arena-plans-thats-terrible",
-      "source": "MMA Mania",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor versus Holloway Sunday 9am SGT. Elite featherweight striking coming this week.",
-    "prefight": "McGregor versus Holloway Sunday morning 9am SGT - pure featherweight fireworks incoming.",
-    "results": "Fiziev brutally finishes Torres with a spinning wheel kick and punches in round two."
+    "week": "McGregor meets Holloway Sunday morning—prepare for maximum striking intensity and pure combat chaos.",
+    "prefight": "McGregor versus Holloway, Sunday 9 AM SGT. Combat mastery on full display.",
+    "results": "Fiziev finishes Torres with a spinning wheel kick in round two."
   }
 }
