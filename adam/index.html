@@ -2062,7 +2062,7 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
 (function(){
   var mount=document.getElementById('newsHome'); if(!mount)return;
   function esc(s){return (s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
-  fetch('data/news.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(d){
+  fetch('data/news.json?v='+Date.now(),{cache:'no-cache'}).then(function(r){return r.json();}).then(function(d){
     var ZH=!!(window.PSI18N&&PSI18N.lang==='zh');
     var F=function(it,k){return (ZH&&it[k+'_zh'])?it[k+'_zh']:(it[k]||'');};
     var TAG=function(t){var Z={HDB:'HDB',Condo:'公寓',Policy:'政策','New Launch':'新盘',Market:'市场',Rates:'利率'};return ZH?(Z[t]||t):t;};
@@ -2109,7 +2109,7 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
     var unit=lead+parts.join('<span class="mq-sep">◆</span>')+'<span class="mq-sep">◆</span>';
     track.innerHTML=unit+unit;
   }
-  fetch('data/news.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(d){
+  fetch('data/news.json?v='+Date.now(),{cache:'no-cache'}).then(function(r){return r.json();}).then(function(d){
     var news=(d.items||[]).filter(function(it){return it.headline&&it.link;}).slice(0,2);
     if(news.length)build(news);
   }).catch(function(){});

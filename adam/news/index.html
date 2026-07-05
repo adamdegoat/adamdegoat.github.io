@@ -221,7 +221,7 @@ window.PS_I18N_ZH = Object.assign(window.PS_I18N_ZH || {}, {
       '<div class="rd"><span class="go">'+tx('Read the full story →','阅读全文 →')+'</span></div>'+
     '</a>';
   }
-  fetch('../data/news.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(d){
+  fetch('../data/news.json?v='+Date.now(),{cache:'no-cache'}).then(function(r){return r.json();}).then(function(d){
     ZH=!!(window.PSI18N&&PSI18N.lang==='zh');
     if(upd&&d.updated_label) upd.innerHTML='<span class="d"></span>'+tx('Updated','更新于')+' <b>'+esc(d.updated_label)+'</b> <span class="soft">· '+tx('kept up to date','持续更新')+'</span>';
     var items=d.items||[];
