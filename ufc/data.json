@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-04T23:30:00.247342+08:00",
+  "updated": "2026-07-05T09:00:00.262218+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -175,12 +175,6 @@
       "priority": true
     },
     {
-      "title": "Missed Fists: Fighter taps out 1 second into fight, blames motorcycle injury",
-      "link": "https://www.mmafighting.com/videos/497385/missed-fists-fighter-taps-out-1-second-into-fight-blames-motorcycle-injury",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
       "title": "Reinier de Ridder booked for UFC Sacramento return after two-fight skid",
       "link": "https://www.bjpenn.com/mma-news/reinier-de-ridder/reinier-de-ridder-booked-ufc-sacramento-two-fight-skid/?utm_source=rss&utm_medium=rss&utm_campaign=reinier-de-ridder-booked-ufc-sacramento-two-fight-skid",
       "source": "BJPenn",
@@ -199,10 +193,22 @@
       "priority": true
     },
     {
-      "title": "Herb Dean should be suspended due to poor officiating, says retired UFC star Henry Cejudo",
-      "link": "https://www.bjpenn.com/mma-news/ufc/herb-dean-should-be-suspended-due-to-poor-officiating-says-retired-ufc-star-henry-cejudo/?utm_source=rss&utm_medium=rss&utm_campaign=herb-dean-should-be-suspended-due-to-poor-officiating-says-retired-ufc-star-henry-cejudo",
-      "source": "BJPenn",
-      "priority": true
+      "title": "Anything But Fighting: Kyle Daukaus loves Batman, Spider-Man, and Watchmen movies",
+      "link": "https://www.mmafighting.com/ufc/496192/anything-but-fighting-kyle-daukaus-loves-batman-spider-man-and-watchmen-movies",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Farid Basharat reveals he’s competing at UFC 329 on final fight of his contract: ‘It’s a gamble’",
+      "link": "https://www.mmafighting.com/ufc/496221/farid-basharat-reveals-hes-competing-at-ufc-329-on-final-fight-of-his-contract-its-a-gamble",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Mailbag: Who can overtake Justin Gaethje for Fighter of the Year? Plus, Teenage MMAutant Ninja Turtles!",
+      "link": "https://www.mmafighting.com/latest-news/497554/mailbag-who-can-overtake-justin-gaethje-for-fighter-of-the-year-plus-teenage-mmautant-ninja-turtles",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "UFC Fantasy Draft, Season 5: Which 72 UFC fighters will close out 2026 in style?",
@@ -223,21 +229,9 @@
       "priority": false
     },
     {
-      "title": "Jon Jones excited for Conor McGregor UFC 329 comeback: ‘I’m proud of him’",
-      "link": "https://www.mmafighting.com/ufc/497514/jon-jones-excited-for-conor-mcgregor-ufc-329-comeback-im-proud-of-him",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Paddy Pimblett explains why he doesn’t expect to fight Ilia Topuria next after UFC 329",
-      "link": "https://www.mmafighting.com/ufc/497370/paddy-pimblett-explains-why-he-doesnt-expect-to-fight-ilia-topuria-next-after-ufc-329",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "MMA Fighting’s 2026 Fight of the Midyear: 2 all-time battles share top spot",
-      "link": "https://www.mmafighting.com/ufc/497176/mma-fightings-2026-fight-of-the-midyear-two-all-time-battles-share-top-spot",
-      "source": "MMA Fighting",
+      "title": "Fight fans trash ‘washed’ Conor McGregor one week out from UFC 329 comeback fight: ‘He’s a POS has been’",
+      "link": "https://www.mmamania.com/ufc-news/454846/fight-fans-trash-washed-conor-mcgregor-one-week-out-from-ufc-329-comeback-fight-hes-a-pos-has-been",
+      "source": "MMA Mania",
       "priority": false
     },
     {
@@ -251,11 +245,17 @@
       "link": "https://www.mmamania.com/ufc-news/454940/three-times-benoit-saint-denis-accused-of-staph-infection-again-by-eagle-eyed-fight-fans",
       "source": "MMA Mania",
       "priority": false
+    },
+    {
+      "title": "UFC 329’s Max Holloway reacts to potential Justin Gaethje rematch: ‘It’s dangling right in front of him’",
+      "link": "https://www.mmamania.com/latest-news/454780/ufc-329s-max-holloway-reacts-to-potential-justin-gaethje-rematch-its-dangling-right-in-front-of-him",
+      "source": "MMA Mania",
+      "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor faces Holloway Sunday at 9 AM SGT—featherweight warfare awaits.",
-    "prefight": "McGregor vs Holloway this Sunday. Two legends clash in pure combat theater.",
-    "results": "Fiziev demolished Torres with a brutal spinning wheel kick and punches in round two."
+    "week": "McGregor meets Holloway Sunday at 9 AM SGT. The wait is nearly over.",
+    "prefight": "McGregor faces Holloway this Sunday at 9 AM SGT—featherweight supremacy on the line.",
+    "results": "Fiziev's spinning wheel kick stops Torres cold in round 2."
   }
 }
