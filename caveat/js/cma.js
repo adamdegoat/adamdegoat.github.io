@@ -505,8 +505,8 @@ const CMA = (() => {
   const mLabel = yymm => ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+yymm.slice(2) - 1] + " '" + yymm.slice(0, 2);
 
   function compsTable(kind, comps) {
-    const SHOWN = 20, win = kind === 'hdb' ? 15 : 18;
-    const rows = comps.slice(0, SHOWN).map(c => kind === 'hdb' ? `<tr>
+    const win = kind === 'hdb' ? 15 : 18;
+    const rows = comps.map(c => kind === 'hdb' ? `<tr>
       <td>Blk ${c.block}${c.storey_mid ? ` <span style="color:var(--ink-3)">· #${c.storey_mid}</span>` : ''} <span class="hide-sm">${Narrative.titleCase(c.street).replace(/Ave /,'Ave ')}</span>${(c.flat_model || c.rem_lease_mths) ? `<div style="font-size:11px;color:var(--ink-3);margin-top:1px">${[c.flat_model, c.rem_lease_mths ? Math.round(c.rem_lease_mths / 12) + ' yr lease' : ''].filter(Boolean).join(' · ')}</div>` : ''}</td>
       <td>${mLabel(c.yymm)}</td>
       <td class="num">${Math.round(c.area_sqm * C.SQM_SQF)} sqft</td>
@@ -520,12 +520,12 @@ const CMA = (() => {
       <td class="num hide-sm">$${Math.round(c.psf)}</td>
       <td class="num adj">$${Math.round(c.adj_psf)}</td>
       <td class="num">${C.fmtK(c.price)}</td></tr>`).join('');
-    return `<table class="comps"><thead><tr>
+    return `<div class="comps-scroll" style="max-height:480px;overflow:auto;border:1px solid var(--line,#e3e8e6);border-radius:10px"><table class="comps"><thead><tr>
       <th>${kind === 'hdb' ? 'Block' : 'Project'}</th><th>Month</th>
       <th style="text-align:right">Size</th><th style="text-align:right" class="hide-sm">Raw psf</th>
       <th style="text-align:right">Adj psf</th><th style="text-align:right">Price</th>
-      </tr></thead><tbody>${rows}</tbody></table>
-      <p class="hint" style="margin-top:10px">Showing the ${Math.min(comps.length, SHOWN)} closest of ${comps.length} comparable${comps.length === 1 ? '' : 's'} used (last ${win} months), ranked by recency, size &amp; floor. “Adj psf” normalises each to the subject for time, ${kind === 'hdb' ? 'storey &amp; lease' : 'floor &amp; tenure'}. #floor is the band mid-point.</p>`;
+      </tr></thead><tbody>${rows}</tbody></table></div>
+      <p class="hint" style="margin-top:10px">Showing all ${comps.length} comparable${comps.length === 1 ? '' : 's'} used (last ${win} months), ranked by recency, size &amp; floor. “Adj psf” normalises each to the subject for time, ${kind === 'hdb' ? 'storey &amp; lease' : 'floor &amp; tenure'}. #floor is the band mid-point.</p>`;
   }
 
   const _aw = 'fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"';
