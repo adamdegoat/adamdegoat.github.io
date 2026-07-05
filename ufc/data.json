@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-05T13:00:00.221288+08:00",
+  "updated": "2026-07-05T21:00:00.324616+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -229,6 +229,12 @@
       "priority": false
     },
     {
+      "title": "MMAMania’s 2026 mid-year awards: Fight of the year",
+      "link": "https://www.mmamania.com/latest-news/455057/mmamanias-2026-mid-year-awards-fight-of-the-year",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
       "title": "‘Massive fan’ Jon Jones gives Conor McGregor his flowers ahead of UFC 329 return: ‘I’m proud of him’",
       "link": "https://www.mmamania.com/latest-news/454975/massive-fan-jon-jones-gives-conor-mcgregor-his-flowers-ahead-of-ufc-329-return-im-proud-of-him",
       "source": "MMA Mania",
@@ -245,17 +251,11 @@
       "link": "https://www.mmamania.com/ufc-news/454843/red-panty-night-comes-early-max-holloway-already-spending-ufc-329-paycheck-on-custom-dodge-charger",
       "source": "MMA Mania",
       "priority": false
-    },
-    {
-      "title": "Fight fans trash ‘washed’ Conor McGregor one week out from UFC 329 comeback fight: ‘He’s a POS has been’",
-      "link": "https://www.mmamania.com/ufc-news/454846/fight-fans-trash-washed-conor-mcgregor-one-week-out-from-ufc-329-comeback-fight-hes-a-pos-has-been",
-      "source": "MMA Mania",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor faces Holloway this Sunday 9 AM SGT—elite striking matchup you can't miss.",
-    "prefight": "McGregor versus Holloway: pure striking mastery collides Sunday in Singapore.",
-    "results": "Fiziev's spinning wheel kick ends Torres' night in round two."
+    "week": "McGregor meets Holloway Sunday 12 July, 9 AM SGT—featherweight fireworks incoming.",
+    "prefight": "McGregor and Holloway headline Sunday's stacked fight week—featherweight supremacy on the line.",
+    "results": "Fiziev's spinning wheel kick rocks Torres, follow-up punches seal the KO in round two."
   }
 }
