@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-05T09:00:00.262218+08:00",
+  "updated": "2026-07-05T13:00:00.221288+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -169,12 +169,6 @@
   },
   "news": [
     {
-      "title": "Alex Pereira’s sister Aline faces former Bellator champ in Karate Combat title fight",
-      "link": "https://www.mmafighting.com/latest-news/497434/alex-pereiras-sister-aline-faces-former-bellator-champ-in-karate-combat-title-fight",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
       "title": "Reinier de Ridder booked for UFC Sacramento return after two-fight skid",
       "link": "https://www.bjpenn.com/mma-news/reinier-de-ridder/reinier-de-ridder-booked-ufc-sacramento-two-fight-skid/?utm_source=rss&utm_medium=rss&utm_campaign=reinier-de-ridder-booked-ufc-sacramento-two-fight-skid",
       "source": "BJPenn",
@@ -191,6 +185,12 @@
       "link": "https://www.bjpenn.com/mma-news/quillan-salkilld/quillan-salkilld-booked-first-ufc-main-event/?utm_source=rss&utm_medium=rss&utm_campaign=quillan-salkilld-booked-first-ufc-main-event",
       "source": "BJPenn",
       "priority": true
+    },
+    {
+      "title": "Justin Gaethje returns to the White House, the rest of the MMA community celebrates the Fourth of July",
+      "link": "https://www.mmafighting.com/latest-news/497633/justin-gaethje-returns-to-the-white-house-the-rest-of-the-mma-community-celebrates-the-fourth-of-july",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "Anything But Fighting: Kyle Daukaus loves Batman, Spider-Man, and Watchmen movies",
@@ -229,33 +229,33 @@
       "priority": false
     },
     {
+      "title": "‘Massive fan’ Jon Jones gives Conor McGregor his flowers ahead of UFC 329 return: ‘I’m proud of him’",
+      "link": "https://www.mmamania.com/latest-news/454975/massive-fan-jon-jones-gives-conor-mcgregor-his-flowers-ahead-of-ufc-329-return-im-proud-of-him",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
+      "title": "President Donald Trump hosts Justin Gaethje in Oval Office following UFC White House win: ‘Honor to see the champ’",
+      "link": "https://www.mmamania.com/ufc-white-house-2026-fight-card-start-time-full-results-dana-white-conor-mcgregor-cbs-mma/454877/president-donald-trump-hosts-justin-gaethje-in-oval-office-following-ufc-white-house-win-honor-to-see-the-champ",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
+      "title": "Red Panty Night comes early! Max Holloway already spending UFC 329 paycheck on custom Dodge Charger",
+      "link": "https://www.mmamania.com/ufc-news/454843/red-panty-night-comes-early-max-holloway-already-spending-ufc-329-paycheck-on-custom-dodge-charger",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
       "title": "Fight fans trash ‘washed’ Conor McGregor one week out from UFC 329 comeback fight: ‘He’s a POS has been’",
       "link": "https://www.mmamania.com/ufc-news/454846/fight-fans-trash-washed-conor-mcgregor-one-week-out-from-ufc-329-comeback-fight-hes-a-pos-has-been",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "Olympic gold medalist Jordan Burroughs headlines RAF 12 versus … UFC’s Sean Brady?!?",
-      "link": "https://www.mmamania.com/raf-wrestling-schedule-cards-live-results/454961/olympic-gold-medalist-jordan-burroughs-headlines-raf-12-versus-ufcs-sean-brady",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "Three times?!? Benoit Saint-Denis accused of staph infection  (again) by eagle-eyed fight fans",
-      "link": "https://www.mmamania.com/ufc-news/454940/three-times-benoit-saint-denis-accused-of-staph-infection-again-by-eagle-eyed-fight-fans",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "UFC 329’s Max Holloway reacts to potential Justin Gaethje rematch: ‘It’s dangling right in front of him’",
-      "link": "https://www.mmamania.com/latest-news/454780/ufc-329s-max-holloway-reacts-to-potential-justin-gaethje-rematch-its-dangling-right-in-front-of-him",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor meets Holloway Sunday at 9 AM SGT. The wait is nearly over.",
-    "prefight": "McGregor faces Holloway this Sunday at 9 AM SGT—featherweight supremacy on the line.",
-    "results": "Fiziev's spinning wheel kick stops Torres cold in round 2."
+    "week": "McGregor faces Holloway this Sunday 9 AM SGT—elite striking matchup you can't miss.",
+    "prefight": "McGregor versus Holloway: pure striking mastery collides Sunday in Singapore.",
+    "results": "Fiziev's spinning wheel kick ends Torres' night in round two."
   }
 }
