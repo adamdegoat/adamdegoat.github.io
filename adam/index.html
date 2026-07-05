@@ -1635,11 +1635,11 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
   function ensureThesis(){
     if(ready)return ready;
     ready=(async()=>{
-      const d=await (await fetch('/thesis/data/thesis.json',{cache:'force-cache'})).json();
+      const d=await (await fetch('/thesis/data/thesis.json?v='+Math.floor(Date.now()/864e5),{cache:'force-cache'})).json();
       PROJECTS=d.projects||[];
       const ys=PROJECTS.map(p=>p.yield).filter(x=>x).sort((a,b)=>a-b);
       MEDY=ys.length?ys[ys.length>>1]:null;
-      try{ HDB=await (await fetch('/thesis/data/hdb.json',{cache:'force-cache'})).json(); }catch(e){ HDB=null; }
+      try{ HDB=await (await fetch('/thesis/data/hdb.json?v='+Math.floor(Date.now()/864e5),{cache:'force-cache'})).json(); }catch(e){ HDB=null; }
       return true;
     })().catch(e=>{ready=null;throw e;});
     return ready;
