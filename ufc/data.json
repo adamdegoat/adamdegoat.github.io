@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-05T23:30:00.275926+08:00",
+  "updated": "2026-07-06T09:00:00.218498+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -181,10 +181,28 @@
       "priority": true
     },
     {
-      "title": "Quillan Salkilld booked for first UFC main event against Top 10 lightweight",
-      "link": "https://www.bjpenn.com/mma-news/quillan-salkilld/quillan-salkilld-booked-first-ufc-main-event/?utm_source=rss&utm_medium=rss&utm_campaign=quillan-salkilld-booked-first-ufc-main-event",
-      "source": "BJPenn",
-      "priority": true
+      "title": "‘UFC 329 Countdown: McGregor vs. Holloway 2’ video",
+      "link": "https://www.mmafighting.com/ufc/497738/ufc-329-countdown-mcgregor-vs-holloway-2-video",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Anything but Fighting: Brendan Fitzgerald talks Boston media, dream interviews, more",
+      "link": "https://www.mmafighting.com/ufc/496383/anything-but-fighting-brendan-fitzgerald-talks-boston-media-dream-interviews-more",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Jon Jones explains viral ‘GOAT’ reaction to Alex Pereira’s UFC White House loss",
+      "link": "https://www.mmafighting.com/ufc/497552/jon-jones-explains-viral-goat-reaction-to-alex-pereiras-ufc-white-house-loss",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Mauricio Ruffy volunteers to be backup for Conor McGregor vs. Max Holloway UFC 329 main event",
+      "link": "https://www.mmafighting.com/ufc/497718/mauricio-ruffy-volunteers-to-be-backup-for-conor-mcgregor-vs-max-holloway-ufc-329-main-event",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "MMA Fighting’s 2026 Knockout of the Midyear: Alexa Grasso goes scorched earth on Maycee Barber",
@@ -217,45 +235,27 @@
       "priority": false
     },
     {
-      "title": "Farid Basharat reveals he’s competing at UFC 329 on final fight of his contract: ‘It’s a gamble’",
-      "link": "https://www.mmafighting.com/ufc/496221/farid-basharat-reveals-hes-competing-at-ufc-329-on-final-fight-of-his-contract-its-a-gamble",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Mailbag: Who can overtake Justin Gaethje for Fighter of the Year? Plus, Teenage MMAutant Ninja Turtles!",
-      "link": "https://www.mmafighting.com/latest-news/497554/mailbag-who-can-overtake-justin-gaethje-for-fighter-of-the-year-plus-teenage-mmautant-ninja-turtles",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "UFC Fantasy Draft, Season 5: Which 72 UFC fighters will close out 2026 in style?",
-      "link": "https://www.mmafighting.com/latest-news/497508/ufc-fantasy-draft-season-5-which-72-ufc-fighters-will-close-out-2026-in-style",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "MMAMania’s 2026 mid-year awards: Upset of the year",
-      "link": "https://www.mmamania.com/ufc-mma-social-media-videos-memes/455079/mmamanias-2026-mid-year-awards-upset-of-the-year",
+      "title": "Jose Aldo predicts Holloway vs. McGregor at UFC 329: ‘Conor can knock Max out’",
+      "link": "https://www.mmamania.com/ufc-news/455131/jose-aldo-predicts-holloway-vs-mcgregor-at-ufc-329-conor-can-knock-max-out",
       "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "MMAMania’s 2026 mid-year awards: Knockout of the year",
-      "link": "https://www.mmamania.com/ufc-mma-social-media-videos-memes/455075/mmamanias-2026-mid-year-awards-knockout-of-the-year",
+      "title": "Watch full UFC 329 Countdown: Holloway vs. McGregor video",
+      "link": "https://www.mmamania.com/ufc-videos/455124/watch-full-ufc-329-countdown-holloway-vs-mcgregor-video",
       "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "MMAMania’s 2026 mid-year awards: Breakout fighter of the year",
-      "link": "https://www.mmamania.com/latest-news/455069/mmamanias-2026-mid-year-awards-breakout-fighter-of-the-year",
+      "title": "Mauricio Ruffy headed to Las Vegas as official UFC 329 Holloway vs. McGregor back-up fighter",
+      "link": "https://www.mmamania.com/ufc-news/455116/mauricio-ruffy-headed-to-las-vegas-as-official-ufc-329-holloway-vs-mcgregor-back-up-fighter",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor versus Holloway fight week is on—biggest showdown lands Sunday.",
-    "prefight": "McGregor meets Holloway Sunday 9 AM SGT—buckle up for explosive fight week action.",
-    "results": "Fiziev stunned Torres with a spinning wheel kick, then finished him with punches in round two."
+    "week": "Peak combat awaits Sunday: McGregor vs Holloway at 9 AM SGT.",
+    "prefight": "McGregor meets Holloway Sunday 9 AM SGT—peak featherweight championship intensity.",
+    "results": "Fiziev puts Torres away with a stunning spinning wheel kick, round two."
   }
 }
