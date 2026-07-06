@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-06T21:00:00.312382+08:00",
+  "updated": "2026-07-06T23:30:00.209394+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -229,9 +229,9 @@
       "priority": false
     },
     {
-      "title": "UFC 329 roundtable: Has the MMA world passed Conor McGregor by?",
-      "link": "https://www.mmafighting.com/ufc/497103/ufc-329-roundtable-has-the-mma-world-passed-conor-mcgregor-by",
-      "source": "MMA Fighting",
+      "title": "King Green vs. Terrance McKinney: Odds, full fight preview and prediction | UFC 329",
+      "link": "https://www.mmamania.com/ufc-events-ppv/455214/king-green-vs-terrance-mckinney-odds-full-fight-preview-and-prediction-ufc-329",
+      "source": "MMA Mania",
       "priority": false
     },
     {
@@ -254,8 +254,8 @@
     }
   ],
   "hooks": {
-    "week": "McGregor meets Holloway Sunday morning—two striking scientists about to put on a clinic.",
-    "prefight": "McGregor meets Holloway this Sunday at 9am SGT in a featherweight clash for the ages.",
-    "results": "Fiziev's spinning wheel kick and punches KO Torres in round two."
+    "week": "McGregor takes on Holloway this Sunday at 9 AM SGT—the featherweight showdown awaits.",
+    "prefight": "McGregor versus Holloway returns Sunday 9am SGT. Fight week begins. Legacy awaits.",
+    "results": "Fiziev's spinning wheel kick puts Torres away in round two with follow-up strikes."
   }
 }
