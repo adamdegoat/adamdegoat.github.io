@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-06T13:00:00.282059+08:00",
+  "updated": "2026-07-06T21:00:00.312382+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -169,6 +169,18 @@
   },
   "news": [
     {
+      "title": "UFC 329 gets late replacement opponent change",
+      "link": "https://www.mmafighting.com/ufc/497799/ufc-329-gets-late-replacement-opponent-change",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
+      "title": "Regional fighter John Garza set to replace Ethyn Ewing against Farid Basharat at UFC 329",
+      "link": "https://www.mmamania.com/ufc-fight-announcements/455255/regional-fighter-john-garza-set-to-replace-ethyn-ewing-against-farid-basharat-at-ufc-329",
+      "source": "MMA Mania",
+      "priority": true
+    },
+    {
       "title": "Reinier de Ridder booked for UFC Sacramento return after two-fight skid",
       "link": "https://www.bjpenn.com/mma-news/reinier-de-ridder/reinier-de-ridder-booked-ufc-sacramento-two-fight-skid/?utm_source=rss&utm_medium=rss&utm_campaign=reinier-de-ridder-booked-ufc-sacramento-two-fight-skid",
       "source": "BJPenn",
@@ -211,7 +223,7 @@
       "priority": false
     },
     {
-      "title": "Reinier de Ridder makes light heavyweight return against and Roman Dolidze at UFC Sacramento",
+      "title": "Reinier de Ridder makes light heavyweight return against Roman Dolidze at UFC Sacramento",
       "link": "https://www.mmafighting.com/latest-news/497687/reinier-de-ridder-makes-light-heavyweight-return-against-and-roman-dolidze-at-ufc-sacramento",
       "source": "MMA Fighting",
       "priority": false
@@ -223,15 +235,9 @@
       "priority": false
     },
     {
-      "title": "Justin Gaethje returns to the White House, the rest of the MMA community celebrates the Fourth of July",
-      "link": "https://www.mmafighting.com/latest-news/497633/justin-gaethje-returns-to-the-white-house-the-rest-of-the-mma-community-celebrates-the-fourth-of-july",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Anything But Fighting: Kyle Daukaus loves Batman, Spider-Man, and Watchmen movies",
-      "link": "https://www.mmafighting.com/ufc/496192/anything-but-fighting-kyle-daukaus-loves-batman-spider-man-and-watchmen-movies",
-      "source": "MMA Fighting",
+      "title": "Max Holloway has ‘nothing but respect’ for Conor McGregor talking about mental health",
+      "link": "https://www.mmamania.com/ufc-news/455136/max-holloway-has-nothing-but-respect-for-conor-mcgregor-talking-about-mental-health",
+      "source": "MMA Mania",
       "priority": false
     },
     {
@@ -245,17 +251,11 @@
       "link": "https://www.mmamania.com/ufc-videos/455124/watch-full-ufc-329-countdown-holloway-vs-mcgregor-video",
       "source": "MMA Mania",
       "priority": false
-    },
-    {
-      "title": "Mauricio Ruffy headed to Las Vegas as official UFC 329 Holloway vs. McGregor back-up fighter",
-      "link": "https://www.mmamania.com/ufc-news/455116/mauricio-ruffy-headed-to-las-vegas-as-official-ufc-329-holloway-vs-mcgregor-back-up-fighter",
-      "source": "MMA Mania",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor and Holloway collide Sunday nine AM SGT: striking excellence between two MMA icons.",
-    "prefight": "McGregor and Holloway headline Sunday 9am SGT—striking masterclass between two legends.",
-    "results": "Fiziev KOs Torres with a spinning wheel kick and punches in round two."
+    "week": "McGregor meets Holloway Sunday morning—two striking scientists about to put on a clinic.",
+    "prefight": "McGregor meets Holloway this Sunday at 9am SGT in a featherweight clash for the ages.",
+    "results": "Fiziev's spinning wheel kick and punches KO Torres in round two."
   }
 }
