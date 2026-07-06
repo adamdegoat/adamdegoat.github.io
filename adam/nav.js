@@ -69,15 +69,15 @@
     '.psnav-door{display:flex;align-items:stretch;text-decoration:none;margin-left:6px;border:1px solid #cdd9d0;border-radius:12px;background:linear-gradient(180deg,#fff,#f1f5f1);position:relative;flex:none;overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s}' +
     '.psnav-door::before{content:"";position:absolute;left:-9px;top:50%;transform:translateY(-50%);width:1px;height:28px;background:#c9e2dd}' +
     '.psnav-door:hover{transform:translateY(-1px);border-color:#27513f;box-shadow:0 9px 22px rgba(39,81,63,.15)}' +
-    '.psnav-door .pd-half{display:flex;flex-direction:column;gap:2px;text-decoration:none;padding:7px 13px;transition:background .2s}' +
+    '.psnav-door .pd-half{display:flex;flex-direction:column;gap:2px;text-decoration:none;padding:5px 9px;transition:background .2s}' +
     '.psnav-door .pd-half+.pd-half{border-left:1px solid #d7e2db}' +
     '.psnav-door .pd-half:hover{background:rgba(39,81,63,.06)}' +
     '.psnav-door .pd-half.pd-world{background:linear-gradient(180deg,#f1fbfa,#e3f5f1)}' +
     '.psnav-door .pd-half.pd-world .pd-top{color:#0f7a82}.psnav-door .pd-half.pd-world .pd-ar{color:#15a0a0}' +
     '.psnav-door .pd-half.pd-world:hover{background:rgba(21,160,160,.1)}' +
-    '.psnav-door .pd-top{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:#1b3a2d;line-height:1.05;white-space:nowrap}' +
-    '.psnav-door .pd-ar{width:12px;height:12px;flex:none}' +
-    '.psnav-door .pd-sub{display:flex;align-items:center;gap:5px;font-size:8.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#758a86;line-height:1}' +
+    '.psnav-door .pd-top{display:flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;color:#1b3a2d;line-height:1.05;white-space:nowrap}' +
+    '.psnav-door .pd-ar{width:11px;height:11px;flex:none}' +
+    '.psnav-door .pd-sub{display:flex;align-items:center;gap:4px;font-size:7.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:#758a86;line-height:1}' +
     '.psnav-door .pd-dot{width:6px;height:6px;border-radius:50%;background:#3aa76d;box-shadow:0 0 0 0 rgba(58,167,109,.5);animation:pddot 2.2s ease-out infinite}' +
     '@keyframes pddot{0%{box-shadow:0 0 0 0 rgba(58,167,109,.5)}70%{box-shadow:0 0 0 7px rgba(58,167,109,0)}100%{box-shadow:0 0 0 0 rgba(58,167,109,0)}}' +
     '@media(prefers-reduced-motion:reduce){.psnav-door .pd-dot{animation:none}}' +
@@ -170,7 +170,6 @@
     '</div>' +
     '<button class="psnav-lang" id="psLang" type="button" aria-label="Switch language"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"/></svg>' + (curLang() === 'zh' ? 'EN' : '中文') + '</button>' +
     '<button class="psnav-signin ps-signin-cta" type="button" onclick="window.PS&&PS.login(\'nav\')">' + t('Sign in') + '</button>' +
-    '<button class="psnav-join ps-join-cta" type="button" onclick="window.PS&&PS.cta(\'nav\')">' + t('Join Telegram') + '</button>' +
     '<button class="psnav-burger" id="psBurger" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>' +
     '</div></header>';
   var menuHTML = '<div class="psnav-menu" id="psMenu">' +
