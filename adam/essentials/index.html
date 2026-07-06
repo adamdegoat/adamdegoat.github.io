@@ -138,6 +138,21 @@ h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5.4vw,52px);let
 .lib h2{font-family:var(--serif);font-weight:600;font-size:clamp(26px,3.6vw,34px);letter-spacing:-.02em;margin:11px 0 6px}
 .lib .gsub{font-size:15.5px;color:var(--ink2);max-width:560px;margin-bottom:8px;line-height:1.6}
 .libgroup{margin-top:30px}
+.gside-k,.gside-meta{display:none}
+@media(min-width:901px){
+.wrap{max-width:1040px}
+.ghero-in{padding:32px 36px 30px max(28px,calc((100% - 1040px)/2 + 28px))}
+.gshell{display:grid;grid-template-columns:228px minmax(0,1fr);gap:46px;align-items:start;margin-top:36px}
+.gside{position:sticky;top:96px;align-self:start;display:flex;flex-direction:column;gap:14px}
+.gside .tabs{position:static;margin:0;padding:0;border:0;background:none;top:auto}
+.gside .tabrow{flex-direction:column;gap:7px}
+.gside .tab{width:100%;text-align:left;justify-content:flex-start;font-size:14px;padding:12px 15px}
+.gside-k{display:block;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);padding-left:2px}
+.gside-meta{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--ink3);padding-left:2px}
+.gside-meta svg{width:15px;height:15px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;opacity:.65}
+.gmain{min-width:0}
+.terms{grid-template-columns:repeat(3,1fr);gap:0 34px}
+}
 .libgroup .lh{display:flex;align-items:baseline;gap:12px;font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--green);padding-bottom:6px}
 .libgroup .lh .lc{font-weight:700;letter-spacing:.04em;color:var(--ink3);font-size:11.5px}
 .libgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
@@ -170,11 +185,17 @@ h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5.4vw,52px);let
 </section>
 
 <div class="wrap">
-  <div class="tabs" style="margin-top:34px"><div class="tabrow" id="tabrow">
-    <button class="tab on" data-t="buying">How buying works</button>
-    <button class="tab" data-t="selling">How selling works</button>
-    <button class="tab" data-t="tips">Tips worth knowing</button>
-  </div></div>
+  <div class="gshell">
+    <aside class="gside">
+      <span class="gside-k">Chapters</span>
+      <div class="tabs"><div class="tabrow" id="tabrow">
+        <button class="tab on" data-t="buying">How buying works</button>
+        <button class="tab" data-t="selling">How selling works</button>
+        <button class="tab" data-t="tips">Tips worth knowing</button>
+      </div></div>
+      <span class="gside-meta"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6c-2-1.4-5-1.6-7-1v12c2-.6 5-.4 7 1 2-1.4 5-1.6 7-1V5c-2-.6-5-.4-7 1z"/><path d="M12 6v13"/></svg>3 chapters &middot; about 12 min read</span>
+    </aside>
+    <div class="gmain">
 
   <!-- BUYING -->
   <section class="panel on" id="buying">
@@ -205,6 +226,8 @@ h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5.4vw,52px);let
     <p class="lede">The things we wish every buyer knew before they started. <b>Tap any one</b> to open it.</p>
     <div class="tipgrid" id="tipgrid"></div>
   </section>
+    </div><!-- /gmain -->
+  </div><!-- /gshell -->
 
   <!-- GLOSSARY (always useful, shown under every tab) -->
   <section class="gloss">
