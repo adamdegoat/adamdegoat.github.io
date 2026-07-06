@@ -571,7 +571,7 @@
     'The market today': '今日市场',
     'Private resale': '私宅转售', 'HDB resale': '组屋转售',
     'Median condo psf': '公寓每尺中位价', 'Rental yield': '租金回报率',
-    'Condos on record': '收录公寓数', 'Biggest mover this quarter': '本季涨幅最大',
+    'Condos on record': '收录公寓数', 'New launch psf': '新盘每尺价', 'Biggest mover this quarter': '本季涨幅最大',
     'See the full Market Pulse →': '查看完整市场动态 →',
     'Meet Aillie': '认识 Aillie',
     'Not sure where to start? Just ask.': '不知从何开始？直接问 Aillie。',
