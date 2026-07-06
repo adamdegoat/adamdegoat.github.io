@@ -8,7 +8,7 @@
     ['Tools', BASE + '/adam/#tools', ''],
     ['Research', BASE + '/thesis/', 'feat'],
     ['New Launches', BASE + '/adam/launches/', ''],
-    ['Market Pulse', BASE + '/adam/notes/', ''],
+    ['Market Analysis', BASE + '/adam/market-analysis/', ''],
     ['News', BASE + '/adam/news/', 'smart'],
     ['Guide', BASE + '/adam/essentials/', ''],
     ['About us', BASE + '/adam/about/', ''],
@@ -34,7 +34,7 @@
     if (/\/tools\//.test(p)) return /#tools$/.test(href);
     return false;
   }
-  var LISTINGS = BASE + '/adam/listings/';
+  var LISTINGS = 'https://listings.propsight.sg';
   var ARROW = '<svg class="pd-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>';
   var MARK = '<svg class="pm" viewBox="0 0 64 64" aria-hidden="true">' +
     '<circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>' +
@@ -150,7 +150,7 @@
     '<nav class="psnav-links">' + LINKS.map(function (l) { return linkHtml(l, false); }).join('') + '</nav>' +
     '<a class="psnav-door' + (active(LISTINGS) ? ' cur' : '') + '" href="' + LISTINGS + '">' +
       '<span class="pd-top">' + t('Listing Platform') + ARROW + '</span>' +
-      '<span class="pd-sub"><span class="pd-dot"></span>' + t('Coming soon') + '</span>' +
+      '<span class="pd-sub"><span class="pd-dot"></span>' + t('Buy and rent') + '</span>' +
     '</a>' +
     '<button class="psnav-lang" id="psLang" type="button" aria-label="Switch language"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"/></svg>' + (curLang() === 'zh' ? 'EN' : '中文') + '</button>' +
     '<button class="psnav-signin ps-signin-cta" type="button" onclick="window.PS&&PS.login(\'nav\')">' + t('Sign in') + '</button>' +
@@ -163,7 +163,7 @@
     '<button class="psnav-msignin ps-signin-cta" type="button" onclick="window.PS&&PS.login(\'menu\')">' + t('Already a member? Sign in') + '</button>' +
     LINKS.map(function (l) { return linkHtml(l, true); }).join('') +
     '<a class="psm-door' + (active(LISTINGS) ? ' cur' : '') + '" href="' + LISTINGS + '">' +
-      '<span><span class="psm-door-t">' + t('Listing Platform') + '</span><span class="psm-door-d">' + t('Coming soon, step into the platform') + '</span></span>' +
+      '<span><span class="psm-door-t">' + t('Listing Platform') + '</span><span class="psm-door-d">' + t('Browse homes for sale and rent') + '</span></span>' +
       '<span class="psm-arr">' + ARROW + '</span>' +
     '</a>' + '</div>';
 
@@ -188,7 +188,7 @@
       _fl(BASE + '/adam/tools/eligibility.html', 'Eligibility') + _fl(BASE + '/adam/tools/mortgage.html', 'Mortgage') +
     '</div>' +
     '<div class="psf-col"><h4>' + t('Explore') + '</h4>' +
-      _fl(BASE + '/thesis/', 'Research') + _fl(BASE + '/adam/notes/', 'Market Pulse') + _fl(BASE + '/adam/news/', 'News') +
+      _fl(BASE + '/thesis/', 'Research') + _fl(BASE + '/adam/market-analysis/', 'Market Analysis') + _fl(BASE + '/adam/news/', 'News') +
       _fl(BASE + '/adam/essentials/', 'Guide') + _fl(BASE + '/adam/launches/', 'New Launches') +
     '</div>' +
     '<div class="psf-col"><h4>' + t('Company') + '</h4>' +
