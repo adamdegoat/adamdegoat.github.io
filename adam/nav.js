@@ -52,7 +52,7 @@
     '.newshero,.nh-bg,.mast-bg,.ghero-bg,.ph-bg{background:linear-gradient(120deg,#123b2a,#0d2418)!important}' +
     ":root{--gtex:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='gn'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.06 0 0 0 0 0.05 0 0 0 0 0.02 0 0 0 0.22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23gn)'/%3E%3C/svg%3E\")}" +
     '.psnav{position:sticky;top:0;z-index:300;background:rgba(236,247,245,.97);border-bottom:1px solid #d2e7e3;font-family:"Schibsted Grotesk",system-ui,sans-serif;padding-top:env(safe-area-inset-top)}' +
-    '.psnav-in{box-sizing:border-box;max-width:1280px;margin:0 auto;padding:0 32px;height:76px;display:flex;align-items:center;gap:16px}@media(min-width:1201px){.psnav-in{height:84px}}' +
+    '.psnav-in{box-sizing:border-box;max-width:1280px;margin:0 auto;padding:0 32px;height:76px;display:flex;align-items:center;gap:12px}@media(min-width:1201px){.psnav-in{height:84px}}' +
     '.psnav-brand{display:flex;align-items:center;gap:11px;text-decoration:none}.psnav-brand .pm{width:38px;height:38px;flex:none;color:#1b3a2d}' +
     '.psnav-brand .bw{display:flex;flex-direction:row;align-items:baseline;gap:6px;line-height:1}.psnav-brand .bw span{font-size:20px;font-weight:800;letter-spacing:-.012em;text-transform:none;color:#0f7a82;margin:0}' +
     '.psnav-brand b{font-family:"Schibsted Grotesk",system-ui,sans-serif;font-weight:800;font-size:20px;color:#191512;letter-spacing:-.012em}' +
@@ -98,7 +98,7 @@
     '.psnav-menu a.psm-door .psm-door-d{display:block;font-family:"Schibsted Grotesk",system-ui,sans-serif;font-size:13px;color:#576b67;margin-top:4px}' +
     '.psnav-menu a.psm-door .psm-arr{flex:none;width:34px;height:34px;border-radius:50%;background:#27513f;display:flex;align-items:center;justify-content:center}' +
     '.psnav-menu a.psm-door .psm-arr svg{width:15px;height:15px;stroke:#e6f3f0}' +
-    '@media(max-width:1200px){.psnav-links{display:none}.psnav-door{display:none}.psnav-burger{display:flex}}@media(max-width:560px){.psnav-in{padding:0 13px;gap:8px}.psnav-brand b{font-size:18px}.psnav-brand .bw span{display:none}.psnav-brand .pm{width:31px;height:31px}.psnav-back{width:34px;height:34px}.psnav-signin{font-size:12.5px}.psnav-join{font-size:12.5px;padding:8px 12px}}@media(max-width:400px){.psnav-in{padding:0 10px;gap:6px}.psnav-brand b,.psnav-brand .bw span{font-size:16px}.psnav-brand .pm{width:27px;height:27px}.psnav-back{width:30px;height:30px}.psnav-signin{font-size:11.5px}.psnav-join{font-size:11.5px;padding:8px 10px}}' +
+    '@media(max-width:1360px){.psnav-links{display:none}.psnav-door{display:none}.psnav-burger{display:flex}}@media(max-width:560px){.psnav-in{padding:0 13px;gap:8px}.psnav-brand b{font-size:18px}.psnav-brand .bw span{display:none}.psnav-brand .pm{width:31px;height:31px}.psnav-back{width:34px;height:34px}.psnav-signin{font-size:12.5px}.psnav-join{font-size:12.5px;padding:8px 12px}}@media(max-width:400px){.psnav-in{padding:0 10px;gap:6px}.psnav-brand b,.psnav-brand .bw span{font-size:16px}.psnav-brand .pm{width:27px;height:27px}.psnav-back{width:30px;height:30px}.psnav-signin{font-size:11.5px}.psnav-join{font-size:11.5px;padding:8px 10px}}' +
     /* shared site footer, legal links + the global "information only" disclaimer */
     '.psftr{background:linear-gradient(180deg,#0f231a,#0a1712);color:#cfe4dc;padding:60px 0 0;font-family:"Schibsted Grotesk",system-ui,sans-serif}' +
     '.psf-in{max-width:1120px;margin:0 auto;padding:0 32px}' +
@@ -126,7 +126,7 @@
     '.psnav-lang{display:inline-flex;align-items:center;gap:6px;margin-left:8px;flex:none;background:#eaf6f4;border:1.5px solid #27513f;border-radius:30px;font-family:inherit;font-size:13px;font-weight:800;color:#1b3a2d;cursor:pointer;padding:8px 14px;white-space:nowrap;transition:background .2s,color .2s,transform .2s}' +
     '.psnav-lang svg{width:15px;height:15px;flex:none;stroke:currentColor;fill:none;stroke-width:1.7}' +
     '.psnav-lang:hover{background:#1b3a2d;color:#eaf6f4;transform:translateY(-1px)}' +
-    '@media(max-width:1200px){.psnav-lang{display:none}}' +
+    '@media(max-width:1360px){.psnav-lang{display:none}}' +
     '.psnav-mlang{width:100%;background:#dff0ec;border:1px solid #bfdbd5;border-radius:14px;font-family:"Schibsted Grotesk",system-ui,sans-serif;font-weight:800;font-size:15px;color:#1b3a2d;padding:13px;margin-bottom:14px;cursor:pointer}' +
     /* Chinese versions of the CSS-rendered nav badges */
     'html.lang-zh .psnav-links a.feat::before{content:"精选"}html.lang-zh .psnav-links a.smart::before{content:"智能"}html.lang-zh .psnav-links a.soon::before{content:"即将"}';
