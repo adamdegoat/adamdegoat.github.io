@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>New Launches · PropSight</title>
-<meta name="description" content="Singapore new launches worth a look, full project microsites, real numbers, and early access to units. Featuring Lentor Gardens Residences by Kingsford. By PropSight.">
+<meta name="description" content="Singapore new launches worth a look, full project microsites, real numbers, and early access to units. Featuring Thomson Reserve at Upper Thomson by UOL, Singapore Land Group and CapitaLand Development. By PropSight.">
 <meta name="theme-color" content="#1b3a2d">
 <link rel="manifest" href="../manifest.json">
 <link rel="apple-touch-icon" href="../icons/icon-180.png">
@@ -31,6 +31,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
 .topo{position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:repeating-linear-gradient(90deg,rgba(27,58,45,.045) 0 1px,transparent 1px 150px),repeating-linear-gradient(0deg,rgba(27,58,45,.045) 0 1px,transparent 1px 150px)}
 .wrap{max-width:1200px;margin:0 auto;padding:0 36px}
 a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid #0f7a82;outline-offset:3px}
 .serif{font-family:var(--serif)}
 em{font-style:italic;color:var(--brass)}
 .eyebrow{font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#0d6f78;display:inline-flex;align-items:center;gap:10px}
@@ -96,40 +97,80 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .phead .sub{font-size:15px;color:rgba(231,246,243,.86);margin:13px 0 0;max-width:560px;line-height:1.55}
 
 /* featured launch card */
-.feature{padding:36px 0 8px}
-.fcard{position:relative;border-radius:26px;overflow:hidden;box-shadow:var(--sh3);border:1px solid rgba(15,35,26,.1);
- display:grid;grid-template-columns:1fr;background:#0c1d14;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
-.fcard:hover{transform:translateY(-5px);box-shadow:0 50px 110px rgba(15,35,26,.3),0 18px 40px rgba(25,21,18,.12)}
-.fcard-img{position:relative;min-height:420px}
-.fcard-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%}
+.feature{padding:28px 0 8px}
+.feature .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,392px));justify-content:center;gap:26px;align-items:stretch}
+.fcard{position:relative;border-radius:20px;overflow:hidden;box-shadow:var(--sh2);border:1px solid var(--line);
+ display:flex;flex-direction:column;background:#fff;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.fcard:hover{transform:translateY(-4px);box-shadow:0 32px 72px rgba(15,35,26,.2),0 12px 26px rgba(25,21,18,.1)}
+.fcard-img{position:relative;aspect-ratio:16/10;overflow:hidden}
+.fcard-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 46%}
 .fcard-scrim{position:absolute;inset:0;pointer-events:none;background:
- linear-gradient(180deg,rgba(8,22,14,.32) 0%,rgba(8,22,14,.08) 30%,rgba(8,22,14,.6) 78%,rgba(8,22,14,.92) 100%),
- linear-gradient(90deg,rgba(8,22,14,.5),transparent 52%)}
-.fcard-img .status{position:absolute;top:22px;left:24px;z-index:3;display:inline-flex;align-items:center;gap:8px;
- background:rgba(8,22,14,.46);backdrop-filter:blur(8px);border:1px solid rgba(127,208,187,.4);
- color:#e6f3f0;font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:8px 15px;border-radius:30px}
-.fcard-img .status .dot{width:8px;height:8px;border-radius:50%;background:#8fe0b0;animation:none}
-@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.55}}
-.fcard-img .kick{position:absolute;top:24px;right:24px;z-index:3;font-size:10.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:rgba(232,245,242,.6)}
-/* overlaid copy block, anchored bottom of image on wide screens */
-.fbody{position:relative;z-index:3;padding:34px 38px 36px;color:#e6f3f0}
-@media(min-width:861px){
-  .fcard-img{min-height:560px}
-  .fbody{position:absolute;left:0;right:0;bottom:0;max-width:760px}
-}
-.fbody .place{font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--brass3)}
-.fbody h3{font-family:var(--serif);font-weight:600;font-size:clamp(30px,4vw,48px);line-height:1.02;letter-spacing:-.022em;margin:10px 0 0;color:#f4fefc;text-shadow:0 2px 28px rgba(0,0,0,.45)}
-.fbody .blurb{font-size:15.5px;color:rgba(230,243,240,.88);margin-top:14px;max-width:560px;line-height:1.55}
-.ftags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
-.ftag{font-size:12.5px;font-weight:600;color:#d9f0eb;background:rgba(255,255,255,.08);border:1px solid rgba(127,208,187,.28);
- backdrop-filter:blur(4px);padding:7px 13px;border-radius:30px}
-.ftag b{color:var(--brass3);font-weight:700}
-.fcta{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:24px}
-.fcta .pri{display:inline-flex;align-items:center;gap:9px;background:var(--gtex,none),#1b3a2d;color:#eef6f1;font-weight:700;font-size:15px;padding:14px 26px;border-radius:40px;box-shadow:0 14px 30px rgba(15,35,26,.4);transition:.24s var(--ease)}
-.fcta .pri:hover{transform:translateY(-2px);filter:brightness(1.04)}
-.fcta .pri i{font-style:normal;transition:.24s var(--ease)}.fcta .pri:hover i{transform:translateX(4px)}
-.fcta .psf{font-size:13px;font-weight:600;color:rgba(230,243,240,.78)}
-.fcta .psf b{font-family:var(--serif);color:#f4fefc;font-weight:600;font-size:16px}
+ linear-gradient(180deg,rgba(8,22,14,.3) 0%,rgba(8,22,14,0) 36%,rgba(8,22,14,.14) 100%)}
+.fcard-img .status{position:absolute;top:14px;left:14px;z-index:3;display:inline-flex;align-items:center;gap:8px;
+ background:linear-gradient(180deg,#17a8a8,#0f7a82);border:0;
+ color:#fff;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:8px 15px;border-radius:30px;box-shadow:0 10px 24px rgba(15,122,130,.5)}
+.fcard-img .status .dot{width:8px;height:8px;border-radius:50%;background:#eafffb;animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.55);opacity:.5}}
+.fcard-img .kick{position:absolute;top:15px;right:15px;z-index:3;font-size:9.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85);text-shadow:0 1px 6px rgba(0,0,0,.55)}
+.fcard-img .crest-wm{position:absolute;top:13px;right:14px;left:auto;bottom:auto;z-index:3;width:30px;height:auto;object-fit:contain;opacity:.92;filter:drop-shadow(0 1px 6px rgba(0,0,0,.5))}
+.card-hit{position:absolute;inset:0;z-index:1;border-radius:20px}
+.peek{margin-top:18px}
+.peek-lbl{font-size:10px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:#6a7563;margin-bottom:8px}
+.peek-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.peek-row img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:9px;border:1px solid var(--line2);transition:transform .3s var(--ease)}
+.fcard:hover .peek-row img{transform:scale(1.03)}
+.fbody{position:relative;padding:22px 22px 24px;color:var(--ink);display:flex;flex-direction:column;flex:1}
+.fbody .place{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--brass)}
+.fbody h3{font-family:var(--serif);font-weight:700;font-size:clamp(23px,2.8vw,28px);line-height:1.04;letter-spacing:-.02em;margin:8px 0 0;color:var(--ink)}
+.fbody .blurb{font-size:13.5px;color:var(--ink2);margin-top:10px;line-height:1.5}
+.ftags{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.ftag{font-size:11.5px;font-weight:600;color:var(--green2);background:rgba(15,35,26,.05);border:1px solid var(--line2);padding:5px 11px;border-radius:30px}
+.ftag b{color:var(--brass);font-weight:700}
+.fcta{display:flex;flex-direction:column;align-items:stretch;gap:12px;margin-top:auto;padding-top:20px}
+.reg-pill{position:relative;z-index:2;display:inline-flex;align-items:center;justify-content:center;gap:9px;cursor:pointer;
+ width:100%;background:linear-gradient(180deg,#15a0a0,#0f7a82);color:#fff;font-family:inherit;font-weight:700;font-size:14.5px;
+ padding:14px 20px;border-radius:40px;border:0;box-shadow:0 12px 26px rgba(15,122,130,.32);transition:.24s var(--ease);-webkit-tap-highlight-color:transparent}
+.reg-pill svg{width:16px;height:16px}
+.reg-pill:hover{transform:translateY(-2px);box-shadow:0 18px 36px rgba(15,122,130,.42);filter:brightness(1.04)}
+.reg-pill:active{transform:translateY(0)}
+.pri-link{position:relative;z-index:2;align-self:center;display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:700;color:var(--green2)}
+.pri-link i{font-style:normal;transition:transform .24s var(--ease)}
+.pri-link:hover i{transform:translateX(4px)}
+
+/* VVIP register modal */
+.reg-modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:18px}
+.reg-modal[hidden]{display:none}
+.rm-overlay{position:absolute;inset:0;background:rgba(12,20,15,.55);backdrop-filter:blur(4px);animation:rmfade .3s var(--ease)}
+.rm-card{position:relative;z-index:1;width:100%;max-width:462px;max-height:calc(100dvh - 36px);overflow-y:auto;-webkit-overflow-scrolling:touch;
+ background:#f4f8f6;border-radius:22px;box-shadow:0 40px 100px rgba(12,20,15,.42);padding:30px 28px 26px;animation:rmpop .34s var(--ease)}
+@keyframes rmfade{from{opacity:0}to{opacity:1}}
+@keyframes rmpop{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+.rm-x{position:absolute;top:13px;right:13px;width:38px;height:38px;border-radius:50%;border:0;cursor:pointer;
+ background:rgba(15,35,26,.06);color:var(--ink2);display:flex;align-items:center;justify-content:center;transition:.2s}
+.rm-x:hover{background:rgba(15,35,26,.13);color:var(--ink)}
+.rm-x svg{width:18px;height:18px}
+.rm-eyebrow{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#0d6f78}
+.rm-head h3{font-family:var(--serif);font-weight:700;font-size:25px;letter-spacing:-.02em;color:var(--ink);margin:8px 0 6px;line-height:1.1}
+.rm-head p{font-size:14px;color:var(--ink2);margin-bottom:19px}
+.rm-form input,.rm-form select,.rm-form textarea{width:100%;font-family:inherit;font-size:16px;color:var(--ink);
+ background:#fff;border:1px solid var(--line2);border-radius:12px;padding:13px 15px;margin-bottom:11px;transition:border .2s,box-shadow .2s}
+.rm-form input::placeholder,.rm-form textarea::placeholder{color:#7f978f}
+.rm-form input:focus,.rm-form select:focus,.rm-form textarea:focus{outline:none;border-color:#15a0a0;box-shadow:0 0 0 3px rgba(21,160,160,.16)}
+.rm-form select{appearance:none;-webkit-appearance:none;cursor:pointer;padding-right:38px;background-repeat:no-repeat;background-position:right 14px center;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23536b66' stroke-width='2.4'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")}
+.rm-form textarea{resize:vertical;min-height:72px}
+.rm-btn{width:100%;display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--gtex,none),#1b3a2d;color:#eef6f1;
+ font-family:inherit;font-weight:700;font-size:16px;padding:15px;border:0;border-radius:40px;cursor:pointer;transition:.24s var(--ease);margin-top:4px}
+.rm-btn:hover{background:#0f231a;transform:translateY(-2px);box-shadow:0 14px 30px rgba(15,35,26,.32)}
+.rm-btn:disabled{opacity:.62;cursor:default;transform:none;box-shadow:none}
+.rm-fine{font-size:11.5px;color:var(--ink3);text-align:center;margin-top:11px}
+.rm-err{color:#a23327;font-size:13px;text-align:center;margin-top:10px}
+.rm-done{text-align:center;padding:14px 0 6px}
+.rm-done .rd-ic{width:56px;height:56px;border-radius:50%;background:rgba(21,160,160,.14);color:#0f7a82;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.rm-done .rd-ic svg{width:28px;height:28px}
+.rm-done h3{font-family:var(--serif);font-weight:700;font-size:24px;color:var(--ink)}
+.rm-done p{font-size:14.5px;color:var(--ink2);margin-top:8px;max-width:34ch;margin-left:auto;margin-right:auto}
+html.modal-open,html.modal-open body{overflow:hidden}
 
 /* coming-soon strip */
 .soon-sec{padding:30px 0 8px}
@@ -164,7 +205,6 @@ html.menu-open,html.menu-open body{overflow:hidden}
 }
 @media(max-width:560px){
  .ph-in{padding:34px 22px 32px}
- .fcard-img{min-height:340px}
  .soon{padding:22px}
  .brand .bw span{display:none}
 }
@@ -172,8 +212,8 @@ html.menu-open,html.menu-open body{overflow:hidden}
 </style>
 <noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
 <script>
-/* page-local zh for the New Launches listing (merged by i18n.js, keyed by exact English). The Lentor
-   project name + its external link are intentionally left in English. */
+/* page-local zh for the New Launches listing (merged by i18n.js, keyed by exact English). Brand and
+   place names (Thomson Reserve, UOL, MRT, MacRitchie) are intentionally left in English. */
 window.PS_I18N_ZH = Object.assign(window.PS_I18N_ZH || {}, {
   "New launches": "新盘", "worth a look.": "值得一看。",
   "Hand-picked Singapore new launches, full project microsites, real numbers, and early access to units.":
@@ -183,28 +223,38 @@ window.PS_I18N_ZH = Object.assign(window.PS_I18N_ZH || {}, {
   "Our read on the market, weekly": "我们对市场的每周解读",
   "New launches worth a look": "值得一看的新盘",
   "Back to the PropSight hub": "返回 PropSight 平台",
-  "Early preview": "抢先预览", "Featured launch": "精选新盘",
-  "A 499-home new launch by Kingsford, minutes from Lentor MRT, 2 to 4 bedrooms plus a handful of rare strata terraces.":
-    "由 Kingsford 开发的 499 户新盘，距 Lentor MRT 仅几分钟，2 至 4 房，另有少量稀有的分层排屋。",
-  "Developer": "开发商", "Mins from Lentor MRT": "距 Lentor MRT 几分钟", "homes": "户",
-  "2-4 Bedroom + rare strata terraces": "2-4 房 + 稀有分层排屋", "99-year leasehold": "99 年地契",
-  "From": "起价", "about $920 per square foot": "约 $920 每平方英尺",
+  "Preview October 2026": "2026 年 10 月预览", "Featured launch": "精选新盘",
+  "New Launch": "全新楼盘", "Upper Thomson · District 20": "Upper Thomson · 20 区",
+  "towers": "座塔楼", "A look inside": "抢先一览", "Register interest": "登记意向",
+  "Leave your details for updates and first access.": "留下资料，获取更新与优先入场。",
+  "Thomson Reserve · Register interest": "Thomson Reserve · 登记意向",
+  "Upper Thomson (District 20)": "Upper Thomson（20 区）",
+  "A 1,268-home sanctuary across six towers, embraced by MacRitchie and Windsor Nature Park, a two-minute walk to Upper Thomson MRT. By UOL, Singapore Land Group and CapitaLand Development.":
+    "拥 1,268 户、六座塔楼的静谧住宅，为 MacRitchie 与 Windsor 自然公园环抱，步行两分钟即达 Upper Thomson 地铁站。由 UOL、Singapore Land Group 与 CapitaLand Development 联合开发。",
+  "Developer": "开发商", "homes": "户", "99-year leasehold": "99 年地契",
+  "walk to Upper Thomson MRT": "步行至 Upper Thomson 地铁站",
+  "2 to 5 Bedroom": "2 至 5 房", "Preview": "预览", "October 2026": "2026 年 10 月",
   "View the project": "查看楼盘",
-  "Full microsite · floor plans · unit availability": "完整微站 · 户型图 · 单位供应",
+  "Register early for VVIP preview": "抢先登记 VVIP 预览",
+  "Leave your details for first access, ahead of the public launch.": "留下资料，在公开发售前抢先获得优先入场。",
+  "You are on the list.": "已为你登记。",
+  "A PropSight adviser will be in touch shortly with first access to Thomson Reserve.": "PropSight 顾问将尽快与你联系，为你安排 Thomson Reserve 的优先入场。",
+  "We will only use your details to follow up on Thomson Reserve.": "我们只会使用你的资料跟进 Thomson Reserve。",
+  "Full microsite · nature, connectivity &amp; unit mix": "完整微站 · 自然、交通与户型组合",
   "More launches coming soon": "更多新盘即将上线",
   "We only feature projects we'd recommend. New microsites are added as they go live, check back, or ask us what's coming.":
     "我们只推荐自己认可的楼盘。新微站会在上线时陆续加入，欢迎常回来看看，或问我们接下来有什么。",
   "Curated": "精选",
   "Looking at a launch?": "在看新盘？", "Message our team.": "联系我们团队。",
-  "Thinking about a new launch, Lentor Gardens or anything else? We'll walk you through the real numbers, the best stacks, and early access to units. No pressure, no sales script.":
-    "在考虑某个新盘、Lentor Gardens 或其他任何事？我们会带你看清真实数据、最佳单位朝向，以及优先选购的机会。没有压力，没有推销话术。",
+  "Thinking about a new launch, Thomson Reserve or anything else? We'll walk you through the real numbers, the best stacks, and early access to units. No pressure, no sales script.":
+    "在考虑某个新盘、Thomson Reserve 或其他任何事？我们会带你看清真实数据、最佳单位朝向，以及优先选购的机会。没有压力，没有推销话术。",
   "Message our team": "联系我们团队", "Email us": "电邮我们",
   "PropSight · Singapore · built on official data · indicative, not financial advice":
     "PropSight · 新加坡 · 基于官方数据 · 仅供参考，不构成财务建议"
 });
 </script>
 <script src="/adam/i18n.js" defer></script>
-<script src="/adam/nav.js" defer></script>
+<script src="/adam/nav.js?v=149" defer></script>
 <style>.navlang{margin-left:14px;display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:inherit;background:transparent;border:0;cursor:pointer;font-family:inherit;padding:0}.navlang:hover{opacity:.7}</style>
   <link rel="canonical" href="https://propsight.sg/launches/">
   <script type="application/ld+json">
@@ -220,7 +270,7 @@ window.PS_I18N_ZH = Object.assign(window.PS_I18N_ZH || {}, {
     <svg class="mark" aria-hidden="true" viewBox="0 0 64 64"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32.5 L27 21.5 L36.5 32.5" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M20.5 37 L33.5 37" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="27" cy="33.4" r="2" fill="#15a0a0"/><path d="M40.5 40.5 L53.5 53.5" fill="none" stroke="#15a0a0" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
     <span class="bw"><b>PropSight</b><span>Singapore</span></span>
   </a>
-  <nav class="links"><a href="../index.html#tools">Tools</a><a href="../notes/">Market Pulse</a><a class="cur" href="index.html" aria-current="page">New Launches</a><a href="https://wa.me/6583219747">Contact</a><button class="navlang" data-ps-langtoggle type="button" aria-label="Switch language">中文</button></nav>
+  <nav class="links"><a href="../index.html#tools">Tools</a><a href="../market-analysis/">Market Analysis</a><a class="cur" href="index.html" aria-current="page">New Launches</a><a href="https://wa.me/6583219747">Contact</a><button class="navlang" data-ps-langtoggle type="button" aria-label="Switch language">中文</button></nav>
   <a class="btn navbtn" href="https://wa.me/6583219747">Let's talk <span class="arr">→</span></a>
   <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
     <svg class="ic-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -229,7 +279,7 @@ window.PS_I18N_ZH = Object.assign(window.PS_I18N_ZH || {}, {
 </div></header>
 <div class="mobile-menu" id="mobileMenu">
   <a class="mm" href="../index.html#tools"><span class="mm-n">01</span><span><span class="mm-t">Tools</span><span class="mm-d">Value, budget, stamp duty, grants &amp; more</span></span><span class="mm-ar">→</span></a>
-  <a class="mm" href="../notes/"><span class="mm-n">02</span><span><span class="mm-t">Market Pulse</span><span class="mm-d">Our read on the market, weekly</span></span><span class="mm-ar">→</span></a>
+  <a class="mm" href="../market-analysis/"><span class="mm-n">02</span><span><span class="mm-t">Market Analysis</span><span class="mm-d">Our read on the market, monthly</span></span><span class="mm-ar">→</span></a>
   <a class="mm" href="index.html"><span class="mm-n">03</span><span><span class="mm-t">New Launches</span><span class="mm-d">New launches worth a look</span></span><span class="mm-ar">→</span></a>
   <a class="mm" href="../index.html"><span class="mm-n">04</span><span><span class="mm-t">Home</span><span class="mm-d">Back to the PropSight hub</span></span><span class="mm-ar">→</span></a>
   <div class="mm-foot">
@@ -249,32 +299,42 @@ window.PS_I18N_ZH = Object.assign(window.PS_I18N_ZH || {}, {
 </section>
 
 <section class="feature"><div class="wrap">
-  <a class="fcard rv" href="https://newlaunches.github.io/lentor-gardens-residences/" target="_blank" rel="noopener" aria-label="View Lentor Gardens Residences">
+  <article class="fcard rv">
+    <a class="card-hit" href="thomson-reserve/" aria-label="View Thomson Reserve"></a>
     <div class="fcard-img">
-      <img src="../img/launch-lentor-gardens.jpg" alt="Lentor Gardens Residences, new launch in Lentor (District 26)" loading="eager" decoding="async">
+      <img src="../img/launch-thomson-reserve.jpg" alt="Thomson Reserve, new launch at Upper Thomson (District 20)" loading="eager" decoding="async">
       <div class="fcard-scrim" aria-hidden="true"></div>
-      <span class="status"><span class="dot"></span>Early preview</span>
-      <span class="kick">Featured launch</span>
+      <span class="status"><span class="dot"></span>New Launch</span>
+      <img class="crest-wm" src="thomson-reserve/img/crest-white.png" alt="" aria-hidden="true">
     </div>
     <div class="fbody">
-      <div class="place">Lentor (District 26)</div>
-      <h3>Lentor Gardens Residences</h3>
-      <p class="blurb">A 499-home new launch by Kingsford, minutes from Lentor MRT, 2 to 4 bedrooms plus a handful of rare strata terraces.</p>
+      <div class="place">Upper Thomson · District 20</div>
+      <h3>Thomson Reserve</h3>
+      <p class="blurb">A 1,268-home sanctuary across six towers, embraced by MacRitchie and Windsor Nature Park, a two-minute walk to Upper Thomson MRT. By UOL, Singapore Land Group and CapitaLand Development.</p>
       <div class="ftags">
-        <span class="ftag"><b>Developer</b> · Kingsford</span>
-        <span class="ftag">Lentor (District 26)</span>
-        <span class="ftag">Mins from Lentor MRT</span>
-        <span class="ftag"><b>499</b> homes</span>
-        <span class="ftag">2-4 Bedroom + rare strata terraces</span>
+        <span class="ftag"><b>2-min</b> walk to Upper Thomson MRT</span>
+        <span class="ftag"><b>1,268</b> homes</span>
+        <span class="ftag"><b>6</b> towers</span>
+        <span class="ftag">2 to 5 Bedroom</span>
         <span class="ftag">99-year leasehold</span>
-        <span class="ftag">From <b>about $920 per square foot</b></span>
+      </div>
+      <div class="peek">
+        <div class="peek-lbl">A look inside</div>
+        <div class="peek-row">
+          <img src="thomson-reserve/img/map-connectivity.jpg" alt="Connectivity map inside the Thomson Reserve microsite" loading="lazy" decoding="async">
+          <img src="thomson-reserve/img/map-greenspaces.jpg" alt="Green spaces map inside the Thomson Reserve microsite" loading="lazy" decoding="async">
+          <img src="thomson-reserve/img/reservoir-panel.jpg" alt="Reservoir near Thomson Reserve" loading="lazy" decoding="async">
+        </div>
       </div>
       <div class="fcta">
-        <span class="pri">View the project <i>→</i></span>
-        <span class="psf">Full microsite · floor plans · unit availability</span>
+        <button class="reg-pill" type="button" data-open-reg data-project="Thomson Reserve">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.2 5.6L20 9l-4.4 3.9L17 19l-5-3-5 3 1.4-6.1L4 9l5.8-.4z"/></svg>
+          Register interest
+        </button>
+        <a class="pri-link" href="thomson-reserve/">View the project <i>&rsaquo;</i></a>
       </div>
     </div>
-  </a>
+  </article>
 </div></section>
 
 <section class="soon-sec"><div class="wrap">
@@ -292,11 +352,49 @@ window.PS_I18N_ZH = Object.assign(window.PS_I18N_ZH || {}, {
   <span class="fhalo" aria-hidden="true"></span>
   <span class="eyebrow rv">Looking at a launch?</span>
   <h2 class="serif rv">Message our team.<svg class="hl" viewBox="0 0 230 16" preserveAspectRatio="none" aria-hidden="true"><path d="M5 11 C 60 4, 170 4, 225 9"/></svg></h2>
-  <p class="rv">Thinking about a new launch, Lentor Gardens or anything else? We'll walk you through the real numbers, the best stacks, and early access to units. No pressure, no sales script.</p>
+  <p class="rv">Thinking about a new launch, Thomson Reserve or anything else? We'll walk you through the real numbers, the best stacks, and early access to units. No pressure, no sales script.</p>
   <div class="rv" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a class="btn brass" href="https://wa.me/6583219747" target="_blank" rel="noopener">Message our team <span class="arr">→</span></a><a class="btn" href="mailto:propsightsg@gmail.com">Email us <span class="arr">→</span></a></div>
   
   <div class="sig rv">PropSight · Singapore · built on official data · indicative, not financial advice</div>
 </div></section>
+
+<div class="reg-modal" id="regModal" hidden>
+  <div class="rm-overlay" data-close-reg></div>
+  <div class="rm-card" role="dialog" aria-modal="true" aria-labelledby="rmTitle">
+    <button class="rm-x" type="button" data-close-reg aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="rm-head">
+      <span class="rm-eyebrow">Thomson Reserve · Register interest</span>
+      <h3 id="rmTitle">Register interest</h3>
+      <p>Leave your details for updates and first access.</p>
+    </div>
+    <form class="rm-form" id="regModalForm" action="https://formsubmit.co/ajax/propsightsg@gmail.com" method="POST">
+      <input type="text" name="Name" placeholder="Your name" required autocomplete="name">
+      <input type="email" name="Email" placeholder="Email address" required autocomplete="email">
+      <input type="tel" name="Phone" placeholder="Phone or WhatsApp (optional)" autocomplete="tel">
+      <select name="Preferred layout" aria-label="Preferred layout">
+        <option value="" disabled selected>Preferred layout (optional)</option>
+        <option>Not sure yet</option>
+        <option>2 Bedroom</option>
+        <option>3 Bedroom</option>
+        <option>4 Bedroom</option>
+        <option>5 Bedroom Suite</option>
+      </select>
+      <textarea name="Message" rows="3" placeholder="Anything you would like to know? (optional)"></textarea>
+      <input type="hidden" name="_subject" value="Thomson Reserve, interest registration">
+      <input type="hidden" name="Project" value="Thomson Reserve">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
+      <button type="submit" class="rm-btn">Register interest <span>&rsaquo;</span></button>
+      <p class="rm-fine">We will only use your details to follow up on Thomson Reserve.</p>
+    </form>
+    <div class="rm-done" id="regModalDone" hidden>
+      <div class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <h3>You are on the list.</h3>
+      <p>A PropSight adviser will be in touch shortly with first access to Thomson Reserve.</p>
+    </div>
+  </div>
+</div>
 
 <script>
 requestAnimationFrame(()=>document.body.classList.add('loaded'));
@@ -318,6 +416,31 @@ requestAnimationFrame(()=>document.body.classList.add('loaded'));
 // reveal
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:.08});
 if('IntersectionObserver' in window){document.querySelectorAll('.rv').forEach(el=>io.observe(el));}else{document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));}
+// VVIP register modal (opens from card pill, posts to FormSubmit -> propsightsg@gmail.com)
+(function(){
+  const modal=document.getElementById('regModal');
+  if(!modal)return;
+  const form=document.getElementById('regModalForm'), done=document.getElementById('regModalDone');
+  let lastFocus=null;
+  const open=()=>{lastFocus=document.activeElement;modal.hidden=false;document.documentElement.classList.add('modal-open');
+    const fi=form.querySelector('input[name=Name]');if(fi)setTimeout(()=>fi.focus(),60);};
+  const close=()=>{modal.hidden=true;document.documentElement.classList.remove('modal-open');
+    form.hidden=false;done.hidden=true;if(lastFocus&&lastFocus.focus)lastFocus.focus();};
+  document.querySelectorAll('[data-open-reg]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open();}));
+  modal.querySelectorAll('[data-close-reg]').forEach(b=>b.addEventListener('click',close));
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&!modal.hidden)close();});
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    const btn=form.querySelector('.rm-btn'),orig=btn.innerHTML;const old=form.querySelector('.rm-err');if(old)old.remove();
+    btn.disabled=true;btn.textContent='Sending…';
+    try{
+      const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
+      if(!res.ok)throw new Error('bad');
+      form.hidden=true;done.hidden=false;
+    }catch(err){btn.disabled=false;btn.innerHTML=orig;
+      const m=document.createElement('p');m.className='rm-err';m.textContent='Something went wrong. Please WhatsApp us, or try again.';form.appendChild(m);}
+  });
+})();
 // scroll progress
 const prog=document.getElementById('prog');
 addEventListener('scroll',()=>{prog.style.width=(scrollY/(document.body.scrollHeight-innerHeight)*100)+'%';},{passive:true});
