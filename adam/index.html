@@ -80,7 +80,10 @@ em{font-style:italic;color:var(--brass)}
 /* mobile: keep the 中文/EN text (that's what tells people the language); drop the globe to save width */
 @media(max-width:880px){.navlang{gap:0;padding:7px 12px;font-size:13px}.navlang svg{display:none}}
 /* the "doorway" into the Listing Platform, a separate destination, set apart from the menu + the Join button */
-.navdoor{display:flex;flex-direction:column;gap:2px;text-decoration:none;margin-left:6px;padding:7px 13px;border:1px solid rgba(231,246,243,.42);border-radius:12px;background:rgba(255,255,255,.1);position:relative;flex:none;transition:.25s var(--ease)}
+.navdoor{display:flex;align-items:stretch;text-decoration:none;margin-left:6px;border:1px solid rgba(231,246,243,.42);border-radius:12px;background:rgba(255,255,255,.1);position:relative;flex:none;overflow:hidden;transition:.25s var(--ease)}
+.navdoor .nd-half{display:flex;flex-direction:column;gap:2px;text-decoration:none;padding:7px 13px;transition:background .2s}
+.navdoor .nd-half+.nd-half{border-left:1px solid rgba(231,246,243,.3)}
+.navdoor .nd-half:hover{background:rgba(255,255,255,.12)}
 .navdoor::before{content:"";position:absolute;left:-9px;top:50%;transform:translateY(-50%);width:1px;height:28px;background:rgba(231,246,243,.3)}
 .navdoor .nd-top{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:#e7f6f3;line-height:1.05;white-space:nowrap}
 .navdoor .nd-ar{width:12px;height:12px;flex:none}
@@ -113,6 +116,10 @@ em{font-style:italic;color:var(--brass)}
 .mobile-menu .mm-door .mmd-d{display:block;font-size:13px;color:#576b67;margin-top:4px}
 .mobile-menu .mm-door .mmd-arr{flex:none;width:34px;height:34px;border-radius:50%;background:var(--green2);display:flex;align-items:center;justify-content:center}
 .mobile-menu .mm-door .mmd-arr svg{width:15px;height:15px;stroke:#e6f3f0}
+.mobile-menu .mm-door+.mm-door{margin-top:11px}
+.mobile-menu .mm-door.mm-world{background:linear-gradient(180deg,#f1fbfa,#e3f5f1);border-color:#bfe6e0}
+.mobile-menu .mm-door.mm-world .mmd-t{color:#0f7a82}
+.mobile-menu .mm-door.mm-world .mmd-arr{background:#15a0a0}
 .mobile-menu .mm-door:active{transform:translateY(-1px)}
 .mobile-menu .mm-foot{margin-top:auto;padding-top:26px;display:flex;flex-direction:column;gap:14px}
 .mobile-menu .mm-install{display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:700;color:var(--green2);opacity:0;transform:translateY(12px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
@@ -145,6 +152,28 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .hinstall:hover{border-bottom-color:var(--brass)}
 .hessentials{display:inline-block;margin-top:14px;font-size:13.5px;font-weight:700;color:var(--green2);border:1px solid var(--line2);border-radius:30px;padding:9px 16px;transition:.2s var(--ease)}
 .hessentials:hover{border-color:var(--brass);transform:translateY(-1px)}
+/* hero doorways: the two prominent entries (PropWorld + Listings) */
+.hdoors{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+.hdoor{flex:1 1 240px;max-width:335px;display:flex;align-items:center;gap:13px;text-decoration:none;padding:15px 18px;border-radius:18px;position:relative;overflow:hidden;background:var(--gtex,none),#1b3a2d;border:1px solid var(--brass2);box-shadow:0 14px 30px -10px rgba(15,35,26,.42);transition:transform .25s var(--ease),box-shadow .25s,border-color .25s}
+.hdoor:hover{transform:translateY(-3px);border-color:var(--brass3);box-shadow:0 22px 44px -14px rgba(15,35,26,.52)}
+.hdoor .hd-ic{flex:none;width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(127,208,187,.15);color:var(--brass3)}
+.hdoor .hd-ic svg{width:23px;height:23px}
+.hdoor .hd-tx{display:flex;flex-direction:column;line-height:1.14;min-width:0}
+.hdoor .hd-tx b{font-size:16px;font-weight:800;color:#eef7f3;letter-spacing:-.01em}
+.hdoor .hd-tx .hd-s{font-size:11.5px;font-weight:600;color:rgba(231,246,243,.7);margin-top:2px}
+.hdoor .hd-tx .hd-soon{color:var(--brass3);display:inline-flex;align-items:center;gap:5px}
+.hdoor .hd-tx .hd-soon i{width:6px;height:6px;border-radius:50%;background:var(--brass3);animation:pulse 2s infinite}
+.hdoor .hd-ar{margin-left:auto;flex:none;color:var(--brass3);transition:transform .25s var(--ease)}
+.hdoor .hd-ar svg{width:18px;height:18px}
+.hdoor:hover .hd-ar{transform:translateX(4px)}
+.hdoor.hd-world{background:var(--gtex,none),linear-gradient(155deg,#15807f 0%,#123a30 92%);border-color:var(--brass2);animation:hdWorldGlow 3.4s ease-in-out infinite}
+.hdoor.hd-world .hd-ic{background:rgba(127,208,187,.26)}
+.hdoor.hd-world::after{content:"";position:absolute;top:0;left:-65%;width:48%;height:100%;background:linear-gradient(100deg,rgba(191,240,232,0) 0%,rgba(191,240,232,.32) 50%,rgba(191,240,232,0) 100%);transform:skewX(-18deg);pointer-events:none;animation:hdWorldSheen 5.6s ease-in-out infinite}
+@keyframes hdWorldGlow{0%,100%{box-shadow:0 14px 30px -10px rgba(15,35,26,.42),0 0 0 0 rgba(46,196,182,0)}50%{box-shadow:0 16px 34px -10px rgba(15,35,26,.46),0 0 22px 1px rgba(46,196,182,.42)}}
+@keyframes hdWorldSheen{0%,74%{left:-65%}88%,100%{left:135%}}
+@media(prefers-reduced-motion:reduce){.hdoor.hd-world{animation:none}.hdoor.hd-world::after{display:none}}
+.hdoor-sec{display:flex;gap:12px;margin-top:15px;flex-wrap:wrap}
+@media(max-width:560px){.hdoor{flex:1 1 100%;max-width:none}}
 .fresh{display:inline-flex;align-items:center;gap:9px;margin-top:14px;font-size:12.5px;color:var(--ink3);font-weight:600}
 .fresh .dot{width:8px;height:8px;border-radius:50%;background:#2e9e6b;box-shadow:0 0 0 0 rgba(46,158,107,.5);animation:pulse 2s infinite}
 .herotop{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:4px}
@@ -838,6 +867,12 @@ em{color:var(--brass)}
 .nav .navdoor .nd-top{color:var(--green)!important}
 .nav .navdoor .nd-sub{color:var(--ink3)!important}
 .nav .navdoor .nd-dot{background:#3aa76d!important}
+.nav .navdoor .nd-half+.nd-half{border-left-color:#d7e2db!important}
+.nav .navdoor .nd-half:hover{background:rgba(39,81,63,.06)!important}
+.nav .navdoor .nd-world{background:linear-gradient(180deg,#f1fbfa,#e3f5f1)!important}
+.nav .navdoor .nd-world .nd-top{color:#0f7a82!important}
+.nav .navdoor .nd-world .nd-ar{color:#15a0a0!important}
+.nav .navdoor .nd-world:hover{background:rgba(21,160,160,.1)!important}
 .nav .nav-install{color:var(--ink)!important;background:rgba(255,255,255,.55)!important;border-color:var(--line2)!important}
 /* ---- Pass 2: cards -> clean rows / index ---- */
 /* "What brings you here" router cards -> editorial rows */
@@ -874,8 +909,8 @@ em{color:var(--brass)}
     <svg class="mark" aria-hidden="true" viewBox="0 0 64 64"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32.5 L27 21.5 L36.5 32.5" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M20.5 37 L33.5 37" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="27" cy="33.4" r="2" fill="#15a0a0"/><path d="M40.5 40.5 L53.5 53.5" fill="none" stroke="#15a0a0" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
     <span class="bw"><b>PropSight</b><span data-i18n="Singapore">Singapore</span></span>
   </div>
-  <nav class="links"><a href="#tools" data-i18n>Tools</a><a href="/thesis/" class="navfeat" data-i18n>Research</a><a href="launches/" data-i18n>New Launches</a><a href="notes/" data-i18n>Market Pulse</a><a href="news/" class="navsmart" data-i18n>News</a><a href="essentials/" data-i18n>Guide</a><a href="about/" data-i18n>About us</a><a href="#talk" data-i18n>Contact</a></nav>
-  <a class="navdoor" href="listings/"><span class="nd-top"><span data-i18n="Listing Platform">Listing Platform</span><svg class="nd-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></span><span class="nd-sub"><span class="nd-dot"></span><span data-i18n="Coming soon">Coming soon</span></span></a>
+  <nav class="links"><a href="#tools" data-i18n>Tools</a><a href="/thesis/" class="navfeat" data-i18n>Research</a><a href="launches/" data-i18n>New Launches</a><a href="market-analysis/" data-i18n>Market Analysis</a><a href="news/" class="navsmart" data-i18n>News</a><a href="essentials/" data-i18n>Guide</a><a href="about/" data-i18n>About us</a><a href="#talk" data-i18n>Contact</a></nav>
+  <div class="navdoor"><a class="nd-half" href="https://listings.propsight.sg"><span class="nd-top"><span data-i18n="Listing Platform">Listing Platform</span><svg class="nd-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></span><span class="nd-sub"><span class="nd-dot"></span><span data-i18n="Buy and rent">Buy and rent</span></span></a><a class="nd-half nd-world" href="https://listings.propsight.sg/propworld.html"><span class="nd-top"><span data-i18n="PropWorld">PropWorld</span><svg class="nd-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></span><span class="nd-sub"><span data-i18n="Brought to life">Brought to life</span></span></a></div>
   <button class="navlang" data-ps-langtoggle type="button" aria-label="Switch language">中文</button>
   <button class="navsignin ps-signin-cta" type="button" onclick="window.PS&&PS.login('nav')" data-i18n="Sign in">Sign in</button>
   <button class="navjoin ps-join-cta" type="button" onclick="window.PS&&PS.cta('nav')">Join&nbsp;<span class="njfree">Telegram</span></button>
@@ -890,13 +925,14 @@ em{color:var(--brass)}
   <a class="mm" href="#tools"><span class="mm-t">Tools</span></a>
   <a class="mm" href="/thesis/"><span class="mm-t">Research</span><span class="mm-pill">Featured</span></a>
   <a class="mm" href="launches/"><span class="mm-t">New Launches</span></a>
-  <a class="mm" href="notes/"><span class="mm-t">Market Pulse</span></a>
+  <a class="mm" href="market-analysis/"><span class="mm-t">Market Analysis</span></a>
   <a class="mm" href="news/"><span class="mm-t">News</span><span class="mm-pill">Smart</span></a>
   <a class="mm" href="essentials/"><span class="mm-t">Guide</span></a>
   <div class="mm-sep"></div>
   <a class="mm" href="about/"><span class="mm-t">About</span></a>
   <a class="mm" href="#talk"><span class="mm-t">Contact</span></a>
-  <a class="mm-door" href="listings/"><span><span class="mmd-t">Listing Platform</span><span class="mmd-d">Coming soon, step into the platform</span></span><span class="mmd-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></span></a>
+  <a class="mm-door" href="https://listings.propsight.sg"><span><span class="mmd-t">Listing Platform</span><span class="mmd-d">Browse homes for sale and rent</span></span><span class="mmd-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></span></a>
+  <a class="mm-door mm-world" href="https://listings.propsight.sg/propworld.html"><span><span class="mmd-t" data-i18n="PropWorld">PropWorld</span><span class="mmd-d" data-i18n="Singapore property, brought to life">Singapore property, brought to life</span></span><span class="mmd-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></span></a>
   <div class="mm-foot">
     <button class="mm-cta ps-join-cta" type="button" style="border:0;font-family:inherit;cursor:pointer;width:100%" onclick="document.getElementById('menuToggle').click();window.PS&&PS.cta('menu')">Join our Telegram →</button>
     <button class="mm-signin ps-signin-cta" type="button" style="border:0;background:none;font-family:inherit;cursor:pointer;width:100%;font-size:14px;font-weight:600;color:var(--green2);padding:4px" onclick="document.getElementById('menuToggle').click();window.PS&&PS.login('menu')">Already a member? Sign in</button>
@@ -911,14 +947,26 @@ if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}
   <div class="hero-bg" aria-hidden="true"><img src="img/hero.jpg" alt="" width="1800" height="1000" fetchpriority="high"></div>
   <div class="hero-grad" aria-hidden="true"></div>
   <span class="herosun" aria-hidden="true"></span>
-  <!--PULSE-MQ-START--><div class="mq" aria-label="Live market and news"><span class="mq-lab"><span class="dot"></span>Live · today</span><span class="mq-div"></span><div class="mq-vp"><div class="mq-track"><span class="mq-i mq-lead">● Live · today</span><span class="mq-sep mq-lead">◆</span><a class="mq-i hot" href="notes/market-pulse-4-jul-2026.html"><span class="chip market">Market</span>Loyang Valley just sold en bloc for around $880 million</a><span class="mq-sep">◆</span><a class="mq-i pl" href="notes/market-pulse-4-jul-2026.html"><span class="chip market">Market</span>Parc Clematis is the most-traded condo on the market right now</a><span class="mq-sep">◆</span><a class="mq-i pl" href="notes/market-pulse-4-jul-2026.html"><span class="chip market">Market</span>Resale flats are renting out at 6.1% a year, more than condos</a><span class="mq-sep">◆</span><a class="mq-i pl" href="notes/market-pulse-4-jul-2026.html"><span class="chip market">Market</span>Parktown Residence is the new launch buyers are chasing</a><span class="mq-sep">◆</span><a class="mq-i pl" href="notes/market-pulse-4-jul-2026.html"><span class="chip market">Market</span>Resale flat prices are holding steady this month</a><span class="mq-sep">◆</span><a class="mq-i pl" href="notes/market-pulse-4-jul-2026.html"><span class="chip market">Market</span>Condo prices are holding steady right now</a><span class="mq-sep">◆</span><a class="mq-cta" href="notes/market-pulse-4-jul-2026.html">See what it means for you →</a><span class="mq-sep">◆</span><span class="mq-i mq-lead">● Live · today</span><span class="mq-sep mq-lead">◆</span><a class="mq-i hot" href="notes/market-pulse-4-jul-2026.html"><span class="chip market">Market</span>Loyang Valley just sold en bloc for around $880 million</a><span class="mq-sep">◆</span><a class="mq-i pl" href="notes/market-pulse-4-jul-2026.html"><span class="chip market">Market</span>Parc Clematis is the most-traded condo on the market right now</a><span class="mq-sep">◆</span><a class="mq-i pl" href="notes/market-pulse-4-jul-2026.html"><span class="chip market">Market</span>Resale flats are renting out at 6.1% a year, more than condos</a><span class="mq-sep">◆</span><a class="mq-i pl" href="notes/market-pulse-4-jul-2026.html"><span class="chip market">Market</span>Parktown Residence is the new launch buyers are chasing</a><span class="mq-sep">◆</span><a class="mq-i pl" href="notes/market-pulse-4-jul-2026.html"><span class="chip market">Market</span>Resale flat prices are holding steady this month</a><span class="mq-sep">◆</span><a class="mq-i pl" href="notes/market-pulse-4-jul-2026.html"><span class="chip market">Market</span>Condo prices are holding steady right now</a><span class="mq-sep">◆</span><a class="mq-cta" href="notes/market-pulse-4-jul-2026.html">See what it means for you →</a><span class="mq-sep">◆</span></div></div></div><script type="application/json" id="mqData">{"note": "notes/market-pulse-4-jul-2026.html", "market": [{"t": "Loyang Valley just sold en bloc for around $880 million", "tz": "Loyang Valley 刚以约$8亿8000万完成en bloc", "cls": "hot"}, {"t": "Parc Clematis is the most-traded condo on the market right now", "tz": "Parc Clematis 是目前市场上成交量最高的condo", "cls": "pl"}, {"t": "Resale flats are renting out at 6.1% a year, more than condos", "tz": "转售组屋的年租金回报率达6.1%，比condo还要高", "cls": "pl"}, {"t": "Parktown Residence is the new launch buyers are chasing", "tz": "Parktown Residence 是目前买家最追捧的新推楼盘", "cls": "pl"}, {"t": "Resale flat prices are holding steady this month", "tz": "转售组屋价格这个月保持平稳", "cls": "pl"}, {"t": "Condo prices are holding steady right now", "tz": "Condo价格目前保持平稳", "cls": "pl"}]}</script><!--PULSE-MQ-END-->
+  <!--PULSE-MQ-START--><div class="mq" aria-label="Live market and news"><span class="mq-lab"><span class="dot"></span>Live · today</span><span class="mq-div"></span><div class="mq-vp"><div class="mq-track"><span class="mq-i mq-lead">● Live · today</span><span class="mq-sep mq-lead">◆</span><a class="mq-i hot" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Loyang Valley just sold en bloc for around $880 million</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Parc Clematis is the most-traded condo on the market right now</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Resale flats are renting out at 6.1% a year, more than condos</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Parktown Residence is the new launch buyers are chasing</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Resale flat prices are holding steady this month</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Condo prices are holding steady right now</a><span class="mq-sep">◆</span><a class="mq-cta" href="market-analysis/june-2026-market-analysis.html">See what it means for you →</a><span class="mq-sep">◆</span><span class="mq-i mq-lead">● Live · today</span><span class="mq-sep mq-lead">◆</span><a class="mq-i hot" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Loyang Valley just sold en bloc for around $880 million</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Parc Clematis is the most-traded condo on the market right now</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Resale flats are renting out at 6.1% a year, more than condos</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Parktown Residence is the new launch buyers are chasing</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Resale flat prices are holding steady this month</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Condo prices are holding steady right now</a><span class="mq-sep">◆</span><a class="mq-cta" href="market-analysis/june-2026-market-analysis.html">See what it means for you →</a><span class="mq-sep">◆</span></div></div></div><script type="application/json" id="mqData">{"note": "market-analysis/june-2026-market-analysis.html", "market": [{"t": "Loyang Valley just sold en bloc for around $880 million", "tz": "Loyang Valley 刚以约$8亿8000万完成en bloc", "cls": "hot"}, {"t": "Parc Clematis is the most-traded condo on the market right now", "tz": "Parc Clematis 是目前市场上成交量最高的condo", "cls": "pl"}, {"t": "Resale flats are renting out at 6.1% a year, more than condos", "tz": "转售组屋的年租金回报率达6.1%，比condo还要高", "cls": "pl"}, {"t": "Parktown Residence is the new launch buyers are chasing", "tz": "Parktown Residence 是目前买家最追捧的新推楼盘", "cls": "pl"}, {"t": "Resale flat prices are holding steady this month", "tz": "转售组屋价格这个月保持平稳", "cls": "pl"}, {"t": "Condo prices are holding steady right now", "tz": "Condo价格目前保持平稳", "cls": "pl"}]}</script><!--PULSE-MQ-END-->
   <div class="wrap hero-in">
   <div>
     <div class="herotop rv"><span class="eyebrow" data-i18n="hero.eyebrow">Singapore property intelligence</span><span class="heroclock"><span class="hcdot"></span><time id="psClock">--:--:--</time><span class="hcz">SGT</span></span></div>
     <h1><span class="ln"><i data-i18n="hero.h1a">Singapore property,</i></span><span class="ln"><i data-i18n="hero.h1b">decoded.</i></span></h1>
     <p class="lead lead-lg rv" data-i18n="hero.leadLg">PropSight is the free way to see Singapore property clearly: value any HDB or condo on real recent sales, dig into deep research on every project and town, work out what you can truly afford, and read the property news that actually matters, in plain English. No agent hard-sell, just the real numbers. And Aillie, your property intelligence, is right here, ask her anything.</p>
     <p class="lead lead-sm rv" data-i18n="hero.leadSm">The free way to see Singapore property clearly: real values, deep research on every project and town, what you can truly afford, and the property news that matters, in plain English. Plus Aillie, your property intelligence.</p>
-    <div class="cta rv"><button class="btn brass ps-join-cta" type="button" style="font-family:inherit;cursor:pointer" onclick="window.PS&&PS.cta('hero')"><span data-i18n="cta.join">Join our Telegram</span> <span class="arr">→</span></button><button class="btn brass-out" type="button" style="font-family:inherit;cursor:pointer" onclick="window.askAillie&&window.askAillie()"><span data-i18n="cta.askAillie">Ask Aillie</span> <span class="arr">→</span></button><a class="btn btn-ghost" href="tools/value.html"><span data-i18n="cta.value">Value a home</span> <span class="arr">→</span></a></div>
+    <div class="hdoors rv">
+      <a class="hdoor hd-world" href="https://listings.propsight.sg/propworld.html">
+        <span class="hd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 7v13l6-3 6 3 6-3V4l-6 3-6-3z"/><path d="M9 4v13M15 7v13"/></svg></span>
+        <span class="hd-tx"><b data-i18n="Enter PropWorld">Enter PropWorld</b><span class="hd-s" data-i18n="Singapore property, brought to life">Singapore property, brought to life</span></span>
+        <span class="hd-ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="hdoor hd-list" href="https://listings.propsight.sg">
+        <span class="hd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v9h14v-9"/><path d="M10 19v-5h4v5"/></svg></span>
+        <span class="hd-tx"><b data-i18n="PropSight Listings">PropSight Listings</b><span class="hd-s" data-i18n="Homes for sale and rent">Homes for sale and rent</span></span>
+        <span class="hd-ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+    <div class="hdoor-sec rv"><button class="btn brass-out" type="button" style="font-family:inherit;cursor:pointer" onclick="window.askAillie&&window.askAillie()"><span data-i18n="cta.askAillie">Ask Aillie</span> <span class="arr">→</span></button><a class="btn btn-ghost" href="tools/value.html"><span data-i18n="cta.value">Value a home</span> <span class="arr">→</span></a></div>
     <p class="hperks rv"><span class="hperks-star" aria-hidden="true">★</span><span><b>Free to use, no sign-up.</b> Follow our Telegram for daily property news and market updates.</span></p>
     <p class="covers rv">Home values · affordability · stamp duty · grants · schools · selling · eligibility, <b>all free, all here.</b></p>
     <a class="hessentials rv" href="essentials/">New to property? Start with the guide →</a>
@@ -933,7 +981,7 @@ if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}
     <div class="br"><span class="k" data-i18n="Rental yield">Rental yield</span><span class="v">3.3%</span></div>
     <div class="br"><span class="k" data-i18n="Condos on record">Condos on record</span><span class="v">2,354</span></div>
     <div class="mv"><div><div class="k" data-i18n="Biggest mover this quarter">Biggest mover this quarter</div><div class="nm">Parc Clematis · Clementi</div></div><div class="v">↑ 20.9%</div></div>
-    <a class="bf" href="notes/" data-i18n="See the full Market Pulse →">See the full Market Pulse →</a>
+    <a class="bf" href="market-analysis/" data-i18n="See the latest Market Analysis →">See the latest Market Analysis →</a>
   </aside>
   </div></section>
 
@@ -957,8 +1005,8 @@ if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}
       <h3>I'm selling</h3><p>What it's worth, when you can sell penalty-free, and what you'll actually walk away with, upfront.</p><span class="go">Start selling <i>→</i></span></a>
     <a class="rcard rv" href="essentials/#buying"><div class="ic"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#27513f" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
       <h3>Just exploring</h3><p>New to all this? Start with the Guide, how it actually works, start to finish, then play with the tools at your pace.</p><span class="go">Open the Guide <i>→</i></span></a>
-    <a class="rcard rv" href="notes/"><div class="ic"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#27513f" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5v14h16"/><path d="M7 14l3.5-4 3 2.5 5-6.5"/></svg></div>
-      <h3>Watching the market</h3><p>Not moving yet, just keeping an eye on prices? Our weekly Market Pulse, what's rising, which areas are hot, and whether it's a good time.</p><span class="go">See the Market Pulse <i>→</i></span></a>
+    <a class="rcard rv" href="market-analysis/"><div class="ic"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#27513f" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5v14h16"/><path d="M7 14l3.5-4 3 2.5 5-6.5"/></svg></div>
+      <h3>Watching the market</h3><p>Not moving yet, just keeping an eye on prices? Our monthly Market Analysis, what's rising, which areas are hot, and whether it's a good time.</p><span class="go">See the Market Analysis <i>→</i></span></a>
   </div>
 </div></section>
 
@@ -1132,7 +1180,7 @@ if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}
       <div class="psf-col">
         <h4 data-i18n>Explore</h4>
         <a href="/thesis/" data-i18n>Research</a>
-        <a href="notes/" data-i18n>Market Pulse</a>
+        <a href="market-analysis/" data-i18n>Market Analysis</a>
         <a href="news/" data-i18n>News</a>
         <a href="essentials/" data-i18n>Guide</a>
         <a href="launches/" data-i18n>New Launches</a>
@@ -1869,9 +1917,9 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
     // sell / net-proceeds intent takes priority over valuation (e.g. "how much will i get if i sell"). A pure "what's it worth / sell for" stays valuation.
     if(/(net proceed|proceeds|\bssd\b|seller.?s stamp|walk away|pocket|take home|sell my|selling|if i sell)/.test(t) && !/(worth|valuation|sell.*for|value of)/.test(t))
       return {text:"I'll show what you'd actually walk away with after loan, CPF refund and costs, plus any Seller's Stamp Duty.",link:{href:'tools/sell.html',label:'See your net proceeds'}};
-    if(/(worth|valuation|how much.*(home|flat|condo|house|hdb)|sell.*for|price of my|^value$)/.test(t))
+    if(/(worth|valuation|how much.*(home|flat|condo|house|hdb)|sell.*for|price of my|going for|price my|value my|^value$)/.test(t))
       return {text:"I can value any HDB or condo on real recent transactions, with an honest confidence range and the comparable sales behind it.",link:{href:'tools/value.html',label:'Value a home'}};
-    if(/(afford|budget|how much.*(can i|loan|borrow)|^afford$|downpayment|down payment)/.test(t))
+    if(/(afford|budget|how much.*(can i|loan|borrow)|^afford$|downpayment|down payment|what can i buy|what can i get for|price range i)/.test(t))
       return {text:"Let's work out your real budget from your income and savings, using the actual lending rules (TDSR, MSR, LTV).",link:{href:'tools/afford.html',label:'See what you can afford'}};
     if(/(research|project|condo.*(data|number|psf|yield)|rental yield|tenure|^research$)/.test(t))
       return {text:"Our Research covers every Singapore condo and HDB: price psf, the price trend over time, rental yield, tenure, and how it's priced against comparable homes nearby, plus the new and upcoming launches pipeline.",link:{href:'/thesis/',label:'Open Research'}};
@@ -1888,7 +1936,7 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
     if(/(eligib|can i buy|\bmop\b|citizen|\bpr\b)/.test(t))
       return {text:"I can check if you're eligible for HDB, EC or condo before you fall for the wrong one.",link:{href:'tools/eligibility.html',label:'Check eligibility'}};
     if(/(market|good time|buy now|cooling|hot|pulse)/.test(t))
-      return {text:"Our weekly Market Pulse reads the official data: what's rising, which areas are hot, and whether it's a good time.",link:{href:'notes/',label:'Read the Market Pulse'}};
+      return {text:"Our monthly Market Analysis reads the official data: what's rising, which areas are hot, and whether it's a good time.",link:{href:'market-analysis/',label:'Read the Market Analysis'}};
     if(/(hi|hello|hey|help|what can you|start)/.test(t))
       return {text:"I can help you value a home, work out your budget, research a project, check stamp duty or grants, or point you to a new launch. What are you trying to do?"};
     return null;
@@ -2006,7 +2054,12 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
         t.remove();
         const reply=(d&&d.reply)||"Let me get our team on that. Want to message us on WhatsApp?";
         HIST.push({role:'user',content:q},{role:'assistant',content:reply});
-        botReply(reply,(tool&&tool.link)?tool.link:null);showFollowups();
+        // Prefer the button Aillie herself chose (backend d.tool) so the link always matches
+        // what she actually recommended; fall back to the local keyword route only if absent.
+        let link=null;
+        if(d&&d.tool&&d.tool.href){link={href:d.tool.href,label:d.tool.label,blank:/wa\.me|whatsapp/i.test(d.tool.href)};}
+        else if(tool&&tool.link){link=tool.link;}
+        botReply(reply,link);showFollowups();
       }).catch(()=>{
         t.remove();
         if(tool){botReply(tool.text,tool.link);}

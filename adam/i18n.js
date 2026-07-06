@@ -15,7 +15,7 @@
   } catch (e) {}
   var DICT = {
     // ── shared chrome (nav + footer + badges), keyed by the English string ──
-    'Tools': '工具', 'Research': '楼盘研究', 'New Launches': '新盘', 'Market Pulse': '市场动态',
+    'Tools': '工具', 'Research': '楼盘研究', 'New Launches': '新盘', 'Market Pulse': '市场动态', 'Market Analysis': '市场分析',
     'News': '房产新闻', 'Guide': '购房指南', 'About us': '关于我们', 'Contact': '联系我们',
     'Listing Platform': '房源平台', 'Coming soon': '即将推出',
     'Coming soon, step into the platform': '即将推出，进入平台看看',
@@ -51,6 +51,10 @@
     'hero.leadLg': '免费看懂新加坡房产。用真实的近期成交估算任何组屋或公寓，深入研究每个楼盘和区域，算出你负担得起的预算，读真正重要的房产新闻，全部用大白话。没有中介推销，只有真实数据。再加上 Aillie，让你买卖都心里有数。',
     'hero.leadSm': '免费看懂新加坡房产。真实估值、深入研究、你负担得起的预算，还有真正重要的房产新闻，全部用大白话。再加上 Aillie，让你买卖都心里有数。',
     'cta.join': '加入我们的 Telegram', 'cta.askAillie': '问 Aillie', 'cta.value': '估算房价',
+    'Enter PropWorld': '走进 PropWorld', 'Singapore property, brought to life': '让新加坡房产活起来',
+    'PropWorld': 'PropWorld', 'Brought to life': '让房产活起来',
+    'PropSight Listings': 'PropSight 房源平台', 'Homes for sale and rent': '在售与出租房源',
+    'Buy and rent': '买房与租房', 'Browse homes for sale and rent': '浏览在售与出租房源',
     'chatcue.t': '有问题尽管问 Aillie', 'chatcue.s': '真实数据 · 免费',
 
     // ── Aillie chat (display-only: greeting + disclaimer; keyed by the English text) ──
@@ -94,8 +98,9 @@
     'New to all this? Start with the Guide, how it actually works, start to finish, then play with the tools at your pace.': '刚开始了解？先看购房指南，从头到尾讲清楚整个流程，然后按自己的节奏试用工具。',
     'Open the Guide': '打开指南',
     'Watching the market': '关注市场',
-    "Not moving yet, just keeping an eye on prices? Our weekly Market Pulse, what's rising, which areas are hot, and whether it's a good time.": '还没打算出手，只想盯着价格？我们的每周市场动态：什么在涨、哪些区域火、现在是不是好时机。',
-    'See the Market Pulse': '查看市场动态',
+    "Not moving yet, just keeping an eye on prices? Our monthly Market Analysis, what's rising, which areas are hot, and whether it's a good time.": '还没打算出手，只想盯着价格？我们的每月市场分析：什么在涨、哪些区域火、现在是不是好时机。',
+    'See the Market Analysis': '查看市场分析',
+    'See the latest Market Analysis →': '查看最新市场分析 →',
 
     // ── homepage: toolkit ──
     'Free to use': '免费使用',
@@ -501,8 +506,8 @@
     'Value a home →': '估算房价 →',
     'Everything in one place': '全部集中在一处',
     'Eleven tools, with a twelfth on the way.': '十一个工具，第十二个即将上线。',
-    "Every job in a property move has its own tool, each built on the same official data: value a home, work out your real budget, research any project, check stamp duty, grants and eligibility, see what you'd walk away with as a seller, find homes near a school, and follow the market with Market Pulse, News and the Guide. They all read the same records, so the numbers always agree.":
-      '买卖房子的每件事都有专属工具，全部基于同一份官方数据：估算房价、算出你的真实预算、研究任何楼盘、查印花税、补贴和购买资格、看看作为卖家你能实拿多少、查找名校周边的房子，并通过市场动态、新闻和购房指南关注市场。它们读取同一份记录，所以数字始终一致。',
+    "Every job in a property move has its own tool, each built on the same official data: value a home, work out your real budget, research any project, check stamp duty, grants and eligibility, see what you'd walk away with as a seller, find homes near a school, and follow the market with Market Analysis, News and the Guide. They all read the same records, so the numbers always agree.":
+      '买卖房子的每件事都有专属工具，全部基于同一份官方数据：估算房价、算出你的真实预算、研究任何楼盘、查印花税、补贴和购买资格、看看作为卖家你能实拿多少、查找名校周边的房子，并通过市场分析、新闻和购房指南关注市场。它们读取同一份记录，所以数字始终一致。',
     'Join the inside track.': '加入内部圈子。',
     "Looking around is free and always will be. Join free to open the full research, get the weekly insights and a higher chat limit with Aillie, and get into the members' Telegram channel for live signals.":
       '随便看看永远免费。免费加入即可解锁完整研究、获得每周洞察和更高的 Aillie 对话额度，并进入会员专属 Telegram 频道获取实时信号。',
