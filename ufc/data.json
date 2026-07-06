@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-06T09:00:00.218498+08:00",
+  "updated": "2026-07-06T13:00:00.282059+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -254,8 +254,8 @@
     }
   ],
   "hooks": {
-    "week": "Peak combat awaits Sunday: McGregor vs Holloway at 9 AM SGT.",
-    "prefight": "McGregor meets Holloway Sunday 9 AM SGT—peak featherweight championship intensity.",
-    "results": "Fiziev puts Torres away with a stunning spinning wheel kick, round two."
+    "week": "McGregor and Holloway collide Sunday nine AM SGT: striking excellence between two MMA icons.",
+    "prefight": "McGregor and Holloway headline Sunday 9am SGT—striking masterclass between two legends.",
+    "results": "Fiziev KOs Torres with a spinning wheel kick and punches in round two."
   }
 }
