@@ -57,8 +57,8 @@
     // ── homepage hero (explicit keys) ──
     'hero.eyebrow': '新加坡房产洞察',
     'hero.h1a': '新加坡房产，', 'hero.h1b': '一目了然。',
-    'hero.leadLg': '免费看懂新加坡房产。用真实的近期成交估算任何组屋或公寓，深入研究每个楼盘和区域，算出你负担得起的预算，读真正重要的房产新闻，全部用大白话。没有中介推销，只有真实数据。再加上 Aillie，让你买卖都心里有数。',
-    'hero.leadSm': '免费看懂新加坡房产。真实估值、深入研究、你负担得起的预算，还有真正重要的房产新闻，全部用大白话。再加上 Aillie，让你买卖都心里有数。',
+    'hero.leadLg': 'PropSight 是您的一站式新加坡房产平台，免费且通俗易懂。用真实成交估算任何房子的价值，探索即将推出的新盘与区域指南，紧跟市场动态，走进 PropWorld，随时问 Aillie。',
+    'hero.leadSm': '您的一站式新加坡房产平台，免费且通俗易懂。估算房价、探索新盘与区域指南、紧跟市场，还能走进 PropWorld，随时问 Aillie。',
     'cta.join': '加入我们的 Telegram', 'cta.askAillie': '问 Aillie', 'cta.value': '估算房价',
     'Enter PropWorld': '走进 PropWorld', 'Singapore property, brought to life': '让新加坡房产活起来',
     'PropWorld': 'PropWorld', 'Brought to life': '让房产活起来',
