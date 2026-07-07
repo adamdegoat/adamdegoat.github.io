@@ -51,10 +51,12 @@ em{font-style:italic;color:var(--brass)}
 .nav-in{display:flex;align-items:center;gap:10px;height:76px;max-width:1280px}
 @media(min-width:1201px){.nav-in{height:84px}}
 .brand{display:flex;align-items:center;gap:11px}
-.brand .mark{width:38px;height:38px;flex:none;filter:drop-shadow(0 4px 10px rgba(15,35,26,.18))}
-.brand .bw{display:flex;flex-direction:row;align-items:baseline;gap:6px;line-height:1}
+.brand-tile{width:40px;height:40px;flex:none;border-radius:11px;display:flex;align-items:center;justify-content:center;background:linear-gradient(158deg,#2a5643,#163121);box-shadow:0 6px 15px -7px rgba(12,30,22,.6),inset 0 0 0 1px rgba(255,255,255,.07);color:#eaf7f2;--mk-acc:#7fd0bb}
+.nav .brand .brand-tile .mark{color:#eaf7f2!important;filter:none!important}
+.brand .mark{width:27px;height:27px;flex:none}
+.brand .bw{display:flex;flex-direction:column;align-items:flex-start;gap:2px;line-height:1}
 .brand b{font-family:var(--sans);font-weight:800;font-size:20px;letter-spacing:-.012em}
-.brand .bw span{font-size:20px;font-weight:800;letter-spacing:-.012em;color:#0f7a82;text-transform:none;margin:0}
+.brand .bw span{font-size:9.5px;font-weight:800;letter-spacing:.2em;color:#0f7a82;text-transform:uppercase;margin:0}
 .links{display:flex;gap:19px;margin:0 auto;align-items:center}
 .links a{font-size:13.5px;font-weight:600;color:var(--ink2);position:relative;padding:4px 0;white-space:nowrap}
 .links a::after{content:"";position:absolute;left:0;bottom:-2px;height:1.5px;width:0;background:var(--brass);transition:width .3s var(--ease)}
@@ -464,9 +466,9 @@ a.mq-i{text-decoration:none}a.mq-i:hover{opacity:.82}
  .about-in{grid-template-columns:1fr;gap:30px}.about-in .portrait{width:100%;max-width:320px;margin:0 auto;aspect-ratio:auto;min-height:300px}
  .lp-v{font-size:22px}
 }
-@media(max-width:560px){.lp-grid{grid-template-columns:1fr}.tools .tool{flex-basis:100%;max-width:100%}.navjoin{font-size:12.5px;padding:9px 13px}.navsignin{font-size:12.5px}.nav-in{gap:7px}.brand .bw span{display:none}}
-@media(max-width:400px){.brand .mark{width:28px;height:28px}.brand b,.brand .bw span{font-size:17px}.brand{gap:7px}.brand .bw{gap:5px}.nav-in{gap:4px}.navjoin{font-size:11.5px;padding:7px 9px}.navsignin{font-size:11.5px;padding:8px 1px}.navlang{padding:6px 7px;font-size:11.5px}.nav-install{width:33px;height:33px}.nav-install svg{width:17px;height:17px}}
-@media(max-width:359px){.nav-install{display:none}} /* sub-360 screens: too tight for 5 nav items; install stays in the hamburger menu */
+@media(max-width:560px){.lp-grid{grid-template-columns:1fr}.tools .tool{flex-basis:100%;max-width:100%}.navjoin{font-size:12.5px;padding:9px 13px}.navsignin{font-size:12.5px}.nav-in{gap:7px}.brand-tile{width:35px;height:35px;border-radius:10px}.brand .mark{width:24px;height:24px}.brand b{font-size:18px}}
+@media(max-width:400px){.brand-tile{width:32px;height:32px}.brand .mark{width:22px;height:22px}.brand b{font-size:16px}.brand{gap:8px}.brand .bw{gap:2px}.nav-in{gap:4px}.navjoin{font-size:11.5px;padding:7px 9px}.navsignin{font-size:11.5px;padding:8px 1px}.navlang{padding:6px 7px;font-size:11.5px}.nav-install{width:33px;height:33px}.nav-install svg{width:17px;height:17px}}
+@media(max-width:359px){.nav-install{display:none}.brand .bw span{display:none}} /* sub-360 screens: too tight; drop install icon + the "Singapore" wordmark, both stay reachable */
 /* router: 3 compact cards across (icon + label) on tablet-portrait + phones, instead of tall stacked ones */
 @media(max-width:760px){
  .router{grid-template-columns:repeat(2,1fr);gap:9px}
@@ -909,7 +911,7 @@ em{color:var(--brass)}
 
 <header class="nav" id="nav"><div class="wrap nav-in">
   <div class="brand">
-    <svg class="mark" aria-hidden="true" viewBox="0 0 64 64"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32.5 L27 21.5 L36.5 32.5" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M20.5 37 L33.5 37" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="27" cy="33.4" r="2" fill="#15a0a0"/><path d="M40.5 40.5 L53.5 53.5" fill="none" stroke="#15a0a0" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="brand-tile"><svg class="mark" aria-hidden="true" viewBox="0 0 64 64"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32.5 L27 21.5 L36.5 32.5" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M20.5 37 L33.5 37" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="27" cy="33.4" r="2" fill="var(--mk-acc,#15a0a0)"/><path d="M40.5 40.5 L53.5 53.5" fill="none" stroke="var(--mk-acc,#15a0a0)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
     <span class="bw"><b>PropSight</b><span data-i18n="Singapore">Singapore</span></span>
   </div>
   <nav class="links"><a href="#tools" data-i18n>Tools</a><a href="/thesis/" class="navfeat" data-i18n>Research</a><a href="launches/" data-i18n>New Launches</a><a href="market-analysis/" data-i18n>Market Analysis</a><a href="news/" class="navsmart" data-i18n>News</a><a href="essentials/" data-i18n>Guide</a><a href="about/" data-i18n>About us</a><a href="#talk" data-i18n>Contact</a></nav>
