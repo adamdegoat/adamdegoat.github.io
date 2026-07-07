@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-07T21:00:00.309050+08:00",
+  "updated": "2026-07-07T23:30:02.225971+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -181,12 +181,6 @@
       "priority": true
     },
     {
-      "title": "UFC 329 gets late replacement opponent change",
-      "link": "https://www.mmafighting.com/ufc/497799/ufc-329-gets-late-replacement-opponent-change",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
       "title": "Dustin Poirier reveals brain scarring, behavioral changes motivated UFC retirement",
       "link": "https://www.mmamania.com/ufc-news/455360/dustin-poirier-reveals-brain-scarring-behavioral-changes-motivated-ufc-retirement",
       "source": "MMA Mania",
@@ -229,6 +223,18 @@
       "priority": true
     },
     {
+      "title": "Matt Brown argues Conor McGregor might be at his best at UFC 329: ‘He’s got to prove motherf*ckers wrong’",
+      "link": "https://www.mmafighting.com/ufc/497887/matt-brown-argues-conor-mcgregor-might-be-at-his-best-at-ufc-329-hes-got-to-prove-motherfckers-wrong",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Morning Report: Jon Anik reveals Max Holloway told him about middleweight plans ‘8 or 9 years ago’",
+      "link": "https://www.mmafighting.com/latest-news/497224/morning-report-jon-anik-reveals-max-holloway-told-him-about-middleweight-plans-8-or-9-years-ago",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "RAF Georgia: Dvalishvili vs. Cejudo fight card, start time",
       "link": "https://www.mmafighting.com/raf-wrestling/497751/raf-georgia-dvalishvili-vs-cejudo-fight-card-start-time",
       "source": "MMA Fighting",
@@ -245,17 +251,11 @@
       "link": "https://www.mmafighting.com/ufc/497854/conor-mcgregor-teases-masterpiece-against-max-holloway-at-ufc-329-im-in-my-prime-here-now",
       "source": "MMA Fighting",
       "priority": false
-    },
-    {
-      "title": "Between the Links: Conor McGregor vs. Max Holloway 2, UFC 329 countdown, more",
-      "link": "https://www.mmafighting.com/ufc/497805/between-the-links-conor-mcgregor-vs-max-holloway-2-ufc-329-countdown-more",
-      "source": "MMA Fighting",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor vs Holloway drops Sunday 9am SGT—two UFC icons ready for war.",
-    "prefight": "McGregor and Holloway clash Sunday 9 AM SGT in an epic showdown.",
-    "results": "Fiziev TKOs Torres via spinning wheel kick and punches in the second round."
+    "week": "McGregor meets Holloway Sunday at 9 AM SGT for championship glory.",
+    "prefight": "McGregor and Holloway—elite strikers on collision course this Sunday morning in Singapore.",
+    "results": "Fiziev KOs Torres with a spinning wheel kick and punches in round two."
   }
 }
