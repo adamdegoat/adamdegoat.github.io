@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-07T09:00:00.286102+08:00",
+  "updated": "2026-07-07T13:00:01.411371+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -169,12 +169,6 @@
   },
   "news": [
     {
-      "title": "Michael Bisping’s No. 1 TUF 34 pick steps in to save fight at UFC Oklahoma City",
-      "link": "https://www.mmafighting.com/ufc/497873/michael-bispings-no-1-tuf-34-pick-steps-in-to-save-fight-at-ufc-oklahoma-city",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
       "title": "Dricus du Plessis accuses Kamaru Usman of avoiding UFC Oklahoma City fight: ‘He didn’t want to sign the contract’",
       "link": "https://www.mmafighting.com/ufc/495947/dricus-du-plessis-accuses-kamaru-usman-of-avoiding-ufc-oklahoma-city-fight-he-didnt-want-to-sign-the-contract",
       "source": "MMA Fighting",
@@ -193,9 +187,9 @@
       "priority": true
     },
     {
-      "title": "Conor McGregor-led UFC 329 fight card gets last-second regional fighter replacement",
-      "link": "https://www.mmamania.com/ufc-fight-announcements/455255/regional-fighter-john-garza-set-to-replace-ethyn-ewing-against-farid-basharat-at-ufc-329",
-      "source": "MMA Mania",
+      "title": "Dricus du Plessis says Kamaru Usman needed convincing to sign fight",
+      "link": "https://www.sherdog.com/news/news/Dricus-du-Plessis-says-Kamaru-Usman-needed-convincing-to-sign-fight-201787",
+      "source": "Sherdog",
       "priority": true
     },
     {
@@ -247,6 +241,12 @@
       "priority": false
     },
     {
+      "title": "RAF Georgia card, start time, date and location | Merab vs. Cejudo",
+      "link": "https://www.mmamania.com/raf-wrestling-schedule-cards-live-results/455382/raf-georgia-card-start-time-date-and-location-merab-vs-cejudo",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
       "title": "Pic: Wendy’s drops first-ever fighter combo meal ahead of UFC 329 (and it’s not Conor McGregor)",
       "link": "https://www.mmamania.com/latest-news/455354/pic-wendys-drops-first-ever-fighter-combo-meal-ahead-of-ufc-329-and-its-not-conor-mcgregor",
       "source": "MMA Mania",
@@ -254,8 +254,8 @@
     }
   ],
   "hooks": {
-    "week": "McGregor vs Holloway this Sunday—two legends, one octagon, pure chaos awaits.",
-    "prefight": "McGregor and Holloway battle Sunday 9am SGT for featherweight crown supremacy.",
-    "results": "Spinning wheel kick and punches—Fiziev obliterates Torres in round two."
+    "week": "McGregor and Holloway clash Sunday 9am SGT—mark your calendar for championship-level violence.",
+    "prefight": "McGregor returns to face Holloway Sunday at 9 AM SGT for featherweight glory.",
+    "results": "Fiziev ends Torres with a spinning wheel kick knockout in round two."
   }
 }
