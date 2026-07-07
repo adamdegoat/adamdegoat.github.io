@@ -1,0 +1,26 @@
+[
+ {
+  "key": "hero",
+  "artist": "Basile Morin",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Bandstand_and_green_trees_a_sunny_afternoon_with_blue_sky_at_Singapore_Botanic_Gardens.jpg"
+ },
+ {
+  "key": "mrt",
+  "artist": "ZKang123",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:DT7_Sixth_Avenue_Exit_A_20180830_122149.jpg"
+ },
+ {
+  "key": "food",
+  "artist": "Chainwit.",
+  "lic": "CC BY 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Bukit_Timah_Interim_Market_%26_Food_Centre_(2025)_-_img_01.jpg"
+ },
+ {
+  "key": "park",
+  "artist": "Zairon",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Singapore_Bukit_Timah_Nature_Reserve_5.jpg"
+ }
+]

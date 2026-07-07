@@ -1,0 +1,46 @@
+[
+  {
+    "key": "hero",
+    "file": "hero.jpg",
+    "title": "Symphony Lake, Singapore Botanic Gardens",
+    "artist": "Moheen Reeyad",
+    "author": "Moheen Reeyad",
+    "lic": "CC BY-SA 4.0",
+    "license": "CC BY-SA 4.0",
+    "src": "https://commons.wikimedia.org/wiki/File:Symphony_Lake_(132659).jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Symphony_Lake_(132659).jpg"
+  },
+  {
+    "key": "mrt",
+    "file": "mrt.jpg",
+    "title": "Napier MRT station (Thomson-East Coast Line)",
+    "artist": "Yenwei",
+    "author": "Yenwei",
+    "lic": "CC BY-SA 4.0",
+    "license": "CC BY-SA 4.0",
+    "src": "https://commons.wikimedia.org/wiki/File:Napier_MRT_station.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Napier_MRT_station.jpg"
+  },
+  {
+    "key": "food",
+    "file": "food.jpg",
+    "title": "The Wine Company at Dempsey, Blk 14 Dempsey Road",
+    "artist": "Terence Ong",
+    "author": "Terence Ong",
+    "lic": "CC BY 2.5",
+    "license": "CC BY 2.5",
+    "src": "https://commons.wikimedia.org/wiki/File:Blk_14,_Dempsey_Road.JPG",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Blk_14,_Dempsey_Road.JPG"
+  },
+  {
+    "key": "park",
+    "file": "park.jpg",
+    "title": "Ficus kurzii reflecting in the water, Singapore Botanic Gardens",
+    "artist": "Basile Morin",
+    "author": "Basile Morin",
+    "lic": "CC BY-SA 4.0",
+    "license": "CC BY-SA 4.0",
+    "src": "https://commons.wikimedia.org/wiki/File:Branches_of_a_Ficus_kurzii_reflecting_in_the_water_at_Singapore_Botanic_Gardens.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Branches_of_a_Ficus_kurzii_reflecting_in_the_water_at_Singapore_Botanic_Gardens.jpg"
+  }
+]

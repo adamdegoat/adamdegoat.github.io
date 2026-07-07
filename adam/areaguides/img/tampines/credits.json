@@ -1,0 +1,32 @@
+[
+ {
+  "key": "hero",
+  "artist": "FN-082",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:View_of_Tampines_Hub_202412.jpg"
+ },
+ {
+  "key": "square",
+  "artist": "Tamprovers",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Our_Tampines_Hub_Town_Square.jpg"
+ },
+ {
+  "key": "park",
+  "artist": "DreamyBeluga",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Tampines_Boulevard_Park.jpg"
+ },
+ {
+  "key": "food",
+  "artist": "Kbseah",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:The_Hawker_Centre_@_Our_Tampines_Hub,_food_stalls.jpg"
+ },
+ {
+  "key": "mrt",
+  "artist": "Fanz226",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:EW2_Tampines_MRT_Station_Exterior_202411.jpg"
+ }
+]

@@ -1,0 +1,46 @@
+[
+ {
+  "key": "hero",
+  "file": "hero.jpg",
+  "title": "Shophouses along Jalan Besar, near Lavender",
+  "artist": "33Loading",
+  "author": "33Loading",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Shop_Houses_Along_Jalan_Besar_Road_-_0825.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Shop_Houses_Along_Jalan_Besar_Road_-_0825.jpg"
+ },
+ {
+  "key": "mrt",
+  "file": "mrt.jpg",
+  "title": "Lavender MRT station (EW11), East-West Line",
+  "artist": "Fanz226",
+  "author": "Fanz226",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Lavender_MRT_Station_202407.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Lavender_MRT_Station_202407.jpg"
+ },
+ {
+  "key": "food",
+  "file": "food.jpg",
+  "title": "Shophouse eateries along Jalan Besar",
+  "artist": "DBellamy",
+  "author": "DBellamy",
+  "lic": "CC BY 4.0",
+  "license": "CC BY 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Jalan_Besar_Singapore.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Jalan_Besar_Singapore.jpg"
+ },
+ {
+  "key": "park",
+  "file": "park.jpg",
+  "title": "The Kallang River, on the edge of Lavender",
+  "artist": "Alexey Komarov (panoramio)",
+  "author": "Alexey Komarov (panoramio)",
+  "lic": "CC BY 3.0",
+  "license": "CC BY 3.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Kallang_River_-_panoramio.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Kallang_River_-_panoramio.jpg"
+ }
+]

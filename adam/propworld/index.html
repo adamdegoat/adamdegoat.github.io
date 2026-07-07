@@ -1,0 +1,1861 @@
+<!doctype html><html lang="en"><head><meta charset="utf8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PropWorld · Singapore property, brought to life · PropSight</title>
+<meta name="description" content="Step into PropWorld, a living Singapore town. Wander the estates, hear today's property news from the locals, and find your way into everything PropSight has to offer.">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style id="ps-hide">.navbar,.site-footer,body>.nav{display:none}</style>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0c211a;--green:#163a2d;--teal:#0f7a82;--teal2:#2f9a8f;--mint:#7fd0bb;
+  --paper:#eef4f0;--card:#fff;--line:#dbe7e1;--sub:#5c7268;--warm:#b8703f;
+  --sky-a:#bfe3e6;--sky-b:#eaf5ee;--sun:#ffd9a0;
+  --hdb-a:#e8c9a8;--hdb-c:#c9d6cf;--condo:#cfe6e6;--glass:#a9d3d6;
+  --landed:#e7d3ba;--roof:#b06a4a;--green1:#5a8f6e;--green2:#3f6f57;
+  --sign:#215a48;
+}
+html,body{font-family:'Schibsted Grotesk',sans-serif;background:var(--paper);color:var(--ink)}
+body{overflow-x:hidden}
+a{color:inherit}
+
+/* hero, blended into the sky as part of the world */
+.pw-herobg{position:absolute;top:0;left:0;right:0;height:210px;z-index:6;pointer-events:none;
+  background:linear-gradient(180deg,rgba(216,236,232,.92),rgba(216,236,232,.32) 52%,rgba(216,236,232,0))}
+.pw-top{position:absolute;top:0;left:0;right:0;z-index:7;padding:22px 30px;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;pointer-events:none}
+.pw-top .lt,.pw-top .rt{pointer-events:auto}
+.pw-top h1{font-size:clamp(30px,4vw,46px);font-weight:800;letter-spacing:-.038em;line-height:.98}
+.pw-top h1 span{color:var(--teal)}
+.pw-top p{margin-top:9px;font-size:15px;color:#40544c;max-width:430px;line-height:1.44;font-weight:500}
+.pw-top .rt{display:flex;align-items:center;gap:10px}
+.pw-live{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 13px;font-size:12.5px;font-weight:700;color:var(--green)}
+.pw-live i{width:8px;height:8px;border-radius:50%;background:#16a34a;animation:pwPing 2.4s ease-out infinite}
+@keyframes pwPing{0%{box-shadow:0 0 0 0 rgba(22,163,74,.5)}70%{box-shadow:0 0 0 7px rgba(22,163,74,0)}100%{box-shadow:0 0 0 0 rgba(22,163,74,0)}}
+.pw-lang{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 12px;font:inherit;font-size:13px;font-weight:700;color:var(--green);cursor:pointer}
+.pw-lang:hover{background:var(--paper)}
+/* hero adapts to the sky: dark text by day, light text at dusk/night (with the light scrim removed) */
+.pw-herobg,.pw-top h1,.pw-top h1 span,.pw-top p{transition:opacity 1.4s ease,color 1.4s ease}
+#pw-stage.tod-dusk .pw-herobg,#pw-stage.tod-night .pw-herobg{opacity:0}
+#pw-stage.tod-dusk .pw-top h1,#pw-stage.tod-night .pw-top h1{color:#f1f7f3;text-shadow:0 1px 12px rgba(6,14,30,.55)}
+#pw-stage.tod-dusk .pw-top h1 span,#pw-stage.tod-night .pw-top h1 span{color:var(--mint)}
+#pw-stage.tod-dusk .pw-top p,#pw-stage.tod-night .pw-top p{color:#d6e4dd;text-shadow:0 1px 10px rgba(6,14,30,.5)}
+/* live clock */
+.pw-clock{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 12px;font-size:12.5px;font-weight:800;color:var(--green)}
+.pw-clock svg{width:13px;height:13px;color:var(--teal);flex:none}
+.pw-clock b{font-variant-numeric:tabular-nums;letter-spacing:.01em;min-width:74px;text-align:left}
+.pw-clock .sgt{color:var(--sub);font-weight:700;font-size:10.5px;letter-spacing:.04em}
+
+/* the world fills the whole page */
+.pw-bleed{width:100vw;margin-left:calc(50% - 50vw)}
+#pw-stage{position:relative;width:100%;height:calc(100dvh - 55px);min-height:520px;overflow:hidden;background:var(--sky-b)}
+#pw-scroll{position:absolute;inset:0;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+#pw-scroll::-webkit-scrollbar{display:none}
+#pw-world{position:relative;height:100%;width:100%}
+#pw-scene{position:absolute;inset:0;width:100%;height:100%}
+#pw-scene text{font-family:'Schibsted Grotesk',sans-serif}
+#pw-layer{position:absolute;inset:0;pointer-events:none}
+/* swipe gesture hint (mobile) - a moving hand, not a button */
+.pw-swipe{position:absolute;left:50%;bottom:62px;transform:translateX(-50%);z-index:8;display:none;
+  flex-direction:column;align-items:center;gap:5px;pointer-events:none;transition:opacity .55s ease}
+.pw-swipe .hand{color:var(--green);animation:pwSwipe 1.9s ease-in-out infinite}
+.pw-swipe .hand svg{width:34px;height:34px;filter:drop-shadow(0 2px 4px rgba(255,255,255,.85))}
+.pw-swipe .lbl{font-size:12px;font-weight:800;letter-spacing:.02em;color:var(--green);text-shadow:0 1px 5px rgba(255,255,255,.9),0 0 2px rgba(255,255,255,.9)}
+.pw-swipe .arrows{display:flex;align-items:center;gap:44px;position:absolute;top:6px;width:96px;justify-content:space-between;color:var(--teal)}
+.pw-swipe .arrows svg{width:15px;height:15px}
+.pw-swipe .arrows .a1{animation:pwArrowL 1.9s ease-in-out infinite}
+.pw-swipe .arrows .a2{animation:pwArrowR 1.9s ease-in-out infinite}
+@keyframes pwSwipe{0%,100%{transform:translateX(-8px) rotate(-6deg)}50%{transform:translateX(8px) rotate(6deg)}}
+@keyframes pwArrowL{0%,100%{transform:translateX(2px);opacity:.4}50%{transform:translateX(-3px);opacity:1}}
+@keyframes pwArrowR{0%,100%{transform:translateX(-2px);opacity:.4}50%{transform:translateX(3px);opacity:1}}
+#pw-stage.pw-scrollable .pw-swipe{display:flex}
+#pw-stage.pw-scrolled .pw-swipe{opacity:0}
+
+/* time-of-day tint (opacity only, cheap) */
+.pw-tod{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity 1.5s ease;mix-blend-mode:multiply}
+#pw-stage.tod-golden .tint-golden,#pw-stage.tod-dusk .tint-dusk,#pw-stage.tod-night .tint-night{opacity:1}
+.tint-golden{background:linear-gradient(180deg,rgba(255,168,78,.50),rgba(255,150,86,.26) 48%,rgba(255,158,98,.12) 82%,transparent)}
+.tint-dusk{background:linear-gradient(180deg,rgba(78,54,126,.54),rgba(170,84,124,.28) 42%,rgba(58,64,122,.30) 74%,rgba(48,56,96,.12))}
+.tint-night{background:linear-gradient(180deg,rgba(16,22,60,.20),rgba(20,28,60,.12) 60%,rgba(24,32,58,.06))}
+/* daytime sunlight wash - warms the town on a sunny day (static SVG overlay, no blend/animation; fades at golden/dusk/night) */
+.pw-daywarm{transition:opacity 1.4s ease;pointer-events:none}
+#pw-stage.tod-golden .pw-daywarm,#pw-stage.tod-dusk .pw-daywarm,#pw-stage.tod-night .pw-daywarm{opacity:0}
+/* cinematic edge vignette over the whole world + interiors (static, below the modals) */
+#pw-stage::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:965;background:radial-gradient(ellipse 128% 116% at 50% 43%,transparent 60%,rgba(12,24,18,.15) 100%)}
+/* sun by day; at night an in-scene dark sky darkens everything, then moon/stars/warm glows sit on top (static gradients - no animation) */
+.pw-sun,.pw-moon,.pw-stars,.pw-glow,.pw-nightsky,.pw-dayglow{transition:opacity 1.4s ease;pointer-events:none}
+.pw-stars,.pw-glow,.pw-nightsky{opacity:0}
+#pw-stage.tod-dusk .pw-sun{opacity:.35}
+#pw-stage.tod-dusk .pw-nightsky{opacity:.16}#pw-stage.tod-dusk .pw-glow{opacity:.6}#pw-stage.tod-dusk .pw-stars{opacity:.45}
+#pw-stage.tod-night .pw-sun{opacity:0}
+#pw-stage.tod-night .pw-nightsky{opacity:.62}#pw-stage.tod-night .pw-glow{opacity:1}#pw-stage.tod-night .pw-stars{opacity:1}
+/* the sunlit-plaza wash fades away after dusk (no daytime floor glow at night) */
+.pw-dayglow{transition:opacity 1.4s ease}
+#pw-stage.tod-dusk .pw-dayglow{opacity:.4}#pw-stage.tod-night .pw-dayglow{opacity:0}
+/* night: the plaza catches the lamp + window light (static warm pools) */
+.pw-nightrefl{opacity:0;transition:opacity 1.4s ease;pointer-events:none}
+#pw-stage.tod-dusk .pw-nightrefl{opacity:.5}#pw-stage.tod-night .pw-nightrefl{opacity:1}
+/* illuminated signage: drawn on top at dusk/night so windows never cover the labels; clicks pass through */
+.pw-signlit{opacity:0;transition:opacity 1.4s ease;pointer-events:none}
+#pw-stage.tod-dusk .pw-signlit{opacity:.9}#pw-stage.tod-night .pw-signlit{opacity:1}
+.pw-trainlit{opacity:0;transition:opacity 1.4s ease;pointer-events:none}
+#pw-stage.tod-dusk .pw-trainlit{opacity:.6}#pw-stage.tod-night .pw-trainlit{opacity:1}
+/* golden-hour: warm sun on the right edges + tops (static) */
+.pw-goldrim{opacity:0;transition:opacity 1.4s ease;pointer-events:none}
+#pw-stage.tod-golden .pw-goldrim{opacity:1}#pw-stage.tod-dusk .pw-goldrim{opacity:.4}
+/* daytime life: a bird flock drifting across the sky (cheap transform loop; hidden at night) */
+.pw-flock{transition:opacity 1.4s ease;pointer-events:none;animation:pwFlock 36s linear infinite}
+#pw-stage.tod-night .pw-flock{opacity:0}
+@keyframes pwFlock{0%{transform:translate(-70px,122px)}100%{transform:translate(1286px,82px)}}
+
+/* portals (landmarks that link into the site) */
+.portal{cursor:pointer}
+.portal:hover,.portal:focus{outline:none}
+.portal:hover .signbg,.portal:focus .signbg{filter:brightness(1.11)}
+.portal .ring{opacity:0;transition:opacity .18s ease}
+.portal:hover .ring,.portal:focus .ring{opacity:1}
+.portal .signbg{transition:filter .16s ease}
+
+/* avatars */
+.pw-char{position:absolute;transform:translate(-50%,-100%);transform-origin:bottom center;pointer-events:auto;cursor:pointer;
+  transition:left .8s cubic-bezier(.4,0,.2,1),top .8s cubic-bezier(.4,0,.2,1);filter:drop-shadow(0 6px 5px rgba(12,33,26,.16))}
+.pw-char svg{display:block;width:100%;height:100%;overflow:visible}
+.pw-char .idle{animation:pwBob 4.6s ease-in-out infinite}
+.pw-char.talk .idle{animation-duration:2.9s}
+@keyframes pwBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+@keyframes pwDrift{from{transform:translateX(-16px)}to{transform:translateX(16px)}}
+@keyframes pwSway{0%,100%{transform:rotate(-1.2deg)}50%{transform:rotate(1.2deg)}}
+@keyframes pwTrain{0%{transform:translateX(-30px);opacity:0}7%{opacity:1}92%{opacity:1}100%{transform:translateX(230px);opacity:0}}
+.pw-char:hover .body{filter:brightness(1.05)}
+.pw-shadow{position:absolute;left:50%;bottom:-2px;width:60%;height:9px;transform:translateX(-50%);
+  background:radial-gradient(ellipse,rgba(20,50,40,.26),transparent 70%);border-radius:50%;pointer-events:none}
+/* Aillie the guide: soft aura + chat cue */
+.pw-star{z-index:60!important}
+.pw-aura{position:absolute;left:50%;bottom:-5px;width:150%;height:34px;transform:translateX(-50%);border-radius:50%;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 60%,rgba(164,80,139,.32),rgba(164,80,139,0) 68%);animation:pwAura 2.8s ease-in-out infinite}
+@keyframes pwAura{0%,100%{opacity:.5;transform:translateX(-50%) scale(.88)}50%{opacity:.95;transform:translateX(-50%) scale(1.12)}}
+.pw-chatcue{position:absolute;top:-6px;right:-2px;width:20px;height:20px;border-radius:50%;background:#a4508b;color:#fff;
+  display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px -2px rgba(12,33,26,.5);animation:pwCue 2.2s ease-in-out infinite}
+.pw-chatcue svg{width:11px;height:11px}
+@keyframes pwCue{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.pw-name{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:3px;white-space:nowrap;pointer-events:none;
+  background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:999px;padding:1px 8px;
+  font-size:10px;font-weight:800;letter-spacing:.01em;color:var(--green);box-shadow:0 2px 5px -2px rgba(12,33,26,.3)}
+.pw-name.a{color:#a4508b;border-color:#e2c1d7;background:rgba(255,250,253,.95)}
+@media(max-width:720px){.pw-name{font-size:9px;padding:1px 6px}}
+
+/* speech bubbles */
+.pw-bub{position:absolute;pointer-events:auto;cursor:pointer;width:max-content;max-width:150px;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:13px;padding:7px 10px 8px;font-size:12px;line-height:1.32;font-weight:500;
+  box-shadow:0 12px 26px -12px rgba(12,33,26,.42);opacity:0;transform:translateY(6px) scale(.96);
+  transition:opacity .28s ease,transform .28s ease;z-index:800}
+.pw-bub.show{opacity:1;transform:translateY(0) scale(1)}
+.pw-bub .who{font-size:10.5px;font-weight:800;letter-spacing:.02em;text-transform:uppercase;color:var(--teal);margin-bottom:3px;display:flex;align-items:center;gap:6px}
+.pw-bub .who .tag{font-weight:700;letter-spacing:0;text-transform:none;color:var(--sub);background:var(--paper);border-radius:6px;padding:1px 6px;font-size:9.5px}
+.pw-bub b{font-weight:800}
+.pw-bub .tail{position:absolute;top:100%;left:20px;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-top:12px solid #fff;filter:drop-shadow(0 3px 1.5px rgba(12,33,26,.13))}
+.pw-bub .go{margin-top:6px;font-size:11.5px;font-weight:800;color:var(--teal);display:flex;align-items:center;gap:4px}
+.pw-bub .go svg{width:11px;height:11px}
+
+/* news wire ticker */
+#pw-ticker{position:absolute;left:0;right:0;bottom:0;height:38px;display:flex;align-items:center;
+  background:linear-gradient(180deg,rgba(22,58,45,0),rgba(22,58,45,.92));color:#eaf5ee;overflow:hidden;pointer-events:none;z-index:5}
+#pw-ticker .lbl{position:relative;z-index:2;flex:none;display:flex;align-items:center;gap:6px;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--green);background:var(--mint);height:100%;padding:0 14px}
+#pw-ticker .track{position:relative;z-index:1;display:flex;gap:30px;white-space:nowrap;padding-left:26px;animation:pwTick 52s linear infinite;will-change:transform}
+#pw-ticker .track .it{font-size:12.5px;font-weight:600;display:inline-flex;align-items:center;gap:7px}
+#pw-ticker .track .it .u{color:#8fe0b6;font-weight:800}
+#pw-ticker .track .it .d{color:#ffb4a0;font-weight:800}
+@keyframes pwTick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* info panel (avatar news) */
+#pw-panel{position:absolute;top:0;right:0;height:100%;width:min(360px,88%);background:#fff;z-index:940;
+  transform:translateX(101%);transition:transform .4s cubic-bezier(.4,0,.2,1);box-shadow:-24px 0 50px -30px rgba(12,33,26,.6);
+  display:flex;flex-direction:column;pointer-events:auto}
+#pw-panel.open{transform:translateX(0)}
+#pw-panel .ph{padding:18px 20px 14px;border-bottom:1px solid var(--line);position:relative}
+#pw-panel .ph .k{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+#pw-panel .ph h3{font-size:19px;font-weight:800;letter-spacing:-.02em;margin-top:4px;line-height:1.14}
+#pw-panel .x{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--sub);font-size:17px;line-height:1}
+#pw-panel .x:hover{background:var(--paper)}
+#pw-panel .pb{padding:16px 20px;overflow-y:auto;flex:1}
+#pw-panel .pb p{font-size:14px;line-height:1.5;margin-bottom:11px}
+#pw-panel .pb .mean{background:var(--paper);border-left:3px solid var(--mint);border-radius:0 10px 10px 0;padding:11px 13px;font-size:13.5px;color:var(--green);font-weight:600}
+#pw-panel .stat1{background:var(--paper);border-radius:12px;padding:12px 14px;margin-bottom:13px}
+#pw-panel .stat1 .v{font-size:22px;font-weight:800;letter-spacing:-.02em}
+#pw-panel .stat1 .l{font-size:12px;color:var(--sub);font-weight:600;margin-top:2px}
+#pw-panel .cta{display:block;text-align:center;background:var(--teal);color:#fff;text-decoration:none;font-weight:800;font-size:14.5px;padding:13px;border-radius:12px;margin-top:6px;transition:background .15s}
+#pw-panel .cta:hover{background:#0c656c}
+#pw-panel .cta2{background:#fff;color:var(--teal);border:1.5px solid var(--line);margin-top:9px}
+#pw-panel .cta2:hover{background:var(--paper)}
+#pw-panel .src{font-size:11.5px;color:var(--sub);margin-top:14px}
+#pw-panel .src a{color:var(--teal);font-weight:700}
+/* news list rows (Mei) */
+#pw-panel .lrow{display:block;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:11px;padding:9px 11px;margin-bottom:8px;font-size:13px;line-height:1.36;transition:background .12s,transform .12s}
+#pw-panel .lrow:hover{background:var(--paper);transform:translateY(-1px)}
+#pw-panel .lrow .lt{display:inline-block;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--teal);background:var(--paper);border-radius:6px;padding:1px 6px;margin-right:6px;vertical-align:1px}
+#pw-panel .lrow .lh{font-weight:600}
+#pw-panel .lrow b{color:var(--warm)}
+/* market rows (Priya) */
+#pw-panel .mkt{margin-bottom:13px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+#pw-panel .mrow{display:flex;justify-content:space-between;align-items:center;padding:9px 13px;border-bottom:1px solid var(--line);font-size:14px;font-weight:600}
+#pw-panel .mrow:last-child{border-bottom:none}
+#pw-panel .mrow .u{color:#16a34a;font-weight:800}
+#pw-panel .mrow .d{color:#c0492e;font-weight:800}
+
+/* Aillie chat panel */
+#pw-aillie{position:fixed;top:0;right:0;height:100dvh;width:min(384px,92%);background:#fff;z-index:960;display:flex;flex-direction:column;
+  transform:translateX(101%);transition:transform .4s cubic-bezier(.4,0,.2,1);box-shadow:-24px 0 50px -30px rgba(12,33,26,.6)}
+#pw-aillie.open{transform:translateX(0)}
+/* when the chat is open, freeze the page so the mobile keyboard can't push the footer up */
+html.pw-lock,html.pw-lock body{overflow:hidden!important;overscroll-behavior:none}
+#pw-aillie .ah{display:flex;align-items:center;gap:11px;padding:14px 15px;border-bottom:1px solid var(--line)}
+#pw-aillie .aav{width:38px;height:38px;border-radius:50%;flex:none;background:radial-gradient(circle at 38% 32%,#c884b3,#a4508b)}
+#pw-aillie .ahn{display:flex;flex-direction:column;line-height:1.16}
+#pw-aillie .ahn b{font-size:16px;font-weight:800}
+#pw-aillie .ahn span{font-size:11.5px;color:var(--sub);font-weight:600}
+#pw-aillie .x{margin-left:auto;width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--sub);font-size:17px;line-height:1}
+#pw-aillie .x:hover{background:var(--paper)}
+#pw-aillie .am{flex:1;overflow-y:auto;padding:15px;display:flex;flex-direction:column;gap:9px;background:var(--paper)}
+#pw-aillie .amsg{max-width:82%;padding:9px 12px;border-radius:14px;font-size:13.5px;line-height:1.42;white-space:pre-wrap;word-wrap:break-word}
+#pw-aillie .amsg.a{align-self:flex-start;background:#fff;border:1px solid var(--line);border-bottom-left-radius:5px}
+#pw-aillie .amsg.u{align-self:flex-end;background:var(--teal);color:#fff;border-bottom-right-radius:5px}
+#pw-aillie .amsg.load{color:var(--sub);font-style:italic}
+#pw-aillie .pw-abtn{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;margin:-2px 0 2px;background:var(--teal);color:#fff;font-weight:800;font-size:13px;text-decoration:none;padding:9px 13px;border-radius:11px}
+#pw-aillie .pw-abtn:hover{opacity:.9}
+#pw-aillie .pw-achips{display:flex;flex-wrap:wrap;gap:7px;padding:9px 13px 4px;background:var(--paper)}
+#pw-aillie .pw-achips button{background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px 12px;font:inherit;font-size:12px;font-weight:700;color:var(--teal);cursor:pointer;-webkit-tap-highlight-color:transparent}
+#pw-aillie .pw-achips button:hover{background:#eef4f1}
+#pw-aillie .pw-achips.hide{display:none}
+#pw-aillie .ain{display:flex;gap:8px;padding:11px;border-top:1px solid var(--line);background:#fff}
+#pw-aillie .ain input{flex:1;border:1.5px solid var(--line);border-radius:11px;padding:11px 13px;font:inherit;font-size:16px;outline:none;min-width:0}
+#pw-aillie .ain input:focus{border-color:var(--teal2)}
+#pw-aillie .ain button{flex:none;width:44px;border:none;border-radius:11px;background:var(--teal);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
+#pw-aillie .ain button svg{width:18px;height:18px}
+#pw-aillie .ain button:disabled{opacity:.5;cursor:default}
+.pw-bub-a .who{color:#a4508b}
+
+/* ===== Market Analysis office (interior scene, overlays the world) ===== */
+#pw-office{position:absolute;inset:0;z-index:900;background:linear-gradient(180deg,#dfeae3 0%,#cfe0d7 65%,#d8c39c 65%,#c3a877 100%);opacity:0;visibility:hidden;transition:opacity .45s ease;overflow:hidden}
+#pw-office.open{opacity:1;visibility:visible}
+#pw-office-scene{position:absolute;inset:0;width:100%;height:100%}
+#pw-office-scene text{font-family:'Schibsted Grotesk',sans-serif}
+#pw-office-layer{position:absolute;inset:0;pointer-events:none}
+.oa-top{position:absolute;top:0;left:0;right:0;z-index:6;padding:16px 22px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  background:linear-gradient(180deg,rgba(18,38,30,.66),rgba(18,38,30,0));pointer-events:none}
+.oa-top>*{pointer-events:auto}
+.oa-back{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font:inherit;font-size:13px;font-weight:800;color:var(--green);cursor:pointer}
+.oa-back:hover{background:var(--paper)}.oa-back svg{width:14px;height:14px}
+.oa-title{display:flex;flex-direction:column;line-height:1.06;color:#f4f9f5;text-shadow:0 1px 10px rgba(6,14,30,.4)}
+.oa-title b{font-size:17px;font-weight:800;letter-spacing:-.01em}
+.oa-title span{font-size:11px;font-weight:700;color:#c2e2d5}
+.oa-read{margin-left:auto;display:inline-flex;align-items:center;gap:7px;background:var(--teal);color:#fff;border-radius:999px;padding:9px 16px;font-size:13px;font-weight:800;text-decoration:none}
+.oa-read:hover{background:#0c656c}.oa-read svg{width:13px;height:13px}
+.oa-persona{position:absolute;left:0;right:0;bottom:14px;z-index:6;display:flex;justify-content:center;align-items:center;gap:7px;flex-wrap:wrap;padding:0 16px;pointer-events:none}
+.oa-persona .cap{font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#3a5248;background:rgba(255,255,255,.82);border-radius:999px;padding:6px 11px}
+.oa-pchip{pointer-events:auto;font:inherit;font-size:12.5px;font-weight:700;color:var(--green);background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:999px;padding:7px 13px;cursor:pointer;transition:.15s}
+.oa-pchip:hover{background:#fff}
+.oa-pchip.on{background:var(--green);color:#eaf5ee;border-color:var(--green)}
+.oa-toast{position:absolute;left:50%;top:62px;transform:translateX(-50%) translateY(-8px);z-index:8;max-width:min(600px,92%);
+  background:#fff;border:1px solid var(--line);border-radius:14px;padding:11px 17px;font-size:13.5px;color:var(--ink2);line-height:1.42;
+  box-shadow:0 18px 44px -20px rgba(12,33,26,.5);opacity:0;pointer-events:none;transition:opacity .3s ease,transform .3s ease;text-align:center}
+.oa-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.oa-toast b{color:var(--teal)}
+@media(max-width:720px){.oa-toast{top:58px;font-size:12.5px;padding:10px 13px}}
+.ostation{cursor:pointer}
+.ostation:focus{outline:none}
+.ostation .oring{opacity:0;transition:opacity .18s ease}
+.ostation:hover .oring,.ostation:focus .oring{opacity:1}
+.ostation:hover .ohit,.ostation:focus .ohit{filter:brightness(1.06)}
+.ostation .ohit{transition:filter .16s}
+.olabel{position:absolute;transform:translate(-50%,-100%);pointer-events:none;white-space:nowrap;z-index:5;
+  background:rgba(255,255,255,.96);border:1px solid var(--line);border-radius:999px;padding:3px 10px;
+  font-size:11px;font-weight:800;color:var(--green);box-shadow:0 4px 12px -5px rgba(12,33,26,.45);opacity:0;transition:opacity .2s ease,transform .2s ease}
+.olabel.show{opacity:1}
+@keyframes oaDraw{to{stroke-dashoffset:0}}
+.oa-chartline{stroke-dasharray:900;stroke-dashoffset:900}
+#pw-office.open .oa-chartline{animation:oaDraw 2.4s ease-out .3s forwards}
+@media(max-width:720px){.oa-top{padding:12px 14px}.oa-title b{font-size:14px}.oa-title span{font-size:10px}.oa-read{padding:8px 12px;font-size:12px}.oa-persona .cap{display:none}.oa-pchip{font-size:12px;padding:6px 11px}.olabel{font-size:10px}}
+
+/* ===== Agents Lounge (cafe interior, overlays the world) ===== */
+#pw-lounge{position:absolute;inset:0;z-index:900;background:linear-gradient(180deg,#e6d6ba 0%,#d6c09b 51%,#c39b69 51.7%,#a77f4e 66.6%,#cba97a 66.7%,#b1905c 100%);opacity:0;visibility:hidden;transition:opacity .45s ease;overflow:hidden}
+#pw-lounge.open{opacity:1;visibility:visible}
+#pw-lounge-scene{position:absolute;inset:0;width:100%;height:100%}
+#pw-lounge-scene text{font-family:'Schibsted Grotesk',sans-serif}
+#pw-lounge-layer{position:absolute;inset:0;pointer-events:none}
+.la-top{position:absolute;top:0;left:0;right:0;z-index:6;padding:16px 22px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:linear-gradient(180deg,rgba(52,32,16,.62),rgba(52,32,16,0));pointer-events:none}
+.la-top>*{pointer-events:auto}
+.la-back{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font:inherit;font-size:13px;font-weight:800;color:var(--green);cursor:pointer}
+.la-back:hover{background:var(--paper)}.la-back svg{width:14px;height:14px}
+.la-title{display:flex;flex-direction:column;line-height:1.06;color:#fff7ec;text-shadow:0 1px 10px rgba(30,14,4,.5)}
+.la-title b{font-size:17px;font-weight:800;letter-spacing:-.01em}
+.la-title span{font-size:11px;font-weight:700;color:#f2ddc0}
+.la-feature{margin-left:auto;display:inline-flex;align-items:center;gap:7px;background:#b8703f;color:#fff;border-radius:999px;padding:9px 16px;font-size:13px;font-weight:800;text-decoration:none;cursor:pointer;border:0;font-family:inherit;transition:background .15s}
+.la-feature:hover{background:#a2612f}.la-feature svg{width:14px;height:14px}
+.lstation{cursor:pointer}.lstation:focus{outline:none}
+.lstation .lring{opacity:0;transition:opacity .18s ease}
+.lstation:hover .lring,.lstation:focus .lring{opacity:1}
+.ltag{position:absolute;transform:translate(-50%,-100%);pointer-events:none;white-space:nowrap;z-index:5;background:rgba(255,255,255,.95);border:1px dashed #b8703f;border-radius:999px;padding:4px 12px;font-size:11px;font-weight:800;color:#a2612f;box-shadow:0 4px 12px -5px rgba(52,32,16,.4)}
+@media(max-width:720px){.la-top{padding:12px 14px}.la-title b{font-size:14px}.la-feature{padding:8px 12px;font-size:12px}}
+/* agent press card (business-card popup) */
+#pw-card{position:fixed;inset:0;z-index:970;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(20,14,8,.55);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+#pw-card.open{display:flex}
+.pc-card{width:min(362px,94%);background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 40px 90px -30px rgba(20,14,8,.7);transform:translateY(12px) scale(.98);opacity:0;transition:transform .3s var(--ease),opacity .3s}
+#pw-card.open .pc-card{transform:none;opacity:1}
+.pc-top{position:relative;background:linear-gradient(150deg,#1b3a2d,#0f2a20);color:#eef6f1;padding:22px}
+.pc-ribbon{position:absolute;top:15px;right:15px;font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#0f231a;background:#7fd0bb;border-radius:20px;padding:4px 10px}
+.pc-mono{width:52px;height:52px;border-radius:14px;background:rgba(127,208,187,.18);border:1px solid rgba(127,208,187,.4);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#7fd0bb}
+.pc-name{font-size:21px;font-weight:800;letter-spacing:-.02em;margin-top:14px}
+.pc-agency{font-size:13px;font-weight:600;color:rgba(231,246,243,.75);margin-top:2px}
+.pc-cea{display:inline-flex;align-items:center;gap:7px;margin-top:13px;font-size:11.5px;font-weight:700;color:#cfeae0;background:rgba(255,255,255,.08);border:1px solid rgba(127,208,187,.3);border-radius:20px;padding:5px 11px}
+.pc-cea b{color:#fff;font-variant-numeric:tabular-nums;letter-spacing:.03em}
+.pc-cea .ex{color:#7fd0bb;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+.pc-body{padding:18px 22px 22px}
+.pc-lbl{font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#0f7a82}
+.pc-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}
+.pc-tag{font-size:12.5px;font-weight:600;color:#27513f;background:#e2f1ea;border:1px solid #cde7d8;border-radius:20px;padding:5px 12px}
+.pc-note{font-size:13px;color:#5c7268;line-height:1.5;margin-top:15px}
+.pc-actions{display:flex;gap:10px;margin-top:18px}
+.pc-btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:800;font-size:14px;padding:12px;border-radius:12px;transition:.15s}
+.pc-btn svg{width:16px;height:16px}
+.pc-call{background:#163a2d;color:#fff}.pc-call:hover{background:#0f2a20}
+.pc-wa{background:#25a566;color:#fff}.pc-wa:hover{background:#1f8f57}
+.pc-x{position:absolute;top:14px;left:14px;width:30px;height:30px;border-radius:8px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#eef6f1;cursor:pointer;font-size:18px;line-height:1;display:flex;align-items:center;justify-content:center}
+.pc-x:hover{background:rgba(255,255,255,.16)}
+/* contact card (feature your avatar or ad) */
+#pw-contact{position:fixed;inset:0;z-index:972;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(20,14,8,.55);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+#pw-contact.open{display:flex}
+.ct-card{width:min(362px,94%);background:#fff;border-radius:20px;padding:30px 24px 24px;position:relative;box-shadow:0 40px 90px -30px rgba(20,14,8,.7);text-align:center;transform:translateY(12px) scale(.98);opacity:0;transition:transform .3s var(--ease),opacity .3s}
+#pw-contact.open .ct-card{transform:none;opacity:1}
+.ct-x{position:absolute;top:12px;right:12px;width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:var(--paper);color:var(--green);cursor:pointer;font-size:18px;line-height:1;display:flex;align-items:center;justify-content:center}.ct-x:hover{background:#e8f0ea}
+.ct-ic{width:54px;height:54px;border-radius:15px;background:#e2f1ea;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}.ct-ic svg{width:27px;height:27px;color:#0f7a82}
+.ct-h{font-size:19px;font-weight:800;color:var(--green);letter-spacing:-.01em}
+.ct-p{font-size:13.5px;color:var(--sub);line-height:1.5;margin:8px 4px 20px}
+.ct-btn{display:flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;font-weight:800;font-size:14.5px;padding:13px;border-radius:12px;margin-top:10px;transition:.15s}
+.ct-btn svg{width:17px;height:17px;flex:none}
+.ct-email{background:#163a2d;color:#fff}.ct-email:hover{background:#0f2a20}
+.ct-wa{background:#25a566;color:#fff}.ct-wa:hover{background:#1f8f57}
+/* pause the world's ambient animations while an interior is open (saves GPU + battery/heat) */
+#pw-stage.interior-open #pw-world *{animation-play-state:paused!important}
+#pw-stage.interior-open #pw-ticker .track{animation-play-state:paused!important}
+@keyframes lFanSpin{to{transform:rotate(360deg)}}
+.lfan-b{animation:lFanSpin 6s linear infinite}
+#pw-lounge:not(.open) .lfan-b{animation-play-state:paused}
+/* ===== living landmarks: cafe steam + open sign, analytics live board ===== */
+.pw-landmarks{pointer-events:none}
+.pw-steam path{fill:none;stroke:#fbfff9;stroke-linecap:round;opacity:0;transform-box:fill-box;transform-origin:50% 100%}
+.pw-steam .s1{animation:pwSteam 4.8s ease-in-out infinite}
+.pw-steam .s2{animation:pwSteam 4.8s ease-in-out infinite 1.6s}
+.pw-steam .s3{animation:pwSteam 4.8s ease-in-out infinite 3.2s}
+@keyframes pwSteam{0%{opacity:0;transform:translateY(3px) scaleY(.6)}22%{opacity:.5}68%{opacity:.28}100%{opacity:0;transform:translateY(-19px) scaleY(1.2)}}
+.pw-breath{transform-box:fill-box;transform-origin:50% 50%;animation:pwBreath 5.4s ease-in-out infinite}
+@keyframes pwBreath{0%,100%{opacity:.4;transform:scale(.94)}50%{opacity:.82;transform:scale(1.07)}}
+.pw-spark{stroke-dasharray:230;stroke-dashoffset:230;animation:pwSpark 4.4s ease-in-out infinite}
+@keyframes pwSpark{0%{stroke-dashoffset:230}60%{stroke-dashoffset:0}100%{stroke-dashoffset:0}}
+.pw-bar{transform-box:fill-box;transform-origin:50% 100%;animation:pwBar 2.6s ease-in-out infinite}
+.pw-bar.b2{animation-delay:.45s}.pw-bar.b3{animation-delay:.9s}.pw-bar.b4{animation-delay:1.35s}.pw-bar.b5{animation-delay:1.8s}
+@keyframes pwBar{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
+.pw-livedot{animation:pwLiveDot 1.7s ease-in-out infinite}
+@keyframes pwLiveDot{0%,100%{opacity:.3}50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.pw-steam path{animation:none;opacity:.28}.pw-breath,.pw-bar,.pw-livedot{animation:none}.pw-spark{animation:none;stroke-dashoffset:0}}
+
+/* wayfinding chips (guaranteed nav, also SEO links) */
+.pw-ways{max-width:1180px;margin:16px auto 4px;padding:0 26px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.pw-ways .cap{font-size:12.5px;font-weight:700;color:var(--sub);margin-right:2px}
+.pw-ways a{text-decoration:none;display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 15px;font-size:13.5px;font-weight:700;color:var(--green);transition:transform .14s,box-shadow .14s,background .14s}
+.pw-ways a:hover{transform:translateY(-2px);box-shadow:0 12px 24px -16px rgba(12,33,26,.5);background:var(--paper)}
+.pw-ways a .dot{width:8px;height:8px;border-radius:50%;background:var(--teal2)}
+.pw-hint{max-width:1180px;margin:6px auto 40px;padding:0 26px;font-size:13px;color:var(--sub)}
+.pw-hint b{color:var(--ink);font-weight:700}
+
+/* pause + reduced motion */
+#pw-stage.pw-paused #pw-world *,#pw-stage.pw-paused .pw-char .idle,#pw-stage.pw-paused #pw-ticker .track,#pw-stage.pw-paused .pw-live i,#pw-stage.pw-paused .amb{animation-play-state:paused!important}
+@media (prefers-reduced-motion:reduce){.amb,.pw-char .idle,#pw-ticker .track,.pw-live i{animation:none!important}}
+/* mobile: drop the least-noticed always-on sky effects (clouds, bird flock) to cut GPU/heat; train + characters + ticker stay */
+@media(max-width:720px){.skyfx{animation:none!important}}
+
+@media(max-width:720px){
+  .pw-top{padding:16px 18px}
+  .pw-top p{display:none}
+  .pw-live{display:none}
+  .pw-clock{padding:6px 10px;font-size:12px;gap:5px}
+  .pw-clock .ss,.pw-clock .sgt{display:none}
+  .pw-clock b{min-width:0}
+  .pw-herobg{height:130px}
+  #pw-stage{height:calc(100dvh - 52px);min-height:460px}
+  .pw-ways{padding:14px 16px 0}
+  .pw-hint{padding:0 16px;margin-bottom:30px}
+  .pw-bub{max-width:140px;font-size:11.5px;padding:7px 9px 8px}
+  .pw-swipe{bottom:auto;top:29%}
+  #pw-ticker{height:32px}
+}
+</style>
+</head>
+<body>
+
+<div class="pw-bleed">
+  <div id="pw-stage">
+    <div class="pw-herobg"></div>
+    <div class="pw-top">
+      <div class="lt">
+        <h1>Prop<span>World</span></h1>
+        <p id="pw-sub">Step into a living Singapore town. Wander the estates, hear today's property news from the locals, and find your way into everything on PropSight.</p>
+      </div>
+      <div class="rt">
+        <span class="pw-clock" id="pw-clock" title="Singapore time - the world follows it"><span id="pw-clockicon"></span><b id="pw-clocktime">--:--</b><span class="sgt">SGT</span></span>
+        <span class="pw-live"><i></i><span id="pw-livelbl">Today</span></span>
+      </div>
+    </div>
+    <div id="pw-scroll"><div id="pw-world">
+    <svg id="pw-scene" viewBox="0 0 1200 720" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Illustrated Singapore estate you can explore">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#86c6ea"/><stop offset="40%" stop-color="#bbdfec"/><stop offset="74%" stop-color="#eef1dc"/><stop offset="100%" stop-color="#fdeccb"/></linearGradient>
+        <radialGradient id="sunG" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fffaf0"/><stop offset="44%" stop-color="#ffe6b6"/><stop offset="100%" stop-color="#ffe6b6" stop-opacity="0"/></radialGradient>
+        <linearGradient id="glassG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e4f5f3"/><stop offset="52%" stop-color="#bfe0df"/><stop offset="100%" stop-color="#98c6c8"/></linearGradient>
+        <linearGradient id="glassRef" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".55"/><stop offset="22%" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+        <linearGradient id="grd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dcecda"/><stop offset="50%" stop-color="#cfe1cd"/><stop offset="100%" stop-color="#c1d6bf"/></linearGradient>
+        <linearGradient id="haze" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e3f1ec" stop-opacity="0"/><stop offset="100%" stop-color="#e9f3ec"/></linearGradient>
+        <linearGradient id="rShade" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0a2018" stop-opacity="0"/><stop offset="100%" stop-color="#0a2018" stop-opacity=".16"/></linearGradient>
+        <radialGradient id="warmv" cx="84%" cy="16%" r="94%"><stop offset="0" stop-color="#ffe6b0" stop-opacity=".62"/><stop offset="54%" stop-color="#ffe6b0" stop-opacity="0"/></radialGradient>
+        <radialGradient id="dayWarm" gradientUnits="userSpaceOnUse" cx="1015" cy="66" r="800"><stop offset="0" stop-color="#fff1cd" stop-opacity=".5"/><stop offset="36%" stop-color="#ffe8bd" stop-opacity=".18"/><stop offset="70%" stop-color="#ffedca" stop-opacity=".05"/><stop offset="100%" stop-color="#ffedca" stop-opacity="0"/></radialGradient>
+        <radialGradient id="treeG" cx="42%" cy="34%" r="70%"><stop offset="0" stop-color="#7bab84"/><stop offset="100%" stop-color="#3f6f57"/></radialGradient>
+        <linearGradient id="lShade" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0a2018" stop-opacity=".17"/><stop offset="55%" stop-color="#0a2018" stop-opacity="0"/></linearGradient>
+        <linearGradient id="topLight" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".22"/><stop offset="34%" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+        <radialGradient id="plazaGlow" cx="50%" cy="42%" r="58%"><stop offset="0" stop-color="#fffdf2" stop-opacity=".45"/><stop offset="100%" stop-color="#fffdf2" stop-opacity="0"/></radialGradient>
+        <linearGradient id="reflGlow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe0a2" stop-opacity=".55"/><stop offset="100%" stop-color="#ffe0a2" stop-opacity="0"/></linearGradient>
+        <radialGradient id="canopyHi" cx="38%" cy="30%" r="60%"><stop offset="0" stop-color="#9ec89f" stop-opacity=".8"/><stop offset="100%" stop-color="#9ec89f" stop-opacity="0"/></radialGradient>
+        <radialGradient id="gMoonGlow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#eaf2ff" stop-opacity=".5"/><stop offset="55%" stop-color="#cfe0ff" stop-opacity="0"/></radialGradient>
+        <radialGradient id="gWarmWin" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ffd88a" stop-opacity=".95"/><stop offset="62%" stop-color="#ffcf7a" stop-opacity="0"/></radialGradient>
+        <radialGradient id="gLampGlow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ffe3a0" stop-opacity=".9"/><stop offset="60%" stop-color="#ffe3a0" stop-opacity="0"/></radialGradient>
+        <linearGradient id="nightSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a1038"/><stop offset="42%" stop-color="#111a46"/><stop offset="72%" stop-color="#1b2752"/><stop offset="100%" stop-color="#26325a"/></linearGradient>
+        <radialGradient id="gSign" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#8fe0c8" stop-opacity=".5"/><stop offset="66%" stop-color="#8fe0c8" stop-opacity="0"/></radialGradient>
+      </defs>
+
+      <!-- sky + warm light wash from the sun side -->
+      <rect x="0" y="0" width="1200" height="560" fill="url(#sky)"/>
+      <rect x="0" y="0" width="1200" height="560" fill="url(#warmv)"/>
+      <g class="pw-sun"><circle cx="1024" cy="224" r="120" fill="url(#sunG)"/><circle cx="1024" cy="224" r="30" fill="#fff5db"/></g>
+      <g class="amb skyfx" opacity=".8" style="animation:pwDrift 30s ease-in-out infinite alternate"><ellipse cx="250" cy="118" rx="60" ry="21" fill="#fff"/><ellipse cx="298" cy="106" rx="44" ry="22" fill="#fff"/><ellipse cx="208" cy="128" rx="38" ry="17" fill="#fbfefe"/></g>
+      <g class="amb skyfx" opacity=".6" style="animation:pwDrift 24s ease-in-out infinite alternate"><ellipse cx="700" cy="80" rx="50" ry="17" fill="#fff"/><ellipse cx="742" cy="72" rx="36" ry="19" fill="#fff"/></g>
+      <g class="amb skyfx" opacity=".48" style="animation:pwDrift 40s ease-in-out infinite alternate-reverse"><ellipse cx="470" cy="150" rx="44" ry="15" fill="#fff"/><ellipse cx="504" cy="143" rx="30" ry="15" fill="#fff"/></g>
+      <g class="amb skyfx" fill="none" stroke="#9fb8b5" stroke-width="2.4" stroke-linecap="round" opacity=".5" style="animation:pwDrift 22s ease-in-out infinite alternate"><path d="M556 138 q8 -7 16 0 q8 -7 16 0"/><path d="M612 116 q6 -5 12 0 q6 -5 12 0"/></g>
+      <g class="amb skyfx" fill="none" stroke="#a8bfbc" stroke-width="2.2" stroke-linecap="round" opacity=".42" style="animation:pwDrift 28s ease-in-out infinite alternate-reverse"><path d="M300 96 q7 -6 14 0 q7 -6 14 0"/><path d="M340 108 q6 -5 12 0 q6 -5 12 0"/><path d="M888 168 q7 -6 14 0 q7 -6 14 0"/></g>
+
+      <!-- atmospheric haze band -->
+      <rect x="0" y="352" width="1200" height="150" fill="url(#haze)"/>
+
+      <!-- ===== stylised Singapore skyline ===== -->
+      <!-- far, dense CBD towers (palest) -->
+      <g fill="#c2dcd9" opacity=".4">
+        <rect x="26" y="356" width="12" height="94"/><rect x="44" y="336" width="14" height="114"/><rect x="150" y="352" width="12" height="98"/><rect x="166" y="334" width="14" height="116"/><rect x="184" y="358" width="10" height="92"/>
+        <rect x="296" y="346" width="14" height="104"/><rect x="314" y="360" width="10" height="90"/>
+        <rect x="600" y="352" width="12" height="98"/><rect x="690" y="350" width="12" height="100"/><rect x="706" y="334" width="14" height="116"/><rect x="784" y="356" width="10" height="94"/>
+        <rect x="930" y="352" width="12" height="98"/><rect x="948" y="336" width="14" height="114"/><rect x="1128" y="350" width="12" height="100"/><rect x="1146" y="332" width="14" height="118"/><rect x="1166" y="356" width="10" height="94"/>
+      </g>
+
+      <!-- Singapore Flyer -->
+      <g opacity=".55" fill="none" stroke="#a6c8c6" stroke-width="2.6">
+        <circle cx="92" cy="330" r="43"/>
+        <g stroke-width="1.3"><path d="M92 330 V287 M92 330 V373 M92 330 H49 M92 330 H135 M92 330 L62 300 M92 330 L122 360 M92 330 L62 360 M92 330 L122 300"/></g>
+        <path d="M92 330 L76 450 M92 330 L108 450"/>
+      </g>
+      <circle cx="92" cy="330" r="4.5" fill="#a6c8c6" opacity=".55"/>
+      <g fill="#a6c8c6" opacity=".5"><circle cx="92" cy="287" r="2.6"/><circle cx="135" cy="330" r="2.6"/><circle cx="92" cy="373" r="2.6"/><circle cx="49" cy="330" r="2.6"/><circle cx="122" cy="300" r="2.3"/><circle cx="62" cy="360" r="2.3"/><circle cx="62" cy="300" r="2.3"/><circle cx="122" cy="360" r="2.3"/></g>
+
+      <!-- Supertrees (Gardens by the Bay) -->
+      <g opacity=".5" fill="#9cc2ae" stroke="#9cc2ae">
+        <path d="M233 450 L235 346" stroke-width="6"/><path d="M235 346 q-24 -6 -28 -32 q28 13 56 0 q-4 26 -28 32 z" stroke="none"/>
+        <path d="M262 450 L263 368" stroke-width="5"/><path d="M263 368 q-17 -5 -20 -23 q20 9 40 0 q-3 18 -20 23 z" stroke="none"/>
+      </g>
+
+      <!-- nearer CBD towers -->
+      <g fill="#accbc9" opacity=".58">
+        <rect x="60" y="300" width="22" height="150"/><rect x="120" y="316" width="18" height="134"/>
+        <rect x="636" y="300" width="20" height="150"/><rect x="662" y="330" width="16" height="120"/>
+        <rect x="1088" y="286" width="22" height="164"/><rect x="1116" y="316" width="18" height="134"/>
+      </g>
+
+      <!-- Marina Bay Sands (hero, framed in the gap between the condos and the HDB) -->
+      <g opacity=".84">
+        <path d="M487 450 L491 279 L501 279 L499 450 Z" fill="#93bcba"/>
+        <path d="M511 450 L513 276 L523 276 L522 450 Z" fill="#a3c8c6"/>
+        <path d="M534 450 L534 279 L544 279 L548 450 Z" fill="#93bcba"/>
+        <g stroke="#84b0ae" stroke-width="0.8" opacity=".45"><line x1="491" y1="322" x2="500" y2="322"/><line x1="491" y1="372" x2="500" y2="372"/><line x1="513" y1="320" x2="522" y2="320"/><line x1="513" y1="372" x2="522" y2="372"/><line x1="535" y1="322" x2="547" y2="322"/><line x1="535" y1="372" x2="547" y2="372"/></g>
+        <!-- SkyPark deck + cantilever + infinity pool + rooftop palms -->
+        <path d="M481 278 Q477 272.5 481 267 L568 266 Q592 265.5 601 271 Q594 276 570 277 L481 278 Z" fill="#7cadab"/>
+        <rect x="489" y="269" width="84" height="2.4" rx="1" fill="#c6e8ea" opacity=".9"/>
+        <g stroke="#6fa07d" stroke-width="1"><line x1="498" y1="267" x2="498" y2="262"/><line x1="520" y1="267" x2="520" y2="261"/><line x1="542" y1="267" x2="542" y2="262"/></g>
+        <g fill="#7fb58f"><circle cx="498" cy="261" r="2.6"/><circle cx="520" cy="260" r="2.8"/><circle cx="542" cy="261" r="2.6"/></g>
+      </g>
+
+      <!-- Pinnacle@Duxton (the iconic HDB, rising behind the MRT) -->
+      <g opacity=".68" fill="#9ec4c2">
+        <rect x="830" y="288" width="12" height="116"/><rect x="848" y="288" width="12" height="116"/><rect x="866" y="288" width="12" height="116"/><rect x="884" y="288" width="12" height="116"/><rect x="902" y="288" width="12" height="116"/><rect x="920" y="288" width="12" height="116"/>
+        <rect x="828" y="284" width="106" height="6" rx="2" fill="#87b3b1"/>
+        <rect x="828" y="342" width="106" height="4" rx="2" fill="#87b3b1" opacity=".7"/>
+        <g fill="#b7d8d3" opacity=".5"><rect x="833" y="300" width="6" height="8"/><rect x="851" y="316" width="6" height="8"/><rect x="887" y="308" width="6" height="8"/><rect x="923" y="322" width="6" height="8"/></g>
+      </g>
+
+      <!-- ground -->
+      <rect x="0" y="452" width="1200" height="268" fill="url(#grd)"/>
+      <path d="M0 470 q300 -18 600 4 t600 -2 v20 H0 z" fill="#cfe3d0" opacity=".65"/>
+      <path d="M0 486 q300 -12 600 2 t600 -2 v14 H0 z" fill="#a9c99a" opacity=".45"/>
+      <!-- directional ground shadows (sun upper-right) -->
+      <g fill="#0a2018" opacity=".09"><ellipse cx="378" cy="487" rx="142" ry="12"/><ellipse cx="602" cy="488" rx="108" ry="11"/><ellipse cx="728" cy="485" rx="70" ry="9"/><ellipse cx="150" cy="484" rx="66" ry="8"/></g>
+
+      <!-- ===== PORTAL: Homes for sale (condo district) ===== -->
+      <g>
+        <rect x="330" y="250" width="70" height="236" rx="4" fill="url(#glassG)" stroke="#8fbdbd" stroke-width="1.5"/>
+        <g fill="#bfe0df" opacity=".85"><rect x="340" y="262" width="50" height="13"/><rect x="340" y="283" width="50" height="13"/><rect x="340" y="304" width="50" height="13"/><rect x="340" y="325" width="50" height="13"/><rect x="340" y="346" width="50" height="13"/><rect x="340" y="367" width="50" height="13"/><rect x="340" y="388" width="50" height="13"/><rect x="340" y="409" width="50" height="13"/><rect x="340" y="430" width="50" height="13"/></g>
+        <rect x="330" y="242" width="70" height="9" rx="3" fill="#7fbfe0"/>
+        <rect x="412" y="292" width="56" height="194" rx="4" fill="url(#glassG)" stroke="#8fbdbd" stroke-width="1.5"/>
+        <g fill="#bfe0df" opacity=".8"><rect x="420" y="304" width="40" height="12"/><rect x="420" y="322" width="40" height="12"/><rect x="420" y="340" width="40" height="12"/><rect x="420" y="358" width="40" height="12"/><rect x="420" y="376" width="40" height="12"/><rect x="420" y="394" width="40" height="12"/><rect x="420" y="412" width="40" height="12"/><rect x="420" y="430" width="40" height="12"/></g>
+        <!-- glass reflection, left-shaded face, top light, rooftop crowns + sky garden -->
+        <rect x="330" y="250" width="70" height="236" rx="4" fill="url(#glassRef)"/>
+        <rect x="330" y="250" width="22" height="236" fill="url(#lShade)"/>
+        <rect x="330" y="250" width="70" height="30" rx="4" fill="url(#topLight)"/>
+        <rect x="412" y="292" width="56" height="194" rx="4" fill="url(#glassRef)"/>
+        <rect x="412" y="292" width="18" height="194" fill="url(#lShade)"/>
+        <rect x="412" y="292" width="56" height="26" rx="4" fill="url(#topLight)"/>
+        <rect x="352" y="230" width="26" height="14" rx="2" fill="#b6dbda"/><rect x="356" y="224" width="10" height="8" fill="#a3cccc"/>
+        <rect x="424" y="284" width="30" height="10" rx="2" fill="#b6dbda"/>
+        <g fill="#7fbf9a" opacity=".8"><rect x="331" y="368" width="68" height="7"/><ellipse cx="345" cy="368" rx="7" ry="4"/><ellipse cx="365" cy="367" rx="8" ry="5"/><ellipse cx="385" cy="368" rx="7" ry="4"/></g>
+      </g>
+
+      <!-- ===== PORTAL: Rentals (HDB block) ===== -->
+      <g>
+        <rect x="560" y="300" width="120" height="180" rx="3" fill="var(--hdb-a)" stroke="#c69f78" stroke-width="1.5"/>
+        <rect x="560" y="300" width="120" height="15" fill="#cf8f5e"/>
+        <g fill="#fbf4e8"><rect x="572" y="326" width="18" height="21"/><rect x="600" y="326" width="18" height="21"/><rect x="628" y="326" width="18" height="21"/><rect x="652" y="326" width="18" height="21"/><rect x="572" y="356" width="18" height="21"/><rect x="600" y="356" width="18" height="21"/><rect x="628" y="356" width="18" height="21"/><rect x="652" y="356" width="18" height="21"/><rect x="572" y="386" width="18" height="21"/><rect x="600" y="386" width="18" height="21"/><rect x="628" y="386" width="18" height="21"/><rect x="652" y="386" width="18" height="21"/><rect x="572" y="416" width="18" height="21"/><rect x="600" y="416" width="18" height="21"/><rect x="628" y="416" width="18" height="21"/><rect x="652" y="416" width="18" height="21"/></g>
+        <rect x="560" y="452" width="120" height="28" fill="#e9ddc7"/>
+        <g stroke="#c9b58f" stroke-width="3"><line x1="576" y1="452" x2="576" y2="480"/><line x1="620" y1="452" x2="620" y2="480"/><line x1="664" y1="452" x2="664" y2="480"/></g>
+        <!-- SG touches: side shade, window AC units, bamboo laundry poles + clothes, void-deck shelter -->
+        <rect x="560" y="300" width="20" height="152" fill="url(#lShade)"/>
+        <rect x="560" y="315" width="120" height="20" fill="url(#topLight)"/>
+        <g fill="#cabaa2"><rect x="574" y="348" width="13" height="7"/><rect x="630" y="348" width="13" height="7"/><rect x="602" y="378" width="13" height="7"/><rect x="654" y="408" width="13" height="7"/></g>
+        <g stroke="#a8987c" stroke-width="1.3"><line x1="590" y1="368" x2="603" y2="368"/><line x1="646" y1="338" x2="659" y2="338"/></g>
+        <g opacity=".9"><rect x="592" y="368" width="4" height="8" fill="#d97a5f"/><rect x="597" y="368" width="4" height="7" fill="#5b8fb0"/><rect x="648" y="338" width="4" height="7" fill="#e0b64a"/><rect x="653" y="338" width="4" height="8" fill="#7aa88f"/></g>
+        <rect x="556" y="449" width="128" height="5" rx="1.5" fill="#d8c7a6"/>
+      </g>
+
+      <!-- ===== PORTAL: Research (the tower behind) ===== -->
+      <g>
+        <rect x="694" y="264" width="86" height="216" rx="3" fill="var(--hdb-c)" stroke="#a9bcb2" stroke-width="1.5"/>
+        <rect x="694" y="264" width="86" height="14" fill="#7fb0a1"/>
+        <g fill="#ffdf9e"><rect x="704" y="290" width="16" height="19"/><rect x="752" y="290" width="16" height="19"/><rect x="728" y="318" width="16" height="19"/><rect x="704" y="346" width="16" height="19"/><rect x="728" y="346" width="16" height="19"/><rect x="752" y="374" width="16" height="19"/><rect x="704" y="402" width="16" height="19"/><rect x="752" y="402" width="16" height="19"/></g>
+        <g fill="#cfe4ec"><rect x="728" y="290" width="16" height="19"/><rect x="704" y="318" width="16" height="19"/><rect x="752" y="318" width="16" height="19"/><rect x="752" y="346" width="16" height="19"/><rect x="704" y="374" width="16" height="19"/><rect x="728" y="374" width="16" height="19"/><rect x="728" y="402" width="16" height="19"/></g>
+        <g fill="#fff3d4"><rect x="705" y="291" width="6" height="7"/><rect x="753" y="291" width="6" height="7"/><rect x="729" y="347" width="6" height="7"/><rect x="705" y="403" width="6" height="7"/></g>
+        <rect x="694" y="264" width="20" height="216" fill="url(#lShade)"/>
+        <rect x="694" y="278" width="86" height="20" fill="url(#topLight)"/>
+        <g fill="#c99a52" opacity=".7"><rect x="706" y="303" width="12" height="6"/><rect x="754" y="359" width="12" height="6"/><rect x="730" y="415" width="12" height="6"/></g>
+        <ellipse cx="737" cy="360" rx="58" ry="106" fill="#ffe2ac" opacity=".1"/>
+        <rect x="694" y="452" width="86" height="28" fill="#dfe7df"/>
+        <!-- Market Analysis banner drawn in the always-on-top pw-landmarks layer (below) -->
+      </g>
+
+      <!-- List your property shophouse (scenery + clickable) -->
+      <g class="portal" data-href="https://propsight.sg" data-ext="1" role="link" tabindex="0" aria-label="PropSight.sg">
+        <rect x="118" y="398" width="80" height="82" fill="#f0e6d4" stroke="#cbb593" stroke-width="1.4"/>
+        <rect x="118" y="398" width="15" height="82" fill="url(#lShade)"/>
+        <rect x="118" y="390" width="80" height="18" fill="var(--teal)"/>
+        <text x="158" y="404" text-anchor="middle" fill="#eaffff" font-size="9.5" font-weight="800" letter-spacing=".05em">PROPSIGHT</text>
+        <g><rect x="114" y="410" width="88" height="14" rx="1.5" fill="#c96f4a"/><rect x="125" y="410" width="11" height="14" fill="#e7a888"/><rect x="147" y="410" width="11" height="14" fill="#e7a888"/><rect x="169" y="410" width="11" height="14" fill="#e7a888"/><rect x="191" y="410" width="11" height="14" fill="#e7a888"/></g>
+        <rect x="128" y="436" width="24" height="22" fill="#bfe0df"/><rect x="164" y="430" width="22" height="50" fill="#c99a6f"/>
+      </g>
+
+      <!-- MRT (scenery) -->
+      <g opacity=".95">
+        <rect x="820" y="404" width="300" height="14" rx="4" fill="#cdd8d2"/><rect x="835" y="418" width="16" height="62" fill="#c2cec7"/><rect x="1000" y="418" width="16" height="62" fill="#c2cec7"/>
+        <g class="amb" id="mrt" style="animation:pwTrain 20s linear infinite"><g id="train"><rect x="840" y="386" width="150" height="22" rx="8" fill="#fff" stroke="#bcd0c9" stroke-width="1.4"/><rect x="846" y="390" width="140" height="8" rx="3" fill="var(--mint)" opacity=".8"/><rect x="848" y="392" width="14" height="12" rx="2" fill="#dff0eb"/><rect x="872" y="392" width="14" height="12" rx="2" fill="#dff0eb"/><rect x="896" y="392" width="14" height="12" rx="2" fill="#dff0eb"/><rect x="920" y="392" width="14" height="12" rx="2" fill="#dff0eb"/><rect x="944" y="392" width="14" height="12" rx="2" fill="#dff0eb"/><rect x="968" y="392" width="14" height="12" rx="2" fill="#dff0eb"/><g class="pw-trainlit"><g fill="#ffe4a6"><rect x="848" y="392" width="14" height="12" rx="2"/><rect x="872" y="392" width="14" height="12" rx="2"/><rect x="896" y="392" width="14" height="12" rx="2"/><rect x="920" y="392" width="14" height="12" rx="2"/><rect x="944" y="392" width="14" height="12" rx="2"/><rect x="968" y="392" width="14" height="12" rx="2"/></g><ellipse cx="994" cy="397" rx="12" ry="7" fill="url(#gLampGlow)"/></g></g></g>
+      </g>
+
+      <!-- Agents Lounge cafe (beside the Analysis tower, tucked under the MRT) -->
+      <g>
+        <ellipse cx="866" cy="480" rx="92" ry="60" fill="#ffdf9e" opacity=".2"/>
+        <ellipse cx="858" cy="512" rx="58" ry="10" fill="#ffe0a0" opacity=".24"/>
+        <rect x="806" y="446" width="120" height="60" fill="#d9bd93" stroke="#b89a6c" stroke-width="1.5"/>
+        <rect x="806" y="446" width="13" height="60" fill="#0a2018" opacity=".08"/>
+        <g><rect x="800" y="424" width="132" height="12" rx="2" fill="#c96f4a"/><g fill="#efe6d4"><rect x="816" y="424" width="16" height="12"/><rect x="848" y="424" width="16" height="12"/><rect x="880" y="424" width="16" height="12"/><rect x="912" y="424" width="14" height="12"/></g></g>
+        <rect x="814" y="458" width="60" height="46" rx="2" fill="#ffedca" stroke="#b89a6c" stroke-width="1.4"/>
+        <rect x="817" y="461" width="54" height="22" rx="1.5" fill="#fff5db"/>
+        <line x1="844" y1="458" x2="844" y2="504" stroke="#d8bd8c" stroke-width="1"/><line x1="814" y1="482" x2="874" y2="482" stroke="#d8bd8c" stroke-width="1"/>
+        <rect x="850" y="470" width="9" height="34" rx="4" fill="#9a7a52" opacity=".5"/>
+        <path d="M828 490 h14 v2 a7 3 0 0 1 -14 0z" fill="#8a5a38"/><ellipse cx="835" cy="490" rx="7" ry="2.2" fill="#6e4527"/>
+        <rect x="884" y="462" width="30" height="42" rx="2" fill="#6e4527"/><rect x="888" y="466" width="22" height="22" rx="1.5" fill="#ffefce"/><circle cx="907" cy="486" r="1.6" fill="#e0c48a"/>
+        <g><rect x="916" y="494" width="11" height="12" rx="1.5" fill="#b98f5e"/><path d="M921 494 q-8 -14 -2 -22 q4 8 8 9 q-2 -9 3 -13 q2 10 6 13 q5 -4 8 -2 q-8 3 -9 11 q-7 -3 -12 4 z" fill="#5a8f6e"/></g>
+      </g>
+
+      <!-- Singapore green architecture: cascading vertical gardens on the towers -->
+      <g>
+        <g fill="#6fa07d"><rect x="331" y="330" width="68" height="5" rx="1"/><ellipse cx="340" cy="336" rx="7" ry="5"/><ellipse cx="360" cy="337" rx="8" ry="6"/><ellipse cx="380" cy="336" rx="7" ry="5"/><ellipse cx="394" cy="336" rx="6" ry="5"/></g>
+        <g fill="#5a8f6e"><rect x="331" y="406" width="68" height="5" rx="1"/><ellipse cx="345" cy="412" rx="7" ry="5"/><ellipse cx="372" cy="413" rx="8" ry="5"/><ellipse cx="390" cy="412" rx="6" ry="4"/></g>
+        <g fill="#6fa07d"><rect x="413" y="358" width="54" height="5" rx="1"/><ellipse cx="424" cy="364" rx="6" ry="4"/><ellipse cx="444" cy="365" rx="7" ry="5"/><ellipse cx="460" cy="364" rx="5" ry="4"/></g>
+        <!-- HDB corridor + void-deck plants -->
+        <g fill="#6fa07d"><ellipse cx="566" cy="450" rx="5" ry="4"/><ellipse cx="578" cy="450" rx="5" ry="4"/><ellipse cx="668" cy="450" rx="5" ry="4"/><ellipse cx="656" cy="450" rx="5" ry="4"/></g>
+        <!-- shophouse green roof -->
+        <g fill="#6fa07d"><ellipse cx="130" cy="390" rx="8" ry="5"/><ellipse cx="146" cy="389" rx="9" ry="6"/><ellipse cx="164" cy="390" rx="8" ry="5"/><ellipse cx="180" cy="390" rx="7" ry="5"/></g>
+      </g>
+
+      <!-- a few warm lit windows for life -->
+      <g fill="#ffdf9e" opacity=".8"><rect x="600" y="356" width="18" height="21"/><rect x="628" y="416" width="18" height="21"/><rect x="572" y="386" width="18" height="21"/><rect x="728" y="374" width="16" height="19"/><rect x="704" y="402" width="16" height="19"/><rect x="752" y="346" width="16" height="19"/></g>
+
+      <!-- foreground: walkway + plaza + paver texture -->
+      <path d="M0 648 Q600 566 1200 644 L1200 720 L0 720 Z" fill="#f2ecda"/>
+      <path d="M0 648 Q600 566 1200 644" fill="none" stroke="#d2ddce" stroke-width="3"/>
+      <ellipse cx="512" cy="668" rx="332" ry="47" fill="#f0e9d3"/><ellipse cx="512" cy="668" rx="332" ry="47" fill="none" stroke="#d8cfb4" stroke-width="2"/>
+      <ellipse class="pw-dayglow" cx="516" cy="656" rx="300" ry="66" fill="url(#plazaGlow)"/>
+      <path d="M210 690 Q512 626 820 686" fill="none" stroke="#dae5db" stroke-width="7" stroke-dasharray="1 24" stroke-linecap="round" opacity=".85"/>
+      <!-- night: the plaza catches the lamp + window light -->
+      <g class="pw-nightrefl">
+        <ellipse cx="228" cy="702" rx="11" ry="34" fill="url(#reflGlow)"/>
+        <ellipse cx="836" cy="700" rx="11" ry="34" fill="url(#reflGlow)"/>
+        <ellipse cx="742" cy="672" rx="66" ry="22" fill="url(#reflGlow)" opacity=".55"/>
+        <ellipse cx="1040" cy="680" rx="42" ry="18" fill="url(#reflGlow)" opacity=".5"/>
+        <ellipse cx="188" cy="666" rx="36" ry="15" fill="url(#reflGlow)" opacity=".45"/>
+        <ellipse cx="440" cy="676" rx="46" ry="18" fill="url(#reflGlow)" opacity=".4"/>
+      </g>
+      <!-- day: a little more paver texture on the plaza (fades at night) -->
+      <g class="pw-dayglow" fill="none" stroke="#d3ddce" stroke-width="1.4" opacity=".5"><path d="M120 700 Q512 642 900 698" stroke-dasharray="2 26"/><path d="M330 714 Q560 666 780 710" stroke-dasharray="2 22"/></g>
+
+      <!-- street furniture -->
+      <g>
+        <!-- street lamps -->
+        <g stroke="#889a90" stroke-width="3" stroke-linecap="round"><line x1="228" y1="602" x2="228" y2="672"/><line x1="836" y1="600" x2="836" y2="670"/></g>
+        <g stroke="#889a90" stroke-width="2.4" fill="none"><path d="M228 602 q0 -9 11 -9 M228 602 q0 -9 -11 -9"/><path d="M836 600 q0 -9 11 -9 M836 600 q0 -9 -11 -9"/></g>
+        <g fill="#ffe6a2"><circle cx="217" cy="592" r="3.4"/><circle cx="239" cy="592" r="3.4"/><circle cx="825" cy="590" r="3.4"/><circle cx="847" cy="590" r="3.4"/></g>
+        <rect x="242" y="656" width="9" height="15" rx="2" fill="#728f7f"/>
+        <!-- flowering planters (flanking the signposts, clear of the plaza centre) -->
+        <g><rect x="76" y="660" width="30" height="13" rx="2" fill="#c9b48f"/><ellipse cx="91" cy="654" rx="18" ry="11" fill="#5a8f6e"/><g fill="#e07a9a"><circle cx="84" cy="650" r="2.6"/><circle cx="97" cy="649" r="2.6"/><circle cx="100" cy="654" r="2.2"/></g></g>
+        <g><rect x="946" y="662" width="30" height="12" rx="2" fill="#c9b48f"/><ellipse cx="961" cy="656" rx="18" ry="10" fill="#6fa07d"/><g fill="#e0b64a"><circle cx="954" cy="652" r="2.4"/><circle cx="968" cy="651" r="2.4"/></g></g>
+        <!-- sheltered bus stop -->
+        <g><rect x="972" y="592" width="72" height="6" rx="2" fill="#a3b4ab"/><rect x="974" y="598" width="4" height="70" fill="#9fb0a8"/><rect x="1038" y="598" width="4" height="70" fill="#9fb0a8"/><rect x="1006" y="602" width="30" height="22" rx="2" fill="#dfeee9" opacity=".85"/><rect x="1006" y="602" width="30" height="22" rx="2" fill="none" stroke="#b7ccc4"/><rect x="980" y="650" width="52" height="6" rx="2" fill="#c7b393"/><rect x="983" y="656" width="4" height="12" fill="#c7b393"/><rect x="1025" y="656" width="4" height="12" fill="#c7b393"/></g>
+      </g>
+
+      <!-- ===== planted directory signposts → the whole PropSight universe ===== -->
+      <g class="portal" data-href="https://propsight.sg/news/" data-ext="1" role="link" tabindex="0" aria-label="Property news">
+        <ellipse class="ring" cx="150" cy="662" rx="62" ry="9" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-dasharray="3 6"/>
+        <rect x="123" y="604" width="6" height="60" rx="2" fill="#9a774e"/><rect x="171" y="604" width="6" height="60" rx="2" fill="#82633e"/>
+        <rect x="90" y="560" width="120" height="7" rx="2.5" fill="#0f2f24"/>
+        <rect class="signbg" x="92" y="567" width="116" height="42" rx="6" fill="var(--sign)" stroke="#0f2f24" stroke-width="2"/>
+        <g transform="translate(100,573)" opacity=".92"><rect x="0" y="0" width="16" height="14" rx="1.5" fill="#cfeee2"/><path d="M3 4 h10 M3 7 h10 M3 10 h6" stroke="#5a9e86" stroke-width="1.1"/></g>
+        <text x="163" y="586" text-anchor="middle" fill="#eaf5ee" font-size="11.5" font-weight="800">News stand</text>
+        <text x="150" y="601" text-anchor="middle" fill="#9fd8c4" font-size="8.5" font-weight="700">Today's headlines</text>
+      </g>
+      <g class="portal" data-href="https://propsight.sg/#tools" data-ext="1" role="link" tabindex="0" aria-label="Property tools">
+        <ellipse class="ring" cx="310" cy="662" rx="62" ry="9" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-dasharray="3 6"/>
+        <rect x="283" y="604" width="6" height="60" rx="2" fill="#9a774e"/><rect x="331" y="604" width="6" height="60" rx="2" fill="#82633e"/>
+        <rect x="250" y="560" width="120" height="7" rx="2.5" fill="#0f2f24"/>
+        <rect class="signbg" x="252" y="567" width="116" height="42" rx="6" fill="var(--sign)" stroke="#0f2f24" stroke-width="2"/>
+        <text x="310" y="587" text-anchor="middle" fill="#eaf5ee" font-size="13" font-weight="800">Tools</text>
+        <text x="310" y="601" text-anchor="middle" fill="#9fd8c4" font-size="8.5" font-weight="700">What can you afford?</text>
+      </g>
+      <g class="portal" data-href="https://propsight.sg/areaguides/" role="link" tabindex="0" aria-label="Area guides">
+        <ellipse class="ring" cx="910" cy="662" rx="62" ry="9" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-dasharray="3 6"/>
+        <rect x="883" y="604" width="6" height="60" rx="2" fill="#9a774e"/><rect x="931" y="604" width="6" height="60" rx="2" fill="#82633e"/>
+        <rect x="850" y="560" width="120" height="7" rx="2.5" fill="#0f2f24"/>
+        <rect class="signbg" x="852" y="567" width="116" height="42" rx="6" fill="#2f6d5a" stroke="#0f2f24" stroke-width="2"/>
+        <g transform="translate(859,573)" opacity=".92"><rect x="0" y="0" width="19" height="14" rx="2" fill="#cfeee2"/><path d="M2 8 h15 M8 1 v12 M13 1 v12" stroke="#5a9e86" stroke-width="1.1" fill="none"/><circle cx="6" cy="5" r="1.5" fill="var(--warm)"/></g>
+        <text x="923" y="586" text-anchor="middle" fill="#eaf5ee" font-size="12.5" font-weight="800">Area guides</text>
+        <text x="910" y="600" text-anchor="middle" fill="#9fd8c4" font-size="8.5" font-weight="700">56 areas</text>
+      </g>
+
+      <!-- rain tree (frames right; gathering shade) -->
+      <g transform="translate(96,0)">
+        <path d="M968 640 q-8 -70 -6 -108" stroke="#8a6a44" stroke-width="13" fill="none" stroke-linecap="round"/>
+        <path d="M964 560 q-26 -12 -44 -30 M964 560 q26 -10 46 -26" stroke="#8a6a44" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <g class="amb" id="canopy" style="transform-origin:964px 560px;animation:pwSway 7s ease-in-out infinite">
+          <ellipse cx="964" cy="516" rx="112" ry="62" fill="#3f6f57"/><ellipse cx="916" cy="536" rx="62" ry="40" fill="#4f7f62"/><ellipse cx="1016" cy="532" rx="66" ry="42" fill="#4a7a5e"/>
+          <ellipse cx="968" cy="544" rx="100" ry="30" fill="#2c5341" opacity=".4"/>
+          <ellipse cx="964" cy="502" rx="86" ry="52" fill="url(#treeG)"/>
+          <g fill="#6ba079" opacity=".5"><ellipse cx="924" cy="500" rx="20" ry="14"/><ellipse cx="1000" cy="508" rx="22" ry="15"/><ellipse cx="958" cy="524" rx="18" ry="12"/><ellipse cx="996" cy="486" rx="16" ry="11"/><ellipse cx="940" cy="522" rx="15" ry="10"/></g>
+          <ellipse cx="1004" cy="486" rx="42" ry="26" fill="url(#canopyHi)"/>
+        </g>
+      </g>
+      <!-- palms (left) + flowering + accent shrubs -->
+      <g>
+        <path d="M300 700 q-3 -46 -6 -70" stroke="#8a6a44" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <g fill="none" stroke="#6fa07d" stroke-width="5" stroke-linecap="round"><path d="M294 630 q-26 -6 -40 -22"/><path d="M294 630 q26 -6 42 -20"/><path d="M294 630 q-8 -22 -4 -36"/><path d="M294 630 q14 -20 26 -26"/></g>
+      </g>
+      <g><ellipse cx="1150" cy="636" rx="28" ry="15" fill="#4f7f62"/><ellipse cx="1150" cy="626" rx="20" ry="12" fill="#6fa07d"/></g>
+      <g><ellipse cx="60" cy="656" rx="30" ry="15" fill="#4f7f62"/><ellipse cx="60" cy="646" rx="22" ry="12" fill="#6fa07d"/></g>
+      <!-- left framing tree (angsana) - balances the rain tree on the right -->
+      <g>
+        <path d="M50 664 q-4 -60 -2 -104" stroke="#856544" stroke-width="12" fill="none" stroke-linecap="round"/>
+        <path d="M48 566 q-20 -10 -34 -26 M50 566 q22 -8 40 -22" stroke="#856544" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <g class="amb" style="transform-origin:46px 560px;animation:pwSway 8.5s ease-in-out infinite">
+          <ellipse cx="44" cy="522" rx="86" ry="52" fill="#3f6f57"/><ellipse cx="8" cy="540" rx="48" ry="32" fill="#4f7f62"/><ellipse cx="92" cy="536" rx="48" ry="32" fill="#4a7a5e"/>
+          <ellipse cx="48" cy="548" rx="80" ry="26" fill="#2c5341" opacity=".38"/>
+          <ellipse cx="44" cy="508" rx="66" ry="42" fill="url(#treeG)"/>
+          <g fill="#6ba079" opacity=".5"><ellipse cx="18" cy="510" rx="17" ry="12"/><ellipse cx="76" cy="512" rx="18" ry="12"/><ellipse cx="44" cy="524" rx="15" ry="10"/><ellipse cx="70" cy="492" rx="14" ry="9"/></g>
+          <ellipse cx="74" cy="492" rx="34" ry="22" fill="url(#canopyHi)"/>
+        </g>
+      </g>
+      <!-- lush ground touches: ferns, grass tufts, flowering shrubs -->
+      <g stroke="#5a8f6e" stroke-width="2" fill="none" stroke-linecap="round" opacity=".9">
+        <path d="M344 702 q-3 -15 -9 -23 M344 702 q0 -17 0 -25 M344 702 q3 -15 9 -23"/>
+        <path d="M742 704 q-3 -13 -8 -21 M742 704 q0 -15 0 -23 M742 704 q3 -13 8 -21"/>
+        <path d="M470 710 q-2 -12 -7 -19 M470 710 q0 -14 0 -21 M470 710 q2 -12 7 -19"/>
+      </g>
+      <g><ellipse cx="1108" cy="700" rx="22" ry="12" fill="#4f7f62"/><ellipse cx="1108" cy="690" rx="15" ry="10" fill="#6fa07d"/><g fill="#e07a9a" opacity=".85"><circle cx="1100" cy="688" r="2.6"/><circle cx="1114" cy="686" r="2.6"/></g></g>
+      <!-- park bench under the tree -->
+      <g fill="#c7b393"><rect x="1036" y="682" width="48" height="6" rx="2"/><rect x="1038" y="676" width="44" height="4" rx="2" opacity=".8"/><rect x="1040" y="688" width="5" height="12"/><rect x="1075" y="688" width="5" height="12"/></g>
+
+      <!-- GOLDEN HOUR: warm sunlight catching the right edges + rooftops (static) -->
+      <g class="pw-goldrim">
+        <g fill="#ffe1b0" opacity=".9"><rect x="394" y="292" width="6" height="194" rx="2"/><rect x="462" y="294" width="6" height="192" rx="2"/><rect x="674" y="342" width="6" height="138" rx="2"/><rect x="774" y="332" width="6" height="148" rx="2"/><rect x="192" y="410" width="6" height="70" rx="1"/><rect x="921" y="448" width="5" height="56" rx="1"/></g>
+        <g fill="#fff1d4" opacity=".72"><rect x="806" y="422" width="126" height="4" rx="2"/><rect x="330" y="250" width="70" height="5" rx="2"/><rect x="412" y="292" width="56" height="5" rx="2"/><rect x="560" y="300" width="120" height="5" rx="2"/><rect x="694" y="264" width="86" height="5" rx="2"/></g>
+      </g>
+      <!-- bird flock drifting across the sky (daytime life) -->
+      <g class="pw-flock amb skyfx" fill="none" stroke="#8aa39c" stroke-width="2" stroke-linecap="round"><path d="M0 0 q5 -5 9 0 q5 -5 9 0"/><path d="M20 7 q4 -4 8 0 q4 -4 8 0"/><path d="M-4 12 q4 -4 8 0 q4 -4 8 0"/><path d="M26 -5 q3.5 -3.5 7 0 q3.5 -3.5 7 0"/></g>
+
+      <!-- NIGHT: dark sky sits OVER the scene; stars/moon/glows sit over the darkness so they pop (static, no animation) -->
+      <rect class="pw-nightsky" x="0" y="0" width="1200" height="720" fill="url(#nightSky)"/>
+      <g class="pw-stars" fill="#ffffff">
+        <circle cx="150" cy="96" r="2"/><circle cx="252" cy="150" r="1.5"/><circle cx="360" cy="80" r="1.9"/><circle cx="470" cy="132" r="1.4"/><circle cx="560" cy="70" r="1.9"/><circle cx="650" cy="118" r="1.5"/><circle cx="742" cy="150" r="1.7"/><circle cx="828" cy="66" r="1.7"/><circle cx="884" cy="118" r="1.9"/><circle cx="1082" cy="86" r="1.5"/><circle cx="1150" cy="150" r="1.9"/><circle cx="210" cy="204" r="1.4"/><circle cx="612" cy="206" r="1.3"/><circle cx="1090" cy="210" r="1.5"/><circle cx="316" cy="188" r="1.3"/><circle cx="1210" cy="104" r="1.6"/><circle cx="440" cy="196" r="1.2"/>
+      </g>
+      <g class="pw-glow">
+        <!-- moon + soft glow -->
+        <ellipse cx="980" cy="164" rx="138" ry="138" fill="url(#gMoonGlow)"/>
+        <g class="pw-moon"><circle cx="980" cy="164" r="30" fill="#fbfdff"/><circle cx="969" cy="155" r="5.5" fill="#d3e1ee"/><circle cx="991" cy="171" r="4" fill="#d3e1ee"/><circle cx="974" cy="174" r="3" fill="#d3e1ee"/></g>
+        <!-- distant skyline lit windows (city depth) -->
+        <g fill="#ffdf9c" opacity=".7">
+          <rect x="64" y="330" width="4" height="5"/><rect x="72" y="362" width="4" height="5"/><rect x="126" y="342" width="4" height="5"/><rect x="132" y="384" width="4" height="5"/><rect x="170" y="352" width="4" height="5"/>
+          <rect x="640" y="330" width="4" height="5"/><rect x="648" y="372" width="4" height="5"/><rect x="666" y="356" width="4" height="5"/>
+          <rect x="1092" y="320" width="4" height="5"/><rect x="1100" y="360" width="4" height="5"/><rect x="1122" y="344" width="4" height="5"/>
+          <rect x="835" y="312" width="5" height="7"/><rect x="871" y="330" width="5" height="7"/><rect x="907" y="320" width="5" height="7"/><rect x="853" y="356" width="5" height="7"/><rect x="925" y="360" width="5" height="7"/><rect x="889" y="300" width="5" height="7"/>
+          <rect x="494" y="330" width="4" height="6"/><rect x="516" y="352" width="4" height="6"/><rect x="540" y="336" width="4" height="6"/>
+          <rect x="66" y="316" width="3" height="4"/><rect x="128" y="360" width="3" height="4"/><rect x="188" y="380" width="3" height="4"/><rect x="300" y="368" width="3" height="4"/><rect x="316" y="382" width="3" height="4"/><rect x="644" y="350" width="3" height="4"/><rect x="710" y="358" width="3" height="4"/><rect x="936" y="360" width="3" height="4"/><rect x="1130" y="372" width="3" height="4"/><rect x="1150" y="356" width="3" height="4"/><rect x="1168" y="382" width="3" height="4"/>
+        </g>
+        <!-- Singapore Flyer rim lights -->
+        <g fill="#fff0c4" opacity=".85"><circle cx="92" cy="287" r="1.6"/><circle cx="120" cy="299" r="1.6"/><circle cx="135" cy="330" r="1.6"/><circle cx="120" cy="361" r="1.6"/><circle cx="92" cy="373" r="1.6"/><circle cx="64" cy="361" r="1.6"/><circle cx="49" cy="330" r="1.6"/><circle cx="64" cy="299" r="1.6"/></g>
+        <!-- lit path: warm ground lights lining the plaza -->
+        <g fill="url(#gLampGlow)"><ellipse cx="118" cy="650" rx="22" ry="15"/><ellipse cx="352" cy="646" rx="22" ry="15"/><ellipse cx="486" cy="652" rx="20" ry="14"/><ellipse cx="672" cy="652" rx="20" ry="14"/><ellipse cx="1006" cy="648" rx="22" ry="15"/><ellipse cx="1132" cy="650" rx="22" ry="15"/></g>
+        <g fill="#ffe6a8"><circle cx="118" cy="650" r="2.4"/><circle cx="352" cy="646" r="2.4"/><circle cx="486" cy="652" r="2.2"/><circle cx="672" cy="652" r="2.2"/><circle cx="1006" cy="648" r="2.4"/><circle cx="1132" cy="650" r="2.4"/></g>
+        <!-- FOREGROUND buildings: real windows lit warm (crisp) -->
+        <g fill="#ffd583" style="pointer-events:none">
+          <!-- HDB / FOR RENT grid -->
+          <rect x="572" y="326" width="18" height="21"/><rect x="628" y="326" width="18" height="21"/><rect x="600" y="356" width="18" height="21"/><rect x="652" y="356" width="18" height="21"/><rect x="572" y="386" width="18" height="21"/><rect x="600" y="416" width="18" height="21"/><rect x="628" y="416" width="18" height="21"/>
+          <!-- Research tower grid -->
+          <rect x="704" y="290" width="16" height="19"/><rect x="752" y="290" width="16" height="19"/><rect x="728" y="318" width="16" height="19"/><rect x="704" y="346" width="16" height="19"/><rect x="752" y="374" width="16" height="19"/><rect x="704" y="402" width="16" height="19"/><rect x="728" y="402" width="16" height="19"/>
+          <!-- Condo tower 1 (units within the glass strips) -->
+          <rect x="342" y="304" width="20" height="13"/><rect x="368" y="304" width="20" height="13"/><rect x="342" y="388" width="20" height="13"/><rect x="368" y="409" width="20" height="13"/>
+          <!-- Condo tower 2 -->
+          <rect x="420" y="322" width="18" height="12"/><rect x="442" y="376" width="18" height="12"/><rect x="420" y="430" width="18" height="12"/>
+          <!-- shophouse window -->
+          <rect x="128" y="436" width="24" height="22"/>
+          <!-- Agents Lounge cafe: lit storefront + door -->
+          <rect x="815" y="459" width="58" height="44"/><rect x="889" y="467" width="21" height="20"/>
+        </g>
+        <!-- small warm halos on a few lit windows (subtle, not orbs) -->
+        <g opacity=".6"><circle cx="581" cy="336" r="15" fill="url(#gWarmWin)"/><circle cx="661" cy="366" r="14" fill="url(#gWarmWin)"/><circle cx="712" cy="300" r="14" fill="url(#gWarmWin)"/><circle cx="712" cy="411" r="13" fill="url(#gWarmWin)"/><circle cx="378" cy="311" r="14" fill="url(#gWarmWin)"/><circle cx="140" cy="447" r="15" fill="url(#gWarmWin)"/><circle cx="845" cy="481" r="17" fill="url(#gWarmWin)"/></g>
+        <!-- street lamps: warm light pool at the bulb -->
+        <ellipse cx="228" cy="596" rx="38" ry="38" fill="url(#gLampGlow)"/><ellipse cx="836" cy="594" rx="38" ry="38" fill="url(#gLampGlow)"/>
+      </g>
+
+      <!-- daytime sunlight warming the town (static; fades at golden/dusk/night) -->
+      <rect class="pw-daywarm" x="0" y="0" width="1200" height="720" fill="url(#dayWarm)"/>
+
+      <!-- NIGHT: navigation signs re-drawn ON TOP, illuminated (never blocked by windows; clicks pass through) -->
+      <g class="pw-signlit">
+        <g><ellipse cx="737" cy="313" rx="74" ry="30" fill="url(#gSign)"/><ellipse cx="158" cy="399" rx="62" ry="26" fill="url(#gSign)"/><ellipse cx="150" cy="588" rx="84" ry="36" fill="url(#gSign)"/><ellipse cx="310" cy="588" rx="84" ry="36" fill="url(#gSign)"/><ellipse cx="910" cy="588" rx="84" ry="36" fill="url(#gSign)"/></g>
+        <rect x="118" y="390" width="80" height="18" fill="#18b0b0"/>
+        <text x="158" y="404" text-anchor="middle" fill="#f0ffff" font-size="9.5" font-weight="800" letter-spacing=".05em">PROPSIGHT</text>
+        <rect x="90" y="560" width="120" height="7" rx="2.5" fill="#12362a"/>
+        <rect x="92" y="567" width="116" height="42" rx="6" fill="#1d4a39" stroke="#0f2f24" stroke-width="2"/>
+        <g transform="translate(100,573)"><rect x="0" y="0" width="16" height="14" rx="1.5" fill="#cfeee2"/><path d="M3 4 h10 M3 7 h10 M3 10 h6" stroke="#5a9e86" stroke-width="1.1"/></g>
+        <text x="163" y="586" text-anchor="middle" fill="#f4fbf7" font-size="11.5" font-weight="800">News stand</text>
+        <text x="150" y="601" text-anchor="middle" fill="#a9e2ce" font-size="8.5" font-weight="700">Today's headlines</text>
+        <rect x="250" y="560" width="120" height="7" rx="2.5" fill="#12362a"/>
+        <rect x="252" y="567" width="116" height="42" rx="6" fill="#1d4a39" stroke="#0f2f24" stroke-width="2"/>
+        <text x="310" y="587" text-anchor="middle" fill="#f4fbf7" font-size="13" font-weight="800">Tools</text>
+        <text x="310" y="601" text-anchor="middle" fill="#a9e2ce" font-size="8.5" font-weight="700">What can you afford?</text>
+        <rect x="850" y="560" width="120" height="7" rx="2.5" fill="#12362a"/>
+        <rect x="852" y="567" width="116" height="42" rx="6" fill="#337a64" stroke="#0f2f24" stroke-width="2"/>
+        <g transform="translate(859,573)"><rect x="0" y="0" width="19" height="14" rx="2" fill="#cfeee2"/><path d="M2 8 h15 M8 1 v12 M13 1 v12" stroke="#5a9e86" stroke-width="1.1" fill="none"/><circle cx="6" cy="5" r="1.5" fill="var(--warm)"/></g>
+        <text x="923" y="586" text-anchor="middle" fill="#f4fbf7" font-size="12.5" font-weight="800">Area guides</text>
+        <text x="910" y="600" text-anchor="middle" fill="#a9e2ce" font-size="8.5" font-weight="700">56 areas</text>
+      </g>
+      <!-- ===== living landmarks: always-on-top life cues (cafe + analytics) ===== -->
+      <g class="pw-landmarks">
+        <!-- Market Analysis banner (top layer, above the sunlight wash so it stays crisp like the cafe sign) -->
+        <g>
+          <rect x="686" y="299" width="106" height="33" rx="2" fill="#0a2018" opacity=".22"/>
+          <path d="M690 300 L679 314 L690 328 Z" fill="#0f2f24"/><path d="M784 300 L795 314 L784 328 Z" fill="#0f2f24"/>
+          <rect x="684" y="296" width="106" height="33" rx="2" fill="#1d4a39" stroke="#12362a" stroke-width="1"/>
+          <rect x="684" y="296" width="106" height="33" rx="2" fill="none" stroke="#7fd0bb" stroke-width="1" stroke-opacity=".4"/>
+          <g transform="translate(695,305)" fill="#7fd0bb"><rect x="0" y="9" width="3" height="6" rx=".5"/><rect x="4.5" y="5" width="3" height="10" rx=".5"/><rect x="9" y="1.5" width="3" height="13.5" rx=".5"/></g>
+          <text x="749" y="311" text-anchor="middle" fill="#eaf5ee" font-size="10" font-weight="800" letter-spacing=".04em">MARKET</text>
+          <text x="749" y="323.5" text-anchor="middle" fill="#eaf5ee" font-size="10" font-weight="800" letter-spacing=".04em">ANALYSIS</text>
+        </g>
+
+        <!-- Agents Lounge: warm spill + steaming bistro cup + open sign + chalkboard -->
+        <ellipse class="pw-breath" cx="866" cy="510" rx="66" ry="15" fill="url(#gWarmWin)" opacity=".6"/>
+
+        <!-- bistro table + steaming cup, tucked left of the cafe -->
+        <g>
+          <rect x="792" y="516" width="4" height="17" rx="1" fill="#5a3a22"/>
+          <ellipse cx="794" cy="516" rx="12" ry="3.5" fill="#6e4527"/>
+          <rect x="789" y="507" width="9" height="8" rx="1.5" fill="#fff6ea" stroke="#d8c3a3" stroke-width=".7"/>
+          <path d="M798 509 q4 1 4 4 q0 3 -4 3" fill="none" stroke="#d8c3a3" stroke-width="1"/>
+          <ellipse cx="793.5" cy="507" rx="4.6" ry="1.4" fill="#7a4a2a"/>
+          <g class="pw-steam" stroke-width="1.4">
+            <path class="s1" d="M791 505 q-3 -4 0 -8 q3 -4 0 -8"/>
+            <path class="s2" d="M794 505 q3 -4 0 -8 q-3 -4 0 -8"/>
+            <path class="s3" d="M797 505 q-2.5 -4 0 -8 q2.5 -4 0 -8"/>
+          </g>
+        </g>
+
+        <!-- upgraded cafe signboard: obvious + says OPEN -->
+        <g>
+          <rect x="802" y="450" width="128" height="4" rx="1" fill="#0a2018" opacity=".16"/>
+          <rect x="800" y="433" width="132" height="18" rx="2.5" fill="#1d4a39" stroke="#12362a" stroke-width="1"/>
+          <rect x="800" y="433" width="132" height="18" rx="2.5" fill="none" stroke="#7fd0bb" stroke-width="1" stroke-opacity=".35"/>
+          <g transform="translate(811,437)" stroke="#7fd0bb" stroke-width="1.1" fill="none" stroke-linejoin="round"><path d="M0 1.4 h8 v3.4 a4 4 0 0 1 -8 0 z"/><path d="M8 1.9 q3 0 3 2.3 q0 2.3 -3 2.3"/><path d="M2.2 -1.4 q1.8 -1 3.6 0" stroke-opacity=".65"/></g>
+          <text x="874" y="446" text-anchor="middle" fill="#eaf5ee" font-size="9.5" font-weight="800" letter-spacing=".03em">AGENTS LOUNGE</text>
+          <g><line x1="915" y1="451" x2="915" y2="456" stroke="#12362a" stroke-width="1"/><line x1="927" y1="451" x2="927" y2="456" stroke="#12362a" stroke-width="1"/><rect x="905" y="456" width="32" height="13" rx="6.5" fill="#c96f4a"/><circle class="pw-livedot" cx="912" cy="462.5" r="1.8" fill="#ffe0a2"/><text x="924" y="465" text-anchor="middle" fill="#fff6ea" font-size="7" font-weight="800" letter-spacing=".06em">OPEN</text></g>
+        </g>
+
+        <!-- A-frame chalkboard on the plaza -->
+        <g>
+          <ellipse cx="853" cy="534" rx="17" ry="3.5" fill="#0a2018" opacity=".12"/>
+          <path d="M841 532 l-4 6 M865 532 l4 6" stroke="#5a3a22" stroke-width="2.4" stroke-linecap="round"/>
+          <rect x="838" y="510" width="30" height="23" rx="1.5" fill="#26332c" stroke="#e9ddc7" stroke-width="1"/>
+          <text x="853" y="520" text-anchor="middle" fill="#7fd0bb" font-size="8" font-weight="800" letter-spacing=".04em">OPEN</text>
+          <text x="853" y="528" text-anchor="middle" fill="#e9ddc7" font-size="5.4" font-weight="600">Kopi's on</text>
+        </g>
+      </g>
+
+      <!-- Market Analysis office: reliable hit area above all decoration -->
+      <g class="portal" data-office="1" role="link" tabindex="0" aria-label="Market Analysis office">
+        <ellipse class="ring" cx="737" cy="484" rx="58" ry="10" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-dasharray="3 6"/>
+        <rect x="680" y="258" width="120" height="228" rx="4" fill="#000" opacity="0"/>
+      </g>
+      <!-- Agents Lounge cafe: reliable hit area (beside the Analysis tower) -->
+      <g class="portal" data-lounge="1" role="link" tabindex="0" aria-label="Agents Lounge cafe">
+        <ellipse class="ring" cx="866" cy="509" rx="66" ry="9" fill="none" stroke="#c96f4a" stroke-width="2.5" stroke-dasharray="3 6"/>
+        <rect x="798" y="418" width="136" height="94" fill="#000" opacity="0"/>
+      </g>
+    </svg>
+    <div id="pw-layer"></div>
+    </div></div>
+
+    <div class="pw-tod tint-golden"></div><div class="pw-tod tint-dusk"></div><div class="pw-tod tint-night"></div>
+    <div class="pw-swipe" id="pw-swipe" aria-hidden="true">
+      <div class="arrows"><svg class="a1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg><svg class="a2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></div>
+      <span class="hand"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11h.5V6.5a1.5 1.5 0 0 1 3 0V11h.5V8a1.5 1.5 0 0 1 3 0v6.5c0 3-2 5.5-5.5 5.5H12c-2 0-3-.8-4.2-2.3l-2.5-3.3a1.5 1.5 0 0 1 2.3-1.9L9 14.5V11z"/></svg></span>
+      <span class="lbl">Swipe to explore</span>
+    </div>
+
+
+    <div id="pw-panel">
+      <div class="ph"><div class="k" id="pw-pk">PropWorld</div><h3 id="pw-ph"></h3><button class="x" id="pw-px" aria-label="Close">&times;</button></div>
+      <div class="pb" id="pw-pb"></div>
+    </div>
+
+    <!-- Aillie in-world chat -->
+    <div id="pw-aillie">
+      <div class="ah">
+        <span class="aav"></span>
+        <div class="ahn"><b>Aillie</b><span id="pw-arole">PropSight's property guide</span></div>
+        <button class="x" id="pw-ax" aria-label="Close">&times;</button>
+      </div>
+      <div class="am" id="pw-amsgs"></div>
+      <div class="pw-achips" id="pw-achips"></div>
+      <div class="ain">
+        <input id="pw-ainput" type="text" autocomplete="off" placeholder="Ask about any home, area or your budget">
+        <button id="pw-asend" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
+      </div>
+    </div>
+
+    <!-- ===== Market Analysis office (interior) ===== -->
+    <div id="pw-office" aria-hidden="true">
+      <div id="pw-office-scroll" style="position:absolute;inset:0;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none">
+      <div id="pw-office-world" style="position:relative;height:100%;width:100%">
+      <svg id="pw-office-scene" viewBox="-120 0 1440 720" preserveAspectRatio="xMidYMax slice" role="img" aria-label="The Market Analysis office">
+        <defs>
+          <linearGradient id="oWall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dfeae3"/><stop offset="100%" stop-color="#cfe0d7"/></linearGradient>
+          <linearGradient id="oWallWarm" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe9c8" stop-opacity=".5"/><stop offset="55%" stop-color="#ffe9c8" stop-opacity="0"/></linearGradient>
+          <linearGradient id="oFloor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d8c39c"/><stop offset="100%" stop-color="#c3a877"/></linearGradient>
+          <radialGradient id="treeG2" cx="42%" cy="34%" r="70%"><stop offset="0" stop-color="#7bab84"/><stop offset="100%" stop-color="#3f6f57"/></radialGradient>
+          <linearGradient id="oDeskTop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0e6d5"/><stop offset="100%" stop-color="#dcc9a8"/></linearGradient>
+          <linearGradient id="oScreen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#123b32"/><stop offset="100%" stop-color="#0c2a24"/></linearGradient>
+          <linearGradient id="oWin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bfe3e6"/><stop offset="60%" stop-color="#dff0ea"/><stop offset="100%" stop-color="#f2ecdd"/></linearGradient>
+          <radialGradient id="oLamp" cx="50%" cy="0%" r="80%"><stop offset="0" stop-color="#fff3d6" stop-opacity=".55"/><stop offset="70%" stop-color="#fff3d6" stop-opacity="0"/></radialGradient>
+          <radialGradient id="oSpot" cx="50%" cy="30%" r="60%"><stop offset="0" stop-color="#fffdf4" stop-opacity=".5"/><stop offset="100%" stop-color="#fffdf4" stop-opacity="0"/></radialGradient>
+          <radialGradient id="oGlow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#7fd0bb" stop-opacity=".24"/><stop offset="70%" stop-color="#7fd0bb" stop-opacity="0"/></radialGradient>
+          <linearGradient id="oCone" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe7bb" stop-opacity=".52"/><stop offset="100%" stop-color="#ffe7bb" stop-opacity="0"/></linearGradient>
+          <radialGradient id="oDeskGlow" cx="50%" cy="40%" r="60%"><stop offset="0" stop-color="#ffdd9e" stop-opacity=".5"/><stop offset="100%" stop-color="#ffdd9e" stop-opacity="0"/></radialGradient>
+        </defs>
+
+        <!-- walls + warm wash -->
+        <rect x="-120" y="0" width="1440" height="486" fill="url(#oWall)"/>
+        <rect x="-120" y="0" width="1440" height="486" fill="url(#oWallWarm)"/>
+        <rect x="-120" y="470" width="1440" height="250" fill="url(#oFloor)"/>
+        <!-- floor boards + skirting + soft rug -->
+        <g stroke="#b49a6a" stroke-opacity=".35" stroke-width="1.4"><line x1="0" y1="470" x2="1200" y2="470"/><line x1="120" y1="470" x2="60" y2="720"/><line x1="360" y1="470" x2="330" y2="720"/><line x1="600" y1="470" x2="600" y2="720"/><line x1="840" y1="470" x2="870" y2="720"/><line x1="1080" y1="470" x2="1140" y2="720"/></g>
+        <rect x="-120" y="470" width="1440" height="8" fill="#b79b6b" opacity=".6"/>
+        <ellipse cx="600" cy="646" rx="360" ry="60" fill="#e7d3b0" opacity=".55"/><ellipse cx="600" cy="646" rx="300" ry="46" fill="none" stroke="#cbb488" stroke-width="3" opacity=".5"/>
+        <!-- ceiling pendant lights -->
+        <g stroke="#9fb1a8" stroke-width="2"><line x1="600" y1="0" x2="600" y2="46"/><line x1="300" y1="0" x2="300" y2="34"/><line x1="900" y1="0" x2="900" y2="34"/></g>
+        <g fill="#2c4a3e"><rect x="560" y="44" width="80" height="10" rx="4"/><rect x="276" y="32" width="48" height="8" rx="3"/><rect x="876" y="32" width="48" height="8" rx="3"/></g>
+        <ellipse cx="600" cy="70" rx="120" ry="30" fill="url(#oLamp)"/>
+        <!-- warm downlight cones fanning to the floor (the "lights are on" wash) -->
+        <g><path d="M566 52 H634 L724 486 H476 Z" fill="url(#oCone)"/><path d="M282 40 H318 L372 486 H228 Z" fill="url(#oCone)"/><path d="M882 40 H918 L972 486 H828 Z" fill="url(#oCone)"/></g>
+        <g opacity=".8"><ellipse cx="300" cy="486" rx="86" ry="16" fill="url(#oDeskGlow)"/><ellipse cx="900" cy="486" rx="86" ry="16" fill="url(#oDeskGlow)"/></g>
+
+        <!-- PINBOARD (station: hot) -->
+        <g class="ostation" data-station="hot" data-label="Hot right now" role="link" tabindex="0" aria-label="Hot right now">
+          <rect class="oring" x="106" y="150" width="240" height="196" rx="10" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-dasharray="4 6"/>
+          <rect class="ohit" x="116" y="160" width="220" height="176" rx="6" fill="#c9a978" stroke="#a8875a" stroke-width="4"/>
+          <rect x="124" y="168" width="204" height="160" rx="3" fill="#d8c19a"/>
+          <rect x="140" y="150" width="156" height="20" rx="4" fill="#215a48"/><text x="218" y="164" text-anchor="middle" fill="#eaf5ee" font-size="11" font-weight="800" letter-spacing=".06em">HOT RIGHT NOW</text>
+          <g transform="rotate(-3 175 210)"><rect x="140" y="188" width="150" height="42" rx="3" fill="#fff" stroke="#e2d6bd"/><rect x="148" y="196" width="44" height="6" rx="2" fill="var(--warm)"/><rect x="148" y="208" width="120" height="5" rx="2" fill="#c9d3cc"/><rect x="148" y="217" width="96" height="5" rx="2" fill="#d6ded7"/></g>
+          <g transform="rotate(2 175 262)"><rect x="150" y="244" width="150" height="42" rx="3" fill="#fff" stroke="#e2d6bd"/><rect x="158" y="252" width="52" height="6" rx="2" fill="var(--teal2)"/><rect x="158" y="264" width="120" height="5" rx="2" fill="#c9d3cc"/><rect x="158" y="273" width="88" height="5" rx="2" fill="#d6ded7"/></g>
+          <circle cx="164" cy="192" r="4" fill="#c0492e"/><circle cx="286" cy="196" r="4" fill="#2f9a8f"/><circle cx="176" cy="248" r="4" fill="#e0b64a"/>
+        </g>
+
+        <!-- BIG SCREEN (station: board) -->
+        <g class="ostation" data-station="board" data-label="The month in one line" role="link" tabindex="0" aria-label="The month in one line">
+          <rect class="oring" x="410" y="112" width="380" height="246" rx="14" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-dasharray="4 6"/>
+          <rect x="470" y="352" width="260" height="12" rx="3" fill="#2c4a3e"/>
+          <ellipse cx="600" cy="240" rx="238" ry="188" fill="url(#oGlow)"/>
+          <rect class="ohit" x="420" y="122" width="360" height="226" rx="10" fill="url(#oScreen)" stroke="#0a231d" stroke-width="4"/>
+          <rect x="432" y="134" width="336" height="202" rx="6" fill="#0e332b"/>
+          <text x="448" y="164" fill="#8fe0c8" font-size="13" font-weight="800" letter-spacing=".12em">MARKET ANALYSIS</text>
+          <g><rect x="662" y="150" width="104" height="20" rx="10" fill="#0a2620" stroke="#2f7a82" stroke-width="1"/><circle cx="676" cy="160" r="3.5" fill="#7fd4a0"/><text x="686" y="164" fill="#a9e2ce" font-size="9" font-weight="800" letter-spacing=".05em">LIVE · 24/7</text></g>
+          <text x="448" y="184" fill="#cfeee2" font-size="10.5" font-weight="700" id="oa-boardmo">This month</text>
+          <!-- chart grid + self-drawing line -->
+          <g stroke="#1f5145" stroke-width="1"><line x1="448" y1="306" x2="752" y2="306"/><line x1="448" y1="258" x2="752" y2="258"/><line x1="448" y1="210" x2="752" y2="210"/></g>
+          <polyline class="oa-chartline" points="448,302 484,306 520,289 556,296 592,270 628,279 664,248 700,238 736,213" fill="none" stroke="#7fd0bb" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="736" cy="213" r="4.5" fill="#7fd0bb"/>
+          <rect x="448" y="315" width="304" height="15" rx="3" fill="#123b32"/><text x="456" y="326" fill="#a9e2ce" font-size="9.5" font-weight="700" id="oa-boardsub">Private resale, month by month</text>
+        </g>
+
+        <!-- framed painting on the wall (a Mondrian, instantly familiar) -->
+        <g>
+          <rect x="854" y="132" width="242" height="228" rx="4" fill="#38291a"/>
+          <rect x="861" y="139" width="228" height="214" rx="2" fill="#5c4832"/>
+          <rect x="861" y="139" width="228" height="15" rx="2" fill="#715c45"/>
+          <rect x="866" y="144" width="218" height="204" fill="#453422"/>
+          <rect x="872" y="150" width="206" height="192" fill="#efe6cf"/>
+          <clipPath id="oArt"><rect x="882" y="160" width="186" height="172"/></clipPath>
+          <g clip-path="url(#oArt)">
+            <rect x="882" y="160" width="186" height="172" fill="#f4f1e6"/>
+            <rect x="938" y="160" width="130" height="69" fill="#c73f2e"/>
+            <rect x="882" y="292" width="49" height="40" fill="#2b5a8c"/>
+            <rect x="1016" y="292" width="52" height="40" fill="#e3ba3c"/>
+            <g fill="#1c1c1a"><rect x="931" y="160" width="7" height="172"/><rect x="931" y="229" width="137" height="7"/><rect x="882" y="285" width="186" height="7"/><rect x="1009" y="285" width="7" height="47"/></g>
+          </g>
+          <rect x="882" y="160" width="186" height="172" fill="none" stroke="#2a2018" stroke-width="1.5"/>
+          <rect x="947" y="345" width="56" height="8" rx="1.5" fill="#2a1f14"/><text x="975" y="350.6" text-anchor="middle" fill="#cdb37e" font-size="6" font-weight="700" letter-spacing=".08em">MONDRIAN</text>
+        </g>
+        <!-- plant beside the data wall -->
+        <g><rect x="1102" y="308" width="32" height="40" rx="4" fill="#c8956a"/><path d="M1118 308 q-26 -40 -6 -68 q9 24 22 28 q-6 -28 12 -42 q6 32 20 40 q17 -13 28 -6 q-24 8 -28 32 q-22 -8 -36 8 z" fill="url(#treeG2)"/></g>
+
+        <!-- wall clock -->
+        <g><circle cx="1130" cy="150" r="20" fill="#f4ede0" stroke="#c9b48f" stroke-width="3"/><circle cx="1130" cy="150" r="2" fill="#2c4a3e"/><line x1="1130" y1="150" x2="1130" y2="136" stroke="#2c4a3e" stroke-width="2" stroke-linecap="round"/><line x1="1130" y1="150" x2="1140" y2="154" stroke="#2c4a3e" stroke-width="2" stroke-linecap="round"/></g>
+        <!-- floating shelves above the desks (books, framed charts, plant, award) -->
+        <g>
+          <rect x="356" y="418" width="182" height="7" rx="2" fill="#b58f5f"/><rect x="356" y="425" width="182" height="3" fill="#0a2018" opacity=".12"/>
+          <g><rect x="368" y="396" width="9" height="22" fill="#3f6f57"/><rect x="378" y="392" width="9" height="26" fill="#c96f4a"/><rect x="388" y="398" width="9" height="20" fill="#2f7a82"/><rect x="398" y="394" width="9" height="24" fill="#4a6fb0"/></g>
+          <g transform="translate(424,394)"><rect x="0" y="0" width="34" height="24" rx="2" fill="#fff" stroke="#d8c9ad"/><polyline points="4,19 12,12 18,15 28,6" fill="none" stroke="#2f9a8f" stroke-width="1.6"/></g>
+          <g transform="translate(486,398)"><path d="M8 20 q-10 -14 0 -22 q10 8 0 22z" fill="#3f6f57"/><rect x="4" y="20" width="8" height="6" fill="#b98f5e"/></g>
+          <rect x="648" y="420" width="182" height="7" rx="2" fill="#b58f5f"/><rect x="648" y="427" width="182" height="3" fill="#0a2018" opacity=".12"/>
+          <g><rect x="664" y="398" width="9" height="22" fill="#b0603f"/><rect x="674" y="394" width="9" height="26" fill="#2f9a8f"/><rect x="684" y="400" width="9" height="20" fill="#4a6fb0"/></g>
+          <g transform="translate(706,396)"><rect x="0" y="0" width="34" height="24" rx="2" fill="#fff" stroke="#d8c9ad"/><g fill="#2f9a8f"><rect x="5" y="15" width="5" height="7"/><rect x="13" y="10" width="5" height="12"/><rect x="21" y="17" width="5" height="5"/></g></g>
+          <g transform="translate(792,398)"><path d="M0 7 a8 8 0 1 1 16 0 q0 8 -8 10 q-8 -2 -8 -10z" fill="#e0b64a"/><rect x="6" y="19" width="4" height="6" fill="#c99a3a"/><rect x="1" y="25" width="14" height="3" rx="1" fill="#c99a3a"/></g>
+        </g>
+
+        <!-- WEI desk + monitor (station: prices) -->
+        <g class="ostation" data-station="prices" data-label="Prices, with Wei" role="link" tabindex="0" aria-label="Prices, with Wei">
+          <ellipse class="oring" cx="452" cy="592" rx="130" ry="20" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-dasharray="4 6"/>
+          <rect x="352" y="500" width="206" height="16" rx="3" fill="url(#oDeskTop)"/>
+          <rect class="ohit" x="356" y="516" width="198" height="76" rx="4" fill="#b98f5e"/>
+          <rect x="356" y="516" width="198" height="76" rx="4" fill="url(#oScreen)" opacity="0"/>
+          <rect x="356" y="516" width="30" height="76" fill="#0a2018" opacity=".12"/>
+          <rect x="372" y="588" width="166" height="6" rx="3" fill="#9c7546"/>
+          <!-- monitor showing a price line -->
+          <rect x="386" y="452" width="88" height="56" rx="4" fill="#0e332b" stroke="#0a231d" stroke-width="2"/>
+          <polyline points="394,494 410,488 426,492 442,478 458,470 466,466" fill="none" stroke="#7fd0bb" stroke-width="2" stroke-linecap="round"/>
+          <rect x="424" y="508" width="12" height="10" fill="#2c4a3e"/><rect x="410" y="516" width="40" height="5" rx="2" fill="#2c4a3e"/>
+          <!-- papers + coffee -->
+          <rect x="486" y="498" width="40" height="20" rx="1.5" fill="#fff" stroke="#e2d6bd" transform="rotate(6 506 508)"/>
+          <rect x="500" y="494" width="12" height="14" rx="1.5" fill="#e7f1ec" stroke="#bcd3c9"/>
+          <rect x="392" y="546" width="128" height="19" rx="3" fill="#123b32"/><text x="456" y="559" text-anchor="middle" fill="#cfeee2" font-size="9.5" font-weight="800" letter-spacing=".04em">WEI · PRICES</text>
+        </g>
+
+        <!-- HANA desk + monitor (station: rental) -->
+        <g class="ostation" data-station="rental" data-label="Rents &amp; yield, with Hana" role="link" tabindex="0" aria-label="Rents and yield, with Hana">
+          <ellipse class="oring" cx="748" cy="596" rx="130" ry="20" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-dasharray="4 6"/>
+          <rect x="648" y="502" width="206" height="16" rx="3" fill="url(#oDeskTop)"/>
+          <rect class="ohit" x="652" y="518" width="198" height="78" rx="4" fill="#b98f5e"/>
+          <rect x="652" y="518" width="30" height="78" fill="#0a2018" opacity=".12"/>
+          <rect x="668" y="590" width="166" height="6" rx="3" fill="#9c7546"/>
+          <!-- monitor showing yield bars -->
+          <rect x="726" y="454" width="88" height="56" rx="4" fill="#0e332b" stroke="#0a231d" stroke-width="2"/>
+          <g fill="#7fd0bb"><rect x="736" y="486" width="12" height="18"/><rect x="754" y="478" width="12" height="26"/><rect x="772" y="490" width="12" height="14"/><rect x="790" y="472" width="12" height="32"/></g>
+          <rect x="764" y="510" width="12" height="10" fill="#2c4a3e"/><rect x="750" y="518" width="40" height="5" rx="2" fill="#2c4a3e"/>
+          <rect x="662" y="500" width="34" height="18" rx="1.5" fill="#fff" stroke="#e2d6bd" transform="rotate(-5 679 509)"/>
+          <rect x="686" y="548" width="130" height="19" rx="3" fill="#123b32"/><text x="751" y="561" text-anchor="middle" fill="#cfeee2" font-size="9.5" font-weight="800" letter-spacing=".04em">HANA · RENTS</text>
+        </g>
+
+
+        <!-- water cooler (fills the left corner) -->
+        <g>
+          <rect x="172" y="588" width="46" height="74" rx="4" fill="#e4ede8" stroke="#c1d4cb" stroke-width="2"/>
+          <rect x="178" y="556" width="34" height="36" rx="5" fill="#bfe0df"/><rect x="180" y="576" width="30" height="16" rx="2" fill="#a3d3d2"/>
+          <path d="M186 556 h22 l-3 -7 h-16z" fill="#9cc6c5"/>
+          <rect x="184" y="620" width="22" height="12" rx="3" fill="#9fbdb5"/><rect x="190" y="632" width="10" height="6" fill="#7fd0bb"/>
+        </g>
+
+        <!-- REPORT stand (station: rack) -->
+        <g class="ostation" data-station="rack" data-label="Take the report" role="link" tabindex="0" aria-label="Take the full report">
+          <ellipse class="oring" cx="1024" cy="662" rx="86" ry="14" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-dasharray="4 6"/>
+          <rect class="ohit" x="962" y="556" width="124" height="106" rx="6" fill="#2c4a3e"/>
+          <rect x="962" y="556" width="20" height="106" fill="#0a2018" opacity=".16"/>
+          <g><rect x="978" y="572" width="42" height="56" rx="2" fill="#f4ede0" stroke="#d8c9ad"/><rect x="978" y="572" width="42" height="12" fill="var(--teal)"/><rect x="984" y="592" width="30" height="4" rx="1.5" fill="#c9d3cc"/><rect x="984" y="600" width="24" height="4" rx="1.5" fill="#d6ded7"/></g>
+          <g><rect x="1028" y="578" width="42" height="50" rx="2" fill="#eef6f1" stroke="#d1e0d7"/><rect x="1028" y="578" width="42" height="11" fill="#163a2d"/><rect x="1034" y="596" width="30" height="4" rx="1.5" fill="#c9d3cc"/></g>
+          <text x="1024" y="650" text-anchor="middle" fill="#eaf5ee" font-size="10" font-weight="800">Take the report</text>
+        </g>
+
+        <!-- corner plant + spotlights on floor -->
+        <g><rect x="66" y="600" width="40" height="46" rx="4" fill="#c8956a"/><path d="M86 600 q-30 -46 -8 -78 q10 26 26 30 q-6 -30 12 -46 q6 34 22 44 q18 -14 30 -6 q-26 8 -30 34 q-24 -8 -40 8 q0 12 -4 18 z" fill="url(#treeG2)"/></g>
+        <ellipse cx="452" cy="600" rx="150" ry="26" fill="url(#oSpot)"/><ellipse cx="748" cy="604" rx="150" ry="26" fill="url(#oSpot)"/>
+        <ellipse cx="455" cy="510" rx="90" ry="18" fill="url(#oDeskGlow)"/><ellipse cx="751" cy="512" rx="90" ry="18" fill="url(#oDeskGlow)"/>
+      </svg>
+      <div id="pw-office-layer"></div>
+      </div></div>
+
+      <div class="oa-top">
+        <button class="oa-back" id="oa-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg><span id="oa-backlbl">PropWorld</span></button>
+        <div class="oa-title"><b>Market Analysis</b><span id="oa-sub">The office, in real time</span></div>
+        <a class="oa-read" id="oa-read" href="https://propsight.sg/market-analysis/" target="_blank" rel="noopener">Read the report <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="oa-toast" id="oa-toast"></div>
+      <div class="oa-persona" id="oa-persona">
+        <span class="cap" id="oa-pcap">I'm a</span>
+        <button class="oa-pchip on" data-persona="buyer">Buyer</button>
+        <button class="oa-pchip" data-persona="seller">Seller</button>
+        <button class="oa-pchip" data-persona="landlord">Landlord</button>
+        <button class="oa-pchip" data-persona="upgrader">Upgrader</button>
+      </div>
+    </div>
+
+    <!-- ===== Agents Lounge (cafe interior) ===== -->
+    <div id="pw-lounge" aria-hidden="true">
+      <div id="pw-lounge-scroll" style="position:absolute;inset:0;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none">
+      <div id="pw-lounge-world" style="position:relative;height:100%;width:100%">
+      <svg id="pw-lounge-scene" viewBox="-120 0 1440 720" preserveAspectRatio="xMidYMax slice" role="img" aria-label="The Agents Lounge cafe">
+        <defs>
+          <linearGradient id="lWall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e6d6ba"/><stop offset="100%" stop-color="#d6c09b"/></linearGradient>
+          <linearGradient id="lWallWarm" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe6bd" stop-opacity=".5"/><stop offset="55%" stop-color="#ffe6bd" stop-opacity="0"/></linearGradient>
+          <linearGradient id="lFloor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cba97a"/><stop offset="100%" stop-color="#b1905a"/></linearGradient>
+          <linearGradient id="lPanel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c39b69"/><stop offset="100%" stop-color="#a77f4e"/></linearGradient>
+          <linearGradient id="lCounter" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7c5030"/><stop offset="100%" stop-color="#5e3a22"/></linearGradient>
+          <linearGradient id="lCounterTop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a06f45"/><stop offset="100%" stop-color="#7e5230"/></linearGradient>
+          <linearGradient id="lWin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd79a"/><stop offset="55%" stop-color="#ffe6bf"/><stop offset="100%" stop-color="#ffdca8"/></linearGradient>
+          <linearGradient id="lwDay" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a6d3e6"/><stop offset="58%" stop-color="#cfe8ea"/><stop offset="100%" stop-color="#e7f1e7"/></linearGradient>
+          <linearGradient id="lwGolden" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffbc6e"/><stop offset="52%" stop-color="#ffd7a0"/><stop offset="100%" stop-color="#ffe9c8"/></linearGradient>
+          <linearGradient id="lwDusk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#544a8e"/><stop offset="50%" stop-color="#9a6f9e"/><stop offset="100%" stop-color="#d3a08c"/></linearGradient>
+          <linearGradient id="lwNight" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#141d46"/><stop offset="60%" stop-color="#243158"/><stop offset="100%" stop-color="#36436e"/></linearGradient>
+          <radialGradient id="lGlow" cx="50%" cy="30%" r="70%"><stop offset="0" stop-color="#ffdf9e" stop-opacity=".6"/><stop offset="70%" stop-color="#ffdf9e" stop-opacity="0"/></radialGradient>
+          <radialGradient id="lSpot" cx="50%" cy="30%" r="60%"><stop offset="0" stop-color="#fff4dd" stop-opacity=".5"/><stop offset="100%" stop-color="#fff4dd" stop-opacity="0"/></radialGradient>
+          <radialGradient id="lTree" cx="42%" cy="34%" r="70%"><stop offset="0" stop-color="#7bab84"/><stop offset="100%" stop-color="#3f6f57"/></radialGradient>
+        </defs>
+        <!-- walls + wainscot + warm wash -->
+        <rect x="-120" y="0" width="1440" height="486" fill="url(#lWall)"/>
+        <rect x="-120" y="0" width="1440" height="486" fill="url(#lWallWarm)"/>
+        <rect x="-120" y="372" width="1440" height="114" fill="url(#lPanel)"/>
+        <rect x="-120" y="368" width="1440" height="6" fill="#8f6b40"/>
+        <g stroke="#8f6b40" stroke-opacity=".4" stroke-width="1.4"><line x1="150" y1="374" x2="150" y2="480"/><line x1="330" y1="374" x2="330" y2="480"/><line x1="520" y1="374" x2="520" y2="480"/><line x1="720" y1="374" x2="720" y2="480"/><line x1="920" y1="374" x2="920" y2="480"/><line x1="1090" y1="374" x2="1090" y2="480"/></g>
+        <!-- floor -->
+        <rect x="-120" y="480" width="1440" height="240" fill="url(#lFloor)"/>
+        <g stroke="#9a7748" stroke-opacity=".3" stroke-width="1.4"><line x1="0" y1="480" x2="1200" y2="480"/><line x1="140" y1="480" x2="80" y2="720"/><line x1="380" y1="480" x2="350" y2="720"/><line x1="620" y1="480" x2="620" y2="720"/><line x1="860" y1="480" x2="890" y2="720"/><line x1="1100" y1="480" x2="1160" y2="720"/></g>
+        <rect x="-120" y="480" width="1440" height="7" fill="#8f6b40" opacity=".6"/>
+        <ellipse cx="620" cy="654" rx="400" ry="60" fill="#b98f5e" opacity=".38"/><ellipse cx="620" cy="654" rx="340" ry="48" fill="none" stroke="#9c7442" stroke-width="3" opacity=".4"/><ellipse cx="620" cy="654" rx="300" ry="42" fill="#c7a877" opacity=".3"/>
+        <!-- pendant Edison bulbs + warm glow -->
+        <g stroke="#3a2c1c" stroke-width="1.6"><line x1="300" y1="0" x2="300" y2="112"/><line x1="900" y1="0" x2="900" y2="112"/></g>
+        <g><ellipse cx="300" cy="150" rx="86" ry="58" fill="url(#lGlow)"/><ellipse cx="600" cy="150" rx="80" ry="54" fill="url(#lGlow)"/><ellipse cx="900" cy="150" rx="86" ry="58" fill="url(#lGlow)"/></g>
+        <g fill="#ffcf7a" stroke="#c99a3a" stroke-width="1.4"><path d="M291 112 q9 -9 18 0 q0 21 -9 27 q-9 -6 -9 -27z"/><path d="M891 112 q9 -9 18 0 q0 21 -9 27 q-9 -6 -9 -27z"/></g>
+        <g stroke="#fff2cf" stroke-width="1.4" opacity=".8"><path d="M300 118 v14"/><path d="M900 118 v14"/></g>
+        <!-- ceiling fan (kopitiam) -->
+        <g class="lfan"><line x1="600" y1="0" x2="600" y2="42" stroke="#5a4632" stroke-width="2.5"/><circle cx="600" cy="43" r="3.5" fill="#5a4632"/>
+          <g class="lfan-b" style="transform-origin:600px 50px"><ellipse cx="600" cy="50" rx="40" ry="9" fill="#8a6a45"/><ellipse cx="600" cy="50" rx="9" ry="30" fill="#8a6a45"/><circle cx="600" cy="50" r="7" fill="#4a3826"/></g>
+        </g>
+        <!-- AGENTS LOUNGE wall board (carries the invitation) -->
+        <g>
+          <rect x="446" y="86" width="308" height="76" rx="9" fill="#5e3a22" stroke="#3a2313" stroke-width="3"/>
+          <rect x="454" y="94" width="292" height="60" rx="5" fill="#6e4527"/>
+          <rect x="454" y="94" width="292" height="60" rx="5" fill="none" stroke="#c9a877" stroke-width="1" opacity=".4"/>
+          <text x="600" y="120" text-anchor="middle" fill="#f4dfbc" font-size="22" font-weight="800" letter-spacing=".12em">AGENTS LOUNGE</text>
+          <line x1="548" y1="130" x2="652" y2="130" stroke="#c9a877" stroke-width="1" opacity=".5"/>
+          <text x="600" y="146" text-anchor="middle" fill="#ecce9f" font-size="10.5" font-weight="700" letter-spacing=".05em">Talk to our property experts</text>
+        </g>
+        <!-- framed wall art -->
+        <g>
+          <rect x="452" y="188" width="118" height="108" rx="4" fill="#5e3a22"/><rect x="458" y="194" width="106" height="96" fill="#efe6d4"/>
+          <circle cx="511" cy="242" r="32" fill="#c98a4a"/><circle cx="511" cy="242" r="32" fill="none" stroke="#a86a2e" stroke-width="2"/>
+          <path d="M511 224 q13 18 0 36 q-6 -11 0 -18 q-6 -7 0 -18z" fill="#efe0c6"/><path d="M498 232 q9 5 13 9 M524 232 q-9 5 -13 9" stroke="#efe0c6" stroke-width="2" fill="none"/>
+        </g>
+        <!-- propsight.sg AD poster (framed, taps through to propsight.sg) -->
+        <g class="lstation" data-lounge-ad="1" role="link" tabindex="0" aria-label="Advertisement: propsight.sg">
+          <rect x="618" y="180" width="154" height="172" rx="5" fill="#5e3a22"/>
+          <rect x="625" y="187" width="140" height="158" rx="3" fill="#43301f"/>
+          <rect x="631" y="193" width="128" height="146" rx="2" fill="#1b3a2d"/>
+          <rect x="721" y="198" width="30" height="14" rx="7" fill="#7fd0bb"/><text x="736" y="208" text-anchor="middle" fill="#0f231a" font-size="8" font-weight="800" letter-spacing=".08em">AD</text>
+          <g transform="translate(641,215)"><circle cx="9" cy="9" r="8.5" fill="none" stroke="#7fd0bb" stroke-width="2"/><path d="M4.5 11 L9 7.5 L13.5 11" fill="none" stroke="#7fd0bb" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 12.6 h6" stroke="#7fd0bb" stroke-width="1.5" stroke-linecap="round"/><path d="M15 15 L19 19" stroke="#2f9a8f" stroke-width="2.2" stroke-linecap="round"/></g>
+          <text x="664" y="231" fill="#eef6f1" font-size="13" font-weight="800" letter-spacing="-.01em">PropSight</text>
+          <text x="643" y="252" fill="#cfeae0" font-size="9.5" font-weight="600">Estimate any home.</text>
+          <text x="643" y="264" fill="#cfeae0" font-size="9.5" font-weight="600">Read the market.</text>
+          <text x="643" y="276" fill="#cfeae0" font-size="9.5" font-weight="600">Free, no sign-up.</text>
+          <rect x="643" y="286" width="104" height="21" rx="6" fill="#fff"/><text x="651" y="300" fill="#5c7268" font-size="9" font-weight="600">Estimated value</text><rect x="725" y="290" width="14" height="13" rx="4" fill="#0f7a82"/><path d="M729.5 296.5 h5 M732 293.5 l2.5 3 -2.5 3" stroke="#fff" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="643" y="313" width="104" height="18" rx="9" fill="#7fd0bb"/><text x="695" y="325.5" text-anchor="middle" fill="#0f231a" font-size="10" font-weight="800" letter-spacing=".02em">propsight.sg</text>
+        </g>
+        <!-- chalkboard menu -->
+        <g>
+          <rect x="108" y="176" width="248" height="188" rx="6" fill="#4a3826"/>
+          <rect x="116" y="184" width="232" height="172" rx="3" fill="#2c3a30"/>
+          <text x="130" y="212" fill="#f4efe0" font-size="16" font-weight="800" font-style="italic">Today</text>
+          <g font-size="11.5" font-weight="600"><text x="130" y="240" fill="#dfe6da">Flat White</text><text x="336" y="240" text-anchor="end" fill="#a9c8b6">4.5</text><text x="130" y="266" fill="#dfe6da">Kopi O</text><text x="336" y="266" text-anchor="end" fill="#a9c8b6">1.8</text><text x="130" y="292" fill="#dfe6da">Cold Brew</text><text x="336" y="292" text-anchor="end" fill="#a9c8b6">5.0</text><text x="130" y="318" fill="#dfe6da">Teh Tarik</text><text x="336" y="318" text-anchor="end" fill="#a9c8b6">2.2</text></g>
+          <path d="M128 332 q46 7 118 0" stroke="#8fe0c8" stroke-width="1.5" fill="none" opacity=".55"/>
+        </g>
+        <!-- wall shelf: cups, plant, jars -->
+        <g>
+          <rect x="796" y="242" width="226" height="7" rx="2" fill="#8f6b40"/>
+          <g fill="#d8c19a" stroke="#bca574" stroke-width="1"><path d="M812 222 h18 v14 a9 3 0 0 1 -18 0z"/><path d="M836 224 h16 v12 a8 3 0 0 1 -16 0z"/><path d="M858 222 h18 v14 a9 3 0 0 1 -18 0z"/></g>
+          <g transform="translate(902,212)"><rect x="0" y="16" width="20" height="14" rx="2" fill="#b98f5e"/><path d="M10 16 q-15 -22 0 -32 q15 10 0 32z" fill="url(#lTree)"/></g>
+          <g fill="#cbb48f"><rect x="962" y="224" width="12" height="16" rx="2"/><rect x="980" y="220" width="12" height="20" rx="2"/><rect x="998" y="226" width="12" height="14" rx="2"/></g>
+        </g>
+        <!-- warm cafe window -->
+        <g>
+          <rect x="828" y="150" width="252" height="222" rx="8" fill="#8a6a45"/>
+          <clipPath id="lwClip"><rect x="836" y="158" width="236" height="206" rx="4"/></clipPath>
+          <g clip-path="url(#lwClip)">
+            <rect id="lw-sky" x="836" y="158" width="236" height="206" fill="url(#lwDay)"/>
+            <g id="lw-stars" style="display:none" fill="#fbfdff"><circle cx="872" cy="182" r="1.3"/><circle cx="924" cy="174" r="1"/><circle cx="1002" cy="186" r="1.2"/><circle cx="948" cy="198" r="1"/><circle cx="1046" cy="176" r="1.1"/><circle cx="892" cy="206" r="1"/><circle cx="982" cy="172" r="1"/></g>
+            <circle id="lw-sun" cx="1014" cy="202" r="20" fill="#fff0c0"/>
+            <g id="lw-moon" style="display:none"><circle cx="1016" cy="198" r="15" fill="#eef2f8"/><circle cx="1010" cy="192" r="4" fill="#d7dfe8"/><circle cx="1022" cy="203" r="3" fill="#d7dfe8"/></g>
+            <g id="lw-skyline" fill="#284843" opacity=".6">
+              <circle cx="872" cy="322" r="24" fill="none" stroke="#284843" stroke-width="3"/>
+              <g stroke="#284843" stroke-width="1.6"><line x1="872" y1="298" x2="872" y2="346"/><line x1="848" y1="322" x2="896" y2="322"/><line x1="855" y1="305" x2="889" y2="339"/><line x1="889" y1="305" x2="855" y2="339"/></g>
+              <path d="M864 346 l8 -24 l8 24 z"/>
+              <rect x="916" y="300" width="22" height="64"/><rect x="944" y="316" width="18" height="48"/><rect x="1044" y="308" width="22" height="56"/>
+              <rect x="972" y="338" width="70" height="5"/><rect x="980" y="343" width="4" height="18"/><rect x="1030" y="343" width="4" height="18"/><rect x="986" y="326" width="42" height="12" rx="3"/>
+            </g>
+            <g id="lw-litwin" style="display:none" fill="#ffdf9e"><rect x="921" y="308" width="5" height="6"/><rect x="929" y="322" width="5" height="6"/><rect x="1048" y="316" width="5" height="6"/><rect x="1056" y="330" width="5" height="6"/><rect x="994" y="329" width="5" height="5"/></g>
+            <g id="lw-lamps" style="display:none"><circle cx="958" cy="360" r="7" fill="#ffdf9e" opacity=".45"/><circle cx="1012" cy="360" r="7" fill="#ffdf9e" opacity=".45"/><circle cx="958" cy="359" r="1.8" fill="#ffe6a8"/><circle cx="1012" cy="359" r="1.8" fill="#ffe6a8"/></g>
+          </g>
+          <rect x="828" y="150" width="252" height="222" rx="8" fill="none" stroke="#7a5a38" stroke-width="4"/>
+          <line x1="954" y1="158" x2="954" y2="364" stroke="#7a5a38" stroke-width="4"/><line x1="836" y1="262" x2="1072" y2="262" stroke="#7a5a38" stroke-width="4"/>
+          <rect x="820" y="368" width="268" height="10" rx="3" fill="#9c7a50"/>
+          <g transform="translate(1030,344)"><rect x="0" y="14" width="26" height="16" rx="2" fill="#c8956a"/><path d="M13 14 q-20 -26 0 -40 q20 14 0 40z" fill="url(#lTree)"/></g>
+        </g>
+        <!-- barista behind the counter (drawn before the counter so it hides his lower half) -->
+        <g class="lstation" data-lounge-barista="1" role="link" tabindex="0" aria-label="Adam the barista">
+          <rect x="304" y="382" width="52" height="60" fill="#000" opacity="0"/>
+          <path d="M310 430 q20 -15 40 0 v30 h-40z" fill="#7a5a3a"/>
+          <rect x="322" y="417" width="16" height="15" fill="#e0b48a"/>
+          <circle cx="330" cy="404" r="15" fill="#e0b48a"/>
+          <path d="M315 400 q15 -16 30 0 q1 -12 -15 -12 q-16 0 -15 12z" fill="#2a1f14"/>
+          <path d="M316 398 q14 -8 28 0 l2 -5 q-16 -6 -32 0z" fill="#27513f"/><rect x="314" y="395.5" width="32" height="3.5" rx="1.5" fill="#27513f"/>
+          <circle cx="325" cy="405" r="1.6" fill="#2a1f14"/><circle cx="335" cy="405" r="1.6" fill="#2a1f14"/><path d="M326 411 q4 3 8 0" stroke="#a06a4a" stroke-width="1.3" fill="none"/>
+        </g>
+        <!-- counter + espresso machine + cups + pastry case -->
+        <g>
+          <rect x="78" y="430" width="392" height="14" rx="4" fill="url(#lCounterTop)"/>
+          <rect x="82" y="444" width="384" height="140" rx="3" fill="url(#lCounter)"/>
+          <g stroke="#4a2e1a" stroke-width="2" opacity=".45"><line x1="160" y1="450" x2="160" y2="584"/><line x1="248" y1="450" x2="248" y2="584"/><line x1="336" y1="450" x2="336" y2="584"/><line x1="424" y1="450" x2="424" y2="584"/></g>
+          <g><rect x="150" y="386" width="98" height="46" rx="5" fill="#3a2c26"/><rect x="156" y="392" width="86" height="20" rx="3" fill="#5a4a42"/><rect x="156" y="380" width="86" height="8" rx="3" fill="#6a5a50"/><circle cx="172" cy="402" r="4" fill="#c99a3a"/><circle cx="190" cy="402" r="4" fill="#7fd0bb"/><rect x="198" y="416" width="26" height="6" rx="2" fill="#2a1f18"/><rect x="206" y="422" width="10" height="9" fill="#2a1f18"/><path d="M234 394 q16 6 13 26" stroke="#8a7a70" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+          <g fill="#efe6d4" stroke="#cbb48f" stroke-width="1"><ellipse cx="286" cy="424" rx="12" ry="4"/><ellipse cx="286" cy="418" rx="12" ry="4"/><ellipse cx="310" cy="426" rx="12" ry="4"/></g>
+          <g><rect x="336" y="440" width="120" height="42" rx="4" fill="#cfe3e0" opacity=".45" stroke="#a9c8c6" stroke-width="1.5"/><g fill="#c98a4a"><ellipse cx="362" cy="472" rx="10" ry="6"/><ellipse cx="388" cy="472" rx="9" ry="6"/><ellipse cx="414" cy="472" rx="10" ry="6"/></g></g>
+        </g>
+        <!-- TABLE A: the example agent -->
+        <g class="lstation" data-lounge-agent="0" role="link" tabindex="0" aria-label="Agent, Serena Lim">
+          <ellipse class="lring" cx="694" cy="648" rx="126" ry="20" fill="none" stroke="#b8703f" stroke-width="2.5" stroke-dasharray="4 6"/>
+          <g fill="#6e4527"><rect x="742" y="562" width="8" height="80"/><rect x="742" y="524" width="8" height="42" rx="4"/><rect x="726" y="558" width="40" height="8" rx="3"/></g>
+          <rect x="693" y="562" width="14" height="72" fill="#5e3a22"/><ellipse cx="700" cy="634" rx="34" ry="9" fill="#4a2e1a"/>
+          <ellipse cx="700" cy="562" rx="72" ry="18" fill="#8a5a38"/><ellipse cx="700" cy="559" rx="72" ry="18" fill="#9c6b42"/>
+          <g><path d="M662 552 h18 v3 a9 4 0 0 1 -18 0z" fill="#efe6d4"/><ellipse cx="671" cy="552" rx="9" ry="3" fill="#d7c9a8"/><path d="M680 553 q7 1 6 6" stroke="#cbb48f" stroke-width="1.4" fill="none"/></g>
+          <g transform="translate(712,542)"><rect x="0" y="0" width="34" height="22" rx="2.5" fill="#2a2a28"/><rect x="2.5" y="2.5" width="29" height="17" rx="1.5" fill="#0e332b"/><rect x="6" y="6" width="16" height="2.4" rx="1" fill="#7fd0bb"/></g>
+        </g>
+        <!-- empty cafe table (decor) -->
+        <g>
+          <g fill="#6e4527"><rect x="864" y="562" width="8" height="80"/><rect x="864" y="524" width="8" height="42" rx="4"/><rect x="848" y="558" width="40" height="8" rx="3"/></g>
+          <rect x="905" y="562" width="14" height="72" fill="#5e3a22"/><ellipse cx="912" cy="634" rx="32" ry="8" fill="#4a2e1a"/>
+          <ellipse cx="912" cy="562" rx="66" ry="16" fill="#8a5a38"/><ellipse cx="912" cy="559" rx="66" ry="16" fill="#9c6b42"/>
+          <g><path d="M898 553 h16 v3 a8 3.5 0 0 1 -16 0z" fill="#efe6d4"/><ellipse cx="906" cy="553" rx="8" ry="3" fill="#8a5a38"/><path d="M914 554 q6 1 5 6" stroke="#cbb48f" stroke-width="1.3" fill="none"/></g>
+        </g>
+        <!-- wall + shelf deco (fills the widened room) -->
+        <g>
+          <rect x="-92" y="248" width="80" height="72" rx="3" fill="#5e3a22"/><rect x="-86" y="254" width="68" height="60" fill="#efe6d4"/>
+          <circle cx="-52" cy="284" r="21" fill="#c98a4a"/><path d="M-52 268 q10 15 0 30 q-4 -9 0 -15 q-4 -6 0 -15z" fill="#efe0c6"/>
+          <rect x="1218" y="208" width="96" height="88" rx="3" fill="#5e3a22"/><rect x="1224" y="214" width="84" height="76" fill="#f0e6d0"/>
+          <g fill="#c07a46"><rect x="1230" y="248" width="16" height="42"/><rect x="1248" y="242" width="16" height="48"/><rect x="1266" y="250" width="16" height="40"/><rect x="1284" y="244" width="16" height="46"/></g>
+          <g fill="#f0e6d0"><rect x="1233" y="256" width="5" height="6"/><rect x="1251" y="252" width="5" height="6"/><rect x="1287" y="254" width="5" height="6"/></g>
+          <rect x="1216" y="392" width="94" height="268" rx="4" fill="#5e3a22"/><rect x="1222" y="398" width="82" height="256" fill="#6e4527"/>
+          <g fill="#4a2e1a"><rect x="1222" y="452" width="82" height="6"/><rect x="1222" y="520" width="82" height="6"/><rect x="1222" y="588" width="82" height="6"/></g>
+          <g transform="translate(1230,410)"><rect x="0" y="20" width="18" height="16" rx="2" fill="#b98f5e"/><path d="M9 20 q-13 -20 0 -30 q13 10 0 30z" fill="url(#lTree)"/></g>
+          <g fill="#c9a877"><rect x="1264" y="418" width="10" height="30" rx="1"/><rect x="1276" y="416" width="10" height="32" rx="1"/><rect x="1288" y="420" width="8" height="28" rx="1"/></g>
+          <g fill="#d8c19a" stroke="#bca574" stroke-width="1"><path d="M1230 476 h16 v13 a8 3 0 0 1 -16 0z"/><path d="M1252 478 h14 v11 a7 3 0 0 1 -14 0z"/><path d="M1274 476 h16 v13 a8 3 0 0 1 -16 0z"/></g>
+          <g fill="#8a5a38"><path d="M1230 548 h18 l-2 40 h-14z"/><path d="M1254 546 h18 l-2 42 h-14z"/><path d="M1278 550 h16 l-2 38 h-12z"/></g>
+          <rect x="256" y="402" width="188" height="4" rx="2" fill="#5e4632"/>
+          <g fill="#cfe3e0" stroke="#a9c8c6" stroke-width="1"><path d="M274 406 h12 v10 a6 3 0 0 1 -12 0z"/><path d="M310 406 h12 v10 a6 3 0 0 1 -12 0z"/><path d="M346 406 h12 v10 a6 3 0 0 1 -12 0z"/><path d="M382 406 h12 v10 a6 3 0 0 1 -12 0z"/></g>
+          <rect x="-96" y="600" width="76" height="60" rx="3" fill="#6e4527"/><rect x="-92" y="604" width="68" height="52" fill="#5e3a22"/>
+          <g transform="rotate(-4 -58 590)"><rect x="-88" y="572" width="50" height="30" rx="1" fill="#e8dcc4"/><rect x="-84" y="576" width="20" height="4" fill="#c07a46"/><rect x="-84" y="584" width="38" height="3" fill="#c9bfa8"/></g>
+          <g transform="rotate(3 -58 590)"><rect x="-82" y="584" width="50" height="30" rx="1" fill="#dfe6da"/><rect x="-78" y="588" width="24" height="4" fill="#2f9a8f"/></g>
+        </g>
+        <!-- corner plant + floor light pools -->
+        <g><rect x="52" y="600" width="40" height="48" rx="4" fill="#c8956a"/><path d="M72 600 q-30 -50 -6 -80 q10 26 26 30 q-6 -30 12 -46 q6 34 22 44 q18 -14 30 -6 q-26 8 -30 34 q-24 -8 -40 8 z" fill="url(#lTree)"/></g>
+        <!-- TABLE C (cozy, occupied look) -->
+        <g>
+          <g fill="#6e4527"><rect x="1096" y="560" width="8" height="80"/><rect x="1096" y="522" width="8" height="42" rx="4"/><rect x="1080" y="556" width="40" height="8" rx="3"/></g>
+          <rect x="1049" y="560" width="14" height="74" fill="#5e3a22"/><ellipse cx="1056" cy="636" rx="34" ry="9" fill="#4a2e1a"/>
+          <ellipse cx="1056" cy="560" rx="70" ry="17" fill="#8a5a38"/><ellipse cx="1056" cy="557" rx="70" ry="17" fill="#9c6b42"/>
+          <g><path d="M1024 550 h16 v3 a8 3.5 0 0 1 -16 0z" fill="#efe6d4"/><ellipse cx="1032" cy="550" rx="8" ry="3" fill="#8a5a38"/><path d="M1040 551 q6 1 5 6" stroke="#cbb48f" stroke-width="1.3" fill="none"/></g>
+          <g transform="rotate(-6 1075 552)"><rect x="1058" y="544" width="34" height="20" rx="1.5" fill="#efe6d4"/><g stroke="#c9bfa8" stroke-width="1"><line x1="1062" y1="550" x2="1088" y2="550"/><line x1="1062" y1="555" x2="1088" y2="555"/><line x1="1062" y1="559" x2="1078" y2="559"/></g></g>
+        </g>
+        <ellipse cx="300" cy="600" rx="140" ry="24" fill="url(#lSpot)"/><ellipse cx="700" cy="642" rx="150" ry="26" fill="url(#lSpot)"/>
+      </svg>
+      <div id="pw-lounge-layer"></div>
+      </div></div>
+      <div class="la-top">
+        <button class="la-back" id="la-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg><span>PropWorld</span></button>
+        <div class="la-title"><b>Agents Lounge</b><span>Meet Singapore's agents over coffee</span></div>
+        <button class="la-feature" id="la-feature" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>Feature your avatar or ad</button>
+      </div>
+    </div>
+
+    <!-- agent press card -->
+    <div id="pw-card" aria-hidden="true">
+      <div class="pc-card" role="dialog" aria-modal="true">
+        <div class="pc-top">
+          <button class="pc-x" id="pc-x" aria-label="Close">&times;</button>
+          <span class="pc-ribbon" id="pc-ribbon">Featured</span>
+          <div class="pc-mono" id="pc-mono">S</div>
+          <div class="pc-name" id="pc-name"></div>
+          <div class="pc-agency" id="pc-agency"></div>
+          <div class="pc-cea"><span>CEA Reg.</span><b id="pc-cea"></b><span class="ex" id="pc-ceaex"></span></div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-lbl">Expertise</div>
+          <div class="pc-tags" id="pc-tags"></div>
+          <p class="pc-note" id="pc-note"></p>
+          <div class="pc-actions" id="pc-actions"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- contact card (feature your avatar or ad) -->
+    <div id="pw-contact" aria-hidden="true">
+      <div class="ct-card" role="dialog" aria-modal="true">
+        <button class="ct-x" id="ct-x" aria-label="Close">&times;</button>
+        <div class="ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 8l9 6 9-6"/></svg></div>
+        <div class="ct-h">Feature in the Agents Lounge</div>
+        <p class="ct-p">Put your agent avatar or an advert in the cafe. Get in touch and we'll set you up.</p>
+        <a class="ct-btn ct-email" href="mailto:propsightsg@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 8l9 6 9-6"/></svg>propsightsg@gmail.com</a>
+        <a class="ct-btn ct-wa" href="https://wa.me/6583219747" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.6-6c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2a.5.5 0 0 0 0-.5c0-.1-.5-1.3-.7-1.8s-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3A2.8 2.8 0 0 0 6.4 8.9a5 5 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c2 .8 2 .5 2.4.5a2.4 2.4 0 0 0 1.6-1.1 2 2 0 0 0 .1-1.1c-.1-.1-.3-.2-.5-.3z"/></svg>WhatsApp us</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pw-ways" id="pw-ways">
+  <span class="cap">Explore PropSight:</span>
+  <a href="https://listings.propsight.sg/browse.html?deal=sale"><span class="dot"></span>Homes for sale</a>
+  <a href="https://listings.propsight.sg/browse.html?deal=rent"><span class="dot"></span>Rentals</a>
+  <a href="https://propsight.sg/news/" target="_blank" rel="noopener"><span class="dot"></span>News</a>
+  <a href="https://propsight.sg/#tools" target="_blank" rel="noopener"><span class="dot"></span>Tools</a>
+  <a href="https://propsight.sg/research/" target="_blank" rel="noopener"><span class="dot"></span>Research</a>
+  <a href="https://propsight.sg/areaguides/"><span class="dot"></span>Area guides</a>
+  <a href="https://listings.propsight.sg/agent-signup.html"><span class="dot"></span>List your property</a>
+  <a href="https://t.me/propsightsg" target="_blank" rel="noopener"><span class="dot"></span>Telegram</a>
+</div>
+<div class="pw-hint"><b>Tap a resident</b> for today's news and market moves, <b>tap Aillie</b> to ask anything, or <b>tap a signboard</b> to head into that part of PropSight.</div>
+<script>
+(function(){
+"use strict";
+var LANG='en';
+var STAGE=document.getElementById('pw-stage'), LAYER=document.getElementById('pw-layer'), SVGEL=document.getElementById('pw-scene');
+var SCROLL=document.getElementById('pw-scroll'), WORLD=document.getElementById('pw-world');
+var SCENE_AR=1200/720;
+
+/* cast: 3 narrators + Aillie the guide, feet placed in SVG coords */
+var CAST=[
+  {id:'mei',    name:'Mei',    role:'Reporter',           role_zh:'记者',       color:'#c96f4a', hair:'#20160f', skin:'#d9a878', hairstyle:'short', prop:'press',   sp:[404,628], scale:0.78},
+  {id:'analyst',name:'Priya',  role:'Market analyst',     role_zh:'市场分析师', color:'#4a6fb0', hair:'#1a1410', skin:'#c98f63', hairstyle:'short', prop:'glasses', sp:[524,650], scale:0.9},
+  {id:'buyer',  name:'Rachel', role:'Home buyer',         role_zh:'购房者',     color:'#2f9a8f', hair:'#3a2a1a', skin:'#e6b98f', hairstyle:'bun',   prop:'tote',    sp:[644,690], scale:1.06},
+  {id:'aillie', name:'Aillie', role:"PropSight's guide",  role_zh:'PropSight 向导', color:'#a4508b', hair:'#241019', skin:'#e8bd97', hairstyle:'long', prop:null, sp:[762,662], scale:0.98, star:true}
+];
+
+function avatarSVG(c){
+  var hs=c.hairstyle||'short';
+  var longBack=hs==='long'?'<path d="M-9 -33 C-15 -18 -14 -5 -10 -1 L-6.5 -4 C-9 -17 -8 -26 -6.5 -33 Z" fill="'+c.hair+'"/><path d="M9 -33 C15 -18 14 -5 10 -1 L6.5 -4 C9 -17 8 -26 6.5 -33 Z" fill="'+c.hair+'"/>':'';
+  var cap=c.prop==='cap'?'<path d="M-11 -33 q11 -9 22 0 l2 -4 q-13 -8 -26 0 z" fill="'+c.color+'"/><rect x="-13" y="-34" width="14" height="3" rx="1.5" fill="'+c.color+'"/>':'';
+  var topHair=c.prop==='cap'?'':'<path d="M-10.5 -33 q10.5 -13 21 0 q1 -12 -10.5 -12 q-11.5 0 -10.5 12z" fill="'+c.hair+'"/>';
+  var bun=hs==='bun'?'<circle cx="0" cy="-37.4" r="4.2" fill="'+c.hair+'"/>':'';
+  var accent=c.star?'<path d="M2.5 -35 q6 -2.5 8.5 2.5" stroke="#efc9de" stroke-width="1.3" fill="none" stroke-linecap="round"/>':'';
+  var blush=c.star?'<circle cx="-4.6" cy="-24.6" r="1.6" fill="#e7a1c0" opacity=".5"/><circle cx="4.6" cy="-24.6" r="1.6" fill="#e7a1c0" opacity=".5"/>':'';
+  var glasses=c.prop==='glasses'?'<g stroke="#2a2a2a" stroke-width="1.4" fill="none"><circle cx="-4.5" cy="-28" r="3.2"/><circle cx="4.5" cy="-28" r="3.2"/><path d="M-1.3 -28 h2.6 M-7.7 -29 l-3 -1 M7.7 -29 l3 -1"/></g>':'';
+  var press=c.prop==='press'?'<line x1="-3.5" y1="-19" x2="-2" y2="-8" stroke="#2a2a2a" stroke-width="1"/><line x1="3.5" y1="-19" x2="2" y2="-8" stroke="#2a2a2a" stroke-width="1"/><rect x="-4" y="-8" width="8" height="6" rx="1" fill="#fff" stroke="#2a2a2a" stroke-width="0.6"/><rect x="-3" y="-6.6" width="6" height="1.5" fill="'+c.color+'"/>':'';
+  var tote=c.prop==='tote'?'<rect x="10" y="3" width="9" height="10" rx="1.5" fill="#e6c98e" stroke="#b89a5a" stroke-width="0.8"/><path d="M12 3 q2.5 -4 5 0" fill="none" stroke="#b89a5a" stroke-width="1"/>':'';
+  var tablet=c.prop==='tablet'?'<rect x="7" y="-8" width="12" height="16" rx="2" transform="rotate(-16 13 0)" fill="#0c211a" stroke="#7fd0bb" stroke-width="1"/>':'';
+  var eyeR=c.star?1.35:1.15;
+  var spark=c.star?'<circle cx="-2.7" cy="-27.1" r="0.5" fill="#fff"/><circle cx="3.7" cy="-27.1" r="0.5" fill="#fff"/>':'';
+  var smile=c.star?'<path d="M-3 -22 q3 2.9 6 0" stroke="#cd7280" stroke-width="1.1" fill="none" stroke-linecap="round"/>'
+                  :'<path d="M-2.6 -22.2 q2.6 2.2 5.2 0" stroke="#9a6a55" stroke-width="1" fill="none" stroke-linecap="round"/>';
+  var face='<circle cx="-3.2" cy="-26.6" r="'+eyeR+'" fill="#2a1c22"/><circle cx="3.2" cy="-26.6" r="'+eyeR+'" fill="#2a1c22"/>'+spark+smile;
+  return '<svg viewBox="-26 -50 52 72"><g class="idle">'+
+    '<rect x="-7" y="6" width="6" height="16" rx="2.5" fill="#3a4a44"/><rect x="1" y="6" width="6" height="16" rx="2.5" fill="#33423d"/>'+
+    longBack+
+    '<path class="body" d="M-11 -14 q11 -6 22 0 l3 20 q-14 6 -28 0 z" fill="'+c.color+'"/>'+
+    '<path d="M-11 -12 q-7 8 -6 18" stroke="'+c.color+'" stroke-width="5" fill="none" stroke-linecap="round"/>'+
+    '<path d="M11 -12 q7 8 6 18" stroke="'+c.color+'" stroke-width="5" fill="none" stroke-linecap="round"/>'+tablet+tote+press+
+    '<rect x="-3" y="-20" width="6" height="7" fill="'+c.skin+'"/><circle cx="0" cy="-27" r="9.5" fill="'+c.skin+'"/>'+
+    blush+topHair+bun+cap+accent+face+glasses+'</g></svg>';
+}
+
+/* projection: SVG user coords -> stage px (works with slice crop) */
+function project(x,y,svg){ svg=svg||SVGEL; var ctm=svg.getScreenCTM(); if(!ctm) return {x:0,y:0,s:1};
+  var p=svg.createSVGPoint(); p.x=x; p.y=y; var q=p.matrixTransform(ctm); var r=svg.getBoundingClientRect();
+  return {x:q.x-r.left, y:q.y-r.top, s:ctm.a}; }
+
+/* on mobile the world is wider than the viewport, so it scrolls horizontally */
+function layoutWorld(){
+  var mobile=window.innerWidth<=720;
+  if(mobile){
+    var w=Math.round(STAGE.clientHeight*SCENE_AR); WORLD.style.width=w+'px';
+    var scrollable=w>SCROLL.clientWidth+4;
+    STAGE.classList.toggle('pw-scrollable',scrollable);
+    if(scrollable && !SCROLL._centered){ SCROLL.scrollLeft=Math.round((w-SCROLL.clientWidth)*0.44); SCROLL._centered=1; SCROLL._baseLeft=SCROLL.scrollLeft; }
+  } else { WORLD.style.width='100%'; STAGE.classList.remove('pw-scrollable'); }
+}
+
+var POS={};
+function place(){
+  layoutWorld();
+  CAST.forEach(function(c){
+    var el=document.getElementById('char-'+c.id);
+    if(!el){ el=document.createElement('div'); el.className='pw-char'+(c.star?' pw-star':''); el.id='char-'+c.id;
+      el.innerHTML=(c.star?'<div class="pw-aura amb"></div>':'')+'<div class="pw-shadow"></div>'+avatarSVG(c)+(c.star?'<div class="pw-chatcue"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4V6a2 2 0 0 1 2-2z"/></svg></div>':'')+'<div class="pw-name'+(c.star?' a':'')+'">'+c.name+'</div>';
+      el.addEventListener('click', c.star?function(){ openAillie(); }:function(){ onChar(c); });
+      LAYER.appendChild(el); }
+    var p=project(c.sp[0],c.sp[1]);
+    var h=Math.max(38,80*p.s*(c.scale||1)), w=h*0.66;
+    el.style.height=h+'px'; el.style.width=w+'px'; el.style.left=p.x+'px'; el.style.top=p.y+'px';
+    el.style.zIndex=Math.round(c.sp[1]);   // lower in the scene = drawn in front
+    POS[c.id]={x:p.x,y:p.y,h:h};
+  });
+  repositionShown();
+}
+
+/* portals navigate into the site */
+Array.prototype.forEach.call(document.querySelectorAll('#pw-scene .portal'),function(g){
+  var go=function(){ if(g.getAttribute('data-office')){ openOffice(); return; } if(g.getAttribute('data-lounge')){ openLounge(); return; } var h=g.getAttribute('data-href'); if(!h) return; if(g.getAttribute('data-ext')) window.open(h,'_blank','noopener'); else location.href=h; };
+  g.addEventListener('click',go);
+  g.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); go(); } });
+});
+
+/* ---------- data ---------- */
+var DATA={news:[],towns:[],hot:[]};
+var NEWS_URLS=['https://adamdegoat.github.io/adam/data/news.json','https://propsight.sg/data/news.json'];
+function j(u){ return fetch(u,{cache:'no-store'}).then(function(r){ if(!r.ok) throw 0; return r.json(); }); }
+function jTry(list,i){ i=i||0; return j(list[i]).catch(function(){ if(i+1<list.length) return jTry(list,i+1); throw 0; }); }
+function money(n){ if(n>=1e6) return '$'+(n/1e6).toFixed(n%1e6===0?0:2)+'M'; if(n>=1000) return '$'+Math.round(n/1000)+'k'; return '$'+n; }
+function loadData(){
+  jTry(NEWS_URLS).then(function(d){ DATA.news=(d.items||[]).slice(0,8);
+    var lbl=document.getElementById('pw-livelbl'); if(lbl&&d.updated_label) lbl.textContent=d.updated_label;
+    buildTicker(); scheduleReset(); }).catch(function(){});
+  j('https://propsight.sg/caveat/data/pulse.json').then(function(d){ DATA.towns=d.hdb_towns||[]; DATA.hot=d.hot_projects||[]; buildTicker(); }).catch(function(){});
+}
+
+/* ticker removed - no-op kept so callers stay simple */
+function buildTicker(){
+  var track=document.getElementById('pw-track'); if(!track) return;
+  var items=[];
+  DATA.news.slice(0,5).forEach(function(n){ items.push('<span class="it">'+(LANG==='zh'?(n.headline_zh||n.headline):n.headline)+(n.stat?(' <span class="u">'+n.stat+'</span>'):'')+'</span>'); });
+  DATA.towns.filter(function(t){return Math.abs(t.trend)>=1;}).sort(function(a,b){return Math.abs(b.trend)-Math.abs(a.trend);}).slice(0,5).forEach(function(t){
+    var up=t.trend>=0; items.push('<span class="it">'+t.town+' resale <span class="'+(up?'u':'d')+'">'+(up?'+':'')+t.trend+'%</span></span>'); });
+  if(!items.length) return;
+  document.getElementById('pw-track').innerHTML=items.join('')+items.join('');
+}
+
+/* ---------- speech bubbles (collision-aware placement) ---------- */
+var bubEl={};
+function overlapArea(a,b){ var x=Math.max(0,Math.min(a.r,b.r)-Math.max(a.l,b.l)); var y=Math.max(0,Math.min(a.b,b.b)-Math.max(a.t,b.t)); return x*y; }
+/* obstacles from live DOM: signboards/banners, other residents, other visible bubbles */
+function obstacles(excl){
+  var arr=[], wr=WORLD.getBoundingClientRect(), add=function(r,wt){ arr.push({l:r.left-wr.left,t:r.top-wr.top,r:r.right-wr.left,b:r.bottom-wr.top,wt:wt}); };
+  document.querySelectorAll('#pw-scene .portal .signbg').forEach(function(s){ add(s.getBoundingClientRect(),11); });
+  CAST.forEach(function(c){ if(c.id===excl) return; var el=document.getElementById('char-'+c.id); if(el){ var r=el.getBoundingClientRect(); add({left:r.left+r.width*0.16, right:r.right-r.width*0.16, top:r.top, bottom:r.top+r.height*0.46}, 8); } });
+  Object.keys(bubEl).forEach(function(k){ if(k==='bub-'+excl) return; var bb=bubEl[k]; if(bb.classList.contains('show')) add(bb.getBoundingClientRect(),16); });
+  return arr;
+}
+function positionBubble(cid){
+  var b=bubEl['bub-'+cid], p=POS[cid]; if(!b||!p) return;
+  var sw=WORLD.clientWidth, sh=WORLD.clientHeight;
+  var bw=b.offsetWidth||200, bh=b.offsetHeight||70, headY=p.y-p.h;
+  var obst=obstacles(cid);
+  // 1) centre the bubble horizontally over its OWN character (clamped to the world)
+  var left=Math.round(p.x-bw/2); if(left<8) left=8; if(left+bw>sw-8) left=sw-8-bw;
+  // 2) lift straight up until it clears signs + other bubbles + other residents' heads
+  var lift=0, step=7, maxLift=170, botE=headY-14, topE, rect, o, clash;
+  for(lift=0; lift<=maxLift; lift+=step){
+    botE=headY-14-lift; topE=botE-bh;
+    if(topE<6){ lift-=step; botE=headY-14-lift; break; }
+    rect={l:left,t:topE,r:left+bw,b:botE}; clash=false;
+    for(o=0;o<obst.length;o++){ if(overlapArea(rect,obst[o])>6){ clash=true; break; } }
+    if(!clash) break;
+  }
+  b.style.left=left+'px'; b.style.bottom=(sh-botE)+'px';
+  // 3) the tail is a pointer that stretches from the bubble down to the character's head
+  var tail=b.querySelector('.tail');
+  if(tail){ var gap=Math.max(7,(p.y-p.h)-botE+9); tail.style.borderTopWidth=Math.min(gap,70)+'px';
+    tail.style.left=Math.min(Math.max(p.x-left-7,8),bw-22)+'px'; }
+}
+function bubble(c,html,onTap){
+  var id='bub-'+c.id, b=bubEl[id];
+  if(!b){ b=document.createElement('div'); b.className='pw-bub'+(c.star?' pw-bub-a':''); b.id=id; b.innerHTML='<div class="tail"></div><div class="inner"></div>'; LAYER.appendChild(b); bubEl[id]=b; }
+  b.querySelector('.inner').innerHTML=html; b.onclick=onTap||null; b.style.cursor=onTap?'pointer':'default';
+  var ch=document.getElementById('char-'+c.id); if(ch) ch.classList.add('talk');
+  positionBubble(c.id);
+  requestAnimationFrame(function(){ b.classList.add('show'); positionBubble(c.id); });
+}
+function hideBubble(id){ var b=bubEl['bub-'+id]; if(b) b.classList.remove('show'); var ch=document.getElementById('char-'+id); if(ch) ch.classList.remove('talk'); }
+function hideAll(){ CAST.forEach(function(c){ hideBubble(c.id); }); }
+function repositionShown(){ CAST.forEach(function(c){ var b=bubEl['bub-'+c.id]; if(b&&b.classList.contains('show')) positionBubble(c.id); }); }
+function byId(id){ for(var i=0;i<CAST.length;i++) if(CAST[i].id===id) return CAST[i]; }
+function arrow(t){ return '<span class="go">'+(t||'Tell me more')+' <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>'; }
+
+/* ---------- the day's chatter: staggered threads from real data ---------- */
+function zhOn(){ return LANG==='zh'; }
+function who(id,tag){ var c=byId(id); return '<div class="who">'+c.name+(tag?' <span class="tag">'+tag+'</span>':'')+'</div>'; }
+function clip(s,n){ s=s||''; if(s.length<=n) return s; return s.slice(0,n).replace(/\s+\S*$/,'')+'…'; }
+function newsLine(n){ var head=clip(zhOn()?(n.headline_zh||n.headline):n.headline, zhOn()?26:52); return who('mei',zhOn()?'新闻':'News')+head+(n.stat?' <b>'+n.stat+'</b>':''); }
+var RREACT={en:['So do I buy now, or wait?','Then maybe I look further out.','Do I even qualify for that loan?','Is my budget enough for there?','What does that do to my monthly?','Should I be looking east instead?'],
+            zh:['那我现在买，还是再等？','也许我该看远一点。','这样我贷款批得下来吗？','我的预算够那里吗？','这对我的月供有什么影响？','是不是该往东部看？']};
+function rachelReact(i){ var a=zhOn()?RREACT.zh:RREACT.en; return who('buyer','Buyer')+a[i%a.length]; }
+var AINV={en:['Tell me your budget, I\'ll show you where it fits.','Ask me what you can actually afford.','Want me to check if that area suits you?','I can run the numbers with you.'],
+          zh:['告诉我你的预算，我帮你看哪里合适。','问我你实际能负担多少。','要我看看那个区适不适合你吗？','我可以陪你算一算。']};
+function aillieInvite(i){ var a=zhOn()?AINV.zh:AINV.en; return who('aillie','Ask me')+a[i%a.length]+arrow(zhOn()?'开始':'Chat'); }
+function moverLine(m){ var up=m.trend>=0; return who('analyst','Market')+m.town+(zhOn()?' 组屋转售 ':' resale ')+'<b>'+(up?'+':'')+m.trend+'%</b>'+(zhOn()?'，中位约 ':', median ~')+money(m.median_price)+'.'; }
+function hotLine(h){ return who('analyst','Hot')+h.project+(zhOn()?' 很热，':' is busy - ')+h.txns+(zhOn()?' 宗成交，约 $':' sales at ~$')+h.median_psf+' psf.'; }
+
+function buildThreads(){
+  var news=DATA.news||[], towns=DATA.towns||[], hot=DATA.hot||[], ri=0;
+  var mover=towns.filter(function(t){return Math.abs(t.trend)>=1;}).sort(function(a,b){return Math.abs(b.trend)-Math.abs(a.trend);})[0];
+  // Mei/news beats and Priya/market beats built separately, then INTERLEAVED so Priya speaks early and recurs (not bunched at the end)
+  var newsT=[]; news.slice(1,4).forEach(function(n){
+    newsT.push([
+      {c:'mei', news:n, html:newsLine(n)},
+      {c:'buyer', action:openBuyerPanel, html:rachelReact(ri)},
+      {c:'aillie', action:openAillie, html:aillieInvite(ri++)}
+    ]);
+  });
+  var priyaT=[];
+  if(mover) priyaT.push([ {c:'analyst', html:moverLine(mover)}, {c:'buyer', action:openBuyerPanel, html:rachelReact(ri++)} ]);
+  if(hot[0]) priyaT.push([ {c:'analyst', html:hotLine(hot[0])}, {c:'aillie', action:openAillie, html:aillieInvite(ri++)} ]);
+  priyaT.push([ {c:'analyst', action:openOffice, html:who('analyst',zhOn()?'分析师':'Analyst')+(zhOn()?'进我们的办公室，我带你看看市场在做什么。':'Come into our office, I\'ll show you what the market is doing.')+arrow(zhOn()?'走进':'Step in')} ]);
+  var T=[ [
+    {c:'aillie', life:5200, action:openAillie, html:who('aillie','Guide')+(zhOn()?'欢迎来到 PropWorld。想弄清楚什么，尽管问我。':'Welcome to PropWorld. Whatever you\'re trying to work out, just ask me.')+arrow(zhOn()?'开始':'Chat')},
+    news[0]?{c:'mei', news:news[0], html:newsLine(news[0])}:null
+  ].filter(Boolean) ];
+  var maxL=Math.max(newsT.length, priyaT.length);
+  for(var i=0;i<maxL;i++){ if(newsT[i]) T.push(newsT[i]); if(priyaT[i]) T.push(priyaT[i]); }
+  return T;
+}
+var THREADS=[], tIx=0, threadTimer=null, hideTimers={};
+function scheduleReset(){ THREADS=buildThreads(); tIx=0; }
+function speak(line){ var c=byId(line.c); if(!c) return;
+  bubble(c, line.html, function(){ if(line.action) line.action(); else if(line.news) openNews(line.news); else if(c.star) openAillie(); else onChar(c); });
+  clearTimeout(hideTimers[c.id]); hideTimers[c.id]=setTimeout(function(){ hideBubble(c.id); }, line.life||5600);
+}
+function playThreads(){
+  if(document.hidden){ threadTimer=setTimeout(playThreads,2500); return; }
+  if(!THREADS.length){ threadTimer=setTimeout(playThreads,1200); return; }
+  var thread=THREADS[tIx%THREADS.length]; tIx++; var t=0;
+  thread.forEach(function(line){ setTimeout(function(){ if(!document.hidden) speak(line); }, t); t+=line.gap||1400; });
+  threadTimer=setTimeout(playThreads, t+1600);
+}
+
+/* ---------- info panel (tap a narrator / a news line) ---------- */
+var PANEL=document.getElementById('pw-panel');
+function panel(kicker,title,body){ var ap=document.getElementById('pw-aillie'); if(ap) ap.classList.remove('open'); document.documentElement.classList.remove('pw-lock'); fitAillie();
+  document.getElementById('pw-pk').textContent=kicker; document.getElementById('pw-ph').textContent=title; document.getElementById('pw-pb').innerHTML=body; PANEL.classList.add('open');
+  var a=document.querySelector('#pw-pb [data-aillie]'); if(a) a.onclick=function(e){ e.preventDefault(); PANEL.classList.remove('open'); openAillie(); }; }
+document.getElementById('pw-px').onclick=function(){ PANEL.classList.remove('open'); };
+/* each resident opens their own thing */
+function onChar(c){
+  if(c.id==='mei') return openNewsPanel();
+  if(c.id==='analyst') return openMarketPanel();
+  if(c.id==='buyer') return openBuyerPanel();
+  return openAillie();
+}
+/* Mei → today's news (a list), each headline opens the story, then out to the news page */
+function openNewsPanel(){
+  var items=(DATA.news||[]).slice(0,5), body='';
+  if(!items.length) body='<p>'+(zhOn()?'正在加载今日新闻…':'Loading today\'s headlines…')+'</p>';
+  items.forEach(function(n,i){ body+='<a class="lrow" href="#" data-ni="'+i+'"><span class="lt">'+n.tag+'</span><span class="lh">'+(zhOn()?(n.headline_zh||n.headline):n.headline)+'</span>'+(n.stat?' <b>'+n.stat+'</b>':'')+'</a>'; });
+  body+='<a class="cta" href="https://propsight.sg/news/" target="_blank" rel="noopener">'+(zhOn()?'查看全部新闻':'See all property news')+'</a>';
+  panel(zhOn()?'今日新闻':"Today's news", 'Mei · '+(zhOn()?'记者':'Reporter'), body);
+  document.querySelectorAll('#pw-pb [data-ni]').forEach(function(a){ a.onclick=function(e){ e.preventDefault(); openNews(DATA.news[+a.getAttribute('data-ni')]); }; });
+}
+function openNews(n){
+  var head=zhOn()?(n.headline_zh||n.headline):n.headline, sum=zhOn()?(n.summary_zh||n.summary):n.summary, mean=zhOn()?(n.meaning_zh||n.meaning):n.meaning;
+  var body='';
+  if(n.stat) body+='<div class="stat1"><div class="v">'+n.stat+'</div><div class="l">'+(zhOn()?(n.stat_label_zh||n.stat_label):n.stat_label)+'</div></div>';
+  body+='<p>'+sum+'</p>'+(mean?'<div class="mean">'+mean+'</div>':'');
+  body+='<a class="cta" href="'+(n.slug?('https://propsight.sg/news/'+n.slug+'.html'):(n.link||'https://propsight.sg/news/'))+'" target="_blank" rel="noopener">'+(zhOn()?'阅读全文':'Read the full story')+'</a>';
+  body+='<a class="cta cta2" href="https://propsight.sg/news/" target="_blank" rel="noopener">'+(zhOn()?'更多新闻':'More property news')+'</a>';
+  if(n.source) body+='<div class="src">'+(zhOn()?'来源：':'Source: ')+(n.link?('<a href="'+n.link+'" target="_blank" rel="noopener">'+n.source+'</a>'):n.source)+'</div>';
+  panel(n.tag||'News',head,body);
+}
+/* Priya → the market movers, out to Market Pulse */
+function openMarketPanel(){
+  var towns=(DATA.towns||[]).filter(function(t){return Math.abs(t.trend)>=0.5;}).sort(function(a,b){return Math.abs(b.trend)-Math.abs(a.trend);}).slice(0,5);
+  var body='<p>'+(zhOn()?'我是 Priya。隔壁就是我们的市场分析办公室，进来坐坐，我的团队带你看看现在市场在做什么。':'I\'m Priya. That is our Market Analysis office right next door. Step in and my team will walk you through where the market is at.')+'</p>';
+  if(towns.length){ body+='<div class="mkt">'; towns.forEach(function(t){ var up=t.trend>=0; body+='<div class="mrow"><span>'+t.town+'</span><span class="'+(up?'u':'d')+'">'+(up?'+':'')+t.trend+'%</span></div>'; }); body+='</div>'; }
+  body+='<a class="cta" data-office="1" href="#">'+(zhOn()?'走进办公室':'Step into the office')+'</a>';
+  body+='<a class="cta cta2" href="https://propsight.sg/market-analysis/" target="_blank" rel="noopener">'+(zhOn()?'阅读完整分析':'Read the full analysis')+'</a>';
+  panel(zhOn()?'市场分析':'Market Analysis','Priya · '+(zhOn()?'市场分析师':'Market analyst'), body);
+  var oc=document.querySelector('#pw-pb [data-office]'); if(oc) oc.onclick=function(e){ e.preventDefault(); PANEL.classList.remove('open'); openOffice(); };
+}
+/* Rachel → the buyer's next move: affordability tools + Aillie */
+function openBuyerPanel(){
+  var body='<p>'+(zhOn()?'在纠结现在买、再等，还是换个区？先看看你实际能负担多少。':'Weighing whether to buy now, wait, or look somewhere else? Start with what you can actually afford.')+'</p>';
+  body+='<a class="cta" href="https://propsight.sg/#tools" target="_blank" rel="noopener">'+(zhOn()?'我能负担多少？':'What can you afford?')+'</a>';
+  body+='<a class="cta cta2" href="#" data-aillie="1">'+(zhOn()?'问 Aillie':'Ask Aillie')+'</a>';
+  panel(zhOn()?'下一步':'Your next move','Rachel · '+(zhOn()?'购房者':'Home buyer'), body);
+}
+
+/* ---------- Aillie: in-world chat (same engine as propsight.sg) ---------- */
+var AILLIE_API='https://web-production-07326.up.railway.app/api/ask';
+var aHist=[], aSeeded=false;
+// Starter suggestions shown when the panel opens, so visitors are not staring at a blank box.
+// Tapping one sends it to Aillie (who replies + drops the matching tool button).
+var A_CHIPS_EN=["What can I afford?","Is now a good time to buy?","Rental yield of a condo?","What's my home worth?"];
+var A_CHIPS_ZH=["我能负担多少？","现在适合买吗？","公寓的租金回报率如何？","我的房子值多少钱？"];
+function aRenderChips(){ var c=document.getElementById('pw-achips'); if(!c) return; c.className='pw-achips'; c.innerHTML='';
+  (zhOn()?A_CHIPS_ZH:A_CHIPS_EN).forEach(function(q){ var b=document.createElement('button'); b.type='button'; b.textContent=q;
+    b.onclick=function(){ var inp=document.getElementById('pw-ainput'); if(inp) inp.value=q; var s=document.getElementById('pw-asend'); if(s) s.click(); }; c.appendChild(b); }); }
+function aHideChips(){ var c=document.getElementById('pw-achips'); if(c) c.classList.add('hide'); }
+function aEsc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function aRender(){ var m=document.getElementById('pw-amsgs'); if(!m) return;
+  m.innerHTML=aHist.filter(function(x){return !x._hide;}).map(function(x){ var h='<div class="amsg '+(x.role==='user'?'u':'a')+(x._load?' load':'')+'">'+aEsc(x.content)+'</div>'; if(x._tool&&x._tool.href) h+='<a class="pw-abtn" href="'+encodeURI(x._tool.href)+'" target="_blank" rel="noopener">'+aEsc(x._tool.label)+' &rarr;</a>'; return h; }).join('');
+  m.scrollTop=m.scrollHeight; }
+/* keep the chat glued to the VISIBLE area above the mobile keyboard, and freeze the page behind it */
+function fitAillie(){ var p=document.getElementById('pw-aillie'), vv=window.visualViewport; if(!p) return;
+  if(p.classList.contains('open')&&vv){ p.style.height=vv.height+'px'; p.style.top=(vv.offsetTop||0)+'px'; }
+  else { p.style.height=''; p.style.top=''; } }
+function closeAillie(){ var p=document.getElementById('pw-aillie'); if(p) p.classList.remove('open'); document.documentElement.classList.remove('pw-lock'); fitAillie(); }
+if(window.visualViewport){ window.visualViewport.addEventListener('resize',fitAillie); window.visualViewport.addEventListener('scroll',fitAillie); }
+function openAillie(){ PANEL.classList.remove('open'); var p=document.getElementById('pw-aillie'); p.classList.add('open');
+  document.documentElement.classList.add('pw-lock'); setTimeout(fitAillie,60);
+  if(!aSeeded){ aSeeded=true;
+    aHist=[{role:'user',_hide:true,content:"I'm exploring PropWorld, PropSight's Singapore property world. Answer concisely and factually about Singapore property, areas, prices and affordability; never invent listings, rules or numbers. For affordability use TDSR 55% of gross monthly income, a 4% stress rate, 25-year tenure and a 75% loan."},
+           {role:'assistant',content:(zhOn()?'你好，我是 Aillie。关于新加坡房产、地区、价格或你的预算，尽管问我。':'Hi, I\'m Aillie. Ask me anything about Singapore property, an area, prices, or what you can afford.')}];
+    aRender(); }
+  // show starter chips whenever the visitor has not asked anything yet (covers open, close, reopen)
+  if(aHist.some(function(x){return x.role==='user'&&!x._hide;})) aHideChips(); else aRenderChips();
+  setTimeout(function(){ var i=document.getElementById('pw-ainput'); if(i) i.focus(); },320); }
+function aSend(){ var inp=document.getElementById('pw-ainput'); if(!inp) return; var q=(inp.value||'').trim(); if(!q) return; inp.value=''; aHideChips();
+  var hist=aHist.filter(function(x){return !x._load;}).slice(-8);
+  aHist.push({role:'user',content:q}); aHist.push({role:'assistant',content:zhOn()?'思考中…':'Thinking…',_load:true}); aRender();
+  var s=document.getElementById('pw-asend'); if(s) s.disabled=true;
+  fetch(AILLIE_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q,history:hist,website:''})})
+    .then(function(r){ return r.json(); })
+    .then(function(d){ var reply=((d&&d.reply)||'').trim()||(zhOn()?'我暂时答不上来，请换个问法。':'Sorry, I could not answer that right now.'); aHist=aHist.filter(function(x){return !x._load;}); aHist.push({role:'assistant',content:reply,_tool:(d&&d.tool)||null}); aRender(); })
+    .catch(function(){ aHist=aHist.filter(function(x){return !x._load;}); aHist.push({role:'assistant',content:(zhOn()?'Aillie 暂时无法回应，请稍后再试。':'Aillie is unavailable right now. Please try again in a moment.')}); aRender(); })
+    .then(function(){ var b=document.getElementById('pw-asend'); if(b) b.disabled=false; var i=document.getElementById('pw-ainput'); if(i) i.focus(); });
+}
+
+/* time of day (SGT) */
+function applyTOD(){ STAGE.classList.remove('tod-golden','tod-dusk','tod-night');
+  var forced=(location.search.match(/[?&]tod=(golden|dusk|night|day)/)||[])[1];
+  if(forced){ if(forced!=='day') STAGE.classList.add('tod-'+forced); if(loungeOpen) setLoungeWindow(); return; }
+  var sg=(new Date().getUTCHours()+8)%24;
+  if(sg>=19||sg<6) STAGE.classList.add('tod-night'); else if(sg>=18) STAGE.classList.add('tod-dusk'); else if(sg>=17) STAGE.classList.add('tod-golden'); if(loungeOpen) setLoungeWindow(); }
+
+/* live Singapore clock (drives the sky) - sun by day, moon at night; text-only tick, pauses when hidden */
+var PW_SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4.1"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.4 5.4l1.7 1.7M16.9 16.9l1.7 1.7M18.6 5.4l-1.7 1.7M7.1 16.9l-1.7 1.7"/></svg>';
+var PW_MOON='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 15A8.2 8.2 0 0 1 9 4.2 7.3 7.3 0 1 0 20.5 15z"/></svg>';
+function tickClock(){ var t=document.getElementById('pw-clocktime'); if(!t||document.hidden) return;
+  var d=new Date(), sg=(d.getUTCHours()+8)%24, m=d.getUTCMinutes(), s=d.getUTCSeconds();
+  var ap=sg>=12?'PM':'AM', h=sg%12; if(h===0)h=12;
+  t.innerHTML=h+':'+('0'+m).slice(-2)+'<span class="ss">:'+('0'+s).slice(-2)+'</span> '+ap;
+  var ic=document.getElementById('pw-clockicon'), moon=(sg>=19||sg<6);
+  if(ic&&ic._m!==moon){ ic.innerHTML=moon?PW_MOON:PW_SUN; ic._m=moon; } }
+
+/* language */
+var _pwLang=document.getElementById('pw-lang'); if(_pwLang) _pwLang.onclick=function(){ LANG=(LANG==='en')?'zh':'en'; this.textContent=(LANG==='en')?'中文':'EN';
+  document.getElementById('pw-sub').textContent=LANG==='zh'?'走进一座会呼吸的新加坡小城。逛逛各区，听居民聊今天的房产新闻，从这里进入 PropSight 的每个角落。':'Step into a living Singapore town. Wander the estates, hear today\'s property news from the locals, and find your way into everything on PropSight.';
+  buildTicker(); scheduleReset(); };
+
+/* pause when hidden */
+var _stageVisible=true;
+function pauseCheck(){ STAGE.classList.toggle('pw-paused', document.hidden || !_stageVisible); }
+document.addEventListener('visibilitychange',pauseCheck);
+if(window.IntersectionObserver){ try{ new IntersectionObserver(function(es){ _stageVisible=es[0].isIntersecting; pauseCheck(); },{threshold:0}).observe(STAGE); }catch(e){} }
+
+/* ========================= Market Analysis office ========================= */
+var OSVG=document.getElementById('pw-office-scene'), OLAYER=document.getElementById('pw-office-layer'),
+    OSCROLL=document.getElementById('pw-office-scroll'), OWORLD=document.getElementById('pw-office-world');
+var OFFICE={}, OFFICE_PERSONA='buyer', officeOpen=false, currentStation=null, OPOS={}, oBub={}, oHideT={}, oThreadTimer=null, oIx=0;
+var OCAST=[
+  {id:'wei', name:'Wei',  station:'prices', color:'#3f6f9c', hair:'#141018', skin:'#caa079', hairstyle:'short', prop:'glasses', sp:[322,650], scale:1.0},
+  {id:'hana',name:'Hana', station:'rental', color:'#b0603f', hair:'#241812', skin:'#e2b48c', hairstyle:'bun',   prop:'tablet',  sp:[898,654], scale:1.02}
+];
+function byOId(id){ for(var i=0;i<OCAST.length;i++) if(OCAST[i].id===id) return OCAST[i]; }
+function layoutOffice(){
+  var mobile=window.innerWidth<=720;
+  // desktop: fit the whole room (never crop the chart on wide/short/ultrawide); mobile: fill width + scroll
+  if(OSVG) OSVG.setAttribute('preserveAspectRatio', mobile?'xMidYMax slice':'xMidYMid meet');
+  if(mobile){ var w=Math.round(STAGE.clientHeight*(OSVG.viewBox.baseVal.width/OSVG.viewBox.baseVal.height)); OWORLD.style.width=w+'px';
+    if(w>OSCROLL.clientWidth+4 && !OSCROLL._centered){ OSCROLL.scrollLeft=Math.round((w-OSCROLL.clientWidth)*0.5); OSCROLL._centered=1; }
+  } else { OWORLD.style.width='100%'; OSCROLL.scrollLeft=0; OSCROLL._centered=0; }
+}
+function placeOffice(){
+  layoutOffice();
+  OCAST.forEach(function(c){
+    var el=document.getElementById('ochar-'+c.id);
+    if(!el){ el=document.createElement('div'); el.className='pw-char'; el.id='ochar-'+c.id;
+      el.innerHTML='<div class="pw-shadow"></div>'+avatarSVG(c)+'<div class="pw-name">'+c.name+'</div>';
+      el.addEventListener('click',(function(cc){ return function(){ openStation(cc.station); }; })(c));
+      OLAYER.appendChild(el); }
+    var p=project(c.sp[0],c.sp[1],OSVG), h=Math.max(38,80*p.s*(c.scale||1)), w=h*0.66;
+    el.style.height=h+'px'; el.style.width=w+'px'; el.style.left=p.x+'px'; el.style.top=p.y+'px'; el.style.zIndex=Math.round(c.sp[1]);
+    OPOS[c.id]={x:p.x,y:p.y,h:h};
+  });
+  repositionOBubbles();
+}
+function positionOBubble(cid){
+  var b=oBub['obub-'+cid], p=OPOS[cid]; if(!b||!p) return;
+  var sw=OWORLD.clientWidth, sh=OWORLD.clientHeight, bw=b.offsetWidth||180, headY=p.y-p.h;
+  var left=Math.round(p.x-bw/2); if(left<8)left=8; if(left+bw>sw-8)left=sw-8-bw;
+  var botE=headY-14; b.style.left=left+'px'; b.style.bottom=(sh-botE)+'px';
+  var tail=b.querySelector('.tail'); if(tail) tail.style.left=Math.min(Math.max(p.x-left-7,8),bw-22)+'px';
+}
+function oBubble(c,html,onTap){
+  var id='obub-'+c.id, b=oBub[id];
+  if(!b){ b=document.createElement('div'); b.className='pw-bub'; b.id=id; b.innerHTML='<div class="tail"></div><div class="inner"></div>'; OLAYER.appendChild(b); oBub[id]=b; }
+  b.querySelector('.inner').innerHTML=html; b.onclick=onTap||null; b.style.cursor=onTap?'pointer':'default';
+  var ch=document.getElementById('ochar-'+c.id); if(ch) ch.classList.add('talk');
+  positionOBubble(c.id); requestAnimationFrame(function(){ b.classList.add('show'); positionOBubble(c.id); });
+}
+function hideOBubble(id){ var b=oBub['obub-'+id]; if(b) b.classList.remove('show'); var ch=document.getElementById('ochar-'+id); if(ch) ch.classList.remove('talk'); }
+function repositionOBubbles(){ OCAST.forEach(function(c){ var b=oBub['obub-'+c.id]; if(b&&b.classList.contains('show')) positionOBubble(c.id); }); }
+function oWho(c,tag){ return '<div class="who">'+c.name+(tag?' <span class="tag">'+tag+'</span>':'')+'</div>'; }
+function oThreads(){
+  var wei=OFFICE.wei||[], hana=OFFICE.hana||[], T=[], n=Math.max(wei.length,hana.length);
+  for(var i=0;i<n;i++){ var seq=[];
+    if(wei.length)  seq.push({c:'wei',  html:oWho(byOId('wei'),'Prices')+wei[i%wei.length],  st:'prices'});
+    if(hana.length) seq.push({c:'hana', html:oWho(byOId('hana'),'Rents')+hana[i%hana.length], st:'rental'});
+    if(seq.length) T.push(seq); }
+  if(!T.length) T.push([{c:'wei', html:oWho(byOId('wei'),'Prices')+'Pulling the latest numbers…', st:'prices'}]);
+  return T;
+}
+function playOThreads(){
+  if(!officeOpen){ oThreadTimer=null; return; }
+  if(document.hidden){ oThreadTimer=setTimeout(playOThreads,2000); return; }
+  var T=oThreads(), thread=T[oIx%T.length]; oIx++; var t=0;
+  thread.forEach(function(line){ setTimeout(function(){ if(!officeOpen) return; var cc=byOId(line.c);
+      oBubble(cc, line.html, function(){ openStation(line.st); });
+      clearTimeout(oHideT[line.c]); oHideT[line.c]=setTimeout(function(){ hideOBubble(line.c); },5200); }, t); t+=1500; });
+  oThreadTimer=setTimeout(playOThreads, t+2000);
+}
+function pcap(){ return OFFICE_PERSONA.charAt(0).toUpperCase()+OFFICE_PERSONA.slice(1); }
+function openStation(name){
+  if(name==='ask') return openAillie();
+  if(name==='rack') return openRack();
+  var s=(OFFICE.stations||{})[name]; if(!s){ if(!OFFICE._loaded){ OFFICE=officeFallback(); s=OFFICE.stations[name]; } if(!s) return; }
+  currentStation=name;
+  var per=OFFICE.persona||{}, take=per[OFFICE_PERSONA]||per.buyer||'', body='';
+  if(s.stat) body+='<div class="stat1"><div class="v">'+s.stat+'</div><div class="l">'+(s.label||'')+'</div></div>';
+  if(s.say)  body+='<p>'+s.say+'</p>';
+  if(name==='hot' && (OFFICE.hot||[]).length){ body+='<div class="mkt">'; OFFICE.hot.forEach(function(x){ body+='<div class="mrow"><span>'+x+'</span></div>'; }); body+='</div>'; }
+  if(take)   body+='<div class="mean"><b>If you\'re a '+pcap()+':</b> '+take+'</div>';
+  body+='<a class="cta" href="'+(OFFICE.url||'https://propsight.sg/market-analysis/')+'" target="_blank" rel="noopener">Read the full analysis</a>';
+  body+='<a class="cta cta2" href="#" data-aillie="1">Ask Aillie about this</a>';
+  panel(s.k||'Market Analysis', s.title||'', body);
+}
+function openRack(){ currentStation=null;
+  var body='<p>Take this month\'s analysis with you, or browse every past edition.</p>';
+  body+='<a class="cta" href="'+(OFFICE.url||'https://propsight.sg/market-analysis/')+'" target="_blank" rel="noopener">Open the '+(OFFICE.month||'latest')+' report</a>';
+  body+='<a class="cta cta2" href="'+(OFFICE.hub||'https://propsight.sg/market-analysis/')+'" target="_blank" rel="noopener">All editions</a>';
+  panel('Take the report','The Market Analysis', body);
+}
+function setPersona(p){ OFFICE_PERSONA=p;
+  var ch=document.querySelectorAll('.oa-pchip'); for(var i=0;i<ch.length;i++) ch[i].classList.toggle('on', ch[i].getAttribute('data-persona')===p);
+  if(PANEL.classList.contains('open') && currentStation){ openStation(currentStation); return; }
+  // no panel open: show the persona's takeaway as a toast so the toggle visibly does something
+  var t=document.getElementById('oa-toast'), take=((OFFICE.persona||{})[p]||'');
+  if(t){ t.innerHTML=take?('<b>As a '+pcap()+':</b> '+take):('<b>As a '+pcap()+'.</b> Tap a desk or the board to see what it means for you.');
+    t.classList.add('show'); clearTimeout(t._h); t._h=setTimeout(function(){ t.classList.remove('show'); },5600); }
+}
+function officeFallback(){
+  var towns=(DATA.towns||[]).slice().sort(function(a,b){return Math.abs(b.trend)-Math.abs(a.trend);}), up=towns[0]||{town:'the heartland',trend:0}, hot=DATA.hot||[];
+  return { month:'This month', url:'https://propsight.sg/market-analysis/', hub:'https://propsight.sg/market-analysis/', _loaded:true,
+    wei:['The suburbs are leading while prime cools. Tap me for where prices are moving.'],
+    hana:['HDB still pays the better rental yield. Tap me for the yield story.'],
+    persona:{buyer:'Look where momentum and value meet, and check what you can actually afford.',seller:'Price to the last real transaction, buyers are choosy.',landlord:'HDB pays the stronger cash yield right now.',upgrader:'Sell into strength, buy where prime has eased.'},
+    stations:{
+      board:{k:'The month in one line',title:'The market now',stat:up.town,label:'biggest mover '+(up.trend>0?'+':'')+up.trend+'%',say:'Where prices are moving right now.'},
+      prices:{k:'Prices, with Wei',title:'Where prices are moving',stat:(up.trend>0?'+':'')+up.trend+'%',label:up.town+' three-month move',say:'The suburbs are leading while prime cools.'},
+      rental:{k:'Rents and yield, with Hana',title:'The yield play',stat:'HDB',label:'still the stronger cash yield',say:'HDB rents throw off more than private.'},
+      hot:{k:'Hot right now',title:'What is moving',stat:(hot[0]?hot[0].project:'This month'),label:(hot[0]?hot[0].txns+' recent sales':''),say:'The busiest projects and biggest movers this month.'}
+    } };
+}
+function applyOfficeData(){
+  var mo=document.getElementById('oa-boardmo'); if(mo&&OFFICE.month) mo.textContent=OFFICE.month;
+  var sub=document.getElementById('oa-sub'); if(sub&&OFFICE.month) sub.textContent=OFFICE.month+' edition, live';
+  var rd=document.getElementById('oa-read'); if(rd&&OFFICE.url) rd.href=OFFICE.url; oIx=0;
+}
+function loadOfficeData(){ if(OFFICE._loaded) return; OFFICE._loaded=true;
+  j('https://propsight.sg/market-analysis/office.json').then(function(d){ OFFICE=d||{}; OFFICE._loaded=true; applyOfficeData(); })
+    .catch(function(){ OFFICE=officeFallback(); applyOfficeData(); }); }
+function openOffice(){ if(!OSVG) return; officeOpen=true; PANEL.classList.remove('open');
+  var o=document.getElementById('pw-office'); o.classList.add('open'); o.setAttribute('aria-hidden','false'); STAGE.classList.add('interior-open');
+  loadOfficeData();
+  requestAnimationFrame(function(){ placeOffice(); setTimeout(placeOffice,140); oIx=0; clearTimeout(oThreadTimer); oThreadTimer=setTimeout(playOThreads,700); }); }
+function closeOffice(){ officeOpen=false;
+  var o=document.getElementById('pw-office'); if(o){ o.classList.remove('open'); o.setAttribute('aria-hidden','true'); } STAGE.classList.remove('interior-open');
+  OCAST.forEach(function(c){ hideOBubble(c.id); }); clearTimeout(oThreadTimer); oThreadTimer=null; PANEL.classList.remove('open'); }
+
+/* ========================= Agents Lounge ========================= */
+var LSVG=document.getElementById('pw-lounge-scene'), LLAYER=document.getElementById('pw-lounge-layer'),
+    LSCROLL=document.getElementById('pw-lounge-scroll'), LWORLD=document.getElementById('pw-lounge-world');
+var loungeOpen=false, LPOS={}, lBub={}, lHideT={}, lThreadTimer=null, lIx=0;
+var LCAST=[
+  {id:'barista', name:'Adam', svg:true, headX:330, headY:386},
+  {id:'agent0',  name:'Serena Lim', color:'#3f6f9c', hair:'#241812', skin:'#e6b98f', hairstyle:'long',  prop:'tablet', sp:[610,662], scale:1.05}
+];
+var LOUNGE_AGENTS=[
+  { name:'Serena Lim', agency:'PropSight Partners', cea:'R000000A', example:true, mono:'S', ribbon:'Example',
+    line:'I move HDB upgraders into their first condo without the panic, on the real numbers.',
+    tags:['HDB upgraders','East Coast / D15','New launches','First-time buyers'],
+    note:'An example of how a featured agent appears here. Real agents show their CEA-verified name and number, and a direct line to them.',
+    phone:'', wa:'' }
+];
+function byLId(id){ for(var i=0;i<LCAST.length;i++) if(LCAST[i].id===id) return LCAST[i]; }
+function layoutLounge(){
+  var mobile=window.innerWidth<=720;
+  if(LSVG) LSVG.setAttribute('preserveAspectRatio', mobile?'xMidYMax slice':'xMidYMid meet');
+  if(mobile){ var w=Math.round(STAGE.clientHeight*(LSVG.viewBox.baseVal.width/LSVG.viewBox.baseVal.height)); LWORLD.style.width=w+'px';
+    if(w>LSCROLL.clientWidth+4 && !LSCROLL._centered){ LSCROLL.scrollLeft=Math.round((w-LSCROLL.clientWidth)*0.5); LSCROLL._centered=1; }
+  } else { LWORLD.style.width='100%'; LSCROLL.scrollLeft=0; LSCROLL._centered=0; }
+}
+function placeLounge(){
+  layoutLounge();
+  LCAST.forEach(function(c){
+    if(c.svg){ var hp=project(c.headX,c.headY,LSVG); LPOS[c.id]={x:hp.x,y:hp.y,h:0}; return; }
+    var el=document.getElementById('lchar-'+c.id);
+    if(!el){ el=document.createElement('div'); el.className='pw-char'; el.id='lchar-'+c.id;
+      el.innerHTML='<div class="pw-shadow"></div>'+avatarSVG(c)+'<div class="pw-name">'+c.name+'</div>';
+      el.addEventListener('click',(function(cc){ return function(){ if(cc.id==='barista') baristaTap(); else openCard(0); }; })(c));
+      LLAYER.appendChild(el); }
+    var p=project(c.sp[0],c.sp[1],LSVG), h=Math.max(38,80*p.s*(c.scale||1)), w=h*0.66;
+    el.style.height=h+'px'; el.style.width=w+'px'; el.style.left=p.x+'px'; el.style.top=p.y+'px'; el.style.zIndex=Math.round(c.sp[1]);
+    LPOS[c.id]={x:p.x,y:p.y,h:h};
+  });
+  repositionLBubbles();
+}
+function positionSeatTag(){
+  var t=document.getElementById('l-seattag'); if(!t){ t=document.createElement('div'); t.id='l-seattag'; t.className='ltag'; t.textContent='Feature your avatar'; LLAYER.appendChild(t); }
+  var p=project(912,516,LSVG); t.style.left=p.x+'px'; t.style.top=p.y+'px';
+}
+function positionLBubble(cid){ var b=lBub['lbub-'+cid], p=LPOS[cid]; if(!b||!p) return;
+  var sw=LWORLD.clientWidth, sh=LWORLD.clientHeight, bw=b.offsetWidth||180, headY=p.y-p.h;
+  var left=Math.round(p.x-bw/2); if(left<8)left=8; if(left+bw>sw-8)left=sw-8-bw;
+  var botE=headY-14; b.style.left=left+'px'; b.style.bottom=(sh-botE)+'px';
+  var tail=b.querySelector('.tail'); if(tail) tail.style.left=Math.min(Math.max(p.x-left-7,8),bw-22)+'px'; }
+function lBubble(c,html,onTap){ var id='lbub-'+c.id, b=lBub[id];
+  if(!b){ b=document.createElement('div'); b.className='pw-bub'; b.id=id; b.innerHTML='<div class="tail"></div><div class="inner"></div>'; LLAYER.appendChild(b); lBub[id]=b; }
+  b.querySelector('.inner').innerHTML=html; b.onclick=onTap||null; b.style.cursor=onTap?'pointer':'default';
+  var ch=document.getElementById('lchar-'+c.id); if(ch) ch.classList.add('talk');
+  positionLBubble(c.id); requestAnimationFrame(function(){ b.classList.add('show'); positionLBubble(c.id); }); }
+function hideLBubble(id){ var b=lBub['lbub-'+id]; if(b) b.classList.remove('show'); var ch=document.getElementById('lchar-'+id); if(ch) ch.classList.remove('talk'); }
+function repositionLBubbles(){ LCAST.forEach(function(c){ var b=lBub['lbub-'+c.id]; if(b&&b.classList.contains('show')) positionLBubble(c.id); }); }
+function lWho(c,tag){ return '<div class="who">'+c.name+(tag?' <span class="tag">'+tag+'</span>':'')+'</div>'; }
+function baristaTap(){ var c=byLId('barista'); lBubble(c, lWho(c,'Barista')+'Tap an agent to see their card. Agents, this seat could be yours.', null); clearTimeout(lHideT.barista); lHideT.barista=setTimeout(function(){ hideLBubble('barista'); },5200); }
+function playLThreads(){
+  if(!loungeOpen){ lThreadTimer=null; return; }
+  if(document.hidden){ lThreadTimer=setTimeout(playLThreads,2000); return; }
+  var seq=[
+    {c:'barista', html:lWho(byLId('barista'),'Barista')+'Welcome in. Pull up a chair and meet the agents.', tap:baristaTap},
+    {c:'agent0',  html:lWho(byLId('agent0'),'Agent')+LOUNGE_AGENTS[0].line+arrow('See card'), tap:function(){ openCard(0); }}
+  ];
+  var t=0;
+  seq.forEach(function(line){ setTimeout(function(){ if(!loungeOpen) return; var cc=byLId(line.c);
+     lBubble(cc, line.html, line.tap); clearTimeout(lHideT[line.c]); lHideT[line.c]=setTimeout(function(){ hideLBubble(line.c); },5200); }, t); t+=1600; });
+  lThreadTimer=setTimeout(playLThreads, t+2200);
+}
+function openCard(i){
+  var a=LOUNGE_AGENTS[i]; if(!a) return;
+  document.getElementById('pc-mono').textContent=a.mono||(a.name||'?').charAt(0);
+  document.getElementById('pc-name').textContent=a.name;
+  document.getElementById('pc-agency').textContent=a.agency;
+  document.getElementById('pc-cea').textContent=a.cea;
+  document.getElementById('pc-ceaex').textContent=a.example?'example':'';
+  document.getElementById('pc-ribbon').textContent=a.ribbon||'Featured agent';
+  document.getElementById('pc-note').textContent=a.note||'';
+  document.getElementById('pc-tags').innerHTML=(a.tags||[]).map(function(t){ return '<span class="pc-tag">'+t+'</span>'; }).join('');
+  var phone='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L7.8 9.8a16 16 0 0 0 6 6l1.4-1.3a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>';
+  var waIcon='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.6-6c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2a.5.5 0 0 0 0-.5c0-.1-.5-1.3-.7-1.8s-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3A2.8 2.8 0 0 0 6.4 8.9a5 5 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c2 .8 2 .5 2.4.5a2.4 2.4 0 0 0 1.6-1.1 2 2 0 0 0 .1-1.1c-.1-.1-.3-.2-.5-.3z"/></svg>';
+  var act;
+  if(a.example){
+    act='<a class="pc-btn pc-call" href="#" style="opacity:.55;cursor:default" onclick="return false">'+phone+'Call</a>'+
+        '<a class="pc-btn pc-wa" href="#" style="opacity:.55;cursor:default" onclick="return false">'+waIcon+'WhatsApp</a>';
+  } else {
+    act='<a class="pc-btn pc-call" href="tel:'+a.phone+'">'+phone+'Call</a>'+
+        '<a class="pc-btn pc-wa" href="https://wa.me/'+a.wa+'" target="_blank" rel="noopener">'+waIcon+'WhatsApp</a>';
+  }
+  document.getElementById('pc-actions').innerHTML=act;
+  document.getElementById('pw-card').classList.add('open');
+}
+function closeCard(){ var c=document.getElementById('pw-card'); if(c) c.classList.remove('open'); }
+function openContact(){ var c=document.getElementById('pw-contact'); if(c){ c.classList.add('open'); c.setAttribute('aria-hidden','false'); } }
+function closeContact(){ var c=document.getElementById('pw-contact'); if(c){ c.classList.remove('open'); c.setAttribute('aria-hidden','true'); } }
+function setLoungeWindow(){
+  if(!LSVG) return;
+  var c=STAGE.className, tod=/tod-night/.test(c)?'Night':/tod-dusk/.test(c)?'Dusk':/tod-golden/.test(c)?'Golden':'Day';
+  var sky=document.getElementById('lw-sky'); if(sky) sky.setAttribute('fill','url(#lw'+tod+')');
+  var show=function(id,on){ var e=document.getElementById(id); if(e) e.style.display=on?'':'none'; };
+  var day=(tod==='Day'||tod==='Golden'), dark=(tod==='Dusk'||tod==='Night');
+  show('lw-sun',day); show('lw-moon',dark); show('lw-stars',tod==='Night'); show('lw-litwin',dark); show('lw-lamps',dark);
+  var sk=document.getElementById('lw-skyline'); if(sk) sk.setAttribute('opacity', tod==='Night'?'0.82':tod==='Dusk'?'0.7':tod==='Golden'?'0.55':'0.58');
+}
+function openLounge(){ if(!LSVG) return; loungeOpen=true;
+  var o=document.getElementById('pw-lounge'); o.classList.add('open'); o.setAttribute('aria-hidden','false'); STAGE.classList.add('interior-open'); setLoungeWindow();
+  requestAnimationFrame(function(){ placeLounge(); setTimeout(placeLounge,140); lIx=0; clearTimeout(lThreadTimer); lThreadTimer=setTimeout(playLThreads,700); }); }
+function closeLounge(){ loungeOpen=false;
+  var o=document.getElementById('pw-lounge'); if(o){ o.classList.remove('open'); o.setAttribute('aria-hidden','true'); } STAGE.classList.remove('interior-open');
+  LCAST.forEach(function(c){ hideLBubble(c.id); }); clearTimeout(lThreadTimer); lThreadTimer=null; closeCard(); closeContact(); }
+
+/* init */
+function init(){ place(); applyTOD(); pauseCheck(); loadData(); if(!threadTimer) playThreads();
+  var ob=document.getElementById('oa-back'); if(ob) ob.onclick=closeOffice;
+  var pch=document.querySelectorAll('.oa-pchip'); for(var pi=0;pi<pch.length;pi++){ (function(el){ el.onclick=function(){ setPersona(el.getAttribute('data-persona')); }; })(pch[pi]); }
+  Array.prototype.forEach.call(document.querySelectorAll('#pw-office-scene .ostation'),function(g){
+    var act=function(){ openStation(g.getAttribute('data-station')); };
+    g.addEventListener('click',act);
+    g.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); act(); } }); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&officeOpen) closeOffice(); });
+  var lb=document.getElementById('la-back'); if(lb) lb.onclick=closeLounge;
+  var lf=document.getElementById('la-feature'); if(lf) lf.onclick=openContact;
+  var ctx=document.getElementById('ct-x'); if(ctx) ctx.onclick=closeContact;
+  var ctw=document.getElementById('pw-contact'); if(ctw) ctw.addEventListener('click',function(e){ if(e.target===ctw) closeContact(); });
+  Array.prototype.forEach.call(document.querySelectorAll('#pw-lounge-scene .lstation'),function(g){
+    var act=function(){ var ai=g.getAttribute('data-lounge-agent'); if(ai!==null){ openCard(parseInt(ai,10)); return; } if(g.getAttribute('data-lounge-feature')){ window.open('https://wa.me/6583219747','_blank','noopener'); return; } if(g.getAttribute('data-lounge-ad')){ window.open('https://propsight.sg','_blank','noopener'); return; } if(g.getAttribute('data-lounge-barista')){ baristaTap(); } };
+    g.addEventListener('click',act);
+    g.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); act(); } }); });
+  var pcx=document.getElementById('pc-x'); if(pcx) pcx.onclick=closeCard;
+  var pcw=document.getElementById('pw-card'); if(pcw) pcw.addEventListener('click',function(e){ if(e.target===pcw) closeCard(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ if(document.getElementById('pw-contact').classList.contains('open')) closeContact(); else if(document.getElementById('pw-card').classList.contains('open')) closeCard(); else if(loungeOpen) closeLounge(); } });
+  var ax=document.getElementById('pw-ax'); if(ax) ax.onclick=closeAillie;
+  var as=document.getElementById('pw-asend'); if(as) as.onclick=aSend;
+  var ai=document.getElementById('pw-ainput'); if(ai) ai.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); aSend(); } });
+  SCROLL.addEventListener('scroll',function(){ if(Math.abs(SCROLL.scrollLeft-(SCROLL._baseLeft||0))>24) STAGE.classList.add('pw-scrolled'); },{passive:true});
+  window._pwW=window.innerWidth;
+  window.addEventListener('resize',function(){ if(window.innerWidth===window._pwW) return; /* height-only change (mobile URL bar on scroll) must not re-place the cast, or they drift */ window._pwW=window.innerWidth; clearTimeout(window._pwrz); window._pwrz=setTimeout(function(){ place(); if(officeOpen) placeOffice(); if(loungeOpen) placeLounge(); },120); });
+  tickClock(); setInterval(tickClock,1000);
+  setInterval(loadData,120000); setInterval(applyTOD,600000);
+}
+if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded',init);
+})();
+</script>
+</body></html>

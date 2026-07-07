@@ -1,0 +1,46 @@
+[
+ {
+  "key": "hero",
+  "file": "hero.jpg",
+  "title": "New HDB flats at Bidadari, the Alkaff precincts",
+  "artist": "ZKang123",
+  "author": "ZKang123",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Bidadari_HDB_flats_nearly_completed_20211207_134153.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Bidadari_HDB_flats_nearly_completed_20211207_134153.jpg"
+ },
+ {
+  "key": "mrt",
+  "file": "mrt.jpg",
+  "title": "Woodleigh MRT (NE11), North East Line",
+  "artist": "Fans018",
+  "author": "Fans018",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Woodleigh_MRT_Station.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Woodleigh_MRT_Station.jpg"
+ },
+ {
+  "key": "food",
+  "file": "food.jpg",
+  "title": "Woodleigh Village Hawker Centre, Bidadari",
+  "artist": "Kbseah",
+  "author": "Kbseah",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Woodleigh_Village_Hawker_Centre,_exterior.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Woodleigh_Village_Hawker_Centre,_exterior.jpg"
+ },
+ {
+  "key": "park",
+  "file": "park.jpg",
+  "title": "Gate of the former Bidadari Cemetery, now Bidadari Garden",
+  "artist": "Smuconlaw",
+  "author": "Smuconlaw",
+  "lic": "CC BY-SA 3.0",
+  "license": "CC BY-SA 3.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Gate_of_the_former_Bidadari_Cemetery,_Bidadari_Garden,_Singapore_-_20121008-04.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Gate_of_the_former_Bidadari_Cemetery,_Bidadari_Garden,_Singapore_-_20121008-04.jpg"
+ }
+]

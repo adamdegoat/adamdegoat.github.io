@@ -1,0 +1,46 @@
+[
+ {
+  "key": "hero",
+  "file": "hero.jpg",
+  "title": "A landed house on a quiet street in the Telok Kurau and Frankel landed belt, District 15",
+  "artist": "M. Adrian Jurhami",
+  "author": "M. Adrian Jurhami",
+  "lic": "CC BY 4.0",
+  "license": "CC BY 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Telok_Kurau_Neighbourhood,_Singapore_02.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Telok_Kurau_Neighbourhood,_Singapore_02.jpg"
+ },
+ {
+  "key": "mrt",
+  "file": "mrt.jpg",
+  "title": "Siglap MRT station (TE28), the Thomson-East Coast Line stop nearest the Frankel and Opera Estate landed belt",
+  "artist": "S5A-0043",
+  "author": "S5A-0043",
+  "lic": "CC BY 4.0",
+  "license": "CC BY 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:(SGP-Singapore)_Siglap_MRT_Station_Exit_1_2024-06-23_-_1.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:(SGP-Singapore)_Siglap_MRT_Station_Exit_1_2024-06-23_-_1.jpg"
+ },
+ {
+  "key": "food",
+  "file": "food.jpg",
+  "title": "Shophouses and eateries along East Coast Road, the dining spine that runs from Katong through to Siglap",
+  "artist": "Chainwit.",
+  "author": "Chainwit.",
+  "lic": "CC BY 4.0",
+  "license": "CC BY 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:East_Coast_Road,_Singapore_(2025)_-_img_05.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:East_Coast_Road,_Singapore_(2025)_-_img_05.jpg"
+ },
+ {
+  "key": "park",
+  "file": "park.jpg",
+  "title": "Rows of terrace and semi-detached houses in the Jalan Senang garden estate, in the same Bedok landed belt",
+  "artist": "Wzhkevin",
+  "author": "Wzhkevin",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Jalan_Senang_Estate,_Singapore.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Jalan_Senang_Estate,_Singapore.jpg"
+ }
+]

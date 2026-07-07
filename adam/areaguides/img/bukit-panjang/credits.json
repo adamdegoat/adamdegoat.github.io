@@ -1,0 +1,26 @@
+[
+ {
+  "key": "hero",
+  "artist": "Erwin Soo",
+  "lic": "CC BY 2.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Housing_and_Development_Board_flats_in_Bukit_Panjang,_Singapore_-_20130131_(single-row_panorama).jpg"
+ },
+ {
+  "key": "mrt",
+  "artist": "ZKang123",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:BP6_Bukit_Panjang_exterior_2020-08-08_17-27-13_671.jpg"
+ },
+ {
+  "key": "food",
+  "artist": "Wzhkevin",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Covered_market_at_Bukit_Panjang_Neighbourhood_Centre.jpg"
+ },
+ {
+  "key": "park",
+  "artist": "Wzhkevin",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Bukit_Panjang_Park.jpg"
+ }
+]

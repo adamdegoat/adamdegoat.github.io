@@ -1,0 +1,46 @@
+[
+ {
+  "key": "hero",
+  "file": "hero.jpg",
+  "title": "Dining at One Holland Village, Lorong Liput",
+  "artist": "LN9267",
+  "author": "LN9267",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Holland_Village_13-05-2024(5).jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Holland_Village_13-05-2024(5).jpg"
+ },
+ {
+  "key": "mrt",
+  "file": "mrt.jpg",
+  "title": "Holland Village MRT station (CC21), Exit A",
+  "artist": "ZKang123",
+  "author": "ZKang123",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:CC21_Holland_Village_MRT_Exit_A_20201126_130720.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:CC21_Holland_Village_MRT_Exit_A_20201126_130720.jpg"
+ },
+ {
+  "key": "food",
+  "file": "food.jpg",
+  "title": "Restaurants along Lorong Mambong, Holland Village",
+  "artist": "Terence Ong",
+  "author": "Terence Ong",
+  "lic": "CC BY 2.5",
+  "license": "CC BY 2.5",
+  "src": "https://commons.wikimedia.org/wiki/File:Lorong_Mambong_restaurants.JPG",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Lorong_Mambong_restaurants.JPG"
+ },
+ {
+  "key": "park",
+  "file": "park.jpg",
+  "title": "Chip Bee Gardens, Jalan Merah Saga",
+  "artist": "Terence Ong",
+  "author": "Terence Ong",
+  "lic": "CC BY 2.5",
+  "license": "CC BY 2.5",
+  "src": "https://commons.wikimedia.org/wiki/File:Chip_Bee_Gardens.JPG",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Chip_Bee_Gardens.JPG"
+ }
+]

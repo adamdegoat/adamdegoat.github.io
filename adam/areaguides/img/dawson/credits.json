@@ -1,0 +1,46 @@
+[
+  {
+    "key": "hero",
+    "file": "hero.jpg",
+    "title": "SkyOasis @ Dawson public housing",
+    "artist": "Wzhkevin",
+    "author": "Wzhkevin",
+    "lic": "CC BY-SA 4.0",
+    "license": "CC BY-SA 4.0",
+    "src": "https://commons.wikimedia.org/wiki/File:SkyOasis_@_Dawson_public_housing_project.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:SkyOasis_@_Dawson_public_housing_project.jpg"
+  },
+  {
+    "key": "mrt",
+    "file": "mrt.jpg",
+    "title": "Queenstown MRT station (EW19) on the East-West Line, with the Dawson condos rising behind it",
+    "artist": "Fanz226",
+    "author": "Fanz226",
+    "lic": "CC BY-SA 4.0",
+    "license": "CC BY-SA 4.0",
+    "src": "https://commons.wikimedia.org/wiki/File:Queenstown_MRT_Station_202407.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Queenstown_MRT_Station_202407.jpg"
+  },
+  {
+    "key": "food",
+    "file": "food.jpg",
+    "title": "Bowls laid out for sale at the Queenstown market, part of the estate's old Tanglin Halt hawker heritage",
+    "artist": "Avenue",
+    "author": "Avenue",
+    "lic": "CC BY-SA 3.0",
+    "license": "CC BY-SA 3.0",
+    "src": "https://commons.wikimedia.org/wiki/File:Bowls_laid_out_for_sale_at_the_Queenstown_market.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bowls_laid_out_for_sale_at_the_Queenstown_market.jpg"
+  },
+  {
+    "key": "park",
+    "file": "park.jpg",
+    "title": "The Alexandra Park Connector, the green corridor running alongside the Alexandra Canal near Dawson",
+    "artist": "Renek78",
+    "author": "Renek78",
+    "lic": "CC0",
+    "license": "CC0",
+    "src": "https://commons.wikimedia.org/wiki/File:Alexandra_Park_Connector,_Singapore_2024-09-27.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Alexandra_Park_Connector,_Singapore_2024-09-27.jpg"
+  }
+]

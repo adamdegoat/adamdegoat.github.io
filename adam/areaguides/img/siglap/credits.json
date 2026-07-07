@@ -1,0 +1,46 @@
+[
+  {
+    "key": "hero",
+    "file": "hero.jpg",
+    "title": "Leafy rain-tree road through Siglap on the east side",
+    "artist": "Jaseng747",
+    "author": "Jaseng747",
+    "lic": "CC BY 3.0",
+    "license": "CC BY 3.0",
+    "src": "https://commons.wikimedia.org/wiki/File:Tidy_Street_in_Siglap,_Singapore_-_panoramio.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Tidy_Street_in_Siglap,_Singapore_-_panoramio.jpg"
+  },
+  {
+    "key": "mrt",
+    "file": "mrt.jpg",
+    "title": "Siglap MRT station (TE28) Exit 1 on the Thomson-East Coast Line",
+    "artist": "S5A-0043",
+    "author": "S5A-0043",
+    "lic": "CC BY 4.0",
+    "license": "CC BY 4.0",
+    "src": "https://commons.wikimedia.org/wiki/File:(SGP-Singapore)_Siglap_MRT_Station_Exit_1_2024-06-23_-_1.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:(SGP-Singapore)_Siglap_MRT_Station_Exit_1_2024-06-23_-_1.jpg"
+  },
+  {
+    "key": "food",
+    "file": "food.jpg",
+    "title": "Kampung Siglap Mosque on Siglap Road, in old Siglap village",
+    "artist": "M. Adrian Jurhami",
+    "author": "M. Adrian Jurhami",
+    "lic": "CC BY 4.0",
+    "license": "CC BY 4.0",
+    "src": "https://commons.wikimedia.org/wiki/File:Kampung_Siglap_Mosque,_Siglap.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Kampung_Siglap_Mosque,_Siglap.jpg"
+  },
+  {
+    "key": "park",
+    "file": "park.jpg",
+    "title": "The East Coast seafront condo belt seen across East Coast Park from the sea",
+    "artist": "---=XEON=---",
+    "author": "---=XEON=---",
+    "lic": "CC BY 3.0",
+    "license": "CC BY 3.0",
+    "src": "https://commons.wikimedia.org/wiki/File:East_Coast_Park,_Singapore,_from_the_sea_-_20141106.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:East_Coast_Park,_Singapore,_from_the_sea_-_20141106.jpg"
+  }
+]

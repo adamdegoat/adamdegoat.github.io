@@ -1,0 +1,26 @@
+[
+ {
+  "key": "hero",
+  "artist": "wanderingchina",
+  "lic": "CC BY-SA 3.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Sembawang_Beach_-_panoramio.jpg"
+ },
+ {
+  "key": "mrt",
+  "artist": "Fanz226",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:View_of_Sembawang_MRT_Station_202411.jpg"
+ },
+ {
+  "key": "food",
+  "artist": "Kbseah",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Bukit_Canberra_Hawker_Centre.jpg"
+ },
+ {
+  "key": "park",
+  "artist": "Jun Jie Yam",
+  "lic": "CC0",
+  "src": "https://commons.wikimedia.org/wiki/File:Sembawang_Tree_at_Sembawang_Park_-_October_2023.jpg"
+ }
+]

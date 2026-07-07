@@ -1,0 +1,26 @@
+[
+ {
+  "key": "hero",
+  "artist": "Wikimedia contributor",
+  "lic": "Copyrighted free use",
+  "src": "https://commons.wikimedia.org/wiki/File:Sengkang_sunset,_Singapore.jpg"
+ },
+ {
+  "key": "mrt",
+  "artist": "Fans018",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Sengkang_MRT_Station.jpg"
+ },
+ {
+  "key": "food",
+  "artist": "Btcprox",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Compass_One_interior_(1),_2025-04-10.jpg"
+ },
+ {
+  "key": "park",
+  "artist": "Nigos",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Sengkang_Riverside_Park,_16_Dec_2021_-_1.jpg"
+ }
+]

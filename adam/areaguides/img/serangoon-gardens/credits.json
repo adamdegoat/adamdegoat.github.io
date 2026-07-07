@@ -1,0 +1,46 @@
+[
+  {
+    "key": "hero",
+    "file": "hero.jpg",
+    "title": "Terraced houses at Serangoon Terrace, Singapore",
+    "artist": "ProjectManhattan",
+    "author": "ProjectManhattan",
+    "lic": "CC BY-SA 3.0",
+    "license": "CC BY-SA 3.0",
+    "src": "https://commons.wikimedia.org/wiki/File:Terraced_houses_at_Serangoon_Terrace,_Singapore.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Terraced_houses_at_Serangoon_Terrace,_Singapore.jpg"
+  },
+  {
+    "key": "mrt",
+    "file": "mrt.jpg",
+    "title": "Serangoon MRT station entrance, Singapore",
+    "artist": "ProjectManhattan",
+    "author": "ProjectManhattan",
+    "lic": "CC BY-SA 3.0",
+    "license": "CC BY-SA 3.0",
+    "src": "https://commons.wikimedia.org/wiki/File:Serangoon_MRT_station_entrance_.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Serangoon_MRT_station_entrance_.jpg"
+  },
+  {
+    "key": "food",
+    "file": "food.jpg",
+    "title": "Chomp Chomp Food Centre, Serangoon Gardens, Singapore",
+    "artist": "ProjectManhattan",
+    "author": "ProjectManhattan",
+    "lic": "CC0",
+    "license": "CC0 1.0 Public Domain Dedication",
+    "src": "https://commons.wikimedia.org/wiki/File:Chomp_Chomp_Food_Centre,_Serangoon_Gardens,_Singapore_-_20131102.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Chomp_Chomp_Food_Centre,_Serangoon_Gardens,_Singapore_-_20131102.jpg"
+  },
+  {
+    "key": "park",
+    "file": "park.jpg",
+    "title": "Sunshine Park, Serangoon, Singapore",
+    "artist": "ProjectManhattan",
+    "author": "ProjectManhattan",
+    "lic": "CC BY-SA 3.0",
+    "license": "CC BY-SA 3.0",
+    "src": "https://commons.wikimedia.org/wiki/File:Sunshine_park,_Serangoon,_Singapore.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Sunshine_park,_Serangoon,_Singapore.jpg"
+  }
+]

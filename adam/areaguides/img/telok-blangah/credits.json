@@ -1,0 +1,46 @@
+[
+ {
+  "key": "hero",
+  "file": "hero.jpg",
+  "title": "Reflections at Keppel Bay, the waterfront condo landmark",
+  "artist": "Grayswoodsurrey",
+  "author": "Grayswoodsurrey",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Reflections_at_Keppel_Bay.JPG",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Reflections_at_Keppel_Bay.JPG"
+ },
+ {
+  "key": "mrt",
+  "file": "mrt.jpg",
+  "title": "Telok Blangah MRT (CC28), Exit A, Circle Line",
+  "artist": "zhenkang",
+  "author": "zhenkang",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:CC28_Telok_Blangah_Exit_A.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:CC28_Telok_Blangah_Exit_A.jpg"
+ },
+ {
+  "key": "food",
+  "file": "food.jpg",
+  "title": "Fried chicken stall at a Telok Blangah coffee shop",
+  "artist": "Choo Yut Shing",
+  "author": "Choo Yut Shing",
+  "lic": "CC BY 2.0",
+  "license": "CC BY 2.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Taiwanese_fried_chicken_stall_in_Telok_Blangah,_Singapore.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Taiwanese_fried_chicken_stall_in_Telok_Blangah,_Singapore.jpg"
+ },
+ {
+  "key": "park",
+  "file": "park.jpg",
+  "title": "Henderson Waves on the Southern Ridges walk",
+  "artist": "kallerna",
+  "author": "kallerna",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Henderson_Waves_Singapore_1.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Henderson_Waves_Singapore_1.jpg"
+ }
+]

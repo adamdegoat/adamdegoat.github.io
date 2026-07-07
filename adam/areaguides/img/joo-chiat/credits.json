@@ -1,0 +1,46 @@
+[
+ {
+  "key": "hero",
+  "file": "hero.jpg",
+  "title": "Peranakan shophouses along Joo Chiat Road",
+  "artist": "Kate Branch Photography",
+  "author": "Kate Branch Photography",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Joo_Chiat_road_in_Singapore_all_colours.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Joo_Chiat_road_in_Singapore_all_colours.jpg"
+ },
+ {
+  "key": "mrt",
+  "file": "mrt.jpg",
+  "title": "Marine Terrace MRT station (TE27), Thomson-East Coast Line",
+  "artist": "S5A-0043",
+  "author": "S5A-0043",
+  "lic": "CC BY 4.0",
+  "license": "CC BY 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:(SGP-Singapore)_Marine_Terrace_MRT_Station_Exit_2_2024-06-23_-_1.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:(SGP-Singapore)_Marine_Terrace_MRT_Station_Exit_2_2024-06-23_-_1.jpg"
+ },
+ {
+  "key": "food",
+  "file": "food.jpg",
+  "title": "Shophouses and eateries along Joo Chiat Road",
+  "artist": "William Cho",
+  "author": "William Cho",
+  "lic": "CC BY-SA 2.0",
+  "license": "CC BY-SA 2.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Joo_Chiat_Road_%E2%80%93_Singapore_(4152372739).jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Joo_Chiat_Road_%E2%80%93_Singapore_(4152372739).jpg"
+ },
+ {
+  "key": "park",
+  "file": "park.jpg",
+  "title": "The colourful Peranakan terraces of Koon Seng Road",
+  "artist": "Firzafp",
+  "author": "Firzafp",
+  "lic": "CC BY 4.0",
+  "license": "CC BY 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:The_Colourful_Peranakan_Houses_of_Koon_Seng_Road_-_Singapore_(14_July_%2724)_00.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:The_Colourful_Peranakan_Houses_of_Koon_Seng_Road_-_Singapore_(14_July_%2724)_00.jpg"
+ }
+]

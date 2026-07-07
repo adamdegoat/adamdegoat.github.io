@@ -1,0 +1,26 @@
+[
+ {
+  "key": "hero",
+  "artist": "William Cho",
+  "lic": "CC BY-SA 2.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Bukit_Batok_Park_(The_Little_Guilin)_(3825858892).jpg"
+ },
+ {
+  "key": "mrt",
+  "artist": "Fanz226",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Bukit_Batok_MRT_Station_Exterior_202411.jpg"
+ },
+ {
+  "key": "food",
+  "artist": "Brhb25",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:West_Mall_2026.jpg"
+ },
+ {
+  "key": "park",
+  "artist": "Hekege",
+  "lic": "Public domain",
+  "src": "https://commons.wikimedia.org/wiki/File:Bukit_Batok_Nature_Park,_Singapore_-_20070722.jpg"
+ }
+]

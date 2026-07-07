@@ -1,0 +1,26 @@
+[
+ {
+  "key": "hero",
+  "artist": "ProjectManhattan",
+  "lic": "CC0",
+  "src": "https://commons.wikimedia.org/wiki/File:Nex_shopping_center.jpg"
+ },
+ {
+  "key": "mrt",
+  "artist": "Fans018",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Serangoon_MRT_Station.jpg"
+ },
+ {
+  "key": "food",
+  "artist": "ProjectManhattan",
+  "lic": "CC0",
+  "src": "https://commons.wikimedia.org/wiki/File:Chomp_Chomp_Food_Centre,_Serangoon_Gardens,_Singapore_-_20131102.jpg"
+ },
+ {
+  "key": "park",
+  "artist": "ProjectManhattan",
+  "lic": "CC BY-SA 3.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Sunshine_park,_Serangoon,_Singapore_2.jpg"
+ }
+]

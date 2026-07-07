@@ -1,0 +1,46 @@
+[
+ {
+  "key": "hero",
+  "file": "hero.jpg",
+  "title": "Waterfront home and seafront promenade, Sentosa Cove",
+  "artist": "Renek78",
+  "author": "Renek78",
+  "lic": "CC0",
+  "license": "CC0",
+  "src": "https://commons.wikimedia.org/wiki/File:Sentosa_Cove,_Singapore_2024-09-27_4.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Sentosa_Cove,_Singapore_2024-09-27_4.jpg"
+ },
+ {
+  "key": "mrt",
+  "file": "mrt.jpg",
+  "title": "Sentosa Express monorail, Sentosa",
+  "artist": "Stephen Michael Barnett",
+  "author": "Stephen Michael Barnett",
+  "lic": "CC BY 2.0",
+  "license": "CC BY 2.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Sentosa_Monorail.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Sentosa_Monorail.jpg"
+ },
+ {
+  "key": "food",
+  "file": "food.jpg",
+  "title": "Resorts World Sentosa at dusk",
+  "artist": "William Cho",
+  "author": "William Cho",
+  "lic": "CC BY-SA 2.0",
+  "license": "CC BY-SA 2.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Resorts_World_Sentosa,_Singapore_-_20110306.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Resorts_World_Sentosa,_Singapore_-_20110306.jpg"
+ },
+ {
+  "key": "park",
+  "file": "park.jpg",
+  "title": "Beach and lagoon, Sentosa Island",
+  "artist": "Fabio Achilli",
+  "author": "Fabio Achilli",
+  "lic": "CC BY 2.0",
+  "license": "CC BY 2.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Beach_at_Sentosa_Island,_Singapore_(9772414681).jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Beach_at_Sentosa_Island,_Singapore_(9772414681).jpg"
+ }
+]

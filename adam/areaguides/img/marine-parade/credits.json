@@ -1,0 +1,26 @@
+[
+ {
+  "key": "hero",
+  "artist": "Basile Morin",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Colorful_shophouses_in_Koon_Seng_Road,_Singapore.jpg"
+ },
+ {
+  "key": "mrt",
+  "artist": "Fans018",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Marine_Parade_MRT_Station.jpg"
+ },
+ {
+  "key": "food",
+  "artist": "ProjectManhattan",
+  "lic": "CC0",
+  "src": "https://commons.wikimedia.org/wiki/File:Katong_laksa.jpg"
+ },
+ {
+  "key": "park",
+  "artist": "Andrey Bobrovsky",
+  "lic": "CC BY 3.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Singapore_-_panoramio_(136).jpg"
+ }
+]

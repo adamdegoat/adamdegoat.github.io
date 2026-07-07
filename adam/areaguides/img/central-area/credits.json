@@ -1,0 +1,26 @@
+[
+ {
+  "key": "hero",
+  "artist": "Johan Jönsson (Julle)",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File%3AThe_Pinnacle%40Duxton%2C_Singapore.jpg"
+ },
+ {
+  "key": "mrt",
+  "artist": "Fanz226",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File%3ARaffles_Place_MRT_Station_202407.jpg"
+ },
+ {
+  "key": "food",
+  "artist": "KimonBerlin",
+  "lic": "CC BY-SA 2.0",
+  "src": "https://commons.wikimedia.org/wiki/File%3AChinatown_Complex_Food_Centre_%2812849049294%29.jpg"
+ },
+ {
+  "key": "park",
+  "artist": "Mustang Joe",
+  "lic": "CC0",
+  "src": "https://commons.wikimedia.org/wiki/File%3ASupertree_Grove%2C_Gardens_by_the_Bay%2C_Singapore1.jpg"
+ }
+]

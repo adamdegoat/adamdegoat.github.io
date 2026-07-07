@@ -1,0 +1,46 @@
+[
+ {
+  "key": "hero",
+  "file": "hero.jpg",
+  "title": "ION Orchard and Orchard Road, Singapore",
+  "artist": "Fabio Achilli",
+  "author": "Fabio Achilli",
+  "lic": "CC BY 2.0",
+  "license": "CC BY 2.0",
+  "src": "https://commons.wikimedia.org/wiki/File:ION_Orchard_and_Orchard_Road,_Singapore_(42345667100).jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:ION_Orchard_and_Orchard_Road,_Singapore_(42345667100).jpg"
+ },
+ {
+  "key": "mrt",
+  "file": "mrt.jpg",
+  "title": "Orchard MRT Station (NS22) platform",
+  "artist": "Fanz226",
+  "author": "Fanz226",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Orchard_MRT_Station_202407.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Orchard_MRT_Station_202407.jpg"
+ },
+ {
+  "key": "food",
+  "file": "food.jpg",
+  "title": "Emerald Hill Road shophouse bars, off Orchard Road",
+  "artist": "Renek78",
+  "author": "Renek78",
+  "lic": "CC0",
+  "license": "CC0",
+  "src": "https://commons.wikimedia.org/wiki/File:Emerald_Hill_Road,_Singapore_in_2023.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Emerald_Hill_Road,_Singapore_in_2023.jpg"
+ },
+ {
+  "key": "park",
+  "file": "park.jpg",
+  "title": "The Istana, Singapore",
+  "artist": "GoAheadFan95",
+  "author": "GoAheadFan95",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:The_Istana,_April_2024.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:The_Istana,_April_2024.jpg"
+ }
+]

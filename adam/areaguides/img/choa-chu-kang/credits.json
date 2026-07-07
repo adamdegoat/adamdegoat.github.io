@@ -1,0 +1,34 @@
+{
+  "hero.jpg": {
+    "title": "View of Keat Hong Estate, Choa Chu Kang",
+    "source": "Wikimedia Commons",
+    "file": "File:View of Keat Hong Estate 202411.jpg",
+    "url": "https://commons.wikimedia.org/wiki/File:View_of_Keat_Hong_Estate_202411.jpg",
+    "artist": "33Loading",
+    "license": "CC BY-SA 4.0"
+  },
+  "mrt.jpg": {
+    "title": "Choa Chu Kang MRT/LRT station exterior, with Lot One and the Jurong Region Line viaduct",
+    "source": "Wikimedia Commons",
+    "file": "File:NS4 BP1 Choa Chu Kang MRT-LRT station Exterior 202412.jpg",
+    "url": "https://commons.wikimedia.org/wiki/File:NS4_BP1_Choa_Chu_Kang_MRT-LRT_station_Exterior_202412.jpg",
+    "artist": "Fanz226",
+    "license": "CC BY-SA 4.0"
+  },
+  "food.jpg": {
+    "title": "Choa Chu Kang Town Centre, showing Lot One and the MRT/LRT station",
+    "source": "Wikimedia Commons",
+    "file": "File:Choa Chu Kang Town Centre, Singapore - 20081125.jpg",
+    "url": "https://commons.wikimedia.org/wiki/File:Choa_Chu_Kang_Town_Centre,_Singapore_-_20081125.jpg",
+    "artist": "Sierra Victor",
+    "license": "CC BY-SA 3.0"
+  },
+  "park.jpg": {
+    "title": "Choa Chu Kang Park",
+    "source": "Wikimedia Commons",
+    "file": "File:Choa Chu Kang Park.jpg",
+    "url": "https://commons.wikimedia.org/wiki/File:Choa_Chu_Kang_Park.jpg",
+    "artist": "Actuall7",
+    "license": "CC0"
+  }
+}

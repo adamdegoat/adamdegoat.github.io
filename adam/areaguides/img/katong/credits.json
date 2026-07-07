@@ -1,0 +1,46 @@
+[
+  {
+    "key": "food",
+    "file": "food.jpg",
+    "title": "Colourful Peranakan terraces on Koon Seng Road, Katong",
+    "artist": "Firzafp",
+    "author": "Firzafp",
+    "lic": "CC BY 4.0",
+    "license": "CC BY 4.0",
+    "src": "https://commons.wikimedia.org/wiki/File:The_Colourful_Peranakan_Houses_of_Koon_Seng_Road_-_Singapore_(14_July_'24)_00.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:The_Colourful_Peranakan_Houses_of_Koon_Seng_Road_-_Singapore_(14_July_'24)_00.jpg"
+  },
+  {
+    "key": "mrt",
+    "file": "mrt.jpg",
+    "title": "Amber Park condominium, Amber Gardens, Katong",
+    "artist": "S5A-0043",
+    "author": "S5A-0043",
+    "lic": "CC BY 4.0",
+    "license": "CC BY 4.0",
+    "src": "https://commons.wikimedia.org/wiki/File:(SGP-Singapore)_Amber_Park_entrance_2024-03-15.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:(SGP-Singapore)_Amber_Park_entrance_2024-03-15.jpg"
+  },
+  {
+    "key": "hero",
+    "file": "hero.jpg",
+    "title": "Facade of i12 Katong mall, East Coast Road",
+    "artist": "Mike Peel",
+    "author": "Mike Peel",
+    "lic": "CC BY-SA 4.0",
+    "license": "CC BY-SA 4.0",
+    "src": "https://commons.wikimedia.org/wiki/File:At_Singapore_2023_029_-_Facade_of_i12_Katong.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:At_Singapore_2023_029_-_Facade_of_i12_Katong.jpg"
+  },
+  {
+    "key": "park",
+    "file": "park.jpg",
+    "title": "Seafront promenade at East Coast Park",
+    "artist": "AnamikaWrites",
+    "author": "AnamikaWrites",
+    "lic": "CC BY-SA 4.0",
+    "license": "CC BY-SA 4.0",
+    "src": "https://commons.wikimedia.org/wiki/File:Beach_at_East_Coast_Park_Singapore.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Beach_at_East_Coast_Park_Singapore.jpg"
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "key": "hero",
+    "file": "hero.jpg",
+    "title": "West Coast Park aerial",
+    "artist": "Bob T",
+    "author": "Bob T",
+    "lic": "CC BY-SA 4.0",
+    "license": "CC BY-SA 4.0",
+    "src": "https://commons.wikimedia.org/wiki/File:Aerial_panorama_of_West_Coast_Park,_shot_2016.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Aerial_panorama_of_West_Coast_Park,_shot_2016.jpg"
+  },
+  {
+    "key": "mrt",
+    "file": "mrt.jpg",
+    "title": "West Coast Highway, the main road that carries the neighbourhood along the coast",
+    "artist": "Shruthi Sripada",
+    "author": "Shruthi Sripada",
+    "lic": "CC BY-SA 4.0",
+    "license": "CC BY-SA 4.0",
+    "src": "https://commons.wikimedia.org/wiki/File:West_Coast_Highway,_Singapore_-_20141206.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:West_Coast_Highway,_Singapore_-_20141206.jpg"
+  },
+  {
+    "key": "food",
+    "file": "food.jpg",
+    "title": "HDB blocks in West Coast, the older and more affordable flats near the west-side schools",
+    "artist": "Brhb25",
+    "author": "Brhb25",
+    "lic": "CC BY-SA 3.0",
+    "license": "CC BY-SA 3.0",
+    "src": "https://commons.wikimedia.org/wiki/File:HDB_flats_in_West_Coast.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:HDB_flats_in_West_Coast.jpg"
+  },
+  {
+    "key": "park",
+    "file": "park.jpg",
+    "title": "Pandan Reservoir, the wide open water on the neighbourhood's northern edge",
+    "artist": "Red Eyes Black Dragon 92",
+    "author": "Red Eyes Black Dragon 92",
+    "lic": "CC BY-SA 4.0",
+    "license": "CC BY-SA 4.0",
+    "src": "https://commons.wikimedia.org/wiki/File:Pandan_Reservoir_Singapore.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Pandan_Reservoir_Singapore.jpg"
+  }
+]

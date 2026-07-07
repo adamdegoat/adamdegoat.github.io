@@ -1,0 +1,46 @@
+[
+  {
+    "key": "hero",
+    "file": "hero.jpg",
+    "title": "Central Catchment Nature Reserve seen from Sin Ming Avenue, Singapore",
+    "artist": "Wzhkevin",
+    "author": "Wzhkevin",
+    "lic": "CC BY-SA 4.0",
+    "license": "CC BY-SA 4.0",
+    "src": "https://commons.wikimedia.org/wiki/File:Central_Catchment_Nature_Reserve_from_Sin_Ming_Avenue,_looking_west,_with_Bukit_Timah,_Bukit_Peirce,_and_Bukit_Kalang_in_sight_-_2022-04-23.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Central_Catchment_Nature_Reserve_from_Sin_Ming_Avenue,_looking_west,_with_Bukit_Timah,_Bukit_Peirce,_and_Bukit_Kalang_in_sight_-_2022-04-23.jpg"
+  },
+  {
+    "key": "mrt",
+    "file": "mrt.jpg",
+    "title": "Entrance to Upper Thomson MRT Station with Thomson Plaza in background, Singapore",
+    "artist": "Wzhkevin",
+    "author": "Wzhkevin",
+    "lic": "CC BY-SA 4.0",
+    "license": "CC BY-SA 4.0",
+    "src": "https://commons.wikimedia.org/wiki/File:Entrance_to_Upper_Thomson_MRT_Station_with_Thomson_Plaza_in_background_-_2022-07-29.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Entrance_to_Upper_Thomson_MRT_Station_with_Thomson_Plaza_in_background_-_2022-07-29.jpg"
+  },
+  {
+    "key": "food",
+    "file": "food.jpg",
+    "title": "Shunfu Mart, hawker centre and wet market, Singapore",
+    "artist": "Kbseah",
+    "author": "Kbseah",
+    "lic": "CC BY-SA 4.0",
+    "license": "CC BY-SA 4.0",
+    "src": "https://commons.wikimedia.org/wiki/File:Shunfu_Mart,_exterior.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Shunfu_Mart,_exterior.jpg"
+  },
+  {
+    "key": "park",
+    "file": "park.jpg",
+    "title": "Hiking trail in Thomson Nature Park, Singapore",
+    "artist": "Andreas Ehn",
+    "author": "Andreas Ehn",
+    "lic": "CC0",
+    "license": "CC0 1.0 Public Domain Dedication",
+    "src": "https://commons.wikimedia.org/wiki/File:Thomson_Nature_Park_2020-08-02.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Thomson_Nature_Park_2020-08-02.jpg"
+  }
+]

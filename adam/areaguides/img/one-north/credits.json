@@ -1,0 +1,46 @@
+[
+ {
+  "key": "hero",
+  "file": "hero.jpg",
+  "title": "Fusionopolis towers at one-north, Buona Vista",
+  "artist": "Kok Leng Yeo",
+  "author": "Kok Leng Yeo",
+  "lic": "CC BY 2.0",
+  "license": "CC BY 2.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Fusionopolis-onenorth-BuonaVista-Singapore-20090219.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Fusionopolis-onenorth-BuonaVista-Singapore-20090219.jpg"
+ },
+ {
+  "key": "mrt",
+  "file": "mrt.jpg",
+  "title": "one-north MRT station (CC23), Exit A, Circle Line",
+  "artist": "ZKang123",
+  "author": "ZKang123",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:CC23_one-north_MRT_Exit_A_20201213_152954.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:CC23_one-north_MRT_Exit_A_20201213_152954.jpg"
+ },
+ {
+  "key": "food",
+  "file": "food.jpg",
+  "title": "The Star Vista, Buona Vista",
+  "artist": "Whywhy99",
+  "author": "Whywhy99",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:The_Star_Vista,_Singapore.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:The_Star_Vista,_Singapore.jpg"
+ },
+ {
+  "key": "park",
+  "file": "park.jpg",
+  "title": "Rochester Park, one-north",
+  "artist": "Bob T",
+  "author": "Bob T",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Rochester_Park_Singapore.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Rochester_Park_Singapore.jpg"
+ }
+]

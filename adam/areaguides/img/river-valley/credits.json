@@ -1,0 +1,46 @@
+[
+ {
+  "key": "hero",
+  "file": "hero.jpg",
+  "title": "Singapore River at Robertson Quay",
+  "artist": "Wzhkevin",
+  "author": "Wzhkevin",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Singapore_River_at_Robertson_Quay_-_2022-08-14.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Singapore_River_at_Robertson_Quay_-_2022-08-14.jpg"
+ },
+ {
+  "key": "mrt",
+  "file": "mrt.jpg",
+  "title": "Great World MRT station (TE15), Exit 1",
+  "artist": "ZKang123",
+  "author": "ZKang123",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:TE15_Great_World_MRT_Exit_1_20221221_122448.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:TE15_Great_World_MRT_Exit_1_20221221_122448.jpg"
+ },
+ {
+  "key": "food",
+  "file": "food.jpg",
+  "title": "Clarke Quay riverside dining, Singapore River",
+  "artist": "William Cho",
+  "author": "William Cho",
+  "lic": "CC BY-SA 2.0",
+  "license": "CC BY-SA 2.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Clarke_Quay,_the_place_to_be..._(4327549187).jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Clarke_Quay,_the_place_to_be..._(4327549187).jpg"
+ },
+ {
+  "key": "park",
+  "file": "park.jpg",
+  "title": "Fort Canning Park",
+  "artist": "Bjoertvedt",
+  "author": "Bjoertvedt",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Singapore_Fort_Canning_Park_IMG_9725.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Singapore_Fort_Canning_Park_IMG_9725.jpg"
+ }
+]

@@ -1,0 +1,46 @@
+[
+ {
+  "key": "hero",
+  "file": "hero.jpg",
+  "title": "Sultan Mosque and Bussorah Street, Kampong Glam, in the evening",
+  "artist": "Nicolas Lannuzel",
+  "author": "Nicolas Lannuzel",
+  "lic": "CC BY-SA 2.0",
+  "license": "CC BY-SA 2.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Masjid_Sultan_and_Bussorah_Street,_Singapore,_in_the_evening_-_20140418.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Masjid_Sultan_and_Bussorah_Street,_Singapore,_in_the_evening_-_20140418.jpg"
+ },
+ {
+  "key": "mrt",
+  "file": "mrt.jpg",
+  "title": "Bugis MRT station (EW12 / DT14), Exit A exterior",
+  "artist": "ZKang123",
+  "author": "ZKang123",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:EW12_DT14_Bugis_Exit_A_Exterior.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:EW12_DT14_Bugis_Exit_A_Exterior.jpg"
+ },
+ {
+  "key": "food",
+  "file": "food.jpg",
+  "title": "Little India Arcade, Serangoon Road, Singapore",
+  "artist": "Bahnfrend",
+  "author": "Bahnfrend",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Little_India_Arcade,_2023_(02).jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Little_India_Arcade,_2023_(02).jpg"
+ },
+ {
+  "key": "park",
+  "file": "park.jpg",
+  "title": "War Memorial Park, Singapore",
+  "artist": "ZKang123",
+  "author": "ZKang123",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:War_Memorial_Park,_Singapore_20210503_145659.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:War_Memorial_Park,_Singapore_20210503_145659.jpg"
+ }
+]

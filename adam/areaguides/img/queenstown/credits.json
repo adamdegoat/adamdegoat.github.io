@@ -1,0 +1,26 @@
+[
+ {
+  "key": "hero",
+  "artist": "chuttersnap",
+  "lic": "CC0",
+  "src": "https://commons.wikimedia.org/wiki/File:Queenstown,_Singapore_(Unsplash).jpg"
+ },
+ {
+  "key": "mrt",
+  "artist": "zhenkang",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:EW19_Queenstown_station_exterior_20200805_201730.jpg"
+ },
+ {
+  "key": "food",
+  "artist": "Exec8",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Singapore_Hawker_Alexandra_Food_Centre.jpg"
+ },
+ {
+  "key": "park",
+  "artist": "Terence Ong",
+  "lic": "CC BY 2.5",
+  "src": "https://commons.wikimedia.org/wiki/File:Alexandra_Canal,_Singapore.JPG"
+ }
+]

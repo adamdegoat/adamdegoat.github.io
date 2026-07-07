@@ -1,0 +1,46 @@
+[
+ {
+  "key": "hero",
+  "file": "hero.jpg",
+  "title": "The Kallang River at Bendemeer, with riverfront condos and HDB blocks around Boon Keng",
+  "artist": "Chainwit.",
+  "author": "Chainwit.",
+  "lic": "CC BY 4.0",
+  "license": "CC BY 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Kallang_Park_Connector,_Bendemeer,_Singapore_(2025)_-_img_01.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Kallang_Park_Connector,_Bendemeer,_Singapore_(2025)_-_img_01.jpg"
+ },
+ {
+  "key": "mrt",
+  "file": "mrt.jpg",
+  "title": "Boon Keng MRT station, Exit A on the North East Line",
+  "artist": "ZKang123",
+  "author": "ZKang123",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:NE9_Boon_Keng_MRT_Exit_A_20260406_181911.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:NE9_Boon_Keng_MRT_Exit_A_20260406_181911.jpg"
+ },
+ {
+  "key": "food",
+  "file": "food.jpg",
+  "title": "Bendemeer Market and Food Centre, below the HDB blocks",
+  "artist": "Kbseah",
+  "author": "Kbseah",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Bendemeer_Market_and_Food_Centre.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Bendemeer_Market_and_Food_Centre.jpg"
+ },
+ {
+  "key": "park",
+  "file": "park.jpg",
+  "title": "The Kallang River park connector running past the estate at Bendemeer",
+  "artist": "Chainwit.",
+  "author": "Chainwit.",
+  "lic": "CC BY 4.0",
+  "license": "CC BY 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Kallang_Park_Connector,_Bendemeer,_Singapore_(2025)_-_img_04.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Kallang_Park_Connector,_Bendemeer,_Singapore_(2025)_-_img_04.jpg"
+ }
+]

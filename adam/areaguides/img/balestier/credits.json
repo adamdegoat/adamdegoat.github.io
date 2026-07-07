@@ -1,0 +1,46 @@
+[
+ {
+  "key": "hero",
+  "file": "hero.jpg",
+  "title": "Conserved shophouses along Balestier Road",
+  "artist": "Terence Ong",
+  "author": "Terence Ong",
+  "lic": "CC BY 2.5",
+  "license": "CC BY 2.5",
+  "src": "https://commons.wikimedia.org/wiki/File:Balestier_Road_shophouses.JPG",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Balestier_Road_shophouses.JPG"
+ },
+ {
+  "key": "mrt",
+  "file": "mrt.jpg",
+  "title": "Balestier Road, the main strip through the area",
+  "artist": "Terence Ong",
+  "author": "Terence Ong",
+  "lic": "CC BY 2.5",
+  "license": "CC BY 2.5",
+  "src": "https://commons.wikimedia.org/wiki/File:Balestier_Road.JPG",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Balestier_Road.JPG"
+ },
+ {
+  "key": "food",
+  "file": "food.jpg",
+  "title": "Boon Tong Kee chicken rice on Balestier Road",
+  "artist": "RAGURAM THE RAMBUTAN",
+  "author": "RAGURAM THE RAMBUTAN",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Boon_Tong_Kee,_Balestier_Road_-_RAGURAM_24.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Boon_Tong_Kee,_Balestier_Road_-_RAGURAM_24.jpg"
+ },
+ {
+  "key": "park",
+  "file": "park.jpg",
+  "title": "Zhongshan Park, Balestier",
+  "artist": "LN9267",
+  "author": "LN9267",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Singapore_Zhongshan_Park_14-05-2024(1).jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Singapore_Zhongshan_Park_14-05-2024(1).jpg"
+ }
+]

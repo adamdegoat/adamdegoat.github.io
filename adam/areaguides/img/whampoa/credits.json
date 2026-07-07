@@ -1,0 +1,46 @@
+[
+ {
+  "key": "hero",
+  "file": "hero.jpg",
+  "title": "The Whampoa riverside HDB estate along Sungei Whampoa",
+  "artist": "Bob Tan (User:Wanderingchina)",
+  "author": "Bob Tan (User:Wanderingchina)",
+  "lic": "CC BY 4.0",
+  "license": "CC BY 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Balestier_and_Sungei_Whampoa_aerial_panorama_taken_in_February_2023.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Balestier_and_Sungei_Whampoa_aerial_panorama_taken_in_February_2023.jpg"
+ },
+ {
+  "key": "mrt",
+  "file": "mrt.jpg",
+  "title": "Boon Keng MRT on the North-East Line, the nearest station to Whampoa",
+  "artist": "S5A-0043",
+  "author": "S5A-0043",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:(SGP-Singapore)_Boon_Keng_Station_Exit_A_2023-12-21.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:(SGP-Singapore)_Boon_Keng_Station_Exit_A_2023-12-21.jpg"
+ },
+ {
+  "key": "food",
+  "file": "food.jpg",
+  "title": "Whampoa Drive Makan Place, the estate's hawker institution",
+  "artist": "Kbseah",
+  "author": "Kbseah",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Whampoa_Makan_Place,_exterior.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Whampoa_Makan_Place,_exterior.jpg"
+ },
+ {
+  "key": "park",
+  "file": "park.jpg",
+  "title": "Whampoa Park along Whampoa Road, beside the Whampoa River",
+  "artist": "GoAheadFan95",
+  "author": "GoAheadFan95",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Whampoa_Park.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Whampoa_Park.jpg"
+ }
+]

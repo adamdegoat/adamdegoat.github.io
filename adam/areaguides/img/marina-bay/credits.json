@@ -1,0 +1,46 @@
+[
+ {
+  "key": "hero",
+  "file": "hero.jpg",
+  "title": "Marina Bay skyline at dusk, Singapore",
+  "artist": "Benh Lieu Song",
+  "author": "Benh Lieu Song",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Singapore_Marina_Bay_Dusk_2018-02-27.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Singapore_Marina_Bay_Dusk_2018-02-27.jpg"
+ },
+ {
+  "key": "mrt",
+  "file": "mrt.jpg",
+  "title": "Raffles Place MRT station (NS26/EW14)",
+  "artist": "Fanz226",
+  "author": "Fanz226",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Raffles_Place_MRT_Station_202407.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Raffles_Place_MRT_Station_202407.jpg"
+ },
+ {
+  "key": "food",
+  "file": "food.jpg",
+  "title": "Lau Pa Sat (Telok Ayer Market), Singapore CBD",
+  "artist": "GoAheadFan95",
+  "author": "GoAheadFan95",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Lau_Pa_Sat,_October_2024.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Lau_Pa_Sat,_October_2024.jpg"
+ },
+ {
+  "key": "park",
+  "file": "park.jpg",
+  "title": "Supertree Grove, Gardens by the Bay, Singapore",
+  "artist": "Dietmar Rabich",
+  "author": "Dietmar Rabich",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Singapore_(SG),_Gardens_by_the_Bay,_Supertree_Grove_--_2019_--_4752.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Singapore_(SG),_Gardens_by_the_Bay,_Supertree_Grove_--_2019_--_4752.jpg"
+ }
+]

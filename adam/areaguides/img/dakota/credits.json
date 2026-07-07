@@ -1,0 +1,46 @@
+[
+ {
+  "key": "hero",
+  "file": "hero.jpg",
+  "title": "The dove playground at the heart of Dakota Crescent",
+  "artist": "Leexueli95",
+  "author": "Leexueli95",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Dove_Playground_at_Dakota_Crescent.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Dove_Playground_at_Dakota_Crescent.jpg"
+ },
+ {
+  "key": "mrt",
+  "file": "mrt.jpg",
+  "title": "Dakota MRT station (CC8), Circle Line, along Old Airport Road",
+  "artist": "Jnzl's Photos",
+  "author": "Jnzl's Photos",
+  "lic": "CC BY 2.0",
+  "license": "CC BY 2.0",
+  "src": "https://commons.wikimedia.org/wiki/File:CC8_Dakota_MRT_station_(Circle_Line)_along_Old_Airport_Road.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:CC8_Dakota_MRT_station_(Circle_Line)_along_Old_Airport_Road.jpg"
+ },
+ {
+  "key": "food",
+  "file": "food.jpg",
+  "title": "Old Airport Road Food Centre (Block 51) at dusk",
+  "artist": "Kbseah",
+  "author": "Kbseah",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:51_Old_Airport_Road_Food_Centre,_exterior.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:51_Old_Airport_Road_Food_Centre,_exterior.jpg"
+ },
+ {
+  "key": "park",
+  "file": "park.jpg",
+  "title": "A conserved low-rise block at Dakota Crescent",
+  "artist": "Leexueli95",
+  "author": "Leexueli95",
+  "lic": "CC BY-SA 4.0",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Block_12,_Dakota_Crescent.jpg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Block_12,_Dakota_Crescent.jpg"
+ }
+]

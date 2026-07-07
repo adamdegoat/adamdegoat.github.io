@@ -1,0 +1,26 @@
+[
+ {
+  "key": "hero",
+  "artist": "SingaporePoly",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Northpoint_City.jpg"
+ },
+ {
+  "key": "mrt",
+  "artist": "Fanz226",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Yishun_MRT_Station_202407.jpg"
+ },
+ {
+  "key": "food",
+  "artist": "ILoveYishun",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Northpoint_City_Makan_Town.jpg"
+ },
+ {
+  "key": "park",
+  "artist": "Wzhkevin",
+  "lic": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:View_from_northern_shore_of_Yishun_pond_looking_south,_with_Khoo_Teck_Puat_Hospital_on_the_middle_left.jpg"
+ }
+]
