@@ -148,6 +148,10 @@
     .psnav-burger svg{width:22px;height:22px;stroke:#191512;fill:none;stroke-width:2;stroke-linecap:round}
     /* collapse to burger when the grouped row no longer fits comfortably */
     @media(max-width:1180px){.psnav-links,.psnav-door,.psnav-lang{display:none}.psnav-burger{display:flex}}
+    /* compact language pill on the mobile top bar (desktop keeps the full .psnav-lang) */
+    .psnav-mlang{display:none;align-items:center;gap:5px;flex:none;background:#eaf6f4;border:1.5px solid #27513f;border-radius:30px;font-family:inherit;font-size:12.5px;font-weight:800;color:#1b3a2d;cursor:pointer;padding:7px 13px;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+    .psnav-mlang:active{background:#dbefeb}
+    @media(max-width:1180px){.psnav-mlang{display:inline-flex;margin-left:auto}.psnav-burger{margin-left:9px}}
 
     /* ── mobile menu: everything visible, no accordion ── */
     .psnav-menu,.psnav-menu *{box-sizing:border-box}
@@ -246,6 +250,7 @@
       '<span class="dt"><b>' + t('Listing Platform') + '</b><span><span class="pd-dot"></span>' + t('Buy and rent') + '</span></span>' + ARROW +
     '</a>' +
     '<button class="psnav-lang" id="psLang" type="button" aria-label="Switch language">' + LANG_SVG + (curLang() === 'zh' ? 'EN' : '中文') + '</button>' +
+    '<button class="psnav-mlang" id="psMLang" type="button" aria-label="Switch language">' + (curLang() === 'zh' ? 'EN' : '中文') + '</button>' +
     '<button class="psnav-burger" id="psBurger" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>' +
     '</div></header>';
 
@@ -357,6 +362,9 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') items.forEach(function (o) { o.classList.remove('open'); }); });
 
     var back = document.getElementById('psBack');
+    // the homepage has nowhere to go "back" to, so hide the arrow there
+    var isHome = /^\/(adam\/)?(index\.html)?$/.test(location.pathname);
+    if (back && isHome) back.style.display = 'none';
     if (back) back.addEventListener('click', function () {
       var path = location.pathname.replace(/index\.html$/, '').replace(/\/$/, '');
       var last = path.split('/').pop() || '';
@@ -372,6 +380,7 @@
     function doToggle() { if (window.PSI18N) window.PSI18N.toggle(); }
     var lang = document.getElementById('psLang'); if (lang) lang.addEventListener('click', doToggle);
     var langM = document.getElementById('psLangM'); if (langM) langM.addEventListener('click', doToggle);
+    var mlang = document.getElementById('psMLang'); if (mlang) mlang.addEventListener('click', doToggle);
     if (window.PSI18N) window.PSI18N.apply();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
