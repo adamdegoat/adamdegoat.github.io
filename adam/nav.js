@@ -21,12 +21,12 @@
         ['Mortgage',            BASE + '/adam/tools/mortgage.html',   'calc'],
         ['Eligibility',         BASE + '/adam/tools/eligibility.html','calc'],
         ['Selling',             BASE + '/adam/tools/sell.html',       'calc'] ] },
-    { k:'link',  t:'New Launches', href: BASE + '/adam/launches/' },
-    { k:'link',  t:'Area Guides',  href: BASE + '/adam/areaguides/' },
     { k:'menu',  t:'Insights', smart:true, href: BASE + '/thesis/', kids:[
         ['Research',        BASE + '/thesis/',               'spark', 'Side by side, every condo and HDB'],
         ['Market Analysis', BASE + '/adam/market-analysis/', 'chart', 'Monthly analyst report'],
         ['News',            BASE + '/adam/news/',            'news',  'Daily Singapore property news'] ] },
+    { k:'link',  t:'Upcoming Launches', href: BASE + '/adam/launches/' },
+    { k:'link',  t:'Area Guides',  href: BASE + '/adam/areaguides/' },
     { k:'link',  t:'Beginners Guide', href: BASE + '/adam/essentials/' }
   ];
   var LISTINGS = 'https://listings.propsight.sg';
@@ -44,7 +44,7 @@
     switch (it.t) {
       case 'PropWorld':       return has(/\/propworld\//);
       case 'Tools':           return has(/\/tools\//) || has(/#tools/);
-      case 'New Launches':    return has(/\/launches\//);
+      case 'Upcoming Launches': return has(/\/launches\//);
       case 'Area Guides':     return has(/\/areaguides\//);
       case 'Insights':        return has(/\/(research|thesis|market-analysis|market-pulse|notes|news)\//);
       case 'Beginners Guide': return has(/\/(guide|essentials)\//);
@@ -253,7 +253,7 @@
   var mobileShort = { 'What you can afford':'Afford', 'Schools nearby':'Schools', 'Market Analysis':'Market' };
   function mlabel(s){ return mobileShort[s] || s; }
   function chip(label, href, icon, cls){ return '<a class="psm-chip'+(cls?' '+cls:'')+'" href="'+href+'">'+ic(icon)+'<b>'+t(mlabel(label))+'</b></a>'; }
-  var PW = ITEMS[0], TOOLS = ITEMS[1], NL = ITEMS[2], AREAS = ITEMS[3], INS = ITEMS[4], BG = ITEMS[5];
+  var PW = ITEMS[0], TOOLS = ITEMS[1], INS = ITEMS[2], NL = ITEMS[3], AREAS = ITEMS[4], BG = ITEMS[5];
 
   var TG = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3l-3.3 15.6c-.2 1.1-.9 1.4-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.2L18.5 6c.4-.3-.1-.5-.6-.2L7.4 12.6l-4.8-1.5c-1-.3-1-1 .2-1.5l18.7-7.2c.9-.3 1.6.2 1.4 1.9z"/></svg>';
   var PHN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10.5 18.5h3"/></svg>';
@@ -263,11 +263,11 @@
     '<div class="psm-grp"><div class="psm-glbl">'+t('Tools')+'</div><div class="psm-chips">' +
       TOOLS.kids.map(function(k){ return chip(k[0], k[1], k[2]); }).join('') +
     '</div></div>' +
-    '<div class="psm-grp"><div class="psm-chips">' +
-      chip('New Launches', NL.href, 'build') + chip('Area Guides', AREAS.href, 'pin') +
-    '</div></div>' +
     '<div class="psm-grp"><div class="psm-glbl">'+t('Insights')+' <span class="mtag">'+t('Smart')+'</span></div><div class="psm-chips">' +
       INS.kids.map(function(k){ return chip(k[0], k[1], k[2], 'acc'); }).join('') +
+    '</div></div>' +
+    '<div class="psm-grp"><div class="psm-chips">' +
+      chip('Upcoming Launches', NL.href, 'build') + chip('Area Guides', AREAS.href, 'pin') +
     '</div></div>' +
     '<div class="psm-grp"><div class="psm-chips">' + chip('Beginners Guide', BG.href, 'book', 'wide') + '</div></div>' +
     '<a class="psm-door'+(listingsActive()?' cur':'')+'" href="'+LISTINGS+'"><span class="md"><b>'+t('Listing Platform')+'</b><span>'+t('Browse homes for sale and rent')+'</span></span><span class="arr">'+ARROW+'</span></a>' +
@@ -301,7 +301,7 @@
     '<div class="psf-col"><h4>' + t('Explore') + '</h4>' +
       _fl(BASE + '/adam/propworld/', 'PropWorld') + _fl(BASE + '/adam/areaguides/', 'Area Guides') +
       _fl(BASE + '/thesis/', 'Research') + _fl(BASE + '/adam/market-analysis/', 'Market Analysis') + _fl(BASE + '/adam/news/', 'News') +
-      _fl(BASE + '/adam/essentials/', 'Beginners Guide') + _fl(BASE + '/adam/launches/', 'New Launches') +
+      _fl(BASE + '/adam/essentials/', 'Beginners Guide') + _fl(BASE + '/adam/launches/', 'Upcoming Launches') +
     '</div>' +
     '<div class="psf-col"><h4>' + t('Company') + '</h4>' +
       _fl(BASE + '/adam/about/', 'About us') + _fl(BASE + '/#talk', 'Contact') +

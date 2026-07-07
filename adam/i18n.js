@@ -20,6 +20,7 @@
     'Listing Platform': '房源平台', 'Coming soon': '即将推出',
     // ── new nav (2026-07): PropWorld + Area Guides + Insights grouping ──
     'Area Guides': '区域指南', 'Insights': '洞察', 'Beginners Guide': '新手指南',
+    'Upcoming Launches': '新盘预告', 'New condos coming to market': '即将上市的新盘', 'Enter PropWorld': '进入 PropWorld',
     'Buy and rent': '买房与租房', 'Singapore property, brought to life': '新加坡房产，栩栩如生',
     'Browse homes for sale and rent': '浏览待售与出租房源',
     'Side by side, every condo and HDB': '并排对比每个公寓与组屋',
