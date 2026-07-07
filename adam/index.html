@@ -1043,7 +1043,7 @@ if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}
     for(var d=0;d<n;d++){var b=document.createElement('button');b.className='hc-dot'+(d?'':' on');b.type='button';b.setAttribute('aria-label','Slide '+(d+1));(function(k){b.onclick=function(){go(k);reset();};})(d);dotsEl.appendChild(b);}
     var dots=dotsEl.children;
     function go(k){i=(k+n)%n;track.style.transform='translateX(-'+(i*100)+'%)';for(var j=0;j<n;j++)dots[j].classList.toggle('on',j===i);}
-    function next(){go(i+1);} function start(){timer=setInterval(next,5000);} function reset(){clearInterval(timer);start();}
+    function next(){go(i+1);} function start(){timer=setInterval(next,3000);} function reset(){clearInterval(timer);start();}
     start();
     wrap.addEventListener('mouseenter',function(){clearInterval(timer);}); wrap.addEventListener('mouseleave',start);
     track.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;moved=false;},{passive:true});
