@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-07T13:00:01.411371+08:00",
+  "updated": "2026-07-07T21:00:00.309050+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -169,6 +169,12 @@
   },
   "news": [
     {
+      "title": "Michael Bisping’s No. 1 TUF 34 pick steps in to save fight at UFC Oklahoma City",
+      "link": "https://www.mmafighting.com/ufc/497873/michael-bispings-no-1-tuf-34-pick-steps-in-to-save-fight-at-ufc-oklahoma-city",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
       "title": "Dricus du Plessis accuses Kamaru Usman of avoiding UFC Oklahoma City fight: ‘He didn’t want to sign the contract’",
       "link": "https://www.mmafighting.com/ufc/495947/dricus-du-plessis-accuses-kamaru-usman-of-avoiding-ufc-oklahoma-city-fight-he-didnt-want-to-sign-the-contract",
       "source": "MMA Fighting",
@@ -181,9 +187,21 @@
       "priority": true
     },
     {
+      "title": "Dustin Poirier reveals brain scarring, behavioral changes motivated UFC retirement",
+      "link": "https://www.mmamania.com/ufc-news/455360/dustin-poirier-reveals-brain-scarring-behavioral-changes-motivated-ufc-retirement",
+      "source": "MMA Mania",
+      "priority": true
+    },
+    {
       "title": "Marlon Vera vs. Charles Jourdain booked for UFC 331 date",
       "link": "https://www.mmamania.com/ufc-fight-announcements/455357/marlon-vera-vs-charles-jourdain-booked-for-ufc-331-on-sept-19",
       "source": "MMA Mania",
+      "priority": true
+    },
+    {
+      "title": "Why Veronica Hardy pulled out of UFC Oklahoma City bout",
+      "link": "https://www.sherdog.com/news/news/Why-Veronica-Hardy-pulled-out-of-UFC-Oklahoma-City-bout-201789",
+      "source": "Sherdog",
       "priority": true
     },
     {
@@ -233,29 +251,11 @@
       "link": "https://www.mmafighting.com/ufc/497805/between-the-links-conor-mcgregor-vs-max-holloway-2-ufc-329-countdown-more",
       "source": "MMA Fighting",
       "priority": false
-    },
-    {
-      "title": "Dana White responds to Alex Pereira complaining about Herb Dean and illegal shots in his loss to Ciryl Gane",
-      "link": "https://www.mmafighting.com/ufc/495741/dana-white-responds-to-alex-pereira-complaining-about-herb-dean-and-illegal-shots-in-his-loss-to-ciryl-gane",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "RAF Georgia card, start time, date and location | Merab vs. Cejudo",
-      "link": "https://www.mmamania.com/raf-wrestling-schedule-cards-live-results/455382/raf-georgia-card-start-time-date-and-location-merab-vs-cejudo",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "Pic: Wendy’s drops first-ever fighter combo meal ahead of UFC 329 (and it’s not Conor McGregor)",
-      "link": "https://www.mmamania.com/latest-news/455354/pic-wendys-drops-first-ever-fighter-combo-meal-ahead-of-ufc-329-and-its-not-conor-mcgregor",
-      "source": "MMA Mania",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor and Holloway clash Sunday 9am SGT—mark your calendar for championship-level violence.",
-    "prefight": "McGregor returns to face Holloway Sunday at 9 AM SGT for featherweight glory.",
-    "results": "Fiziev ends Torres with a spinning wheel kick knockout in round two."
+    "week": "McGregor vs Holloway drops Sunday 9am SGT—two UFC icons ready for war.",
+    "prefight": "McGregor and Holloway clash Sunday 9 AM SGT in an epic showdown.",
+    "results": "Fiziev TKOs Torres via spinning wheel kick and punches in the second round."
   }
 }
