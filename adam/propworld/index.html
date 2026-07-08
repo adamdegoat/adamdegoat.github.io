@@ -1404,7 +1404,7 @@ function positionBubble(cid){
   // 1) centre the bubble horizontally over its OWN character (clamped to the world)
   var left=Math.round(p.x-bw/2); if(left<8) left=8; if(left+bw>sw-8) left=sw-8-bw;
   // 2) lift straight up until it clears signs + other bubbles + other residents' heads
-  var baseGap=(cid==='analyst')?Math.round(p.h*2.3):14; var lift=0, step=7, maxLift=170, botE=headY-baseGap, topE, rect, o, clash;
+  var baseGap=(cid==='analyst')?20:14; var lift=0, step=7, maxLift=170, botE=headY-baseGap, topE, rect, o, clash;
   for(lift=0; lift<=maxLift; lift+=step){
     botE=headY-baseGap-lift; topE=botE-bh;
     if(topE<6){ lift-=step; botE=headY-baseGap-lift; break; }
