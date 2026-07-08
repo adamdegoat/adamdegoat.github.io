@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-08T13:00:01.976277+08:00",
+  "updated": "2026-07-08T21:00:05.223619+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -169,12 +169,6 @@
   },
   "news": [
     {
-      "title": "Michael Bisping’s No. 1 TUF 34 pick steps in to save fight at UFC Oklahoma City",
-      "link": "https://www.mmafighting.com/ufc/497873/michael-bispings-no-1-tuf-34-pick-steps-in-to-save-fight-at-ufc-oklahoma-city",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
       "title": "Rolly Romero vs Teofimo Lopez title fight booked for Aug. 22 in Las Vegas",
       "link": "https://www.mmamania.com/boxing/455500/rolly-romero-vs-teofimo-lopez-title-fight-booked-for-aug-22-in-las-vegas",
       "source": "MMA Mania",
@@ -184,18 +178,6 @@
       "title": "Where’s Connie? We’re now two episodes into UFC 329 ‘Embedded’ and still no sign of Conor McGregor",
       "link": "https://www.mmamania.com/ufc-videos/455476/were-now-two-episodes-into-ufc-329-embedded-no-sign-conor-mcgregor",
       "source": "MMA Mania",
-      "priority": true
-    },
-    {
-      "title": "Why Veronica Hardy pulled out of UFC Oklahoma City bout",
-      "link": "https://www.sherdog.com/news/news/Why-Veronica-Hardy-pulled-out-of-UFC-Oklahoma-City-bout-201789",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "Dricus du Plessis says Kamaru Usman needed convincing to sign fight",
-      "link": "https://www.sherdog.com/news/news/Dricus-du-Plessis-says-Kamaru-Usman-needed-convincing-to-sign-fight-201787",
-      "source": "Sherdog",
       "priority": true
     },
     {
@@ -251,11 +233,29 @@
       "link": "https://www.mmafighting.com/latest-news/497224/morning-report-jon-anik-reveals-max-holloway-told-him-about-middleweight-plans-8-or-9-years-ago",
       "source": "MMA Fighting",
       "priority": false
+    },
+    {
+      "title": "UFC 329’s Conor McGregor claims Featherweight GOAT status: ‘The results show this’",
+      "link": "https://www.mmamania.com/latest-news/455566/ufc-329s-conor-mcgregor-claims-featherweight-goat-status-the-results-show-this",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
+      "title": "UFC 329’s Cody Garbrandt wishes UFC would help with life after fighting: ‘It’s scary’",
+      "link": "https://www.mmamania.com/ufc-news/455545/ufc-329s-cody-garbrandt-wishes-ufc-would-help-with-life-after-fighting-its-scary",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
+      "title": "UFC 329’s Benoit Saint-Denis shuts down ‘ridiculous’ staph infection concerns – ‘I have a scab’",
+      "link": "https://www.mmamania.com/latest-news/455552/ufc-329s-benoit-saint-denis-shuts-down-ridiculous-staph-infection-concerns-i-have-a-scab",
+      "source": "MMA Mania",
+      "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor and Holloway collide Sunday morning at 9 AM SGT—fight week starts now.",
-    "prefight": "McGregor vs Holloway drops Sunday 9am SGT—two striking legends collide for pure excellence.",
-    "results": "Fiziev devastated Torres with a spinning wheel kick and punches, scoring a round-two knockout."
+    "week": "McGregor and Holloway clash this Sunday—pure striking fireworks await at 9 AM SGT.",
+    "prefight": "McGregor and Holloway collide Sunday 9am SGT. Featherweight excellence incoming.",
+    "results": "Fiziev dropped Torres with a spinning wheel kick and punches, KO'd him in round two."
   }
 }
