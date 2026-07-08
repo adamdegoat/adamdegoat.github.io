@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-07T23:30:02.225971+08:00",
+  "updated": "2026-07-08T09:00:00.345790+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -175,20 +175,14 @@
       "priority": true
     },
     {
-      "title": "Dricus du Plessis accuses Kamaru Usman of avoiding UFC Oklahoma City fight: ‘He didn’t want to sign the contract’",
-      "link": "https://www.mmafighting.com/ufc/495947/dricus-du-plessis-accuses-kamaru-usman-of-avoiding-ufc-oklahoma-city-fight-he-didnt-want-to-sign-the-contract",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
-      "title": "Dustin Poirier reveals brain scarring, behavioral changes motivated UFC retirement",
-      "link": "https://www.mmamania.com/ufc-news/455360/dustin-poirier-reveals-brain-scarring-behavioral-changes-motivated-ufc-retirement",
+      "title": "Rolly Romero vs Teofimo Lopez title fight booked for Aug. 22 in Las Vegas",
+      "link": "https://www.mmamania.com/boxing/455500/rolly-romero-vs-teofimo-lopez-title-fight-booked-for-aug-22-in-las-vegas",
       "source": "MMA Mania",
       "priority": true
     },
     {
-      "title": "Marlon Vera vs. Charles Jourdain booked for UFC 331 date",
-      "link": "https://www.mmamania.com/ufc-fight-announcements/455357/marlon-vera-vs-charles-jourdain-booked-for-ufc-331-on-sept-19",
+      "title": "Where’s Connie? We’re now two episodes into UFC 329 ‘Embedded’ and still no sign of Conor McGregor",
+      "link": "https://www.mmamania.com/ufc-videos/455476/were-now-two-episodes-into-ufc-329-embedded-no-sign-conor-mcgregor",
       "source": "MMA Mania",
       "priority": true
     },
@@ -223,39 +217,45 @@
       "priority": true
     },
     {
-      "title": "Matt Brown argues Conor McGregor might be at his best at UFC 329: ‘He’s got to prove motherf*ckers wrong’",
-      "link": "https://www.mmafighting.com/ufc/497887/matt-brown-argues-conor-mcgregor-might-be-at-his-best-at-ufc-329-hes-got-to-prove-motherfckers-wrong",
+      "title": "UFC Sacramento main and co-main events official, several new fights announced",
+      "link": "https://www.mmafighting.com/ufc/498005/ufc-sacramento-main-and-co-main-events-official-several-new-fights-announced",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "Morning Report: Jon Anik reveals Max Holloway told him about middleweight plans ‘8 or 9 years ago’",
-      "link": "https://www.mmafighting.com/latest-news/497224/morning-report-jon-anik-reveals-max-holloway-told-him-about-middleweight-plans-8-or-9-years-ago",
+      "title": "Waldo Cortes-Acosta vs. Curtis Blaydes in the works for Noche UFC 4",
+      "link": "https://www.mmafighting.com/ufc/498026/waldo-cortes-acosta-vs-curtis-blaydes-in-the-works-for-noche-ufc-4",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "RAF Georgia: Dvalishvili vs. Cejudo fight card, start time",
-      "link": "https://www.mmafighting.com/raf-wrestling/497751/raf-georgia-dvalishvili-vs-cejudo-fight-card-start-time",
+      "title": "UFC 330: Makhachev vs. Machado Garry official poster revealed",
+      "link": "https://www.mmafighting.com/ufc/497976/ufc-330-makhachev-vs-machado-garry-official-poster-revealed",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "Demian Maia cites GSP, Diaz brothers as ideal opponents for grappling match, leaves door open for final MMA fight",
-      "link": "https://www.mmafighting.com/ufc/496453/demian-maia-cites-gsp-diaz-brothers-as-ideal-opponents-for-grappling-match-leaves-door-open-for-final-mma-fight",
+      "title": "UFC 329 custom shorts revealed for Conor McGregor, King Green",
+      "link": "https://www.mmafighting.com/ufc/497929/ufc-329-custom-shorts-revealed-for-conor-mcgregor-king-green",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "Conor McGregor teases ‘masterpiece’ against Max Holloway at UFC 329: ‘I’m in my prime here now’",
-      "link": "https://www.mmafighting.com/ufc/497854/conor-mcgregor-teases-masterpiece-against-max-holloway-at-ufc-329-im-in-my-prime-here-now",
+      "title": "Belal Muhammad suggests surprising strategy for Max Holloway to win Conor McGregor rematch at UFC 329",
+      "link": "https://www.mmafighting.com/ufc/497954/belal-muhammad-suggests-surprising-strategy-for-max-holloway-to-win-conor-mcgregor-rematch-at-ufc-329",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Paddy Pimblett: ‘Perfect fight’ after UFC 329 would be Conor McGregor at Madison Square Garden",
+      "link": "https://www.mmafighting.com/latest-news/497879/paddy-pimblett-perfect-fight-after-ufc-329-would-be-conor-mcgregor-at-madison-square-garden",
       "source": "MMA Fighting",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor meets Holloway Sunday at 9 AM SGT for championship glory.",
-    "prefight": "McGregor and Holloway—elite strikers on collision course this Sunday morning in Singapore.",
-    "results": "Fiziev KOs Torres with a spinning wheel kick and punches in round two."
+    "week": "McGregor meets Holloway Sunday at 9am SGT—two strikers, one ring, endless fireworks.",
+    "prefight": "McGregor vs Holloway goes live Sunday 9 AM SGT—clear your schedule now.",
+    "results": "Rafael Fiziev's stunning spinning wheel kick destroyed Manuel Torres in the second round."
   }
 }
