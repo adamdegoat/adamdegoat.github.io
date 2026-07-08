@@ -1404,7 +1404,7 @@ function positionBubble(cid){
   // 1) centre the bubble horizontally over its OWN character (clamped to the world)
   var left=Math.round(p.x-bw/2); if(left<8) left=8; if(left+bw>sw-8) left=sw-8-bw;
   // 2) lift straight up until it clears signs + other bubbles + other residents' heads
-  var baseGap=(cid==='analyst')?Math.round(p.h*1.6):14; var lift=0, step=7, maxLift=170, botE=headY-baseGap, topE, rect, o, clash;
+  var baseGap=14; var lift=0, step=7, maxLift=170, botE=headY-baseGap, topE, rect, o, clash;
   for(lift=0; lift<=maxLift; lift+=step){
     botE=headY-baseGap-lift; topE=botE-bh;
     if(topE<6){ lift-=step; botE=headY-baseGap-lift; break; }
@@ -1415,7 +1415,7 @@ function positionBubble(cid){
   b.style.left=left+'px'; b.style.bottom=(sh-botE)+'px';
   // 3) the tail is a pointer that stretches from the bubble down to the character's head
   var tail=b.querySelector('.tail');
-  if(tail){ var gap=(cid==='analyst')?12:Math.max(7,(p.y-p.h)-botE+9); tail.style.borderTopWidth=Math.min(gap,70)+'px';
+  if(tail){ var gap=Math.max(7,(p.y-p.h)-botE+9); tail.style.borderTopWidth=Math.min(gap,70)+'px';
     tail.style.left=Math.min(Math.max(p.x-left-7,8),bw-22)+'px'; }
 }
 function bubble(c,html,onTap){
