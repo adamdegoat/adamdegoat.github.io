@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-08T09:00:00.345790+08:00",
+  "updated": "2026-07-08T13:00:01.976277+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -199,18 +199,6 @@
       "priority": true
     },
     {
-      "title": "New Footage reveals Conor McGregor’s injury that canceled Michael Chandler fight",
-      "link": "https://www.sherdog.com/news/news/New-Footage-reveals-Conor-McGregors-injury-that-canceled-Michael-Chandler-fight-201763",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "Johnny Eblen blasts Costello van Steenis withdrawal before PFL Austin clash",
-      "link": "https://www.sherdog.com/news/news/Johnny-Eblen-blasts-Costello-van-Steenis-withdrawal-before-PFL-Austin-clash-201778",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
       "title": "Nate Diaz calls to ‘whoop’ Mike Perry in MMA rematch despite growing retirement calls",
       "link": "https://www.bjpenn.com/mma-news/nate-diaz/nate-diaz-calls-out-mike-perry-mma-rematch-retirement-calls/?utm_source=rss&utm_medium=rss&utm_campaign=nate-diaz-calls-out-mike-perry-mma-rematch-retirement-calls",
       "source": "BJPenn",
@@ -251,11 +239,23 @@
       "link": "https://www.mmafighting.com/latest-news/497879/paddy-pimblett-perfect-fight-after-ufc-329-would-be-conor-mcgregor-at-madison-square-garden",
       "source": "MMA Fighting",
       "priority": false
+    },
+    {
+      "title": "Matt Brown argues Conor McGregor might be at his best at UFC 329: ‘He’s got to prove motherf*ckers wrong’",
+      "link": "https://www.mmafighting.com/ufc/497887/matt-brown-argues-conor-mcgregor-might-be-at-his-best-at-ufc-329-hes-got-to-prove-motherfckers-wrong",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Morning Report: Jon Anik reveals Max Holloway told him about middleweight plans ‘8 or 9 years ago’",
+      "link": "https://www.mmafighting.com/latest-news/497224/morning-report-jon-anik-reveals-max-holloway-told-him-about-middleweight-plans-8-or-9-years-ago",
+      "source": "MMA Fighting",
+      "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor meets Holloway Sunday at 9am SGT—two strikers, one ring, endless fireworks.",
-    "prefight": "McGregor vs Holloway goes live Sunday 9 AM SGT—clear your schedule now.",
-    "results": "Rafael Fiziev's stunning spinning wheel kick destroyed Manuel Torres in the second round."
+    "week": "McGregor and Holloway collide Sunday morning at 9 AM SGT—fight week starts now.",
+    "prefight": "McGregor vs Holloway drops Sunday 9am SGT—two striking legends collide for pure excellence.",
+    "results": "Fiziev devastated Torres with a spinning wheel kick and punches, scoring a round-two knockout."
   }
 }
