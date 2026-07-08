@@ -156,6 +156,10 @@ a{color:inherit}
 .pw-bub .tail{position:absolute;top:100%;left:20px;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-top:12px solid #fff;filter:drop-shadow(0 3px 1.5px rgba(12,33,26,.13))}
 .pw-bub .go{margin-top:6px;font-size:11.5px;font-weight:800;color:var(--teal);display:flex;align-items:center;gap:4px}
 .pw-bub .go svg{width:11px;height:11px}
+.pw-bub-pin{max-width:150px}
+.pw-bub .pw-play{display:inline-flex;align-items:center;gap:5px;margin-top:7px;background:var(--teal);color:#fff;border:0;border-radius:999px;padding:5px 11px 5px 9px;font-size:11.5px;font-weight:800;cursor:pointer;line-height:1}
+.pw-bub .pw-play:hover{background:#0c656c}
+.pw-bub .pw-play svg{width:13px;height:13px;fill:#fff;display:block}
 
 /* news wire ticker */
 #pw-ticker{position:absolute;left:0;right:0;bottom:0;height:38px;display:flex;align-items:center;
@@ -1283,7 +1287,7 @@ var SCENE_AR=1200/720;
 /* cast: 3 narrators + Aillie the guide, feet placed in SVG coords */
 var CAST=[
   {id:'mei',    name:'Mei',    role:'Reporter',           role_zh:'记者',       color:'#c96f4a', hair:'#20160f', skin:'#d9a878', hairstyle:'short', prop:'press',   sp:[404,628], scale:0.78},
-  {id:'analyst',name:'Priya',  role:'Market analyst',     role_zh:'市场分析师', color:'#4a6fb0', hair:'#1a1410', skin:'#c98f63', hairstyle:'short', prop:'glasses', sp:[524,650], scale:0.9},
+  {id:'analyst',name:'Christine',  role:'Market analyst',     role_zh:'市场分析师', color:'#4a6fb0', hair:'#141018', skin:'#f0d3b4', hairstyle:'long', prop:'glasses', sp:[540,684], scale:1.06},
   {id:'buyer',  name:'Rachel', role:'Home buyer',         role_zh:'购房者',     color:'#2f9a8f', hair:'#3a2a1a', skin:'#e6b98f', hairstyle:'bun',   prop:'tote',    sp:[644,690], scale:1.06},
   {id:'aillie', name:'Aillie', role:"PropSight's guide",  role_zh:'PropSight 向导', color:'#a4508b', hair:'#241019', skin:'#e8bd97', hairstyle:'long', prop:null, sp:[762,662], scale:0.98, star:true}
 ];
@@ -1347,6 +1351,7 @@ function place(){
     POS[c.id]={x:p.x,y:p.y,h:h};
   });
   repositionShown();
+  pinChristine();
 }
 
 /* portals navigate into the site */
@@ -1399,10 +1404,10 @@ function positionBubble(cid){
   // 1) centre the bubble horizontally over its OWN character (clamped to the world)
   var left=Math.round(p.x-bw/2); if(left<8) left=8; if(left+bw>sw-8) left=sw-8-bw;
   // 2) lift straight up until it clears signs + other bubbles + other residents' heads
-  var lift=0, step=7, maxLift=170, botE=headY-14, topE, rect, o, clash;
+  var baseGap=(cid==='analyst')?Math.round(p.h*2.3):14; var lift=0, step=7, maxLift=170, botE=headY-baseGap, topE, rect, o, clash;
   for(lift=0; lift<=maxLift; lift+=step){
-    botE=headY-14-lift; topE=botE-bh;
-    if(topE<6){ lift-=step; botE=headY-14-lift; break; }
+    botE=headY-baseGap-lift; topE=botE-bh;
+    if(topE<6){ lift-=step; botE=headY-baseGap-lift; break; }
     rect={l:left,t:topE,r:left+bw,b:botE}; clash=false;
     for(o=0;o<obst.length;o++){ if(overlapArea(rect,obst[o])>6){ clash=true; break; } }
     if(!clash) break;
@@ -1426,6 +1431,20 @@ function hideAll(){ CAST.forEach(function(c){ hideBubble(c.id); }); }
 function repositionShown(){ CAST.forEach(function(c){ var b=bubEl['bub-'+c.id]; if(b&&b.classList.contains('show')) positionBubble(c.id); }); }
 function byId(id){ for(var i=0;i<CAST.length;i++) if(CAST[i].id===id) return CAST[i]; }
 function arrow(t){ return '<span class="go">'+(t||'Tell me more')+' <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>'; }
+
+/* Christine's always-on bubble: promo + inline play button for the narrated analysis */
+var PW_MP3='https://propsight.sg/market-analysis/june-2026-market-analysis.mp3';
+var chrAudio=null, chrPlaying=false;
+var PLAY_IC='<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+var PAUSE_IC='<svg viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>';
+function chrTx(){ return chrPlaying?(zhOn()?'播放中':'Playing'):(zhOn()?'收听，4 分钟':'Listen, 4 min'); }
+function chrIcon(btn){ if(!btn) return; var i=btn.querySelector('.pl-ic'), t=btn.querySelector('.pl-tx'); if(i) i.innerHTML=chrPlaying?PAUSE_IC:PLAY_IC; if(t) t.textContent=chrTx(); }
+function chrToggle(btn){ if(!chrAudio){ chrAudio=new Audio(PW_MP3); chrAudio.onended=function(){ chrPlaying=false; chrIcon(btn); }; } if(chrPlaying){ chrAudio.pause(); chrPlaying=false; } else { chrAudio.play().catch(function(){}); chrPlaying=true; } chrIcon(btn); }
+function pinChristine(){ var c=byId('analyst'); if(!c) return;
+  var html=who('analyst',zhOn()?'分析师':'Analyst')+'<button class="pw-play" type="button"><span class="pl-ic">'+(chrPlaying?PAUSE_IC:PLAY_IC)+'</span><span class="pl-tx">'+chrTx()+'</span></button>';
+  bubble(c, html, function(){ openMarketPanel(); });
+  var b=bubEl['bub-analyst']; if(b){ b.classList.add('pw-bub-pin'); var pb=b.querySelector('.pw-play'); if(pb) pb.onclick=function(e){ e.stopPropagation(); chrToggle(pb); }; }
+  clearTimeout(hideTimers['analyst']); }
 
 /* ---------- the day's chatter: staggered threads from real data ---------- */
 function zhOn(){ return LANG==='zh'; }
@@ -1453,9 +1472,9 @@ function buildThreads(){
     ]);
   });
   var priyaT=[];
-  if(mover) priyaT.push([ {c:'analyst', html:moverLine(mover)}, {c:'buyer', action:openBuyerPanel, html:rachelReact(ri++)} ]);
-  if(hot[0]) priyaT.push([ {c:'analyst', html:hotLine(hot[0])}, {c:'aillie', action:openAillie, html:aillieInvite(ri++)} ]);
-  priyaT.push([ {c:'analyst', action:openOffice, html:who('analyst',zhOn()?'分析师':'Analyst')+(zhOn()?'进我们的办公室，我带你看看市场在做什么。':'Come into our office, I\'ll show you what the market is doing.')+arrow(zhOn()?'走进':'Step in')} ]);
+  if(false) priyaT.push([ {c:'analyst', html:moverLine(mover)}, {c:'buyer', action:openBuyerPanel, html:rachelReact(ri++)} ]);
+  if(false) priyaT.push([ {c:'analyst', html:hotLine(hot[0])}, {c:'aillie', action:openAillie, html:aillieInvite(ri++)} ]);
+  if(false) priyaT.push([ {c:'analyst', action:openOffice, html:who('analyst',zhOn()?'分析师':'Analyst')+(zhOn()?'进我们的办公室，我带你看看市场在做什么。':'Come into our office, I\'ll show you what the market is doing.')+arrow(zhOn()?'走进':'Step in')} ]);
   var T=[ [
     {c:'aillie', life:5200, action:openAillie, html:who('aillie','Guide')+(zhOn()?'欢迎来到 PropWorld。想弄清楚什么，尽管问我。':'Welcome to PropWorld. Whatever you\'re trying to work out, just ask me.')+arrow(zhOn()?'开始':'Chat')},
     news[0]?{c:'mei', news:news[0], html:newsLine(news[0])}:null
@@ -1513,11 +1532,11 @@ function openNews(n){
 /* Priya → the market movers, out to Market Pulse */
 function openMarketPanel(){
   var towns=(DATA.towns||[]).filter(function(t){return Math.abs(t.trend)>=0.5;}).sort(function(a,b){return Math.abs(b.trend)-Math.abs(a.trend);}).slice(0,5);
-  var body='<p>'+(zhOn()?'我是 Priya。隔壁就是我们的市场分析办公室，进来坐坐，我的团队带你看看现在市场在做什么。':'I\'m Priya. That is our Market Analysis office right next door. Step in and my team will walk you through where the market is at.')+'</p>';
+  var body='<p>'+(zhOn()?'我是 Christine。隔壁就是我们的市场分析办公室，进来坐坐，我的团队带你看看现在市场在做什么。':'I\'m Christine. That is our Market Analysis office right next door. Step in and my team will walk you through where the market is at.')+'</p>';
   if(towns.length){ body+='<div class="mkt">'; towns.forEach(function(t){ var up=t.trend>=0; body+='<div class="mrow"><span>'+t.town+'</span><span class="'+(up?'u':'d')+'">'+(up?'+':'')+t.trend+'%</span></div>'; }); body+='</div>'; }
   body+='<a class="cta" data-office="1" href="#">'+(zhOn()?'走进办公室':'Step into the office')+'</a>';
   body+='<a class="cta cta2" href="https://propsight.sg/market-analysis/" target="_blank" rel="noopener">'+(zhOn()?'阅读完整分析':'Read the full analysis')+'</a>';
-  panel(zhOn()?'市场分析':'Market Analysis','Priya · '+(zhOn()?'市场分析师':'Market analyst'), body);
+  panel(zhOn()?'市场分析':'Market Analysis','Christine · '+(zhOn()?'市场分析师':'Market analyst'), body);
   var oc=document.querySelector('#pw-pb [data-office]'); if(oc) oc.onclick=function(e){ e.preventDefault(); PANEL.classList.remove('open'); openOffice(); };
 }
 /* Rachel → the buyer's next move: affordability tools + Aillie */
@@ -1589,7 +1608,7 @@ function tickClock(){ var t=document.getElementById('pw-clocktime'); if(!t||docu
 /* language */
 var _pwLang=document.getElementById('pw-lang'); if(_pwLang) _pwLang.onclick=function(){ LANG=(LANG==='en')?'zh':'en'; this.textContent=(LANG==='en')?'中文':'EN';
   document.getElementById('pw-sub').textContent=LANG==='zh'?'走进一座会呼吸的新加坡小城。逛逛各区，听居民聊今天的房产新闻，从这里进入 PropSight 的每个角落。':'Step into a living Singapore town. Wander the estates, hear today\'s property news from the locals, and find your way into everything on PropSight.';
-  buildTicker(); scheduleReset(); };
+  buildTicker(); scheduleReset(); pinChristine(); };
 
 /* pause when hidden */
 var _stageVisible=true;
