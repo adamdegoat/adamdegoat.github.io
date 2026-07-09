@@ -109,10 +109,21 @@
   #warn{max-width:640px;margin:6px auto 0;font-size:11.5px;font-weight:600;color:var(--coral);text-align:center;min-height:14px}
 
   @media (max-width:640px){ .gtitle{font-size:40px}
-    #room{top:auto;left:0;right:0;bottom:0;width:auto;height:50vh;border-radius:22px 22px 0 0}
+    #room{top:auto;left:0;right:0;bottom:0;width:auto;height:52vh;border-radius:22px 22px 0 0}
     #room.min{transform:translateY(100%)}
     #chatFab{right:auto;left:50%;transform:translateX(-50%);top:auto;bottom:22px}
     .me-chip{display:none!important}
+    /* phones: tighter rows so more messages fit in one view */
+    #feed{padding:21px 11px 6px;gap:6px}
+    .msg{gap:7px}
+    .msg .av{width:26px;height:26px;font-size:11px}
+    .msg .bd{padding:6px 10px;border-radius:4px 12px 12px 12px}
+    .msg .meta{gap:5px;margin-bottom:1px}
+    .msg .nm{font-size:11.5px}
+    .msg .tag{font-size:8.5px;padding:1px 5px}
+    .msg .tm{font-size:9.5px}
+    .msg .tx{font-size:12.5px;line-height:1.32}
+    #bar{padding:8px 11px calc(8px + env(safe-area-inset-bottom))}
   }
 </style>
 </head>
