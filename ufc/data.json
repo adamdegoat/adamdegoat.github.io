@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-09T13:00:00.475442+08:00",
+  "updated": "2026-07-09T21:00:00.238688+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -175,6 +175,12 @@
       "priority": true
     },
     {
+      "title": "Conor McGregor reverts to his old ways, buries Khabib in crybaby rant about injuries and court cases | UFC 329",
+      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/455784/conor-mcgregor-reverts-back-old-ways-buries-khabib-bizarre-rant-injuries-court-cases-ufc-329",
+      "source": "MMA Mania",
+      "priority": true
+    },
+    {
       "title": "Paddy Pimblett questions Arman Tsarukyan’s UFC title shot case",
       "link": "https://www.sherdog.com/news/news/Paddy-Pimblett-questions-Arman-Tsarukyans-UFC-title-shot-case-201821",
       "source": "Sherdog",
@@ -205,6 +211,12 @@
       "priority": true
     },
     {
+      "title": "No Bets Barred: What can we expect from Conor McGregor’s return at UFC 329?",
+      "link": "https://www.mmafighting.com/latest-news/498038/no-bets-barred-what-can-we-expect-from-conor-mcgregors-return-at-ufc-329",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "UFC 329 media day live stream",
       "link": "https://www.mmafighting.com/ufc/498094/ufc-329-media-day-live-stream",
       "source": "MMA Fighting",
@@ -223,39 +235,27 @@
       "priority": false
     },
     {
-      "title": "UFC Sacramento main and co-main events official, several new fights announced",
-      "link": "https://www.mmafighting.com/ufc/498005/ufc-sacramento-main-and-co-main-events-official-several-new-fights-announced",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Conor McGregor opens as betting underdog against powerful Paddy Pimblett for post-UFC 329 showdown",
-      "link": "https://www.mmamania.com/ufc-odds/455716/conor-mcgregor-opens-betting-underdog-paddy-pimblett-post-ufc-329-showdown",
+      "title": "Gable Steveson vs. Josh Hokit? UFC 329’s Steveson believes Hokit heading to 205",
+      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/455858/gable-steveson-vs-josh-hokit-ufc-329s-steveson-believes-hokit-heading-to-205",
       "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "UFC 329 media day video, LIVE stream interviews with Conor McGregor, Max Holloway and more!",
-      "link": "https://www.mmamania.com/ufc-live-stream-watch-free/455519/ufc-329-media-day-video-live-stream-interviews-conor-mcgregor-max-holloway",
+      "title": "Conor McGregor finally addresses civil rape case ahead of UFC 329: ‘I am an innocent man’",
+      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/455809/conor-mcgregor-finally-addresses-civil-rape-case-ahead-of-ufc-329-i-am-an-innocent-man",
       "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "Video: Conor McGregor (finally) arrives in Las Vegas, checks into ‘beautiful’ T-Mobile Arena for UFC 329",
-      "link": "https://www.mmamania.com/ufc-news/455609/video-conor-mcgregor-finally-arrives-las-vegas-checks-into-beautiful-t-mobile-arena-ufc-329",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "Cory Sandhagen vs. Mario Bautista 2: Odds, full fight preview and prediction | UFC 329",
-      "link": "https://www.mmamania.com/ufc-events-ppv/455537/cory-sandhagen-vs-mario-bautista-2-odds-full-fight-preview-and-prediction-ufc-329",
+      "title": "UFC 329’s best betting props, parlays and picks | McGregor vs. Holloway 2",
+      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/454268/ufc-329s-best-betting-props-parlays-and-picks-mcgregor-vs-holloway-2",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor clashes Holloway Sunday 9 AM SGT — prepare for absolute striking fireworks.",
-    "prefight": "Get ready: McGregor versus Holloway goes down Sunday morning for an instant classic.",
-    "results": "Rafael Fiziev knocked out Manuel Torres with a spinning wheel kick in round two."
+    "week": "McGregor and Holloway collide Sunday 9am SGT in an epic featherweight showdown.",
+    "prefight": "McGregor vs Holloway, Sunday 9am SGT—two featherweight legends ready to settle it.",
+    "results": "Fiziev knocks out Torres with a spinning wheel kick and punches in round two."
   }
 }
