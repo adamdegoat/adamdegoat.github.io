@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-08T23:30:00.231939+08:00",
+  "updated": "2026-07-09T09:00:00.223779+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -169,57 +169,69 @@
   },
   "news": [
     {
-      "title": "Nate Diaz calls to ‘whoop’ Mike Perry in MMA rematch despite growing retirement calls",
-      "link": "https://www.bjpenn.com/mma-news/nate-diaz/nate-diaz-calls-out-mike-perry-mma-rematch-retirement-calls/?utm_source=rss&utm_medium=rss&utm_campaign=nate-diaz-calls-out-mike-perry-mma-rematch-retirement-calls",
+      "title": "One-time title challenger booked for UFC Shanghai co-main event",
+      "link": "https://www.mmafighting.com/ufc/498129/one-time-title-challenger-booked-for-ufc-shanghai-co-main-event",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
+      "title": "Conor McGregor’s coach takes the blame for toe injury that canceled UFC 303 comeback",
+      "link": "https://www.bjpenn.com/mma-news/conor-mcgregor/conor-mcgregor-coach-takes-blame-toe-injury-ufc-303/?utm_source=rss&utm_medium=rss&utm_campaign=conor-mcgregor-coach-takes-blame-toe-injury-ufc-303",
       "source": "BJPenn",
       "priority": true
     },
     {
-      "title": "UFC Sacramento main and co-main events official, several new fights announced",
-      "link": "https://www.mmafighting.com/ufc/498005/ufc-sacramento-main-and-co-main-events-official-several-new-fights-announced",
+      "title": "Conor McGregor shockingly praises Islam Makhachev ahead of potential future title fight",
+      "link": "https://www.bjpenn.com/mma-news/ufc/conor-mcgregor-islam-makhachev-surprising-praise/?utm_source=rss&utm_medium=rss&utm_campaign=conor-mcgregor-islam-makhachev-surprising-praise",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
+      "title": "Mario Bautista will “beat the brakes off Cory Sandhagen” at UFC 329 then get the title shot, per ex-UFC champ",
+      "link": "https://www.bjpenn.com/mma-news/mario-bautista/mario-bautista-will-beat-the-brakes-off-cory-sandhagen-at-ufc-329-then-get-the-title-shot-per-ex-ufc-champ/?utm_source=rss&utm_medium=rss&utm_campaign=mario-bautista-will-beat-the-brakes-off-cory-sandhagen-at-ufc-329-then-get-the-title-shot-per-ex-ufc-champ",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
+      "title": "Cody Garbrandt discusses his hopes before MMA retirement",
+      "link": "https://www.bjpenn.com/mma-news/cody-garbrandt/cody-garbrandt-discusses-his-hopes-before-mma-retirement/?utm_source=rss&utm_medium=rss&utm_campaign=cody-garbrandt-discusses-his-hopes-before-mma-retirement",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
+      "title": "UFC 329 media day live stream",
+      "link": "https://www.mmafighting.com/ufc/498094/ufc-329-media-day-live-stream",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "Waldo Cortes-Acosta vs. Curtis Blaydes in the works for Noche UFC 4",
-      "link": "https://www.mmafighting.com/ufc/498026/waldo-cortes-acosta-vs-curtis-blaydes-in-the-works-for-noche-ufc-4",
+      "title": "Conor McGregor coach says lightweight days are done, would like to see him fight again in 2026",
+      "link": "https://www.mmafighting.com/ufc/498101/conor-mcgregor-coach-says-lightweight-days-are-done-would-like-to-see-him-fight-again-in-2026",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "UFC 330: Makhachev vs. Machado Garry official poster revealed",
-      "link": "https://www.mmafighting.com/ufc/497976/ufc-330-makhachev-vs-machado-garry-official-poster-revealed",
+      "title": "Mario Bautista reminded about past loss against Cory Sandhagen after UFC tagged him in submission video",
+      "link": "https://www.mmafighting.com/ufc/498034/mario-bautista-reminded-about-past-loss-against-cory-sandhagen-after-ufc-tagged-him-in-submission-video",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "UFC 329 custom shorts revealed for Conor McGregor, King Green",
-      "link": "https://www.mmafighting.com/ufc/497929/ufc-329-custom-shorts-revealed-for-conor-mcgregor-king-green",
-      "source": "MMA Fighting",
+      "title": "Conor McGregor opens as betting underdog against powerful Paddy Pimblett for post-UFC 329 showdown",
+      "link": "https://www.mmamania.com/ufc-odds/455716/conor-mcgregor-opens-betting-underdog-paddy-pimblett-post-ufc-329-showdown",
+      "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "Belal Muhammad suggests surprising strategy for Max Holloway to win Conor McGregor rematch at UFC 329",
-      "link": "https://www.mmafighting.com/ufc/497954/belal-muhammad-suggests-surprising-strategy-for-max-holloway-to-win-conor-mcgregor-rematch-at-ufc-329",
-      "source": "MMA Fighting",
+      "title": "UFC 329 media day video, LIVE stream interviews with Conor McGregor, Max Holloway and more!",
+      "link": "https://www.mmamania.com/ufc-live-stream-watch-free/455519/ufc-329-media-day-video-live-stream-interviews-conor-mcgregor-max-holloway",
+      "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "Paddy Pimblett: ‘Perfect fight’ after UFC 329 would be Conor McGregor at Madison Square Garden",
-      "link": "https://www.mmafighting.com/latest-news/497879/paddy-pimblett-perfect-fight-after-ufc-329-would-be-conor-mcgregor-at-madison-square-garden",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Matt Brown argues Conor McGregor might be at his best at UFC 329: ‘He’s got to prove motherf*ckers wrong’",
-      "link": "https://www.mmafighting.com/ufc/497887/matt-brown-argues-conor-mcgregor-might-be-at-his-best-at-ufc-329-hes-got-to-prove-motherfckers-wrong",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Morning Report: Jon Anik reveals Max Holloway told him about middleweight plans ‘8 or 9 years ago’",
-      "link": "https://www.mmafighting.com/latest-news/497224/morning-report-jon-anik-reveals-max-holloway-told-him-about-middleweight-plans-8-or-9-years-ago",
-      "source": "MMA Fighting",
+      "title": "Video: Conor McGregor (finally) arrives in Las Vegas, checks into ‘beautiful’ T-Mobile Arena for UFC 329",
+      "link": "https://www.mmamania.com/ufc-news/455609/video-conor-mcgregor-finally-arrives-las-vegas-checks-into-beautiful-t-mobile-arena-ufc-329",
+      "source": "MMA Mania",
       "priority": false
     },
     {
@@ -239,23 +251,11 @@
       "link": "https://www.mmamania.com/ufc-news/455595/conor-mcgregor-wants-a-quick-turnaround-after-ufc-329-fight-we-plan-on-getting-busy-here",
       "source": "MMA Mania",
       "priority": false
-    },
-    {
-      "title": "UFC 329’s Conor McGregor claims Featherweight GOAT status: ‘The results show this’",
-      "link": "https://www.mmamania.com/latest-news/455566/ufc-329s-conor-mcgregor-claims-featherweight-goat-status-the-results-show-this",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "UFC 329’s Cody Garbrandt wishes UFC would help with life after fighting: ‘It’s scary’",
-      "link": "https://www.mmamania.com/ufc-news/455545/ufc-329s-cody-garbrandt-wishes-ufc-would-help-with-life-after-fighting-its-scary",
-      "source": "MMA Mania",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor versus Holloway this Sunday—elite boxing meets relentless volume striking in Singapore.",
-    "prefight": "McGregor faces Holloway Sunday morning at 9 AM SGT. Two legends collide for immortality.",
-    "results": "Fiziev's spinning wheel kick stops Torres in devastating fashion, round two KO victory."
+    "week": "The Notorious faces The Blessed Sunday at 9am SGT—expect fireworks.",
+    "prefight": "McGregor versus Holloway this Sunday morning—pure striking excellence incoming.",
+    "results": "Fiziev's spinning wheel kick and punches finish Torres in round two."
   }
 }
