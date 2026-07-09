@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-09T09:00:00.223779+08:00",
+  "updated": "2026-07-09T13:00:00.475442+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -175,6 +175,12 @@
       "priority": true
     },
     {
+      "title": "Paddy Pimblett questions Arman Tsarukyan’s UFC title shot case",
+      "link": "https://www.sherdog.com/news/news/Paddy-Pimblett-questions-Arman-Tsarukyans-UFC-title-shot-case-201821",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
       "title": "Conor McGregor’s coach takes the blame for toe injury that canceled UFC 303 comeback",
       "link": "https://www.bjpenn.com/mma-news/conor-mcgregor/conor-mcgregor-coach-takes-blame-toe-injury-ufc-303/?utm_source=rss&utm_medium=rss&utm_campaign=conor-mcgregor-coach-takes-blame-toe-injury-ufc-303",
       "source": "BJPenn",
@@ -217,6 +223,12 @@
       "priority": false
     },
     {
+      "title": "UFC Sacramento main and co-main events official, several new fights announced",
+      "link": "https://www.mmafighting.com/ufc/498005/ufc-sacramento-main-and-co-main-events-official-several-new-fights-announced",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "Conor McGregor opens as betting underdog against powerful Paddy Pimblett for post-UFC 329 showdown",
       "link": "https://www.mmamania.com/ufc-odds/455716/conor-mcgregor-opens-betting-underdog-paddy-pimblett-post-ufc-329-showdown",
       "source": "MMA Mania",
@@ -239,23 +251,11 @@
       "link": "https://www.mmamania.com/ufc-events-ppv/455537/cory-sandhagen-vs-mario-bautista-2-odds-full-fight-preview-and-prediction-ufc-329",
       "source": "MMA Mania",
       "priority": false
-    },
-    {
-      "title": "Paddy Pimblett promises we’ll see ‘a Frenchman get absolutely annihilated’ at UFC 329",
-      "link": "https://www.mmamania.com/ufc-news/455601/paddy-pimblett-promises-well-see-a-frenchman-get-absolutely-annihilated-at-ufc-329",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "Conor McGregor wants a quick turnaround after UFC 329 fight: ‘We plan on getting busy here’",
-      "link": "https://www.mmamania.com/ufc-news/455595/conor-mcgregor-wants-a-quick-turnaround-after-ufc-329-fight-we-plan-on-getting-busy-here",
-      "source": "MMA Mania",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "The Notorious faces The Blessed Sunday at 9am SGT—expect fireworks.",
-    "prefight": "McGregor versus Holloway this Sunday morning—pure striking excellence incoming.",
-    "results": "Fiziev's spinning wheel kick and punches finish Torres in round two."
+    "week": "McGregor clashes Holloway Sunday 9 AM SGT — prepare for absolute striking fireworks.",
+    "prefight": "Get ready: McGregor versus Holloway goes down Sunday morning for an instant classic.",
+    "results": "Rafael Fiziev knocked out Manuel Torres with a spinning wheel kick in round two."
   }
 }
