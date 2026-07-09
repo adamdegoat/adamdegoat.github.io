@@ -315,14 +315,37 @@ function build(){
   // palms
   scene.add(palm(-16,12)); scene.add(palm(16,13)); scene.add(palm(-20,-1));
   [[-23,-3],[22,-2],[-23,8]].forEach(([px,pz])=>{ const g=new THREE.Group(); g.add(box(2.2,2,2.2,M("#b07a52"),0,1,0)); const bs=new THREE.Mesh(new THREE.IcosahedronGeometry(2.1,0),M("#5f8a54",{flat:true})); bs.scale.set(1,.9,1); bs.position.y=3; g.add(bs); g.position.set(px,0,pz); g.traverse(o=>o.castShadow=true); scene.add(g); }); // potted bushes
-  // a 360 skyline RING wrapping all the way around and sitting well below the deck, so every orbit angle looks out over the city and the lounge reads as sky-high
-  const silN=new THREE.MeshBasicMaterial({color:0x3c4870,fog:true});
-  const silF=new THREE.MeshBasicMaterial({color:0x586284,fog:true});
+  // ---- a detailed 360 dusk skyline RING: varied towers with lit windows, rooftop caps + antennas, softened into the haze ----
   const rnd=(s=>()=>{s=Math.sin(s*99.1)*4390.7;return s-Math.floor(s);})(7);
-  for(let i=0;i<70;i++){ const a=(i/70)*Math.PI*2 + rnd()*0.12;
-    const rad=112+rnd()*74, w=6+rnd()*12, h=10+rnd()*30, far=rad>155;
-    const topY=-(3+rnd()*20), bx=Math.sin(a)*rad, bz=Math.cos(a)*rad+5;
-    const b=box(w,h,w, far?silF:silN, bx, topY-h/2, bz); b.castShadow=false; b.receiveShadow=false; scene.add(b); }
+  // facade texture: a dark tower body with a scatter of warm / cool lit windows (evening)
+  function facade(bodyHex){ const c=document.createElement("canvas"); c.width=32; c.height=64; const g=c.getContext("2d");
+    const gg=g.createLinearGradient(0,0,0,64); gg.addColorStop(0,bodyHex); gg.addColorStop(1,"#1d2c49"); g.fillStyle=gg; g.fillRect(0,0,32,64);
+    const cols=4, rows=10, cw=32/cols, ch=64/rows;
+    for(let y=0;y<rows;y++) for(let x=0;x<cols;x++){ const r=rnd();
+      g.fillStyle = r<0.30 ? (rnd()<0.72?"rgba(255,212,138,.96)":"rgba(200,222,255,.92)")   // lit warm / cool
+                  : r<0.42 ? "rgba(255,206,150,.42)"                                          // dim / curtained
+                  :          "rgba(20,28,48,.85)";                                            // dark
+      g.fillRect(x*cw+cw*0.24, y*ch+ch*0.20, cw*0.52, ch*0.46); }
+    const t=new THREE.CanvasTexture(c); t.colorSpace=THREE.SRGBColorSpace; t.wrapS=t.wrapT=THREE.RepeatWrapping; return t; }
+  const fTex=["#33415f","#3a4668","#2d3b5c","#434e74"].map(facade);
+  const roofM=new THREE.MeshBasicMaterial({color:0x28324c,fog:true});
+  const tower=(w,h,d,fMat,x,y,z)=>{ const mats=[fMat,fMat,roofM,roofM,fMat,fMat]; const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mats); m.position.set(x,y,z); return m; };
+  for(let i=0;i<66;i++){ const a=(i/66)*Math.PI*2 + rnd()*0.14;
+    const rad=110+rnd()*82, near=rad<152;
+    const w=6+rnd()*12, d=6+rnd()*12, h=12+rnd()*34;
+    const topY=-(2+rnd()*20), bx=Math.sin(a)*rad, bz=Math.cos(a)*rad+5, cy=topY-h/2;
+    let b;
+    if(near){ const tx=fTex[Math.floor(rnd()*fTex.length)].clone(); tx.needsUpdate=true;
+      tx.repeat.set(Math.max(1,Math.round(w/6)), Math.max(2,Math.round(h/7)));
+      b=tower(w,h,d,new THREE.MeshBasicMaterial({map:tx,fog:true}),bx,cy,bz);
+      if(rnd()<0.6){ const cw2=w*(0.4+rnd()*0.3), cd2=d*(0.4+rnd()*0.3), chh=1.5+rnd()*3; scene.add(box(cw2,chh,cd2,roofM,bx,topY+chh/2,bz)); }   // setback cap
+      if(rnd()<0.28){ const ah=3+rnd()*6; const an=box(0.4,ah,0.4,roofM,bx,topY+ah/2,bz); scene.add(an);
+        scene.add(new THREE.Mesh(new THREE.SphereGeometry(0.5,6,5), new THREE.MeshBasicMaterial({color:0xff6a6a})).translateX(bx).translateY(topY+ah).translateZ(bz)); }   // antenna + red beacon
+    } else {
+      b=box(w,h,d, new THREE.MeshBasicMaterial({color:new THREE.Color("#586488").lerp(new THREE.Color("#6f79a4"),rnd()),fog:true}), bx,cy,bz);   // far ring: simple hazy silhouettes for depth
+    }
+    b.castShadow=false; b.receiveShadow=false; scene.add(b);
+  }
   // ---- lounge dressing ----
   scene.add(parasol(-15,1,"#d9713f")); scene.add(parasol(15,1,"#0f7a82"));             // parasols by the loungers
   scene.add(sunbather(-15,3,0,"#3a6ea5")); scene.add(sunbather(15,3,0,"#cf6a3c"));     // people relaxing on them
