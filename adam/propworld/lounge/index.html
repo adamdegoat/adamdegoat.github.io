@@ -178,11 +178,8 @@ import * as THREE from "three";
 
 let R, scene, cam, host3d;
 let drag=false, lx=0, ly=0, vT=0, vP=0, need=true;
-let   BASE  = new THREE.Vector3(0,11,-19);   // default camera anchor: a wide establishing view of the whole lounge + skyline
-const PIVOT = new THREE.Vector3(0,4.5,5);    // we dolly toward / away from the middle of the lounge to zoom
-let   zoom  = 1;                              // 1 = default framing, >1 pulls back (zoom out), <1 pushes in
-let   zMin  = 0.72, zMax = 1.7;              // how far a pinch / wheel can zoom
-const orb={ yaw:0, pit:-0.19, yawMin:-0.95, yawMax:0.95, pitMin:-0.5, pitMax:0.22 };
+const CENTER = new THREE.Vector3(0,4,5);     // the lounge sits at the middle; the camera ORBITS around it, exactly like the main world orbits the island
+const orb = { theta:Math.PI, phi:1.12, r:46, tr:46, phiMin:0.5, phiMax:1.40, rMin:26, rMax:84 };   // theta = drag all the way around, phi = tilt, r = zoom radius (tr = eased target)
 
 function sky(){ const c=document.createElement("canvas"); c.width=8;c.height=512; const g=c.getContext("2d");
   const gr=g.createLinearGradient(0,0,0,512);
@@ -278,6 +275,9 @@ function build(){
 
   // deck floor
   const deck=box(52,1.6,44,new THREE.MeshStandardMaterial({map:planks(),roughness:.9}),0,-.8,2); deck.receiveShadow=true; scene.add(deck);
+  // the tower we stand on: a tapering mass dropping far below the deck, so from ANY orbit angle this reads as a rooftop high above the city
+  const twrA=M("#a99b8c",{r:.95}), twrB=M("#8a7d70",{r:.95});
+  [[50,10,42,-6,twrA],[44,20,36,-20,twrB],[37,26,30,-42,twrA],[29,34,23,-72,twrB]].forEach(([w,h,d,y,mt])=>{ const b=box(w,h,d,mt,0,y,2); b.castShadow=false; b.receiveShadow=false; scene.add(b); });
   // infinity pool stretching to the open far edge (no railing there, it IS the view)
   scene.add(box(27,1.4,22,M("#e7dfcb",{r:.85}),0,-.3,9));             // coping
   const wg=new THREE.BoxGeometry(24,.6,19.6);
@@ -304,13 +304,14 @@ function build(){
   // palms
   scene.add(palm(-16,12)); scene.add(palm(16,13)); scene.add(palm(-20,-1));
   [[-23,-3],[22,-2],[-23,8]].forEach(([px,pz])=>{ const g=new THREE.Group(); g.add(box(2.2,2,2.2,M("#b07a52"),0,1,0)); const bs=new THREE.Mesh(new THREE.IcosahedronGeometry(2.1,0),M("#5f8a54",{flat:true})); bs.scale.set(1,.9,1); bs.position.y=3; g.add(bs); g.position.set(px,0,pz); g.traverse(o=>o.castShadow=true); scene.add(g); }); // potted bushes
-  // distant skyline low on the horizon, softened into the sunset haze
+  // a 360 skyline RING wrapping all the way around and sitting well below the deck, so every orbit angle looks out over the city and the lounge reads as sky-high
   const silN=new THREE.MeshBasicMaterial({color:0x3c4870,fog:true});
   const silF=new THREE.MeshBasicMaterial({color:0x586284,fog:true});
   const rnd=(s=>()=>{s=Math.sin(s*99.1)*4390.7;return s-Math.floor(s);})(7);
-  // a low skyline sitting well below the lounge, so it reads as if you are way up high looking down over the city
-  for(let i=0;i<42;i++){ const w=5+rnd()*10, h=8+rnd()*19; const far=rnd()>.5;
-    const b=box(w,h,w,far?silF:silN,-160+i*8+rnd()*5,h/2-18,(far?130:98)+rnd()*40); b.castShadow=false; b.receiveShadow=false; scene.add(b); }
+  for(let i=0;i<70;i++){ const a=(i/70)*Math.PI*2 + rnd()*0.12;
+    const rad=112+rnd()*74, w=6+rnd()*12, h=10+rnd()*30, far=rad>155;
+    const topY=-(3+rnd()*20), bx=Math.sin(a)*rad, bz=Math.cos(a)*rad+5;
+    const b=box(w,h,w, far?silF:silN, bx, topY-h/2, bz); b.castShadow=false; b.receiveShadow=false; scene.add(b); }
   // ---- lounge dressing ----
   scene.add(parasol(-15,1,"#d9713f")); scene.add(parasol(15,1,"#0f7a82"));             // parasols by the loungers
   scene.add(sunbather(-15,3,0,"#3a6ea5")); scene.add(sunbather(15,3,0,"#cf6a3c"));     // people relaxing on them
@@ -333,35 +334,36 @@ function build(){
     const sun=new THREE.Mesh(new THREE.PlaneGeometry(66,66),new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(c),transparent:true,opacity:.85,fog:false,depthWrite:false}));
     sun.position.set(-24,13,92); scene.add(sun); }
 
-  if(innerWidth<640){ orb.pit=-0.2; BASE.set(0,11,-20.5); zMin=0.85; zMax=2.0; }   // phone: a wider default showing the whole lounge, with plenty of room to pinch further out
+  if(innerWidth<640){ cam.fov=64; cam.updateProjectionMatrix(); orb.phi=1.0; orb.r=orb.tr=62; }   // phone: a little higher + further so the whole lounge reads above the chat sheet
   addEventListener("resize",onResize); bindLook(); applyCam(); requestAnimationFrame(loop);
 }
-function applyCam(){ orb.yaw=THREE.MathUtils.clamp(orb.yaw,orb.yawMin,orb.yawMax); orb.pit=THREE.MathUtils.clamp(orb.pit,orb.pitMin,orb.pitMax);
-  zoom=THREE.MathUtils.clamp(zoom,zMin,zMax);
-  const cy=Math.cos(orb.yaw),sy=Math.sin(orb.yaw),cp=Math.cos(orb.pit),sp=Math.sin(orb.pit);
-  const pos=PIVOT.clone().add(BASE.clone().sub(PIVOT).multiplyScalar(zoom));   // dolly along the pivot -> anchor line
-  cam.position.copy(pos); cam.lookAt(pos.x+sy*cp, pos.y+sp, pos.z+cy*cp); }   // forward = +z at yaw 0
+function applyCam(){ orb.phi=THREE.MathUtils.clamp(orb.phi,orb.phiMin,orb.phiMax);
+  const sp=Math.sin(orb.phi), cph=Math.cos(orb.phi);
+  cam.position.set(CENTER.x+orb.r*sp*Math.sin(orb.theta), CENTER.y+orb.r*cph, CENTER.z+orb.r*sp*Math.cos(orb.theta));
+  cam.lookAt(CENTER); }
 function onResize(){ cam.aspect=innerWidth/innerHeight; cam.updateProjectionMatrix(); R.setSize(innerWidth,innerHeight); need=true; }
 function bindLook(){ const host=document.getElementById("scene");
-  const pts=new Map(); let single=null, pinchD=0, pinchZ=1;   // one unified pointer map: 1 finger rotates, 2 fingers pinch-zoom only
-  const rot=(x,y)=>{ const dx=x-lx,dy=y-ly; lx=x;ly=y; vT=dx*.0026; vP=-dy*.0026; orb.yaw+=vT; orb.pit+=vP; need=true; };
+  const pts=new Map(); let single=null, pinchD=0;   // one unified pointer map: 1 finger = orbit, 2 fingers = pinch-zoom only (no rotation jitter)
+  const zoomTo=r=>{ orb.tr=THREE.MathUtils.clamp(r,orb.rMin,orb.rMax); need=true; };
+  const rot=(x,y)=>{ const dx=x-lx,dy=y-ly; lx=x;ly=y; vT=-dx*.005; vP=-dy*.005; orb.theta+=vT; orb.phi+=vP; need=true; };   // drag all the way around, exactly like the main world
   host.addEventListener("pointerdown",e=>{ try{host.setPointerCapture(e.pointerId);}catch(_){}
     pts.set(e.pointerId,{x:e.clientX,y:e.clientY}); vT=vP=0;
     if(pts.size===1){ single=e.pointerId; drag=true; lx=e.clientX; ly=e.clientY; }
-    else { single=null; drag=false; const p=[...pts.values()]; pinchD=Math.hypot(p[0].x-p[1].x,p[0].y-p[1].y); pinchZ=zoom; } });
+    else { single=null; drag=false; const p=[...pts.values()]; pinchD=Math.hypot(p[0].x-p[1].x,p[0].y-p[1].y); } });
   host.addEventListener("pointermove",e=>{ const p=pts.get(e.pointerId); if(!p)return; p.x=e.clientX; p.y=e.clientY;
     if(pts.size>=2){ const a=[...pts.values()]; const d=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);
-      if(pinchD>0&&d>0){ zoom=THREE.MathUtils.clamp(pinchZ*(pinchD/d),zMin,zMax); need=true; } }   // spread = zoom in, pinch = zoom out
+      if(pinchD>0&&d>0){ zoomTo(orb.tr+(pinchD-d)*0.16); pinchD=d; } }   // fingers apart = zoom in, together = zoom out
     else if(single===e.pointerId){ rot(e.clientX,e.clientY); } });
   const lift=e=>{ pts.delete(e.pointerId); try{host.releasePointerCapture(e.pointerId);}catch(_){}
     if(pts.size<2) pinchD=0;
     if(pts.size===1){ single=[...pts.keys()][0]; const r=pts.get(single); lx=r.x; ly=r.y; vT=vP=0; drag=true; }   // 2 -> 1 finger handoff, no jump
     else if(pts.size===0){ single=null; drag=false; } };
   host.addEventListener("pointerup",lift); host.addEventListener("pointercancel",lift);
-  host.addEventListener("wheel",e=>{ e.preventDefault(); zoom=THREE.MathUtils.clamp(zoom*(e.deltaY>0?1.08:0.92),zMin,zMax); need=true; },{passive:false});   // desktop scroll to zoom, like the main world
+  host.addEventListener("wheel",e=>{ e.preventDefault(); zoomTo(orb.tr+e.deltaY*0.06); },{passive:false});   // desktop scroll to zoom, like the main world
 }
 function loop(){ requestAnimationFrame(loop); if(document.hidden)return; let mov=false;
-  if(!drag&&(Math.abs(vT)>1e-4||Math.abs(vP)>1e-4)){ orb.yaw+=vT;orb.pit+=vP;vT*=.9;vP*=.9;mov=true; }
+  if(!drag&&(Math.abs(vT)>1e-4||Math.abs(vP)>1e-4)){ orb.theta+=vT;orb.phi+=vP;vT*=.9;vP*=.9;mov=true; }   // spin inertia
+  if(Math.abs(orb.tr-orb.r)>0.05){ orb.r+=(orb.tr-orb.r)*0.12; mov=true; }   // eased zoom, glides instead of lurching
   if(mov||need){ applyCam(); R.render(scene,cam); need=false; } }
 try{ build(); }catch(e){ console.error("lounge3d",e); }
 </script>
