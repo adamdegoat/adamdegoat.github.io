@@ -330,22 +330,31 @@ function build(){
   const fTex=["#33415f","#3a4668","#2d3b5c","#434e74"].map(facade);
   const roofM=new THREE.MeshBasicMaterial({color:0x28324c,fog:true});
   const tower=(w,h,d,fMat,x,y,z)=>{ const mats=[fMat,fMat,roofM,roofM,fMat,fMat]; const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mats); m.position.set(x,y,z); return m; };
-  for(let i=0;i<66;i++){ const a=(i/66)*Math.PI*2 + rnd()*0.14;
-    const rad=110+rnd()*82, near=rad<152;
-    const w=6+rnd()*12, d=6+rnd()*12, h=12+rnd()*34;
-    const topY=-(2+rnd()*20), bx=Math.sin(a)*rad, bz=Math.cos(a)*rad+5, cy=topY-h/2;
+  const BASEY=-46;   // every tower drops to this common base and rises out of the haze, so none of them float
+  for(let i=0;i<132;i++){ const a=(i/132)*Math.PI*2 + rnd()*0.10;
+    const rad=100+rnd()*98, near=rad<150;                        // packed, deep band = a dense city
+    const w=6+rnd()*12, d=6+rnd()*12;
+    const topY=-(2+rnd()*15), bx=Math.sin(a)*rad, bz=Math.cos(a)*rad+5;
+    const h=topY-BASEY, cy=topY-h/2;                             // tall + grounded to the common base
     let b;
     if(near){ const tx=fTex[Math.floor(rnd()*fTex.length)].clone(); tx.needsUpdate=true;
-      tx.repeat.set(Math.max(1,Math.round(w/6)), Math.max(2,Math.round(h/7)));
+      tx.repeat.set(Math.max(1,Math.round(w/6)), Math.max(3,Math.round(h/7)));
       b=tower(w,h,d,new THREE.MeshBasicMaterial({map:tx,fog:true}),bx,cy,bz);
       if(rnd()<0.6){ const cw2=w*(0.4+rnd()*0.3), cd2=d*(0.4+rnd()*0.3), chh=1.5+rnd()*3; scene.add(box(cw2,chh,cd2,roofM,bx,topY+chh/2,bz)); }   // setback cap
-      if(rnd()<0.28){ const ah=3+rnd()*6; const an=box(0.4,ah,0.4,roofM,bx,topY+ah/2,bz); scene.add(an);
+      if(rnd()<0.26){ const ah=3+rnd()*6; scene.add(box(0.4,ah,0.4,roofM,bx,topY+ah/2,bz));
         scene.add(new THREE.Mesh(new THREE.SphereGeometry(0.5,6,5), new THREE.MeshBasicMaterial({color:0xff6a6a})).translateX(bx).translateY(topY+ah).translateZ(bz)); }   // antenna + red beacon
     } else {
       b=box(w,h,d, new THREE.MeshBasicMaterial({color:new THREE.Color("#586488").lerp(new THREE.Color("#6f79a4"),rnd()),fog:true}), bx,cy,bz);   // far ring: simple hazy silhouettes for depth
     }
     b.castShadow=false; b.receiveShadow=false; scene.add(b);
   }
+  // a warm haze sea the whole city rises out of (like water, it hides everything below it, so no building bottoms float in the sky)
+  { const c=document.createElement("canvas"); c.width=c.height=128; const g=c.getContext("2d");
+    const gr=g.createRadialGradient(64,64,12,64,64,64);
+    gr.addColorStop(0,"rgba(232,196,152,.96)"); gr.addColorStop(.6,"rgba(228,186,146,.92)"); gr.addColorStop(.86,"rgba(224,178,140,.5)"); gr.addColorStop(1,"rgba(224,178,140,0)");
+    g.fillStyle=gr; g.fillRect(0,0,128,128);
+    const hz=new THREE.Mesh(new THREE.PlaneGeometry(600,600), new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(c),transparent:true,depthWrite:false,fog:true}));
+    hz.rotation.x=-Math.PI/2; hz.position.set(0,-22,5); scene.add(hz); }
   // ---- lounge dressing ----
   scene.add(parasol(-15,1,"#d9713f")); scene.add(parasol(15,1,"#0f7a82"));             // parasols by the loungers
   scene.add(sunbather(-15,3,0,"#3a6ea5")); scene.add(sunbather(15,3,0,"#cf6a3c"));     // people relaxing on them
