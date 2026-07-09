@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-09T21:00:00.238688+08:00",
+  "updated": "2026-07-09T23:30:00.373661+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -175,12 +175,6 @@
       "priority": true
     },
     {
-      "title": "Conor McGregor reverts to his old ways, buries Khabib in crybaby rant about injuries and court cases | UFC 329",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/455784/conor-mcgregor-reverts-back-old-ways-buries-khabib-bizarre-rant-injuries-court-cases-ufc-329",
-      "source": "MMA Mania",
-      "priority": true
-    },
-    {
       "title": "Paddy Pimblett questions Arman Tsarukyan’s UFC title shot case",
       "link": "https://www.sherdog.com/news/news/Paddy-Pimblett-questions-Arman-Tsarukyans-UFC-title-shot-case-201821",
       "source": "Sherdog",
@@ -205,10 +199,16 @@
       "priority": true
     },
     {
-      "title": "Cody Garbrandt discusses his hopes before MMA retirement",
-      "link": "https://www.bjpenn.com/mma-news/cody-garbrandt/cody-garbrandt-discusses-his-hopes-before-mma-retirement/?utm_source=rss&utm_medium=rss&utm_campaign=cody-garbrandt-discusses-his-hopes-before-mma-retirement",
-      "source": "BJPenn",
-      "priority": true
+      "title": "Anything But Fighting: Robert Whittaker loves Cyberpunk, The Witcher 3, Skyrim, Digimon, more",
+      "link": "https://www.mmafighting.com/ufc/497480/anything-but-fighting-robert-whittaker-loves-cyberpunk-the-witcher-3-skyrim-digimon-more",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "‘I am an innocent man’: Conor McGregor responds to criticism about UFC return after sexual assault civil lawsuit",
+      "link": "https://www.mmafighting.com/ufc/498224/i-am-an-innocent-man-conor-mcgregor-responds-to-criticism-about-ufc-return-after-sexual-assault-civil-lawsuit",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "No Bets Barred: What can we expect from Conor McGregor’s return at UFC 329?",
@@ -223,15 +223,15 @@
       "priority": false
     },
     {
-      "title": "Conor McGregor coach says lightweight days are done, would like to see him fight again in 2026",
-      "link": "https://www.mmafighting.com/ufc/498101/conor-mcgregor-coach-says-lightweight-days-are-done-would-like-to-see-him-fight-again-in-2026",
-      "source": "MMA Fighting",
+      "title": "Paddy Pimblett vs. Benoit Saint-Denis: Odds, full fight preview and prediction | UFC 329",
+      "link": "https://www.mmamania.com/ufc-events-ppv/455811/paddy-pimblett-vs-benoit-saint-denis-odds-full-fight-preview-and-prediction-ufc-329",
+      "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "Mario Bautista reminded about past loss against Cory Sandhagen after UFC tagged him in submission video",
-      "link": "https://www.mmafighting.com/ufc/498034/mario-bautista-reminded-about-past-loss-against-cory-sandhagen-after-ufc-tagged-him-in-submission-video",
-      "source": "MMA Fighting",
+      "title": "UFC 329 co-headliner Paddy Pimblett tells Arman Tsarukyan to go back to wrestling: ‘You’re not a fighter no more’",
+      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/455876/paddy-pimblett-tells-arman-tsarukyan-to-go-back-to-wrestling-youre-not-a-fighter-no-more",
+      "source": "MMA Mania",
       "priority": false
     },
     {
@@ -254,8 +254,8 @@
     }
   ],
   "hooks": {
-    "week": "McGregor and Holloway collide Sunday 9am SGT in an epic featherweight showdown.",
-    "prefight": "McGregor vs Holloway, Sunday 9am SGT—two featherweight legends ready to settle it.",
-    "results": "Fiziev knocks out Torres with a spinning wheel kick and punches in round two."
+    "week": "McGregor versus Holloway Sunday morning Singapore—fight week is officially locked in.",
+    "prefight": "McGregor meets Holloway this Sunday at 9 AM SGT for one absolutely unmissable championship showdown.",
+    "results": "Fiziev knocked out Torres with a spinning wheel kick and punches in round two."
   }
 }
