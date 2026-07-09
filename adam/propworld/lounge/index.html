@@ -178,7 +178,10 @@ import * as THREE from "three";
 
 let R, scene, cam, host3d;
 let drag=false, lx=0, ly=0, vT=0, vP=0, need=true;
-const CAMPOS=new THREE.Vector3(0,11,-19);   // pulled back and up: a wide establishing view of the whole lounge + the skyline
+let   BASE  = new THREE.Vector3(0,11,-19);   // default camera anchor: a wide establishing view of the whole lounge + skyline
+const PIVOT = new THREE.Vector3(0,4.5,5);    // we dolly toward / away from the middle of the lounge to zoom
+let   zoom  = 1;                              // 1 = default framing, >1 pulls back (zoom out), <1 pushes in
+let   zMin  = 0.72, zMax = 1.7;              // how far a pinch / wheel can zoom
 const orb={ yaw:0, pit:-0.19, yawMin:-0.95, yawMax:0.95, pitMin:-0.5, pitMax:0.22 };
 
 function sky(){ const c=document.createElement("canvas"); c.width=8;c.height=512; const g=c.getContext("2d");
@@ -330,20 +333,32 @@ function build(){
     const sun=new THREE.Mesh(new THREE.PlaneGeometry(66,66),new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(c),transparent:true,opacity:.85,fog:false,depthWrite:false}));
     sun.position.set(-24,13,92); scene.add(sun); }
 
-  if(innerWidth<640){ orb.pit=-0.28; CAMPOS.set(0,9,-15.5); }   // phone: tilt down so the pool + people fill the strip above the chat sheet, not empty sky
+  if(innerWidth<640){ orb.pit=-0.2; BASE.set(0,11,-20.5); zMin=0.85; zMax=2.0; }   // phone: a wider default showing the whole lounge, with plenty of room to pinch further out
   addEventListener("resize",onResize); bindLook(); applyCam(); requestAnimationFrame(loop);
 }
 function applyCam(){ orb.yaw=THREE.MathUtils.clamp(orb.yaw,orb.yawMin,orb.yawMax); orb.pit=THREE.MathUtils.clamp(orb.pit,orb.pitMin,orb.pitMax);
+  zoom=THREE.MathUtils.clamp(zoom,zMin,zMax);
   const cy=Math.cos(orb.yaw),sy=Math.sin(orb.yaw),cp=Math.cos(orb.pit),sp=Math.sin(orb.pit);
-  cam.position.copy(CAMPOS); cam.lookAt(CAMPOS.x+sy*cp, CAMPOS.y+sp, CAMPOS.z+cy*cp); }   // forward = +z at yaw 0
+  const pos=PIVOT.clone().add(BASE.clone().sub(PIVOT).multiplyScalar(zoom));   // dolly along the pivot -> anchor line
+  cam.position.copy(pos); cam.lookAt(pos.x+sy*cp, pos.y+sp, pos.z+cy*cp); }   // forward = +z at yaw 0
 function onResize(){ cam.aspect=innerWidth/innerHeight; cam.updateProjectionMatrix(); R.setSize(innerWidth,innerHeight); need=true; }
 function bindLook(){ const host=document.getElementById("scene");
-  const dn=(x,y)=>{drag=true;lx=x;ly=y;vT=vP=0;need=true;};
-  const mv=(x,y)=>{ if(!drag)return; const dx=x-lx,dy=y-ly; lx=x;ly=y; vT=dx*.0026; vP=-dy*.0026; orb.yaw+=vT; orb.pit+=vP; need=true; };
-  const up=()=>drag=false;
-  host.addEventListener("pointerdown",e=>{host.setPointerCapture(e.pointerId);dn(e.clientX,e.clientY);});
-  host.addEventListener("pointermove",e=>mv(e.clientX,e.clientY));
-  host.addEventListener("pointerup",up); host.addEventListener("pointercancel",up);
+  const pts=new Map(); let single=null, pinchD=0, pinchZ=1;   // one unified pointer map: 1 finger rotates, 2 fingers pinch-zoom only
+  const rot=(x,y)=>{ const dx=x-lx,dy=y-ly; lx=x;ly=y; vT=dx*.0026; vP=-dy*.0026; orb.yaw+=vT; orb.pit+=vP; need=true; };
+  host.addEventListener("pointerdown",e=>{ try{host.setPointerCapture(e.pointerId);}catch(_){}
+    pts.set(e.pointerId,{x:e.clientX,y:e.clientY}); vT=vP=0;
+    if(pts.size===1){ single=e.pointerId; drag=true; lx=e.clientX; ly=e.clientY; }
+    else { single=null; drag=false; const p=[...pts.values()]; pinchD=Math.hypot(p[0].x-p[1].x,p[0].y-p[1].y); pinchZ=zoom; } });
+  host.addEventListener("pointermove",e=>{ const p=pts.get(e.pointerId); if(!p)return; p.x=e.clientX; p.y=e.clientY;
+    if(pts.size>=2){ const a=[...pts.values()]; const d=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);
+      if(pinchD>0&&d>0){ zoom=THREE.MathUtils.clamp(pinchZ*(pinchD/d),zMin,zMax); need=true; } }   // spread = zoom in, pinch = zoom out
+    else if(single===e.pointerId){ rot(e.clientX,e.clientY); } });
+  const lift=e=>{ pts.delete(e.pointerId); try{host.releasePointerCapture(e.pointerId);}catch(_){}
+    if(pts.size<2) pinchD=0;
+    if(pts.size===1){ single=[...pts.keys()][0]; const r=pts.get(single); lx=r.x; ly=r.y; vT=vP=0; drag=true; }   // 2 -> 1 finger handoff, no jump
+    else if(pts.size===0){ single=null; drag=false; } };
+  host.addEventListener("pointerup",lift); host.addEventListener("pointercancel",lift);
+  host.addEventListener("wheel",e=>{ e.preventDefault(); zoom=THREE.MathUtils.clamp(zoom*(e.deltaY>0?1.08:0.92),zMin,zMax); need=true; },{passive:false});   // desktop scroll to zoom, like the main world
 }
 function loop(){ requestAnimationFrame(loop); if(document.hidden)return; let mov=false;
   if(!drag&&(Math.abs(vT)>1e-4||Math.abs(vP)>1e-4)){ orb.yaw+=vT;orb.pit+=vP;vT*=.9;vP*=.9;mov=true; }
