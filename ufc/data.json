@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-09T23:30:00.373661+08:00",
+  "updated": "2026-07-10T09:00:00.280839+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -169,9 +169,9 @@
   },
   "news": [
     {
-      "title": "One-time title challenger booked for UFC Shanghai co-main event",
-      "link": "https://www.mmafighting.com/ufc/498129/one-time-title-challenger-booked-for-ufc-shanghai-co-main-event",
-      "source": "MMA Fighting",
+      "title": "Undefeated world champion Shakur Stevenson signs multi-fight deal with Zuffa Boxing",
+      "link": "https://www.mmamania.com/zuffa-boxing-news/455935/undefeated-world-champion-shakur-stevenson-signs-multi-fight-deal-with-zuffa-boxing",
+      "source": "MMA Mania",
       "priority": true
     },
     {
@@ -181,22 +181,34 @@
       "priority": true
     },
     {
-      "title": "Conor McGregor’s coach takes the blame for toe injury that canceled UFC 303 comeback",
-      "link": "https://www.bjpenn.com/mma-news/conor-mcgregor/conor-mcgregor-coach-takes-blame-toe-injury-ufc-303/?utm_source=rss&utm_medium=rss&utm_campaign=conor-mcgregor-coach-takes-blame-toe-injury-ufc-303",
-      "source": "BJPenn",
-      "priority": true
+      "title": "UFC 329 press conference video",
+      "link": "https://www.mmafighting.com/ufc/498242/ufc-329-press-conference-video",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
-      "title": "Conor McGregor shockingly praises Islam Makhachev ahead of potential future title fight",
-      "link": "https://www.bjpenn.com/mma-news/ufc/conor-mcgregor-islam-makhachev-surprising-praise/?utm_source=rss&utm_medium=rss&utm_campaign=conor-mcgregor-islam-makhachev-surprising-praise",
-      "source": "BJPenn",
-      "priority": true
+      "title": "Kevin Holland out of UFC Oklahoma City fight against Jacobe Smith",
+      "link": "https://www.mmafighting.com/ufc/498269/kevin-holland-out-of-ufc-oklahoma-city-fight-against-jacobe-smith",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
-      "title": "Mario Bautista will “beat the brakes off Cory Sandhagen” at UFC 329 then get the title shot, per ex-UFC champ",
-      "link": "https://www.bjpenn.com/mma-news/mario-bautista/mario-bautista-will-beat-the-brakes-off-cory-sandhagen-at-ufc-329-then-get-the-title-shot-per-ex-ufc-champ/?utm_source=rss&utm_medium=rss&utm_campaign=mario-bautista-will-beat-the-brakes-off-cory-sandhagen-at-ufc-329-then-get-the-title-shot-per-ex-ufc-champ",
-      "source": "BJPenn",
-      "priority": true
+      "title": "Manon Fiorot vs. Alexa Grasso set for Noche UFC",
+      "link": "https://www.mmafighting.com/ufc/498239/manon-fiorot-vs-alexa-grasso-set-for-noche-ufc",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Mailbag: Is Conor McGregor actually going to show up to UFC 329?",
+      "link": "https://www.mmafighting.com/latest-news/497861/mailbag-is-conor-mcgregor-actually-going-to-show-up-to-ufc-329",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Max Holloway wants to beat Conor McGregor in competitive UFC 329 fight ‘so we can rematch at the end of the year’",
+      "link": "https://www.mmafighting.com/ufc/498163/max-holloway-wants-to-beat-conor-mcgregor-in-competitive-ufc-329-fight-so-we-can-rematch-at-the-end-of-the-year",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "Anything But Fighting: Robert Whittaker loves Cyberpunk, The Witcher 3, Skyrim, Digimon, more",
@@ -211,51 +223,39 @@
       "priority": false
     },
     {
-      "title": "No Bets Barred: What can we expect from Conor McGregor’s return at UFC 329?",
-      "link": "https://www.mmafighting.com/latest-news/498038/no-bets-barred-what-can-we-expect-from-conor-mcgregors-return-at-ufc-329",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "UFC 329 media day live stream",
-      "link": "https://www.mmafighting.com/ufc/498094/ufc-329-media-day-live-stream",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Paddy Pimblett vs. Benoit Saint-Denis: Odds, full fight preview and prediction | UFC 329",
-      "link": "https://www.mmamania.com/ufc-events-ppv/455811/paddy-pimblett-vs-benoit-saint-denis-odds-full-fight-preview-and-prediction-ufc-329",
+      "title": "Former UFC champion Israel Adesanya leaves long-time gym City Kickboxing after 16 years – ‘It’s what I needed’",
+      "link": "https://www.mmamania.com/latest-news/455938/former-ufc-champion-israel-adesanya-leaves-long-time-gym-city-kickboxing-after-16-years-its-what-i-needed",
       "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "UFC 329 co-headliner Paddy Pimblett tells Arman Tsarukyan to go back to wrestling: ‘You’re not a fighter no more’",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/455876/paddy-pimblett-tells-arman-tsarukyan-to-go-back-to-wrestling-youre-not-a-fighter-no-more",
+      "title": "Bummer! UFC Oklahoma City loses big fight one week before fight night",
+      "link": "https://www.mmamania.com/ufc-fight-announcements/455929/bummer-ufc-oklahoma-city-loses-big-fight-one-week-before-fight-night",
       "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "Gable Steveson vs. Josh Hokit? UFC 329’s Steveson believes Hokit heading to 205",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/455858/gable-steveson-vs-josh-hokit-ufc-329s-steveson-believes-hokit-heading-to-205",
+      "title": "UFC 329 press conference video, LIVE stream updates with Conor McGregor, Dana White",
+      "link": "https://www.mmamania.com/ufc-press-conference-video/455926/ufc-329-press-conference-video-live-stream-updates-conor-mcgregor-dana-white",
       "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "Conor McGregor finally addresses civil rape case ahead of UFC 329: ‘I am an innocent man’",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/455809/conor-mcgregor-finally-addresses-civil-rape-case-ahead-of-ufc-329-i-am-an-innocent-man",
+      "title": "Zuffa Boxing 9 full fight card, Paramount+ start time | Berlanga vs. Butler",
+      "link": "https://www.mmamania.com/zuffa-boxing-news/455788/zuffa-boxing-9-full-fight-card-paramount-start-time-berlanga-vs-butler",
       "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "UFC 329’s best betting props, parlays and picks | McGregor vs. Holloway 2",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/454268/ufc-329s-best-betting-props-parlays-and-picks-mcgregor-vs-holloway-2",
+      "title": "Will Trump be at UFC 329?",
+      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/455922/will-trump-be-at-ufc-329-conor-mcgregor",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor versus Holloway Sunday morning Singapore—fight week is officially locked in.",
-    "prefight": "McGregor meets Holloway this Sunday at 9 AM SGT for one absolutely unmissable championship showdown.",
-    "results": "Fiziev knocked out Torres with a spinning wheel kick and punches in round two."
+    "week": "McGregor faces Holloway this Sunday morning for an absolute must-watch UFC showdown.",
+    "prefight": "McGregor and Holloway collide Sunday at 9 AM SGT for an epic title clash.",
+    "results": "Fiziev finished Torres with a spinning wheel kick and punches in round two."
   }
 }
