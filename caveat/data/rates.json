@@ -1,6 +1,6 @@
 {
-  "as_of": "7 Jul 2026",
-  "verified": "All figures re-verified against IRAS, MAS, HDB & CPF on 7 Jul 2026. No housing-policy changes since the Seller's Stamp Duty revision of 4 Jul 2025.",
+  "as_of": "2026-06-14",
+  "verified": "All figures verified against IRAS, MAS, HDB & CPF on 14 Jun 2026. Singapore Budget 2026 made no housing-policy changes. Most recent change: Seller's Stamp Duty revision, 4 Jul 2025.",
   "disclaimer": "Indicative only — Caveat drafts, the agent verifies. Not financial advice; final duties and eligibility are determined by IRAS, MAS, HDB and the buyer's bank.",
   "absd": {
     "note": "Effective 27 Apr 2023. Rate applies to the higher of price or market value.",
@@ -48,11 +48,6 @@
     "msr_pct": 30,
     "stress_rate_pct": 4.0,
     "variable_income_haircut_pct": 30,
-    "hdb_loan_stress_rate_pct": 3.0,
-    "hdb_loan_min_cash_pct": 0,
-    "typical_bank_rate_pct": 3.5,
-    "hdb_concessionary_rate_pct": 2.6,
-    "rate_note": "HDB loan eligibility is stress-tested at a 3% floor; the actual concessionary rate is 2.6% (CPF OA 2.5% plus 0.1%). Bank TDSR/MSR is stress-tested at a 4% floor. typical_bank_rate_pct is an indicative display rate only, not a regulated figure.",
     "ltv": {
       "bank": {"1": 75, "2": 45, "3": 35},
       "bank_reduced": {"1": 55, "2": 25, "3": 15},
@@ -67,17 +62,6 @@
     "mop_years": {"standard": 5, "plus": 10, "prime": 10},
     "grants_note": "Enhanced CPF Housing Grant (EHG): up to $120k families / $60k singles, tiered by income. Resale CPF Housing Grant (family): $80k for 4-room or smaller, $50k for 5-room or larger (singles get half: $40k / $25k). Proximity Housing Grant (PHG, no income ceiling): families $30k (living with parents/child) or $20k (within 4km); singles $15k (with) or $10k (near). All subject to eligibility.",
     "eip_note": "Ethnic Integration Policy + SPR quotas apply at block and neighbourhood level — verify live on HDB's EIP/SPR e-Service before committing."
-  },
-  "grants": {
-    "note": "Verified against HDB & CPF. EHG maximums raised 20 Aug 2024 ($120k families / $60k singles); Resale & Proximity grants effective 14 Feb 2023. Amounts shown are grant maximums; the actual grant is tiered by income. Each [income_upto, amount] pair means income at or below that figure receives that amount.",
-    "resale_levy": {"2room": 15000, "3room": 30000, "4room": 40000, "5room": 45000, "exec": 50000, "ec": 55000},
-    "ehg_family": [[1500,120000],[2000,110000],[2500,105000],[3000,95000],[3500,90000],[4000,80000],[4500,70000],[5000,65000],[5500,55000],[6000,50000],[6500,40000],[7000,30000],[7500,25000],[8000,20000],[8500,10000],[9000,5000]],
-    "ehg_single": [[750,60000],[1000,55000],[1250,52500],[1500,47500],[1750,45000],[2000,40000],[2250,35000],[2500,32500],[2750,27500],[3000,25000],[3250,20000],[3500,15000],[3750,12500],[4000,10000],[4250,5000],[4500,2500]],
-    "ehg_income_ceiling": {"single": 4500, "family": 9000},
-    "family_grant_income_ceiling": {"single": 7000, "couple": 14000},
-    "family_grant": {"single": {"le4": 40000, "ge5": 25000}, "couple": {"le4": 80000, "ge5": 50000}, "scpr_deduct": 10000},
-    "proximity": {"single": {"with": 15000, "near": 10000}, "couple": {"with": 30000, "near": 20000}},
-    "ec": {"income_ceiling": 16000, "sc_couple": [[10000,30000],[11000,20000],[12000,10000]], "scpr_couple": [[10000,20000],[11000,10000]]}
   },
   "process": {
     "hdb_resale": ["Intent to Sell (>=7 days before OTP)", "Buyer HFE letter", "Resale Checklist (both sides)", "Grant OTP (HDB form, option fee $1-$1,000)", "Request for Value ($120, next working day)", "Exercise within 21 days (deposit <= $5,000)", "Submit Resale Application within 7 days", "HDB acceptance ~28 working days", "Completion ~8 weeks after acceptance"],
