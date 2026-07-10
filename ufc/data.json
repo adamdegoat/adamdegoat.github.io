@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-10T13:00:00.244168+08:00",
+  "updated": "2026-07-10T21:00:00.321275+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -169,6 +169,12 @@
   },
   "news": [
     {
+      "title": "Conor McGregor scoffs at Max Holloway predicting trilogy after UFC 329: ‘I forecast Holloway’s retirement on Saturday night’",
+      "link": "https://www.mmafighting.com/ufc/498305/conor-mcgregor-scoffs-at-max-holloway-predicting-trilogy-after-ufc-329-i-forecast-holloways-retirement-on-saturday-night",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
       "title": "Undefeated world champion Shakur Stevenson signs multi-fight deal with Zuffa Boxing",
       "link": "https://www.mmamania.com/zuffa-boxing-news/455935/undefeated-world-champion-shakur-stevenson-signs-multi-fight-deal-with-zuffa-boxing",
       "source": "MMA Mania",
@@ -179,6 +185,12 @@
       "link": "https://www.sherdog.com/news/news/Paddy-Pimblett-questions-Arman-Tsarukyans-UFC-title-shot-case-201821",
       "source": "Sherdog",
       "priority": true
+    },
+    {
+      "title": "Conor McGregor serenades crowd with his rendition of Oasis’ ‘Wonderwall’ ahead of UFC 329",
+      "link": "https://www.mmafighting.com/ufc/498291/conor-mcgregor-serenades-crowd-with-his-rendition-of-oasis-wonderwall-ahead-of-ufc-329",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "Conor McGregor slams Max Holloway’s glasses to ground in intense UFC 329 staredown",
@@ -217,20 +229,14 @@
       "priority": false
     },
     {
-      "title": "Anything But Fighting: Robert Whittaker loves Cyberpunk, The Witcher 3, Skyrim, Digimon, more",
-      "link": "https://www.mmafighting.com/ufc/497480/anything-but-fighting-robert-whittaker-loves-cyberpunk-the-witcher-3-skyrim-digimon-more",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Former UFC champion Israel Adesanya leaves long-time gym City Kickboxing after 16 years – ‘It’s what I needed’",
-      "link": "https://www.mmamania.com/latest-news/455938/former-ufc-champion-israel-adesanya-leaves-long-time-gym-city-kickboxing-after-16-years-its-what-i-needed",
+      "title": "Timeline To Return: Tracking Conor McGregor’s UFC 329 comeback",
+      "link": "https://www.mmamania.com/ufc-events-ppv/455372/timeline-to-return-tracking-conor-mcgregors-ufc-329-comeback",
       "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "Bummer! UFC Oklahoma City loses big fight one week before fight night",
-      "link": "https://www.mmamania.com/ufc-fight-announcements/455929/bummer-ufc-oklahoma-city-loses-big-fight-one-week-before-fight-night",
+      "title": "Staredowns! UFC 329 press conference face offs featuring McGregor vs. Holloway, Pimblett vs. BSD",
+      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/455945/staredowns-ufc-329-press-conference-face-offs-featuring-mcgregor-holloway-and-pimbett-bsd",
       "source": "MMA Mania",
       "priority": false
     },
@@ -241,21 +247,15 @@
       "priority": false
     },
     {
-      "title": "Zuffa Boxing 9 full fight card, Paramount+ start time | Berlanga vs. Butler",
-      "link": "https://www.mmamania.com/zuffa-boxing-news/455788/zuffa-boxing-9-full-fight-card-paramount-start-time-berlanga-vs-butler",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "Will Trump be at UFC 329?",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/455922/will-trump-be-at-ufc-329-conor-mcgregor",
+      "title": "Former UFC champion Israel Adesanya leaves long-time gym City Kickboxing after 16 years – ‘It’s what I needed’",
+      "link": "https://www.mmamania.com/latest-news/455938/former-ufc-champion-israel-adesanya-leaves-long-time-gym-city-kickboxing-after-16-years-its-what-i-needed",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor and Holloway collide this Sunday at 9 AM SGT—the fight is finally here.",
-    "prefight": "McGregor returns to face Holloway Sunday 9am SGT. Pure featherweight striking theater awaits.",
-    "results": "Spinning wheel kick from Fiziev catches Torres flush, round 2 KO."
+    "week": "McGregor versus Holloway erupts Sunday, 9 AM SGT. Two legends ready to war.",
+    "prefight": "McGregor and Holloway clash Sunday dawn—two elite strikers, one defining moment awaits.",
+    "results": "Fiziev obliterates Torres with a spinning wheel kick and punches, round-two KO."
   }
 }
