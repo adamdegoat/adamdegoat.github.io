@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-10T09:00:00.280839+08:00",
+  "updated": "2026-07-10T13:00:00.244168+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -181,6 +181,12 @@
       "priority": true
     },
     {
+      "title": "Conor McGregor slams Max Holloway’s glasses to ground in intense UFC 329 staredown",
+      "link": "https://www.mmafighting.com/ufc/498290/conor-mcgregor-slams-max-holloways-glasses-to-ground-in-intense-ufc-329-staredown",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "UFC 329 press conference video",
       "link": "https://www.mmafighting.com/ufc/498242/ufc-329-press-conference-video",
       "source": "MMA Fighting",
@@ -217,12 +223,6 @@
       "priority": false
     },
     {
-      "title": "‘I am an innocent man’: Conor McGregor responds to criticism about UFC return after sexual assault civil lawsuit",
-      "link": "https://www.mmafighting.com/ufc/498224/i-am-an-innocent-man-conor-mcgregor-responds-to-criticism-about-ufc-return-after-sexual-assault-civil-lawsuit",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
       "title": "Former UFC champion Israel Adesanya leaves long-time gym City Kickboxing after 16 years – ‘It’s what I needed’",
       "link": "https://www.mmamania.com/latest-news/455938/former-ufc-champion-israel-adesanya-leaves-long-time-gym-city-kickboxing-after-16-years-its-what-i-needed",
       "source": "MMA Mania",
@@ -254,8 +254,8 @@
     }
   ],
   "hooks": {
-    "week": "McGregor faces Holloway this Sunday morning for an absolute must-watch UFC showdown.",
-    "prefight": "McGregor and Holloway collide Sunday at 9 AM SGT for an epic title clash.",
-    "results": "Fiziev finished Torres with a spinning wheel kick and punches in round two."
+    "week": "McGregor and Holloway collide this Sunday at 9 AM SGT—the fight is finally here.",
+    "prefight": "McGregor returns to face Holloway Sunday 9am SGT. Pure featherweight striking theater awaits.",
+    "results": "Spinning wheel kick from Fiziev catches Torres flush, round 2 KO."
   }
 }
