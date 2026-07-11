@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-11T09:00:00.249395+08:00",
+  "updated": "2026-07-11T13:00:00.344722+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -169,16 +169,22 @@
   },
   "news": [
     {
-      "title": "Undefeated champion Shakur Stevenson signs multi-fight deal with Zuffa Boxing",
-      "link": "https://www.mmafighting.com/boxing/498278/undefeated-champion-shakur-stevenson-signs-multi-fight-deal-with-zuffa-boxing",
+      "title": "UFC 329 Results: McGregor vs. Holloway 2",
+      "link": "https://www.mmafighting.com/ufc/498335/ufc-329-results-mcgregor-vs-holloway-2",
       "source": "MMA Fighting",
-      "priority": true
+      "priority": false
     },
     {
-      "title": "Paddy Pimblett questions Arman Tsarukyan’s UFC title shot case",
-      "link": "https://www.sherdog.com/news/news/Paddy-Pimblett-questions-Arman-Tsarukyans-UFC-title-shot-case-201821",
-      "source": "Sherdog",
-      "priority": true
+      "title": "UFC 329: Conor McGregor vs. Max Holloway 2 preview show",
+      "link": "https://www.mmafighting.com/ufc/498503/ufc-329-conor-mcgregor-vs-max-holloway-2-preview-show",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Max Holloway delivers message to Conor McGregor after final UFC 329 faceoff: ‘If this guy’s a missile, I’m a f*cking nuke’",
+      "link": "https://www.mmafighting.com/ufc/498478/max-holloway-delivers-message-to-conor-mcgregor-after-final-ufc-329-faceoff-if-this-guys-a-missile-im-a-fcking-nuke",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "Video: UFC 329: Conor McGregor vs. Max Holloway 2 cold open",
@@ -217,24 +223,6 @@
       "priority": false
     },
     {
-      "title": "Pros predict Conor McGregor vs. Max Holloway showdown at UFC 329",
-      "link": "https://www.mmafighting.com/ufc/498329/pros-predict-conor-mcgregor-vs-max-holloway-showdown-at-ufc-329",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "UFC 329 weigh-in video: McGregor vs. Holloway 2",
-      "link": "https://www.mmafighting.com/ufc/498323/ufc-329-weigh-in-video-mcgregor-vs-holloway-2",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "UFC 329 ceremonial weigh ins video, LIVE staredowns | McGregor vs. Holloway 2",
-      "link": "https://www.mmamania.com/ufc-weigh-in-video/456118/ufc-329-ceremonial-weigh-ins-video-live-staredowns-face-offs-mcgregor-vs-holloway-2",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
       "title": "Jon Jones reacts to UFC 329 fight week: ‘It makes me miss the game tremendously’",
       "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456133/jon-jones-reacts-to-ufc-329-fight-week-it-makes-me-miss-the-game-tremendously",
       "source": "MMA Mania",
@@ -251,11 +239,23 @@
       "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456014/heres-mmamania-coms-ufc-329-betting-odds-weekend-lock-whats-yours",
       "source": "MMA Mania",
       "priority": false
+    },
+    {
+      "title": "UFC 329 ceremonial weigh ins video, LIVE staredowns | McGregor vs. Holloway 2",
+      "link": "https://www.mmamania.com/ufc-weigh-in-video/456118/ufc-329-ceremonial-weigh-ins-video-live-staredowns-face-offs-mcgregor-vs-holloway-2",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
+      "title": "UFC 329 gate hits record-breaking $25 million behind return of Conor McGregor",
+      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456113/ufc-329-gate-record-breaking-25-million-return-conor-mcgregor",
+      "source": "MMA Mania",
+      "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor and Holloway collide tomorrow—two elite strikers, one octagon, pure fireworks guaranteed.",
-    "prefight": "McGregor meets Holloway tomorrow 9 AM SGT in an epic featherweight clash.",
-    "results": "Fiziev knocks out Torres with a spinning wheel kick and punches in round two."
+    "week": "McGregor clashes with Holloway tomorrow morning for a championship showdown in Singapore.",
+    "prefight": "Peak featherweight action: McGregor and Holloway go to war Sunday morning.",
+    "results": "Fiziev plants a spinning wheel kick on Torres, finishes with follow-up punches for the round-two KO."
   }
 }
