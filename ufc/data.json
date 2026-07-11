@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-11T13:00:00.344722+08:00",
+  "updated": "2026-07-11T21:00:00.173712+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -169,6 +169,12 @@
   },
   "news": [
     {
+      "title": "UFC 329 predictions",
+      "link": "https://www.mmafighting.com/ufc/497974/ufc-329-predictions",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "UFC 329 Results: McGregor vs. Holloway 2",
       "link": "https://www.mmafighting.com/ufc/498335/ufc-329-results-mcgregor-vs-holloway-2",
       "source": "MMA Fighting",
@@ -211,15 +217,21 @@
       "priority": false
     },
     {
-      "title": "Dana White announces UFC 329: McGregor vs. Holloway 2 broke gate record with massive  number",
-      "link": "https://www.mmafighting.com/ufc/498378/dana-white-announces-ufc-329-mcgregor-vs-holloway-2-broke-gate-record-with-massive-number",
-      "source": "MMA Fighting",
+      "title": "Upset alert? Late money continues to narrow Conor McGregor vs. Max Holloway odds at UFC 329",
+      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456212/upset-alert-late-money-continues-to-narrow-conor-mcgregor-vs-max-holloway-odds-at-ufc-329",
+      "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "UFC 329 weigh-in results: Conor McGregor makes weight for 1st fight since 2021",
-      "link": "https://www.mmafighting.com/ufc/498362/ufc-329-weigh-in-results-conor-mcgregor-makes-weight-for-1st-fight-since-2021",
-      "source": "MMA Fighting",
+      "title": "Wildin’! Conor McGregor shows up in lifts with neck hickies for UFC 329 ceremonial weigh-ins",
+      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456168/wildin-conor-mcgregor-shows-up-in-lifts-with-neck-hickies-for-ufc-329-ceremonial-weigh-ins",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
+      "title": "UFC 329 ceremonial weigh ins video, LIVE staredowns | McGregor vs. Holloway 2",
+      "link": "https://www.mmamania.com/ufc-weigh-in-video/456118/ufc-329-ceremonial-weigh-ins-video-live-staredowns-face-offs-mcgregor-vs-holloway-2",
+      "source": "MMA Mania",
       "priority": false
     },
     {
@@ -239,23 +251,11 @@
       "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456014/heres-mmamania-coms-ufc-329-betting-odds-weekend-lock-whats-yours",
       "source": "MMA Mania",
       "priority": false
-    },
-    {
-      "title": "UFC 329 ceremonial weigh ins video, LIVE staredowns | McGregor vs. Holloway 2",
-      "link": "https://www.mmamania.com/ufc-weigh-in-video/456118/ufc-329-ceremonial-weigh-ins-video-live-staredowns-face-offs-mcgregor-vs-holloway-2",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "UFC 329 gate hits record-breaking $25 million behind return of Conor McGregor",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456113/ufc-329-gate-record-breaking-25-million-return-conor-mcgregor",
-      "source": "MMA Mania",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor clashes with Holloway tomorrow morning for a championship showdown in Singapore.",
-    "prefight": "Peak featherweight action: McGregor and Holloway go to war Sunday morning.",
-    "results": "Fiziev plants a spinning wheel kick on Torres, finishes with follow-up punches for the round-two KO."
+    "week": "McGregor faces Holloway tomorrow 9am SGT - featherweight fireworks you cannot miss.",
+    "prefight": "McGregor battles Holloway tomorrow at 9 AM SGT—featherweight fireworks incoming.",
+    "results": "Fiziev demolished Torres with a spinning wheel kick and punches, finishing it in round two."
   }
 }
