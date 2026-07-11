@@ -61,7 +61,7 @@
     'hero.leadSm': '您的一站式新加坡房产平台，免费且通俗易懂。估算房价、探索新盘与区域指南、紧跟市场，还能走进 PropWorld，随时问 Aillie。',
     // ── PropSight Studio (free listing video maker) ──
     'Studio': '视频工作室', 'Free video maker': '免费', 'Free listing video maker': '免费房源视频',
-    'hero.studioLine': '新功能：把您的房源照片变成可直接发布的视频，免费。',
+    'hero.studioLine': '新功能：把您的房源照片变成可直接发布的视频，限时免费。',
     'hero.studioLink': '打开 PropSight Studio →',
     // ── homepage Insights section (narrative market analysis + deep dive) ──
     'The market, read properly.': '把市场，读明白。',
