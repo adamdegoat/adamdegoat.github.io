@@ -16,15 +16,15 @@
   var DICT = {
     // ── shared chrome (nav + footer + badges), keyed by the English string ──
     'Tools': '工具', 'Research': '楼盘研究', 'New Launches': '新盘', 'Market Pulse': '市场动态', 'Market Analysis': '市场分析',
-    'News': '房产新闻', 'Guide': '购房指南', 'About us': '关于我们', 'Contact': '联系我们',
-    'Listing Platform': '房源平台', 'Coming soon': '即将推出',
+    'News': '房产新闻', 'Guide': '购房指南', 'About us': '关于我们', 'Contact': '联系我们', 'Analysis': '分析',
+    'Coming soon': '即将推出',
     // ── new nav (2026-07): PropWorld + Area Guides + Insights grouping ──
     'Area Guides': '区域指南', 'Insights': '洞察', 'Beginners Guide': '新手指南',
     'Upcoming Launches': '新盘预告', 'New condos coming to market': '即将上市的新盘', 'Enter PropWorld': '进入 PropWorld',
-    'Buy and rent': '买房与租房', 'Singapore property, brought to life': '新加坡房产，栩栩如生',
-    'Browse homes for sale and rent': '浏览待售与出租房源',
+    'Singapore property, brought to life': '新加坡房产，栩栩如生',
     'Side by side, every condo and HDB': '并排对比每个公寓与组屋',
     'Monthly analyst report': '每月分析报告', 'Daily Singapore property news': '每日新加坡房产新闻',
+    'Deep Dives': '深度分析', 'Monthly whole-market report': '每月全景市场报告', 'Weekly single-question reads': '每周单一主题解读',
     'Join our Telegram': '加入我们的 Telegram', 'Add PropSight to your phone': '将 PropSight 添加到手机',
     'Explore': '探索', 'Company': '公司',
     'Coming soon, step into the platform': '即将推出，进入平台看看',
@@ -56,14 +56,28 @@
 
     // ── homepage hero (explicit keys) ──
     'hero.eyebrow': '新加坡房产洞察',
-    'hero.h1a': '新加坡房产，', 'hero.h1b': '一目了然。',
+    'hero.h1a': '我们替您研究和分析，', 'hero.h1b': '省去您的功夫。',
     'hero.leadLg': 'PropSight 是您的一站式新加坡房产平台，免费且通俗易懂。用真实成交估算任何房子的价值，探索即将推出的新盘与区域指南，紧跟市场动态，走进 PropWorld，随时问 Aillie。',
     'hero.leadSm': '您的一站式新加坡房产平台，免费且通俗易懂。估算房价、探索新盘与区域指南、紧跟市场，还能走进 PropWorld，随时问 Aillie。',
+    // ── PropSight Studio (free listing video maker) ──
+    'Studio': '视频工作室', 'Free video maker': '免费', 'Free listing video maker': '免费房源视频',
+    'hero.studioLine': '新功能：把您的房源照片变成可直接发布的视频，免费。',
+    'hero.studioLink': '打开 PropSight Studio →',
+    // ── homepage Insights section (narrative market analysis + deep dive) ──
+    'The market, read properly.': '把市场，读明白。',
+    'Our plain-English read of Singapore property, from real transacted prices. The monthly analysis, plus deep dives on one sharp question at a time.': '我们用通俗的语言解读新加坡房产，全部基于真实成交价格。每月市场分析，加上每次聚焦一个问题的深度分析。',
+    'Monthly Market Analysis': '每月市场分析',
+    'The mass market is leading. Suburbs and city-fringe are rising and central HDB towns are up sharply, while prime is the only segment falling.': '大众市场领跑。郊区和城市边缘正在上涨，中央区的HDB市镇涨幅明显，而高档市场是唯一下跌的板块。',
+    'A monthly read on the whole market, from real transacted prices.': '每月一读，纵览整个市场，全部基于真实成交价格。',
+    'Read the analysis': '阅读分析',
+    'Deep Dive': '深度分析',
+    'HDB prices are falling. So why do million-dollar flats keep setting records?': '组屋价格正在下跌，那为什么百万组屋还在不断刷新纪录？',
+    'The typical flat has stopped rising. A small central slice keeps breaking records, and for most buyers the panic is misplaced.': '典型组屋价格已停止上涨。中央的一小部分房产仍在不断刷新纪录，而对大多数买家而言，这种恐慌并无必要。',
+    'Read the deep dive': '阅读深度分析',
+    'See all analysis and deep dives': '查看全部分析与深度分析',
     'cta.join': '加入我们的 Telegram', 'cta.askAillie': '问 Aillie', 'cta.value': '估算房价',
     'Enter PropWorld': '走进 PropWorld', 'Singapore property, brought to life': '让新加坡房产活起来',
     'PropWorld': 'PropWorld', 'Brought to life': '让房产活起来',
-    'PropSight Listings': 'PropSight 房源平台', 'Homes for sale and rent': '在售与出租房源',
-    'Buy and rent': '买房与租房', 'Browse homes for sale and rent': '浏览在售与出租房源',
     'chatcue.t': '有问题尽管问 Aillie', 'chatcue.s': '真实数据 · 免费',
 
     // ── Aillie chat (display-only: greeting + disclaimer; keyed by the English text) ──

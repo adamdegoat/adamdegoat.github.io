@@ -32,8 +32,10 @@
   #chrome{position:fixed;top:0;left:0;right:0;z-index:20;padding:20px 26px;display:flex;align-items:flex-start;justify-content:space-between;gap:18px;pointer-events:none}
   .lt,.rt{pointer-events:auto}
   .lt{display:flex;align-items:center;gap:11px;flex-wrap:wrap}
-  .back{display:none;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.9);border:1px solid var(--line);color:var(--green);text-decoration:none;flex:none;backdrop-filter:blur(7px);box-shadow:0 5px 16px -7px rgba(20,50,40,.45)}
+  .back{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.9);border:1px solid var(--line);color:var(--green);text-decoration:none;flex:none;backdrop-filter:blur(7px);box-shadow:0 5px 16px -7px rgba(20,50,40,.45)}
   .back:hover{background:#fff}
+  /* desktop shows the brand description, so top-align the back button to sit beside the PropWorld wordmark, not float beside the description */
+  @media (min-width:621px){.back{align-self:flex-start}}
   .back svg{width:21px;height:21px}
   .lt .brand{display:flex;flex-direction:column}
   .mark{display:inline-block;text-decoration:none;font-size:clamp(26px,3.4vw,38px);font-weight:800;letter-spacing:-.038em;line-height:.96;color:var(--green)}

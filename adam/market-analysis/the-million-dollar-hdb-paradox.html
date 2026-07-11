@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HDB prices are falling. So why do million-dollar flats keep setting records? · PropSight Deep Dive</title>
+<meta name="description" content="Two markets hide in one headline. The typical flat has stopped rising, while a small central, high-floor slice keeps breaking records, so for most buyers the panic is misplaced.">
+<meta name="theme-color" content="#1b3a2d">
+<link rel="manifest" href="../manifest.json">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b3a2d'/%3E%3Cg fill='none' stroke='%23cfeae0' stroke-width='2.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='13.5' cy='13.5' r='9.5'/%3E%3Cpath d='M8.75 16 L13.5 11 L18.25 16'/%3E%3Cpath d='M10.5 18.2 L16.5 18.2'/%3E%3C/g%3E%3Ccircle cx='13.5' cy='16.5' r='1' fill='%2315a0a0'/%3E%3Cpath d='M20.25 20.25 L26.5 26.5' fill='none' stroke='%2315a0a0' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--paper:#eef6f1;--card:#f7fcfa;--ink:#16211d;--ink2:#3c4c47;--ink3:#5e716b;--line:#d4e6e0;--line2:#c1dad3;--pine:#1b3a2d;--pine2:#27513f;--teal:#15807f;--mint:#7fd0bb;--up:#0f7a5f;--dn:#bf5334;--f:'Schibsted Grotesk',system-ui,sans-serif}
+body{font-family:var(--f);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(760px 560px at 88% -10%,rgba(21,128,127,.10),transparent 62%)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:720px;margin:0 auto;padding:0 26px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:26px;padding-bottom:15px;border-bottom:1px solid var(--line2)}
+.brand{display:inline-flex;align-items:center;gap:9px;font-weight:800;letter-spacing:-.01em;font-size:16px;color:var(--pine)}
+.brand svg{width:26px;height:26px}
+.back{font-size:12.5px;font-weight:700;color:var(--pine2)}
+.kick{font-size:11.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-top:34px;display:block}
+h1.q{font-weight:700;font-size:clamp(28px,5.4vw,42px);letter-spacing:-.03em;line-height:1.04;margin:12px 0 0}
+.dek{font-size:17.5px;color:var(--ink2);margin-top:16px;line-height:1.5}
+.verdict{margin:28px 0 6px;background:linear-gradient(158deg,#fbfffe,#dff3ee);border:1.5px solid var(--mint);border-radius:18px;padding:22px 24px;position:relative;overflow:hidden}
+.verdict::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--teal)}
+.verdict .vk{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--pine)}
+.verdict p{font-size:18px;color:var(--ink);margin-top:10px;line-height:1.5;font-weight:500}
+.bsec{margin-top:38px}
+.bsec h2{font-weight:700;font-size:21px;letter-spacing:-.01em;line-height:1.15;padding-bottom:9px;border-bottom:2px solid var(--ink)}
+.bsec p{font-size:16.5px;color:var(--ink2);margin-top:14px}
+.fig{margin:22px 0 4px;background:var(--card);border:1px solid var(--line2);border-radius:15px;padding:20px 22px 18px}
+.fig-h{font-size:14px;font-weight:800;letter-spacing:.02em;color:var(--ink)}
+.fig-s{font-size:12.5px;color:var(--ink3);margin:2px 0 15px}
+.chart{width:100%;height:auto;display:block;overflow:visible}
+.axl{font-size:11px;fill:var(--ink3);font-weight:600}
+.endv{font-size:12px;fill:var(--pine);font-weight:800}
+.bars{display:flex;flex-direction:column;gap:11px}
+.brow{display:grid;grid-template-columns:130px 1fr 50px;align-items:center;gap:10px}
+.blab{font-size:13px;font-weight:600;color:var(--ink2)}
+.bh{position:relative;height:16px;background:linear-gradient(90deg,transparent 49.6%,var(--line2) 49.6%,var(--line2) 50.4%,transparent 50.4%);border-radius:3px}
+.bh-fill{position:absolute;top:0;height:100%;border-radius:3px}
+.bh-fill.pos{background:var(--teal);border-radius:0 3px 3px 0}
+.bh-fill.neg{background:var(--dn);border-radius:3px 0 0 3px}
+.bval{font-size:13px;font-weight:800;text-align:right}
+.bval.pos{color:var(--up)}
+.bval.neg{color:var(--dn)}
+.sbrow{display:grid;grid-template-columns:132px 1fr 44px;align-items:center;gap:10px;margin:10px 0}
+.sblab{font-size:13px;font-weight:600;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sbtrack{position:relative;height:15px;background:var(--line);border-radius:4px;overflow:hidden}
+.sbfill{position:absolute;left:0;top:0;height:100%;background:var(--teal);border-radius:4px}
+.sbval{font-size:13px;font-weight:800;text-align:right;color:var(--pine)}
+@media(max-width:560px){.sbrow{grid-template-columns:104px 1fr 40px;gap:8px}.sblab{font-size:11px}}
+.kstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px}
+.kstat{background:var(--card);border:1px solid var(--line2);border-radius:13px;padding:15px 16px}
+.kstat-v{font-size:24px;font-weight:800;letter-spacing:-.02em;color:var(--pine)}
+.kstat-l{font-size:12.5px;color:var(--ink3);margin-top:3px;line-height:1.35}
+.means{margin:40px 0 0;background:var(--pine);color:#eef6f1;border-radius:18px;padding:26px 28px}
+.means .mk{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--mint)}
+.means p{font-size:17px;margin-top:11px;line-height:1.55;color:#e6f2ec}
+.sources{margin:34px 0 0}
+.src-h{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+.sources ul{list-style:none;margin:10px 0 0}
+.sources li{font-size:13.5px;color:var(--ink2);padding:5px 0;border-bottom:1px solid var(--line)}
+.sources a{color:var(--teal);font-weight:600}
+.method{margin:26px 0 10px;font-size:12.5px;color:var(--ink3);line-height:1.6}
+.foot{margin:22px 0 90px;padding-top:20px;border-top:1px solid var(--line2)}
+.foot a{font-size:14px;font-weight:700;color:var(--pine)}
+@media(max-width:560px){.brow{grid-template-columns:96px 1fr 46px}.means,.verdict{padding:20px}}
+</style>
+<link rel="canonical" href="https://propsight.sg/market-analysis/the-million-dollar-hdb-paradox.html">
+<script src="/adam/i18n.js" defer></script><script src="/adam/nav.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a class="brand" href="../index.html"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="19" fill="none" stroke="#1b3a2d" stroke-width="4.4"/><path d="M17.5 32.5 L27 21.5 L36.5 32.5" fill="none" stroke="#1b3a2d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M20.5 37 L33.5 37" stroke="#1b3a2d" stroke-width="4" stroke-linecap="round"/><circle cx="27" cy="33.4" r="2" fill="#15a0a0"/><path d="M40.5 40.5 L53.5 53.5" fill="none" stroke="#15a0a0" stroke-width="6" stroke-linecap="round"/></svg>PropSight</a>
+    <a class="back" href="./"><span data-lang="en">Market Analysis &rarr;</span><span data-lang="zh" style="display:none">市场分析 &rarr;</span></a>
+  </div>
+
+  <span class="kick"><span data-lang="en">Deep Dive · 10 Jul 2026</span><span data-lang="zh" style="display:none">深度分析 · 10 Jul 2026</span></span>
+  <h1 class="q"><span data-lang="en">HDB prices are falling. So why do million-dollar flats keep setting records?</span><span data-lang="zh" style="display:none">HDB转售价格正在下跌。那为什么百万新元组屋还在不断刷新纪录？</span></h1>
+  <p class="dek"><span data-lang="en">For the first time in nearly seven years, HDB resale prices are slipping, yet a record number of flats are crossing a million dollars. We used our own transaction data to show how both are true, and what it means for a normal buyer.</span><span data-lang="zh" style="display:none">近七年来，HDB转售价格首次出现回落，然而突破百万新元大关的组屋数量却创下新高。我们利用自有的交易数据，说明这两件事为何能同时成立，以及这对普通买家意味着什么。</span></p>
+
+  <div class="verdict"><span class="vk"><span data-lang="en">The short answer</span><span data-lang="zh" style="display:none">简短回答</span></span>
+    <p><span data-lang="en">Both are true because they describe different flats. Official figures show resale prices have now fallen two quarters in a row, the first back-to-back drop in nearly seven years, and in our own caveats the typical flat has sat around $630,000 all year. But a small premium slice keeps setting records: 902 flats crossed a million dollars in the first half of 2026, up from 763 a year earlier, with a record 188 in June alone. Those flats are bigger, higher-floor, longer-lease homes in a handful of central towns. If you are shopping in the heartland, you are simply not in that market.</span><span data-lang="zh" style="display:none">这两件事之所以能同时成立，是因为它们描述的是不同类型的组屋。官方数据显示，转售价格已连续两个季度下跌，为近七年来首次连续两季回落；而在我们自己的成交记录中，普通组屋全年的价格一直保持在约63万新元左右。但一小部分高端房源仍在不断刷新纪录：2026年上半年有902套组屋突破百万新元，高于一年前的763套，其中仅6月一个月就有创纪录的188套。这些组屋面积更大、楼层更高、屋契更长，且集中在少数几个中部市镇。如果你在组屋区（heartland）寻找房源，那你根本不在这个市场里。</span></p></div>
+
+  <section class="bsec"><h2><span data-lang="en">Two markets hiding in one headline</span><span data-lang="zh" style="display:none">同一条新闻头条背后隐藏着两个市场</span></h2><div data-lang="en"><p>The cooling is real. Official HDB figures show resale prices fell 0.1% in the first quarter of 2026 and, on the flash estimate, a further 0.3% in the second, the first back-to-back decline since 2019. In our own caveats the median resale flat has barely moved all year, hovering around $630,000.</p><p>And yet the share of flats selling for a million or more keeps climbing, from about 6% of sales in early 2025 to a record 8.8% in June 2026. It is the same market wearing two opposite headlines, because the average flat and the million-dollar flat are not the same flat.</p></div><div data-lang="zh" style="display:none"><p>降温是真实存在的。官方HDB数据显示，2026年第一季度转售价格下跌0.1%，根据快速预估数据，第二季度进一步下跌0.3%，这是自2019年以来首次连续两季下滑。在我们自己的成交记录中，转售组屋的中位价格全年几乎没有变动，一直徘徊在约63万新元左右。</p><p>然而，以百万新元或更高价格成交的组屋所占比例却持续攀升，从2025年初约占成交量的6%，升至2026年6月创纪录的8.8%。同一个市场被冠以两个截然相反的新闻头条，原因在于普通组屋和百万新元组屋并不是同一类组屋。</p></div><figure class="fig"><figcaption class="fig-h"><span data-lang="en"></span><span data-lang="zh" style="display:none"></span></figcaption><div class="fig-s"><span data-lang="en"></span><span data-lang="zh" style="display:none"></span></div><div class="kstats"><div class="kstat"><div class="kstat-v">$630k</div><div class="kstat-l"><span data-lang="en">median resale flat, flat all year</span><span data-lang="zh" style="display:none">转售组屋中位价，全年持平</span></div></div><div class="kstat"><div class="kstat-v">8.8%</div><div class="kstat-l"><span data-lang="en">of June sales topped $1m, a record share</span><span data-lang="zh" style="display:none">6月成交突破百万的占比，创新高</span></div></div><div class="kstat"><div class="kstat-v">902</div><div class="kstat-l"><span data-lang="en">flats over $1m in 1H 2026, up from 763 a year ago</span><span data-lang="zh" style="display:none">2026上半年902套破百万，去年同期763套</span></div></div></div></figure></section><section class="bsec"><h2><span data-lang="en">The million-dollar flat is not the flat you will buy</span><span data-lang="zh" style="display:none">百万新元组屋并不是你会买的那种组屋</span></h2><div data-lang="en"><p>Pull the million-dollar sales out of our data and they are clearly a type, not the average flat. They cluster in a few central, mature towns: Toa Payoh, Bukit Merah and Queenstown alone make up about 42% of every million-dollar sale. They are bigger flats, four-room and up, and high off the ground, with nearly half sold on the 16th floor or above.</p><p>The fear is that people are overpaying for old, short-lease flats. Our records say the opposite. The typical million-dollar flat still has about 84 years of lease left, longer than the 72-year median across all resale flats, and only 7% have under 60 years remaining. Buyers are paying for prime, near-new, high-floor homes in central spots, about $1,010 per square foot against roughly $610 for the market. It is a premium corner of the market, not a market gone mad.</p></div><div data-lang="zh" style="display:none"><p>从我们的数据中筛选出百万新元成交案例后可以清楚看出，它们属于某一特定类型，而非普通组屋。它们集中在少数几个中部成熟市镇：仅大巴窑（Toa Payoh）、红山（Bukit Merah）和女皇镇（Queenstown）三地就占到了所有百万新元成交量的约42%。这些组屋面积更大，多为四房式及以上，且楼层高，近一半成交于16楼或以上。</p><p>人们担心的是买家在为老旧、短屋契的组屋支付过高价格。但我们的记录显示情况恰恰相反。典型的百万新元组屋仍剩约84年屋契，长于所有转售组屋72年的中位数，只有7%的房源剩余屋契不足60年。买家所支付的是位于中部地段、近乎全新、高楼层的优质住宅，每平方英尺约1,010新元，而整体市场约为610新元。这是市场中的一个高端角落，而非市场陷入疯狂。</p></div><figure class="fig"><figcaption class="fig-h"><span data-lang="en">Where the million-dollar flats are</span><span data-lang="zh" style="display:none">百万新元组屋分布在哪里</span></figcaption><div class="fig-s"><span data-lang="en">Share of all $1m resale sales by town, since April 2025</span><span data-lang="zh" style="display:none">自2025年4月以来，各市镇百万新元转售成交量占全部百万新元成交量的比例</span></div><div class="sharebars"><div class="sbrow"><span class="sblab"><span data-lang="en">Toa Payoh</span><span data-lang="zh" style="display:none">大巴窑</span></span><span class="sbtrack"><span class="sbfill" style="width:100.0%"></span></span><span class="sbval">17.3%</span></div><div class="sbrow"><span class="sblab"><span data-lang="en">Bukit Merah</span><span data-lang="zh" style="display:none">红山</span></span><span class="sbtrack"><span class="sbfill" style="width:75.7%"></span></span><span class="sbval">13.1%</span></div><div class="sbrow"><span class="sblab"><span data-lang="en">Queenstown</span><span data-lang="zh" style="display:none">女皇镇</span></span><span class="sbtrack"><span class="sbfill" style="width:68.2%"></span></span><span class="sbval">11.8%</span></div><div class="sbrow"><span class="sblab"><span data-lang="en">Kallang/Whampoa</span><span data-lang="zh" style="display:none">加冷/黄埔</span></span><span class="sbtrack"><span class="sbfill" style="width:49.7%"></span></span><span class="sbval">8.6%</span></div><div class="sbrow"><span class="sblab"><span data-lang="en">Ang Mo Kio</span><span data-lang="zh" style="display:none">宏茂桥</span></span><span class="sbtrack"><span class="sbfill" style="width:38.2%"></span></span><span class="sbval">6.6%</span></div></div></figure></section>
+
+  <div class="means"><span class="mk"><span data-lang="en">What this means for you</span><span data-lang="zh" style="display:none">这对你意味着什么</span></span>
+    <p><span data-lang="en">If you are a normal buyer looking in the heartland, the million-dollar headlines are not your market, and the typical flat has stopped getting more expensive, so there is less reason to rush or overbid than the news suggests. Look up the recent resale prices for the exact block and flat type you want, rather than the scary citywide figure. If you are set on a central, high-floor, long-lease flat, know that you are buying the one slice still setting records, so negotiate hard on the specific unit and do not assume the only way is up. And if you are selling a prime flat like these, the buyers are clearly still there, but the wider market is cooling, so price to the latest caveats, not to last year's record.</span><span data-lang="zh" style="display:none">如果你是一位在组屋区寻找房源的普通买家，那么关于百万新元组屋的新闻头条与你所处的市场无关；而且普通组屋的价格已不再上涨，因此没有新闻所暗示的那么多理由去急于出手或抬价抢购。请查阅你心仪的具体楼座和房型的近期转售价格，而不是那些令人担忧的全岛整体数据。如果你执意要买中部、高楼层、长屋契的组屋，请明白你买的正是那一小部分仍在刷新纪录的房源，因此要针对具体单位大力议价，不要想当然地认为价格只会上涨。而如果你正在出售这类优质组屋，买家显然依然存在，但整体市场正在降温，所以定价应参照最新的成交记录，而非去年的纪录价。</span></p></div>
+
+  <div class="sources"><span class="src-h"><span data-lang="en">Sources</span><span data-lang="zh" style="display:none">资料来源</span></span><ul><li>PropSight, computed from HDB resale records, April 2025 to July 2026</li><li><a href="https://www.hdb.gov.sg/hdb-pulse/news/2026/1q2026-flash-rpi" target="_blank" rel="noopener">HDB Resale Price Index, Q1 and Q2 2026 flash estimates</a></li><li><a href="https://www.99.co/singapore/insider/hdb-resale-prices-stay-stable-in-june-2026-as-million-dollar-flat-sales-hit-new-high/" target="_blank" rel="noopener">Million-dollar flats hit new high, June 2026, 99.co</a></li><li><a href="https://stackedhomes.com/q1-2026-singapore-hdb-resale-price-analysis/" target="_blank" rel="noopener">HDB resale prices fell for the first time since 2019, Stacked Homes</a></li><li><a href="https://www.era.com.sg/research-articles/1q-2026-hdb-quarterly-report" target="_blank" rel="noopener">1Q 2026 HDB Quarterly Report, ERA</a></li></ul></div>
+  <p class="method"><span data-lang="en">Figures are computed by PropSight from residential caveats lodged with URA and resale records from HDB, with policy figures verified against IRAS, MAS and HDB. Our read of one question to help you think it through, not financial advice, and your own situation can differ.</span><span data-lang="zh" style="display:none">数据由 PropSight 根据向 URA 呈报的私宅买卖意向书及 HDB 转售记录计算，政策数字已对照 IRAS、MAS 与 HDB 核实。这是我们对单一问题的解读，供你参考思考，并非财务建议，你的个人情况可能有所不同。</span></p>
+  <div class="foot"><a href="./"><span data-lang="en">&larr; All of PropSight's market research</span><span data-lang="zh" style="display:none">&larr; 查看 PropSight 全部市场研究</span></a></div>
+</div>
+</body></html>

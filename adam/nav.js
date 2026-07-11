@@ -12,6 +12,12 @@
   /* nav model. k: world|menu|link. kids = dropdown items [label, href, icon, sub?]. */
   var ITEMS = [
     { k:'world', t:'PropWorld', href: BASE + '/adam/propworld/' },
+    { k:'link',  t:'Upcoming Launches', feat:true, href: BASE + '/adam/launches/' },
+    { k:'menu',  t:'Insights', smart:true, href: BASE + '/thesis/', kids:[
+        ['Research',        BASE + '/thesis/',               'spark', 'Side by side, every condo and HDB'],
+        ['Market Analysis', BASE + '/adam/market-analysis/', 'chart', 'Monthly whole-market report'],
+        ['Deep Dives',      BASE + '/adam/market-analysis/#dives', 'lens', 'Weekly single-question reads'],
+        ['News',            BASE + '/adam/news/',            'news',  'Daily Singapore property news'] ] },
     { k:'menu',  t:'Tools', href: BASE + '/adam/#tools', kids:[
         ['Value a home',        BASE + '/adam/tools/value.html',      'calc'],
         ['What you can afford',  BASE + '/adam/tools/afford.html',     'calc'],
@@ -21,15 +27,9 @@
         ['Mortgage',            BASE + '/adam/tools/mortgage.html',   'calc'],
         ['Eligibility',         BASE + '/adam/tools/eligibility.html','calc'],
         ['Selling',             BASE + '/adam/tools/sell.html',       'calc'] ] },
-    { k:'menu',  t:'Insights', smart:true, href: BASE + '/thesis/', kids:[
-        ['Research',        BASE + '/thesis/',               'spark', 'Side by side, every condo and HDB'],
-        ['Market Analysis', BASE + '/adam/market-analysis/', 'chart', 'Monthly analyst report'],
-        ['News',            BASE + '/adam/news/',            'news',  'Daily Singapore property news'] ] },
-    { k:'link',  t:'Upcoming Launches', href: BASE + '/adam/launches/' },
     { k:'link',  t:'Area Guides',  href: BASE + '/adam/areaguides/' },
     { k:'link',  t:'Beginners Guide', href: BASE + '/adam/essentials/' }
   ];
-  var LISTINGS = 'https://listings.propsight.sg';
 
   /* Language: delegate to the shared engine in i18n.js (English-default). */
   if (!window.PSI18N && !document.querySelector('script[src*="i18n.js"]')) {
@@ -51,7 +51,6 @@
     }
     return false;
   }
-  function listingsActive(){ return has(/\/listings\//); }
 
   /* ── icons ── */
   function svg(inner, extra){ return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"'+(extra||'')+'>'+inner+'</svg>'; }
@@ -63,7 +62,8 @@
     news:  '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9h6M7 13h10M7 16h10"/>',
     build: '<rect x="4" y="8" width="7" height="12"/><rect x="13" y="4" width="7" height="16"/><path d="M6.5 11h2M6.5 14h2M15.5 7h2M15.5 11h2"/>',
     book:  '<path d="M4 5a2 2 0 0 1 2-2h11v16H6a2 2 0 0 0-2 2z"/><path d="M17 3v16"/>',
-    orb:   '<circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="9" ry="3.6"/><path d="M3 12h18"/>'
+    orb:   '<circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="9" ry="3.6"/><path d="M3 12h18"/>',
+    lens:  '<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/>'
   };
   function ic(k){ return svg(IC[k]||IC.calc); }
   var ARROW = '<svg class="pd-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>';
@@ -110,10 +110,17 @@
     .psnav-a.smart:hover{background:linear-gradient(180deg,#eaf4ef,#dcece4)}
     .psnav-a.smart::before{content:"Smart";background:#27513f;box-shadow:0 2px 6px rgba(27,58,45,.35)}
     html.lang-zh .psnav-a.smart::before{content:"智能"}
+    /* Upcoming Launches featured (mint) */
+    .psnav-a.feat{color:#0f5a4a;font-weight:700;background:linear-gradient(180deg,#effbf5,#dbf4e9);border:1px solid #a9e3cd;padding:8px 12px}
+    .psnav-a.feat:hover{background:linear-gradient(180deg,#e6f9ef,#cfefe1)}
+    .psnav-a.feat::before{position:absolute;left:50%;bottom:calc(100% - 4px);transform:translateX(-50%);content:"New";background:#0f7a82;box-shadow:0 2px 6px rgba(15,122,130,.4);font:800 7.5px/1 "Schibsted Grotesk",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#eef6f1;padding:2px 7px;border-radius:20px;white-space:nowrap}
+    html.lang-zh .psnav-a.feat::before{content:"新盘"}
     .psnav-a .wic svg{width:100%;height:100%}
 
     /* dropdown panel */
     .psnav-drop{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(6px);min-width:255px;background:#fff;border:1px solid #d9e7e0;border-radius:15px;box-shadow:0 22px 48px -22px rgba(16,42,30,.55);padding:8px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .16s,transform .16s;z-index:320}
+    /* invisible bridge over the gap so hover survives the trip from trigger to panel */
+    .psnav-drop::before{content:"";position:absolute;left:0;right:0;top:-18px;height:18px}
     .psnav-item:hover .psnav-drop,.psnav-item.open .psnav-drop{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
     .psnav-drop.grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;min-width:430px}
     .psnav-di{display:flex;align-items:center;gap:11px;padding:9px 11px;border-radius:10px;text-decoration:none;color:#191512}
@@ -123,22 +130,24 @@
     .psnav-di b{font-size:13.5px;font-weight:600;display:block;line-height:1.15}
     .psnav-di span{font-size:11px;color:#758a86;display:block;margin-top:1px}
 
-    /* right cluster: Listing Platform doorway */
-    .psnav-door{display:flex;align-items:center;gap:9px;text-decoration:none;margin-left:8px;padding:7px 13px;border:1px solid #cdd9d0;border-radius:12px;background:linear-gradient(180deg,#fff,#f1f5f1);position:relative;flex:none;transition:transform .2s,border-color .2s,box-shadow .2s}
-    .psnav-door::before{content:"";position:absolute;left:-10px;top:50%;transform:translateY(-50%);width:1px;height:30px;background:#c9e2dd}
-    .psnav-door:hover{transform:translateY(-1px);border-color:#27513f;box-shadow:0 9px 22px -8px rgba(39,81,63,.28)}
-    .psnav-door.cur{background:linear-gradient(180deg,#27513f,#1b3a2d);border-color:#1b3a2d}
-    .psnav-door .dt{display:flex;flex-direction:column;gap:2px;line-height:1.05}
-    .psnav-door .dt b{font-size:12px;font-weight:700;color:#1b3a2d}
-    .psnav-door .dt span{font-size:7.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#758a86;display:flex;align-items:center;gap:4px}
-    .psnav-door.cur .dt b{color:#e6f3f0}.psnav-door.cur .dt span{color:rgba(230,243,240,.8)}
-    .psnav-door .pd-dot{width:6px;height:6px;border-radius:50%;background:#3aa76d;box-shadow:0 0 0 0 rgba(58,167,109,.5);animation:pddot 2.2s ease-out infinite}
-    @keyframes pddot{0%{box-shadow:0 0 0 0 rgba(58,167,109,.5)}70%{box-shadow:0 0 0 7px rgba(58,167,109,0)}100%{box-shadow:0 0 0 0 rgba(58,167,109,0)}}
-    @media(prefers-reduced-motion:reduce){.psnav-door .pd-dot{animation:none}}
-    .psnav-door .pd-ar{width:13px;height:13px;flex:none;color:#27513f}
     .psnav-lang{display:inline-flex;align-items:center;gap:6px;margin-left:8px;flex:none;background:#eaf6f4;border:1.5px solid #27513f;border-radius:30px;font-family:inherit;font-size:13px;font-weight:800;color:#1b3a2d;cursor:pointer;padding:8px 14px;white-space:nowrap;transition:background .2s,color .2s,transform .2s}
     .psnav-lang svg{width:15px;height:15px;flex:none;stroke:currentColor;fill:none;stroke-width:1.7}
     .psnav-lang:hover{background:#1b3a2d;color:#eaf6f4;transform:translateY(-1px)}
+
+    /* Studio pill: prominent solid teal link to the free video maker */
+    .psnav-studio{position:relative;display:inline-flex;align-items:center;gap:8px;flex:none;margin-left:8px;text-decoration:none;background:linear-gradient(180deg,#17a6a6,#0e767d);color:#f2fffb;font-family:inherit;font-size:13px;font-weight:800;letter-spacing:-.005em;padding:8px 15px;border-radius:30px;border:1px solid #0c666d;box-shadow:0 8px 20px -8px rgba(15,122,130,.75);white-space:nowrap;transition:transform .2s,box-shadow .2s,filter .2s}
+    .psnav-studio:hover{transform:translateY(-1px);filter:brightness(1.06);box-shadow:0 13px 26px -8px rgba(15,122,130,.85)}
+    .psnav-studio .stic{width:17px;height:17px;flex:none;display:inline-flex;color:#c9fff1}
+    .psnav-studio .stic svg{width:100%;height:100%}
+    .psnav-studio .st-sub{font-weight:700;color:rgba(242,255,251,.85)}
+    .psnav-studio .st-sub::before{content:"·";margin:0 6px 0 5px;color:rgba(242,255,251,.55)}
+    .psnav-studio::before{content:"New";position:absolute;left:50%;bottom:calc(100% - 4px);transform:translateX(-50%);font:800 7.5px/1 "Schibsted Grotesk",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#0d6169;background:#c9fef0;padding:2px 7px;border-radius:20px;white-space:nowrap;box-shadow:0 2px 6px rgba(15,122,130,.4)}
+    html.lang-zh .psnav-studio::before{content:"新"}
+    @media(max-width:1300px){.psnav-studio .st-sub{display:none}}
+    @media(max-width:1180px){.psnav-studio{display:none}}
+    /* mobile menu Studio card (mirrors psm-world, pine-teal) */
+    .psm-studio{background:linear-gradient(135deg,#12888e,#0d6b72)}
+    .psm-studio .worb{stroke-width:1.9}
 
     .psnav-back{display:none;margin-right:2px;width:40px;height:40px;flex:none;align-items:center;justify-content:center;border:1px solid #bfdbd5;border-radius:11px;background:rgba(255,255,255,.6);cursor:pointer;color:#1b3a2d;-webkit-tap-highlight-color:transparent}
     .psnav-back svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
@@ -147,7 +156,7 @@
     .psnav-burger{display:none;margin-left:auto;width:42px;height:42px;border:1px solid #bfdbd5;border-radius:10px;background:rgba(255,255,255,.6);cursor:pointer;align-items:center;justify-content:center}
     .psnav-burger svg{width:22px;height:22px;stroke:#191512;fill:none;stroke-width:2;stroke-linecap:round}
     /* collapse to burger when the grouped row no longer fits comfortably */
-    @media(max-width:1180px){.psnav-links,.psnav-door,.psnav-lang{display:none}.psnav-burger{display:flex}}
+    @media(max-width:1180px){.psnav-links,.psnav-lang{display:none}.psnav-burger{display:flex}}
     /* compact language pill on the mobile top bar (desktop keeps the full .psnav-lang) */
     .psnav-mlang{display:none;align-items:center;gap:5px;flex:none;background:#eaf6f4;border:1.5px solid #27513f;border-radius:30px;font-family:inherit;font-size:12.5px;font-weight:800;color:#1b3a2d;cursor:pointer;padding:7px 13px;white-space:nowrap;-webkit-tap-highlight-color:transparent}
     .psnav-mlang:active{background:#dbefeb}
@@ -174,14 +183,11 @@
     .psm-chip b{font-size:12.5px;font-weight:600}
     .psm-chip.wide{grid-column:1/-1}
     .psm-chip.acc{background:linear-gradient(180deg,#f1f7f3,#e7f1ec);border-color:#cfe3d8}
-    .psm-door{display:flex;align-items:center;gap:11px;text-decoration:none;margin-top:14px;padding:14px 15px;border:1px solid #cdd9d0;border-radius:14px;background:linear-gradient(180deg,#fff,#eef4ef)}
-    .psm-door.cur{background:linear-gradient(180deg,#27513f,#1b3a2d);border-color:#1b3a2d}
-    .psm-door .md{flex:1}
-    .psm-door b{display:block;font-size:16px;font-weight:600;color:#1b3a2d}
-    .psm-door span{display:block;font-size:11.5px;color:#758a86;margin-top:2px}
-    .psm-door.cur b{color:#eef6f1}.psm-door.cur span{color:rgba(238,246,241,.78)}
-    .psm-door .arr{width:32px;height:32px;flex:none;border-radius:50%;background:#27513f;display:flex;align-items:center;justify-content:center;color:#e6f3f0}
-    .psm-door .arr svg{width:14px;height:14px}
+    .psm-chip.feat{background:linear-gradient(180deg,#effbf5,#dbf4e9);border:1.5px solid #7fd0bb;padding:13px 14px}
+    .psm-chip.feat b{font-size:14px;font-weight:700;color:#0f5a4a}
+    .psm-chip.feat svg{width:17px;height:17px;color:#0f7a82}
+    .psm-chip.feat::after{content:"New";margin-left:auto;font:800 8px/1 "Schibsted Grotesk",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#eef6f1;background:#0f7a82;padding:3px 8px;border-radius:20px}
+    html.lang-zh .psm-chip.feat::after{content:"新盘"}
     .psm-util{margin-top:auto;padding-top:14px}
     .psm-util-in{border-top:2px solid #cfe3db;padding-top:13px}
     .psm-urow{display:flex;gap:8px;align-items:center}
@@ -226,7 +232,7 @@
       return '<div class="psnav-item"><a class="psnav-a world'+(cur?' cur':'')+'" href="'+it.href+'"><span class="wic">'+ic('orb')+'</span>'+t(it.t)+'</a></div>';
     }
     if (it.k === 'link') {
-      return '<div class="psnav-item"><a class="psnav-a'+(cur?' cur':'')+'" href="'+it.href+'">'+t(it.t)+'</a></div>';
+      return '<div class="psnav-item"><a class="psnav-a'+(it.feat?' feat':'')+(cur?' cur':'')+'" href="'+it.href+'">'+t(it.t)+'</a></div>';
     }
     // menu
     var smart = it.smart ? ' smart' : '';
@@ -246,36 +252,34 @@
     '<button class="psnav-back" id="psBack" type="button" aria-label="Go back"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>' +
     '<a class="psnav-brand" href="' + BASE + '/"><span class="pm-tile">' + MARK + '</span><span class="bw"><b>PropSight</b><span>' + t('Singapore') + '</span></span></a>' +
     '<nav class="psnav-links">' + ITEMS.map(itemHtml).join('') + '</nav>' +
-    '<a class="psnav-door' + (listingsActive() ? ' cur' : '') + '" href="' + LISTINGS + '">' +
-      '<span class="dt"><b>' + t('Listing Platform') + '</b><span><span class="pd-dot"></span>' + t('Buy and rent') + '</span></span>' + ARROW +
-    '</a>' +
+    '<a class="psnav-studio" href="https://studio.propsight.sg" target="_blank" rel="noopener" aria-label="PropSight Studio, free listing video maker"><span class="stic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.3l4.4 2.7-4.4 2.7z" fill="currentColor" stroke="none"/></svg></span><span class="st-nm">' + t('Studio') + '</span><span class="st-sub">' + t('Free video maker') + '</span></a>' +
     '<button class="psnav-lang" id="psLang" type="button" aria-label="Switch language">' + LANG_SVG + (curLang() === 'zh' ? 'EN' : '中文') + '</button>' +
     '<button class="psnav-mlang" id="psMLang" type="button" aria-label="Switch language">' + (curLang() === 'zh' ? 'EN' : '中文') + '</button>' +
     '<button class="psnav-burger" id="psBurger" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>' +
     '</div></header>';
 
   /* ── mobile menu ── */
-  var mobileShort = { 'What you can afford':'Afford', 'Schools nearby':'Schools', 'Market Analysis':'Market' };
+  var mobileShort = { 'What you can afford':'Afford', 'Schools nearby':'Schools' };
   function mlabel(s){ return mobileShort[s] || s; }
   function chip(label, href, icon, cls){ return '<a class="psm-chip'+(cls?' '+cls:'')+'" href="'+href+'">'+ic(icon)+'<b>'+t(mlabel(label))+'</b></a>'; }
-  var PW = ITEMS[0], TOOLS = ITEMS[1], INS = ITEMS[2], NL = ITEMS[3], AREAS = ITEMS[4], BG = ITEMS[5];
+  var PW = ITEMS[0], NL = ITEMS[1], INS = ITEMS[2], TOOLS = ITEMS[3], AREAS = ITEMS[4], BG = ITEMS[5];
 
   var TG = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3l-3.3 15.6c-.2 1.1-.9 1.4-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.2L18.5 6c.4-.3-.1-.5-.6-.2L7.4 12.6l-4.8-1.5c-1-.3-1-1 .2-1.5l18.7-7.2c.9-.3 1.6.2 1.4 1.9z"/></svg>';
   var PHN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10.5 18.5h3"/></svg>';
 
   var menuHTML = '<div class="psnav-menu" id="psMenu">' +
     '<a class="psm-world" href="'+PW.href+'"><span class="wl"><span class="badge">'+t('Featured')+'</span><b>PropWorld</b><span class="s">'+t('Singapore property, brought to life')+'</span></span><svg class="worb" viewBox="0 0 24 24">'+IC.orb+'</svg></a>' +
-    '<div class="psm-grp"><div class="psm-glbl">'+t('Tools')+'</div><div class="psm-chips">' +
-      TOOLS.kids.map(function(k){ return chip(k[0], k[1], k[2]); }).join('') +
-    '</div></div>' +
+    '<a class="psm-world psm-studio" href="https://studio.propsight.sg" target="_blank" rel="noopener" style="margin-top:9px"><span class="wl"><span class="badge">'+t('Free')+'</span><b>'+t('Studio')+'</b><span class="s">'+t('Free listing video maker')+'</span></span><svg class="worb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.3l4.4 2.7-4.4 2.7z" fill="currentColor" stroke="none"/></svg></a>' +
+    '<div class="psm-grp"><div class="psm-chips">' + chip('Upcoming Launches', NL.href, 'build', 'wide feat') + '</div></div>' +
     '<div class="psm-grp"><div class="psm-glbl">'+t('Insights')+' <span class="mtag">'+t('Smart')+'</span></div><div class="psm-chips">' +
       INS.kids.map(function(k){ return chip(k[0], k[1], k[2], 'acc'); }).join('') +
     '</div></div>' +
-    '<div class="psm-grp"><div class="psm-chips">' +
-      chip('Upcoming Launches', NL.href, 'build') + chip('Area Guides', AREAS.href, 'pin') +
+    '<div class="psm-grp"><div class="psm-glbl">'+t('Tools')+'</div><div class="psm-chips">' +
+      TOOLS.kids.map(function(k){ return chip(k[0], k[1], k[2]); }).join('') +
     '</div></div>' +
-    '<div class="psm-grp"><div class="psm-chips">' + chip('Beginners Guide', BG.href, 'book', 'wide') + '</div></div>' +
-    '<a class="psm-door'+(listingsActive()?' cur':'')+'" href="'+LISTINGS+'"><span class="md"><b>'+t('Listing Platform')+'</b><span>'+t('Browse homes for sale and rent')+'</span></span><span class="arr">'+ARROW+'</span></a>' +
+    '<div class="psm-grp"><div class="psm-chips">' +
+      chip('Area Guides', AREAS.href, 'pin') + chip('Beginners Guide', BG.href, 'book') +
+    '</div></div>' +
     '<div class="psm-util"><div class="psm-util-in">' +
       '<div class="psm-urow">' +
         '<button class="psm-tg" type="button" onclick="window.PS&&PS.cta&&PS.cta(\'menu\')">'+TG+t('Join our Telegram')+'</button>' +
