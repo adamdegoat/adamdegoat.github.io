@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-10T23:30:00.297865+08:00",
+  "updated": "2026-07-11T09:00:00.249395+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -175,22 +175,52 @@
       "priority": true
     },
     {
-      "title": "Conor McGregor scoffs at Max Holloway predicting trilogy after UFC 329: ‘I forecast Holloway’s retirement on Saturday night’",
-      "link": "https://www.mmafighting.com/ufc/498305/conor-mcgregor-scoffs-at-max-holloway-predicting-trilogy-after-ufc-329-i-forecast-holloways-retirement-on-saturday-night",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
-      "title": "Undefeated world champion Shakur Stevenson signs multi-fight deal with Zuffa Boxing",
-      "link": "https://www.mmamania.com/zuffa-boxing-news/455935/undefeated-world-champion-shakur-stevenson-signs-multi-fight-deal-with-zuffa-boxing",
-      "source": "MMA Mania",
-      "priority": true
-    },
-    {
       "title": "Paddy Pimblett questions Arman Tsarukyan’s UFC title shot case",
       "link": "https://www.sherdog.com/news/news/Paddy-Pimblett-questions-Arman-Tsarukyans-UFC-title-shot-case-201821",
       "source": "Sherdog",
       "priority": true
+    },
+    {
+      "title": "Video: UFC 329: Conor McGregor vs. Max Holloway 2 cold open",
+      "link": "https://www.mmafighting.com/ufc/498394/video-ufc-329-conor-mcgregor-vs-max-holloway-2-cold-open",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Drake puts monster bet on Conor McGregor to beat Max Holloway at UFC 329",
+      "link": "https://www.mmafighting.com/ufc/498424/drake-puts-monster-bet-on-conor-mcgregor-to-beat-max-holloway-at-ufc-329",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "UFC 329 Paths to Victory: How can Conor McGregor make a successful return after 5 years off?",
+      "link": "https://www.mmafighting.com/ufc/498192/ufc-329-paths-to-victory-how-can-conor-mcgregor-make-a-successful-return-after-5-years-off",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Gable Steveson addresses potential fight against Josh Hokit, advises him moving to 205 pounds ‘would be a great decision’",
+      "link": "https://www.mmafighting.com/ufc/498173/gable-steveson-addresses-potential-fight-against-josh-hokit-advises-him-moving-to-205-pounds-would-be-a-great-decision",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Dana White announces UFC 329: McGregor vs. Holloway 2 broke gate record with massive  number",
+      "link": "https://www.mmafighting.com/ufc/498378/dana-white-announces-ufc-329-mcgregor-vs-holloway-2-broke-gate-record-with-massive-number",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "UFC 329 weigh-in results: Conor McGregor makes weight for 1st fight since 2021",
+      "link": "https://www.mmafighting.com/ufc/498362/ufc-329-weigh-in-results-conor-mcgregor-makes-weight-for-1st-fight-since-2021",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Pros predict Conor McGregor vs. Max Holloway showdown at UFC 329",
+      "link": "https://www.mmafighting.com/ufc/498329/pros-predict-conor-mcgregor-vs-max-holloway-showdown-at-ufc-329",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "UFC 329 weigh-in video: McGregor vs. Holloway 2",
@@ -199,63 +229,33 @@
       "priority": false
     },
     {
-      "title": "8 men indicted on conspiracy charges in plot to attack UFC White House event, kill government officials",
-      "link": "https://www.mmafighting.com/ufc/498275/8-men-indicted-on-conspiracy-charges-in-plot-to-attack-ufc-white-house-event-kill-government-officials",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Conor McGregor serenades crowd with his rendition of Oasis’ ‘Wonderwall’ ahead of UFC 329",
-      "link": "https://www.mmafighting.com/ufc/498291/conor-mcgregor-serenades-crowd-with-his-rendition-of-oasis-wonderwall-ahead-of-ufc-329",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Conor McGregor slams Max Holloway’s glasses to ground in intense UFC 329 staredown",
-      "link": "https://www.mmafighting.com/ufc/498290/conor-mcgregor-slams-max-holloways-glasses-to-ground-in-intense-ufc-329-staredown",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "UFC 329 press conference video",
-      "link": "https://www.mmafighting.com/ufc/498242/ufc-329-press-conference-video",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Kevin Holland out of UFC Oklahoma City fight against Jacobe Smith",
-      "link": "https://www.mmafighting.com/ufc/498269/kevin-holland-out-of-ufc-oklahoma-city-fight-against-jacobe-smith",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "UFC 329 presser: The best quotes and comebacks from Conor McGregor and Max Holloway",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456038/ufc-329-presser-the-best-quotes-and-comebacks-from-conor-mcgregor-and-max-holloway",
+      "title": "UFC 329 ceremonial weigh ins video, LIVE staredowns | McGregor vs. Holloway 2",
+      "link": "https://www.mmamania.com/ufc-weigh-in-video/456118/ufc-329-ceremonial-weigh-ins-video-live-staredowns-face-offs-mcgregor-vs-holloway-2",
       "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "Big plans? Dana White has ‘five scenarios for Conor McGregor’ if he wins at UFC 329",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456032/big-plans-dana-white-has-five-scenarios-for-conor-mcgregor-if-he-wins-at-ufc-329",
+      "title": "Jon Jones reacts to UFC 329 fight week: ‘It makes me miss the game tremendously’",
+      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456133/jon-jones-reacts-to-ufc-329-fight-week-it-makes-me-miss-the-game-tremendously",
       "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "Ilia Topuria beats up ‘goofy’ Paddy Pimblett 97 times out of 100, per Justin Gaethje | UFC 329",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456016/ilia-topuria-beats-up-goofy-paddy-pimblett-97-times-out-of-100-per-justin-gaethje-ufc-329",
+      "title": "Drake curse alert! Canadian rapper drops $1 million bet on outcome of Conor McGregor vs. Max Holloway at UFC 329",
+      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456129/drake-curse-alert-canadian-rapper-drops-1-million-bet-on-outcome-of-conor-mcgregor-vs-max-holloway-at-ufc-329",
       "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "Timeline To Return: Tracking Conor McGregor’s UFC 329 comeback",
-      "link": "https://www.mmamania.com/ufc-events-ppv/455372/timeline-to-return-tracking-conor-mcgregors-ufc-329-comeback",
+      "title": "Here’s MMAmania.com’s UFC 329 betting odds ‘Weekend Lock’ … what’s yours?",
+      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456014/heres-mmamania-coms-ufc-329-betting-odds-weekend-lock-whats-yours",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor vs Holloway drops this Sunday at 9 AM SGT—history in the making.",
-    "prefight": "McGregor and Holloway collide Sunday morning—peak featherweight action that can't be missed.",
-    "results": "Fiziev's spinning wheel kick and punches put Torres away cold in round 2."
+    "week": "McGregor and Holloway collide tomorrow—two elite strikers, one octagon, pure fireworks guaranteed.",
+    "prefight": "McGregor meets Holloway tomorrow 9 AM SGT in an epic featherweight clash.",
+    "results": "Fiziev knocks out Torres with a spinning wheel kick and punches in round two."
   }
 }
