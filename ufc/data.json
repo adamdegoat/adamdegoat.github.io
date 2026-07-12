@@ -1,8 +1,25 @@
 {
-  "updated": "2026-07-11T23:30:00.500861+08:00",
+  "updated": "2026-07-12T09:00:00.355552+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
+    "id": "2468286",
+    "name": "UFC Fight Night 281 Du Plessis vs Usman",
+    "short": "Plessis vs Usman",
+    "date_sgt": "2026-07-19T08:00:00+08:00",
+    "when_sgt": "Sun 19 Jul, 8:00 AM SGT",
+    "when_main": "Sun 19 Jul, 8:00 AM SGT",
+    "when_prelims": "Sun 19 Jul, 5:00 AM SGT",
+    "has_time": true,
+    "location": "Oklahoma City, USA",
+    "highlights": "https://www.youtube.com/results?search_query=UFC%20Fight%20Night%20281%20Du%20Plessis%20vs%20Usman%20highlights",
+    "desc": "",
+    "badge": "https://www.thesportsdb.com/images/media/event/thumb/p2x5tg1783063837.jpg",
+    "bouts": [],
+    "finished": false,
+    "espn_final": false
+  },
+  "last": {
     "id": "2468285",
     "name": "UFC 329 McGregor vs Holloway 2",
     "short": "McGregor vs Holloway",
@@ -19,243 +36,95 @@
     "finished": false,
     "espn_final": false
   },
-  "last": {
-    "id": "2468284",
-    "name": "UFC Fight Night 280 Fiziev vs Torres",
-    "short": "Fiziev vs Torres",
-    "date_sgt": "2026-06-28T00:00:00+08:00",
-    "when_sgt": "Sun 28 Jun, 12:00 AM SGT",
-    "when_main": "Sun 28 Jun, 12:00 AM SGT",
-    "when_prelims": "Sat 27 Jun, 9:00 PM SGT",
-    "has_time": true,
-    "location": "Baku, Azerbaijan",
-    "highlights": "https://www.youtube.com/results?search_query=UFC%20Fight%20Night%20280%20Fiziev%20vs%20Torres%20highlights",
-    "desc": "UFC Fight Night: Fiziev vs. Torres (also known as UFC Fight Night 280) is an upcoming mixed martial arts event produced by the Ultimate Fighting Championship that is scheduled to take place on June 27, 2026, at the National Gymnastics Arena in Baku, Azerbaijan",
-    "badge": "https://www.thesportsdb.com/images/media/event/thumb/oq891n1782041517.jpg",
-    "bouts": [
-      {
-        "section": "main",
-        "weight": "Lightweight",
-        "a": "Rafael Fiziev",
-        "b": "Manuel Torres",
-        "decided": true,
-        "method": "KO (spinning wheel kick and punches)",
-        "round": "2",
-        "time": "0:15"
-      },
-      {
-        "section": "main",
-        "weight": "Middleweight",
-        "a": "Sharabutdin Magomedov",
-        "b": "Michel Pereira",
-        "decided": true,
-        "method": "Decision (unanimous) (29–28, 29–28, 29–28)",
-        "round": "3",
-        "time": "5:00"
-      },
-      {
-        "section": "main",
-        "weight": "Lightweight",
-        "a": "Matheus Camilo",
-        "b": "Nazim Sadykhov",
-        "decided": true,
-        "method": "TKO (punches)",
-        "round": "1",
-        "time": "1:31"
-      },
-      {
-        "section": "main",
-        "weight": "Flyweight",
-        "a": "Asu Almabayev",
-        "b": "Charles Johnson",
-        "decided": true,
-        "method": "Submission (Suloev stretch)",
-        "round": "3",
-        "time": "3:33"
-      },
-      {
-        "section": "main",
-        "weight": "Middleweight",
-        "a": "Ikram Aliskerov",
-        "b": "Brunno Ferreira",
-        "decided": true,
-        "method": "Decision (unanimous) (30–27, 30–27, 30–27)",
-        "round": "3",
-        "time": "5:00"
-      },
-      {
-        "section": "main",
-        "weight": "Middleweight",
-        "a": "Abusupiyan Magomedov",
-        "b": "Michał Oleksiejczuk",
-        "decided": true,
-        "method": "Submission (guillotine choke)",
-        "round": "1",
-        "time": "3:25"
-      },
-      {
-        "section": "prelim",
-        "weight": "Welterweight",
-        "a": "Farman Hasanov",
-        "b": "Eric Nolan",
-        "decided": true,
-        "method": "Decision (unanimous) (30–27, 30–27, 30–27)",
-        "round": "3",
-        "time": "5:00"
-      },
-      {
-        "section": "prelim",
-        "weight": "Light Heavyweight",
-        "a": "Abdul-Rakhman Yakhyaev",
-        "b": "Julius Walker",
-        "decided": true,
-        "method": "KO (punches)",
-        "round": "1",
-        "time": "0:08"
-      },
-      {
-        "section": "prelim",
-        "weight": "Middleweight",
-        "a": "Nursulton Ruziboev",
-        "b": "Andrey Pulyaev",
-        "decided": true,
-        "method": "Technical Submission (neck crank)",
-        "round": "1",
-        "time": "3:58"
-      },
-      {
-        "section": "prelim",
-        "weight": "Featherweight",
-        "a": "Kaan Ofli",
-        "b": "Javier Reyes",
-        "decided": true,
-        "method": "Submission (arm-triangle choke)",
-        "round": "1",
-        "time": "4:16"
-      },
-      {
-        "section": "prelim",
-        "weight": "Welterweight",
-        "a": "Daniil Donchenko",
-        "b": "Theodor Berggren",
-        "decided": true,
-        "method": "TKO (head kick and punches)",
-        "round": "2",
-        "time": "1:35"
-      },
-      {
-        "section": "prelim",
-        "weight": "Bantamweight",
-        "a": "Jean Matsumoto",
-        "b": "Bekzat Almakhan",
-        "decided": true,
-        "method": "Decision (unanimous) (29–28, 29–28, 29–28)",
-        "round": "3",
-        "time": "5:00"
-      },
-      {
-        "section": "prelim",
-        "weight": "Welterweight",
-        "a": "Tahir Abdullayev",
-        "b": "Jefferson Nascimento",
-        "decided": true,
-        "method": "TKO (punches)",
-        "round": "3",
-        "time": "4:28"
-      }
-    ],
-    "finished": true,
-    "espn_final": true
-  },
   "news": [
     {
-      "title": "Conor McGregor explains bringing his kids to UFC 329 after they ‘thankfully’ missed him breaking his leg in 2021",
-      "link": "https://www.mmafighting.com/ufc/498133/conor-mcgregor-explains-bringing-his-kids-to-ufc-329-after-they-thankfully-missed-him-breaking-his-leg-in-2021",
+      "title": "UFC 329 live blog: King Green vs. Terrance McKinney",
+      "link": "https://www.mmafighting.com/ufc/498554/ufc-329-live-blog-king-green-vs-terrance-mckinney",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "Anything but Fighting: Cody Garbrandt answers random questions",
-      "link": "https://www.mmafighting.com/news/498146/anything-but-fighting-cody-garbrandt-answers-random-questions",
+      "title": "UFC 329 video: Gable Steveson lays waste to Elisha Ellison with brutal first-round knockout in octagon debut",
+      "link": "https://www.mmafighting.com/ufc/498698/ufc-329-video-gable-steveson-lays-waste-to-elisha-ellison-with-brutal-first-round-knockout-in-octagon-debut",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "Alex Pereira aims for November UFC return at Madison Square Garden",
-      "link": "https://www.mmafighting.com/ufc/498427/alex-pereira-aims-for-november-ufc-return-at-madison-square-garden",
+      "title": "UFC 329 live blog: Robert Whittaker vs. Nikita Krylov",
+      "link": "https://www.mmafighting.com/ufc/498561/ufc-329-live-blog-robert-whittaker-vs-nikita-krylov",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "UFC 329 start time, fight card for Conor McGregor vs. Max Holloway 2",
-      "link": "https://www.mmafighting.com/ufc/498501/ufc-329-start-time-fight-card-for-conor-mcgregor-vs-max-holloway-2",
+      "title": "UFC 329 video: Adrian Yanez batters Cody Garbrandt for brutal 1st-round knockout",
+      "link": "https://www.mmafighting.com/ufc/498693/ufc-329-video-adrian-yanez-batters-cody-garbrandt-for-brutal-1st-round-knockout",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "UFC 329 predictions",
-      "link": "https://www.mmafighting.com/ufc/497974/ufc-329-predictions",
+      "title": "‘That stoppage sucked’: Pros react to Luke Riley’s controversial UFC 329 knockout",
+      "link": "https://www.mmafighting.com/ufc/498666/that-stoppage-sucked-pros-react-to-luke-rileys-controversial-ufc-329-knockout",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "UFC 329 Results: McGregor vs. Holloway 2",
+      "title": "UFC 329 live blog: Gable Steveson vs. Elisha Ellison",
+      "link": "https://www.mmafighting.com/ufc/498557/ufc-329-live-blog-gable-steveson-vs-elisha-ellison",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "UFC 329 video: Damian Pinas finishes Cesar Almeida with 1-punch knockout",
+      "link": "https://www.mmafighting.com/ufc/498644/ufc-329-video-damian-pinas-finishes-cesar-almeida-with-1-punch-knockout",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "UFC 329 video: Ryan Gandra crushes Zach Reese for 75-second knockout",
+      "link": "https://www.mmafighting.com/ufc/498620/ufc-329-video-ryan-gandra-crushes-zach-reese-for-75-second-knockout",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "LIVE! UFC 329 Results: McGregor vs. Holloway 2",
       "link": "https://www.mmafighting.com/ufc/498335/ufc-329-results-mcgregor-vs-holloway-2",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "UFC 329: Conor McGregor vs. Max Holloway 2 preview show",
-      "link": "https://www.mmafighting.com/ufc/498503/ufc-329-conor-mcgregor-vs-max-holloway-2-preview-show",
+      "title": "Conor McGregor vs. Max Holloway full fight video",
+      "link": "https://www.mmafighting.com/ufc/498588/conor-mcgregor-vs-max-holloway-full-fight-video",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "Max Holloway delivers message to Conor McGregor after final UFC 329 faceoff: ‘If this guy’s a missile, I’m a f*cking nuke’",
-      "link": "https://www.mmafighting.com/ufc/498478/max-holloway-delivers-message-to-conor-mcgregor-after-final-ufc-329-faceoff-if-this-guys-a-missile-im-a-fcking-nuke",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Video: UFC 329: Conor McGregor vs. Max Holloway 2 cold open",
-      "link": "https://www.mmafighting.com/ufc/498394/video-ufc-329-conor-mcgregor-vs-max-holloway-2-cold-open",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Conor McGregor vs. Max Holloway 2: Odds, full fight preview and prediction | UFC 329",
-      "link": "https://www.mmamania.com/ufc-events-ppv/455947/conor-mcgregor-vs-max-holloway-2-odds-full-fight-preview-and-prediction-ufc-329",
+      "title": "Highlights! Olympic wrestler Gable Steveson scores vicious KO without landing a single takedown | UFC 329",
+      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456460/highlights-olympic-wrestler-gable-steveson-scores-vicious-ko-without-landing-a-single-takedown-ufc-329",
       "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "UFC 329 start time, full fight card details | McGregor vs. Holloway 2",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/455470/ufc-329-start-time-full-fight-card-details-mcgregor-vs-holloway-2",
+      "title": "UFC 329 live results, highlights, play-by-play | McGregor vs. Holloway 2",
+      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/454269/ufc-329-live-results-highlights-play-by-play-mcgregor-vs-holloway-2",
       "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "UFC 329’s Conor McGregor advises ‘unlucky’ Alex Pereira to move on from Ciryl Gane loss: ‘Back of the head’",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456217/ufc-329s-conor-mcgregor-advises-unlucky-alex-pereira-to-move-on-from-ciryl-gane-loss-let-it-go",
+      "title": "Highlights! Adrian Yanez dispatches former champ Cody Garbrandt in vicious flurry of punches | UFC 329",
+      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456415/highlights-adrian-yanez-dispatches-former-champ-cody-garbrandt-in-vicious-flurry-of-punches-ufc-329",
       "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "Upset alert? Late money continues to narrow Conor McGregor vs. Max Holloway odds at UFC 329",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456212/upset-alert-late-money-continues-to-narrow-conor-mcgregor-vs-max-holloway-odds-at-ufc-329",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "Wildin’! Short-shorted Conor McGregor shows up with lifted sneakers, neck hickies for UFC 329 ceremonial weigh-ins",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456168/wildin-conor-mcgregor-shows-up-in-lifts-with-neck-hickies-for-ufc-329-ceremonial-weigh-ins",
+      "title": "What time will Conor McGregor fight tonight at UFC 329?",
+      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456465/what-time-will-conor-mcgregor-fight-tonight-at-ufc-329",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "McGregor vs Holloway tomorrow 9am SGT: featherweight fireworks you won't want to miss.",
-    "prefight": "McGregor faces Holloway tomorrow morning in Singapore—battle for dominance.",
-    "results": "Fiziev floors Torres with a spinning wheel kick and hammerfist barrage for a round 2 KO."
+    "week": "Fight week incoming: Plessis battles Usman for middleweight gold this Sunday morning.",
+    "prefight": "Plessis and Usman collide Sunday—elite striking precision meets championship wrestling mastery.",
+    "results": "The dust has settled on another fight night."
   }
 }
