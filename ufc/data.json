@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-12T21:00:00.271806+08:00",
+  "updated": "2026-07-12T23:30:04.701623+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -38,6 +38,18 @@
   },
   "news": [
     {
+      "title": "Max Holloway reveals what Conor McGregor said to him after injuring knee at UFC 329",
+      "link": "https://www.mmafighting.com/ufc/499110/max-holloway-reveals-what-conor-mcgregor-said-to-him-after-injuring-knee-at-ufc-329",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
+      "title": "Conor McGregor breaks silence after devastating UFC 329 injury derails comeback: ‘I can only describe it as hell’",
+      "link": "https://www.mmafighting.com/ufc/499094/conor-mcgregor-breaks-silence-after-devastating-ufc-329-injury-derails-comeback-i-can-only-describe-it-as-hell",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
       "title": "Joe Rogan laments Conor McGregor trying ‘crazy move’ that led to injury ending UFC 329 main event",
       "link": "https://www.mmafighting.com/ufc/499061/joe-rogan-laments-conor-mcgregor-trying-crazy-move-that-led-to-injury-ending-ufc-329-main-event",
       "source": "MMA Fighting",
@@ -52,12 +64,6 @@
     {
       "title": "UFC 329 post-fight show: Reaction to Conor McGregor’s disastrous injury, Holloway and Pimblett wins",
       "link": "https://www.mmafighting.com/ufc/499125/ufc-329-post-fight-show-reaction-to-conor-mcgregors-disastrous-injury-holloway-and-pimblett-wins",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
-      "title": "Conor McGregor breaks silence after devastating UFC 329 injury derails comeback: ‘I can only describe it as hell’",
-      "link": "https://www.mmafighting.com/ufc/499094/conor-mcgregor-breaks-silence-after-devastating-ufc-329-injury-derails-comeback-i-can-only-describe-it-as-hell",
       "source": "MMA Fighting",
       "priority": true
     },
@@ -80,18 +86,6 @@
       "priority": true
     },
     {
-      "title": "Conor McGregor injuring himself at UFC 329 was the ‘biggest disappointment in combat sports history’",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456651/conor-mcgregor-injuring-himself-at-ufc-329-was-the-biggest-disappointment-in-combat-sports-history",
-      "source": "MMA Mania",
-      "priority": true
-    },
-    {
-      "title": "Pre-existing injury? Video captures Conor McGregor stumbling prior to fight-ruining knee explosion at UFC 329",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456673/pre-existing-injury-video-captures-conor-mcgregor-stumbling-prior-to-fight-ruining-knee-injury-at-ufc-329",
-      "source": "MMA Mania",
-      "priority": true
-    },
-    {
       "title": "Max Holloway reacts to Conor McGregor's UFC 329 injury, eyes Islam Makhachev",
       "link": "https://www.sherdog.com/news/news/Max-Holloway-reacts-to-Conor-McGregors-UFC-329-injury-eyes-Islam-Makhachev-201860",
       "source": "Sherdog",
@@ -101,6 +95,12 @@
       "title": "Knee injury ends Conor McGregor’s return 69 seconds into UFC 329 main event",
       "link": "https://www.sherdog.com/news/news/Knee-injury-ends-Conor-McGregors-return-69-seconds-into-UFC-329-main-event-201845",
       "source": "Sherdog",
+      "priority": true
+    },
+    {
+      "title": "Dana White doubts Conor McGregor had pre-existing injury prior to unforeseen UFC 329 outcome: “Somebody would’ve noticed it”",
+      "link": "https://www.bjpenn.com/mma-news/ufc/dana-white-doubts-conor-mcgregor-had-pre-existing-injury-prior-to-unforeseen-ufc-329-outcome-somebody-wouldve-noticed-it/?utm_source=rss&utm_medium=rss&utm_campaign=dana-white-doubts-conor-mcgregor-had-pre-existing-injury-prior-to-unforeseen-ufc-329-outcome-somebody-wouldve-noticed-it",
+      "source": "BJPenn",
       "priority": true
     },
     {
@@ -123,8 +123,8 @@
     }
   ],
   "hooks": {
-    "week": "Championship clash this Sunday: Plessis vs Usman—fight week starts now.",
-    "prefight": "One week until championship warfare: Plessis's striking versus Usman's relentless, calculated pressure.",
+    "week": "Plessis and Usman headline Sunday in a middleweight war for divisional supremacy.",
+    "prefight": "Fight week ignites: Plessis versus Usman clash for the title Sunday.",
     "results": "The dust has settled on another fight night."
   }
 }
