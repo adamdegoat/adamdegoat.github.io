@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-12T09:00:00.355552+08:00",
+  "updated": "2026-07-12T13:00:02.168395+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -34,73 +34,73 @@
     "badge": "https://www.thesportsdb.com/images/media/event/thumb/n0e9ex1783062734.jpg",
     "bouts": [],
     "finished": false,
-    "espn_final": false
+    "espn_final": true
   },
   "news": [
     {
-      "title": "UFC 329 live blog: King Green vs. Terrance McKinney",
-      "link": "https://www.mmafighting.com/ufc/498554/ufc-329-live-blog-king-green-vs-terrance-mckinney",
+      "title": "Knee injury ends Conor McGregor’s return 69 seconds into UFC 329 main event",
+      "link": "https://www.sherdog.com/news/news/Knee-injury-ends-Conor-McGregors-return-69-seconds-into-UFC-329-main-event-201845",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
+      "title": "Conor McGregor vs. Max Holloway 2 full fight video highlights",
+      "link": "https://www.mmafighting.com/ufc/498812/conor-mcgregor-vs-max-holloway-2-full-fight-video-highlights",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "UFC 329 video: Gable Steveson lays waste to Elisha Ellison with brutal first-round knockout in octagon debut",
-      "link": "https://www.mmafighting.com/ufc/498698/ufc-329-video-gable-steveson-lays-waste-to-elisha-ellison-with-brutal-first-round-knockout-in-octagon-debut",
+      "title": "‘Ilia vs. Paddy next?’: Pros react to Paddy Pimblett’s dominant submission win at UFC 329",
+      "link": "https://www.mmafighting.com/ufc/498882/ilia-vs-paddy-next-pros-react-to-paddy-pimbletts-dominant-submission-win-at-ufc-329",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "UFC 329 live blog: Robert Whittaker vs. Nikita Krylov",
-      "link": "https://www.mmafighting.com/ufc/498561/ufc-329-live-blog-robert-whittaker-vs-nikita-krylov",
+      "title": "UFC 329 video: Paddy Pimblett puts Benoit Saint Denis to sleep with D’arce choke in just 52 seconds",
+      "link": "https://www.mmafighting.com/ufc/498865/ufc-329-video-paddy-pimblett-puts-benoit-saint-denis-to-sleep-with-darce-choke-in-just-52-seconds",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "UFC 329 video: Adrian Yanez batters Cody Garbrandt for brutal 1st-round knockout",
-      "link": "https://www.mmafighting.com/ufc/498693/ufc-329-video-adrian-yanez-batters-cody-garbrandt-for-brutal-1st-round-knockout",
+      "title": "Paddy Pimblett vs. Benoit Saint Denis full fight video highlights",
+      "link": "https://www.mmafighting.com/ufc/498807/paddy-pimblett-vs-benoit-saint-denis-full-fight-video-highlights-ufc-329",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "‘That stoppage sucked’: Pros react to Luke Riley’s controversial UFC 329 knockout",
-      "link": "https://www.mmafighting.com/ufc/498666/that-stoppage-sucked-pros-react-to-luke-rileys-controversial-ufc-329-knockout",
+      "title": "UFC 329 live blog: Conor McGregor vs. Max Holloway 2",
+      "link": "https://www.mmafighting.com/ufc/498570/ufc-329-live-blog-conor-mcgregor-vs-max-holloway-2",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "UFC 329 live blog: Gable Steveson vs. Elisha Ellison",
-      "link": "https://www.mmafighting.com/ufc/498557/ufc-329-live-blog-gable-steveson-vs-elisha-ellison",
+      "title": "UFC 329 results: Mario Bautista badly damages Cory Sandhagen’s leg, gets his revenge with unanimous decision win",
+      "link": "https://www.mmafighting.com/ufc/498837/ufc-329-results-mario-bautista-badly-damages-cory-sandhagens-leg-gets-his-revenge-with-unanimous-decision-win",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "UFC 329 video: Damian Pinas finishes Cesar Almeida with 1-punch knockout",
-      "link": "https://www.mmafighting.com/ufc/498644/ufc-329-video-damian-pinas-finishes-cesar-almeida-with-1-punch-knockout",
+      "title": "UFC 329 live blog: Benoit Saint Denis vs. Paddy Pimblett",
+      "link": "https://www.mmafighting.com/ufc/498568/ufc-329-live-blog-benoit-saint-denis-vs-paddy-pimblett",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "UFC 329 video: Ryan Gandra crushes Zach Reese for 75-second knockout",
-      "link": "https://www.mmafighting.com/ufc/498620/ufc-329-video-ryan-gandra-crushes-zach-reese-for-75-second-knockout",
+      "title": "UFC 329 video: Brandon Royval taps Lone’er Kavanagh with rear-naked choke after wild back-and-forth fight",
+      "link": "https://www.mmafighting.com/ufc/498803/ufc-329-video-brandon-royval-taps-loneer-kavanagh-with-rear-naked-choke-after-wild-back-and-forth-fight",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "LIVE! UFC 329 Results: McGregor vs. Holloway 2",
-      "link": "https://www.mmafighting.com/ufc/498335/ufc-329-results-mcgregor-vs-holloway-2",
+      "title": "UFC 329 live blog: Cory Sandhagen vs. Mario Bautista 2",
+      "link": "https://www.mmafighting.com/ufc/498565/ufc-329-live-blog-cory-sandhagen-vs-mario-bautista-2",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "Conor McGregor vs. Max Holloway full fight video",
-      "link": "https://www.mmafighting.com/ufc/498588/conor-mcgregor-vs-max-holloway-full-fight-video",
+      "title": "UFC 329 video: King Green survives early onslaught, rallies back to finish Terrance McKinney in first round",
+      "link": "https://www.mmafighting.com/ufc/498770/ufc-329-video-king-green-survives-early-onslaught-rallies-back-to-finish-terrance-mckinney-in-first-round",
       "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Highlights! Olympic wrestler Gable Steveson scores vicious KO without landing a single takedown | UFC 329",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456460/highlights-olympic-wrestler-gable-steveson-scores-vicious-ko-without-landing-a-single-takedown-ufc-329",
-      "source": "MMA Mania",
       "priority": false
     },
     {
@@ -110,21 +110,21 @@
       "priority": false
     },
     {
-      "title": "Highlights! Adrian Yanez dispatches former champ Cody Garbrandt in vicious flurry of punches | UFC 329",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456415/highlights-adrian-yanez-dispatches-former-champ-cody-garbrandt-in-vicious-flurry-of-punches-ufc-329",
+      "title": "Highlights! Olympic wrestler Gable Steveson scores vicious KO without landing a single takedown | UFC 329",
+      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456460/highlights-olympic-wrestler-gable-steveson-scores-vicious-ko-without-landing-a-single-takedown-ufc-329",
       "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "What time will Conor McGregor fight tonight at UFC 329?",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456465/what-time-will-conor-mcgregor-fight-tonight-at-ufc-329",
+      "title": "Highlights! Adrian Yanez dispatches former champ Cody Garbrandt in vicious flurry of punches | UFC 329",
+      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456415/highlights-adrian-yanez-dispatches-former-champ-cody-garbrandt-in-vicious-flurry-of-punches-ufc-329",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Fight week incoming: Plessis battles Usman for middleweight gold this Sunday morning.",
-    "prefight": "Plessis and Usman collide Sunday—elite striking precision meets championship wrestling mastery.",
+    "week": "Plessis and Usman settle their beef Sunday morning in a championship battle.",
+    "prefight": "Plessis versus Usman Sunday 8 AM SGT: championship gold, two elite strikers collide.",
     "results": "The dust has settled on another fight night."
   }
 }
