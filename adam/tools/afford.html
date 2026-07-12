@@ -152,7 +152,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
 
   <div class="res" id="res"><div class="fr"></div>
     <div class="tot-k">Your realistic ceiling</div>
-    <div class="tot" id="tot">—</div>
+    <div class="tot" id="tot">-</div>
     <div class="totsub" id="totsub"></div>
     <div class="rows" id="rows"></div>
   </div>
@@ -269,7 +269,7 @@ function calc(){
   var T=function(s){return window.PSI18N?PSI18N.t(s):s;};
   var TF=function(e,v){return window.PSI18N?PSI18N.tf(e,v):e.replace(/\{(\w+)\}/g,function(m,k){return v&&v[k]!=null?v[k]:m;});};
   if(!(r.maxPrice>0)){
-    $('#tot').textContent='—';$('#totsub').textContent='';$('#rows').innerHTML='';$('#flag').style.display='none';$('#note').innerHTML='';
+    $('#tot').textContent='-';$('#totsub').textContent='';$('#rows').innerHTML='';$('#flag').style.display='none';$('#note').innerHTML='';
     const inc=num('income'),cash=num('cash');
     let m;
     if(r.leaseBlock) m='<b>'+T("That lease is too short to finance.")+'</b> '+T("With under ~20 years left, banks won't lend and CPF can't be used, these homes are effectively cash-only. Tell us the exact lease and we'll work out the cash price.");

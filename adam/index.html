@@ -1378,7 +1378,7 @@ document.querySelectorAll('.count').forEach(el=>cio.observe(el));
     const priceByIncome=loanByIncome/ltv, priceBySavings=dpFrac>0?savings/dpFrac:0, priceByCash=minCash>0?cash/minCash:0;
     const maxPrice=Math.max(0,Math.min(priceByIncome,priceBySavings,priceByCash));
     const loan=Math.min(ltv*maxPrice,loanByIncome), downpay=maxPrice-loan;
-    if(!(maxPrice>0)){g('amBudget').textContent='—';g('amSub').textContent='Enter your income & savings to see your budget.';}
+    if(!(maxPrice>0)){g('amBudget').textContent='-';g('amSub').textContent='Enter your income & savings to see your budget.';}
     else{g('amBudget').textContent='~'+fmtM(maxPrice);
       g('amSub').innerHTML='loan ~'+fmtM(loan)+' · you put down ~'+fmtM(downpay)+(reduced?' · 55% loan (age/tenure)':'');}
     g('amNote').innerHTML = type==='hdb'
@@ -1780,7 +1780,7 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
       const vsn=p.value_flag?'':(p.discount>0?'About '+p.discount+'% cheaper for each square foot than similar condos nearby':p.discount<0?'About '+(-p.discount)+'% pricier for each square foot than similar condos nearby':'Priced about the same as similar condos nearby');
       const rng=(p.psf_lo&&p.psf_hi)?'most units sell for $'+p.psf_lo.toLocaleString()+'-$'+p.psf_hi.toLocaleString()+' for each square foot':'recent selling price for each square foot';
       const yld=p.yield?'Rent it out and you’d earn roughly '+p.yield+'% of its value a year in rent'+(MEDY?' (the Singapore average is about '+MEDY+'%)':''):'rental return not available';
-      res.innerHTML='<div class="cval-est"><div class="rk">'+title(p.project)+' · '+(SEGP[p.seg]||p.seg||'')+'</div><div class="rv">~$'+(p.psf?p.psf.toLocaleString():'—')+' <span style="font-size:12px;font-weight:500;opacity:.78">per sq ft</span></div><div class="rs">'+rng+'</div></div>'+
+      res.innerHTML='<div class="cval-est"><div class="rk">'+title(p.project)+' · '+(SEGP[p.seg]||p.seg||'')+'</div><div class="rv">~$'+(p.psf?p.psf.toLocaleString():'-')+' <span style="font-size:12px;font-weight:500;opacity:.78">per sq ft</span></div><div class="rs">'+rng+'</div></div>'+
         '<div class="cval-meta">'+(vsn?vsn+'.<br>':'')+'Prices here have <b>'+trendTxt(p.mom)+'</b>.<br>'+yld+'.<br>'+(p.fh?'It’s <b>freehold</b>, so you own it for good':'It’s <b>leasehold</b>, so you own it for 99 years')+'.<br>Based on '+(p.txns||0)+' recent sales nearby.<br><a class="cval-full" href="/thesis/?p='+encodeURIComponent(p.project)+'" target="_blank" rel="noopener">See the full research, chart &amp; similar sales →</a></div>';
       res.classList.add('on');setTimeout(function(){var c=document.getElementById('cbody');if(c)c.scrollTo({top:c.scrollHeight,behavior:'smooth'});},70);
     }
@@ -1788,7 +1788,7 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
       err.style.display='none';
       const yld=g.yield?'Rent it out and you’d earn roughly '+g.yield+'% of its value a year in rent':'rental return not available';
       const vsN=g.vs_national!=null?(g.vs_national>0?g.vs_national+'% above':g.vs_national<0?(-g.vs_national)+'% below':'about the same as')+' the national average for this flat type':'';
-      res.innerHTML='<div class="cval-est"><div class="rk">'+g.town+' · '+title(g.ft)+'</div><div class="rv">~$'+(g.price?g.price.toLocaleString():'—')+' <span style="font-size:12px;font-weight:500;opacity:.78">typically</span></div><div class="rs">about $'+(g.psf?g.psf.toLocaleString():'—')+' for each square foot · usually about '+(g.lease||'—')+' years left on the lease</div></div>'+
+      res.innerHTML='<div class="cval-est"><div class="rk">'+g.town+' · '+title(g.ft)+'</div><div class="rv">~$'+(g.price?g.price.toLocaleString():'-')+' <span style="font-size:12px;font-weight:500;opacity:.78">typically</span></div><div class="rs">about $'+(g.psf?g.psf.toLocaleString():'-')+' for each square foot · usually about '+(g.lease||'-')+' years left on the lease</div></div>'+
         '<div class="cval-meta">Prices here have <b>'+trendTxt(g.mom)+'</b>.<br>'+yld+'.<br>Based on '+(g.txns||0)+' recent sales'+(vsN?', '+vsN:'')+'.<br><a class="cval-full" href="/thesis/?town='+encodeURIComponent(g.town)+'&ft='+encodeURIComponent(g.ft)+'" target="_blank" rel="noopener">See the full research, blocks &amp; chart →</a></div>';
       res.classList.add('on');setTimeout(function(){var c=document.getElementById('cbody');if(c)c.scrollTo({top:c.scrollHeight,behavior:'smooth'});},70);
     }

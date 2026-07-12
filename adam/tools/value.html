@@ -209,7 +209,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
 
   <div class="res" id="res"><div class="fr"></div>
     <div class="tot-k">Estimated value range</div>
-    <div class="tot" id="tot">—</div>
+    <div class="tot" id="tot">-</div>
     <div class="totsub" id="totsub"></div>
     <span class="chip" id="conf"><span class="dot"></span><span id="conftxt"></span></span>
     <div class="rows" id="rows"></div>
@@ -570,9 +570,9 @@ function renderComps(kind,comps){
   const body=shown.map(c=>{
     const sf=Math.round((c.area_sqm||0)*SQF), when=mLabel(c.yymm);
     const left=kind==='hdb'
-      ? `<b>Blk ${c.block||'—'}</b>${c.storey_mid?` <span class="cflr">#${String(c.storey_mid).padStart(2,'0')}</span>`:''}<span class="cstreet">${title(c.street||'')}</span>`
-      : `${c.floor_mid?`<b>#${String(c.floor_mid).padStart(2,'0')}</b>`:'<b>—</b>'}<span class="cstreet">${title(c.street||'')}</span>`;
-    return `<tr><td>${left}</td><td class="cnum cflr">${when}</td><td class="cnum hide-sm">${sf?sf.toLocaleString()+' sf':'—'}</td><td class="cnum hide-sm">$${Math.round(c.psf)}</td><td class="cnum cpr">${fmtM(c.price)}</td></tr>`;
+      ? `<b>Blk ${c.block||'-'}</b>${c.storey_mid?` <span class="cflr">#${String(c.storey_mid).padStart(2,'0')}</span>`:''}<span class="cstreet">${title(c.street||'')}</span>`
+      : `${c.floor_mid?`<b>#${String(c.floor_mid).padStart(2,'0')}</b>`:'<b>-</b>'}<span class="cstreet">${title(c.street||'')}</span>`;
+    return `<tr><td>${left}</td><td class="cnum cflr">${when}</td><td class="cnum hide-sm">${sf?sf.toLocaleString()+' sf':'-'}</td><td class="cnum hide-sm">$${Math.round(c.psf)}</td><td class="cnum cpr">${fmtM(c.price)}</td></tr>`;
   }).join('');
   w.innerHTML=`<div class="comps-h"><b>The recent sales behind this number</b><span>${comps.length} comparable${comps.length===1?'':'s'} used · newest first</span></div>
     <div class="comps-scroll"><table class="comps"><thead><tr><th>${kind==='hdb'?'Block &amp; floor':'Unit'}</th><th class="cnum">Sold</th><th class="cnum hide-sm">Size</th><th class="cnum hide-sm">$psf</th><th class="cnum">Price</th></tr></thead><tbody>${body}</tbody></table></div>

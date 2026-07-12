@@ -140,7 +140,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
 
   <div class="res" id="res"><div class="fr"></div>
     <div class="tot-k">Total stamp duty</div>
-    <div class="tot" id="tot">—</div>
+    <div class="tot" id="tot">-</div>
     <div class="totsub" id="totsub"></div>
     <div class="rows" id="rows"></div>
   </div>
@@ -216,7 +216,7 @@ function calc(){
   const ar = absdRate();
   const a = price*ar/100;
   const total = b+a;
-  $('#tot').textContent = price>0 ? fmt(total) : '—';
+  $('#tot').textContent = price>0 ? fmt(total) : '-';
   $('#totsub').textContent = price>0 ? (window.PSI18N?PSI18N.tf('on a {price} home',{price:fmt(price)}):('on a '+fmt(price)+' home')) : '';
   const rows=[
     ['Buyer\'s Stamp Duty','everyone pays this', fmt(b)],
