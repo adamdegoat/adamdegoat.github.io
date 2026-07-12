@@ -35,6 +35,7 @@ label{display:block;font-size:13px;font-weight:700;color:var(--ink);margin:0 0 4
 label small{display:block;font-size:11.5px;font-weight:500;color:var(--ink3);margin-bottom:9px}
 .field{margin-bottom:20px}
 .money{position:relative}
+.money .mrow{position:relative;display:block}
 .money span.pre{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--ink3);font-weight:600;font-size:17px}
 input[type=text],input[type=date]{width:100%;font-family:inherit;font-size:18px;font-weight:600;padding:14px 16px;border:1px solid var(--line2);border-radius:12px;background:#fff;color:var(--ink);outline:none;transition:.2s}
 .money input[type=text]{padding-left:32px}
@@ -126,16 +127,16 @@ body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opac
       <div class="field"><label>When are you selling?<small>Leave as today if unsure</small></label><input type="date" id="sold"></div>
     </div>
     <div class="two">
-      <div class="field money"><label>What you paid<small>Your purchase price</small></label><span class="pre">$</span><input type="text" id="buy" inputmode="numeric" value="1,500,000"></div>
-      <div class="field money"><label>Expected sale price<small>What you'll sell for</small></label><span class="pre">$</span><input type="text" id="sell" inputmode="numeric" value="1,900,000"></div>
+      <div class="field money"><label>What you paid<small>Your purchase price</small></label><div class="mrow"><span class="pre">$</span><input type="text" id="buy" inputmode="numeric" value="1,500,000"></div></div>
+      <div class="field money"><label>Expected sale price<small>What you'll sell for</small></label><div class="mrow"><span class="pre">$</span><input type="text" id="sell" inputmode="numeric" value="1,900,000"></div></div>
     </div>
     <div class="two">
-      <div class="field money"><label>Outstanding home loan<small>Left to repay the bank</small></label><span class="pre">$</span><input type="text" id="loan" inputmode="numeric" value="700,000"></div>
-      <div class="field money"><label>CPF to refund<small>Used + accrued interest, from your CPF statement</small></label><span class="pre">$</span><input type="text" id="cpf" inputmode="numeric" value="350,000"></div>
+      <div class="field money"><label>Outstanding home loan<small>Left to repay the bank</small></label><div class="mrow"><span class="pre">$</span><input type="text" id="loan" inputmode="numeric" value="700,000"></div></div>
+      <div class="field money"><label>CPF to refund<small>Used + accrued interest, from your CPF statement</small></label><div class="mrow"><span class="pre">$</span><input type="text" id="cpf" inputmode="numeric" value="350,000"></div></div>
     </div>
     <div class="two">
-      <div class="field money"><label>Agent fee<small>% of sale price (GST added)</small></label><span class="pre" style="left:auto;right:16px">%</span><input type="text" id="agent" inputmode="decimal" value="2" style="padding-left:16px;padding-right:34px"></div>
-      <div class="field money"><label>Legal &amp; misc<small>Conveyancing, admin</small></label><span class="pre">$</span><input type="text" id="legal" inputmode="numeric" value="3,000"></div>
+      <div class="field money"><label>Agent fee<small>% of sale price (GST added)</small></label><div class="mrow"><span class="pre" style="left:auto;right:16px">%</span><input type="text" id="agent" inputmode="decimal" value="2" style="padding-left:16px;padding-right:34px"></div></div>
+      <div class="field money"><label>Legal &amp; misc<small>Conveyancing, admin</small></label><div class="mrow"><span class="pre">$</span><input type="text" id="legal" inputmode="numeric" value="3,000"></div></div>
     </div>
   </div>
 

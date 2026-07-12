@@ -293,7 +293,7 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .mq-lab .dot{width:8px;height:8px;border-radius:50%;background:#8fe0b0;animation:mqpl 2s infinite}
 @keyframes mqpl{0%,100%{transform:scale(1)}50%{transform:scale(1.45)}}
 .mq-div{flex:none;width:1px;background:rgba(127,208,187,.25);margin:11px 0}
-.mq-vp{position:relative;flex:1;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 3%,#000 90%,transparent)}
+.mq-vp{position:relative;flex:1;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 52px,#000 calc(100% - 64px),transparent);mask-image:linear-gradient(90deg,transparent 0,#000 52px,#000 calc(100% - 64px),transparent)}
 .mq-track{position:absolute;top:0;left:0;height:100%;display:inline-flex;align-items:center;white-space:nowrap;animation:mqscroll 82s linear infinite}
 .mq-track.paused{animation-play-state:paused}
 .mq:hover .mq-track{animation-play-state:paused}

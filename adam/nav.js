@@ -102,18 +102,18 @@
     .psnav-a.world .wic{width:16px;height:16px;color:#15a0a0;flex:none;display:inline-flex}
     .psnav-a.world:hover{background:linear-gradient(180deg,#eafbf9,#d5f1ea)}
     .psnav-a.world::before,.psnav-a.smart::before{position:absolute;left:50%;bottom:calc(100% - 4px);transform:translateX(-50%);font:800 7.5px/1 "Schibsted Grotesk",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#eef6f1;padding:2px 7px;border-radius:20px;white-space:nowrap}
-    .psnav-a.world::before{content:"Featured";background:#15a0a0;box-shadow:0 2px 6px rgba(21,160,160,.4)}
-    html.lang-zh .psnav-a.world::before{content:"精选"}
+    .psnav-a.world::before{content:none}
+    html.lang-zh .psnav-a.world::before{content:none}
     /* Insights featured (pine) */
     .psnav-a.smart{color:#1b3a2d;font-weight:700;background:linear-gradient(180deg,#f1f7f3,#e7f1ec);border:1px solid #cfe3d8;padding:8px 11px}
     .psnav-a.smart .wic{width:15px;height:15px;color:#27513f;flex:none;display:inline-flex}
     .psnav-a.smart:hover{background:linear-gradient(180deg,#eaf4ef,#dcece4)}
-    .psnav-a.smart::before{content:"Smart";background:#27513f;box-shadow:0 2px 6px rgba(27,58,45,.35)}
-    html.lang-zh .psnav-a.smart::before{content:"智能"}
+    .psnav-a.smart::before{content:none}
+    html.lang-zh .psnav-a.smart::before{content:none}
     /* Upcoming Launches featured (mint) */
     .psnav-a.feat{color:#0f5a4a;font-weight:700;background:linear-gradient(180deg,#effbf5,#dbf4e9);border:1px solid #a9e3cd;padding:8px 12px}
     .psnav-a.feat:hover{background:linear-gradient(180deg,#e6f9ef,#cfefe1)}
-    .psnav-a.feat::before{position:absolute;left:50%;bottom:calc(100% - 4px);transform:translateX(-50%);content:"New";background:#0f7a82;box-shadow:0 2px 6px rgba(15,122,130,.4);font:800 7.5px/1 "Schibsted Grotesk",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#eef6f1;padding:2px 7px;border-radius:20px;white-space:nowrap}
+    .psnav-a.feat::before{content:none}
     html.lang-zh .psnav-a.feat::before{content:"新盘"}
     .psnav-a .wic svg{width:100%;height:100%}
 
