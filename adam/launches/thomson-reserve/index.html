@@ -269,6 +269,15 @@ p.lede{font-size:clamp(16px,1.7vw,19px);color:var(--ink2);line-height:1.72}
 .facts .v{color:var(--ink2);font-size:14.5px}
 @media(max-width:560px){.facts .row{grid-template-columns:1fr;gap:3px;padding:14px 20px}}
 
+/* faq */
+.faqs{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(34px,5vw,60px);max-width:940px;margin:24px auto 0}
+@media(max-width:720px){.faqs{grid-template-columns:1fr;margin-top:20px}}
+.faq{padding:15px 0;border-top:1px solid var(--line)}
+.faq:nth-child(1),.faq:nth-child(2){border-top:none}
+@media(max-width:720px){.faq:nth-child(2){border-top:1px solid var(--line)}.faq:first-child{padding-top:6px}}
+.faq h3{font-family:var(--sans);font-weight:700;font-size:15px;color:var(--forest);margin-bottom:5px;line-height:1.34}
+.faq p{font-size:13.5px;color:var(--ink2);line-height:1.55;max-width:46ch}
+
 /* register cta */
 .cta{position:relative;overflow:hidden;color:#fff}
 .cta-bg{position:absolute;inset:0}
@@ -365,6 +374,7 @@ p.lede{font-size:clamp(16px,1.7vw,19px);color:var(--ink2);line-height:1.72}
       <span class="chip"><b>1,268</b>&nbsp;homes</span>
       <span class="chip"><b>6</b>&nbsp;towers</span>
       <span class="chip"><b>2-min</b>&nbsp;walk to Upper Thomson MRT</span>
+      <span class="chip"><b>TOP</b>&nbsp;2030</span>
       <span class="chip">99-year leasehold</span>
     </div>
   </div>
@@ -657,10 +667,29 @@ p.lede{font-size:clamp(16px,1.7vw,19px);color:var(--ink2);line-height:1.72}
       <div class="row"><div class="k">Configuration</div><div class="v">Four towers of 21 storeys, two towers of 30 storeys</div></div>
       <div class="row"><div class="k">Carpark</div><div class="v">1,014 lots, approximately 80% provision</div></div>
       <div class="row"><div class="k">Estimated preview</div><div class="v">October 2026, subject to change</div></div>
+      <div class="row"><div class="k">Expected completion</div><div class="v">2030 (TOP), estimated and subject to change</div></div>
       <div class="row"><div class="k">Architect</div><div class="v">P&amp;T Consultants</div></div>
       <div class="row"><div class="k">Landscape architect</div><div class="v">Eco Plan Asia Pte. Ltd.</div></div>
       <div class="row"><div class="k">Interior design</div><div class="v">2nd Edition Pte. Ltd.</div></div>
       <div class="row"><div class="k">Main contractor</div><div class="v">Lian Beng Construction</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="pad-s bg-paper">
+  <div class="wrap">
+    <div class="center rv"><span class="eyebrow c">Good to Know</span>
+      <h2 class="disp" style="margin-top:14px">Questions, answered.</h2></div>
+    <div class="faqs rv d1">
+      <div class="faq"><h3>Where is Thomson Reserve?</h3><p>On Bright Hill Drive in District 20, a two-minute sheltered walk from Upper Thomson MRT on the Thomson-East Coast Line.</p></div>
+      <div class="faq"><h3>Who is behind it?</h3><p>A joint venture of UOL Group, Singapore Land Group and CapitaLand Development, held under Tamarind Development Pte. Ltd.</p></div>
+      <div class="faq"><h3>What is the tenure?</h3><p>99-year leasehold.</p></div>
+      <div class="faq"><h3>How many homes, and what sizes?</h3><p>1,268 homes across six towers, from two to five bedrooms, with private lifts on the four and five-bedroom layouts.</p></div>
+      <div class="faq"><h3>When is the preview, and when will it complete?</h3><p>Preview is expected around October 2026, with estimated completion (TOP) in 2030. Both are indicative and subject to change.</p></div>
+      <div class="faq"><h3>Which schools are within reach?</h3><p>Ai Tong School sits within one kilometre, with CHIJ St Nicholas Girls', Catholic High and Raffles Institution close by.</p></div>
+      <div class="faq"><h3>Is there resident parking?</h3><p>1,014 carpark lots, roughly 80% provision for the development.</p></div>
+      <div class="faq"><h3>What about pricing and floor plans?</h3><p>Both are released closer to launch. Register your interest and a PropSight adviser will share them as they come, and walk you through the numbers.</p></div>
     </div>
   </div>
 </section>
