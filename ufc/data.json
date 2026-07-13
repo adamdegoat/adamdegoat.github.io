@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-13T13:00:00.252563+08:00",
+  "updated": "2026-07-13T21:00:00.327113+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -56,12 +56,6 @@
       "priority": true
     },
     {
-      "title": "Joe Rogan laments Conor McGregor trying ‘crazy move’ that led to injury ending UFC 329 main event",
-      "link": "https://www.mmafighting.com/ufc/499061/joe-rogan-laments-conor-mcgregor-trying-crazy-move-that-led-to-injury-ending-ufc-329-main-event",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
       "title": "Injury-plagued Dominick Cruz vows Conor McGregor came back to ‘save his own life’ | UFC 329",
       "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456751/injury-plagued-dominick-cruz-vows-conor-mcgregor-came-back-to-save-his-own-life-ufc-329",
       "source": "MMA Mania",
@@ -86,6 +80,18 @@
       "priority": true
     },
     {
+      "title": "Islam Makhachev trolls Conor McGregor following UFC 329 injury",
+      "link": "https://www.sherdog.com/news/news/Islam-Makhachev-trolls-Conor-McGregor-following-UFC-329-injury-201877",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
+      "title": "Terence Crawford reacts to Conor McGregor's UFC 329 injury with brutal message",
+      "link": "https://www.sherdog.com/news/news/Terence-Crawford-reacts-to-Conor-McGregors-UFC-329-injury-with-brutal-message-201876",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
       "title": "Conor McGregor knee injury: Coach explains what happened at UFC 329",
       "link": "https://www.sherdog.com/news/news/Conor-McGregor-knee-injury-Coach-explains-what-happened-at-UFC-329-201872",
       "source": "Sherdog",
@@ -104,12 +110,6 @@
       "priority": true
     },
     {
-      "title": "Knee injury ends Conor McGregor’s return 69 seconds into UFC 329 main event",
-      "link": "https://www.sherdog.com/news/news/Knee-injury-ends-Conor-McGregors-return-69-seconds-into-UFC-329-main-event-201845",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
       "title": "Conor McGregor’s UFC 329 injury is the ‘most disappointing moment in combat sports history,’ says Sean O’Malley: ‘I feel like I’m in shock”",
       "link": "https://www.bjpenn.com/mma-news/ufc/conor-mcgregors-ufc-329-injury-is-the-most-disappointing-moment-in-combat-sports-history-says-sean-omalley-i-feel-like-im-in-shock/?utm_source=rss&utm_medium=rss&utm_campaign=conor-mcgregors-ufc-329-injury-is-the-most-disappointing-moment-in-combat-sports-history-says-sean-omalley-i-feel-like-im-in-shock",
       "source": "BJPenn",
@@ -123,8 +123,8 @@
     }
   ],
   "hooks": {
-    "week": "Plessis vs Usman this Sunday morning—championship gold on the line.",
-    "prefight": "Plessis and Usman collide Sunday—elite striking versus championship wrestling at middleweight.",
-    "results": "At UFC 329, Max Holloway defeated Conor McGregor via first-round TKO when McGregor suffered a right leg injury just seconds into the fight after returning from a five-year absence."
+    "week": "Undisputed middleweight supremacy on the line Sunday when Plessis faces Usman.",
+    "prefight": "Plessis vs Usman this Sunday 8 AM SGT - elite middleweight fireworks incoming.",
+    "results": "The dust has settled on another fight night."
   }
 }
