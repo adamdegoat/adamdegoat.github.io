@@ -466,3 +466,31 @@ em{font-style:italic;color:inherit}
 @media(max-width:380px){
   .bwords i{display:none}
 }
+
+/* ── WhatsApp: single outbound action (button + confirm modal + panel) ── */
+.wa{gap:9px}
+.wa .wa-i{width:17px;height:17px;flex:none}
+.btn-sm.wa .wa-i{width:15px;height:15px}
+.wa-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
+.wa-modal.on{display:flex}
+.wa-back{position:absolute;inset:0;background:rgba(20,16,11,.55);backdrop-filter:blur(3px)}
+.wa-card{position:relative;z-index:1;background:var(--surface);border:1px solid var(--line2);border-radius:var(--r-lg);box-shadow:var(--sh-lg);max-width:420px;width:100%;padding:30px 28px 24px;text-align:center;animation:waIn .25s cubic-bezier(.2,.7,.2,1)}
+@keyframes waIn{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+.wa-badge{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;background:var(--gold);color:#fbf3ea;margin-bottom:14px}
+.wa-badge .wa-i{width:26px;height:26px}
+.wa-card h3{font-family:var(--serif);font-size:24px;font-weight:600;letter-spacing:-.01em;margin-bottom:8px}
+.wa-card p{font-size:15px;color:var(--ink2);line-height:1.55;margin-bottom:20px}
+.wa-acts{display:flex;flex-direction:column;gap:10px}
+.wa-acts .btn{width:100%;justify-content:center}
+.wa-num{display:block;margin-top:16px;font-family:var(--mono);font-size:11.5px;color:var(--ink3);letter-spacing:.01em}
+.wa-panel{background:var(--surface);border:1px solid var(--line2);border-radius:var(--r-lg);box-shadow:var(--sh);padding:34px 30px;text-align:center}
+.wa-panel h2{font-family:var(--serif);font-size:clamp(23px,2.6vw,28px);font-weight:600;letter-spacing:-.012em;line-height:1.2;margin-bottom:10px}
+.wa-panel p{font-size:16px;color:var(--ink2);line-height:1.65;max-width:46ch;margin:0 auto 22px}
+.wa-panel-num{display:block;margin-top:15px;font-family:var(--mono);font-size:12px;color:var(--ink3)}
+@media(prefers-reduced-motion:reduce){.wa-card{animation:none}}
+
+@media(max-width:440px){.wa-panel{padding:26px 20px}}
+@media(max-width:400px){
+  .wa-panel .wa,.ld-cta .wa{white-space:normal;text-align:center;line-height:1.3}
+  .wa-panel .wa{width:100%}
+}
