@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-13T21:00:00.327113+08:00",
+  "updated": "2026-07-13T23:30:00.249641+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -44,26 +44,14 @@
       "priority": true
     },
     {
-      "title": "Max Holloway reveals what Conor McGregor said to him after injuring knee at UFC 329",
-      "link": "https://www.mmafighting.com/ufc/499110/max-holloway-reveals-what-conor-mcgregor-said-to-him-after-injuring-knee-at-ufc-329",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
-      "title": "Conor McGregor breaks silence after devastating UFC 329 injury derails comeback: ‘I can only describe it as hell’",
-      "link": "https://www.mmafighting.com/ufc/499094/conor-mcgregor-breaks-silence-after-devastating-ufc-329-injury-derails-comeback-i-can-only-describe-it-as-hell",
-      "source": "MMA Fighting",
+      "title": "Monday Morning Hangover: Will Conor McGregor fulfill final fight on UFC contract following brutal UFC 329 injury?",
+      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456829/monday-morning-hangover-will-conor-mcgregor-fulfill-final-fight-on-contract-after-brutal-ufc-329-injury",
+      "source": "MMA Mania",
       "priority": true
     },
     {
       "title": "Injury-plagued Dominick Cruz vows Conor McGregor came back to ‘save his own life’ | UFC 329",
       "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456751/injury-plagued-dominick-cruz-vows-conor-mcgregor-came-back-to-save-his-own-life-ufc-329",
-      "source": "MMA Mania",
-      "priority": true
-    },
-    {
-      "title": "Jake Paul mocks Conor McGregor after freak knee injury ends UFC 329 comeback fight in one minute",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456772/jake-paul-mocks-conor-mcgregor-after-freak-knee-injury-ends-ufc-329-comeback-fight-in-one-minute",
       "source": "MMA Mania",
       "priority": true
     },
@@ -120,11 +108,23 @@
       "link": "https://www.bjpenn.com/mma-news/ufc/conor-mcgregors-longtime-coach-devastated-by-leg-injury-at-ufc-329-doesnt-get-any-worse-than-this/?utm_source=rss&utm_medium=rss&utm_campaign=conor-mcgregors-longtime-coach-devastated-by-leg-injury-at-ufc-329-doesnt-get-any-worse-than-this",
       "source": "BJPenn",
       "priority": true
+    },
+    {
+      "title": "Dana White doubts Conor McGregor had pre-existing injury prior to unforeseen UFC 329 outcome: “Somebody would’ve noticed it”",
+      "link": "https://www.bjpenn.com/mma-news/ufc/dana-white-doubts-conor-mcgregor-had-pre-existing-injury-prior-to-unforeseen-ufc-329-outcome-somebody-wouldve-noticed-it/?utm_source=rss&utm_medium=rss&utm_campaign=dana-white-doubts-conor-mcgregor-had-pre-existing-injury-prior-to-unforeseen-ufc-329-outcome-somebody-wouldve-noticed-it",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
+      "title": "Conor McGregor releases statement announcing surgery, UFC future",
+      "link": "https://www.mmafighting.com/ufc/499268/conor-mcgregor-releases-statement-announcing-surgery-plan-to-fulfill-final-ufc-fight",
+      "source": "MMA Fighting",
+      "priority": false
     }
   ],
   "hooks": {
-    "week": "Undisputed middleweight supremacy on the line Sunday when Plessis faces Usman.",
-    "prefight": "Plessis vs Usman this Sunday 8 AM SGT - elite middleweight fireworks incoming.",
+    "week": "Plessis and Usman collide Sunday 8am SGT for middleweight supremacy—title fight incoming.",
+    "prefight": "Championship chess match incoming: Plessis and Usman square off Sunday morning.",
     "results": "The dust has settled on another fight night."
   }
 }
