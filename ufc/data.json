@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-12T23:30:04.701623+08:00",
+  "updated": "2026-07-13T09:00:00.257787+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -38,6 +38,12 @@
   },
   "news": [
     {
+      "title": "‘The new boy is in town’: Paddy Pimblett had 2 very different reactions to Conor McGregor’s UFC 329 injury",
+      "link": "https://www.mmafighting.com/ufc/499086/the-new-boy-is-in-town-paddy-pimblett-had-2-very-different-reactions-to-conor-mcgregors-ufc-329-injury",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
       "title": "Max Holloway reveals what Conor McGregor said to him after injuring knee at UFC 329",
       "link": "https://www.mmafighting.com/ufc/499110/max-holloway-reveals-what-conor-mcgregor-said-to-him-after-injuring-knee-at-ufc-329",
       "source": "MMA Fighting",
@@ -56,32 +62,14 @@
       "priority": true
     },
     {
-      "title": "Jake Paul mocks Conor McGregor after injury ends his comeback at UFC 329",
-      "link": "https://www.mmafighting.com/ufc/499122/jake-paul-mocks-conor-mcgregor-after-injury-ends-his-comeback-at-ufc-329",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
-      "title": "UFC 329 post-fight show: Reaction to Conor McGregor’s disastrous injury, Holloway and Pimblett wins",
-      "link": "https://www.mmafighting.com/ufc/499125/ufc-329-post-fight-show-reaction-to-conor-mcgregors-disastrous-injury-holloway-and-pimblett-wins",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
-      "title": "Dana White gives Conor McGregor injury update after painful UFC 329 loss; McGregor refused crutches",
-      "link": "https://www.mmafighting.com/ufc/499071/dana-white-reveals-conor-mcgregor-injury-update-after-painful-ufc-329-loss-mcgregor-refused-crutches",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
-      "title": "This is ‘hell’ – Conor McGregor breaks silence on UFC 329 loss, claims no pre-fight injury",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456714/this-is-hell-conor-mcgregor-breaks-silence-on-ufc-329-loss-claims-no-pre-fight-injury",
+      "title": "Injury-plagued Dominick Cruz vows Conor McGregor came back to ‘save his own life’ | UFC 329",
+      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456751/injury-plagued-dominick-cruz-vows-conor-mcgregor-came-back-to-save-his-own-life-ufc-329",
       "source": "MMA Mania",
       "priority": true
     },
     {
-      "title": "Dana White pushes back on Conor McGregor injury speculation, releases UFC 329 warm up video",
-      "link": "https://www.mmamania.com/latest-news/456732/dana-white-pushes-back-on-conor-mcgregor-injury-speculation-releases-ufc-329-warm-up-videos",
+      "title": "Jake Paul mocks Conor McGregor after freak knee injury ends UFC 329 comeback fight in one minute",
+      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456772/jake-paul-mocks-conor-mcgregor-after-freak-knee-injury-ends-ufc-329-comeback-fight-in-one-minute",
       "source": "MMA Mania",
       "priority": true
     },
@@ -98,33 +86,45 @@
       "priority": true
     },
     {
+      "title": "Conor McGregor’s UFC 329 injury is the ‘most disappointing moment in combat sports history,’ says Sean O’Malley: ‘I feel like I’m in shock”",
+      "link": "https://www.bjpenn.com/mma-news/ufc/conor-mcgregors-ufc-329-injury-is-the-most-disappointing-moment-in-combat-sports-history-says-sean-omalley-i-feel-like-im-in-shock/?utm_source=rss&utm_medium=rss&utm_campaign=conor-mcgregors-ufc-329-injury-is-the-most-disappointing-moment-in-combat-sports-history-says-sean-omalley-i-feel-like-im-in-shock",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
+      "title": "Conor McGregor’s longtime coach ‘devastated’ by leg injury at UFC 329: “Doesn’t get any worse than this”",
+      "link": "https://www.bjpenn.com/mma-news/ufc/conor-mcgregors-longtime-coach-devastated-by-leg-injury-at-ufc-329-doesnt-get-any-worse-than-this/?utm_source=rss&utm_medium=rss&utm_campaign=conor-mcgregors-longtime-coach-devastated-by-leg-injury-at-ufc-329-doesnt-get-any-worse-than-this",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
       "title": "Dana White doubts Conor McGregor had pre-existing injury prior to unforeseen UFC 329 outcome: “Somebody would’ve noticed it”",
       "link": "https://www.bjpenn.com/mma-news/ufc/dana-white-doubts-conor-mcgregor-had-pre-existing-injury-prior-to-unforeseen-ufc-329-outcome-somebody-wouldve-noticed-it/?utm_source=rss&utm_medium=rss&utm_campaign=dana-white-doubts-conor-mcgregor-had-pre-existing-injury-prior-to-unforeseen-ufc-329-outcome-somebody-wouldve-noticed-it",
       "source": "BJPenn",
       "priority": true
     },
     {
-      "title": "UFC 329 post-fight press conference video",
-      "link": "https://www.mmafighting.com/ufc/499065/ufc-329-post-fight-press-conference-video",
+      "title": "UFC BJJ champ Mikey Musumeci moves up in weight to face Bryce Mitchell in September",
+      "link": "https://www.mmafighting.com/ufc/499161/ufc-bjj-champ-mikey-musumeci-moves-up-in-weight-to-face-bryce-mitchell-in-september",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "‘Conor beat Conor congrats Max’: Pros rip Conor McGregor’s disastrous UFC 329 comeback loss to Max Holloway",
-      "link": "https://www.mmafighting.com/ufc/498964/conor-beat-conor-congrats-max-pros-rip-conor-mcgregors-disastrous-ufc-329-comeback-loss-to-max-holloway",
+      "title": "Brandon Moreno vs. Joseph Morales set for Noche UFC 4",
+      "link": "https://www.mmafighting.com/ufc/499225/brandon-moreno-vs-joseph-morales-set-for-noche-ufc-4",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "Conor McGregor blows out his knee, comeback ends in just 69 seconds as Max Holloway wins UFC 329 main event",
-      "link": "https://www.mmafighting.com/ufc/498902/conor-mcgregor-blows-out-his-knee-comeback-ends-in-just-99-seconds-as-max-holloway-wins-ufc-329-main-event",
+      "title": "Terrance McKinney addresses controversial UFC 329 knockout loss to King Green: ‘Ref should have let it go to next round’",
+      "link": "https://www.mmafighting.com/ufc/499155/terrance-mckinney-addresses-controversial-ufc-329-knockout-loss-to-king-green-ref-should-have-let-it-go-to-next-round",
       "source": "MMA Fighting",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Plessis and Usman headline Sunday in a middleweight war for divisional supremacy.",
-    "prefight": "Fight week ignites: Plessis versus Usman clash for the title Sunday.",
+    "week": "Plessis and Usman collide this Sunday at 8 AM SGT—elite middleweight supremacy on the line.",
+    "prefight": "Pleslis takes on Usman Sunday at 8am SGT for middleweight gold.",
     "results": "The dust has settled on another fight night."
   }
 }
