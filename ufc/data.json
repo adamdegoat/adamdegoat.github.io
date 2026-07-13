@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-13T09:00:00.257787+08:00",
+  "updated": "2026-07-13T13:00:00.252563+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -74,6 +74,30 @@
       "priority": true
     },
     {
+      "title": "Charles Oliveira floods UFC 329 comments seeking Justin Gaethje title fight",
+      "link": "https://www.sherdog.com/news/news/Charles-Oliveira-floods-UFC-329-comments-seeking-Justin-Gaethje-title-fight-201864",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
+      "title": "Conor McGregor denies injury before UFC 329 after knee injury ends return",
+      "link": "https://www.sherdog.com/news/news/Conor-McGregor-denies-injury-before-UFC-329-after-knee-injury-ends-return-201865",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
+      "title": "Conor McGregor knee injury: Coach explains what happened at UFC 329",
+      "link": "https://www.sherdog.com/news/news/Conor-McGregor-knee-injury-Coach-explains-what-happened-at-UFC-329-201872",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
+      "title": "Conor McGregor’s UFC 329 injury sparks Sean Strickland’s steroid theory",
+      "link": "https://www.sherdog.com/news/news/Conor-McGregors-UFC-329-injury-sparks-Sean-Stricklands-steroid-theory-201870",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
       "title": "Max Holloway reacts to Conor McGregor's UFC 329 injury, eyes Islam Makhachev",
       "link": "https://www.sherdog.com/news/news/Max-Holloway-reacts-to-Conor-McGregors-UFC-329-injury-eyes-Islam-Makhachev-201860",
       "source": "Sherdog",
@@ -96,35 +120,11 @@
       "link": "https://www.bjpenn.com/mma-news/ufc/conor-mcgregors-longtime-coach-devastated-by-leg-injury-at-ufc-329-doesnt-get-any-worse-than-this/?utm_source=rss&utm_medium=rss&utm_campaign=conor-mcgregors-longtime-coach-devastated-by-leg-injury-at-ufc-329-doesnt-get-any-worse-than-this",
       "source": "BJPenn",
       "priority": true
-    },
-    {
-      "title": "Dana White doubts Conor McGregor had pre-existing injury prior to unforeseen UFC 329 outcome: “Somebody would’ve noticed it”",
-      "link": "https://www.bjpenn.com/mma-news/ufc/dana-white-doubts-conor-mcgregor-had-pre-existing-injury-prior-to-unforeseen-ufc-329-outcome-somebody-wouldve-noticed-it/?utm_source=rss&utm_medium=rss&utm_campaign=dana-white-doubts-conor-mcgregor-had-pre-existing-injury-prior-to-unforeseen-ufc-329-outcome-somebody-wouldve-noticed-it",
-      "source": "BJPenn",
-      "priority": true
-    },
-    {
-      "title": "UFC BJJ champ Mikey Musumeci moves up in weight to face Bryce Mitchell in September",
-      "link": "https://www.mmafighting.com/ufc/499161/ufc-bjj-champ-mikey-musumeci-moves-up-in-weight-to-face-bryce-mitchell-in-september",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Brandon Moreno vs. Joseph Morales set for Noche UFC 4",
-      "link": "https://www.mmafighting.com/ufc/499225/brandon-moreno-vs-joseph-morales-set-for-noche-ufc-4",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Terrance McKinney addresses controversial UFC 329 knockout loss to King Green: ‘Ref should have let it go to next round’",
-      "link": "https://www.mmafighting.com/ufc/499155/terrance-mckinney-addresses-controversial-ufc-329-knockout-loss-to-king-green-ref-should-have-let-it-go-to-next-round",
-      "source": "MMA Fighting",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "Plessis and Usman collide this Sunday at 8 AM SGT—elite middleweight supremacy on the line.",
-    "prefight": "Pleslis takes on Usman Sunday at 8am SGT for middleweight gold.",
-    "results": "The dust has settled on another fight night."
+    "week": "Plessis vs Usman this Sunday morning—championship gold on the line.",
+    "prefight": "Plessis and Usman collide Sunday—elite striking versus championship wrestling at middleweight.",
+    "results": "At UFC 329, Max Holloway defeated Conor McGregor via first-round TKO when McGregor suffered a right leg injury just seconds into the fight after returning from a five-year absence."
   }
 }
