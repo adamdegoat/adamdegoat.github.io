@@ -171,7 +171,7 @@
     });
     function speak(key){
       if(muted) return;
-      try { audio.pause(); audio.src = 'audio/' + key + '.mp3'; audio.currentTime = 0;
+      try { audio.pause(); audio.src = 'audio/' + key + '.mp3?v=2'; audio.currentTime = 0;
         const p = audio.play(); if(p) p.catch(()=>{}); } catch(e){}
     }
     const answers = {
