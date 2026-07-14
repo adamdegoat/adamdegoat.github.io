@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=2">
+<link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
 
@@ -19,6 +19,7 @@
       <span class="onlight" aria-hidden="true"></span>Nimbus Nine<span class="aichip">AI</span>
     </a>
     <nav class="links" aria-label="Primary">
+      <a class="navlink" href="#top">Home</a>
       <a class="navlink" href="#build">What we build</a>
       <a class="navlink" href="front-desk.html">Front desk</a>
       <a class="navlink" href="#inds">Industries</a>
@@ -40,16 +41,24 @@
         </div>
       </div>
 
-      <div class="feed rise" aria-label="Recent activity across Nimbus Nine">
-        <div class="feedhead">
-          <span class="feedttl">Live across Nimbus</span>
-          <span class="livetag"><span class="livedot" aria-hidden="true"></span>Working now</span>
+      <div class="chat rise" aria-label="Chat with the Nimbus Nine front desk">
+        <div class="chead">
+          <span class="avatar" aria-hidden="true">N</span>
+          <div>
+            <div class="cname">Nimbus Nine</div>
+            <div class="cwho">Front desk</div>
+          </div>
+          <span class="cstat"><span class="livedot" aria-hidden="true"></span>Online</span>
         </div>
-        <div class="frow"><span class="fdot" aria-hidden="true"></span><div class="fbody"><div class="faction">Answered a 1am enquiry</div><div class="fmeta2">Lumen Aesthetics · Clinic</div></div><span class="ftime">just now</span></div>
-        <div class="frow"><span class="fdot" aria-hidden="true"></span><div class="fbody"><div class="faction">Caught a lead before they left</div><div class="fmeta2">Northline · Contractor</div></div><span class="ftime">2m</span></div>
-        <div class="frow"><span class="fdot" aria-hidden="true"></span><div class="fbody"><div class="faction">Explained pricing and hours</div><div class="fmeta2">Kaya Kitchen · Restaurant</div></div><span class="ftime">6m</span></div>
-        <div class="frow"><span class="fdot" aria-hidden="true"></span><div class="fbody"><div class="faction">Held a hot lead till morning</div><div class="fmeta2">Vero · Hair Studio</div></div><span class="ftime">11m</span></div>
-        <div class="frow"><span class="fdot" aria-hidden="true"></span><div class="fbody"><div class="faction">Answered an after-hours question</div><div class="fmeta2">Bloom Dental · Clinic</div></div><span class="ftime">18m</span></div>
+        <div class="chatthread" id="chatthread">
+          <div class="msg in">Hi, I am the Nimbus Nine front desk. Ask me what we build, what it costs, or how to start, this is the same assistant we set up for your business.</div>
+        </div>
+        <div class="pills" id="pills">
+          <button class="pill-btn" type="button" data-a="build">What do you build?</button>
+          <button class="pill-btn" type="button" data-a="cost">What does it cost?</button>
+          <button class="pill-btn" type="button" data-a="who">Who is it for?</button>
+          <button class="pill-btn" type="button" data-a="start">How do I start?</button>
+        </div>
       </div>
     </div>
   </section>
@@ -133,6 +142,43 @@
 <script>
   const hero = document.querySelector('.hero'), hdr = document.querySelector('header');
   addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > hero.offsetHeight - 90), {passive:true});
+
+  // interactive front-desk demo: pre-recorded pill replies (no API)
+  (function(){
+    const thread = document.getElementById('chatthread'), pills = document.getElementById('pills');
+    if(!thread || !pills) return;
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const answers = {
+      build: "We build your 24/7 front desk: an assistant that answers customer enquiries the moment they ask and holds the lead so it never goes to a competitor. On top of that, websites, booking, and custom tools built for your trade.",
+      cost: "The front desk is S$399 a month, set up for you, in your brand, on one link and QR. Websites start at S$1,299. Custom tools and automations are quoted for your trade.",
+      who: "Any small business in Singapore with customers who message: salons, clinics, renovation, F&B, tuition, home services and more. If people enquire, this is for you.",
+      start: "Easy. Tell us your business and we set up your front desk for you, usually within a few days. Tap Get started up top and we take it from there."
+    };
+    function add(cls, text){
+      const el = document.createElement('div');
+      el.className = 'msg ' + cls; el.textContent = text;
+      thread.appendChild(el); thread.scrollTop = thread.scrollHeight; return el;
+    }
+    function typing(){
+      const el = document.createElement('div');
+      el.className = 'typing'; el.setAttribute('aria-hidden','true');
+      el.innerHTML = '<span></span><span></span><span></span>';
+      thread.appendChild(el); thread.scrollTop = thread.scrollHeight; return el;
+    }
+    pills.addEventListener('click', function(e){
+      const btn = e.target.closest('.pill-btn'); if(!btn) return;
+      const key = btn.dataset.a;
+      add('out', btn.textContent); btn.remove();
+      const t = typing();
+      setTimeout(function(){
+        t.remove();
+        add('in', answers[key] || "Good question. Tap Get started and we will help you out.");
+        if(!pills.querySelector('.pill-btn')){
+          setTimeout(function(){ add('in', "That is the front desk in action. Yours can do the same for your customers, tap Get started up top."); }, reduce ? 200 : 700);
+        }
+      }, reduce ? 300 : 850);
+    });
+  })();
 </script>
 </body>
 </html>
