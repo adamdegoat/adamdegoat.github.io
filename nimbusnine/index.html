@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
 
@@ -54,10 +54,13 @@
           <span class="cstat"><span class="livedot" aria-hidden="true"></span><span id="cstatus">Online</span></span>
         </div>
         <div class="chatthread" id="chatthread">
-          <div class="msg in">Hi, I am the Nimbus Nine front desk. Ask me what we build, what it costs, or how to start, this is the same assistant we set up for your business.</div>
+          <div class="msg in">Hi, I'm the Nimbus Nine front desk. Picture me answering your customers around the clock, advertising your services, and catching every enquiry before it goes to someone else. Ask me anything.</div>
         </div>
         <div class="pills" id="pills">
-          <button class="pill-btn" type="button" data-a="build">What do you build?</button>
+          <button class="pill-btn" type="button" data-a="cando">What can you do for me?</button>
+          <button class="pill-btn" type="button" data-a="win">How do you win me customers?</button>
+          <button class="pill-btn" type="button" data-a="always">Can you really answer 24/7?</button>
+          <button class="pill-btn" type="button" data-a="brand">Do you work in my brand?</button>
           <button class="pill-btn" type="button" data-a="cost">What does it cost?</button>
           <button class="pill-btn" type="button" data-a="who">Who is it for?</button>
           <button class="pill-btn" type="button" data-a="start">How do I start?</button>
@@ -171,14 +174,17 @@
     });
     function speak(key){
       if(muted) return;
-      try { audio.pause(); audio.src = 'audio/' + key + '.mp3?v=2'; audio.currentTime = 0;
+      try { audio.pause(); audio.src = 'audio/' + key + '.mp3?v=3'; audio.currentTime = 0;
         const p = audio.play(); if(p) p.catch(()=>{}); } catch(e){}
     }
     const answers = {
-      build: "We build your 24/7 front desk: an assistant that answers customer enquiries the moment they ask and holds the lead so it never goes to a competitor. On top of that, websites, booking, and custom tools built for your trade.",
+      cando: "Imagine me on your front desk 24/7: answering every customer the moment they message, showing off your services, and holding the lead so it never wanders to a competitor. You get the enquiries, I do the talking.",
+      win: "Most customers who message after hours just move to the next shop if no one replies. I answer in seconds, every time, and capture their details, so the enquiry stays yours. More replies, more booked, fewer slipping away.",
+      always: "Always. 3am, Sunday, public holiday, I never clock off. While you rest, I'm still catching enquiries and warming up leads for you.",
+      brand: "Completely. Your name, your tone, your prices and hours. Customers feel like they're chatting with you, not a bot, on your own link and QR code.",
       cost: "The front desk is S$399 a month, set up for you, in your brand, on one link and QR. Websites start at S$1,299. Custom tools and automations are quoted for your trade.",
       who: "Any small business in Singapore with customers who message: salons, clinics, renovation, F&B, tuition, home services and more. If people enquire, this is for you.",
-      start: "Easy. Tell us your business and we set up your front desk for you, usually within a few days. Tap Get started up top and we take it from there."
+      start: "Easy. Tell us your business and we set you up, usually within a few days. Tap Get started up top and we take it from there."
     };
     function add(cls, text){
       const el = document.createElement('div');
@@ -191,18 +197,19 @@
       el.innerHTML = '<span></span><span></span><span></span>';
       thread.appendChild(el); thread.scrollTop = thread.scrollHeight; return el;
     }
+    let busy = false;
     pills.addEventListener('click', function(e){
-      const btn = e.target.closest('.pill-btn'); if(!btn) return;
+      const btn = e.target.closest('.pill-btn'); if(!btn || busy) return;
+      busy = true;
       const key = btn.dataset.a;
-      add('out', btn.textContent); btn.remove();
+      add('out', btn.textContent);
+      btn.classList.add('asked');           // pills stay, just dim once asked
       const t = typing();
       setTimeout(function(){
         t.remove();
         add('in', answers[key] || "Good question. Tap Get started and we will help you out.");
         speak(key);
-        if(!pills.querySelector('.pill-btn')){
-          setTimeout(function(){ add('in', "That is the front desk in action. Yours can do the same for your customers, tap Get started up top."); }, reduce ? 200 : 700);
-        }
+        busy = false;
       }, reduce ? 300 : 850);
     });
   })();
