@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=12">
+<link rel="stylesheet" href="styles.css?v=13">
 </head>
 <body>
 
@@ -70,8 +70,8 @@
                 <div class="msg out">What can you do for me?</div>
                 <div class="msg in">Imagine me on your front desk 24/7: answering every customer the moment they message, showing off your services, and holding the lead so it never wanders to a competitor. You get the enquiries, I do the talking.</div>
               </div>
-              <div class="pillbar" id="pillbar">
-                <button class="pilltoggle" id="pilltoggle" type="button" aria-expanded="true" aria-controls="pills">
+              <div class="pillbar collapsed" id="pillbar">
+                <button class="pilltoggle" id="pilltoggle" type="button" aria-expanded="false" aria-controls="pills">
                   <span>Quick questions</span>
                   <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
                 </button>
@@ -90,6 +90,12 @@
                   </div>
                 </div>
               </div>
+              <form class="askbar" id="askform">
+                <input class="askinput" id="askinput" type="text" placeholder="Ask your own question" autocomplete="off" aria-label="Message the Nimbus Nine front desk">
+                <button class="asksend" id="asksend" type="submit" aria-label="Send message">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                </button>
+              </form>
             </div>
           </div>
         </div>
@@ -240,10 +246,21 @@
       if(icon) icon.innerHTML = muted ? ICON_OFF : ICON_ON;
       if(muted) audio.pause();
     });
+    const NIMBUS_URL = "https://nimbus-brain.propsightsg.workers.dev";
     function speak(key){
       if(muted) return;
       try { audio.pause(); audio.src = 'audio/' + key + '.mp3?v=4'; audio.currentTime = 0;
         const p = audio.play(); if(p) p.catch(()=>{}); } catch(e){}
+    }
+    async function speakLive(text){   // voice for typed replies (worker Edge TTS, Ava)
+      if(muted || !text) return;
+      try {
+        const r = await fetch(NIMBUS_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ text }) });
+        if(!r.ok) return;
+        const blob = await r.blob();
+        audio.pause(); audio.src = URL.createObjectURL(blob); audio.currentTime = 0;
+        const p = audio.play(); if(p) p.catch(()=>{});
+      } catch(e){}
     }
     const answers = {
       cando: "Imagine me on your front desk 24/7: answering every customer the moment they message, showing off your services, and holding the lead so it never wanders to a competitor. You get the enquiries, I do the talking.",
@@ -257,6 +274,10 @@
       who: "Any small business in Singapore with customers who message: salons, clinics, renovation, F&B, tuition, home services and more. If people enquire, this is for you.",
       start: "Easy. Tell us your business and we set you up, usually within a few days. Tap Get started up top and we take it from there."
     };
+    const history = [
+      { role:'user', content:'What can you do for me?' },
+      { role:'assistant', content: answers.cando }
+    ];
     function add(cls, text){
       const el = document.createElement('div');
       el.className = 'msg ' + cls; el.textContent = text;
@@ -278,10 +299,39 @@
       const t = typing();
       setTimeout(function(){
         t.remove();
-        add('in', answers[key] || "Good question. Tap Get started and we will help you out.");
+        const a = answers[key] || "Good question. Tap Get started and we will help you out.";
+        add('in', a);
+        history.push({ role:'user', content: btn.textContent }, { role:'assistant', content: a });
         speak(key);
         busy = false;
       }, reduce ? 300 : 850);
+    });
+
+    // typed questions -> live worker (Claude Haiku) + Ava voice
+    const askform = document.getElementById('askform'), askinput = document.getElementById('askinput'), asksend = document.getElementById('asksend');
+    if(askform) askform.addEventListener('submit', async function(e){
+      e.preventDefault();
+      const text = askinput.value.trim();
+      if(!text || busy) return;
+      busy = true; if(asksend) asksend.disabled = true;
+      add('out', text); askinput.value = '';
+      history.push({ role:'user', content: text });
+      let msgs = history.slice(-12);
+      if(msgs.length && msgs[0].role !== 'user') msgs = msgs.slice(1);   // Anthropic must start on a user turn
+      const t = typing();
+      try {
+        const r = await fetch(NIMBUS_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ messages: msgs }) });
+        const data = await r.json();
+        t.remove();
+        const reply = (data && data.reply) || "I'm having trouble right now. Tap Get started and we'll sort you out.";
+        add('in', reply);
+        history.push({ role:'assistant', content: reply });
+        speakLive(reply);
+      } catch(err){
+        t.remove();
+        add('in', "I couldn't reach my brain just then. Tap Get started and we'll help you out.");
+      }
+      busy = false; if(asksend) asksend.disabled = false; askinput.focus();
     });
   })();
 </script>
