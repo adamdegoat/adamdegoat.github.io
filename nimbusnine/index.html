@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>document.documentElement.className+=' js'</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Nimbus Nine · Your business, on cloud nine</title>
@@ -10,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&family=Space+Mono&display=swap" rel="stylesheet">
 <style>
-:root{ --paper:#F3EFE8; --ink:#171512; --ink-2:#4a453d; --muted:#8b8479; --acc:#E8663A; --line:rgba(23,21,18,.12); }
+:root{ --paper:#F3EFE8; --ink:#171512; --ink-2:#4a453d; --muted:#6b645a; --acc:#E8663A; --acc-d:#B34614; --line:rgba(23,21,18,.14); }
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
 body{background:var(--paper);color:var(--ink);font-family:"Inter",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -45,7 +46,7 @@ header.scrolled{background:rgba(243,239,232,.82);backdrop-filter:blur(12px);-web
 /* hero */
 .hero{position:relative;z-index:2;min-height:100vh;min-height:100dvh;display:flex;align-items:center;padding-top:78px}
 .heroInner{position:relative;width:100%}
-.kick{font-family:"Space Mono";font-size:13px;letter-spacing:.1em;color:var(--acc);margin-bottom:26px;
+.kick{font-family:"Space Mono";font-size:13px;letter-spacing:.1em;color:var(--acc-d);margin-bottom:26px;
   opacity:0;transform:translateY(16px);animation:rise .9s .1s cubic-bezier(.2,.7,.2,1) forwards}
 .htitle{font-family:"Space Grotesk";font-weight:700;letter-spacing:-.035em;line-height:.92;
   font-size:clamp(52px,10.5vw,148px);max-width:15ch}
@@ -84,8 +85,19 @@ header.scrolled{background:rgba(243,239,232,.82);backdrop-filter:blur(12px);-web
 .strip{position:relative;z-index:2;padding:clamp(60px,9vw,120px) 0}
 .leadline{font-family:"Space Grotesk";font-weight:500;font-size:clamp(24px,3.4vw,40px);letter-spacing:-.02em;line-height:1.25;max-width:22ch}
 .leadline a{border-bottom:2px solid var(--acc);white-space:nowrap}
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal{transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .reveal{opacity:0;transform:translateY(26px)}
 .reveal.in{opacity:1;transform:none}
+
+/* keyboard focus, visible on every interactive element */
+a:focus-visible,button:focus-visible{outline:2px solid var(--acc-d);outline-offset:3px;border-radius:3px}
+
+/* honour reduced-motion, kill drift, float, entrances, reveals */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .nimbus{animation:none}
+  .kick,.hsub,.htitle span,.dk,.reveal,.js .reveal{opacity:1!important;transform:none!important}
+}
 .paths{margin-top:52px;display:flex;flex-direction:column;border-top:1px solid var(--line)}
 .path{display:flex;align-items:baseline;gap:24px;padding:26px 4px;border-bottom:1px solid var(--line);transition:padding-left .25s}
 .path:hover{padding-left:16px}
@@ -110,13 +122,13 @@ header.scrolled{background:rgba(243,239,232,.82);backdrop-filter:blur(12px);-web
 </style>
 </head>
 <body>
-<div class="nimbus" id="nimbus"></div>
-<div class="nimbus two"></div>
-<div class="grain"></div>
+<div class="nimbus" id="nimbus" aria-hidden="true"></div>
+<div class="nimbus two" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
 
 <header><div class="wrap nav">
   <a class="logo" href="#top">
-    <svg viewBox="0 0 32 32"><circle cx="20" cy="12" r="7.5" fill="var(--acc)"/><path d="M5 23a5.2 5.2 0 0 1 5.2-5.2 6.3 6.3 0 0 1 11.6 0 4.2 4.2 0 0 1 0 8.4H9.8A4.4 4.4 0 0 1 5 23z" fill="var(--ink)"/></svg>
+    <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="20" cy="12" r="7.5" fill="var(--acc)"/><path d="M5 23a5.2 5.2 0 0 1 5.2-5.2 6.3 6.3 0 0 1 11.6 0 4.2 4.2 0 0 1 0 8.4H9.8A4.4 4.4 0 0 1 5 23z" fill="var(--ink)"/></svg>
     <b>Nimbus Nine</b>
   </a>
   <nav class="navlinks">
@@ -135,7 +147,7 @@ header.scrolled{background:rgba(243,239,232,.82);backdrop-filter:blur(12px);-web
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="hlink" href="#">or view pricing</a>
     </div>
-    <div class="desks" id="desks">
+    <div class="desks" id="desks" aria-hidden="true">
       <div class="dk a"><div class="dhead" style="background:#3E7CB1"><div class="dava">LA</div><div><div class="dname">Lumen Aesthetics</div><div class="dtype">Aesthetic Clinic</div></div></div><div class="dbody"><div class="dmb mia">Hi, welcome to Lumen. Book a consult or ask about a treatment?</div><div class="dmb you" style="background:#3E7CB1">How much is a HydraFacial?</div></div></div>
       <div class="dk b"><div class="dhead" style="background:#C25E86"><div class="dava">RI</div><div><div class="dname">Rose &amp; Ivory</div><div class="dtype">Nail &amp; Beauty Bar</div></div></div><div class="dbody"><div class="dmb mia">Hey lovely, we're open for you 24/7. Any slots this weekend?</div></div></div>
       <div class="dk c"><div class="dhead" style="background:#C2622E"><div class="dava">NI</div><div><div class="dname">Northline</div><div class="dtype">Renovation</div></div></div><div class="dbody"><div class="dmb mia">Thinking of renovating? Tell me your place and budget.</div></div></div>
@@ -156,7 +168,8 @@ header.scrolled{background:rgba(243,239,232,.82);backdrop-filter:blur(12px);-web
 <script>
 // nimbus drifts toward the cursor for a living feel
 const nimbus = document.getElementById('nimbus'), desks = document.getElementById('desks');
-window.addEventListener('mousemove', e=>{
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!reduce) window.addEventListener('mousemove', e=>{
   const x=(e.clientX/innerWidth-.5), y=(e.clientY/innerHeight-.5);
   nimbus.style.transform=`translate(${x*70}px,${y*60}px)`;
   if(desks) desks.style.transform=`translateY(-50%) translate(${-x*22}px,${-y*18}px)`;
