@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=8">
+<link rel="stylesheet" href="styles.css?v=9">
 </head>
 <body>
 
@@ -46,32 +46,43 @@
         </div>
       </div>
 
-      <div class="chat rise" aria-label="Chat with the Nimbus Nine front desk">
-        <div class="chead">
-          <span class="avatar" aria-hidden="true">N</span>
-          <div>
-            <div class="cname">Nimbus Nine</div>
-            <div class="cwho">Front desk</div>
+      <div class="demo rise">
+        <div class="devbody">
+          <div class="devscreen">
+            <div class="devstatus">
+              <span>9:41</span>
+              <span class="devr" aria-hidden="true">5G<span class="bat"></span></span>
+            </div>
+            <div class="chat" aria-label="Chat with the Nimbus Nine front desk">
+              <div class="chead">
+                <span class="avatar" aria-hidden="true"><span class="avdot"></span></span>
+                <div>
+                  <div class="cname">Nimbus Nine</div>
+                  <div class="cwho">Front desk</div>
+                </div>
+                <button class="sndtoggle" id="sndtoggle" type="button" aria-label="Voice on" aria-pressed="true">
+                  <svg id="sndicon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a9 9 0 0 1 0 14"/></svg>
+                </button>
+                <span class="cstat"><span class="livedot" aria-hidden="true"></span><span id="cstatus">Online</span></span>
+              </div>
+              <div class="chatthread" id="chatthread">
+                <div class="msg in">Hi, I'm the Nimbus Nine front desk. Picture me answering your customers around the clock, advertising your services, and catching every enquiry before it goes to someone else. Ask me anything.</div>
+                <div class="msg out">What can you do for me?</div>
+                <div class="msg in">Imagine me on your front desk 24/7: answering every customer the moment they message, showing off your services, and holding the lead so it never wanders to a competitor. You get the enquiries, I do the talking.</div>
+              </div>
+              <div class="pills" id="pills">
+                <button class="pill-btn asked" type="button" data-a="cando">What can you do for me?</button>
+                <button class="pill-btn" type="button" data-a="win">How do you win me customers?</button>
+                <button class="pill-btn" type="button" data-a="always">Can you really answer 24/7?</button>
+                <button class="pill-btn" type="button" data-a="brand">Do you work in my brand?</button>
+                <button class="pill-btn" type="button" data-a="cost">What does it cost?</button>
+                <button class="pill-btn" type="button" data-a="who">Who is it for?</button>
+                <button class="pill-btn" type="button" data-a="start">How do I start?</button>
+              </div>
+            </div>
           </div>
-          <button class="sndtoggle" id="sndtoggle" type="button" aria-label="Voice on" aria-pressed="true">
-            <svg id="sndicon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a9 9 0 0 1 0 14"/></svg>
-          </button>
-          <span class="cstat"><span class="livedot" aria-hidden="true"></span><span id="cstatus">Online</span></span>
         </div>
-        <div class="chatthread" id="chatthread">
-          <div class="msg in">Hi, I'm the Nimbus Nine front desk. Picture me answering your customers around the clock, advertising your services, and catching every enquiry before it goes to someone else. Ask me anything.</div>
-          <div class="msg out">What can you do for me?</div>
-          <div class="msg in">Imagine me on your front desk 24/7: answering every customer the moment they message, showing off your services, and holding the lead so it never wanders to a competitor. You get the enquiries, I do the talking.</div>
-        </div>
-        <div class="pills" id="pills">
-          <button class="pill-btn asked" type="button" data-a="cando">What can you do for me?</button>
-          <button class="pill-btn" type="button" data-a="win">How do you win me customers?</button>
-          <button class="pill-btn" type="button" data-a="always">Can you really answer 24/7?</button>
-          <button class="pill-btn" type="button" data-a="brand">Do you work in my brand?</button>
-          <button class="pill-btn" type="button" data-a="cost">What does it cost?</button>
-          <button class="pill-btn" type="button" data-a="who">Who is it for?</button>
-          <button class="pill-btn" type="button" data-a="start">How do I start?</button>
-        </div>
+        <div class="democap"><span class="dcdot" aria-hidden="true"></span>This is our own front desk. Say hi.</div>
       </div>
     </div>
   </section>
@@ -213,7 +224,7 @@
     });
     function speak(key){
       if(muted) return;
-      try { audio.pause(); audio.src = 'audio/' + key + '.mp3?v=3'; audio.currentTime = 0;
+      try { audio.pause(); audio.src = 'audio/' + key + '.mp3?v=4'; audio.currentTime = 0;
         const p = audio.play(); if(p) p.catch(()=>{}); } catch(e){}
     }
     const answers = {
