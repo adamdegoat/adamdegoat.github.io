@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Spline+Sans+Mono:wght@400;500&family=Hedvig+Letters+Serif&family=Archivo+Black&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=7">
+<link rel="stylesheet" href="styles.css?v=8">
 </head>
 <body>
 
@@ -18,13 +18,18 @@
     <a class="brandmark" href="index.html" aria-label="Nimbus Nine, AI solutions, home">
       <span class="onlight" aria-hidden="true"></span>Nimbus Nine<span class="aichip">AI solutions</span>
     </a>
-    <nav class="links" aria-label="Primary">
-      <a class="navlink" href="index.html">Home</a>
-      <a class="navlink" href="index.html#build">What we build</a>
-      <a class="navlink" href="work.html" aria-current="page">Work</a>
-      <a class="navlink" href="index.html#inds">Industries</a>
-      <a class="navcta" href="#">Get started</a>
-    </nav>
+    <div class="navcluster">
+      <nav class="links" id="navlinks" aria-label="Primary">
+        <a class="navlink" href="index.html">Home</a>
+        <a class="navlink" href="index.html#build">What we build</a>
+        <a class="navlink" href="work.html" aria-current="page">Work</a>
+        <a class="navlink" href="index.html#inds">Industries</a>
+      </nav>
+      <a class="navcta" href="index.html#start">Get started</a>
+      <button class="navtoggle" id="navtoggle" type="button" aria-label="Menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -57,7 +62,7 @@
         </figure>
 
         <figure class="workcard">
-          <div class="mockup mk-bold" style="--b:#b5432e">
+          <div class="mockup mk-bold mk-center" style="--b:#b5432e">
             <div class="mockbar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="url">kaya-kitchen.sg</span></div>
             <div class="mockpage">
               <div class="mpnav"><span class="mplogo">Kaya Kitchen</span><span class="mpmenu" aria-hidden="true"><i></i><i></i><i></i></span></div>
@@ -105,7 +110,7 @@
         </figure>
 
         <figure class="workcard">
-          <div class="mockup" style="--b:#0f7a86">
+          <div class="mockup mk-center" style="--b:#0f7a86">
             <div class="mockbar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="url">bloom-dental.sg</span></div>
             <div class="mockpage">
               <div class="mpnav"><span class="mplogo">Bloom Dental</span><span class="mpmenu" aria-hidden="true"><i></i><i></i><i></i></span></div>
@@ -137,7 +142,7 @@
         </figure>
 
         <figure class="workcard">
-          <div class="mockup" style="--b:#2b57c4">
+          <div class="mockup mk-center" style="--b:#2b57c4">
             <div class="mockbar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="url">brightminds.sg</span></div>
             <div class="mockpage">
               <div class="mpnav"><span class="mplogo">Bright Minds</span><span class="mpmenu" aria-hidden="true"><i></i><i></i><i></i></span></div>
@@ -176,7 +181,7 @@
 <footer>
   <div class="wrap footIn">
     <div class="fbig">Yours will look like you.</div>
-    <a class="fbtn" href="#">Get started
+    <a class="fbtn" href="index.html#start">Get started
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     <div class="fmeta">
       <a class="brandmark fbrand" href="index.html" aria-label="Nimbus Nine, AI solutions, home">
@@ -190,6 +195,9 @@
 <script>
   const hdr = document.querySelector('header');
   addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 40), {passive:true});
+  const navtoggle = document.getElementById('navtoggle');
+  if(navtoggle) navtoggle.addEventListener('click', () => { const open = hdr.classList.toggle('nav-open'); navtoggle.setAttribute('aria-expanded', String(open)); });
+  document.querySelectorAll('#navlinks a').forEach(a => a.addEventListener('click', () => hdr.classList.remove('nav-open')));
 </script>
 </body>
 </html>
