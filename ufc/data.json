@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-14T09:00:00.289874+08:00",
+  "updated": "2026-07-14T13:00:00.187949+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -56,9 +56,39 @@
       "priority": true
     },
     {
+      "title": "Frenemies? Michael Chandler defends Conor McGregor after ‘disappointing’ UFC 329 injury disaster – ‘He is not a bamboozler’",
+      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/457042/frenemies-michael-chandler-defends-conor-mcgregor-after-disappointing-ufc-329-injury-disaster-he-is-not-a-bamboozler",
+      "source": "MMA Mania",
+      "priority": true
+    },
+    {
       "title": "Khaili Rountree out UFC Abu Dhabi main event, Bogdan Guskov steps in on 12 days notice",
       "link": "https://www.mmamania.com/ufc-fight-announcements/457027/khaili-rountree-out-ufc-abu-dhabi-main-event-bogdan-guskov-steps-in-on-12-days-notice",
       "source": "MMA Mania",
+      "priority": true
+    },
+    {
+      "title": "Paulo Costa criticizes UFC after declining Magomed Ankalaev replacement fight",
+      "link": "https://www.sherdog.com/news/news/Paulo-Costa-criticizes-UFC-after-declining-Magomed-Ankalaev-replacement-fight-201887",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
+      "title": "Dustin Poirier would end retirement for Conor McGregor bout IV at 170",
+      "link": "https://www.sherdog.com/news/news/Dustin-Poirier-would-end-retirement-for-Conor-McGregor-bout-IV-at-170-201886",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
+      "title": "Cory Sandhagen details brutal hamstring injury suffered in UFC 329 loss",
+      "link": "https://www.sherdog.com/news/news/Cory-Sandhagen-details-brutal-hamstring-injury-suffered-in-UFC-329-loss-201884",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
+      "title": "Bogdan Guskov replaces injured Khalil Rountree in UFC Abu Dhabi main event",
+      "link": "https://www.sherdog.com/news/news/Bogdan-Guskov-replaces-injured-Khalil-Rountree-in-UFC-Abu-Dhabi-main-event-201881",
+      "source": "Sherdog",
       "priority": true
     },
     {
@@ -90,41 +120,11 @@
       "link": "https://www.sherdog.com/news/news/Conor-McGregor-knee-injury-Coach-explains-what-happened-at-UFC-329-201872",
       "source": "Sherdog",
       "priority": true
-    },
-    {
-      "title": "Conor McGregor’s UFC 329 injury sparks Sean Strickland’s steroid theory",
-      "link": "https://www.sherdog.com/news/news/Conor-McGregors-UFC-329-injury-sparks-Sean-Stricklands-steroid-theory-201870",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "Max Holloway reacts to Conor McGregor's UFC 329 injury, eyes Islam Makhachev",
-      "link": "https://www.sherdog.com/news/news/Max-Holloway-reacts-to-Conor-McGregors-UFC-329-injury-eyes-Islam-Makhachev-201860",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "Cory Sandhagen shows off gruesome UFC 329 injury in first post-fight statement",
-      "link": "https://www.bjpenn.com/mma-news/cory-sandhagen/cory-sandhagen-gruesome-ufc-329-injury/?utm_source=rss&utm_medium=rss&utm_campaign=cory-sandhagen-gruesome-ufc-329-injury",
-      "source": "BJPenn",
-      "priority": true
-    },
-    {
-      "title": "Dustin Poirier questions Conor McGregor’s lifestyle following devastating injury in UFC return: “He looked bloated”",
-      "link": "https://www.bjpenn.com/mma-news/ufc/dustin-poirier-questions-conor-mcgregors-lifestyle-following-devastating-injury-in-ufc-return-he-looked-bloated/?utm_source=rss&utm_medium=rss&utm_campaign=dustin-poirier-questions-conor-mcgregors-lifestyle-following-devastating-injury-in-ufc-return-he-looked-bloated",
-      "source": "BJPenn",
-      "priority": true
-    },
-    {
-      "title": "Daniel Cormier defends Conor McGregor’s wild kick in UFC 329 return prior to injury: “We need to be careful when we judge”",
-      "link": "https://www.bjpenn.com/mma-news/ufc/daniel-cormier-defends-conor-mcgregors-wild-kick-in-ufc-329-return-prior-to-injury-we-need-to-be-careful-when-we-judge/?utm_source=rss&utm_medium=rss&utm_campaign=daniel-cormier-defends-conor-mcgregors-wild-kick-in-ufc-329-return-prior-to-injury-we-need-to-be-careful-when-we-judge",
-      "source": "BJPenn",
-      "priority": true
     }
   ],
   "hooks": {
-    "week": "Plessis-Usman is five days away—the middleweight crown is at stake Sunday morning.",
-    "prefight": "Plessis meets Usman for UFC supremacy this Sunday at eight AM SGT.",
-    "results": "I'm not aware of a UFC event called \"McGregor vs Holloway\" — Conor McGregor and Max Holloway have never fought each other in the UFC. Could you clarify which fight or event you're asking about?"
+    "week": "Plessis versus Usman drops Sunday morning—elite striker warfare at its peak.",
+    "prefight": "Plessis meets Usman Sunday morning — five days of chaos, drama, and pure combat.",
+    "results": "Conor McGregor submitted Max Holloway in the first round via brabo choke at UFC 26 on August 28, 2013, marking an early career highlight for McGregor."
   }
 }
