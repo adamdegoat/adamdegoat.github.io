@@ -251,6 +251,7 @@ header{display:flex;align-items:center;justify-content:space-between;flex:0 0 au
    ============================================================================ */
 const CONFIG = {
   agent: {
+    slug: "jane",
     name: "Jane Tan",
     agency: "PropNest Realty",
     cea: "R012345A",
@@ -261,7 +262,18 @@ const CONFIG = {
     initials: "JT",
     tagline: "Your 24/7 property front desk. East-side resale and new launches.",
     whatsapp: "6591234567",
-    tier: "standard"          // standard shows "powered by Hey Mia"; premium hides it
+    tier: "standard",         // standard shows "powered by Hey Mia"; premium hides it
+    // ---- knowledge (feeds Mia's brain so she answers AS Jane) ----
+    bio: "Jane has helped East-side families buy and sell for over 8 years, known for straight talk and fast follow-up.",
+    specialties: "resale HDB and condos plus selected new launches; buying, selling and renting",
+    areas: "Tampines, Bedok, Pasir Ris, Simei, Tanah Merah and the wider East",
+    listings: [
+      "Sunhaven condo, Upper Changi, 3-bedroom, 1,100 sqft, asking $1.68M, high floor, move-in ready",
+      "Tampines St 45, 5-room HDB, 1,184 sqft, asking $780k, near Tampines MRT and Our Tampines Hub"
+    ],
+    faqs: [
+      { q: "Do you help with new launches?", a: "Yes, Jane represents selected East-side new launches and can arrange showflat viewings." }
+    ]
   },
   greeting: "Hi, I'm Mia, Jane's front desk. Ask me anything about Singapore property, or about Jane's listings in the East, and I'll answer on real data. Tap a suggestion or just text me.",
   chips: [
@@ -303,6 +315,9 @@ el('leadagent').textContent = A.name.split(/\s+/)[0];
 el('leadsub').textContent = "Pretend you're a client landing on " + A.name.split(/\s+/)[0] + "'s page at midnight. Leave your details and watch Mia catch the lead.";
 
 function el(id){ return document.getElementById(id); }
+// what we send the brain so it answers AS this agent (identity + knowledge, not the visual bits)
+function agentPayload(){ return { slug:A.slug, name:A.name, agency:A.agency, cea:A.cea, assistant:A.assistant,
+  bio:A.bio, specialties:A.specialties, areas:A.areas, listings:A.listings, faqs:A.faqs }; }
 const thread = el('thread');
 let convo = [], busy=false, started=false, turn=0;
 const SAY = A.assistant || "Mia";
@@ -355,7 +370,7 @@ async function send(text){
   try{
     const ctrl=new AbortController(), to=setTimeout(()=>ctrl.abort(),12000);
     const r=await fetch(CONFIG.workerUrl,{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({messages:convo}),signal:ctrl.signal});
+      body:JSON.stringify({messages:convo, agent:agentPayload()}),signal:ctrl.signal});
     clearTimeout(to); const j=await r.json();
     if(j&&j.reply) reply=j.reply;
   }catch(e){ console.warn('answer failed',e); }
@@ -401,7 +416,7 @@ function speak(text,done){ stopSpeaking(); const my=++speakToken;
 async function workerVoice(text,my,done){
   const ctrl=new AbortController(), to=setTimeout(()=>ctrl.abort(),11000);
   const r=await fetch(CONFIG.workerUrl,{method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({text}),signal:ctrl.signal}); clearTimeout(to);
+    body:JSON.stringify({text, a:A.slug}),signal:ctrl.signal}); clearTimeout(to);
   if(!r.ok) throw new Error('tts'); const blob=await r.blob();
   if(my!==speakToken) return; const url=URL.createObjectURL(blob);
   const a=new Audio(url); a.playsInline=true; curAudio=a;
