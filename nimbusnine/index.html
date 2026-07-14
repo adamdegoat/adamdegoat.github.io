@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Nimbus Nine · Your business, on cloud nine</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='19' cy='13' r='7' fill='%23F0733D'/%3E%3Cpath d='M6 22a5 5 0 0 1 5-5 6 6 0 0 1 11 0 4 4 0 0 1 0 8H10a4 4 0 0 1-4-3z' fill='%23171512'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+:root{ --paper:#F3EFE8; --ink:#171512; --ink-2:#4a453d; --muted:#8b8479; --acc:#E8663A; --line:rgba(23,21,18,.12); }
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:"Inter",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.disp{font-family:"Space Grotesk",system-ui,sans-serif;letter-spacing:-.03em;line-height:.94}
+.mono{font-family:"Space Mono",monospace}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+
+/* grain + drifting nimbus */
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.nimbus{position:fixed;z-index:0;width:1100px;height:1100px;border-radius:50%;pointer-events:none;filter:blur(60px);
+  background:radial-gradient(circle at 40% 40%, rgba(255,190,130,.55), rgba(255,130,150,.34) 38%, rgba(255,130,150,0) 66%);
+  top:-360px;right:-280px;transition:transform .5s cubic-bezier(.2,.7,.2,1);will-change:transform;animation:drift 18s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(-90px,70px) scale(1.08)}}
+.nimbus.two{width:720px;height:720px;top:auto;bottom:-320px;left:-220px;right:auto;
+  background:radial-gradient(circle at 50% 50%, rgba(150,180,255,.32), rgba(150,180,255,0) 64%);animation-duration:24s}
+
+/* nav */
+header{position:fixed;top:0;left:0;right:0;z-index:20;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+header.scrolled{background:rgba(243,239,232,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+.logo{display:flex;align-items:center;gap:11px}
+.logo svg{width:34px;height:34px}
+.logo b{font-family:"Space Grotesk";font-weight:700;font-size:20px;letter-spacing:-.02em}
+.navlinks{display:flex;align-items:center;gap:30px}
+.navlinks a{font-size:14.5px;font-weight:500;color:var(--ink-2);transition:color .2s}
+.navlinks a:hover{color:var(--ink)}
+.start{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);font-weight:600;font-size:14px;padding:11px 20px;border-radius:999px;transition:background .2s,transform .16s}
+.start:hover{background:var(--acc);transform:translateY(-1px)}
+
+/* hero */
+.hero{position:relative;z-index:2;min-height:100vh;min-height:100dvh;display:flex;align-items:center;padding-top:78px}
+.heroInner{position:relative;width:100%}
+.kick{font-family:"Space Mono";font-size:13px;letter-spacing:.1em;color:var(--acc);margin-bottom:26px;
+  opacity:0;transform:translateY(16px);animation:rise .9s .1s cubic-bezier(.2,.7,.2,1) forwards}
+.htitle{font-family:"Space Grotesk";font-weight:700;letter-spacing:-.035em;line-height:.92;
+  font-size:clamp(52px,10.5vw,148px);max-width:15ch}
+.htitle span{display:block;opacity:0;transform:translateY(28px);animation:rise 1s cubic-bezier(.2,.7,.2,1) forwards}
+.htitle span:nth-child(1){animation-delay:.16s}.htitle span:nth-child(2){animation-delay:.28s}.htitle span:nth-child(3){animation-delay:.4s}
+.htitle em{font-style:normal;color:var(--acc)}
+.hsub{margin-top:34px;max-width:40ch;font-size:clamp(17px,1.8vw,21px);color:var(--ink-2);line-height:1.5;
+  opacity:0;transform:translateY(16px);animation:rise 1s .5s cubic-bezier(.2,.7,.2,1) forwards}
+.hcta{margin-top:38px;display:flex;align-items:center;gap:20px;opacity:0;animation:fade 1s .68s forwards}
+.big{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:var(--paper);font-family:"Space Grotesk";font-weight:600;font-size:17px;padding:17px 30px;border-radius:999px;transition:background .2s,transform .16s}
+.big:hover{background:var(--acc);transform:translateY(-2px)}
+.big svg{width:18px;height:18px}
+.hlink{font-weight:600;font-size:15px;border-bottom:1.5px solid var(--acc);padding-bottom:2px}
+@keyframes rise{to{opacity:1;transform:none}}
+@keyframes fade{to{opacity:1}}
+
+/* floating branded desks */
+.desks{position:absolute;right:-10px;top:50%;transform:translateY(-50%);width:min(42vw,520px);height:560px;pointer-events:none}
+.dk{position:absolute;width:270px;border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 40px 80px -30px rgba(23,21,18,.4),0 0 0 1px rgba(23,21,18,.05);
+  opacity:0;animation:float 7s ease-in-out infinite}
+.dk.a{right:150px;top:0;z-index:3;animation:float 7s ease-in-out infinite, appear .9s .5s forwards}
+.dk.b{right:0;top:130px;z-index:2;animation:float 8s .4s ease-in-out infinite, appear .9s .7s forwards}
+.dk.c{right:210px;top:300px;z-index:1;animation:float 9s .8s ease-in-out infinite, appear .9s .9s forwards}
+@keyframes appear{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float{0%,100%{margin-top:0}50%{margin-top:-14px}}
+.dhead{padding:12px 14px;display:flex;align-items:center;gap:9px;color:#fff}
+.dava{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.24);display:flex;align-items:center;justify-content:center;font-family:"Space Grotesk";font-weight:700;font-size:12px}
+.dname{font-family:"Space Grotesk";font-weight:600;font-size:13px;filter:blur(4px)}
+.dtype{font-family:"Space Mono";font-size:8px;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+.dbody{padding:12px 13px 15px;background:#FBF9F5}
+.dmb{font-size:11.5px;line-height:1.35;padding:8px 10px;border-radius:11px;margin-bottom:6px;max-width:90%}
+.dmb.mia{background:#fff;border:1px solid rgba(23,21,18,.08);border-top-left-radius:4px}
+.dmb.you{border-top-right-radius:4px;margin-left:auto;color:#fff;font-weight:500}
+
+/* short home continuation */
+.strip{position:relative;z-index:2;padding:clamp(60px,9vw,120px) 0}
+.leadline{font-family:"Space Grotesk";font-weight:500;font-size:clamp(24px,3.4vw,40px);letter-spacing:-.02em;line-height:1.25;max-width:22ch}
+.leadline a{border-bottom:2px solid var(--acc);white-space:nowrap}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.paths{margin-top:52px;display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.path{display:flex;align-items:baseline;gap:24px;padding:26px 4px;border-bottom:1px solid var(--line);transition:padding-left .25s}
+.path:hover{padding-left:16px}
+.path .pn{font-family:"Space Mono";font-size:13px;color:var(--muted);width:36px;flex:none}
+.path .pt{font-family:"Space Grotesk";font-weight:600;font-size:clamp(22px,2.6vw,32px);letter-spacing:-.02em;flex:1}
+.path .pd{color:var(--ink-2);font-size:15px;max-width:30ch;display:none}
+.path .parr{color:var(--acc);font-size:22px;transition:transform .25s}
+.path:hover .parr{transform:translateX(6px)}
+@media(min-width:820px){ .path .pd{display:block} }
+
+/* footer note */
+.foot{position:relative;z-index:2;padding:30px 0 50px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:40px}
+.fbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media(max-width:820px){
+  .navlinks a:not(.start){display:none}
+  .desks{position:relative;right:auto;top:auto;transform:none;width:100%;height:420px;margin-top:44px}
+  .dk{width:230px}.dk.a{right:auto;left:0}.dk.b{right:0}.dk.c{left:40px;top:250px}
+  .hero{padding-top:100px;padding-bottom:40px;min-height:0}
+  .htitle{font-size:clamp(46px,15vw,72px)}
+}
+</style>
+</head>
+<body>
+<div class="nimbus" id="nimbus"></div>
+<div class="nimbus two"></div>
+<div class="grain"></div>
+
+<header><div class="wrap nav">
+  <a class="logo" href="#top">
+    <svg viewBox="0 0 32 32"><circle cx="20" cy="12" r="7.5" fill="var(--acc)"/><path d="M5 23a5.2 5.2 0 0 1 5.2-5.2 6.3 6.3 0 0 1 11.6 0 4.2 4.2 0 0 1 0 8.4H9.8A4.4 4.4 0 0 1 5 23z" fill="var(--ink)"/></svg>
+    <b>Nimbus Nine</b>
+  </a>
+  <nav class="navlinks">
+    <a href="#">Front Desk</a><a href="#">Websites</a><a href="#">Work</a><a href="#">Pricing</a>
+    <a class="start" href="#">Get started</a>
+  </nav>
+</div></header>
+
+<main id="top">
+  <section class="hero"><div class="wrap heroInner">
+    <div class="kick">NIMBUS NINE, SINGAPORE</div>
+    <h1 class="htitle"><span>Put your</span><span>business on</span><span><em>cloud nine.</em></span></h1>
+    <p class="hsub">We design your own front desk, a smart assistant that answers customers and catches leads around the clock, on one link and QR you put anywhere. And a full site in your brand, if you want it.</p>
+    <div class="hcta">
+      <a class="big" href="#">See our work
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="hlink" href="#">or view pricing</a>
+    </div>
+    <div class="desks" id="desks">
+      <div class="dk a"><div class="dhead" style="background:#3E7CB1"><div class="dava">LA</div><div><div class="dname">Lumen Aesthetics</div><div class="dtype">Aesthetic Clinic</div></div></div><div class="dbody"><div class="dmb mia">Hi, welcome to Lumen. Book a consult or ask about a treatment?</div><div class="dmb you" style="background:#3E7CB1">How much is a HydraFacial?</div></div></div>
+      <div class="dk b"><div class="dhead" style="background:#C25E86"><div class="dava">RI</div><div><div class="dname">Rose &amp; Ivory</div><div class="dtype">Nail &amp; Beauty Bar</div></div></div><div class="dbody"><div class="dmb mia">Hey lovely, we're open for you 24/7. Any slots this weekend?</div></div></div>
+      <div class="dk c"><div class="dhead" style="background:#C2622E"><div class="dava">NI</div><div><div class="dname">Northline</div><div class="dtype">Renovation</div></div></div><div class="dbody"><div class="dmb mia">Thinking of renovating? Tell me your place and budget.</div></div></div>
+    </div>
+  </div></section>
+
+  <section class="strip"><div class="wrap">
+    <p class="leadline reveal">Nimbus Nine builds branded <a href="#">front desks</a>, <a href="#">websites</a> and smart tools for Singapore businesses. Done for you, on cloud nine.</p>
+    <div class="paths reveal">
+      <a class="path" href="#"><span class="pn mono">01</span><span class="pt">Front Desk</span><span class="pd">A branded assistant that answers customers and catches leads, 24/7.</span><span class="parr">&#8594;</span></a>
+      <a class="path" href="#"><span class="pn mono">02</span><span class="pt">Websites</span><span class="pd">A full customer-facing site in your brand, with the front desk built in.</span><span class="parr">&#8594;</span></a>
+      <a class="path" href="#"><span class="pn mono">03</span><span class="pt">Smart &amp; Automation</span><span class="pd">Custom tools that take the repetitive work off your plate.</span><span class="parr">&#8594;</span></a>
+    </div>
+    <div class="foot"><div class="fbar"><span>Nimbus Nine</span><span>Branded AI front desks and smart tech. Built and run in Singapore.</span></div></div>
+  </div></section>
+</main>
+
+<script>
+// nimbus drifts toward the cursor for a living feel
+const nimbus = document.getElementById('nimbus'), desks = document.getElementById('desks');
+window.addEventListener('mousemove', e=>{
+  const x=(e.clientX/innerWidth-.5), y=(e.clientY/innerHeight-.5);
+  nimbus.style.transform=`translate(${x*70}px,${y*60}px)`;
+  if(desks) desks.style.transform=`translateY(-50%) translate(${-x*22}px,${-y*18}px)`;
+});
+// header gets a paper backdrop once scrolled, so content never shows through it
+const hdr=document.querySelector('header');
+addEventListener('scroll',()=>{ hdr.classList.toggle('scrolled', scrollY>40); }, {passive:true});
+// scroll reveals
+const io=new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting) en.target.classList.add('in'); }),{threshold:.2});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
