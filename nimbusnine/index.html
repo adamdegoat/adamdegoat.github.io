@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=5">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 
@@ -21,7 +21,7 @@
     <nav class="links" aria-label="Primary">
       <a class="navlink" href="#top">Home</a>
       <a class="navlink" href="#build">What we build</a>
-      <a class="navlink" href="front-desk.html">Front desk</a>
+      <a class="navlink" href="work.html">Work</a>
       <a class="navlink" href="#inds">Industries</a>
       <a class="navcta" href="#">Get started</a>
     </nav>
@@ -86,7 +86,7 @@
           </ul>
           <div class="flagfoot">
             <div class="flagprice">S$399 <span>/ month</span></div>
-            <a class="btn" href="front-desk.html">Learn more
+            <a class="btn" href="#">Get started
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
         </div>
@@ -149,7 +149,7 @@
   const hero = document.querySelector('.hero'), hdr = document.querySelector('header');
   addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > hero.offsetHeight - 90), {passive:true});
 
-  // interactive front-desk demo: pre-recorded pill replies + Luna voice (no API)
+  // interactive front-desk demo: pre-recorded pill replies + Ava voice (no API)
   (function(){
     const thread = document.getElementById('chatthread'), pills = document.getElementById('pills');
     if(!thread || !pills) return;
