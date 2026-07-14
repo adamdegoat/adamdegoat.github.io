@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>Mia · Your business, open 24/7</title>
+<title>Front desks that never close · Studio</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f1a17'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%2312876A'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,298 +12,267 @@
 <style>
 :root{
   --paper:#F7F4EE; --paper-2:#FDFBF7; --ink:#14201C; --ink-2:#3C4a45; --muted:#6b746f;
-  --line:#E4DED3; --line-2:#d8d1c3;
-  --acc:#12876A; --acc-d:#0d6d54; --acc-soft:#e4f0ec;
-  --gold:#B8843C;
+  --line:#E4DED3; --line-2:#d8d1c3; --acc:#12876A; --acc-d:#0d6d54; --acc-soft:#e4f0ec;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);
-  font-family:"Inter",system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6}
-h1,h2,h3,.disp{font-family:"Space Grotesk",system-ui,sans-serif;letter-spacing:-.02em;line-height:1.05}
-.wrap{max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Inter",system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.55}
+h1,h2,h3,.disp{font-family:"Space Grotesk",system-ui,sans-serif;letter-spacing:-.02em;line-height:1.04}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(18px,4vw,44px)}
 .mono{font-family:"Space Mono",monospace}
 a{color:inherit}
-.eyebrow{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--acc)}
+.eyebrow{font-family:"Space Mono",monospace;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc)}
 
 /* nav */
-header{position:sticky;top:0;z-index:40;background:rgba(247,244,238,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-.logo{display:flex;align-items:center;gap:10px;font-family:"Space Grotesk";font-weight:700;font-size:22px;letter-spacing:-.02em}
-.logo .dot{width:26px;height:26px;border-radius:7px;background:var(--ink);display:flex;align-items:center;justify-content:center}
-.logo .dot i{width:10px;height:10px;border-radius:50%;background:var(--acc);display:block}
-.navcta{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);text-decoration:none;
-  font-weight:600;font-size:14px;padding:10px 18px;border-radius:999px;transition:background .2s}
+header{position:sticky;top:0;z-index:40;background:rgba(247,244,238,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:9px;font-family:"Space Grotesk";font-weight:700;font-size:20px}
+.logo .m{width:24px;height:24px;border-radius:7px;background:var(--ink);display:flex;align-items:center;justify-content:center}
+.logo .m i{width:9px;height:9px;border-radius:50%;background:var(--acc);display:block}
+.logo .ph{font-family:"Space Mono";font-size:10px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-left:2px}
+.navlinks{display:flex;align-items:center;gap:26px}
+.navlinks a{text-decoration:none;font-size:14px;font-weight:500;color:var(--ink-2)}
+.navlinks a:hover{color:var(--ink)}
+.navcta{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);text-decoration:none;font-weight:600;font-size:14px;padding:9px 17px;border-radius:999px;transition:background .2s}
 .navcta:hover{background:var(--acc-d)}
-
-/* hero */
-.hero{padding:clamp(48px,7vw,88px) 0 clamp(40px,5vw,64px)}
-.herogrid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,64px);align-items:center}
-.hero h1{font-size:clamp(40px,6vw,68px);font-weight:700;margin:18px 0 0;max-width:14ch}
-.hero h1 .acc{color:var(--acc)}
-.hero .lede{font-size:clamp(17px,1.9vw,20px);color:var(--ink-2);margin:22px 0 0;max-width:44ch}
-.hero .flatline{display:inline-flex;align-items:center;gap:9px;margin-top:22px;font-size:14px;font-weight:500;color:var(--acc-d);
-  background:var(--acc-soft);border:1px solid #cfe4dd;padding:9px 15px;border-radius:999px}
-.hero .flatline svg{width:16px;height:16px}
-.herocta{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:30px}
-.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;background:var(--ink);color:var(--paper);
-  font-weight:600;font-size:16px;padding:15px 26px;border-radius:999px;transition:transform .16s,background .2s;border:0;cursor:pointer;font-family:inherit}
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;background:var(--ink);color:var(--paper);font-weight:600;font-size:15px;padding:14px 24px;border-radius:999px;transition:transform .16s,background .2s;border:0;cursor:pointer;font-family:inherit}
 .btn:hover{transform:translateY(-2px);background:var(--acc-d)}
 .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2)}
 .btn.ghost:hover{background:#fff;border-color:var(--ink);transform:none}
 
-/* embedded Mia phone */
-.phone{position:relative;width:min(360px,100%);margin:0 auto;aspect-ratio:360/720}
-.phone .frame{position:absolute;inset:0;border-radius:44px;background:#0f1a17;padding:12px;
-  box-shadow:0 40px 80px -30px rgba(20,32,28,.45), 0 0 0 1px rgba(20,32,28,.06)}
-.screen{position:absolute;inset:12px;border-radius:34px;overflow:hidden;background:var(--paper-2);display:flex;flex-direction:column}
-.mhead{display:flex;align-items:center;gap:11px;padding:16px 18px;border-bottom:1px solid var(--line);background:#fff}
-.mava{width:40px;height:40px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-family:"Space Grotesk";font-weight:700;font-size:17px;position:relative}
-.mava::after{content:"";position:absolute;right:-1px;bottom:-1px;width:11px;height:11px;border-radius:50%;background:var(--acc);border:2px solid #fff}
-.mhead .mn{font-family:"Space Grotesk";font-weight:600;font-size:16px}
-.mhead .ms{font-family:"Space Mono";font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc)}
-.mthread{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
-.mthread::-webkit-scrollbar{width:0}
-.mb{max-width:82%;font-size:14.5px;line-height:1.45;padding:10px 13px;border-radius:15px}
-.mb.mia{align-self:flex-start;background:#fff;border:1px solid var(--line);border-top-left-radius:5px}
-.mb.you{align-self:flex-end;background:var(--acc);color:#fff;border-top-right-radius:5px;font-weight:500}
-.mtype{align-self:flex-start;background:#fff;border:1px solid var(--line);border-radius:15px;border-top-left-radius:5px;padding:13px 15px;display:flex;gap:5px}
-.mtype i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:bl 1.2s infinite}
-.mtype i:nth-child(2){animation-delay:.2s}.mtype i:nth-child(3){animation-delay:.4s}
-@keyframes bl{0%,60%,100%{opacity:.3}30%{opacity:1}}
-.mchips{padding:10px 14px 16px;display:flex;gap:7px;flex-wrap:wrap;border-top:1px solid var(--line);background:#fff}
-.mchip{appearance:none;border:1px solid var(--line-2);background:var(--paper);color:var(--ink);font-family:inherit;
-  font-size:12.5px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;transition:border-color .16s,background .16s}
-.mchip:hover{border-color:var(--acc);background:var(--acc-soft)}
-.tryhint{text-align:center;font-family:"Space Mono";font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:16px}
+/* hero — compact, uses the width */
+.hero{padding:clamp(40px,5vw,64px) 0 clamp(30px,4vw,44px)}
+.herogrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);align-items:center}
+.hero h1{font-size:clamp(38px,5.4vw,62px);font-weight:700;margin:16px 0 0;max-width:15ch}
+.hero h1 .acc{color:var(--acc)}
+.hero .lede{font-size:clamp(16px,1.7vw,19px);color:var(--ink-2);margin:20px 0 0;max-width:46ch}
+.flatline{display:inline-flex;align-items:center;gap:9px;margin-top:20px;font-size:13.5px;font-weight:500;color:var(--acc-d);background:var(--acc-soft);border:1px solid #cfe4dd;padding:8px 14px;border-radius:999px}
+.flatline svg{width:15px;height:15px}
+.herocta{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:26px}
+/* hero desk cluster */
+.cluster{position:relative;height:clamp(340px,34vw,420px)}
+.cluster .dk{position:absolute;width:60%;border-radius:18px;box-shadow:0 24px 50px -22px rgba(20,32,28,.4);overflow:hidden;background:#fff;border:1px solid var(--line)}
+.cluster .dk.a{left:0;top:6%;transform:rotate(-4deg);z-index:2}
+.cluster .dk.b{right:0;top:0;transform:rotate(4deg);z-index:1}
+.cluster .dk.c{left:22%;bottom:0;transform:rotate(-1deg);z-index:3}
+
+/* desk card (branded mock) */
+.dhead{padding:12px 14px;display:flex;align-items:center;gap:10px;color:#fff}
+.dhead .dava{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-family:"Space Grotesk";font-weight:700;font-size:13px}
+.dname{font-family:"Space Grotesk";font-weight:600;font-size:14px;filter:blur(4px);user-select:none}
+.dtype{font-family:"Space Mono";font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.8}
+.dbody{padding:13px 14px 16px;background:var(--paper-2)}
+.dmb{font-size:12px;line-height:1.4;padding:8px 11px;border-radius:12px;margin-bottom:7px;max-width:88%}
+.dmb.mia{background:#fff;border:1px solid var(--line);border-top-left-radius:4px;color:var(--ink)}
+.dmb.you{border-top-right-radius:4px;margin-left:auto;color:#fff;font-weight:500}
 
 /* sections */
-section{padding:clamp(52px,7vw,92px) 0}
+section{padding:clamp(44px,5.5vw,72px) 0}
 .sec-alt{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.shead{max-width:24ch}
-.shead h2{font-size:clamp(30px,4.4vw,46px);font-weight:700;margin:14px 0 0}
-.shead p{font-size:clamp(16px,1.8vw,19px);color:var(--ink-2);margin:16px 0 0;max-width:52ch}
+.shead{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.shead h2{font-size:clamp(28px,3.8vw,42px);font-weight:700;margin:12px 0 0;max-width:20ch}
+.shead .sp{font-size:15.5px;color:var(--ink-2);max-width:38ch}
 
-/* problem stats */
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,32px);margin-top:clamp(30px,4vw,48px)}
-.stat .n{font-family:"Space Grotesk";font-weight:700;font-size:clamp(38px,5vw,58px);color:var(--acc);letter-spacing:-.03em}
-.stat p{font-size:15px;color:var(--ink-2);margin:8px 0 0;max-width:26ch}
+/* showcase gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,1.8vw,22px);margin-top:clamp(28px,3.4vw,42px)}
+.gcard{border-radius:18px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:0 12px 30px -20px rgba(20,32,28,.25);transition:transform .18s}
+.gcard:hover{transform:translateY(-4px)}
 
-/* steps */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.6vw,28px);margin-top:clamp(32px,4vw,52px)}
-.step{background:var(--paper-2);border:1px solid var(--line);border-radius:20px;padding:28px 26px}
-.sec-alt .step{background:#fff}
-.step .k{font-family:"Space Mono";font-size:13px;color:var(--acc);letter-spacing:.1em}
-.step h3{font-size:21px;font-weight:600;margin:14px 0 8px}
-.step p{font-size:15px;color:var(--ink-2);margin:0}
+/* services */
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.6vw,20px);margin-top:clamp(28px,3.4vw,44px)}
+.scard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px 22px}
+.sec-alt .scard{background:var(--paper)}
+.scard .si{width:38px;height:38px;border-radius:11px;background:var(--acc-soft);display:flex;align-items:center;justify-content:center;margin-bottom:15px}
+.scard .si svg{width:20px;height:20px;color:var(--acc-d)}
+.scard h3{font-size:18px;font-weight:600;margin:0 0 7px}
+.scard p{font-size:14px;color:var(--ink-2);margin:0}
+.scard .tag{display:inline-block;margin-top:12px;font-family:"Space Mono";font-size:10.5px;letter-spacing:.08em;color:var(--acc-d);background:var(--acc-soft);padding:3px 9px;border-radius:6px}
 
-/* what you get list */
-.getgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,2vw,20px);margin-top:clamp(30px,4vw,46px)}
-.get{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 22px}
-.get svg{width:22px;height:22px;flex:none;color:var(--acc);margin-top:2px}
-.get b{font-family:"Space Grotesk";font-weight:600;font-size:16px;display:block;margin-bottom:3px}
-.get span{font-size:14.5px;color:var(--ink-2)}
+/* steps inline */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,26px);margin-top:clamp(26px,3vw,40px)}
+.step .k{font-family:"Space Mono";font-size:12px;color:var(--acc);letter-spacing:.1em}
+.step h3{font-size:19px;font-weight:600;margin:10px 0 6px}
+.step p{font-size:14.5px;color:var(--ink-2);margin:0;max-width:34ch}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,32px);margin-top:clamp(24px,3vw,40px)}
+.stat .n{font-family:"Space Grotesk";font-weight:700;font-size:clamp(34px,4.4vw,50px);color:var(--acc);letter-spacing:-.03em}
+.stat p{font-size:14.5px;color:var(--ink-2);margin:6px 0 0;max-width:26ch}
 
 /* pricing */
-.tiers{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,26px);margin-top:clamp(32px,4vw,52px)}
-.tier{background:#fff;border:1px solid var(--line-2);border-radius:24px;padding:clamp(28px,3.4vw,40px);position:relative}
-.tier.feat{border-color:var(--ink);box-shadow:0 30px 60px -34px rgba(20,32,28,.35)}
-.tier .tag{position:absolute;top:-13px;left:clamp(28px,3.4vw,40px);background:var(--ink);color:var(--paper);font-family:"Space Mono";
-  font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
-.tier .tn{font-family:"Space Grotesk";font-weight:700;font-size:24px}
-.tier .td{color:var(--ink-2);font-size:15px;margin:8px 0 0;min-height:44px}
-.tier .price{display:flex;align-items:baseline;gap:8px;margin:22px 0 4px}
-.tier .price b{font-family:"Space Grotesk";font-weight:700;font-size:clamp(38px,4.6vw,52px);letter-spacing:-.02em}
-.tier .price span{color:var(--muted);font-size:15px}
-.tier .sub{font-size:13.5px;color:var(--muted)}
-.tier ul{list-style:none;margin:22px 0 0;padding:22px 0 0;border-top:1px solid var(--line);display:grid;gap:12px}
-.tier li{display:flex;gap:11px;align-items:flex-start;font-size:14.5px}
-.tier li svg{width:18px;height:18px;flex:none;color:var(--acc);margin-top:2px}
-.tier .btn{width:100%;justify-content:center;margin-top:26px}
-.tier.lite .btn{background:transparent;color:var(--ink);border:1px solid var(--line-2)}
-.tier.lite .btn:hover{background:var(--paper);border-color:var(--ink);transform:none}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,22px);margin-top:clamp(28px,3.4vw,44px)}
+.tier{background:#fff;border:1px solid var(--line-2);border-radius:22px;padding:clamp(24px,2.6vw,32px);position:relative;display:flex;flex-direction:column}
+.tier.feat{border-color:var(--ink);box-shadow:0 26px 50px -32px rgba(20,32,28,.35)}
+.tier .tag{position:absolute;top:-12px;left:clamp(24px,2.6vw,32px);background:var(--ink);color:var(--paper);font-family:"Space Mono";font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;padding:4px 11px;border-radius:999px}
+.tier .tn{font-family:"Space Grotesk";font-weight:700;font-size:21px}
+.tier .td{color:var(--ink-2);font-size:14px;margin:7px 0 0;min-height:40px}
+.tier .price{display:flex;align-items:baseline;gap:7px;margin:18px 0 3px}
+.tier .price b{font-family:"Space Grotesk";font-weight:700;font-size:clamp(34px,4vw,44px);letter-spacing:-.02em}
+.tier .price span{color:var(--muted);font-size:14px}
+.tier .sub{font-size:13px;color:var(--muted)}
+.tier ul{list-style:none;margin:18px 0 0;padding:18px 0 0;border-top:1px solid var(--line);display:grid;gap:10px}
+.tier li{display:flex;gap:10px;align-items:flex-start;font-size:14px}
+.tier li svg{width:17px;height:17px;flex:none;color:var(--acc);margin-top:2px}
+.tier .btn{width:100%;justify-content:center;margin-top:auto}
+.tier .btnwrap{margin-top:22px}
+.tier.lite .btn,.tier.custom .btn{background:transparent;color:var(--ink);border:1px solid var(--line-2)}
+.tier.lite .btn:hover,.tier.custom .btn:hover{background:var(--paper);border-color:var(--ink);transform:none}
 
-/* faq */
-.faq{margin-top:clamp(30px,4vw,46px);display:grid;gap:14px}
-.qa{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 24px}
-.qa b{font-family:"Space Grotesk";font-weight:600;font-size:17px;display:block;margin-bottom:6px}
-.qa p{margin:0;color:var(--ink-2);font-size:15px}
+/* final */
+.final{background:var(--ink);color:var(--paper);border-radius:26px;padding:clamp(38px,5vw,64px);text-align:center;margin:clamp(18px,2.4vw,28px) 0}
+.final h2{font-size:clamp(28px,4.2vw,46px);font-weight:700;max-width:18ch;margin:0 auto}
+.final p{color:#c9d3ce;font-size:17px;margin:16px auto 26px;max-width:44ch}
+.final .btn{background:var(--acc);color:#fff}.final .btn:hover{background:var(--acc-d)}
+footer{padding:34px 0 54px;color:var(--muted);font-size:13px}
+.fbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px}
 
-/* final cta */
-.final{background:var(--ink);color:var(--paper);border-radius:28px;padding:clamp(40px,6vw,72px);text-align:center;margin:clamp(20px,3vw,32px) 0}
-.final h2{font-size:clamp(30px,4.6vw,50px);font-weight:700;max-width:18ch;margin:0 auto}
-.final p{color:#c9d3ce;font-size:18px;margin:18px auto 30px;max-width:44ch}
-.final .btn{background:var(--acc);color:#fff}
-.final .btn:hover{background:var(--acc-d)}
-
-footer{padding:40px 0 60px;color:var(--muted);font-size:13px}
-.fbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:26px}
-
-@media(max-width:860px){
-  .herogrid{grid-template-columns:1fr;gap:38px}
-  .phone{order:-1}
-  .stats,.steps{grid-template-columns:1fr}
-  .getgrid{grid-template-columns:1fr}
-  .tiers{grid-template-columns:1fr}
-  .stat{display:flex;gap:16px;align-items:baseline}
-  .stat p{margin:0}
+@media(max-width:960px){ .svc{grid-template-columns:repeat(2,1fr)} .gallery{grid-template-columns:repeat(2,1fr)} .tiers{grid-template-columns:1fr} }
+@media(max-width:720px){
+  .herogrid{grid-template-columns:1fr;gap:34px} .cluster{order:-1;height:300px}
+  .navlinks{display:none}
+  .steps,.stats{grid-template-columns:1fr}
+  .svc,.gallery{grid-template-columns:1fr}
+  .stat{display:flex;gap:14px;align-items:baseline}.stat p{margin:0}
+  .shead{align-items:flex-start}
 }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap nav">
-    <div class="logo"><span class="dot"><i></i></span>Mia</div>
+<header><div class="wrap nav">
+  <div class="logo"><span class="m"><i></i></span>Studio<span class="ph">name tbd</span></div>
+  <nav class="navlinks">
+    <a href="#work">Our work</a><a href="#services">Services</a><a href="#pricing">Pricing</a>
     <a class="navcta" href="#start">Get started</a>
-  </div>
-</header>
+  </nav>
+</div></header>
 
 <main>
   <!-- HERO -->
   <section class="hero"><div class="wrap herogrid">
     <div>
-      <span class="eyebrow">Your business, open 24/7</span>
-      <h1>A front desk that <span class="acc">never</span> closes.</h1>
-      <p class="lede">Mia answers your customers, explains your services, and catches every lead, day and night, on one link you put anywhere. We set it up. You just share it.</p>
-      <div class="flatline">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-        One flat price. No WhatsApp fees, no per-message charges, nothing to install.
-      </div>
-      <div class="herocta">
-        <a class="btn" href="#pricing">See pricing</a>
-        <a class="btn ghost" href="#how">How it works</a>
-      </div>
+      <span class="eyebrow">Branded front desks, powered by AI</span>
+      <h1>A front desk that looks like <span class="acc">you</span>, and never closes.</h1>
+      <p class="lede">We design your business its own front desk, a smart assistant that answers customers and catches leads 24/7, in your brand, on one link. Plus the website and smart tools behind it, if you want them.</p>
+      <div class="flatline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>One flat price. No WhatsApp fees, no per-message charges.</div>
+      <div class="herocta"><a class="btn" href="#work">See our work</a><a class="btn ghost" href="#pricing">Pricing</a></div>
     </div>
-    <div>
-      <div class="phone"><div class="frame"><div class="screen">
-        <div class="mhead"><div class="mava">M</div><div><div class="mn">Mia</div><div class="ms" id="mstat">● Online</div></div></div>
-        <div class="mthread" id="mthread"></div>
-        <div class="mchips" id="mchips"></div>
-      </div></div></div>
-      <div class="tryhint">Ask Mia anything about this</div>
+    <div class="cluster" id="cluster"></div>
+  </div></section>
+
+  <!-- SHOWCASE -->
+  <section id="work"><div class="wrap">
+    <div class="shead"><div><span class="eyebrow">Our work</span><h2>Made for their brand, never a template.</h2></div>
+      <p class="sp">Every business gets its own look, colours and voice. Here are a few front desks we've built.</p></div>
+    <div class="gallery" id="gallery"></div>
+  </div></section>
+
+  <!-- SERVICES -->
+  <section class="sec-alt" id="services"><div class="wrap">
+    <div class="shead"><div><span class="eyebrow">What we do</span><h2>More than a chatbot. Smart tech, done for you.</h2></div>
+      <p class="sp">Start with a front desk. Grow into a full website and smart tools whenever you're ready.</p></div>
+    <div class="svc">
+      <div class="scard"><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3v4M16 3v4M4 11h16"/><rect x="4" y="5" width="16" height="16" rx="2"/></svg></div><h3>AI Front Desk</h3><p>A branded assistant that answers your customers and captures every lead, 24/7.</p><span class="tag">from S$399/mo</span></div>
+      <div class="scard"><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></div><h3>Custom Website</h3><p>A full site designed in your brand, with your front desk and tools built right in.</p><span class="tag">from S$1,299</span></div>
+      <div class="scard"><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><h3>Smart Integrations</h3><p>Enquiry forms, booking, your services and prices, wired into the flow.</p><span class="tag">quoted</span></div>
+      <div class="scard"><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>AI &amp; Automation</h3><p>Custom smart tools that take the repetitive work off your plate. We scope it with you.</p><span class="tag">let's talk</span></div>
+    </div>
+  </div></section>
+
+  <!-- HOW -->
+  <section><div class="wrap">
+    <div class="shead"><div><span class="eyebrow">How it works</span><h2>Live in days. Nothing for you to set up.</h2></div></div>
+    <div class="steps">
+      <div class="step"><div class="k">01</div><h3>We design it</h3><p>Tell us about your business once. We build your front desk in your brand, with your services and answers.</p></div>
+      <div class="step"><div class="k">02</div><h3>You share one link</h3><p>Link in your Instagram bio, QR on your shopfront or name card. That's the whole setup.</p></div>
+      <div class="step"><div class="k">03</div><h3>Leads reach your phone</h3><p>Every serious enquiry arrives with a name, number and what they want, day or night.</p></div>
     </div>
   </div></section>
 
   <!-- PROBLEM -->
   <section class="sec-alt"><div class="wrap">
-    <div class="shead"><span class="eyebrow">The problem</span><h2>Every missed message is a customer who went somewhere else.</h2>
-      <p>People enquire after hours, while you're with a client, or when your hands are full. If nobody answers fast, they book the next business instead.</p></div>
+    <div class="shead"><div><span class="eyebrow">Why it matters</span><h2>Every missed message is a customer who went elsewhere.</h2></div></div>
     <div class="stats">
       <div class="stat"><div class="n">62%</div><p>of enquiry calls to small businesses go unanswered.</p></div>
       <div class="stat"><div class="n">5 min</div><p>the window to reply before most leads go cold.</p></div>
-      <div class="stat"><div class="n">24/7</div><p>Mia answers instantly, even at 2am, so none slip away.</p></div>
-    </div>
-  </div></section>
-
-  <!-- HOW -->
-  <section id="how"><div class="wrap">
-    <div class="shead"><span class="eyebrow">How it works</span><h2>Live in days. Nothing for you to set up.</h2></div>
-    <div class="steps">
-      <div class="step"><div class="k">01</div><h3>We build your Mia</h3><p>You tell us about your business once. We set up your branded front desk with your services, prices and answers.</p></div>
-      <div class="step"><div class="k">02</div><h3>You share one link</h3><p>Put your link in your Instagram bio, and your QR on your shopfront, name card or flyer. That's the whole setup.</p></div>
-      <div class="step"><div class="k">03</div><h3>Mia catches your leads</h3><p>She answers every visitor and sends each lead straight to your phone, name, number and what they want.</p></div>
-    </div>
-  </div></section>
-
-  <!-- WHAT YOU GET -->
-  <section class="sec-alt"><div class="wrap">
-    <div class="shead"><span class="eyebrow">What you get</span><h2>A real presence, not just a chat bubble.</h2></div>
-    <div class="getgrid">
-      <div class="get"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg><div><b>Your own branded page</b><span>A clean page in your colours and logo that greets every visitor as your business.</span></div></div>
-      <div class="get"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v4M16 3v4M4 11h16"/><rect x="4" y="5" width="16" height="16" rx="2"/></svg><div><b>Answers your customers</b><span>Your services, prices, hours and questions, answered instantly in your voice.</span></div></div>
-      <div class="get"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg><div><b>Leads to your phone</b><span>Every serious enquiry arrives with a name, number and what they're after.</span></div></div>
-      <div class="get"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 12a8 8 0 1 0 16 0 8 8 0 0 0-16 0zM12 8v4l3 2"/></svg><div><b>Works around the clock</b><span>Nights, weekends, public holidays. Your front desk never takes a day off.</span></div></div>
-      <div class="get"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/></svg><div><b>No fees to worry about</b><span>One flat monthly price. No WhatsApp charges, no per-message billing, no surprises.</span></div></div>
-      <div class="get"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 7L9 18l-5-5"/></svg><div><b>Done for you</b><span>We build it, keep it current, and support it. You just share the link.</span></div></div>
+      <div class="stat"><div class="n">24/7</div><p>your front desk answers instantly, even at 2am.</p></div>
     </div>
   </div></section>
 
   <!-- PRICING -->
   <section id="pricing"><div class="wrap">
-    <div class="shead"><span class="eyebrow">Pricing</span><h2>Simple. One front desk, or the whole website.</h2>
-      <p>Flat monthly, no hidden costs. Cancel anytime.</p></div>
+    <div class="shead"><div><span class="eyebrow">Pricing</span><h2>Simple, flat, no hidden costs.</h2></div><p class="sp">Cancel anytime. No WhatsApp or per-message fees, ever.</p></div>
     <div class="tiers">
-      <div class="tier feat">
-        <span class="tag">Most popular</span>
-        <div class="tn">Front Desk</div>
-        <div class="td">Your branded 24/7 front desk on a link and QR, done for you.</div>
-        <div class="price"><b>S$399</b><span>/ month</span></div>
-        <div class="sub">No setup fee. Live in days.</div>
+      <div class="tier feat"><span class="tag">Most popular</span>
+        <div class="tn">Front Desk</div><div class="td">Your branded 24/7 front desk on a link and QR, done for you.</div>
+        <div class="price"><b>S$399</b><span>/ mo</span></div><div class="sub">No setup fee. Live in days.</div>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Your branded front-desk page + link + QR</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Branded front-desk page + link + QR</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Answers customers on your services, 24/7</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Every lead sent straight to your phone</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>We set it up, keep it current, and support it</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>No WhatsApp fees, no per-message charges</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Every lead sent to your phone</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>We build, manage and support it</li>
         </ul>
-        <a class="btn" href="#start">Get started</a>
+        <div class="btnwrap"><a class="btn" href="#start">Get started</a></div>
       </div>
       <div class="tier lite">
-        <div class="tn">Front Desk + Website</div>
-        <div class="td">A full website in your brand with Mia and smart tools built in.</div>
-        <div class="price"><b>S$1,299</b><span>once</span></div>
-        <div class="sub">Then S$399 / month to run and maintain.</div>
+        <div class="tn">Front Desk + Website</div><div class="td">A full website in your brand with your front desk and smart tools built in.</div>
+        <div class="price"><b>S$1,299</b><span>once</span></div><div class="sub">Then S$399 / mo to run and maintain.</div>
         <ul>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Everything in Front Desk</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>A full website designed in your brand</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Smart tools built in: enquiry, booking, your services</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Mia lives right inside your site</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Booking, enquiry and your services built in</li>
         </ul>
-        <a class="btn" href="#start">Talk to us</a>
+        <div class="btnwrap"><a class="btn" href="#start">Talk to us</a></div>
+      </div>
+      <div class="tier custom">
+        <div class="tn">Custom &amp; Automation</div><div class="td">Bigger smart-tech projects, scoped and quoted to your business.</div>
+        <div class="price"><b>Let's talk</b></div><div class="sub">Automation, integrations, internal tools.</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Custom AI and automation</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Deeper integrations with your tools</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Scoped and quoted to the work</li>
+        </ul>
+        <div class="btnwrap"><a class="btn" href="#start">Tell us your project</a></div>
       </div>
     </div>
   </div></section>
 
-  <!-- FAQ -->
-  <section class="sec-alt"><div class="wrap">
-    <div class="shead"><span class="eyebrow">Common questions</span><h2>The honest answers.</h2></div>
-    <div class="faq">
-      <div class="qa"><b>Do my customers need WhatsApp?</b><p>No. Mia lives on a link and QR you share. Customers just tap and chat, nothing to install, and there are no WhatsApp or per-message fees for you or them.</p></div>
-      <div class="qa"><b>Do I need my own website?</b><p>No. The Front Desk is a complete branded page on its own. If you want a full website later, that's the second option, and Mia lives inside it.</p></div>
-      <div class="qa"><b>How much work is it for me?</b><p>Almost none. You tell us about your business once, we build and manage everything, and you share your link. Changes go live the same day.</p></div>
-      <div class="qa"><b>What do I actually get from it?</b><p>Leads. Every visitor who's serious leaves their name and number, sent straight to your phone, even the ones who message at midnight.</p></div>
-    </div>
-  </div></section>
-
-  <!-- FINAL CTA -->
-  <section id="start"><div class="wrap">
-    <div class="final">
-      <h2>Give your business a front desk that never sleeps.</h2>
-      <p>Tell us your trade and we'll show you your own Mia, live, before you pay anything.</p>
-      <a class="btn" href="https://wa.me/6583219747" target="_blank" rel="noopener">Message us on WhatsApp</a>
-    </div>
-  </div></section>
+  <!-- FINAL -->
+  <section id="start"><div class="wrap"><div class="final">
+    <h2>Give your business a front desk that never sleeps.</h2>
+    <p>Tell us your trade and we'll design your own front desk, live, before you pay anything.</p>
+    <a class="btn" href="https://wa.me/6583219747" target="_blank" rel="noopener">Message us on WhatsApp</a>
+  </div></div></section>
 </main>
 
 <footer><div class="wrap fbar">
-  <div class="logo" style="font-size:18px"><span class="dot" style="width:22px;height:22px"><i style="width:8px;height:8px"></i></span>Mia</div>
-  <span>Your business, open 24/7. Built and run in Singapore.</span>
+  <div class="logo" style="font-size:17px"><span class="m" style="width:21px;height:21px"><i style="width:8px;height:8px"></i></span>Studio</div>
+  <span>Branded AI front desks and smart tech. Built and run in Singapore.</span>
 </div></footer>
 
 <script>
-/* ---- embedded Mia: curated answers about THIS business (reliable, free, on-message) ---- */
-const QA = [
-  ["What is this?", "I'm Mia, a 24/7 front desk for your business. I sit on a link and QR you share, answer your customers, explain your services, and send every lead straight to your phone."],
-  ["How much is it?", "S$399 a month, flat. That's your branded front desk, done for you and managed. Want a full website with me built in? That's S$1,299 once, then the same S$399 a month."],
-  ["Do I need WhatsApp?", "Nope. Your customers just tap your link or scan your QR and chat with me. No WhatsApp setup, no per-message fees, nothing to install for you or them."],
-  ["Do I need a website?", "Not at all. Your front desk is a complete branded page on its own. If you'd like a full website later, we build one with me living inside it."],
-  ["How do I start?", "Tell us your trade on WhatsApp and we'll set up your own Mia and show you, live, before you pay anything. Live in days."],
+/* branded example front desks (fictional; a design showcase, names blurred) */
+const DESKS = [
+  {t:"Aesthetic Clinic", n:"Lumen Aesthetics", c:"#3E7CB1", i:"LA", g:"Hi, welcome to Lumen. Looking to book a consult or ask about a treatment?", y:"How much is a HydraFacial?"},
+  {t:"Nail & Beauty Bar", n:"Rose & Ivory Nails", c:"#C25E86", i:"RI", g:"Hey lovely, we're open for you 24/7. Manicure, pedicure, or a set?", y:"Any slots this weekend?"},
+  {t:"Renovation & Interiors", n:"Northline Interiors", c:"#C2622E", i:"NI", g:"Hi, thinking of renovating? Tell me your place and budget and I'll help.", y:"4-room BTO, around 40k"},
+  {t:"Tuition & Enrichment", n:"Brightpath Learning", c:"#5A54C9", i:"BL", g:"Hello parents, which level and subject are you looking for?", y:"Sec 3 A Maths"},
+  {t:"Dental", n:"Wellcrest Dental", c:"#158A6F", i:"WD", g:"Welcome to Wellcrest. Toothache, cleaning, or a check-up?", y:"Do you do Invisalign?"},
+  {t:"Cafe & Bakery", n:"Flourmill & Co", c:"#A9782F", i:"FC", g:"Morning! We take custom cake orders here. What's the occasion?", y:"Birthday cake for 20 pax"},
 ];
-const thread = document.getElementById('mthread'), chipsBox = document.getElementById('mchips'), mstat = document.getElementById('mstat');
-let busy = false;
-function bubble(who, text){ const b=document.createElement('div'); b.className='mb '+who; b.textContent=text; thread.appendChild(b); thread.scrollTop=thread.scrollHeight; return b; }
-function typing(){ const t=document.createElement('div'); t.className='mtype'; t.innerHTML='<i></i><i></i><i></i>'; thread.appendChild(t); thread.scrollTop=thread.scrollHeight; return t; }
-function buildChips(){ chipsBox.innerHTML=''; QA.forEach(([q])=>{ const c=document.createElement('button'); c.className='mchip'; c.textContent=q;
-  c.onclick=()=>ask(q); chipsBox.appendChild(c); }); }
-function ask(q){ if(busy) return; busy=true; bubble('you', q);
-  const a = (QA.find(([qq])=>qq===q)||[])[1] || "Good question, message us on WhatsApp and we'll answer that properly.";
-  mstat.textContent='● typing…'; const t=typing();
-  setTimeout(()=>{ t.remove(); bubble('mia', a); mstat.textContent='● Online'; busy=false; }, 560+Math.random()*400);
+function deskCard(d, mini){
+  return `<div class="dhead" style="background:${d.c}"><div class="dava">${d.i}</div>
+    <div><div class="dname">${d.n}</div><div class="dtype">${d.t}</div></div></div>
+    <div class="dbody">
+      <div class="dmb mia">${d.g}</div>
+      ${mini?'':`<div class="dmb you" style="background:${d.c}">${d.y}</div>`}
+    </div>`;
 }
-// greeting
-bubble('mia', "Hi, I'm Mia. I'm the front desk you're reading about. Ask me anything and I'll show you how I'd answer your customers.");
-buildChips();
+// gallery
+document.getElementById('gallery').innerHTML = DESKS.map(d=>`<div class="gcard">${deskCard(d)}</div>`).join('');
+// hero cluster (3 tilted)
+const cl = document.getElementById('cluster');
+['a','b','c'].forEach((pos,idx)=>{ const el=document.createElement('div'); el.className='dk '+pos; el.innerHTML=deskCard(DESKS[idx], true); cl.appendChild(el); });
 </script>
 </body>
 </html>
