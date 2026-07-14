@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-14T21:00:00.405065+08:00",
+  "updated": "2026-07-14T23:30:00.269840+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -38,6 +38,12 @@
   },
   "news": [
     {
+      "title": "Matt Brown reacts to Conor McGregor’s injury, plans to return for final fight in UFC: ‘The motherf*cker was nervous’",
+      "link": "https://www.mmafighting.com/ufc/499348/matt-brown-reacts-to-conor-mcgregors-injury-plans-to-return-for-final-fight-in-ufc-the-motherfcker-was-nervous",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
       "title": "Cory Sandhagen shows off gnarly injury after submission attempt likely tore hamstring at UFC 329",
       "link": "https://www.mmafighting.com/ufc/499342/cory-sandhagen-shows-off-gnarly-injury-after-submission-attempt-likely-tore-hamstring-at-ufc-329",
       "source": "MMA Fighting",
@@ -58,12 +64,6 @@
     {
       "title": "Frenemies? Michael Chandler defends Conor McGregor after ‘disappointing’ UFC 329 injury disaster – ‘He is not a bamboozler’",
       "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/457042/frenemies-michael-chandler-defends-conor-mcgregor-after-disappointing-ufc-329-injury-disaster-he-is-not-a-bamboozler",
-      "source": "MMA Mania",
-      "priority": true
-    },
-    {
-      "title": "Khaili Rountree out UFC Abu Dhabi main event, Bogdan Guskov steps in on 12 days notice",
-      "link": "https://www.mmamania.com/ufc-fight-announcements/457027/khaili-rountree-out-ufc-abu-dhabi-main-event-bogdan-guskov-steps-in-on-12-days-notice",
       "source": "MMA Mania",
       "priority": true
     },
@@ -110,21 +110,21 @@
       "priority": true
     },
     {
-      "title": "Cory Sandhagen shows off gruesome UFC 329 injury in first post-fight statement",
-      "link": "https://www.bjpenn.com/mma-news/cory-sandhagen/cory-sandhagen-gruesome-ufc-329-injury/?utm_source=rss&utm_medium=rss&utm_campaign=cory-sandhagen-gruesome-ufc-329-injury",
+      "title": "Dustin Poirier has no sympathy for Conor McGregor after UFC 329 injury",
+      "link": "https://www.bjpenn.com/mma-news/dustin-poirier/dustin-poirier-has-no-sympathy-for-conor-mcgregor-after-ufc-329-injury/?utm_source=rss&utm_medium=rss&utm_campaign=dustin-poirier-has-no-sympathy-for-conor-mcgregor-after-ufc-329-injury",
       "source": "BJPenn",
       "priority": true
     },
     {
-      "title": "Dustin Poirier questions Conor McGregor’s lifestyle following devastating injury in UFC return: “He looked bloated”",
-      "link": "https://www.bjpenn.com/mma-news/ufc/dustin-poirier-questions-conor-mcgregors-lifestyle-following-devastating-injury-in-ufc-return-he-looked-bloated/?utm_source=rss&utm_medium=rss&utm_campaign=dustin-poirier-questions-conor-mcgregors-lifestyle-following-devastating-injury-in-ufc-return-he-looked-bloated",
+      "title": "Cory Sandhagen shows off gruesome UFC 329 injury in first post-fight statement",
+      "link": "https://www.bjpenn.com/mma-news/cory-sandhagen/cory-sandhagen-gruesome-ufc-329-injury/?utm_source=rss&utm_medium=rss&utm_campaign=cory-sandhagen-gruesome-ufc-329-injury",
       "source": "BJPenn",
       "priority": true
     }
   ],
   "hooks": {
-    "week": "Plessis meets Usman Sunday morning for middleweight supremacy—fight week is here.",
-    "prefight": "Plessis meets Usman Sunday for middleweight supremacy—fight week begins now.",
+    "week": "Plessis vs Usman goes down Sunday for UFC middleweight supremacy.",
+    "prefight": "Plessis and Usman collide for the middleweight crown this Sunday morning.",
     "results": "The dust has settled on another fight night."
   }
 }
