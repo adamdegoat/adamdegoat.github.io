@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-14T13:00:00.187949+08:00",
+  "updated": "2026-07-14T21:00:00.405065+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -68,6 +68,12 @@
       "priority": true
     },
     {
+      "title": "Real American Freestyle expands with MMA crossover championship division",
+      "link": "https://www.sherdog.com/news/news/Real-American-Freestyle-expands-with-MMA-crossover-championship-division-201892",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
       "title": "Paulo Costa criticizes UFC after declining Magomed Ankalaev replacement fight",
       "link": "https://www.sherdog.com/news/news/Paulo-Costa-criticizes-UFC-after-declining-Magomed-Ankalaev-replacement-fight-201887",
       "source": "Sherdog",
@@ -104,27 +110,21 @@
       "priority": true
     },
     {
-      "title": "Islam Makhachev trolls Conor McGregor following UFC 329 injury",
-      "link": "https://www.sherdog.com/news/news/Islam-Makhachev-trolls-Conor-McGregor-following-UFC-329-injury-201877",
-      "source": "Sherdog",
+      "title": "Cory Sandhagen shows off gruesome UFC 329 injury in first post-fight statement",
+      "link": "https://www.bjpenn.com/mma-news/cory-sandhagen/cory-sandhagen-gruesome-ufc-329-injury/?utm_source=rss&utm_medium=rss&utm_campaign=cory-sandhagen-gruesome-ufc-329-injury",
+      "source": "BJPenn",
       "priority": true
     },
     {
-      "title": "Terence Crawford reacts to Conor McGregor's UFC 329 injury with brutal message",
-      "link": "https://www.sherdog.com/news/news/Terence-Crawford-reacts-to-Conor-McGregors-UFC-329-injury-with-brutal-message-201876",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "Conor McGregor knee injury: Coach explains what happened at UFC 329",
-      "link": "https://www.sherdog.com/news/news/Conor-McGregor-knee-injury-Coach-explains-what-happened-at-UFC-329-201872",
-      "source": "Sherdog",
+      "title": "Dustin Poirier questions Conor McGregor’s lifestyle following devastating injury in UFC return: “He looked bloated”",
+      "link": "https://www.bjpenn.com/mma-news/ufc/dustin-poirier-questions-conor-mcgregors-lifestyle-following-devastating-injury-in-ufc-return-he-looked-bloated/?utm_source=rss&utm_medium=rss&utm_campaign=dustin-poirier-questions-conor-mcgregors-lifestyle-following-devastating-injury-in-ufc-return-he-looked-bloated",
+      "source": "BJPenn",
       "priority": true
     }
   ],
   "hooks": {
-    "week": "Plessis versus Usman drops Sunday morning—elite striker warfare at its peak.",
-    "prefight": "Plessis meets Usman Sunday morning — five days of chaos, drama, and pure combat.",
-    "results": "Conor McGregor submitted Max Holloway in the first round via brabo choke at UFC 26 on August 28, 2013, marking an early career highlight for McGregor."
+    "week": "Plessis meets Usman Sunday morning for middleweight supremacy—fight week is here.",
+    "prefight": "Plessis meets Usman Sunday for middleweight supremacy—fight week begins now.",
+    "results": "The dust has settled on another fight night."
   }
 }
