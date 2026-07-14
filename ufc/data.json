@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-13T23:30:00.249641+08:00",
+  "updated": "2026-07-14T09:00:00.289874+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -13,8 +13,8 @@
     "has_time": true,
     "location": "Oklahoma City, USA",
     "highlights": "https://www.youtube.com/results?search_query=UFC%20Fight%20Night%20281%20Du%20Plessis%20vs%20Usman%20highlights",
-    "desc": "",
-    "badge": "https://www.thesportsdb.com/images/media/event/thumb/p2x5tg1783063837.jpg",
+    "desc": "An electric atmosphere takes over the Paycom Center as the Octagon returns to Oklahoma for UFC Fight Night 281, headlined by a legacy-defining middleweight war between former divisional kingpin Dricus du Plessis and former dominant welterweight ruler Kamaru Usman. The primary hurdle for both elite mixed martial artists is navigating the extreme strategic layers of a true cross-divisional chess match, where du Plessis must neutralize his opponent's legendary wrestling base while Usman handles the jarring transition to a heavier weight class. The objective for the South African powerhouse is to dictate a grueling, chaotic pace from the center of the cage, weaponizing his signature physical blitzes to compromise Usman's legendary defensive shell. Concurrently, the mission for Nigeria's \"Nigerian Nightmare\" centers on executing a clinical tactical masterclass behind his sharp, piston-like jab, blending timed level changes with heavy top control to stifle the former champion's explosive output and instantly assert himself as a premium contender in the 185-pound landscape.",
+    "badge": "https://www.thesportsdb.com/images/media/event/thumb/bearel1783977914.jpg",
     "bouts": [],
     "finished": false,
     "espn_final": false
@@ -38,20 +38,26 @@
   },
   "news": [
     {
-      "title": "‘The new boy is in town’: Paddy Pimblett had 2 very different reactions to Conor McGregor’s UFC 329 injury",
-      "link": "https://www.mmafighting.com/ufc/499086/the-new-boy-is-in-town-paddy-pimblett-had-2-very-different-reactions-to-conor-mcgregors-ufc-329-injury",
+      "title": "Cory Sandhagen shows off gnarly injury after submission attempt likely tore hamstring at UFC 329",
+      "link": "https://www.mmafighting.com/ufc/499342/cory-sandhagen-shows-off-gnarly-injury-after-submission-attempt-likely-tore-hamstring-at-ufc-329",
       "source": "MMA Fighting",
       "priority": true
     },
     {
-      "title": "Monday Morning Hangover: Will Conor McGregor fulfill final fight on UFC contract following brutal UFC 329 injury?",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456829/monday-morning-hangover-will-conor-mcgregor-fulfill-final-fight-on-contract-after-brutal-ufc-329-injury",
-      "source": "MMA Mania",
+      "title": "Machine Gun Kelly doubles down on Conor McGregor hate after his injury at UFC 329: ‘F*ck this dude’",
+      "link": "https://www.mmafighting.com/ufc/499303/machine-gun-kelly-doubles-down-on-conor-mcgregor-hate-after-his-injury-at-ufc-329-fck-this-dude",
+      "source": "MMA Fighting",
       "priority": true
     },
     {
-      "title": "Injury-plagued Dominick Cruz vows Conor McGregor came back to ‘save his own life’ | UFC 329",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456751/injury-plagued-dominick-cruz-vows-conor-mcgregor-came-back-to-save-his-own-life-ufc-329",
+      "title": "Dustin Poirier reacts to ‘dirtbag’ Conor McGregor suffering injury at UFC 329",
+      "link": "https://www.mmafighting.com/ufc/499302/dustin-poirier-reacts-to-dirtbag-conor-mcgregor-suffering-injury-at-ufc-329",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
+      "title": "Khaili Rountree out UFC Abu Dhabi main event, Bogdan Guskov steps in on 12 days notice",
+      "link": "https://www.mmamania.com/ufc-fight-announcements/457027/khaili-rountree-out-ufc-abu-dhabi-main-event-bogdan-guskov-steps-in-on-12-days-notice",
       "source": "MMA Mania",
       "priority": true
     },
@@ -98,33 +104,27 @@
       "priority": true
     },
     {
-      "title": "Conor McGregor’s UFC 329 injury is the ‘most disappointing moment in combat sports history,’ says Sean O’Malley: ‘I feel like I’m in shock”",
-      "link": "https://www.bjpenn.com/mma-news/ufc/conor-mcgregors-ufc-329-injury-is-the-most-disappointing-moment-in-combat-sports-history-says-sean-omalley-i-feel-like-im-in-shock/?utm_source=rss&utm_medium=rss&utm_campaign=conor-mcgregors-ufc-329-injury-is-the-most-disappointing-moment-in-combat-sports-history-says-sean-omalley-i-feel-like-im-in-shock",
+      "title": "Cory Sandhagen shows off gruesome UFC 329 injury in first post-fight statement",
+      "link": "https://www.bjpenn.com/mma-news/cory-sandhagen/cory-sandhagen-gruesome-ufc-329-injury/?utm_source=rss&utm_medium=rss&utm_campaign=cory-sandhagen-gruesome-ufc-329-injury",
       "source": "BJPenn",
       "priority": true
     },
     {
-      "title": "Conor McGregor’s longtime coach ‘devastated’ by leg injury at UFC 329: “Doesn’t get any worse than this”",
-      "link": "https://www.bjpenn.com/mma-news/ufc/conor-mcgregors-longtime-coach-devastated-by-leg-injury-at-ufc-329-doesnt-get-any-worse-than-this/?utm_source=rss&utm_medium=rss&utm_campaign=conor-mcgregors-longtime-coach-devastated-by-leg-injury-at-ufc-329-doesnt-get-any-worse-than-this",
+      "title": "Dustin Poirier questions Conor McGregor’s lifestyle following devastating injury in UFC return: “He looked bloated”",
+      "link": "https://www.bjpenn.com/mma-news/ufc/dustin-poirier-questions-conor-mcgregors-lifestyle-following-devastating-injury-in-ufc-return-he-looked-bloated/?utm_source=rss&utm_medium=rss&utm_campaign=dustin-poirier-questions-conor-mcgregors-lifestyle-following-devastating-injury-in-ufc-return-he-looked-bloated",
       "source": "BJPenn",
       "priority": true
     },
     {
-      "title": "Dana White doubts Conor McGregor had pre-existing injury prior to unforeseen UFC 329 outcome: “Somebody would’ve noticed it”",
-      "link": "https://www.bjpenn.com/mma-news/ufc/dana-white-doubts-conor-mcgregor-had-pre-existing-injury-prior-to-unforeseen-ufc-329-outcome-somebody-wouldve-noticed-it/?utm_source=rss&utm_medium=rss&utm_campaign=dana-white-doubts-conor-mcgregor-had-pre-existing-injury-prior-to-unforeseen-ufc-329-outcome-somebody-wouldve-noticed-it",
+      "title": "Daniel Cormier defends Conor McGregor’s wild kick in UFC 329 return prior to injury: “We need to be careful when we judge”",
+      "link": "https://www.bjpenn.com/mma-news/ufc/daniel-cormier-defends-conor-mcgregors-wild-kick-in-ufc-329-return-prior-to-injury-we-need-to-be-careful-when-we-judge/?utm_source=rss&utm_medium=rss&utm_campaign=daniel-cormier-defends-conor-mcgregors-wild-kick-in-ufc-329-return-prior-to-injury-we-need-to-be-careful-when-we-judge",
       "source": "BJPenn",
       "priority": true
-    },
-    {
-      "title": "Conor McGregor releases statement announcing surgery, UFC future",
-      "link": "https://www.mmafighting.com/ufc/499268/conor-mcgregor-releases-statement-announcing-surgery-plan-to-fulfill-final-ufc-fight",
-      "source": "MMA Fighting",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "Plessis and Usman collide Sunday 8am SGT for middleweight supremacy—title fight incoming.",
-    "prefight": "Championship chess match incoming: Plessis and Usman square off Sunday morning.",
-    "results": "The dust has settled on another fight night."
+    "week": "Plessis-Usman is five days away—the middleweight crown is at stake Sunday morning.",
+    "prefight": "Plessis meets Usman for UFC supremacy this Sunday at eight AM SGT.",
+    "results": "I'm not aware of a UFC event called \"McGregor vs Holloway\" — Conor McGregor and Max Holloway have never fought each other in the UFC. Could you clarify which fight or event you're asking about?"
   }
 }
