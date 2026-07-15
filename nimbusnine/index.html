@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=33">
+<link rel="stylesheet" href="styles.css?v=35">
 </head>
 <body>
 
@@ -67,58 +67,23 @@
                 <span>9:41</span>
                 <span class="devr" aria-hidden="true">5G<span class="bat"></span></span>
               </div>
-              <div class="chat" aria-label="Chat with the Nimbus Nine front desk">
-              <div class="chead">
-                <span class="avatar" aria-hidden="true"><svg class="brandmk" viewBox="4 6 40 32" aria-hidden="true"><circle cx="34" cy="15" r="6.6" fill="#E8663A"/><path d="M15 35C10 35 6 31.5 6 27C6 22.8 9.3 19.4 13.4 19.1C14.4 14.2 18.8 10.6 24 10.6C30 10.6 35 15 35.8 20.8C39.9 21 43 24.4 43 28.5C43 32.1 40.1 35 36.5 35Z" fill="currentColor"/></svg></span>
-                <div>
-                  <div class="cname">Nimbus Nine <span class="egtag">example</span></div>
-                  <div class="cwho">Front desk</div>
-                </div>
-                <button class="sndtoggle" id="sndtoggle" type="button" aria-pressed="true" aria-label="Voice on, tap to mute" title="Voice on, tap to mute">
-                  <svg id="sndicon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a9 9 0 0 1 0 14"/></svg>
-                  <span id="sndlabel">Voice on</span>
-                </button>
-              </div>
-              <div class="chatthread" id="chatthread" role="log" aria-live="polite"></div>
-              <div class="pillbar" id="pillbar">
-                <button class="pilltoggle" id="pilltoggle" type="button" aria-expanded="true" aria-controls="pills">
-                  <span>Quick questions</span>
-                  <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-                </button>
-                <div class="pillgrid">
-                  <div class="pills" id="pills">
-                    <button class="pill-btn" type="button" data-a="cando">What can you do?</button>
-                    <button class="pill-btn" type="button" data-a="win">Win me customers?</button>
-                    <button class="pill-btn" type="button" data-a="always">Answer 24/7?</button>
-                    <button class="pill-btn" type="button" data-a="nosite">No website?</button>
-                    <button class="pill-btn" type="button" data-a="brand">In my brand?</button>
-                    <button class="pill-btn" type="button" data-a="cost">Pricing?</button>
-                    <button class="pill-btn" type="button" data-a="website">Build my website?</button>
-                    <button class="pill-btn" type="button" data-a="booking">Bookings?</button>
-                    <button class="pill-btn" type="button" data-a="more">What else?</button>
-                    <button class="pill-btn" type="button" data-a="who">Who's it for?</button>
-                    <button class="pill-btn" type="button" data-a="start">How to start?</button>
-                  </div>
-                </div>
-              </div>
-              <form class="askbar" id="askform">
-                <input class="askinput" id="askinput" type="text" placeholder="Ask your own question" autocomplete="off" aria-label="Message the Nimbus Nine front desk">
-                <button class="asksend" id="asksend" type="submit" aria-label="Send message">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-                </button>
-              </form>
+              <div class="carwin"><div class="cartrack" id="cartrack"></div></div>
             </div>
           </div>
-        </div>
-        <div class="leadchip" aria-hidden="true">
-          <span class="lcdot"></span>
-          <div class="lctext"><b>New lead captured</b>Mei · 9123 4567</div>
-        </div>
+          <div class="carnav">
+            <button class="carbtn" id="carprev" type="button" aria-label="Previous example"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <div class="cardots" id="cardots" role="tablist" aria-label="Example front desks"></div>
+            <button class="carbtn" id="carnext" type="button" aria-label="Next example"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+          </div>
+          <div class="leadchip" aria-hidden="true">
+            <span class="lcdot"></span>
+            <div class="lctext"><b>New lead captured</b>Mei · 9123 4567</div>
+          </div>
         </div>
       </div>
       <div class="democap">
-        <span><span class="dcdot" aria-hidden="true"></span>This one's live, tap a question or type your own.</span>
-        <span><span class="dcdot" aria-hidden="true"></span>Shown as ours. Yours wears your name, logo and colours.</span>
+        <span><span class="dcdot" aria-hidden="true"></span>Swipe to see three example front desks, tap a question in any.</span>
+        <span><span class="dcdot" aria-hidden="true"></span>Each is an example. Yours wears your own name, colours and voice.</span>
       </div>
     </div>
   </section>
@@ -329,134 +294,84 @@
   document.querySelectorAll('#navlinks a').forEach(a => a.addEventListener('click', () => hdr.classList.remove('nav-open')));
   addEventListener('keydown', e => { if(e.key === 'Escape' && hdr.classList.contains('nav-open')){ hdr.classList.remove('nav-open'); if(navtoggle){ navtoggle.setAttribute('aria-expanded','false'); navtoggle.focus(); } } });
 
-  // minimize / maximize the quick-question pills to see the whole chat
-  const pilltoggle = document.getElementById('pilltoggle'), pillbar = document.getElementById('pillbar');
-  if(pilltoggle) pilltoggle.addEventListener('click', () => {
-    const collapsed = pillbar.classList.toggle('collapsed');
-    pilltoggle.setAttribute('aria-expanded', String(!collapsed));
-  });
-
-  // interactive front-desk demo: pre-recorded pill replies + Ava voice (no API)
+  // hero front-desk carousel: swipe through three example businesses (pre-recorded)
   (function(){
-    const thread = document.getElementById('chatthread'), pills = document.getElementById('pills');
-    if(!thread || !pills) return;
+    const track = document.getElementById('cartrack'), dotsEl = document.getElementById('cardots');
+    if(!track) return;
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const label = document.getElementById('sndlabel');
-    const toggle = document.getElementById('sndtoggle'), icon = document.getElementById('sndicon');
-    const ICON_ON = '<path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a9 9 0 0 1 0 14"/>';
-    const ICON_OFF = '<path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M23 9l-6 6M17 9l6 6"/>';
+    const NIMBUS_URL = "https://nimbus-brain.propsightsg.workers.dev";
     const audio = new Audio(); audio.preload = 'auto';
     let muted = false;
-    const setSpeaking = on => { if(label && !muted) label.textContent = on ? 'Speaking' : 'Voice on'; };
-    audio.addEventListener('play', () => setSpeaking(true));
-    audio.addEventListener('ended', () => setSpeaking(false));
-    audio.addEventListener('pause', () => setSpeaking(false));
-    if(toggle) toggle.addEventListener('click', () => {
-      muted = !muted;
-      toggle.classList.toggle('muted', muted);
-      toggle.setAttribute('aria-pressed', String(!muted));
-      toggle.setAttribute('aria-label', muted ? 'Voice off, tap to unmute' : 'Voice on, tap to mute');
-      if(icon) icon.innerHTML = muted ? ICON_OFF : ICON_ON;
-      if(label) label.textContent = muted ? 'Voice off' : 'Voice on';
-      if(muted) audio.pause();
+    async function speak(text){ if(muted || !text) return;
+      try { const r = await fetch(NIMBUS_URL, {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text})});
+        if(!r.ok) return; const b = await r.blob(); audio.pause(); audio.src = URL.createObjectURL(b); audio.currentTime = 0; const p = audio.play(); if(p) p.catch(()=>{}); } catch(e){} }
+    function darken(hex,f){ const m=hex.replace('#','').match(/.{2}/g); if(!m) return hex; return '#'+m.map(h=>Math.max(0,Math.min(255,Math.round(parseInt(h,16)*f))).toString(16).padStart(2,'0')).join(''); }
+    const CLOUD = '<svg class="brandmk" viewBox="4 6 40 32" aria-hidden="true"><circle cx="34" cy="15" r="6.6" fill="#E8663A"/><path d="M15 35C10 35 6 31.5 6 27C6 22.8 9.3 19.4 13.4 19.1C14.4 14.2 18.8 10.6 24 10.6C30 10.6 35 15 35.8 20.8C39.9 21 43 24.4 43 28.5C43 32.1 40.1 35 36.5 35Z" fill="currentColor"/></svg>';
+    const VICON = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a9 9 0 0 1 0 14"/></svg>';
+    const SLIDES = [
+      { name:"Nimbus Nine", who:"Front desk", accent:"#e8663a", mark:true,
+        greeting:"Hi, I'm the Nimbus Nine front desk. I answer your customers around the clock, in your brand. Tap a question and I'll answer out loud.",
+        pills:[
+          {q:"What can you do?", a:"Three things: I answer every customer in seconds, day or night. I show them what you offer. And I keep their details as a lead, so it never slips to a competitor."},
+          {q:"Answer 24/7?", a:"Always. 3am, Sunday, public holiday, I never clock off. While you rest, I'm catching enquiries and warming up leads for you."},
+          {q:"In my brand?", a:"Completely. Any name you like, your own logo, tone, prices and hours. Customers feel like they're chatting with you, on your own link and QR."},
+          {q:"Pricing?", a:"The front desk is S$399 a month, set up for you, in your brand. Websites from S$1,299. Custom tools quoted for your trade."},
+          {q:"No website?", a:"Not needed. I work on your own link and QR code, share it in your Instagram bio, WhatsApp or shopfront."}
+        ]},
+      { name:"Amber Nail & Lash", who:"Nails, lashes & brows", accent:"#c2568a", mark:false,
+        greeting:"Hi, welcome to Amber Nail & Lash. Ask about gel, lashes, or booking a slot.",
+        pills:[
+          {q:"How much for gel?", a:"Gel manicure is S$45 and lasts about two to three weeks. Want me to hold a slot for you?"},
+          {q:"Do you do lashes?", a:"Yes, lash lifts and tints. A lift opens up your eyes and lasts six to eight weeks. Shall I check this week for you?"},
+          {q:"Open now?", a:"We're open till 8pm today, and till 9pm on Friday and Saturday. Want to pop by or book ahead?"},
+          {q:"Book a slot", a:"Lovely. What day and time suits you, and may I take your name and number to confirm?"},
+          {q:"Where are you?", a:"We're in Tampines, two minutes from the MRT. I can send you the exact unit if you like."}
+        ]},
+      { name:"Peak Fitness", who:"Classes & personal training", accent:"#2f6fd0", mark:false,
+        greeting:"Hey, welcome to Peak Fitness. Ask about classes, a free trial, or membership.",
+        pills:[
+          {q:"Free trial?", a:"Yes, your first class is on us. Tell me a day that suits and I'll get you booked in, no strings."},
+          {q:"Class times?", a:"We run classes morning and evening, seven days a week. Want me to send today's timetable?"},
+          {q:"Membership?", a:"Memberships start from S$120 a month with no lock-in. Shall I go through the options with you?"},
+          {q:"Beginner ok?", a:"Totally. Most classes have a beginner option and the coaches scale everything. Come try a free session first."},
+          {q:"Where are you?", a:"We're a five-minute walk from Paya Lebar MRT. I can drop you the exact address."}
+        ]}
+    ];
+    function add(thread,cls,text){ const el=document.createElement('div'); el.className='msg '+cls; el.textContent=text; thread.appendChild(el); thread.scrollTop=thread.scrollHeight; return el; }
+    function typing(thread){ const el=document.createElement('div'); el.className='typing'; el.setAttribute('aria-hidden','true'); el.innerHTML='<span></span><span></span><span></span>'; thread.appendChild(el); thread.scrollTop=thread.scrollHeight; return el; }
+    const slides = SLIDES.map(function(s){
+      const el = document.createElement('div'); el.className='slide';
+      el.style.setProperty('--accent', s.accent); el.style.setProperty('--accent-ink', darken(s.accent,.72));
+      const avatar = s.mark ? '<span class="avatar" aria-hidden="true">'+CLOUD+'</span>' : '<span class="avatar av-initial" aria-hidden="true">'+s.name[0]+'</span>';
+      el.innerHTML = '<div class="chat"><div class="chead">'+avatar
+        + '<div><div class="cname">'+s.name+' <span class="egtag">example</span></div><div class="cwho">'+s.who+'</div></div>'
+        + '<button class="sndtoggle vt" type="button" aria-pressed="true" aria-label="Voice on, tap to mute">'+VICON+'<span>Voice on</span></button>'
+        + '</div><div class="chatthread"></div><div class="pillbar"><div class="pills"></div></div></div>';
+      const thread = el.querySelector('.chatthread'), pillsEl = el.querySelector('.pills');
+      el._thread = thread; el._greeting = s.greeting; el._greeted = false; el._busy = false;
+      s.pills.forEach(function(p){ const b=document.createElement('button'); b.className='pill-btn'; b.type='button'; b.textContent=p.q;
+        b.addEventListener('click', function(){ if(el._busy) return; el._busy=true; b.classList.add('asked');
+          add(thread,'out',p.q); const t=typing(thread);
+          setTimeout(function(){ t.remove(); add(thread,'in',p.a); speak(p.a); el._busy=false; }, reduce?250:800); });
+        pillsEl.appendChild(b); });
+      el.querySelector('.vt').addEventListener('click', function(){ muted=!muted;
+        document.querySelectorAll('.vt').forEach(function(v){ v.classList.toggle('muted',muted); v.setAttribute('aria-pressed',String(!muted)); v.querySelector('span').textContent = muted?'Voice off':'Voice on'; });
+        if(muted) audio.pause(); });
+      track.appendChild(el); return el;
     });
-    const NIMBUS_URL = "https://nimbus-brain.propsightsg.workers.dev";
-    function speak(key){
-      if(muted) return;
-      try { audio.pause(); audio.src = 'audio/' + key + '.mp3?v=5'; audio.currentTime = 0;
-        const p = audio.play(); if(p) p.catch(()=>{}); } catch(e){}
-    }
-    async function speakLive(text){   // voice for typed replies (worker Edge TTS, Ava)
-      if(muted || !text) return;
-      try {
-        const r = await fetch(NIMBUS_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ text }) });
-        if(!r.ok) return;
-        const blob = await r.blob();
-        audio.pause(); audio.src = URL.createObjectURL(blob); audio.currentTime = 0;
-        const p = audio.play(); if(p) p.catch(()=>{});
-      } catch(e){}
-    }
-    const answers = {
-      cando: "Three things: I answer every customer in seconds, day or night. I show them what you offer. And I keep their details as a lead, so it never slips to a competitor. You get the enquiries, I do the talking.",
-      win: "Most customers who message after hours just move to the next shop if no one replies. I answer in seconds, every time, and capture their details, so the enquiry stays yours. More replies, more booked, fewer slipping away.",
-      always: "Always. 3am, Sunday, public holiday, I never clock off. While you rest, I'm still catching enquiries and warming up leads for you.",
-      brand: "Completely. Give it any name you like, your own logo, tone, prices and hours. Customers feel like they're chatting with you, not a bot, on your own link and QR code.",
-      cost: "The front desk is S$399 a month, set up for you, in your brand, on one link and QR. Websites start at S$1,299. Custom tools and automations are quoted for your trade.",
-      website: "Yes, when you want one. A full site in your brand with the front desk built in, from S$1,299. But you don't need a website to start, the front desk works on its own link and QR.",
-      nosite: "Not needed. Your front desk works on its own link and QR code, share it in your Instagram bio, WhatsApp, name card or shopfront. It answers enquiries and shows off your services with no website at all. Add one later if you want.",
-      booking: "Yes, as an add-on. Customers pick their own slot, so your calendar fills without the back-and-forth. We scope and quote it around how you run things.",
-      more: "Plenty. Beyond the front desk: websites, booking, and custom tools and automations for whatever your trade keeps doing by hand. All built around your business, and quoted to fit.",
-      who: "Any small business in Singapore with customers who message: salons, clinics, renovation, F&B, tuition, home services and more. If people enquire, this is for you.",
-      start: "Easy. Tell us your business and we set you up, usually within a few days. Tap Get started up top and we take it from there."
-    };
-    const history = [];
-    function add(cls, text){
-      const el = document.createElement('div');
-      el.className = 'msg ' + cls; el.textContent = text;
-      thread.appendChild(el); thread.scrollTop = thread.scrollHeight; return el;
-    }
-    function typing(){
-      const el = document.createElement('div');
-      el.className = 'typing'; el.setAttribute('aria-hidden','true');
-      el.innerHTML = '<span></span><span></span><span></span>';
-      thread.appendChild(el); thread.scrollTop = thread.scrollHeight; return el;
-    }
-    let busy = false;
-    pills.addEventListener('click', function(e){
-      const btn = e.target.closest('.pill-btn'); if(!btn || busy) return;
-      busy = true;
-      const key = btn.dataset.a;
-      add('out', btn.textContent);
-      btn.classList.add('asked');           // pills stay, just dim once asked
-      const t = typing();
-      setTimeout(function(){
-        t.remove();
-        const a = answers[key] || "Good question. Tap Get started and we will help you out.";
-        add('in', a);
-        history.push({ role:'user', content: btn.textContent }, { role:'assistant', content: a });
-        speak(key);
-        busy = false;
-      }, reduce ? 300 : 850);
-    });
-
-    // typed questions -> live worker (Claude Haiku) + Ava voice
-    const askform = document.getElementById('askform'), askinput = document.getElementById('askinput'), asksend = document.getElementById('asksend');
-    if(askform) askform.addEventListener('submit', async function(e){
-      e.preventDefault();
-      const text = askinput.value.trim();
-      if(!text || busy) return;
-      busy = true; if(asksend) asksend.disabled = true;
-      add('out', text); askinput.value = '';
-      history.push({ role:'user', content: text });
-      let msgs = history.slice(-12);
-      if(msgs.length && msgs[0].role !== 'user') msgs = msgs.slice(1);   // Anthropic must start on a user turn
-      const t = typing();
-      const ctrl = new AbortController();
-      const to = setTimeout(() => ctrl.abort(), 8000);
-      try {
-        const r = await fetch(NIMBUS_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ messages: msgs }), signal: ctrl.signal });
-        const data = await r.json();
-        t.remove();
-        const reply = (data && data.reply) || "I'm having trouble right now. Tap Get started and we'll sort you out.";
-        add('in', reply);
-        history.push({ role:'assistant', content: reply });
-        speakLive(reply);
-      } catch(err){
-        t.remove();
-        add('in', "I couldn't reach my brain just then. Tap Get started and we'll help you out.");
-      } finally {
-        clearTimeout(to);
-      }
-      busy = false; if(asksend) asksend.disabled = false; askinput.focus();
-    });
-
-    // the greeting types in like a real message when the demo appears
-    const GREETING = "Hi, I'm the Nimbus Nine front desk. I answer your customers around the clock, in your brand, and catch every enquiry. Tap a question below and I'll answer out loud, or ask your own.";
-    let greeted = false;
-    function greet(){ if(greeted) return; greeted = true;
-      if(reduce){ add('in', GREETING); return; }
-      const t = typing(); setTimeout(() => { t.remove(); add('in', GREETING); }, 1100); }
-    if(reduce){ greet(); } else { setTimeout(greet, 700); ['scroll','pointermove','keydown','touchstart'].forEach(ev => addEventListener(ev, greet, {once:true, passive:true})); }
+    function greetSlide(i){ const el=slides[i]; if(!el||el._greeted) return; el._greeted=true;
+      if(reduce){ add(el._thread,'in',el._greeting); return; }
+      const t=typing(el._thread); setTimeout(function(){ t.remove(); add(el._thread,'in',el._greeting); }, 1000); }
+    let idx=0;
+    const dots = SLIDES.map(function(s,i){ const d=document.createElement('button'); d.type='button'; d.className='cardot'+(i===0?' on':''); d.setAttribute('aria-label','Show '+s.name); d.addEventListener('click',function(){ go(i); }); dotsEl.appendChild(d); return d; });
+    function go(i){ idx=((i%SLIDES.length)+SLIDES.length)%SLIDES.length; track.style.transform='translateX(-'+(idx*100)+'%)'; dots.forEach(function(d,j){ d.classList.toggle('on',j===idx); }); greetSlide(idx); }
+    document.getElementById('carprev').addEventListener('click',function(){ go(idx-1); });
+    document.getElementById('carnext').addEventListener('click',function(){ go(idx+1); });
+    const win = track.parentElement; let sx=0,dxx=0,drag=false;
+    win.addEventListener('touchstart',function(e){ sx=e.touches[0].clientX; dxx=0; drag=true; },{passive:true});
+    win.addEventListener('touchmove',function(e){ if(drag) dxx=e.touches[0].clientX-sx; },{passive:true});
+    win.addEventListener('touchend',function(){ if(drag && Math.abs(dxx)>40) go(dxx<0?idx+1:idx-1); drag=false; },{passive:true});
+    if(reduce){ greetSlide(0); } else { setTimeout(function(){ greetSlide(0); },700); ['scroll','pointermove','keydown','touchstart'].forEach(function(ev){ addEventListener(ev,function(){ greetSlide(0); },{once:true,passive:true}); }); }
   })();
 </script>
 </body>
