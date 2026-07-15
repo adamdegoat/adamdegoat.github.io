@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-15T09:00:00.274860+08:00",
+  "updated": "2026-07-15T13:00:00.367218+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -50,44 +50,14 @@
       "priority": true
     },
     {
+      "title": "Cris Cyborg announces next chapter after MMA retirement: starting a family",
+      "link": "https://www.sherdog.com/news/news/Cris-Cyborg-announces-next-chapter-after-MMA-retirement-starting-a-family-201904",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
       "title": "Real American Freestyle expands with MMA crossover championship division",
       "link": "https://www.sherdog.com/news/news/Real-American-Freestyle-expands-with-MMA-crossover-championship-division-201892",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "Paulo Costa criticizes UFC after declining Magomed Ankalaev replacement fight",
-      "link": "https://www.sherdog.com/news/news/Paulo-Costa-criticizes-UFC-after-declining-Magomed-Ankalaev-replacement-fight-201887",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "Dustin Poirier would end retirement for Conor McGregor bout IV at 170",
-      "link": "https://www.sherdog.com/news/news/Dustin-Poirier-would-end-retirement-for-Conor-McGregor-bout-IV-at-170-201886",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "Cory Sandhagen details brutal hamstring injury suffered in UFC 329 loss",
-      "link": "https://www.sherdog.com/news/news/Cory-Sandhagen-details-brutal-hamstring-injury-suffered-in-UFC-329-loss-201884",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "Bogdan Guskov replaces injured Khalil Rountree in UFC Abu Dhabi main event",
-      "link": "https://www.sherdog.com/news/news/Bogdan-Guskov-replaces-injured-Khalil-Rountree-in-UFC-Abu-Dhabi-main-event-201881",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "Charles Oliveira floods UFC 329 comments seeking Justin Gaethje title fight",
-      "link": "https://www.sherdog.com/news/news/Charles-Oliveira-floods-UFC-329-comments-seeking-Justin-Gaethje-title-fight-201864",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "Conor McGregor denies injury before UFC 329 after knee injury ends return",
-      "link": "https://www.sherdog.com/news/news/Conor-McGregor-denies-injury-before-UFC-329-after-knee-injury-ends-return-201865",
       "source": "Sherdog",
       "priority": true
     },
@@ -120,11 +90,41 @@
       "link": "https://www.bjpenn.com/mma-news/conor-mcgregor/khabib-nurmagomedovs-coach-shares-surprising-take-on-conor-mcgregors-injury-at-ufc-329/?utm_source=rss&utm_medium=rss&utm_campaign=khabib-nurmagomedovs-coach-shares-surprising-take-on-conor-mcgregors-injury-at-ufc-329",
       "source": "BJPenn",
       "priority": true
+    },
+    {
+      "title": "Conor McGregor threw injury-causing kick in disastrous UFC 329 return because ‘he was nervous,’ Matt Brown believes",
+      "link": "https://www.bjpenn.com/mma-news/ufc/conor-mcgregor-threw-injury-causing-kick-in-disastrous-ufc-329-return-because-he-was-nervous-matt-brown-believes/?utm_source=rss&utm_medium=rss&utm_campaign=conor-mcgregor-threw-injury-causing-kick-in-disastrous-ufc-329-return-because-he-was-nervous-matt-brown-believes",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
+      "title": "Dustin Poirier has no sympathy for Conor McGregor after UFC 329 injury",
+      "link": "https://www.bjpenn.com/mma-news/dustin-poirier/dustin-poirier-has-no-sympathy-for-conor-mcgregor-after-ufc-329-injury/?utm_source=rss&utm_medium=rss&utm_campaign=dustin-poirier-has-no-sympathy-for-conor-mcgregor-after-ufc-329-injury",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
+      "title": "Cory Sandhagen shows off gruesome UFC 329 injury in first post-fight statement",
+      "link": "https://www.bjpenn.com/mma-news/cory-sandhagen/cory-sandhagen-gruesome-ufc-329-injury/?utm_source=rss&utm_medium=rss&utm_campaign=cory-sandhagen-gruesome-ufc-329-injury",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
+      "title": "UFC Oklahoma City: Undefeated newcomers finalize Dricus du Plessis vs. Kamaru Usman fight card",
+      "link": "https://www.mmafighting.com/latest-news/499476/ufc-oklahoma-city-undefeated-newcomers-finalize-dricus-du-plessis-vs-kamaru-usman-fight-card",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Michel Pereira removed from UFC roster after loss to Shara Bullet in Baku",
+      "link": "https://www.mmafighting.com/ufc/499434/michel-pereira-removed-from-ufc-roster-after-loss-to-shara-bullet-in-baku",
+      "source": "MMA Fighting",
+      "priority": false
     }
   ],
   "hooks": {
-    "week": "Plessis and Usman headline Sunday—fight week chaos begins in just days.",
-    "prefight": "Plessis vs Usman: title on the line this Sunday morning, 8 AM SGT.",
-    "results": "Conor McGregor defeated Max Holloway via first-round TKO at UFC 194 to capture the interim featherweight title."
+    "week": "Plessis and Usman square off Sunday—two warriors, one crown.",
+    "prefight": "Middleweight gold on the line: Plessis vs Usman, Sunday 8am SGT—elite title fight incoming.",
+    "results": "I don't have reliable information about a McGregor vs Holloway UFC event in my training data. Could you provide more context about when this event took place or is scheduled?"
   }
 }
