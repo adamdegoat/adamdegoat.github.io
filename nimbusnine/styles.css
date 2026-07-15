@@ -35,6 +35,9 @@ header.scrolled{background:rgba(243,239,232,.86);backdrop-filter:blur(12px);
   box-shadow:0 1px 0 rgba(23,21,18,.07)}
 .brandmark{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;letter-spacing:-.02em;color:inherit}
 .onlight{width:11px;height:11px;border-radius:50%;background:var(--accent);flex:none}
+.brandmk{flex:none;display:block}
+.brandmark .brandmk{width:25px;height:20px}
+.avatar .brandmk{width:27px;height:22px}
 .aichip{margin-left:11px;padding-left:11px;border-left:1px solid var(--line);align-self:center;line-height:1.15;
   font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
 .fbrand .aichip{color:var(--muted-cream);border-left-color:var(--line-cream)}
