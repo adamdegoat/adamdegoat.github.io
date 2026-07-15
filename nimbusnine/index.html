@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=19">
+<link rel="stylesheet" href="styles.css?v=20">
 </head>
 <body>
 
@@ -62,10 +62,10 @@
                   <div class="cname">Nimbus Nine</div>
                   <div class="cwho">Front desk</div>
                 </div>
-                <button class="sndtoggle" id="sndtoggle" type="button" aria-label="Voice on" aria-pressed="true">
-                  <svg id="sndicon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a9 9 0 0 1 0 14"/></svg>
+                <button class="sndtoggle" id="sndtoggle" type="button" aria-pressed="true" aria-label="Voice on, tap to mute" title="Voice on, tap to mute">
+                  <svg id="sndicon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a9 9 0 0 1 0 14"/></svg>
+                  <span id="sndlabel">Voice on</span>
                 </button>
-                <span class="cstat"><span class="livedot" aria-hidden="true"></span><span id="cstatus">Online</span></span>
               </div>
               <div class="chatthread" id="chatthread">
                 <div class="msg in">Hi, I'm the Nimbus Nine front desk. Picture me answering your customers around the clock, advertising your services, and catching every enquiry before it goes to someone else. Ask me anything.</div>
@@ -278,22 +278,23 @@
     const thread = document.getElementById('chatthread'), pills = document.getElementById('pills');
     if(!thread || !pills) return;
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const statusEl = document.getElementById('cstatus');
+    const label = document.getElementById('sndlabel');
     const toggle = document.getElementById('sndtoggle'), icon = document.getElementById('sndicon');
     const ICON_ON = '<path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a9 9 0 0 1 0 14"/>';
     const ICON_OFF = '<path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M23 9l-6 6M17 9l6 6"/>';
     const audio = new Audio(); audio.preload = 'auto';
     let muted = false;
-    const setStatus = s => { if(statusEl) statusEl.textContent = s; };
-    audio.addEventListener('play', () => setStatus('Speaking'));
-    audio.addEventListener('ended', () => setStatus('Online'));
-    audio.addEventListener('pause', () => setStatus('Online'));
+    const setSpeaking = on => { if(label && !muted) label.textContent = on ? 'Speaking' : 'Voice on'; };
+    audio.addEventListener('play', () => setSpeaking(true));
+    audio.addEventListener('ended', () => setSpeaking(false));
+    audio.addEventListener('pause', () => setSpeaking(false));
     if(toggle) toggle.addEventListener('click', () => {
       muted = !muted;
       toggle.classList.toggle('muted', muted);
       toggle.setAttribute('aria-pressed', String(!muted));
-      toggle.setAttribute('aria-label', muted ? 'Voice off' : 'Voice on');
+      toggle.setAttribute('aria-label', muted ? 'Voice off, tap to unmute' : 'Voice on, tap to mute');
       if(icon) icon.innerHTML = muted ? ICON_OFF : ICON_ON;
+      if(label) label.textContent = muted ? 'Voice off' : 'Voice on';
       if(muted) audio.pause();
     });
     const NIMBUS_URL = "https://nimbus-brain.propsightsg.workers.dev";
