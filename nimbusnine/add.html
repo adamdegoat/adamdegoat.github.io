@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Owner console · Nimbus Nine</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23171512'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23E8663A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+<style>
+  :root{--bg:#f3efe8;--surface:#ece3d4;--card:#fbf8f1;--ink:#171512;--muted:#635b4f;--accent:#e8663a;--accent-ink:#b24714;--line:rgba(23,21,18,.13);--font:"Bricolage Grotesque",system-ui,sans-serif;--mono:"Spline Sans Mono",monospace}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.5;padding:36px clamp(16px,4vw,40px) 80px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:640px;margin:0 auto}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:19px;letter-spacing:-.02em}
+  .brand svg{width:26px;height:21px}
+  .brand span{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border-left:1px solid var(--line);padding-left:11px}
+  h1{font-size:26px;font-weight:800;letter-spacing:-.025em;margin-top:26px}
+  .sub{color:var(--muted);font-size:15px;margin-top:6px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;margin-top:22px}
+  label{display:block;font-size:13px;font-weight:600;margin:14px 0 6px}
+  label:first-child{margin-top:0}
+  .hint{font-weight:400;color:var(--muted);font-size:12px}
+  input,select,textarea{width:100%;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:11px 13px;font-family:var(--font);font-size:15px;color:var(--ink);outline:none}
+  input:focus,select:focus,textarea:focus{border-color:var(--accent-ink)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--accent-ink);color:#fff;border:none;border-radius:100px;padding:13px 24px;font-family:var(--font);font-weight:600;font-size:15.5px;cursor:pointer;margin-top:18px}
+  .btn:disabled{opacity:.5}
+  .btn.sec{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:480px){.row2{grid-template-columns:1fr}}
+  .lbl{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  .result{background:#eef6ee;border:1px solid #cfe3cf;border-radius:14px;padding:18px;margin-top:18px}
+  .result h3{font-size:17px;font-weight:700}
+  .linkbox{display:flex;gap:8px;margin-top:10px;align-items:center}
+  .linkbox input{font-family:var(--mono);font-size:12.5px}
+  .copy{flex:none;border:1px solid var(--line);background:var(--card);border-radius:9px;padding:10px 12px;font-size:12px;cursor:pointer;font-family:var(--mono)}
+  #qr{margin-top:14px;display:inline-block;background:#fff;padding:10px;border-radius:10px;border:1px solid var(--line)}
+  .clients{margin-top:14px}
+  .crow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid var(--line);font-size:14px}
+  .crow a{color:var(--accent-ink);font-family:var(--mono);font-size:12px}
+  .crow .who{font-weight:600}
+  .crow .tr{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase}
+  .err{color:#b3261e;font-size:13px;margin-top:10px}
+  .reg{font-size:12px;color:var(--accent-ink);margin-top:6px;display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><svg viewBox="4 6 40 32" aria-hidden="true"><circle cx="34" cy="15" r="6.6" fill="#E8663A"/><path d="M15 35C10 35 6 31.5 6 27C6 22.8 9.3 19.4 13.4 19.1C14.4 14.2 18.8 10.6 24 10.6C30 10.6 35 15 35.8 20.8C39.9 21 43 24.4 43 28.5C43 32.1 40.1 35 36.5 35Z" fill="#171512"/></svg>Nimbus Nine<span>Owner console</span></div>
+
+  <div id="gate" class="card">
+    <label>Owner password<input id="okey" type="password" placeholder="Your console password" autocomplete="current-password"></label>
+    <button class="btn" id="unlock">Unlock</button>
+    <div class="err" id="gateerr"></div>
+  </div>
+
+  <div id="app" hidden>
+    <h1>Add a client</h1>
+    <p class="sub">Pick their trade and it loads a starter front desk. You or the client fill in the real prices after.</p>
+    <div class="card">
+      <div class="row2">
+        <div><label>Business name<input id="bname" placeholder="e.g. Bella Nails"></label></div>
+        <div><label>Trade<select id="trade"></select></label></div>
+      </div>
+      <div class="reg" id="reg"></div>
+      <div class="row2">
+        <div><label>Front-desk name <span class="hint">what it calls itself</span><input id="fname" placeholder="defaults to business name"></label></div>
+        <div><label>Link name <span class="hint">in the web address</span><input id="slug" placeholder="auto"></label></div>
+      </div>
+      <label>Leads Telegram ID <span class="hint">optional now; get it from @Nimbusninebot, can add later</span><input id="chat" placeholder="e.g. 420583513"></label>
+      <button class="btn" id="create">Create front desk</button>
+      <div class="err" id="err"></div>
+      <div class="result" id="result" hidden>
+        <h3>Done. Here's their front desk.</h3>
+        <div class="lbl" style="margin-top:12px">Customer link (put in their bio / QR)</div>
+        <div class="linkbox"><input id="rlink" readonly><button class="copy" data-t="rlink">Copy</button></div>
+        <div class="lbl" style="margin-top:12px">Admin link (send to the client to fill it in)</div>
+        <div class="linkbox"><input id="radmin" readonly><button class="copy" data-t="radmin">Copy</button></div>
+        <div id="qr"></div>
+      </div>
+    </div>
+
+    <h1 style="font-size:20px">Your clients</h1>
+    <div class="card"><div class="clients" id="clients">Loading…</div></div>
+  </div>
+</div>
+
+<script>
+  const WORKER = "https://nimbus-desk.propsightsg.workers.dev";
+  const BASE = "https://adamdegoat.github.io/nimbusnine";
+  const TRADES = [["beauty","Beauty & grooming"],["home","Home & renovation"],["tuition","Tuition & enrichment"],["fitness","Fitness & movement"],["fnb","Food & beverage"],["pet","Pet services"],["events","Events & creative"],["property","Property / real estate agent"],["insurance","Insurance & financial adviser"],["professional","Professional services"]];
+  const REG = {property:"Regulated (CEA): informs and books only, never advises.", insurance:"Regulated (MAS): informs and books only, no product advice."};
+  const $ = id => document.getElementById(id);
+  let KEY = localStorage.getItem("n9_owner") || "";
+
+  const tsel = $("trade"); TRADES.forEach(t => { const o=document.createElement("option"); o.value=t[0]; o.textContent=t[1]; tsel.appendChild(o); });
+  tsel.addEventListener("change", ()=>{ const r=REG[tsel.value]; $("reg").textContent=r||""; $("reg").style.display=r?"block":"none"; });
+  $("bname").addEventListener("input", ()=>{ if(!$("slug").dataset.touched) $("slug").value = slugify($("bname").value); });
+  $("slug").addEventListener("input", ()=>$("slug").dataset.touched="1");
+  function slugify(s){ return String(s||"").toLowerCase().trim().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,40); }
+
+  async function api(path, body){ const r = await fetch(WORKER+path,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)}); return {status:r.status, data: await r.json().catch(()=>({}))}; }
+
+  async function unlock(){
+    KEY = $("okey").value.trim(); if(!KEY) return;
+    const {status} = await api("/admin/list",{key:KEY});
+    if(status===401){ $("gateerr").textContent="Wrong password."; return; }
+    localStorage.setItem("n9_owner", KEY); $("gate").hidden=true; $("app").hidden=false; loadClients();
+  }
+  $("unlock").addEventListener("click", unlock);
+  $("okey").addEventListener("keydown", e=>{ if(e.key==="Enter") unlock(); });
+
+  async function loadClients(){
+    const {data} = await api("/admin/list",{key:KEY});
+    const el=$("clients"); el.innerHTML="";
+    if(!data.clients || !data.clients.length){ el.textContent="No clients yet."; return; }
+    data.clients.forEach(c=>{ const d=document.createElement("div"); d.className="crow";
+      d.innerHTML=`<div><div class="who">${c.business_name}</div><div class="tr">${c.trade||""}${c.status!=="active"?" · "+c.status:""}</div></div><a href="${BASE}/f.html?c=${c.slug}" target="_blank">open front desk ↗</a>`;
+      el.appendChild(d); });
+  }
+
+  $("create").addEventListener("click", async ()=>{
+    $("err").textContent=""; const business_name=$("bname").value.trim(), trade=tsel.value, slug=$("slug").value.trim()||slugify(business_name), frontdesk_name=$("fname").value.trim(), lead_chat_id=$("chat").value.trim();
+    if(!business_name){ $("err").textContent="Enter a business name."; return; }
+    $("create").disabled=true;
+    const {status,data} = await api("/admin/create",{key:KEY,business_name,trade,slug,frontdesk_name,lead_chat_id});
+    $("create").disabled=false;
+    if(status!==200||!data.ok){ $("err").textContent = data.error==="slug_taken"?"That link name is taken, change it.":"Couldn't create ("+(data.error||status)+")."; return; }
+    $("rlink").value=data.link; $("radmin").value=data.admin; $("result").hidden=false;
+    $("qr").innerHTML=""; try{ new QRCode($("qr"),{text:data.link,width:150,height:150,colorDark:"#171512",colorLight:"#ffffff"}); }catch(e){ $("qr").innerHTML='<img alt="QR" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+encodeURIComponent(data.link)+'">'; }
+    $("bname").value="";$("fname").value="";$("slug").value="";$("slug").dataset.touched="";$("chat").value="";
+    loadClients();
+  });
+  document.querySelectorAll(".copy").forEach(b=>b.addEventListener("click",()=>{ const i=$(b.dataset.t); i.select(); document.execCommand("copy"); b.textContent="Copied"; setTimeout(()=>b.textContent="Copy",1200); }));
+
+  if(KEY){ (async()=>{ const {status}=await api("/admin/list",{key:KEY}); if(status===200){ $("gate").hidden=true; $("app").hidden=false; loadClients(); } })(); }
+</script>
+</body>
+</html>

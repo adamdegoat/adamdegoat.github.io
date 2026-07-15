@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Front desk admin · Nimbus Nine</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23171512'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23E8663A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+<style>
+  :root{--bg:#f3efe8;--surface:#ece3d4;--card:#fbf8f1;--ink:#171512;--muted:#635b4f;--accent:#e8663a;--accent-ink:#b24714;--line:rgba(23,21,18,.13);--font:"Bricolage Grotesque",system-ui,sans-serif;--mono:"Spline Sans Mono",monospace}
+  *{margin:0;padding:0;box-sizing:border-box}
+  [hidden]{display:none!important}
+  body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.5;padding:32px clamp(16px,4vw,40px) 120px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:660px;margin:0 auto}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:18px;letter-spacing:-.02em}
+  .brand svg{width:24px;height:20px}
+  .brand span{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border-left:1px solid var(--line);padding-left:11px}
+  h1{font-size:24px;font-weight:800;letter-spacing:-.025em;margin-top:20px}
+  .sub{color:var(--muted);font-size:14.5px;margin-top:4px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin-top:20px}
+  .sec-t{font-size:16px;font-weight:700;letter-spacing:-.01em;margin:24px 0 4px}
+  .sec-h{color:var(--muted);font-size:13px;margin-bottom:10px}
+  label{display:block;font-size:13px;font-weight:600;margin:14px 0 6px}
+  .hint{font-weight:400;color:var(--muted);font-size:12px}
+  input,select,textarea{width:100%;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:11px 13px;font-family:var(--font);font-size:15px;color:var(--ink);outline:none}
+  textarea{min-height:96px;resize:vertical;line-height:1.5}
+  input:focus,select:focus,textarea:focus{border-color:var(--accent-ink)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--accent-ink);color:#fff;border:none;border-radius:100px;padding:13px 26px;font-family:var(--font);font-weight:600;font-size:15.5px;cursor:pointer}
+  .btn.sec{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .btn:disabled{opacity:.5}
+  .addrow{display:grid;grid-template-columns:1fr 1fr 120px 34px;gap:8px;margin-top:8px;align-items:start}
+  .addrow.faq{grid-template-columns:1fr 34px}
+  .addrow textarea{min-height:0;height:44px}
+  .del{border:1px solid var(--line);background:var(--card);border-radius:9px;cursor:pointer;color:var(--muted);font-size:18px;height:44px}
+  .addbtn{margin-top:10px;border:1px dashed var(--line);background:none;border-radius:10px;padding:10px;width:100%;cursor:pointer;color:var(--accent-ink);font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+  .faqcard{border:1px solid var(--line);border-radius:11px;padding:10px;margin-top:8px}
+  .faqcard input{margin-bottom:6px}
+  .faqcard .qa{display:flex;gap:8px;align-items:center}
+  .bar{position:fixed;left:0;right:0;bottom:0;background:rgba(243,239,232,.92);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:12px clamp(16px,4vw,40px);display:flex;gap:12px;align-items:center;justify-content:flex-end}
+  .bar .status{margin-right:auto;font-family:var(--mono);font-size:12px;color:var(--muted)}
+  .center{min-height:60vh;display:flex;align-items:center;justify-content:center;color:var(--muted);font-family:var(--mono);text-align:center;padding:20px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:520px){.row2{grid-template-columns:1fr}.addrow{grid-template-columns:1fr 1fr;}.addrow .del{grid-column:1/-1;width:100%}}
+  #qr{margin-top:12px;display:inline-block;background:#fff;padding:8px;border-radius:9px;border:1px solid var(--line)}
+  .reg{font-size:12.5px;color:var(--accent-ink);background:rgba(232,102,58,.08);border:1px solid rgba(178,71,20,.25);border-radius:10px;padding:10px 12px;margin-top:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><svg viewBox="4 6 40 32" aria-hidden="true"><circle cx="34" cy="15" r="6.6" fill="#E8663A"/><path d="M15 35C10 35 6 31.5 6 27C6 22.8 9.3 19.4 13.4 19.1C14.4 14.2 18.8 10.6 24 10.6C30 10.6 35 15 35.8 20.8C39.9 21 43 24.4 43 28.5C43 32.1 40.1 35 36.5 35Z" fill="#171512"/></svg>Nimbus Nine<span>Front desk admin</span></div>
+  <div id="loading" class="center">Loading your front desk…</div>
+  <div id="app" hidden>
+    <h1 id="title">Your front desk</h1>
+    <p class="sub">Fill in your real details, then Save. Your front desk updates straight away.</p>
+    <div class="reg" id="reg" hidden></div>
+
+    <div class="card">
+      <div class="sec-t">The basics</div>
+      <div class="row2">
+        <div><label>Front-desk name <span class="hint">what it calls itself</span><input id="fname"></label></div>
+        <div><label>Tone<select id="tone"><option value="warm">Warm</option><option value="professional">Professional</option><option value="straight-talking">Straight-talking</option></select></label></div>
+      </div>
+      <label>Greeting <span class="hint">first thing customers see</span><input id="greeting"></label>
+
+      <div class="sec-t">About your business</div>
+      <div class="sec-h">Tell your front desk anything: your story, what makes you different, area, parking, policies. The more you write, the smarter it answers. Paste your bio or menu here too.</div>
+      <textarea id="about" placeholder="e.g. We're a family-run salon in Tampines, open since 2015. We only use cruelty-free products. Parking is free after 6pm..."></textarea>
+
+      <div class="sec-t">Services &amp; prices</div>
+      <div class="sec-h">Add each service, a short description, and the price (or "from S$X", "Quoted", "Free").</div>
+      <div id="services"></div>
+      <button class="addbtn" id="addsvc" type="button">+ Add a service</button>
+
+      <div class="sec-t">Opening hours</div>
+      <input id="hours" placeholder="e.g. Mon to Fri 10:00 to 19:00, Sat 10:00 to 18:00, Sun closed">
+
+      <div class="sec-t">Common questions</div>
+      <div class="sec-h">Questions customers often ask, and exactly how you want them answered.</div>
+      <div id="faqs"></div>
+      <button class="addbtn" id="addfaq" type="button">+ Add a question</button>
+
+      <div class="sec-t">Quick-question buttons</div>
+      <div class="sec-h">The tappable questions shown on your front desk, one per line.</div>
+      <textarea id="chips" style="min-height:120px"></textarea>
+
+      <div class="sec-t">Where your leads go</div>
+      <div class="sec-h">Message <b>@Nimbusninebot</b> on Telegram, then paste the ID it shows (or ask us). Leads also appear in your dashboard.</div>
+      <input id="chat" placeholder="Telegram ID, e.g. 420583513">
+
+      <div class="sec-t">Your link &amp; QR</div>
+      <div class="sec-h" id="linktxt"></div>
+      <div id="qr"></div>
+    </div>
+  </div>
+</div>
+
+<div class="bar" id="bar" hidden>
+  <span class="status" id="status"></span>
+  <a class="btn sec" id="preview" target="_blank">Preview</a>
+  <button class="btn" id="save">Save &amp; publish</button>
+</div>
+
+<script>
+  const WORKER = "https://nimbus-desk.propsightsg.workers.dev";
+  const BASE = "https://adamdegoat.github.io/nimbusnine";
+  const REG = {property:"This is a regulated trade (CEA). Your front desk shares info and takes enquiries only, it never gives valuations or advice.", insurance:"This is a regulated trade (MAS). Your front desk shares info and books chats only, it never recommends products or gives advice."};
+  const $ = id => document.getElementById(id);
+  const P = new URLSearchParams(location.search); const slug=P.get("c")||"", key=P.get("k")||"";
+
+  function svcRow(s={}){ const d=document.createElement("div"); d.className="addrow";
+    d.innerHTML=`<input placeholder="Service name" value="${esc(s.name||"")}"><input placeholder="Short description" value="${esc(s.desc||"")}"><input placeholder="Price" value="${esc(s.price||"")}"><button class="del" type="button">×</button>`;
+    d.querySelector(".del").onclick=()=>d.remove(); return d; }
+  function faqRow(f={}){ const d=document.createElement("div"); d.className="faqcard";
+    d.innerHTML=`<div class="qa"><input placeholder="Question, e.g. Do I need to book?" value="${esc(f.q||"")}"><button class="del" type="button">×</button></div><input placeholder="Your answer" value="${esc(f.a||"")}">`;
+    d.querySelector(".del").onclick=()=>d.remove(); return d; }
+  function esc(s){ return String(s||"").replace(/"/g,"&quot;").replace(/</g,"&lt;"); }
+  $("addsvc").onclick=()=>$("services").appendChild(svcRow());
+  $("addfaq").onclick=()=>$("faqs").appendChild(faqRow());
+
+  async function api(path, body){ const r=await fetch(WORKER+path,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)}); return {status:r.status,data:await r.json().catch(()=>({}))}; }
+
+  (async function(){
+    if(!slug||!key){ $("loading").textContent="This admin link is incomplete."; return; }
+    const {status,data}=await api("/admin/get",{c:slug,k:key});
+    if(status!==200||!data.ok){ $("loading").textContent = status===401?"This admin link is wrong or expired.":"Couldn't load. Try again."; return; }
+    const cfg=data.config||{};
+    $("title").textContent=data.business_name+" — front desk";
+    $("fname").value=data.frontdesk_name||cfg.frontdesk_name||"";
+    $("tone").value=cfg.tone||"warm";
+    $("greeting").value=cfg.greeting||"";
+    $("about").value=cfg.about||"";
+    $("hours").value=typeof cfg.hours==="string"?cfg.hours:"";
+    $("chat").value=data.lead_chat_id||"";
+    (cfg.services||[]).forEach(s=>$("services").appendChild(svcRow(s))); if(!(cfg.services||[]).length)$("services").appendChild(svcRow());
+    (cfg.faq||[]).forEach(f=>$("faqs").appendChild(faqRow(f))); if(!(cfg.faq||[]).length)$("faqs").appendChild(faqRow());
+    $("chips").value=(cfg.chips||[]).join("\n");
+    if(REG[data.trade]){ $("reg").textContent=REG[data.trade]; $("reg").hidden=false; }
+    const link=BASE+"/f.html?c="+slug; $("linktxt").innerHTML='Share this: <b>'+link+'</b>'; $("preview").href=link;
+    try{ new QRCode($("qr"),{text:link,width:140,height:140,colorDark:"#171512",colorLight:"#ffffff"}); }catch(e){ $("qr").innerHTML='<img alt="QR" src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data='+encodeURIComponent(link)+'">'; }
+    $("loading").hidden=true; $("app").hidden=false; $("bar").hidden=false;
+  })();
+
+  $("save").onclick=async ()=>{
+    const services=[...$("services").querySelectorAll(".addrow")].map(r=>{const i=r.querySelectorAll("input");return {name:i[0].value.trim(),desc:i[1].value.trim(),price:i[2].value.trim()};}).filter(s=>s.name);
+    const faq=[...$("faqs").querySelectorAll(".faqcard")].map(r=>{const i=r.querySelectorAll("input");return {q:i[0].value.trim(),a:i[1].value.trim()};}).filter(f=>f.q&&f.a);
+    const chips=$("chips").value.split("\n").map(s=>s.trim()).filter(Boolean).slice(0,8);
+    const config={tone:$("tone").value,greeting:$("greeting").value.trim(),about:$("about").value.trim(),services,hours:$("hours").value.trim(),faq,chips,contact:""};
+    $("save").disabled=true; $("status").textContent="Saving…";
+    const {status,data}=await api("/admin/save",{c:slug,k:key,config,frontdesk_name:$("fname").value.trim(),lead_chat_id:$("chat").value.trim()});
+    $("save").disabled=false;
+    $("status").textContent = (status===200&&data.ok)?"Saved. Your front desk is live.":"Save failed, try again.";
+    setTimeout(()=>$("status").textContent="",4000);
+  };
+</script>
+</body>
+</html>
