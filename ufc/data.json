@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-15T13:00:00.367218+08:00",
+  "updated": "2026-07-15T21:00:00.274642+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -50,14 +50,14 @@
       "priority": true
     },
     {
-      "title": "Cris Cyborg announces next chapter after MMA retirement: starting a family",
-      "link": "https://www.sherdog.com/news/news/Cris-Cyborg-announces-next-chapter-after-MMA-retirement-starting-a-family-201904",
+      "title": "Michel Pereira released from UFC following loss to ‘Shara Bullet’",
+      "link": "https://www.sherdog.com/news/news/Michel-Pereira-released-from-UFC-following-loss-to-Shara-Bullet-201908",
       "source": "Sherdog",
       "priority": true
     },
     {
-      "title": "Real American Freestyle expands with MMA crossover championship division",
-      "link": "https://www.sherdog.com/news/news/Real-American-Freestyle-expands-with-MMA-crossover-championship-division-201892",
+      "title": "Cris Cyborg announces next chapter after MMA retirement: starting a family",
+      "link": "https://www.sherdog.com/news/news/Cris-Cyborg-announces-next-chapter-after-MMA-retirement-starting-a-family-201904",
       "source": "Sherdog",
       "priority": true
     },
@@ -104,10 +104,10 @@
       "priority": true
     },
     {
-      "title": "Cory Sandhagen shows off gruesome UFC 329 injury in first post-fight statement",
-      "link": "https://www.bjpenn.com/mma-news/cory-sandhagen/cory-sandhagen-gruesome-ufc-329-injury/?utm_source=rss&utm_medium=rss&utm_campaign=cory-sandhagen-gruesome-ufc-329-injury",
-      "source": "BJPenn",
-      "priority": true
+      "title": "Morning Report | Anthony Joshua says Ilia Topuria losing to Justin Gaethje made him rethink his own career: ‘The fight game is serious’",
+      "link": "https://www.mmafighting.com/boxing/499395/morning-report-anthony-joshua-says-ilia-topuria-losing-to-justin-gaethje-made-him-rethink-his-own-career-the-fight-game-is-serious",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "UFC Oklahoma City: Undefeated newcomers finalize Dricus du Plessis vs. Kamaru Usman fight card",
@@ -123,8 +123,8 @@
     }
   ],
   "hooks": {
-    "week": "Plessis and Usman square off Sunday—two warriors, one crown.",
-    "prefight": "Middleweight gold on the line: Plessis vs Usman, Sunday 8am SGT—elite title fight incoming.",
-    "results": "I don't have reliable information about a McGregor vs Holloway UFC event in my training data. Could you provide more context about when this event took place or is scheduled?"
+    "week": "Championship collision incoming: Plessis vs Usman this Sunday at 8 AM SGT—fight week begins.",
+    "prefight": "Title glory on the line: Plessis faces Usman Sunday 8am SGT.",
+    "results": "The dust has settled on another fight night."
   }
 }
