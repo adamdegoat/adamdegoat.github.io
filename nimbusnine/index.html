@@ -68,9 +68,7 @@
                 </button>
               </div>
               <div class="chatthread" id="chatthread" role="log" aria-live="polite">
-                <div class="msg in">Hi, I'm the Nimbus Nine front desk. I answer your customers around the clock, show off your services, and catch every enquiry before it goes to someone else. Ask me anything.</div>
-                <div class="msg out">What can you do for me?</div>
-                <div class="msg in">Three things: I answer every customer in seconds, day or night. I show them what you offer. And I keep their details as a lead, so it never slips to a competitor. You get the enquiries, I do the talking.</div>
+                <div class="msg in">Hi, I'm the Nimbus Nine front desk. I answer your customers around the clock, show off your services, and catch every enquiry before it goes to someone else. Tap a question below, or ask your own.</div>
               </div>
               <div class="pillbar" id="pillbar">
                 <button class="pilltoggle" id="pilltoggle" type="button" aria-expanded="true" aria-controls="pills">
@@ -79,7 +77,7 @@
                 </button>
                 <div class="pillgrid">
                   <div class="pills" id="pills">
-                    <button class="pill-btn asked" type="button" data-a="cando">What can you do?</button>
+                    <button class="pill-btn" type="button" data-a="cando">What can you do?</button>
                     <button class="pill-btn" type="button" data-a="win">Win me customers?</button>
                     <button class="pill-btn" type="button" data-a="always">Answer 24/7?</button>
                     <button class="pill-btn" type="button" data-a="nosite">No website?</button>
@@ -360,10 +358,7 @@
       who: "Any small business in Singapore with customers who message: salons, clinics, renovation, F&B, tuition, home services and more. If people enquire, this is for you.",
       start: "Easy. Tell us your business and we set you up, usually within a few days. Tap Get started up top and we take it from there."
     };
-    const history = [
-      { role:'user', content:'What can you do for me?' },
-      { role:'assistant', content: answers.cando }
-    ];
+    const history = [];
     function add(cls, text){
       const el = document.createElement('div');
       el.className = 'msg ' + cls; el.textContent = text;
