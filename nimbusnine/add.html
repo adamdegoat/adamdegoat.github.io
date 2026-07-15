@@ -40,6 +40,9 @@
   .clients{margin-top:14px}
   .crow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid var(--line);font-size:14px}
   .crow a{color:var(--accent-ink);font-family:var(--mono);font-size:12px}
+  .acts{display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+  .acts a,.lnkbtn{color:var(--accent-ink);font-family:var(--mono);font-size:12px;background:none;border:none;cursor:pointer;text-decoration:none;padding:0}
+  .lnkbtn.rm{color:#b3261e}
   .crow .who{font-weight:600}
   .crow .tr{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase}
   .err{color:#b3261e;font-size:13px;margin-top:10px}
@@ -131,9 +134,16 @@
     const el=$("clients"); el.innerHTML="";
     if(!data.clients || !data.clients.length){ el.textContent="No clients yet."; return; }
     data.clients.forEach(c=>{ const d=document.createElement("div"); d.className="crow";
-      d.innerHTML=`<div><div class="who">${c.business_name}</div><div class="tr">${c.trade||""}${c.status!=="active"?" · "+c.status:""}</div></div><a href="${BASE}/f.html?c=${c.slug}" target="_blank">open front desk ↗</a>`;
+      const paused=c.status!=="active";
+      d.innerHTML=`<div><div class="who">${eh(c.business_name)}${paused?' <span style="color:var(--muted);font-weight:400">(paused)</span>':''}</div><div class="tr">${eh(c.trade||"")}</div></div>`+
+        `<div class="acts"><a href="${BASE}/admin.html?c=${c.slug}&k=${c.admin_token}" target="_blank">settings</a><a href="${BASE}/f.html?c=${c.slug}" target="_blank">front desk</a><button class="lnkbtn" data-act="pause" data-slug="${c.slug}" data-status="${paused?'active':'paused'}">${paused?'resume':'pause'}</button><button class="lnkbtn rm" data-act="del" data-slug="${c.slug}" data-name="${eh(c.business_name)}">remove</button></div>`;
       el.appendChild(d); });
   }
+  $("clients").addEventListener("click", async e=>{
+    const b=e.target.closest("button[data-act]"); if(!b) return;
+    if(b.dataset.act==="del"){ if(!confirm("Remove "+b.dataset.name+"? This deletes their front desk and leads for good.")) return; await api("/admin/delete",{key:KEY,slug:b.dataset.slug}); refresh(); }
+    if(b.dataset.act==="pause"){ await api("/admin/pause",{key:KEY,slug:b.dataset.slug,status:b.dataset.status}); refresh(); }
+  });
 
   $("create").addEventListener("click", async ()=>{
     $("err").textContent=""; const business_name=$("bname").value.trim(), trade=tsel.value, slug=$("slug").value.trim()||slugify(business_name), frontdesk_name=$("fname").value.trim(), lead_chat_id=$("chat").value.trim();
