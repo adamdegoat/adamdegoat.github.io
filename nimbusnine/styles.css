@@ -120,12 +120,15 @@ footer{background:var(--dark);color:var(--light);padding:clamp(64px,10vh,104px) 
 /* 7. Home-page components ----------------------------------- */
 /* hero */
 .hero{background:var(--bg);color:var(--ink);padding:132px 0 clamp(56px,8vh,88px);position:relative}
-.heroGrid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(36px,5vw,64px);align-items:center}
-@media(max-width:920px){.heroGrid{grid-template-columns:1fr;gap:40px}}
-.htitle{font-weight:800;letter-spacing:-.03em;line-height:1;font-size:clamp(40px,5.6vw,74px);
+.heroTop{max-width:860px;margin:0 auto;text-align:center}
+.heroTop .htitle{max-width:none}
+.heroTop .hsub{margin-left:auto;margin-right:auto}
+.heroTop .hcta{justify-content:center}
+.heroStage{position:relative;margin-top:clamp(40px,6vh,72px);display:flex;justify-content:center}
+.htitle{font-weight:800;letter-spacing:-.03em;line-height:1;font-size:clamp(40px,5.6vw,72px);
   text-wrap:balance;max-width:15ch}
 .htitle b{color:var(--accent-ink)}
-.hsub{margin-top:24px;max-width:44ch;font-size:clamp(17px,1.5vw,20px);font-weight:450;
+.hsub{margin-top:22px;max-width:52ch;font-size:clamp(17px,1.5vw,20px);font-weight:450;
   color:var(--muted);line-height:1.55;text-wrap:pretty}
 .herotag{display:inline-flex;align-items:center;gap:8px;margin-bottom:22px;
   font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.01em;color:var(--accent-ink);
@@ -137,11 +140,10 @@ footer{background:var(--dark);color:var(--light);padding:clamp(64px,10vh,104px) 
 .livedot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
 
 /* phone device mockup (homepage front-desk demo, our own front desk) */
-.demo{width:100%;max-width:398px;justify-self:end;display:flex;flex-direction:column;align-items:center;gap:16px;position:relative;isolation:isolate}
+.demo{width:100%;max-width:418px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:16px;position:relative;isolation:isolate}
 /* warm light behind the phone: the front desk as the glowing nimbus */
-.demo::before{content:"";position:absolute;z-index:-1;inset:-13% -17% -2% -13%;pointer-events:none;
-  background:radial-gradient(56% 46% at 57% 20%,rgba(232,102,58,.27),rgba(232,102,58,0) 70%)}
-@media(max-width:920px){.demo{justify-self:center;margin:0 auto}}
+.demo::before{content:"";position:absolute;z-index:-1;inset:-16% -60% -4% -60%;pointer-events:none;
+  background:radial-gradient(46% 42% at 50% 26%,rgba(232,102,58,.24),rgba(232,102,58,0) 70%)}
 .devbody{width:100%;background:#141210;border-radius:46px;padding:12px;
   box-shadow:0 46px 92px -34px rgba(23,21,18,.6),inset 0 0 0 1.5px rgba(255,255,255,.06)}
 .devscreen{background:var(--card);border-radius:35px;overflow:hidden;display:flex;flex-direction:column;height:min(700px,78vh)}
@@ -449,28 +451,27 @@ footer{background:var(--dark);color:var(--light);padding:clamp(64px,10vh,104px) 
 .pfposts span{aspect-ratio:1;border-radius:8px;background:linear-gradient(150deg,var(--surface),#e6dcca)}
 .pfposts span:nth-child(3n-1){background:linear-gradient(150deg,rgba(232,102,58,.24),rgba(232,102,58,.07))}
 .pfposts span:nth-child(3n){background:linear-gradient(150deg,#efe7d8,var(--surface))}
-/* a reply card breaking out of the phone frame */
-.breakout{position:absolute;left:-20px;bottom:104px;z-index:6;width:min(238px,66%);
-  display:flex;gap:11px;align-items:flex-start;background:var(--ink);color:var(--light);
-  border-radius:16px;border-bottom-left-radius:5px;padding:13px 15px;
-  box-shadow:0 26px 52px -22px rgba(23,21,18,.62);
-  opacity:0;transform:translateY(14px) scale(.95);transition:opacity .5s ease,transform .55s cubic-bezier(.16,1,.3,1)}
-.demo.opened .breakout{opacity:1;transform:none;transition-delay:.4s}
+/* floating product moments that break out either side of the centred phone */
+.heroStage .breakout,.heroStage .leadchip{position:absolute;z-index:6;width:238px;
+  display:flex;gap:11px;align-items:flex-start;border-radius:16px;padding:13px 15px;
+  box-shadow:0 26px 52px -22px rgba(23,21,18,.5)}
+.heroStage .breakout{right:calc(50% + 214px);top:120px;text-align:left;
+  background:var(--ink);color:var(--light);border-bottom-left-radius:5px}
+.heroStage .leadchip{left:calc(50% + 196px);top:338px;align-items:center;
+  background:var(--card);color:var(--ink);border:1px solid var(--line)}
+@media(max-width:1200px){.heroStage .breakout,.heroStage .leadchip{display:none}}
 .boav{width:28px;height:28px;border-radius:9px;background:var(--accent);color:var(--ink);flex:none;display:flex;align-items:center;justify-content:center}
 .boav .brandmk{width:17px;height:14px}
 .botext{font-size:12.5px;line-height:1.42}
 .botext b{display:block;font-family:var(--mono);font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);margin-bottom:3px}
-@media(max-width:1080px){.breakout{left:-10px;bottom:84px;width:min(220px,72%)}}
-@media(max-width:520px){.breakout{display:none}}
-/* subtle rest-tilt on the phone that straightens when you engage it */
-@media(min-width:921px) and (prefers-reduced-motion:no-preference){
-  .demo .devbody{transform:perspective(1700px) rotateY(-7deg) rotateX(1.5deg);transform-origin:60% 50%;
-    transition:transform .7s cubic-bezier(.16,1,.3,1)}
-  .demo:hover .devbody,.demo:focus-within .devbody{transform:none}
-}
+.lcdot{width:10px;height:10px;border-radius:50%;background:#2f9e5f;flex:none;margin-top:4px;box-shadow:0 0 0 4px rgba(47,158,95,.15)}
+.lctext{font-size:12.5px;line-height:1.4}
+.lctext b{display:block;font-family:var(--mono);font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--accent-ink);margin-bottom:3px}
 @media (prefers-reduced-motion:no-preference){
-  .demo:not(.opened) .pflink{animation:pulse 2.2s ease-in-out infinite}
+  .heroStage .breakout,.heroStage .leadchip{opacity:0;transform:translateY(16px) scale(.96);animation:rise .8s cubic-bezier(.16,1,.3,1) forwards}
+  .heroStage .breakout{animation-delay:.5s}.heroStage .leadchip{animation-delay:.72s}
 }
+@media(max-width:1080px){.heroStage .breakout,.heroStage .leadchip{display:none}}
 /* scroll-reveal: content is visible by default; entering the viewport plays a rise-in.
    If JS or the observer never fires, sections simply show, never blank. */
 @media (prefers-reduced-motion:no-preference){
