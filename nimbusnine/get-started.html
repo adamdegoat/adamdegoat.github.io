@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=40">
+<link rel="stylesheet" href="styles.css?v=43">
 <style>
   /* ===== Get started page ===== */
   .gslede{padding:120px 0 clamp(24px,4vh,44px)}
@@ -235,6 +235,8 @@
         <div class="faqitem"><h3>Do I need a website first?</h3><p>No. Your front desk works on its own link and QR from day one. Add a website whenever you're ready, and we build the front desk right into it.</p></div>
         <div class="faqitem"><h3>Can I change things later?</h3><p>Anytime. You get a simple page to update your services, prices, hours and answers yourself, and we're a message away if you'd rather we do it.</p></div>
         <div class="faqitem"><h3>Is it really me it sounds like?</h3><p>Yes. It uses your business name, your tone, your prices and hours, and a voice you choose. Customers feel like they're talking to you, not a bot.</p></div>
+        <div class="faqitem"><h3>What if it says something wrong?</h3><p>It only answers from what you give it, your real prices, services and hours. If it doesn't know something, it never guesses, it takes the customer's details and passes them to you.</p></div>
+        <div class="faqitem"><h3>Where do my enquiries go?</h3><p>Straight to your WhatsApp the moment someone leaves their details, and they're saved for you too. Nothing is sold or shared.</p></div>
       </div>
     </div>
   </section>
@@ -302,6 +304,18 @@
   if(navtoggle) navtoggle.addEventListener('click', () => { const open = hdr.classList.toggle('nav-open'); navtoggle.setAttribute('aria-expanded', String(open)); });
   document.querySelectorAll('#navlinks a').forEach(a => a.addEventListener('click', () => hdr.classList.remove('nav-open')));
   addEventListener('keydown', e => { if(e.key === 'Escape' && hdr.classList.contains('nav-open')){ hdr.classList.remove('nav-open'); if(navtoggle){ navtoggle.setAttribute('aria-expanded','false'); navtoggle.focus(); } } });
+  // scroll-reveal: sections rise in as they enter view; visible by default, never gated
+  (function(){
+    document.documentElement.classList.add('js');
+    const REDUCE = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const secs = [...document.querySelectorAll('main > section')];
+    secs.forEach(s => s.classList.add('reveal'));
+    const reveal = s => s.classList.add('in');
+    if(REDUCE || !('IntersectionObserver' in window)){ secs.forEach(reveal); return; }
+    secs.forEach(s => { if(s.getBoundingClientRect().top < innerHeight * 0.9) reveal(s); });
+    const io = new IntersectionObserver(es => es.forEach(en => { if(en.isIntersecting){ reveal(en.target); io.unobserve(en.target); } }), {threshold:.12, rootMargin:'0px 0px -6% 0px'});
+    secs.forEach(s => { if(!s.classList.contains('in')) io.observe(s); });
+  })();
 </script>
 </body>
 </html>

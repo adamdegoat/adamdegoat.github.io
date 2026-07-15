@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=40">
+<link rel="stylesheet" href="styles.css?v=43">
 </head>
 <body>
 
@@ -144,6 +144,18 @@
   if(navtoggle) navtoggle.addEventListener('click', () => { const open = hdr.classList.toggle('nav-open'); navtoggle.setAttribute('aria-expanded', String(open)); });
   document.querySelectorAll('#navlinks a').forEach(a => a.addEventListener('click', () => hdr.classList.remove('nav-open')));
   addEventListener('keydown', e => { if(e.key === 'Escape' && hdr.classList.contains('nav-open')){ hdr.classList.remove('nav-open'); if(navtoggle){ navtoggle.setAttribute('aria-expanded','false'); navtoggle.focus(); } } });
+  // scroll-reveal: sections rise in as they enter view; visible by default, never gated
+  (function(){
+    document.documentElement.classList.add('js');
+    const REDUCE = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const secs = [...document.querySelectorAll('main > section')];
+    secs.forEach(s => s.classList.add('reveal'));
+    const reveal = s => s.classList.add('in');
+    if(REDUCE || !('IntersectionObserver' in window)){ secs.forEach(reveal); return; }
+    secs.forEach(s => { if(s.getBoundingClientRect().top < innerHeight * 0.9) reveal(s); });
+    const io = new IntersectionObserver(es => es.forEach(en => { if(en.isIntersecting){ reveal(en.target); io.unobserve(en.target); } }), {threshold:.12, rootMargin:'0px 0px -6% 0px'});
+    secs.forEach(s => { if(!s.classList.contains('in')) io.observe(s); });
+  })();
 </script>
 </body>
 </html>

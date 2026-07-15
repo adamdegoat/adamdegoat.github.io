@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Spline+Sans+Mono:wght@400;500&family=Hedvig+Letters+Serif&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=40">
+<link rel="stylesheet" href="styles.css?v=43">
 </head>
 <body>
 
@@ -145,6 +145,7 @@
             <li>Any name you want, fully in your brand, on one link and QR</li>
             <li>Works on its own, no website needed</li>
           </ul>
+          <p style="font-size:14.5px;font-weight:600;margin-top:20px">One recovered booking usually covers the month.</p>
           <div class="flagfoot">
             <div class="flagprice">S$399 <span>/ month</span></div>
             <a class="btn" href="#start">Get started
@@ -207,6 +208,20 @@
         </div>
       </div>
       <p style="margin-top:26px"><a class="hlink" href="about.html">More about Nimbus Nine</a></p>
+    </div>
+  </section>
+
+  <section class="sec" id="faq">
+    <div class="wrap">
+      <h2 class="shead">Questions, <em>answered.</em></h2>
+      <div class="faqx">
+        <div class="q"><h3>Is there a contract?</h3><p>No lock-in, cancel anytime. One flat price of S$399 a month, with no per-message fees and no setup surprises.</p></div>
+        <div class="q"><h3>Is it worth S$399 a month?</h3><p>One recovered booking usually covers the month. It works around the clock, so the enquiries you would otherwise miss after hours become customers.</p></div>
+        <div class="q"><h3>What if it says something wrong?</h3><p>It only answers from what you give it, your real prices, services and hours. If it does not know something, it never guesses, it takes the customer's details and passes them to you.</p></div>
+        <div class="q"><h3>Is it really me it sounds like?</h3><p>Yes. Your business name, your tone, your prices and hours, and a voice you choose. Customers feel like they are talking to you, not a bot.</p></div>
+        <div class="q"><h3>Do I need a website?</h3><p>No. It works on its own link and QR from day one. Add a website whenever you are ready, and we build the front desk right into it.</p></div>
+        <div class="q"><h3>Where do my enquiries go?</h3><p>Straight to your WhatsApp the moment someone leaves their details, and they are saved for you too. Nothing is sold or shared.</p></div>
+      </div>
     </div>
   </section>
 
@@ -303,6 +318,13 @@
     const NIMBUS_URL = "https://nimbus-brain.propsightsg.workers.dev";
     const audio = new Audio(); audio.preload = 'auto';
     let muted = false;
+    // iOS/Safari: media playback needs a user gesture. Prime the element on the
+    // first tap so voice (which plays after an async fetch, outside the gesture) works.
+    let audioUnlocked=false;
+    function unlockAudio(){ if(audioUnlocked) return; audioUnlocked=true;
+      try{ audio.src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAgD4AAIA+AAABAAgAZGF0YQAAAAA="; const p=audio.play();
+        if(p) p.then(()=>{audio.pause();audio.currentTime=0;}).catch(()=>{}); }catch(e){} }
+    ['pointerdown','touchend','click'].forEach(ev=>document.addEventListener(ev,unlockAudio,{once:true,passive:true}));
     async function speak(text){ if(muted || !text) return;
       try { const r = await fetch(NIMBUS_URL, {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text})});
         if(!r.ok) return; const b = await r.blob(); audio.pause(); audio.src = URL.createObjectURL(b); audio.currentTime = 0; const p = audio.play(); if(p) p.catch(()=>{}); } catch(e){} }

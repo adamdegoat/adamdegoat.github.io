@@ -169,6 +169,13 @@
   const history = [];
   let muted = false, busy = false, cfg = null;
   const audio = new Audio(); audio.preload = "auto";
+  // iOS/Safari: media playback needs a user gesture. Prime the element on the
+  // first tap so voice (which plays after an async fetch, outside the gesture) works.
+  let audioUnlocked=false;
+  function unlockAudio(){ if(audioUnlocked) return; audioUnlocked=true;
+    try{ audio.src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAgD4AAIA+AAABAAgAZGF0YQAAAAA="; const p=audio.play();
+      if(p) p.then(()=>{audio.pause();audio.currentTime=0;}).catch(()=>{}); }catch(e){} }
+  ['pointerdown','touchend','click'].forEach(ev=>document.addEventListener(ev,unlockAudio,{once:true,passive:true}));
 
   const FONTS = {
     clean: "family=Plus+Jakarta+Sans:wght@400;500;600;700",
