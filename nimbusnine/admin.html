@@ -93,6 +93,7 @@
   .lead .meta{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:1px}
   .lead .intent{color:var(--muted);font-size:13px;margin-top:4px}
   .lead.done{opacity:.5}
+  .lead .undel{display:inline-block;margin-top:6px;font-size:11.5px;font-weight:600;color:#8a3a1a;background:#f6e3d8;border-radius:6px;padding:2px 8px}
   .lead .mk{margin-top:7px;font-family:var(--mono);font-size:11px;color:var(--accent-ink);background:none;border:none;cursor:pointer;padding:0;text-transform:uppercase;letter-spacing:.04em}
   .reg{font-size:12.5px;color:var(--accent-ink);background:rgba(232,102,58,.08);border:1px solid rgba(178,71,20,.25);border-radius:10px;padding:10px 12px;margin-top:12px}
   .center{min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);font-family:var(--mono);padding:24px;flex-direction:column;gap:14px}
@@ -289,7 +290,8 @@
     if(!data.leads||!data.leads.length){el.textContent="No leads yet. They'll show here the moment a customer leaves their details.";return;}
     data.leads.forEach(l=>{const d=document.createElement("div");d.className="lead"+(l.status==="done"?" done":"");
       const contact=eh(l.contact||""); const clink=/@/.test(contact)?'mailto:'+contact:(/^\+?\d[\d\s-]+$/.test(contact)?'tel:'+contact.replace(/\s/g,""):null);
-      d.innerHTML=`<div class="who">${eh(l.name||"Someone")} · ${clink?'<a href="'+clink+'">'+contact+'</a>':contact}</div><div class="meta">${ftime(l.created_at)}</div>${l.intent?'<div class="intent">'+eh(l.intent)+'</div>':''}<button class="mk" data-id="${l.id}" data-st="${l.status==="done"?"new":"done"}">${l.status==="done"?"mark as new":"mark handled"}</button>`;
+      const undel=(l.delivered===0||l.delivered==="0")?'<div class="undel">Saved here, but not sent to your Telegram. Check your Telegram is connected below.</div>':'';
+      d.innerHTML=`<div class="who">${eh(l.name||"Someone")} · ${clink?'<a href="'+clink+'">'+contact+'</a>':contact}</div><div class="meta">${ftime(l.created_at)}</div>${l.intent?'<div class="intent">'+eh(l.intent)+'</div>':''}${undel}<button class="mk" data-id="${l.id}" data-st="${l.status==="done"?"new":"done"}">${l.status==="done"?"mark as new":"mark handled"}</button>`;
       el.appendChild(d);});
   }
   $("leads").addEventListener("click",async e=>{const b=e.target.closest(".mk");if(!b)return;await api("/admin/lead-status",{c:slug,k:key,id:Number(b.dataset.id),status:b.dataset.st});loadLeads();});
