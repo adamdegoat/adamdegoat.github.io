@@ -47,7 +47,7 @@
     <div class="wrap">
       <div class="heroTop">
         <h1 class="htitle rise">Be the first to reply. <b>Every time.</b></h1>
-        <p class="hsub rise">Most customers go with whoever answers first, and most messages land when you're busy or closed. Your front desk replies in seconds, day and night, and takes their details so they book with you instead of drifting off. We set it up for you, live in a few days, on your own link and QR.</p>
+        <p class="hsub rise">Most customers go with whoever answers first, and most messages land when you're busy or closed. Your front desk answers in seconds, takes their booking, and captures their details, day and night, so they stay with you instead of drifting off. We set it up for you, live in a few days, on your own link and QR.</p>
         <div class="hcta rise">
           <a class="btn" href="#start">Get started
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -369,7 +369,7 @@
           {q:"Pricing?", a:"The front desk is S$399 a month, set up for you, in your brand. Smart websites with the front desk built in, from S$1,299. Custom tools quoted for your trade."},
           {q:"No website?", a:"Not needed. I work on your own link and QR code, share it in your Instagram bio, WhatsApp or shopfront."},
           {q:"How do I start?", a:"Easy. Tell us about your business and we set you up, usually live within a few days. No apps and no tech skills needed."},
-          {q:"Take bookings?", a:"Yes. Customers tap a button, pick a free time, and it is booked, no double-bookings and no back-and-forth. Every booking lands on your phone."},
+          {q:"Take bookings?", book:true, a:"Yes, customers pick a free time right here, no back-and-forth."},
           {q:"Who is it for?", a:"Any small business in Singapore whose customers message: salons, tuition, F&B, home services, fitness and more."}
         ]},
       { name:"Amber Nail & Lash", who:"Nails, lashes & brows", accent:"#b8532a", mark:false, st:"warm",
@@ -378,7 +378,7 @@
           {q:"How much for gel?", a:"Gel manicure is S$45 and lasts about two to three weeks. Leave your name and number and Amber will fit you in."},
           {q:"Do you do lashes?", a:"Yes, lash lifts and tints. A lift opens up your eyes and lasts six to eight weeks. Shall I check this week for you?"},
           {q:"Open now?", a:"We're open till 8pm today, and till 9pm on Friday and Saturday. Want to pop by or book ahead?"},
-          {q:"Book a slot", a:"Lovely. What day and time suits you, and may I take your name and number to confirm?"},
+          {q:"Book a slot", book:true, a:"Lovely, pick a time that suits you."},
           {q:"Where are you?", a:"We're in Tampines, two minutes from the MRT. I can send you the exact unit if you like."},
           {q:"Do you do brows?", a:"Yes, brow shaping and tint from S$28, threading or wax, shaped to suit you. Shall I pop you in?"},
           {q:"How long does gel last?", a:"Usually two to three weeks with care, and we do gentle removal so your natural nail stays healthy."},
@@ -399,6 +399,26 @@
     ];
     function add(thread,cls,text){ const el=document.createElement('div'); el.className='msg '+cls; el.textContent=text; thread.appendChild(el); thread.scrollTop=thread.scrollHeight; return el; }
     function typing(thread){ const el=document.createElement('div'); el.className='typing'; el.setAttribute('aria-hidden','true'); el.innerHTML='<span></span><span></span><span></span>'; thread.appendChild(el); thread.scrollTop=thread.scrollHeight; return el; }
+    function addBookingWidget(thread){
+      var w=document.createElement('div');
+      w.style.cssText='align-self:flex-start;max-width:94%;background:#fff;border:1px solid rgba(23,21,18,.1);border-radius:14px;padding:12px;box-shadow:0 8px 22px -12px rgba(0,0,0,.28)';
+      w.innerHTML='<div style="font-weight:700;font-size:12px;color:#171512;margin-bottom:9px">Book an appointment</div>'+
+        '<div style="display:flex;gap:6px;margin-bottom:9px">'+
+          '<span style="flex:1;text-align:center;padding:7px 4px;border-radius:8px;background:var(--accent);color:#fff;font-weight:600;font-size:11.5px">Sat 19</span>'+
+          '<span style="flex:1;text-align:center;padding:7px 4px;border-radius:8px;background:rgba(23,21,18,.06);color:#171512;font-weight:600;font-size:11.5px">Sun 20</span>'+
+        '</div><div class="bwg" style="display:grid;grid-template-columns:1fr 1fr;gap:6px"></div>';
+      var grid=w.querySelector('.bwg');
+      [['10:00',0],['11:30',0],['2:00',1],['3:30',0]].forEach(function(pr){
+        var tm=pr[0], gone=pr[1];
+        var b=document.createElement('button'); b.type='button'; b.textContent=tm;
+        b.style.cssText='padding:8px;border-radius:8px;border:1.5px solid '+(gone?'rgba(23,21,18,.12)':'var(--accent)')+';background:none;font-family:inherit;font-weight:600;font-size:12px;color:'+(gone?'rgba(23,21,18,.32)':'var(--accent-ink)')+';cursor:'+(gone?'default':'pointer')+(gone?';text-decoration:line-through':'');
+        if(!gone) b.addEventListener('click',function(){
+          w.innerHTML='<div style="display:flex;align-items:center;gap:8px;font-weight:600;font-size:12.5px;color:#171512"><span style="flex:none;width:22px;height:22px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Booked in for Sat 19 at '+tm+'</div>';
+          thread.scrollTop=thread.scrollHeight; });
+        grid.appendChild(b);
+      });
+      thread.appendChild(w); thread.scrollTop=thread.scrollHeight; return w;
+    }
     const slides = SLIDES.map(function(s){
       const el = document.createElement('div'); el.className='slide'; el.setAttribute('data-st', s.st||'clean');
       el.style.setProperty('--accent', s.accent); el.style.setProperty('--accent-ink', darken(s.accent,.72));
@@ -413,7 +433,7 @@
       s.pills.forEach(function(p){ const b=document.createElement('button'); b.className='pill-btn'; b.type='button'; b.textContent=p.q;
         b.addEventListener('click', function(){ if(el._busy) return; el._busy=true; b.classList.add('asked');
           add(thread,'out',p.q); const t=typing(thread);
-          setTimeout(function(){ t.remove(); add(thread,'in',p.a); speak(p.a); el._busy=false; }, reduce?250:800); });
+          setTimeout(function(){ t.remove(); add(thread,'in',p.a); speak(p.a); if(p.book) addBookingWidget(thread); el._busy=false; }, reduce?250:800); });
         pillsEl.appendChild(b); });
       el.querySelector('.vt').addEventListener('click', function(){ muted=!muted;
         document.querySelectorAll('.vt').forEach(function(v){ v.classList.toggle('muted',muted); v.setAttribute('aria-pressed',String(!muted)); v.querySelector('span').textContent = muted?'Voice off':'Voice on'; });
