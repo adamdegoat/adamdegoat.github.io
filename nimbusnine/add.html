@@ -82,6 +82,9 @@
       </div>
     </div>
 
+    <h1 style="font-size:20px">Recent leads</h1>
+    <div class="card"><div class="clients" id="leads">Loading…</div></div>
+
     <h1 style="font-size:20px">Your clients</h1>
     <div class="card"><div class="clients" id="clients">Loading…</div></div>
   </div>
@@ -107,11 +110,22 @@
     KEY = $("okey").value.trim(); if(!KEY) return;
     const {status} = await api("/admin/list",{key:KEY});
     if(status===401){ $("gateerr").textContent="Wrong password."; return; }
-    localStorage.setItem("n9_owner", KEY); $("gate").hidden=true; $("app").hidden=false; loadClients();
+    localStorage.setItem("n9_owner", KEY); $("gate").hidden=true; $("app").hidden=false; refresh();
   }
   $("unlock").addEventListener("click", unlock);
   $("okey").addEventListener("keydown", e=>{ if(e.key==="Enter") unlock(); });
 
+  function eh(s){ return String(s||"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c])); }
+  function ftime(s){ try{ return new Date(String(s).replace(" ","T")+"Z").toLocaleString("en-SG",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"}); }catch(e){ return s; } }
+  function refresh(){ loadClients(); loadLeads(); }
+  async function loadLeads(){
+    const {data} = await api("/admin/leads",{key:KEY});
+    const el=$("leads"); el.innerHTML="";
+    if(!data.leads || !data.leads.length){ el.textContent="No leads yet."; return; }
+    data.leads.forEach(l=>{ const d=document.createElement("div"); d.className="crow";
+      d.innerHTML=`<div><div class="who">${eh(l.name||"Someone")} · ${eh(l.contact||"")}</div><div class="tr">${eh(l.business_name||"")} · ${ftime(l.created_at)}</div>${l.intent?'<div style="font-size:13px;color:var(--muted);margin-top:3px;max-width:44ch">'+eh(l.intent)+'</div>':''}</div>`;
+      el.appendChild(d); });
+  }
   async function loadClients(){
     const {data} = await api("/admin/list",{key:KEY});
     const el=$("clients"); el.innerHTML="";
@@ -131,11 +145,11 @@
     $("rlink").value=data.link; $("radmin").value=data.admin; $("result").hidden=false;
     $("qr").innerHTML=""; try{ new QRCode($("qr"),{text:data.link,width:150,height:150,colorDark:"#171512",colorLight:"#ffffff"}); }catch(e){ $("qr").innerHTML='<img alt="QR" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+encodeURIComponent(data.link)+'">'; }
     $("bname").value="";$("fname").value="";$("slug").value="";$("slug").dataset.touched="";$("chat").value="";
-    loadClients();
+    refresh();
   });
   document.querySelectorAll(".copy").forEach(b=>b.addEventListener("click",()=>{ const i=$(b.dataset.t); i.select(); document.execCommand("copy"); b.textContent="Copied"; setTimeout(()=>b.textContent="Copy",1200); }));
 
-  if(KEY){ (async()=>{ const {status}=await api("/admin/list",{key:KEY}); if(status===200){ $("gate").hidden=true; $("app").hidden=false; loadClients(); } })(); }
+  if(KEY){ (async()=>{ const {status}=await api("/admin/list",{key:KEY}); if(status===200){ $("gate").hidden=true; $("app").hidden=false; refresh(); } })(); }
 </script>
 </body>
 </html>

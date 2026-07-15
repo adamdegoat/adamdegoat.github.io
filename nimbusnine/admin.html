@@ -46,6 +46,10 @@
   @media(max-width:520px){.row2{grid-template-columns:1fr}.addrow{grid-template-columns:1fr 1fr;}.addrow .del{grid-column:1/-1;width:100%}}
   #qr{margin-top:12px;display:inline-block;background:#fff;padding:8px;border-radius:9px;border:1px solid var(--line)}
   .reg{font-size:12.5px;color:var(--accent-ink);background:rgba(232,102,58,.08);border:1px solid rgba(178,71,20,.25);border-radius:10px;padding:10px 12px;margin-top:12px}
+  .lead{padding:11px 0;border-top:1px solid var(--line);font-size:14px}
+  .lead:first-child{border-top:none}
+  .lead .top{font-weight:600}
+  .lead .meta{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:1px}
 </style>
 </head>
 <body>
@@ -94,6 +98,12 @@
       <div class="sec-h" id="linktxt"></div>
       <div id="qr"></div>
     </div>
+
+    <div class="card">
+      <div class="sec-t" style="margin-top:0">Your leads</div>
+      <div class="sec-h">Enquiries that left their name or number. They also go to your Telegram.</div>
+      <div id="leads">Loading…</div>
+    </div>
   </div>
 </div>
 
@@ -141,7 +151,18 @@
     const link=BASE+"/f.html?c="+slug; $("linktxt").innerHTML='Share this: <b>'+link+'</b>'; $("preview").href=link;
     try{ new QRCode($("qr"),{text:link,width:140,height:140,colorDark:"#171512",colorLight:"#ffffff"}); }catch(e){ $("qr").innerHTML='<img alt="QR" src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data='+encodeURIComponent(link)+'">'; }
     $("loading").hidden=true; $("app").hidden=false; $("bar").hidden=false;
+    loadLeads();
   })();
+  function eh(s){ return String(s||"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c])); }
+  function ftime(s){ try{ return new Date(String(s).replace(" ","T")+"Z").toLocaleString("en-SG",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"}); }catch(e){ return s; } }
+  async function loadLeads(){
+    const {data}=await api("/admin/leads",{c:slug,k:key});
+    const el=$("leads"); el.innerHTML="";
+    if(!data.leads||!data.leads.length){ el.textContent="No leads yet. They'll show here the moment a customer leaves their details."; return; }
+    data.leads.forEach(l=>{ const d=document.createElement("div"); d.className="lead";
+      d.innerHTML=`<div class="top">${eh(l.name||"Someone")} · ${eh(l.contact||"")}</div><div class="meta">${ftime(l.created_at)}</div>${l.intent?'<div style="color:var(--muted);margin-top:3px">'+eh(l.intent)+'</div>':''}`;
+      el.appendChild(d); });
+  }
 
   $("save").onclick=async ()=>{
     const services=[...$("services").querySelectorAll(".addrow")].map(r=>{const i=r.querySelectorAll("input");return {name:i[0].value.trim(),desc:i[1].value.trim(),price:i[2].value.trim()};}).filter(s=>s.name);
