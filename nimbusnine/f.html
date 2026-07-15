@@ -122,6 +122,16 @@
     --input-bg:#ecebe5;
     --voice-bg:rgba(244,243,240,.1);--voice-fg:#f4f3f0;--voice-border:1px solid rgba(244,243,240,.24);
   }
+  /* announcement banner: thin, brand-tinted, scrolls only if too long, static bubble not a chat message */
+  .dannounce{display:flex;align-items:center;gap:8px;flex:none;padding:7px 14px;background:var(--accent-ink);color:#fff;font-size:12.5px;line-height:1.3;font-weight:500}
+  .daicon{flex:none;display:inline-flex;opacity:.92}
+  .daviewport{flex:1;overflow:hidden;white-space:nowrap}
+  .datrack{display:inline-flex;white-space:nowrap;will-change:transform}
+  .datrack.scroll{animation:marq linear infinite}
+  .dannounce:hover .datrack.scroll{animation-play-state:paused}
+  .datext{padding-right:46px}
+  @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media(prefers-reduced-motion:reduce){.datrack.scroll{animation:none!important}.daviewport{overflow-x:auto}}
 </style>
 </head>
 <body>
@@ -136,6 +146,10 @@
       <svg id="vicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a9 9 0 0 1 0 14"/></svg>
       <span id="vlabel">Voice on</span>
     </button>
+  </div>
+  <div class="dannounce" id="dannounce" role="status" aria-live="polite" hidden>
+    <span class="daicon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4L6 9H3a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h1l1 5h3l-1-5 13 5V4z"/></svg></span>
+    <div class="daviewport"><div class="datrack" id="datrack"><span class="datext" id="datext"></span></div></div>
   </div>
   <div class="dthread" id="thread" role="log" aria-live="polite"></div>
   <div class="dchips" id="chips"></div>
@@ -168,6 +182,7 @@
   const thread = $("thread"), chipsEl = $("chips");
   const history = [];
   let muted = false, busy = false, cfg = null;
+  const REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const audio = new Audio(); audio.preload = "auto";
   // iOS/Safari: media playback needs a user gesture. Prime the element on the
   // first tap so voice (which plays after an async fetch, outside the gesture) works.
@@ -238,6 +253,19 @@
     $("lead").classList.remove("on"); $("lname").value=""; $("lcontact").value="";
     add("in", "Thanks"+(name?", "+name:"")+", we've got your details and will follow up shortly."); });
 
+  function setupAnnounce(text){
+    const wrap=$("dannounce"), track=$("datrack"), first=$("datext");
+    first.textContent=text; wrap.hidden=false;
+    requestAnimationFrame(()=>{
+      const vp=wrap.querySelector(".daviewport");
+      if(first.scrollWidth > vp.clientWidth + 4){
+        const clone=first.cloneNode(true); clone.removeAttribute("id"); clone.setAttribute("aria-hidden","true"); track.appendChild(clone);
+        track.classList.add("scroll");
+        track.style.animationDuration=Math.max(9,(first.scrollWidth+46)/40)+"s";
+      }
+    });
+  }
+
   // boot
   (async function(){
     if(!slug){ $("fallback").textContent="No front desk specified."; return; }
@@ -260,9 +288,15 @@
     const desc=(cfg.tagline&&cfg.tagline.trim())||TRADE_LABELS[cfg.trade]||"";
     if(desc){ $("dwho").textContent=desc; } else { $("dwho").style.display="none"; }
     $("fallback").style.display="none"; $("desk").style.display="flex";
+    if(cfg.announcement && cfg.announcement.trim()) setupAnnounce(cfg.announcement.trim());
     add("in", cfg.greeting||("Hi, welcome to "+cfg.name+". Ask me anything."));
-    (cfg.chips||[]).forEach(q=>{ const b=document.createElement("button"); b.className="chip"; b.type="button"; b.textContent=q;
-      b.addEventListener("click",()=>{ if(busy)return; b.classList.add("gone"); respond(q); }); chipsEl.appendChild(b); });
+    // pills = the client's tap-questions with set answers: shown instantly, no AI call, recorded in
+    // the thread so a typed follow-up still has context. Voice is cached server-side after first play.
+    (cfg.pills||[]).forEach(p=>{ const b=document.createElement("button"); b.className="chip"; b.type="button"; b.textContent=p.q;
+      b.addEventListener("click",()=>{ if(busy)return; busy=true; $("send").disabled=true; b.classList.add("gone");
+        add("out",p.q); history.push({role:"user",content:p.q}); const t=typing();
+        setTimeout(()=>{ t.remove(); add("in",p.a); history.push({role:"assistant",content:p.a}); speak(p.a); busy=false; $("send").disabled=false; }, REDUCE?150:650);
+      }); chipsEl.appendChild(b); });
   })();
 </script>
 </body>
