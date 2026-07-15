@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20">
+<link rel="stylesheet" href="styles.css?v=21">
 </head>
 <body>
 
@@ -67,13 +67,13 @@
                   <span id="sndlabel">Voice on</span>
                 </button>
               </div>
-              <div class="chatthread" id="chatthread">
-                <div class="msg in">Hi, I'm the Nimbus Nine front desk. Picture me answering your customers around the clock, advertising your services, and catching every enquiry before it goes to someone else. Ask me anything.</div>
+              <div class="chatthread" id="chatthread" role="log" aria-live="polite">
+                <div class="msg in">Hi, I'm the Nimbus Nine front desk. I answer your customers around the clock, show off your services, and catch every enquiry before it goes to someone else. Ask me anything.</div>
                 <div class="msg out">What can you do for me?</div>
-                <div class="msg in">Imagine me on your front desk 24/7: answering every customer the moment they message, showing off your services, and holding the lead so it never wanders to a competitor. You get the enquiries, I do the talking.</div>
+                <div class="msg in">Three things: I answer every customer in seconds, day or night. I show them what you offer. And I keep their details as a lead, so it never slips to a competitor. You get the enquiries, I do the talking.</div>
               </div>
-              <div class="pillbar collapsed" id="pillbar">
-                <button class="pilltoggle" id="pilltoggle" type="button" aria-expanded="false" aria-controls="pills">
+              <div class="pillbar" id="pillbar">
+                <button class="pilltoggle" id="pilltoggle" type="button" aria-expanded="true" aria-controls="pills">
                   <span>Quick questions</span>
                   <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
                 </button>
@@ -102,7 +102,7 @@
             </div>
           </div>
         </div>
-        <div class="democap"><span class="dcdot" aria-hidden="true"></span>Our own front desk. Yours wears your name.</div>
+        <div class="democap"><span class="dcdot" aria-hidden="true"></span>This one's live, tap a question or type your own.</div>
       </div>
     </div>
   </section>
@@ -114,7 +114,7 @@
       <div class="buildGrid">
         <div class="flagship">
           <span class="flagtag"><span class="onlight" aria-hidden="true"></span>Flagship</span>
-          <div class="flagname">Front desk</div>
+          <h3 class="flagname">Front desk</h3>
           <p class="flagdesc">A 24/7 assistant that answers your customers the moment they ask and holds the lead, so it never moves on to another business.</p>
           <ul class="flagfeats">
             <li>Answers every enquiry, day or night</li>
@@ -185,7 +185,7 @@
       <div class="steps">
         <div class="step"><div class="stepno">Step 1</div><h3>Tell us your business</h3><p>Your trade, your services, your prices and hours. A quick chat is all we need.</p></div>
         <div class="step"><div class="stepno">Step 2</div><h3>We build your front desk</h3><p>Set up in your brand, on its own link and QR, answering the way you would.</p></div>
-        <div class="step"><div class="stepno">Step 3</div><h3>You stop missing enquiries</h3><p>Put the link anywhere. It answers, captures leads, and hands them to you.</p></div>
+        <div class="step"><div class="stepno">Step 3</div><h3>You stop missing enquiries</h3><p>Put the link anywhere. It answers, captures the details, and sends every lead straight to your WhatsApp or email.</p></div>
       </div>
       <p class="ssub" style="margin-top:34px">No lock-in, no per-message fees. Built and run in Singapore.</p>
     </div>
@@ -235,7 +235,7 @@
           <h2 class="startbig">Never miss another enquiry.</h2>
           <p class="startsub">Tell us about your business and we'll set up your front desk for you, usually within a few days.</p>
           <div class="startcta">
-            <a class="btn" href="#" data-contact="whatsapp">Message us on WhatsApp
+            <a class="btn" href="https://wa.me/6583219747?text=Hi%20Nimbus%20Nine%2C%20I%27d%20like%20to%20set%20up%20my%20front%20desk." target="_blank" rel="noopener" data-contact="whatsapp">Message us on WhatsApp
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             <a class="hlink" href="mailto:hello@nimbusnine.sg" data-contact="email">or email hello@nimbusnine.sg</a>
           </div>
@@ -262,7 +262,7 @@
       <a class="brandmark fbrand" href="#top" aria-label="Nimbus Nine, AI solutions, home">
         <span class="onlight" aria-hidden="true"></span>Nimbus Nine<span class="aichip">AI solutions</span>
       </a>
-      <p class="ftag">The 24/7 front desk for small businesses, plus websites and custom tools. Built and run in Singapore.</p>
+      <p class="ftag">The 24/7 front desk for small businesses, plus websites and custom tools.</p>
     </div>
     <nav class="fcol" aria-label="Footer">
       <span class="fh">Explore</span>
@@ -274,7 +274,7 @@
     </nav>
     <div class="fcol">
       <span class="fh">Get in touch</span>
-      <a href="#" data-contact="whatsapp">WhatsApp</a>
+      <a href="https://wa.me/6583219747?text=Hi%20Nimbus%20Nine%2C%20I%27d%20like%20to%20set%20up%20my%20front%20desk." target="_blank" rel="noopener" data-contact="whatsapp">WhatsApp</a>
       <a href="mailto:hello@nimbusnine.sg" data-contact="email">hello@nimbusnine.sg</a>
     </div>
   </div>
@@ -295,6 +295,7 @@
     navtoggle.setAttribute('aria-expanded', String(open));
   });
   document.querySelectorAll('#navlinks a').forEach(a => a.addEventListener('click', () => hdr.classList.remove('nav-open')));
+  addEventListener('keydown', e => { if(e.key === 'Escape' && hdr.classList.contains('nav-open')){ hdr.classList.remove('nav-open'); if(navtoggle){ navtoggle.setAttribute('aria-expanded','false'); navtoggle.focus(); } } });
 
   // minimize / maximize the quick-question pills to see the whole chat
   const pilltoggle = document.getElementById('pilltoggle'), pillbar = document.getElementById('pillbar');
@@ -344,7 +345,7 @@
       } catch(e){}
     }
     const answers = {
-      cando: "Imagine me on your front desk 24/7: answering every customer the moment they message, showing off your services, and holding the lead so it never wanders to a competitor. You get the enquiries, I do the talking.",
+      cando: "Three things: I answer every customer in seconds, day or night. I show them what you offer. And I keep their details as a lead, so it never slips to a competitor. You get the enquiries, I do the talking.",
       win: "Most customers who message after hours just move to the next shop if no one replies. I answer in seconds, every time, and capture their details, so the enquiry stays yours. More replies, more booked, fewer slipping away.",
       always: "Always. 3am, Sunday, public holiday, I never clock off. While you rest, I'm still catching enquiries and warming up leads for you.",
       brand: "Completely. Give it any name you like, your own logo, tone, prices and hours. Customers feel like they're chatting with you, not a bot, on your own link and QR code.",
@@ -401,8 +402,10 @@
       let msgs = history.slice(-12);
       if(msgs.length && msgs[0].role !== 'user') msgs = msgs.slice(1);   // Anthropic must start on a user turn
       const t = typing();
+      const ctrl = new AbortController();
+      const to = setTimeout(() => ctrl.abort(), 8000);
       try {
-        const r = await fetch(NIMBUS_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ messages: msgs }) });
+        const r = await fetch(NIMBUS_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ messages: msgs }), signal: ctrl.signal });
         const data = await r.json();
         t.remove();
         const reply = (data && data.reply) || "I'm having trouble right now. Tap Get started and we'll sort you out.";
@@ -412,6 +415,8 @@
       } catch(err){
         t.remove();
         add('in', "I couldn't reach my brain just then. Tap Get started and we'll help you out.");
+      } finally {
+        clearTimeout(to);
       }
       busy = false; if(asksend) asksend.disabled = false; askinput.focus();
     });

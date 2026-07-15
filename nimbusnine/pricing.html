@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20">
+<link rel="stylesheet" href="styles.css?v=21">
 </head>
 <body>
 
@@ -47,7 +47,7 @@
       <div class="buildGrid">
         <div class="flagship">
           <span class="flagtag"><span class="onlight" aria-hidden="true"></span>Flagship</span>
-          <div class="flagname">Front desk</div>
+          <h2 class="flagname">Front desk</h2>
           <div class="flagprice" style="margin-top:14px;font-size:26px">S$399 <span>/ month</span></div>
           <p class="flagdesc">A 24/7 assistant that answers your customers the moment they ask and holds the lead, in your brand, under any name you want.</p>
           <ul class="flagfeats">
@@ -67,7 +67,7 @@
 
         <div class="priceCol">
           <div class="pblock">
-            <div class="phead"><span class="pname">Websites</span><span class="pprice">from S$1,299</span></div>
+            <div class="phead"><h2 class="pname">Websites</h2><span class="pprice">from S$1,299</span></div>
             <p>A full customer-facing site in your brand, with the front desk built right in.</p>
             <ul class="incl">
               <li>Designed around your brand</li>
@@ -79,7 +79,7 @@
           </div>
 
           <div class="pblock" id="addons">
-            <div class="phead"><span class="pname">Custom add-ons</span><span class="pprice q">Quoted</span></div>
+            <div class="phead"><h2 class="pname">Custom add-ons</h2><span class="pprice q">Quoted</span></div>
             <p>Built and priced around your trade, add them whenever you need them.</p>
             <ul class="incl">
               <li>Booking systems, so customers pick their own slot</li>
@@ -106,12 +106,22 @@
 
   <section class="start" id="start">
     <div class="wrap">
-      <h2 class="startbig">Pick what fits, start small.</h2>
-      <p class="startsub">Tell us about your business and we'll point you to the right setup, then have it live within a few days.</p>
-      <div class="startcta">
-        <a class="btn" href="#" data-contact="whatsapp">Message us on WhatsApp
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="hlink" href="mailto:hello@nimbusnine.sg" data-contact="email">or email hello@nimbusnine.sg</a>
+      <div class="startGrid">
+        <div>
+          <h2 class="startbig">Pick what fits, start small.</h2>
+          <p class="startsub">Tell us about your business and we'll point you to the right setup, then have it live within a few days.</p>
+          <div class="startcta">
+            <a class="btn" href="https://wa.me/6583219747?text=Hi%20Nimbus%20Nine%2C%20I%27d%20like%20to%20set%20up%20my%20front%20desk." target="_blank" rel="noopener" data-contact="whatsapp">Message us on WhatsApp
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="hlink" href="mailto:hello@nimbusnine.sg" data-contact="email">or email hello@nimbusnine.sg</a>
+          </div>
+        </div>
+        <ul class="assure">
+          <li>No lock-in, cancel anytime</li>
+          <li>One flat price, no per-message fees</li>
+          <li>A real person in Singapore replies</li>
+          <li>Live in a few days, not weeks</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -128,7 +138,7 @@
       <a class="brandmark fbrand" href="index.html" aria-label="Nimbus Nine, AI solutions, home">
         <span class="onlight" aria-hidden="true"></span>Nimbus Nine<span class="aichip">AI solutions</span>
       </a>
-      <p class="ftag">The 24/7 front desk for small businesses, plus websites and custom tools. Built and run in Singapore.</p>
+      <p class="ftag">The 24/7 front desk for small businesses, plus websites and custom tools.</p>
     </div>
     <nav class="fcol" aria-label="Footer">
       <span class="fh">Explore</span>
@@ -140,7 +150,7 @@
     </nav>
     <div class="fcol">
       <span class="fh">Get in touch</span>
-      <a href="#" data-contact="whatsapp">WhatsApp</a>
+      <a href="https://wa.me/6583219747?text=Hi%20Nimbus%20Nine%2C%20I%27d%20like%20to%20set%20up%20my%20front%20desk." target="_blank" rel="noopener" data-contact="whatsapp">WhatsApp</a>
       <a href="mailto:hello@nimbusnine.sg" data-contact="email">hello@nimbusnine.sg</a>
     </div>
   </div>
@@ -156,6 +166,7 @@
   const navtoggle = document.getElementById('navtoggle');
   if(navtoggle) navtoggle.addEventListener('click', () => { const open = hdr.classList.toggle('nav-open'); navtoggle.setAttribute('aria-expanded', String(open)); });
   document.querySelectorAll('#navlinks a').forEach(a => a.addEventListener('click', () => hdr.classList.remove('nav-open')));
+  addEventListener('keydown', e => { if(e.key === 'Escape' && hdr.classList.contains('nav-open')){ hdr.classList.remove('nav-open'); if(navtoggle){ navtoggle.setAttribute('aria-expanded','false'); navtoggle.focus(); } } });
 </script>
 </body>
 </html>
