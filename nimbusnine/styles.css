@@ -415,3 +415,64 @@ footer{background:var(--dark);color:var(--light);padding:clamp(64px,10vh,104px) 
 .indpill{font-size:clamp(17px,2.4vw,26px);font-weight:600;letter-spacing:-.01em;color:var(--ink);padding:8px 0;position:relative}
 .indpill:not(:last-child)::after{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;
   background:var(--accent);margin-left:24px;vertical-align:middle;opacity:.6}
+
+/* 8. Hero: link-in-bio profile → chat reveal, breakout, tilt, scroll motion --- */
+.devview{position:relative;flex:1;min-height:0;display:flex}
+.devview>.chat{flex:1;min-height:0}
+/* the social profile that sits over the chat until the bio link is tapped */
+.profile{position:absolute;inset:0;z-index:5;background:var(--card);display:flex;flex-direction:column;
+  padding-bottom:18px;overflow:hidden;transition:transform .6s cubic-bezier(.16,1,.3,1),opacity .45s ease}
+.demo.opened .profile{transform:translateY(-102%);opacity:0;pointer-events:none}
+.pfcover{height:76px;flex:none;position:relative;background:linear-gradient(118deg,var(--accent),#d5521f)}
+.pfcover::after{content:"";position:absolute;inset:0;background:radial-gradient(130% 150% at 82% -20%,rgba(255,255,255,.32),transparent 58%)}
+.pfhead{display:flex;align-items:flex-start;gap:14px;padding:0 22px;margin-top:-30px}
+.pfav{width:66px;height:66px;border-radius:19px;background:var(--ink);color:var(--card);flex:none;
+  display:flex;align-items:center;justify-content:center;border:3px solid var(--card);
+  box-shadow:0 10px 22px -10px rgba(23,21,18,.55)}
+.pfav .brandmk{width:35px;height:28px}
+.pfmeta{padding-top:34px}
+.pfname{font-weight:800;font-size:20px;letter-spacing:-.02em;line-height:1.05}
+.pfhandle{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:4px}
+.pfbio{padding:15px 22px 0;font-size:14px;line-height:1.5;color:var(--ink)}
+.pflink{margin:18px 20px 0;display:flex;align-items:center;gap:12px;width:calc(100% - 40px);text-align:left;
+  background:rgba(232,102,58,.1);border:1.5px solid rgba(178,71,20,.4);border-radius:14px;padding:13px 15px;
+  color:var(--accent-ink);cursor:pointer;transition:background .2s,transform .2s}
+.pflink:hover{background:rgba(232,102,58,.17);transform:translateY(-1px)}
+.pflink svg{width:20px;height:20px;flex:none}
+.pflinktext{display:flex;flex-direction:column;line-height:1.25}
+.pflinktext b{font-size:15px;font-weight:700}
+.pflinktext .sub{color:var(--muted);font-weight:500;font-size:12px;margin-top:2px}
+.pfhint{margin-top:15px;align-self:center;display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.pfhintdot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none}
+.pfposts{margin:16px 16px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.pfposts span{aspect-ratio:1;border-radius:8px;background:linear-gradient(150deg,var(--surface),#e6dcca)}
+.pfposts span:nth-child(3n-1){background:linear-gradient(150deg,rgba(232,102,58,.24),rgba(232,102,58,.07))}
+.pfposts span:nth-child(3n){background:linear-gradient(150deg,#efe7d8,var(--surface))}
+/* a reply card breaking out of the phone frame */
+.breakout{position:absolute;left:-20px;bottom:104px;z-index:6;width:min(238px,66%);
+  display:flex;gap:11px;align-items:flex-start;background:var(--ink);color:var(--light);
+  border-radius:16px;border-bottom-left-radius:5px;padding:13px 15px;
+  box-shadow:0 26px 52px -22px rgba(23,21,18,.62);
+  opacity:0;transform:translateY(14px) scale(.95);transition:opacity .5s ease,transform .55s cubic-bezier(.16,1,.3,1)}
+.demo.opened .breakout{opacity:1;transform:none;transition-delay:.4s}
+.boav{width:28px;height:28px;border-radius:9px;background:var(--accent);color:var(--ink);flex:none;display:flex;align-items:center;justify-content:center}
+.boav .brandmk{width:17px;height:14px}
+.botext{font-size:12.5px;line-height:1.42}
+.botext b{display:block;font-family:var(--mono);font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);margin-bottom:3px}
+@media(max-width:1080px){.breakout{left:-10px;bottom:84px;width:min(220px,72%)}}
+@media(max-width:520px){.breakout{display:none}}
+/* subtle rest-tilt on the phone that straightens when you engage it */
+@media(min-width:921px) and (prefers-reduced-motion:no-preference){
+  .demo .devbody{transform:perspective(1700px) rotateY(-7deg) rotateX(1.5deg);transform-origin:60% 50%;
+    transition:transform .7s cubic-bezier(.16,1,.3,1)}
+  .demo:hover .devbody,.demo:focus-within .devbody{transform:none}
+}
+@media (prefers-reduced-motion:no-preference){
+  .demo:not(.opened) .pflink{animation:pulse 2.2s ease-in-out infinite}
+}
+/* scroll-reveal: content is visible by default; entering the viewport plays a rise-in.
+   If JS or the observer never fires, sections simply show, never blank. */
+@media (prefers-reduced-motion:no-preference){
+  .js .reveal.in{animation:rise .8s cubic-bezier(.16,1,.3,1) both}
+}
