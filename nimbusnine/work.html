@@ -4,32 +4,115 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Nimbus Nine">
-<meta property="og:title" content="Nimbus Nine, the 24/7 front desk for Singapore small businesses">
-<meta property="og:description" content="An AI front desk that answers every customer, day or night, in your brand. No website needed. From S$399/mo.">
-<meta property="og:image" content="https://adamdegoat.github.io/nimbusnine/og.png">
-<meta property="og:url" content="https://adamdegoat.github.io/nimbusnine/">
-<meta name="twitter:card" content="summary_large_image">
-<title>Work · Nimbus Nine</title>
+<meta name="description" content="What Nimbus Nine builds for Singapore small businesses: 24/7 front desks in your brand, full websites with the front desk built in, and custom booking, tools and automations.">
+<title>What we build · Nimbus Nine</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Crect%20width%3D%2732%27%20height%3D%2732%27%20rx%3D%278%27%20fill%3D%27%23171512%27%2F%3E%3Csvg%20x%3D%276%27%20y%3D%277%27%20width%3D%2720%27%20height%3D%2716%27%20viewBox%3D%274%206%2040%2032%27%3E%3Ccircle%20cx%3D%2734%27%20cy%3D%2715%27%20r%3D%276.6%27%20fill%3D%27%23E8663A%27%2F%3E%3Cpath%20d%3D%27M15%2035C10%2035%206%2031.5%206%2027C6%2022.8%209.3%2019.4%2013.4%2019.1C14.4%2014.2%2018.8%2010.6%2024%2010.6C30%2010.6%2035%2015%2035.8%2020.8C39.9%2021%2043%2024.4%2043%2028.5C43%2032.1%2040.1%2035%2036.5%2035Z%27%20fill%3D%27%23F3EFE8%27%2F%3E%3C%2Fsvg%3E%3C%2Fsvg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Spline+Sans+Mono:wght@400;500&family=Hedvig+Letters+Serif&family=Archivo+Black&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=26">
+<link rel="stylesheet" href="styles.css?v=35">
+<style>
+  /* ===== Work page: "What we build" ===== */
+  .wlede{padding:120px 0 clamp(20px,3vh,36px)}
+  .tierhead{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:clamp(24px,3vw,36px)}
+  .tiernum{font-family:var(--mono);font-size:13px;color:var(--accent-ink);font-weight:500}
+  .tiertitle{font-size:clamp(26px,3.4vw,40px);font-weight:700;letter-spacing:-.02em;line-height:1.05}
+  .tiersub{color:var(--muted);font-size:clamp(16px,1.5vw,18px);max-width:50ch;margin-top:6px;line-height:1.5}
+  .wsec{padding:clamp(48px,7vh,86px) 0}
+  .wsec.tint{background:var(--surface)}
+
+  /* front-desk phone mockups */
+  .fdrow{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.6vw,34px);align-items:end}
+  @media(max-width:820px){.fdrow{grid-template-columns:1fr;max-width:360px;margin:0 auto;gap:38px}}
+  .fdmock{display:flex;flex-direction:column;gap:14px}
+  .pbody{background:#141210;border-radius:38px;padding:9px;box-shadow:0 34px 66px -34px rgba(23,21,18,.55)}
+  .pscreen{border-radius:30px;overflow:hidden;background:var(--dbg,#fbf9f5);display:flex;flex-direction:column;height:420px}
+  .pstat{display:flex;justify-content:space-between;padding:12px 20px 2px;font-family:var(--mono);font-size:11px;color:var(--pink,var(--ink))}
+  .phead{display:flex;align-items:center;gap:10px;padding:12px 18px 14px;border-bottom:1px solid var(--pline,rgba(23,21,18,.1));background:var(--dhead,var(--dbg))}
+  .pav{width:38px;height:38px;border-radius:var(--prad,11px);background:var(--pav,var(--ink));color:#fff;flex:none;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;overflow:hidden}
+  .pav svg{width:23px;height:18px}
+  .pname{font-family:var(--pfont,var(--font));font-weight:var(--pnw,700);font-size:15px;letter-spacing:-.01em;color:var(--pfg,var(--ink));line-height:1.1}
+  .pwho{font-size:11px;color:var(--pmut,var(--muted));margin-top:2px}
+  .pthread{flex:1;padding:16px 16px;display:flex;flex-direction:column;gap:9px;overflow:hidden}
+  .pmsg{max-width:88%;padding:9px 12px;border-radius:14px;font-size:13px;line-height:1.4}
+  .pmsg.in{background:var(--pin,#efe9df);color:var(--ink);border-bottom-left-radius:4px;align-self:flex-start}
+  .pmsg.out{background:var(--pout,var(--ink));color:var(--poutfg,#fff);border-bottom-right-radius:4px;align-self:flex-end}
+  .pchips{display:flex;flex-wrap:wrap;gap:6px;padding:4px 14px 14px}
+  .pchip{font-size:11.5px;font-weight:var(--pchw,500);color:var(--pchfg,var(--accent-ink));background:var(--pchbg,transparent);border:1px solid var(--pchb,rgba(178,71,20,.35));border-radius:var(--pchr,100px);padding:6px 11px}
+  .fdcap{padding:0 4px}
+  .fdcap b{font-weight:700;font-size:16px;letter-spacing:-.01em}
+  .fdcap span{font-family:var(--mono);font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-left:8px}
+  .fdnote{margin-top:clamp(28px,4vh,44px);font-size:16px;color:var(--muted);max-width:56ch;line-height:1.5}
+  .fdnote a{color:var(--accent-ink);font-weight:600;border-bottom:1.5px solid rgba(178,71,20,.35)}
+
+  /* website examples */
+  .sitehero{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:0 40px 80px -46px rgba(23,21,18,.5)}
+  .sitebar{display:flex;align-items:center;gap:11px;padding:11px 16px;background:#efeadf;border-bottom:1px solid var(--line)}
+  .sitebar i{width:9px;height:9px;border-radius:50%;background:#cfc6b6}
+  .sitebar .url{font-family:var(--mono);font-size:12px;color:#635b4f;background:#fff;border-radius:6px;padding:5px 14px;margin-left:6px;flex:1;max-width:340px}
+  .sitelive{margin-left:auto;font-family:var(--mono);font-size:11px;color:#2f7d54;display:inline-flex;align-items:center;gap:6px}
+  .sitelive .d{width:7px;height:7px;border-radius:50%;background:#2f9e5f}
+  .siteframe{position:relative;width:100%;aspect-ratio:16/10;overflow:hidden;background:#f7efe6}
+  .siteframe iframe{position:absolute;top:0;left:0;width:200%;height:200%;transform:scale(.5);transform-origin:top left;border:0;pointer-events:none}
+  .siteover{position:absolute;inset:0;display:flex;align-items:flex-end;padding:22px;background:linear-gradient(to top,rgba(23,21,18,.34),transparent 46%);text-decoration:none}
+  .siteopen{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--ink);font-weight:600;font-size:14.5px;padding:11px 18px;border-radius:100px;box-shadow:0 12px 26px -12px rgba(23,21,18,.5);transition:transform .2s}
+  .sitehero:hover .siteopen{transform:translateY(-2px)}
+  .sitecap{margin-top:14px;display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .sitecap b{font-size:17px;font-weight:700;letter-spacing:-.01em}
+  .sitecap span{color:var(--muted);font-size:14px}
+  .sitegrid{margin-top:clamp(30px,4vw,48px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2.6vw,34px)}
+  @media(max-width:720px){.sitegrid{grid-template-columns:1fr}}
+  .smock{border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:0 22px 46px -30px rgba(23,21,18,.4)}
+  .smpage{position:relative;min-height:280px;display:flex;flex-direction:column;background:var(--sbg,#fff);color:var(--sink,#171512);padding:24px 26px}
+  .smtag{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--sacc);margin-bottom:12px}
+  .smtitle{font-family:var(--sfont,var(--font));font-weight:var(--stw,800);font-size:clamp(24px,2.6vw,32px);line-height:1.02;letter-spacing:-.015em;max-width:14ch}
+  .smrow{margin-top:auto;padding-top:22px;display:flex;gap:8px;flex-wrap:wrap}
+  .smpill{font-size:12px;font-weight:600;padding:8px 14px;border-radius:100px;background:var(--sacc);color:var(--sactx,#fff)}
+  .smpill.ghost{background:transparent;border:1px solid var(--sline,rgba(23,21,18,.16));color:var(--sink)}
+  .smcap{padding:13px 16px 15px;background:#fff;border-top:1px solid var(--line);display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+  .smcap b{font-size:15px;font-weight:700}
+  .smcap span{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+
+  /* custom builds */
+  .cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,28px)}
+  @media(max-width:820px){.cgrid{grid-template-columns:1fr;max-width:440px;margin:0 auto}}
+  .ccard{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--card);display:flex;flex-direction:column}
+  .cviz{background:var(--bg);border-bottom:1px solid var(--line);padding:20px;min-height:186px;display:flex;flex-direction:column;gap:10px;justify-content:center}
+  .cbody{padding:18px 20px 22px}
+  .cbody h3{font-size:19px;font-weight:700;letter-spacing:-.01em}
+  .cbody p{margin-top:7px;font-size:14.5px;color:var(--muted);line-height:1.45}
+  .cbody .q{margin-top:12px;font-family:var(--mono);font-size:11.5px;color:var(--accent-ink);text-transform:uppercase;letter-spacing:.04em}
+  /* booking viz */
+  .bkslot{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 14px;font-size:13px}
+  .bkslot.taken{opacity:.5}
+  .bkslot b{font-weight:600}
+  .bkslot .go{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent-ink)}
+  .bkslot.taken .go{color:var(--muted)}
+  /* quote viz */
+  .qtr{display:flex;align-items:center;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px solid var(--line)}
+  .qtr:last-of-type{border-bottom:none}
+  .qtot{display:flex;align-items:center;justify-content:space-between;margin-top:6px;padding-top:11px;border-top:2px solid var(--ink);font-weight:700;font-size:16px}
+  .qtot span{color:var(--accent-ink)}
+  /* automation viz */
+  .aflow{display:flex;flex-direction:column;gap:9px}
+  .astep{display:flex;align-items:center;gap:11px;font-size:13px}
+  .adot{width:26px;height:26px;border-radius:8px;background:rgba(232,102,58,.14);color:var(--accent-ink);flex:none;display:flex;align-items:center;justify-content:center}
+  .adot svg{width:15px;height:15px}
+  .aline{width:1px;height:12px;background:var(--line);margin-left:13px}
+</style>
 </head>
 <body>
 
 <header>
   <div class="wrap">
-    <a class="brandmark" href="index.html" aria-label="Nimbus Nine, AI solutions, home">
-      <svg class="brandmk" viewBox="4 6 40 32" aria-hidden="true"><circle cx="34" cy="15" r="6.6" fill="#E8663A"/><path d="M15 35C10 35 6 31.5 6 27C6 22.8 9.3 19.4 13.4 19.1C14.4 14.2 18.8 10.6 24 10.6C30 10.6 35 15 35.8 20.8C39.9 21 43 24.4 43 28.5C43 32.1 40.1 35 36.5 35Z" fill="currentColor"/></svg>Nimbus Nine<span class="aichip">AI solutions</span>
+    <a class="brandmark" href="index.html" aria-label="Nimbus Nine, AI front desk, Singapore, home">
+      <svg class="brandmk" viewBox="4 6 40 32" aria-hidden="true"><circle cx="34" cy="15" r="6.6" fill="#E8663A"/><path d="M15 35C10 35 6 31.5 6 27C6 22.8 9.3 19.4 13.4 19.1C14.4 14.2 18.8 10.6 24 10.6C30 10.6 35 15 35.8 20.8C39.9 21 43 24.4 43 28.5C43 32.1 40.1 35 36.5 35Z" fill="currentColor"/></svg><span class="bmtext"><span class="bmname">Nimbus Nine</span><span class="bmsub" aria-hidden="true">AI front desk · Singapore</span></span>
     </a>
     <div class="navcluster">
       <nav class="links" id="navlinks" aria-label="Primary">
         <a class="navlink" href="index.html">Home</a>
-        <a class="navlink" href="websites.html">Websites</a>
         <a class="navlink" href="work.html" aria-current="page">Work</a>
+        <a class="navlink" href="get-started.html">Get started</a>
         <a class="navlink" href="pricing.html">Pricing</a>
         <a class="navlink" href="about.html">About</a>
       </nav>
@@ -42,177 +125,141 @@
 </header>
 
 <main id="top">
-  <section class="worklede">
+  <section class="wlede">
     <div class="wrap">
-      <h1 class="shead" style="font-size:clamp(34px,5.2vw,64px);max-width:15ch">Every business, <em>its own look.</em></h1>
-      <p class="ssub" style="max-width:58ch">The front desk lives on a page that looks like you, not like us. These are example looks across different trades, each in its own brand, colours and voice, with the assistant built right in. Yours is designed around your customers.</p>
+      <h1 class="shead" style="font-size:clamp(34px,5.2vw,64px);max-width:16ch">What we build.</h1>
+      <p class="ssub" style="max-width:58ch">It starts with a front desk that answers every customer in your brand. When you're ready, we add the website, the booking, and the tools that run your trade, all designed around your business. These are examples, yours is built for you.</p>
     </div>
   </section>
 
-  <section>
+  <!-- TIER 1: front desks -->
+  <section class="wsec">
     <div class="wrap">
-      <div class="workgrid">
+      <div class="tierhead">
+        <div>
+          <div class="tiernum">01 · Front desk</div>
+          <h2 class="tiertitle">Answered in seconds, in your brand.</h2>
+          <p class="tiersub">Your 24/7 assistant on its own link and QR. Four styles, any trade, your name, colours and voice.</p>
+        </div>
+      </div>
+      <div class="fdrow">
+        <!-- clean -->
+        <figure class="fdmock">
+          <div class="pbody"><div class="pscreen" style="--pin:#efe9df">
+            <div class="pstat"><span>9:41</span><span>5G</span></div>
+            <div class="phead"><span class="pav" style="background:#171512"><svg viewBox="4 6 40 32"><circle cx="34" cy="15" r="6.6" fill="#E8663A"/><path d="M15 35C10 35 6 31.5 6 27C6 22.8 9.3 19.4 13.4 19.1C14.4 14.2 18.8 10.6 24 10.6C30 10.6 35 15 35.8 20.8C39.9 21 43 24.4 43 28.5C43 32.1 40.1 35 36.5 35Z" fill="#F3EFE8"/></svg></span><div><div class="pname">FreshHome</div><div class="pwho">Home cleaning</div></div></div>
+            <div class="pthread"><div class="pmsg in">Hi, welcome to FreshHome. How big is your place and I'll quote you.</div><div class="pmsg out">4-room HDB, move-out clean</div><div class="pmsg in">A move-out clean for a 4-room is from S$280. Which date works?</div></div>
+            <div class="pchips" style="--pchfg:#2f7d54;--pchb:rgba(47,125,84,.4)"><span class="pchip">Get a quote</span><span class="pchip">Weekly clean?</span></div>
+          </div></div>
+          <figcaption class="fdcap"><b>FreshHome</b><span>Clean</span></figcaption>
+        </figure>
+        <!-- warm -->
+        <figure class="fdmock">
+          <div class="pbody"><div class="pscreen" style="--dbg:#f7f1e6;--dhead:#f7f1e6;--pin:#efe4d1;--pout:#8f3d1c;--prad:50%;--pfont:'Hedvig Letters Serif',serif;--pnw:500">
+            <div class="pstat"><span>9:41</span><span>5G</span></div>
+            <div class="phead"><span class="pav" style="background:#8f3d1c">A</span><div><div class="pname" style="font-size:16px">Amber Nail & Lash</div><div class="pwho">Nails, lashes & brows</div></div></div>
+            <div class="pthread"><div class="pmsg in">Hi, welcome to Amber. Ask about gel, lashes or a slot.</div><div class="pmsg out">How much for gel?</div><div class="pmsg in">Gel is S$45 and lasts two to three weeks. Hold a slot?</div></div>
+            <div class="pchips" style="--pchbg:rgba(194,86,138,.14);--pchfg:#8f3d1c;--pchb:transparent;--pchw:600"><span class="pchip">Book a slot</span><span class="pchip">Do lashes?</span></div>
+          </div></div>
+          <figcaption class="fdcap"><b>Amber Nail & Lash</b><span>Warm</span></figcaption>
+        </figure>
+        <!-- bold -->
+        <figure class="fdmock">
+          <div class="pbody"><div class="pscreen" style="--dbg:#fff;--dhead:#fff;--pline:#171512;--pin:#f0eee7;--pout:#2f6fd0;--poutfg:#fff;--prad:11px;--pnw:800">
+            <div class="pstat"><span>9:41</span><span>5G</span></div>
+            <div class="phead" style="border-bottom-width:2px"><span class="pav" style="background:#2f6fd0">P</span><div><div class="pname" style="font-size:16px;font-weight:800;letter-spacing:-.03em">Peak Fitness</div><div class="pwho">Classes & PT</div></div></div>
+            <div class="pthread"><div class="pmsg in">Hey! Ask about classes, a free trial or membership.</div><div class="pmsg out">Free trial?</div><div class="pmsg in">Your first class is on us. What day suits you?</div></div>
+            <div class="pchips" style="--pchbg:#171512;--pchfg:#fff;--pchb:#171512;--pchr:9px;--pchw:600"><span class="pchip">Free trial</span><span class="pchip">Timetable</span></div>
+          </div></div>
+          <figcaption class="fdcap"><b>Peak Fitness</b><span>Bold</span></figcaption>
+        </figure>
+      </div>
+      <p class="fdnote">Swipe through these live on the <a href="index.html">home page</a>, or pick from Clean, Warm, Bold and Sleek. Set up for you, in your brand, from S$399 a month.</p>
+    </div>
+  </section>
 
-        <figure class="workcard">
-          <div class="mockup mk-serif" style="--b:#c25e86">
-            <div class="mockbar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="url">lumen-aesthetics.sg</span></div>
-            <div class="mockpage">
-              <div class="mpnav"><span class="mplogo">Lumen Aesthetics</span><span class="mpmenu" aria-hidden="true"><i></i><i></i><i></i></span></div>
-              <div class="mphero">
-                <span class="mptag">Aesthetic clinic</span>
-                <span class="mptitle">Skin that speaks for itself.</span>
-                <span class="mpcta">Book a consult</span>
-                <span class="mpchat"><span class="d" aria-hidden="true"></span>Hi, welcome to Lumen. Ask about a treatment or a slot.</span>
-              </div>
-              <div class="mpbody">
-                <div class="mprow"><span class="mpsec">Popular treatments</span><span class="mpmore">View all</span></div>
-                <div class="mptiles"><span class="mptile"><span>Facials</span></span><span class="mptile"><span>Laser</span></span><span class="mptile"><span>Skin boosters</span></span></div>
-              </div>
+  <!-- TIER 2: websites -->
+  <section class="wsec tint">
+    <div class="wrap">
+      <div class="tierhead">
+        <div>
+          <div class="tiernum">02 · Websites</div>
+          <h2 class="tiertitle">A full site, with the front desk built in.</h2>
+          <p class="tiersub">A real website in your brand that sells while you sleep, with the front desk answering right inside it. From S$1,299.</p>
+        </div>
+      </div>
+      <div class="sitehero">
+        <div class="sitebar"><i></i><i></i><i></i><span class="url">ambernaillash.sg</span><span class="sitelive"><span class="d"></span>Live example</span></div>
+        <div class="siteframe">
+          <iframe src="site-amber.html" title="Amber Nail & Lash website" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+          <a class="siteover" href="site-amber.html" target="_blank" rel="noopener" aria-label="Open the Amber Nail & Lash live example site">
+            <span class="siteopen">Open the live site
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+          </a>
+        </div>
+      </div>
+      <div class="sitecap"><b>Amber Nail & Lash</b><span>A real, working example, with the front desk built in. Click to open it.</span></div>
+
+      <div class="sitegrid">
+        <figure class="smock">
+          <div class="smpage" style="--sbg:#14231d;--sink:#f2efe6;--sacc:#5fae7e;--sfont:'Hedvig Letters Serif',serif;--stw:500;--sactx:#14231d;--sline:rgba(255,255,255,.2)">
+            <span class="smtag">Cafe · Tiong Bahru</span>
+            <span class="smtitle">Slow mornings, good coffee.</span>
+            <div class="smrow"><span class="smpill">Reserve a table</span><span class="smpill ghost">See the menu</span></div>
+          </div>
+          <figcaption class="smcap"><b>Ferns & Filter</b><span>Editorial, calm</span></figcaption>
+        </figure>
+        <figure class="smock">
+          <div class="smpage" style="--sbg:#fff;--sink:#191919;--sacc:#e0532a;--sfont:'Archivo Black',sans-serif;--stw:400;--sactx:#fff;--sline:rgba(23,21,18,.16)">
+            <span class="smtag" style="color:#e0532a">Renovation · Islandwide</span>
+            <span class="smtitle" style="letter-spacing:-.02em">BUILT PROPERLY, ONCE.</span>
+            <div class="smrow"><span class="smpill">Get a quote</span><span class="smpill ghost">Our work</span></div>
+          </div>
+          <figcaption class="smcap"><b>Northline Reno</b><span>Bold, industrial</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIER 3: custom builds -->
+  <section class="wsec">
+    <div class="wrap">
+      <div class="tierhead">
+        <div>
+          <div class="tiernum">03 · Custom builds</div>
+          <h2 class="tiertitle">For whatever your trade keeps doing by hand.</h2>
+          <p class="tiersub">Booking, forms, calculators, follow-ups. We scope it around how you actually work, and quote it to fit.</p>
+        </div>
+      </div>
+      <div class="cgrid">
+        <div class="ccard">
+          <div class="cviz">
+            <div class="bkslot"><b>Sat, 2:00pm</b><span class="go">Book</span></div>
+            <div class="bkslot taken"><b>Sat, 3:30pm</b><span class="go">Taken</span></div>
+            <div class="bkslot"><b>Sat, 5:00pm</b><span class="go">Book</span></div>
+          </div>
+          <div class="cbody"><h3>Booking</h3><p>Customers pick their own slot. Your calendar fills without the back-and-forth.</p><div class="q">Quoted</div></div>
+        </div>
+        <div class="ccard">
+          <div class="cviz">
+            <div class="qtr"><span>Aircon service · 3 units</span><span>S$90</span></div>
+            <div class="qtr"><span>Chemical wash · 1 unit</span><span>S$90</span></div>
+            <div class="qtot"><span>Your estimate</span><span>S$180</span></div>
+          </div>
+          <div class="cbody"><h3>Quote tools</h3><p>Custom calculators so customers get an instant estimate, and you get a warm lead.</p><div class="q">Quoted</div></div>
+        </div>
+        <div class="ccard">
+          <div class="cviz">
+            <div class="aflow">
+              <div class="astep"><span class="adot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Booking confirmed</div>
+              <div class="aline"></div>
+              <div class="astep"><span class="adot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="9"/></svg></span>Reminder sent, day before</div>
+              <div class="aline"></div>
+              <div class="astep"><span class="adot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L3 9.2l5.9-.9z"/></svg></span>Review request, after</div>
             </div>
           </div>
-          <figcaption class="workcap"><span class="sec">Aesthetic clinic</span><span class="sty">Soft, premium</span></figcaption>
-        </figure>
-
-        <figure class="workcard">
-          <div class="mockup mk-bold mk-center" style="--b:#b5432e">
-            <div class="mockbar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="url">kaya-kitchen.sg</span></div>
-            <div class="mockpage">
-              <div class="mpnav"><span class="mplogo">Kaya Kitchen</span><span class="mpmenu" aria-hidden="true"><i></i><i></i><i></i></span></div>
-              <div class="mphero">
-                <span class="mptag">Restaurant</span>
-                <span class="mptitle">Come hungry.</span>
-                <span class="mpcta">Reserve a table</span>
-                <span class="mpchat"><span class="d" aria-hidden="true"></span>Hi! Ask about the menu, halal options or a table tonight.</span>
-              </div>
-              <div class="mpbody">
-                <div class="mprow"><span class="mpsec">On the menu</span><span class="mpmore">Full menu</span></div>
-                <div class="mptiles"><span class="mptile"><span>Mains</span></span><span class="mptile"><span>Small plates</span></span><span class="mptile"><span>Sweets</span></span></div>
-              </div>
-            </div>
-          </div>
-          <figcaption class="workcap"><span class="sec">Restaurant</span><span class="sty">Warm, bold</span></figcaption>
-        </figure>
-
-        <figure class="workcard">
-          <div class="mockup mk-ink" style="--b:#1f2733;--b2:#e0932f">
-            <div class="mockbar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="url">northline.sg</span></div>
-            <div class="mockpage">
-              <div class="mpnav"><span class="mplogo">Northline</span><span class="mpmenu" aria-hidden="true"><i></i><i></i><i></i></span></div>
-              <div class="mphero">
-                <span class="mptag">Renovation</span>
-                <span class="mptitle">Built properly, once.</span>
-                <span class="mpcta">Get a quote</span>
-                <span class="mpchat"><span class="d" aria-hidden="true"></span>Planning a reno? Tell me your place and budget.</span>
-              </div>
-              <div class="mpbody">
-                <div class="mprow"><span class="mpsec">What we do</span><span class="mpmore">Our work</span></div>
-                <div class="mptiles"><span class="mptile"><span>Kitchens</span></span><span class="mptile"><span>Built-ins</span></span><span class="mptile"><span>Full home</span></span></div>
-              </div>
-            </div>
-          </div>
-          <figcaption class="workcap"><span class="sec">Renovation</span><span class="sty">Solid, industrial</span></figcaption>
-        </figure>
-
-        <figure class="workcard">
-          <div class="mockup mk-serif" style="--b:#171412">
-            <div class="mockbar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="url">vero-hair.sg</span></div>
-            <div class="mockpage">
-              <div class="mpnav"><span class="mplogo">Vero</span><span class="mpmenu" aria-hidden="true"><i></i><i></i><i></i></span></div>
-              <div class="mphero">
-                <span class="mptag">Hair studio</span>
-                <span class="mptitle">Your best hair day.</span>
-                <span class="mpcta">Book a slot</span>
-                <span class="mpchat"><span class="d" aria-hidden="true"></span>Hey! Colour, cut or treatment, what are you after?</span>
-              </div>
-              <div class="mpbody">
-                <div class="mprow"><span class="mpsec">Services</span><span class="mpmore">See all</span></div>
-                <div class="mptiles"><span class="mptile"><span>Colour</span></span><span class="mptile"><span>Cuts</span></span><span class="mptile"><span>Treatments</span></span></div>
-              </div>
-            </div>
-          </div>
-          <figcaption class="workcap"><span class="sec">Hair studio</span><span class="sty">Editorial, chic</span></figcaption>
-        </figure>
-
-        <figure class="workcard">
-          <div class="mockup mk-center" style="--b:#0f7a86">
-            <div class="mockbar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="url">bloom-dental.sg</span></div>
-            <div class="mockpage">
-              <div class="mpnav"><span class="mplogo">Bloom Dental</span><span class="mpmenu" aria-hidden="true"><i></i><i></i><i></i></span></div>
-              <div class="mphero">
-                <span class="mptag">Dental</span>
-                <span class="mptitle">Dentistry, minus the dread.</span>
-                <span class="mpcta">Book a check-up</span>
-                <span class="mpchat"><span class="d" aria-hidden="true"></span>Hi, welcome to Bloom. Toothache or a routine check?</span>
-              </div>
-              <div class="mpbody">
-                <div class="mprow"><span class="mpsec">Treatments</span><span class="mpmore">View all</span></div>
-                <div class="mptiles"><span class="mptile"><span>Cleaning</span></span><span class="mptile"><span>Braces</span></span><span class="mptile"><span>Implants</span></span></div>
-              </div>
-            </div>
-          </div>
-          <figcaption class="workcap"><span class="sec">Dental</span><span class="sty">Fresh, calm</span></figcaption>
-        </figure>
-
-        <figure class="workcard">
-          <div class="mockup mk-ink mk-bold" style="--b:#1a1d22;--b2:#c6f24e">
-            <div class="mockbar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="url">apex-fitness.sg</span></div>
-            <div class="mockpage">
-              <div class="mpnav"><span class="mplogo">Apex Fitness</span><span class="mpmenu" aria-hidden="true"><i></i><i></i><i></i></span></div>
-              <div class="mphero">
-                <span class="mptag">Fitness studio</span>
-                <span class="mptitle">Stronger every week.</span>
-                <span class="mpcta">Start a trial</span>
-                <span class="mpchat"><span class="d" aria-hidden="true"></span>Ready to train? Ask about classes or a free trial.</span>
-              </div>
-              <div class="mpbody">
-                <div class="mprow"><span class="mpsec">Train with us</span><span class="mpmore">Timetable</span></div>
-                <div class="mptiles"><span class="mptile"><span>Classes</span></span><span class="mptile"><span>1-to-1</span></span><span class="mptile"><span>Free trial</span></span></div>
-              </div>
-            </div>
-          </div>
-          <figcaption class="workcap"><span class="sec">Fitness studio</span><span class="sty">Bold, high-energy</span></figcaption>
-        </figure>
-
-        <figure class="workcard">
-          <div class="mockup mk-center" style="--b:#2b57c4">
-            <div class="mockbar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="url">brightminds.sg</span></div>
-            <div class="mockpage">
-              <div class="mpnav"><span class="mplogo">Bright Minds</span><span class="mpmenu" aria-hidden="true"><i></i><i></i><i></i></span></div>
-              <div class="mphero">
-                <span class="mptag">Tuition centre</span>
-                <span class="mptitle">Learning that clicks.</span>
-                <span class="mpcta">Book a trial class</span>
-                <span class="mpchat"><span class="d" aria-hidden="true"></span>Hi! Which subject and level are you after?</span>
-              </div>
-              <div class="mpbody">
-                <div class="mprow"><span class="mpsec">Subjects</span><span class="mpmore">All levels</span></div>
-                <div class="mptiles"><span class="mptile"><span>Math</span></span><span class="mptile"><span>Science</span></span><span class="mptile"><span>English</span></span></div>
-              </div>
-            </div>
-          </div>
-          <figcaption class="workcap"><span class="sec">Tuition</span><span class="sty">Friendly, bright</span></figcaption>
-        </figure>
-
-        <figure class="workcard">
-          <div class="mockup" style="--b:#2f7d54">
-            <div class="mockbar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="url">freshhome.sg</span></div>
-            <div class="mockpage">
-              <div class="mpnav"><span class="mplogo">FreshHome</span><span class="mpmenu" aria-hidden="true"><i></i><i></i><i></i></span></div>
-              <div class="mphero">
-                <span class="mptag">Home services</span>
-                <span class="mptitle">A cleaner home, sorted.</span>
-                <span class="mpcta">Book a clean</span>
-                <span class="mpchat"><span class="d" aria-hidden="true"></span>Hi! Tell me your place size and I'll quote you.</span>
-              </div>
-              <div class="mpbody">
-                <div class="mprow"><span class="mpsec">Book a service</span><span class="mpmore">See pricing</span></div>
-                <div class="mptiles"><span class="mptile"><span>One-off</span></span><span class="mptile"><span>Weekly</span></span><span class="mptile"><span>Move-out</span></span></div>
-              </div>
-            </div>
-          </div>
-          <figcaption class="workcap"><span class="sec">Home services</span><span class="sty">Clean, trusted</span></figcaption>
-        </figure>
-
+          <div class="cbody"><h3>Automations</h3><p>Reminders, follow-ups and review requests, sent on their own and never forgotten.</p><div class="q">Quoted</div></div>
+        </div>
       </div>
     </div>
   </section>
@@ -221,12 +268,12 @@
     <div class="wrap">
       <div class="startGrid">
         <div>
-          <h2 class="startbig">Want one like these?</h2>
-          <p class="startsub">Tell us about your business and we'll design your front desk around your brand, usually within a few days.</p>
+          <h2 class="startbig">Want to see yours?</h2>
+          <p class="startsub">Tell us about your business and we'll design your front desk, and anything else you need, around your brand. Usually live within a few days.</p>
           <div class="startcta">
             <a class="btn" href="https://wa.me/6583219747?text=Hi%20Nimbus%20Nine%2C%20I%27d%20like%20to%20set%20up%20my%20front%20desk." target="_blank" rel="noopener" data-contact="whatsapp">Message us on WhatsApp
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a class="hlink" href="mailto:hello@nimbusnine.sg" data-contact="email">or email hello@nimbusnine.sg</a>
+            <a class="hlink" href="get-started.html">or see how it works</a>
           </div>
         </div>
         <ul class="assure">
@@ -248,16 +295,16 @@
   </div>
   <div class="wrap footNav">
     <div class="fcol fbrandcol">
-      <a class="brandmark fbrand" href="index.html" aria-label="Nimbus Nine, AI solutions, home">
-        <svg class="brandmk" viewBox="4 6 40 32" aria-hidden="true"><circle cx="34" cy="15" r="6.6" fill="#E8663A"/><path d="M15 35C10 35 6 31.5 6 27C6 22.8 9.3 19.4 13.4 19.1C14.4 14.2 18.8 10.6 24 10.6C30 10.6 35 15 35.8 20.8C39.9 21 43 24.4 43 28.5C43 32.1 40.1 35 36.5 35Z" fill="currentColor"/></svg>Nimbus Nine<span class="aichip">AI solutions</span>
+      <a class="brandmark fbrand" href="index.html" aria-label="Nimbus Nine, AI front desk, Singapore, home">
+        <svg class="brandmk" viewBox="4 6 40 32" aria-hidden="true"><circle cx="34" cy="15" r="6.6" fill="#E8663A"/><path d="M15 35C10 35 6 31.5 6 27C6 22.8 9.3 19.4 13.4 19.1C14.4 14.2 18.8 10.6 24 10.6C30 10.6 35 15 35.8 20.8C39.9 21 43 24.4 43 28.5C43 32.1 40.1 35 36.5 35Z" fill="currentColor"/></svg><span class="bmtext"><span class="bmname">Nimbus Nine</span><span class="bmsub" aria-hidden="true">AI front desk · Singapore</span></span>
       </a>
       <p class="ftag">The 24/7 front desk for small businesses, plus websites and custom tools.</p>
     </div>
     <nav class="fcol" aria-label="Footer">
       <span class="fh">Explore</span>
       <a href="index.html">Home</a>
-      <a href="websites.html">Websites</a>
       <a href="work.html">Work</a>
+      <a href="get-started.html">Get started</a>
       <a href="pricing.html">Pricing</a>
       <a href="about.html">About</a>
     </nav>
