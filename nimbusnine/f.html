@@ -81,9 +81,9 @@
       <div class="dname" id="dname">Front desk</div>
       <div class="dwho"><span class="livedot"></span><span id="dwho">Front desk</span></div>
     </div>
-    <button class="dvoice" id="dvoice" type="button" aria-pressed="true" aria-label="Voice on, tap to mute">
-      <svg id="vicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a9 9 0 0 1 0 14"/></svg>
-      <span id="vlabel">Voice on</span>
+    <button class="dvoice muted" id="dvoice" type="button" aria-pressed="false" aria-label="Voice off, tap to turn on">
+      <svg id="vicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M23 9l-6 6M17 9l6 6"/></svg>
+      <span id="vlabel">Voice off</span>
     </button>
   </div>
   <div class="dthread" id="thread" role="log" aria-live="polite"></div>
@@ -100,6 +100,7 @@
     <form class="leadcard" id="leadform">
       <h3>Leave your details</h3>
       <p>We'll get back to you shortly.</p>
+      <input id="lhp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
       <input id="lname" type="text" placeholder="Your name" autocomplete="name">
       <input id="lcontact" type="text" placeholder="Phone or email" autocomplete="tel">
       <p style="font-size:11px;color:var(--muted);margin-top:11px;line-height:1.45">By sending, you're happy for us to use your details to follow up on your enquiry.</p>
@@ -115,7 +116,7 @@
   const $ = id => document.getElementById(id);
   const thread = $("thread"), chipsEl = $("chips");
   const history = [];
-  let muted = false, busy = false, cfg = null;
+  let muted = true, busy = false, cfg = null;
   const audio = new Audio(); audio.preload = "auto";
 
   function darken(hex, f){ const m=hex.replace('#','').match(/.{2}/g); if(!m) return hex;
@@ -158,8 +159,10 @@
   $("leadopen").addEventListener("click",()=>$("lead").classList.add("on"));
   $("leadcancel").addEventListener("click",()=>$("lead").classList.remove("on"));
   $("leadform").addEventListener("submit",async e=>{ e.preventDefault();
+    if($("lhp").value) return;   // honeypot: bots fill this, humans don't
     const name=$("lname").value.trim(), contact=$("lcontact").value.trim();
-    if(!name&&!contact) return;
+    const okContact=/@/.test(contact)||/\d{7,}/.test(contact.replace(/[\s-]/g,""));
+    if(!okContact){ $("lcontact").style.borderColor="#b3261e"; $("lcontact").placeholder="Enter a phone or email"; $("lcontact").focus(); return; }
     const recent=history.filter(m=>m.role==="user").slice(-3).map(m=>m.content).join(" | ");
     try{ await fetch(WORKER+"/lead",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({c:slug,name,contact,intent:recent})}); }catch(e){}
     $("lead").classList.remove("on"); $("lname").value=""; $("lcontact").value="";

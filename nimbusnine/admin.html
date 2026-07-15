@@ -4,177 +4,256 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Front desk admin · Nimbus Nine</title>
+<meta name="referrer" content="no-referrer">
+<title>Front desk · Nimbus Nine</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23171512'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23E8663A'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
 <style>
-  :root{--bg:#f3efe8;--surface:#ece3d4;--card:#fbf8f1;--ink:#171512;--muted:#635b4f;--accent:#e8663a;--accent-ink:#b24714;--line:rgba(23,21,18,.13);--font:"Bricolage Grotesque",system-ui,sans-serif;--mono:"Spline Sans Mono",monospace}
+  :root{--bg:#f3efe8;--card:#fbf8f1;--surface:#ece3d4;--ink:#171512;--muted:#635b4f;--accent:#e8663a;--accent-ink:#b24714;--line:rgba(23,21,18,.13);--font:"Bricolage Grotesque",system-ui,sans-serif;--mono:"Spline Sans Mono",monospace}
   *{margin:0;padding:0;box-sizing:border-box}
   [hidden]{display:none!important}
-  body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.5;padding:32px clamp(16px,4vw,40px) 120px;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:660px;margin:0 auto}
-  .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:18px;letter-spacing:-.02em}
-  .brand svg{width:24px;height:20px}
-  .brand span{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border-left:1px solid var(--line);padding-left:11px}
-  h1{font-size:24px;font-weight:800;letter-spacing:-.025em;margin-top:20px}
-  .sub{color:var(--muted);font-size:14.5px;margin-top:4px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin-top:20px}
-  .sec-t{font-size:16px;font-weight:700;letter-spacing:-.01em;margin:24px 0 4px}
+  html{scroll-padding-top:20px}
+  body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+  .top{max-width:1180px;margin:0 auto;padding:22px clamp(16px,4vw,40px) 0}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:17px;letter-spacing:-.02em}
+  .brand svg{width:23px;height:19px}
+  .brand span{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border-left:1px solid var(--line);padding-left:11px}
+  .back{font-family:var(--mono);font-size:12px;color:var(--accent-ink);text-decoration:none;margin-left:auto}
+  .brandrow{display:flex;align-items:center;gap:14px}
+  .hd{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:22px}
+  .hd h1{font-size:clamp(24px,3.4vw,32px);font-weight:800;letter-spacing:-.025em}
+  .pill{font-family:var(--mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.04em;padding:5px 11px;border-radius:100px}
+  .pill.live{background:rgba(47,125,84,.14);color:#2f7d54}
+  .pill.paused{background:rgba(23,21,18,.09);color:var(--muted)}
+  .hint2{color:var(--muted);font-size:14px;margin-top:4px}
+  .layout{max-width:1180px;margin:0 auto;padding:22px clamp(16px,4vw,40px) 120px;display:grid;grid-template-columns:1fr 360px;gap:26px;align-items:start}
+  @media(max-width:900px){.layout{grid-template-columns:1fr;gap:18px}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+  .side{display:flex;flex-direction:column;gap:18px;position:sticky;top:20px}
+  @media(max-width:900px){.side{position:static}}
+  .sec-t{font-size:16px;font-weight:700;letter-spacing:-.01em;margin:22px 0 4px}
+  .sec-t:first-child{margin-top:0}
   .sec-h{color:var(--muted);font-size:13px;margin-bottom:10px}
   label{display:block;font-size:13px;font-weight:600;margin:14px 0 6px}
   .hint{font-weight:400;color:var(--muted);font-size:12px}
   input,select,textarea{width:100%;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:11px 13px;font-family:var(--font);font-size:15px;color:var(--ink);outline:none}
-  textarea{min-height:96px;resize:vertical;line-height:1.5}
+  textarea{min-height:110px;resize:vertical;line-height:1.5}
   input:focus,select:focus,textarea:focus{border-color:var(--accent-ink)}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--accent-ink);color:#fff;border:none;border-radius:100px;padding:13px 26px;font-family:var(--font);font-weight:600;font-size:15.5px;cursor:pointer}
-  .btn.sec{background:transparent;color:var(--ink);border:1px solid var(--line)}
-  .btn:disabled{opacity:.5}
-  .addrow{display:grid;grid-template-columns:1fr 1fr 120px 34px;gap:8px;margin-top:8px;align-items:start}
-  .addrow.faq{grid-template-columns:1fr 34px}
-  .addrow textarea{min-height:0;height:44px}
-  .del{border:1px solid var(--line);background:var(--card);border-radius:9px;cursor:pointer;color:var(--muted);font-size:18px;height:44px}
-  .addbtn{margin-top:10px;border:1px dashed var(--line);background:none;border-radius:10px;padding:10px;width:100%;cursor:pointer;color:var(--accent-ink);font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
-  .faqcard{border:1px solid var(--line);border-radius:11px;padding:10px;margin-top:8px}
-  .faqcard input{margin-bottom:6px}
-  .faqcard .qa{display:flex;gap:8px;align-items:center}
-  .bar{position:fixed;left:0;right:0;bottom:0;background:rgba(243,239,232,.92);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:12px clamp(16px,4vw,40px);display:flex;gap:12px;align-items:center;justify-content:flex-end}
-  .bar .status{margin-right:auto;font-family:var(--mono);font-size:12px;color:var(--muted)}
-  .center{min-height:60vh;display:flex;align-items:center;justify-content:center;color:var(--muted);font-family:var(--mono);text-align:center;padding:20px}
   .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  @media(max-width:520px){.row2{grid-template-columns:1fr}.addrow{grid-template-columns:1fr 1fr;}.addrow .del{grid-column:1/-1;width:100%}}
-  #qr{margin-top:12px;display:inline-block;background:#fff;padding:8px;border-radius:9px;border:1px solid var(--line)}
-  .reg{font-size:12.5px;color:var(--accent-ink);background:rgba(232,102,58,.08);border:1px solid rgba(178,71,20,.25);border-radius:10px;padding:10px 12px;margin-top:12px}
-  .lead{padding:11px 0;border-top:1px solid var(--line);font-size:14px}
+  @media(max-width:520px){.row2{grid-template-columns:1fr}}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--accent-ink);color:#fff;border:none;border-radius:100px;padding:12px 22px;font-family:var(--font);font-weight:600;font-size:15px;cursor:pointer}
+  .btn.sec{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .btn.sm{padding:9px 15px;font-size:13px}
+  .btn:disabled{opacity:.5;cursor:default}
+  .btn.wide{width:100%}
+  /* services */
+  .svc{display:grid;grid-template-columns:1fr 1.3fr 150px 36px;gap:8px;margin-top:8px;align-items:center}
+  @media(max-width:640px){.svc{grid-template-columns:1fr 1fr;}.svc .del{grid-column:2;justify-self:end}}
+  .del{border:1px solid var(--line);background:var(--card);border-radius:9px;cursor:pointer;color:var(--muted);font-size:18px;height:44px}
+  .addbtn{margin-top:10px;border:1px dashed var(--line);background:none;border-radius:10px;padding:11px;width:100%;cursor:pointer;color:var(--accent-ink);font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+  .faqc{border:1px solid var(--line);border-radius:11px;padding:10px;margin-top:8px}
+  .faqc .qa{display:flex;gap:8px;align-items:center}.faqc input{margin-bottom:6px}
+  /* save area */
+  .saverow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:20px}
+  .status{font-family:var(--mono);font-size:12.5px}
+  .status.ok{color:#2f7d54}.status.bad{color:#b3261e}.status.dirty{color:var(--accent-ink)}
+  /* share */
+  .lbl{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  .linkbox{display:flex;gap:8px;margin-top:5px}
+  .linkbox input{font-family:var(--mono);font-size:12px;padding:9px 11px}
+  .copy{flex:none;border:1px solid var(--line);background:var(--card);border-radius:9px;padding:0 12px;font-size:12px;cursor:pointer;font-family:var(--mono)}
+  #qr{margin-top:14px;display:flex;justify-content:center;background:#fff;padding:12px;border-radius:11px;border:1px solid var(--line)}
+  .sharebtns{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+  /* leads */
+  .lead{padding:12px 0;border-top:1px solid var(--line)}
   .lead:first-child{border-top:none}
-  .lead .top{font-weight:600}
+  .lead .who{font-weight:600;font-size:14.5px}
+  .lead a{color:var(--accent-ink);text-decoration:none}
   .lead .meta{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:1px}
+  .lead .intent{color:var(--muted);font-size:13px;margin-top:4px}
+  .lead.done{opacity:.5}
+  .lead .mk{margin-top:7px;font-family:var(--mono);font-size:11px;color:var(--accent-ink);background:none;border:none;cursor:pointer;padding:0;text-transform:uppercase;letter-spacing:.04em}
+  .reg{font-size:12.5px;color:var(--accent-ink);background:rgba(232,102,58,.08);border:1px solid rgba(178,71,20,.25);border-radius:10px;padding:10px 12px;margin-top:12px}
+  .center{min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);font-family:var(--mono);padding:24px;flex-direction:column;gap:14px}
+  .side .card{padding:18px}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="brand"><svg viewBox="4 6 40 32" aria-hidden="true"><circle cx="34" cy="15" r="6.6" fill="#E8663A"/><path d="M15 35C10 35 6 31.5 6 27C6 22.8 9.3 19.4 13.4 19.1C14.4 14.2 18.8 10.6 24 10.6C30 10.6 35 15 35.8 20.8C39.9 21 43 24.4 43 28.5C43 32.1 40.1 35 36.5 35Z" fill="#171512"/></svg>Nimbus Nine<span>Front desk admin</span></div>
-  <div id="loading" class="center">Loading your front desk…</div>
-  <div id="app" hidden>
-    <h1 id="title">Your front desk</h1>
-    <p class="sub">Fill in your real details, then Save. Your front desk updates straight away.</p>
+<div id="loading" class="center">Loading the front desk…</div>
+<div id="loaderr" class="center" hidden><div id="loaderrmsg">Couldn't load.</div><button class="btn sec" onclick="location.reload()">Try again</button></div>
+
+<div id="app" hidden>
+  <div class="top">
+    <div class="brandrow">
+      <div class="brand"><svg viewBox="4 6 40 32" aria-hidden="true"><circle cx="34" cy="15" r="6.6" fill="#E8663A"/><path d="M15 35C10 35 6 31.5 6 27C6 22.8 9.3 19.4 13.4 19.1C14.4 14.2 18.8 10.6 24 10.6C30 10.6 35 15 35.8 20.8C39.9 21 43 24.4 43 28.5C43 32.1 40.1 35 36.5 35Z" fill="#171512"/></svg>Nimbus Nine<span>Front desk</span></div>
+      <a class="back" id="back" href="add.html" hidden>← Back to clients</a>
+    </div>
+    <div class="hd"><h1 id="bizname">Front desk</h1><span class="pill live" id="statuspill">Live</span></div>
+    <div class="hint2">Fill in the real details, then Save. Changes go live on the next customer.</div>
     <div class="reg" id="reg" hidden></div>
+  </div>
 
-    <div class="card">
-      <div class="sec-t">The basics</div>
-      <div class="row2">
-        <div><label>Front-desk name <span class="hint">what it calls itself</span><input id="fname"></label></div>
-        <div><label>Tone<select id="tone"><option value="warm">Warm</option><option value="professional">Professional</option><option value="straight-talking">Straight-talking</option></select></label></div>
+  <div class="layout">
+    <div class="main">
+      <div class="card">
+        <div class="sec-t">The basics</div>
+        <div class="row2">
+          <div><label>Business name<input id="bname"></label></div>
+          <div><label>Trade<select id="trade" disabled></select></label><div class="hint" id="tradehint" style="margin-top:5px"></div></div>
+        </div>
+        <div class="row2">
+          <div><label>Front-desk name <span class="hint">what it calls itself</span><input id="fname"></label></div>
+          <div><label>Tone<select id="tone"><option value="warm">Warm</option><option value="professional">Professional</option><option value="straight-talking">Straight-talking</option></select></label></div>
+        </div>
+        <label>Greeting <span class="hint">first message customers see</span><input id="greeting"></label>
+
+        <div class="sec-t">About your business</div>
+        <div class="sec-h">Tell it anything: your story, what makes you different, area, parking, policies. The more you write, the smarter it answers. Paste your bio or menu here too.</div>
+        <textarea id="about" placeholder="e.g. Family-run salon in Tampines since 2015. Only cruelty-free products. Free parking after 6pm..."></textarea>
+
+        <div class="sec-t">Services &amp; prices</div>
+        <div class="sec-h">Name, a short description, and the price (or "from S$X", "Quoted", "Free").</div>
+        <div id="services"></div>
+        <button class="addbtn" id="addsvc" type="button">+ Add a service</button>
+
+        <div class="sec-t">Opening hours</div>
+        <input id="hours" placeholder="e.g. Mon to Fri 10:00 to 19:00, Sat 10:00 to 18:00, Sun closed">
+
+        <div class="sec-t">Common questions</div>
+        <div class="sec-h">Questions customers often ask, and how you want them answered.</div>
+        <div id="faqs"></div>
+        <button class="addbtn" id="addfaq" type="button">+ Add a question</button>
+
+        <div class="sec-t">Quick-question buttons <span class="hint">up to 8, one per line</span></div>
+        <textarea id="chips" style="min-height:120px"></textarea>
+
+        <div class="saverow"><button class="btn" id="save2">Save changes</button><span class="status" id="status2"></span></div>
       </div>
-      <label>Greeting <span class="hint">first thing customers see</span><input id="greeting"></label>
-
-      <div class="sec-t">About your business</div>
-      <div class="sec-h">Tell your front desk anything: your story, what makes you different, area, parking, policies. The more you write, the smarter it answers. Paste your bio or menu here too.</div>
-      <textarea id="about" placeholder="e.g. We're a family-run salon in Tampines, open since 2015. We only use cruelty-free products. Parking is free after 6pm..."></textarea>
-
-      <div class="sec-t">Services &amp; prices</div>
-      <div class="sec-h">Add each service, a short description, and the price (or "from S$X", "Quoted", "Free").</div>
-      <div id="services"></div>
-      <button class="addbtn" id="addsvc" type="button">+ Add a service</button>
-
-      <div class="sec-t">Opening hours</div>
-      <input id="hours" placeholder="e.g. Mon to Fri 10:00 to 19:00, Sat 10:00 to 18:00, Sun closed">
-
-      <div class="sec-t">Common questions</div>
-      <div class="sec-h">Questions customers often ask, and exactly how you want them answered.</div>
-      <div id="faqs"></div>
-      <button class="addbtn" id="addfaq" type="button">+ Add a question</button>
-
-      <div class="sec-t">Quick-question buttons</div>
-      <div class="sec-h">The tappable questions shown on your front desk, one per line.</div>
-      <textarea id="chips" style="min-height:120px"></textarea>
-
-      <div class="sec-t">Where your leads go</div>
-      <div class="sec-h">Message <b>@Nimbusninebot</b> on Telegram, then paste the ID it shows (or ask us). Leads also appear in your dashboard.</div>
-      <input id="chat" placeholder="Telegram ID, e.g. 420583513">
-
-      <div class="sec-t">Your link &amp; QR</div>
-      <div class="sec-h" id="linktxt"></div>
-      <div id="qr"></div>
     </div>
 
-    <div class="card">
-      <div class="sec-t" style="margin-top:0">Your leads</div>
-      <div class="sec-h">Enquiries that left their name or number. They also go to your Telegram.</div>
-      <div id="leads">Loading…</div>
+    <div class="side">
+      <div class="card">
+        <div class="saverow" style="margin-top:0"><button class="btn wide" id="save">Save changes</button></div>
+        <div class="status" id="status" style="margin-top:8px;text-align:center"></div>
+      </div>
+      <div class="card">
+        <div class="lbl">Customer link (share this)</div>
+        <div class="linkbox"><input id="link" readonly><button class="copy" data-t="link">Copy</button></div>
+        <div id="qr"></div>
+        <div class="sharebtns"><a class="btn sec sm" id="preview" target="_blank">Open front desk</a><button class="btn sec sm" id="pausebtn" hidden>Pause</button><button class="btn sec sm" id="testbtn">Send test lead</button></div>
+        <div class="status" id="sharestatus" style="margin-top:10px"></div>
+        <div class="lbl" id="adminlbl" style="margin-top:16px" hidden>Admin link (send to the client)</div>
+        <div class="linkbox" id="adminbox" hidden><input id="adminlink" readonly><button class="copy" data-t="adminlink">Copy</button></div>
+        <button class="btn sec sm" id="resetbtn" style="margin-top:10px" hidden>Reset admin link</button>
+      </div>
+      <div class="card">
+        <div class="sec-t" style="margin-top:0">Leads</div>
+        <div class="sec-h">Enquiries that left their details. Also sent to Telegram.</div>
+        <div id="leads">Loading…</div>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="bar" id="bar" hidden>
-  <span class="status" id="status"></span>
-  <a class="btn sec" id="preview" target="_blank">Preview</a>
-  <button class="btn" id="save">Save &amp; publish</button>
-</div>
-
 <script>
-  const WORKER = "https://nimbus-desk.propsightsg.workers.dev";
-  const BASE = "https://adamdegoat.github.io/nimbusnine";
-  const REG = {property:"This is a regulated trade (CEA). Your front desk shares info and takes enquiries only, it never gives valuations or advice.", insurance:"This is a regulated trade (MAS). Your front desk shares info and books chats only, it never recommends products or gives advice."};
-  const $ = id => document.getElementById(id);
-  const P = new URLSearchParams(location.search); const slug=P.get("c")||"", key=P.get("k")||"";
+  const WORKER="https://nimbus-desk.propsightsg.workers.dev", BASE="https://adamdegoat.github.io/nimbusnine";
+  const TRADES=[["beauty","Beauty & grooming"],["home","Home & renovation"],["tuition","Tuition & enrichment"],["fitness","Fitness & movement"],["fnb","Food & beverage"],["pet","Pet services"],["events","Events & creative"],["property","Property / real estate agent"],["insurance","Insurance & financial adviser"],["professional","Professional services"],["general","General / other"]];
+  const REG={property:"Regulated trade (CEA): the front desk shares info and books only, never gives valuations or advice.",insurance:"Regulated trade (MAS): the front desk shares info and books chats only, never recommends products or advises."};
+  const $=id=>document.getElementById(id);
+  const P=new URLSearchParams(location.search), slug=P.get("c")||"", key=P.get("k")||"";
+  const OWNER=localStorage.getItem("n9_owner")||"";       // owner mode if they have the console key
+  let dirty=false;
 
-  function svcRow(s={}){ const d=document.createElement("div"); d.className="addrow";
-    d.innerHTML=`<input placeholder="Service name" value="${esc(s.name||"")}"><input placeholder="Short description" value="${esc(s.desc||"")}"><input placeholder="Price" value="${esc(s.price||"")}"><button class="del" type="button">×</button>`;
-    d.querySelector(".del").onclick=()=>d.remove(); return d; }
-  function faqRow(f={}){ const d=document.createElement("div"); d.className="faqcard";
-    d.innerHTML=`<div class="qa"><input placeholder="Question, e.g. Do I need to book?" value="${esc(f.q||"")}"><button class="del" type="button">×</button></div><input placeholder="Your answer" value="${esc(f.a||"")}">`;
-    d.querySelector(".del").onclick=()=>d.remove(); return d; }
-  function esc(s){ return String(s||"").replace(/"/g,"&quot;").replace(/</g,"&lt;"); }
-  $("addsvc").onclick=()=>$("services").appendChild(svcRow());
-  $("addfaq").onclick=()=>$("faqs").appendChild(faqRow());
+  function eh(s){return String(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+  function ftime(s){try{return new Date(String(s).replace(" ","T")+"Z").toLocaleString("en-SG",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});}catch(e){return s;}}
+  async function api(path,body){try{const r=await fetch(WORKER+path,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});return{status:r.status,data:await r.json().catch(()=>({}))};}catch(e){return{status:0,data:{}};}}
+  function markDirty(){dirty=true;setStatus("Unsaved changes","dirty");}
+  function setStatus(t,cls){["status","status2"].forEach(id=>{$(id).textContent=t;$(id).className="status"+(cls?" "+cls:"");});}
 
-  async function api(path, body){ const r=await fetch(WORKER+path,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)}); return {status:r.status,data:await r.json().catch(()=>({}))}; }
+  const tsel=$("trade"); TRADES.forEach(t=>{const o=document.createElement("option");o.value=t[0];o.textContent=t[1];tsel.appendChild(o);});
+
+  function svcRow(s={}){const d=document.createElement("div");d.className="svc";
+    d.innerHTML=`<input placeholder="Service name" value="${eh(s.name)}"><input placeholder="Short description" value="${eh(s.desc)}"><input placeholder="Price" value="${eh(s.price)}"><button class="del" type="button">×</button>`;
+    d.querySelector(".del").onclick=()=>{d.remove();markDirty();}; d.querySelectorAll("input").forEach(i=>i.oninput=markDirty); return d;}
+  function faqRow(f={}){const d=document.createElement("div");d.className="faqc";
+    d.innerHTML=`<div class="qa"><input placeholder="Question" value="${eh(f.q)}"><button class="del" type="button">×</button></div><input placeholder="Your answer" value="${eh(f.a)}">`;
+    d.querySelector(".del").onclick=()=>{d.remove();markDirty();}; d.querySelectorAll("input").forEach(i=>i.oninput=markDirty); return d;}
+  $("addsvc").onclick=()=>{$("services").appendChild(svcRow());markDirty();};
+  $("addfaq").onclick=()=>{$("faqs").appendChild(faqRow());markDirty();};
+  ["bname","fname","tone","greeting","about","hours","chips","trade"].forEach(id=>$(id).addEventListener("input",markDirty));
 
   (async function(){
-    if(!slug||!key){ $("loading").textContent="This admin link is incomplete."; return; }
+    if(!slug||!key){$("loading").hidden=true;$("loaderr").hidden=false;$("loaderrmsg").textContent="This admin link is incomplete.";return;}
     const {status,data}=await api("/admin/get",{c:slug,k:key});
-    if(status!==200||!data.ok){ $("loading").textContent = status===401?"This admin link is wrong or expired.":"Couldn't load. Try again."; return; }
+    if(status!==200||!data.ok){$("loading").hidden=true;$("loaderr").hidden=false;$("loaderrmsg").textContent=status===401?"This admin link is wrong or has been reset.":status===0?"Couldn't reach the server.":"Couldn't load this front desk.";return;}
     const cfg=data.config||{};
-    $("title").textContent=data.business_name+" — front desk";
+    $("bizname").textContent=data.business_name;
+    $("bname").value=data.business_name||"";
+    tsel.value=data.trade||"general";
     $("fname").value=data.frontdesk_name||cfg.frontdesk_name||"";
     $("tone").value=cfg.tone||"warm";
     $("greeting").value=cfg.greeting||"";
     $("about").value=cfg.about||"";
     $("hours").value=typeof cfg.hours==="string"?cfg.hours:"";
-    $("chat").value=data.lead_chat_id||"";
     (cfg.services||[]).forEach(s=>$("services").appendChild(svcRow(s))); if(!(cfg.services||[]).length)$("services").appendChild(svcRow());
     (cfg.faq||[]).forEach(f=>$("faqs").appendChild(faqRow(f))); if(!(cfg.faq||[]).length)$("faqs").appendChild(faqRow());
     $("chips").value=(cfg.chips||[]).join("\n");
-    if(REG[data.trade]){ $("reg").textContent=REG[data.trade]; $("reg").hidden=false; }
-    const link=BASE+"/f.html?c="+slug; $("linktxt").innerHTML='Share this: <b>'+link+'</b>'; $("preview").href=link;
-    try{ new QRCode($("qr"),{text:link,width:140,height:140,colorDark:"#171512",colorLight:"#ffffff"}); }catch(e){ $("qr").innerHTML='<img alt="QR" src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data='+encodeURIComponent(link)+'">'; }
-    $("loading").hidden=true; $("app").hidden=false; $("bar").hidden=false;
+    const paused=data.status!=="active";
+    $("statuspill").textContent=paused?"Paused":"Live"; $("statuspill").className="pill "+(paused?"paused":"live");
+    function updReg(){const t=tsel.value;if(REG[t]){$("reg").textContent=REG[t];$("reg").hidden=false;$("tradehint").textContent="";}else{$("reg").hidden=true;}}
+    updReg(); tsel.addEventListener("change",updReg);
+    const link=BASE+"/f.html?c="+slug; $("link").value=link; $("preview").href=link;
+    try{new QRCode($("qr"),{text:link,width:150,height:150,colorDark:"#171512",colorLight:"#ffffff"});}catch(e){$("qr").innerHTML='<img alt="QR" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+encodeURIComponent(link)+'">';}
+    // OWNER extras
+    if(OWNER){
+      $("back").hidden=false;
+      tsel.disabled=false; $("tradehint").textContent="You can change the trade.";
+      $("pausebtn").hidden=false; $("pausebtn").textContent=paused?"Resume":"Pause";
+      $("adminlbl").hidden=false; $("adminbox").hidden=false; $("adminlink").value=location.origin+location.pathname+"?c="+slug+"&k="+key;
+      $("resetbtn").hidden=false;
+    } else { tsel.disabled=true; $("tradehint").textContent="Ask us to change your trade."; }
+    $("loading").hidden=true; $("app").hidden=false;
     loadLeads();
+    dirty=false; setStatus("","");
   })();
-  function eh(s){ return String(s||"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c])); }
-  function ftime(s){ try{ return new Date(String(s).replace(" ","T")+"Z").toLocaleString("en-SG",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"}); }catch(e){ return s; } }
-  async function loadLeads(){
-    const {data}=await api("/admin/leads",{c:slug,k:key});
-    const el=$("leads"); el.innerHTML="";
-    if(!data.leads||!data.leads.length){ el.textContent="No leads yet. They'll show here the moment a customer leaves their details."; return; }
-    data.leads.forEach(l=>{ const d=document.createElement("div"); d.className="lead";
-      d.innerHTML=`<div class="top">${eh(l.name||"Someone")} · ${eh(l.contact||"")}</div><div class="meta">${ftime(l.created_at)}</div>${l.intent?'<div style="color:var(--muted);margin-top:3px">'+eh(l.intent)+'</div>':''}`;
-      el.appendChild(d); });
-  }
 
-  $("save").onclick=async ()=>{
-    const services=[...$("services").querySelectorAll(".addrow")].map(r=>{const i=r.querySelectorAll("input");return {name:i[0].value.trim(),desc:i[1].value.trim(),price:i[2].value.trim()};}).filter(s=>s.name);
-    const faq=[...$("faqs").querySelectorAll(".faqcard")].map(r=>{const i=r.querySelectorAll("input");return {q:i[0].value.trim(),a:i[1].value.trim()};}).filter(f=>f.q&&f.a);
+  async function save(){
+    const services=[...$("services").querySelectorAll(".svc")].map(r=>{const i=r.querySelectorAll("input");return{name:i[0].value.trim(),desc:i[1].value.trim(),price:i[2].value.trim()};}).filter(s=>s.name);
+    const faq=[...$("faqs").querySelectorAll(".faqc")].map(r=>{const i=r.querySelectorAll("input");return{q:i[0].value.trim(),a:i[1].value.trim()};}).filter(f=>f.q&&f.a);
     const chips=$("chips").value.split("\n").map(s=>s.trim()).filter(Boolean).slice(0,8);
-    const config={tone:$("tone").value,greeting:$("greeting").value.trim(),about:$("about").value.trim(),services,hours:$("hours").value.trim(),faq,chips,contact:""};
-    $("save").disabled=true; $("status").textContent="Saving…";
-    const {status,data}=await api("/admin/save",{c:slug,k:key,config,frontdesk_name:$("fname").value.trim(),lead_chat_id:$("chat").value.trim()});
-    $("save").disabled=false;
-    $("status").textContent = (status===200&&data.ok)?"Saved. Your front desk is live.":"Save failed, try again.";
-    setTimeout(()=>$("status").textContent="",4000);
-  };
+    const config={tone:$("tone").value,greeting:$("greeting").value.trim(),about:$("about").value.trim(),services,hours:$("hours").value.trim(),faq,chips};
+    const body={c:slug,k:key,config,frontdesk_name:$("fname").value.trim(),business_name:$("bname").value.trim()};
+    if(OWNER) body.trade=tsel.value;
+    [$("save"),$("save2")].forEach(b=>b.disabled=true); setStatus("Saving…","");
+    const {status,data}=await api("/admin/save",body);
+    [$("save"),$("save2")].forEach(b=>b.disabled=false);
+    if(status===200&&data.ok){dirty=false;setStatus("Saved. Front desk is live.","ok");$("bizname").textContent=$("bname").value.trim()||$("bizname").textContent;updRegAfterSave();}
+    else setStatus(status===0?"Couldn't reach the server, try again.":"Save failed, try again.","bad");
+  }
+  function updRegAfterSave(){}
+  $("save").onclick=save; $("save2").onclick=save;
+
+  async function loadLeads(){
+    const {status,data}=await api("/admin/leads",{c:slug,k:key});
+    const el=$("leads");
+    if(status!==200){el.innerHTML='<span style="color:#b3261e;font-size:13px">Couldn\'t load leads. <a href="#" onclick="loadLeads();return false" style="color:var(--accent-ink)">retry</a></span>';return;}
+    el.innerHTML="";
+    if(!data.leads||!data.leads.length){el.textContent="No leads yet. They'll show here the moment a customer leaves their details.";return;}
+    data.leads.forEach(l=>{const d=document.createElement("div");d.className="lead"+(l.status==="done"?" done":"");
+      const contact=eh(l.contact||""); const clink=/@/.test(contact)?'mailto:'+contact:(/^\+?\d[\d\s-]+$/.test(contact)?'tel:'+contact.replace(/\s/g,""):null);
+      d.innerHTML=`<div class="who">${eh(l.name||"Someone")} · ${clink?'<a href="'+clink+'">'+contact+'</a>':contact}</div><div class="meta">${ftime(l.created_at)}</div>${l.intent?'<div class="intent">'+eh(l.intent)+'</div>':''}<button class="mk" data-id="${l.id}" data-st="${l.status==="done"?"new":"done"}">${l.status==="done"?"mark as new":"mark handled"}</button>`;
+      el.appendChild(d);});
+  }
+  $("leads").addEventListener("click",async e=>{const b=e.target.closest(".mk");if(!b)return;await api("/admin/lead-status",{c:slug,k:key,id:Number(b.dataset.id),status:b.dataset.st});loadLeads();});
+
+  document.querySelectorAll(".copy").forEach(b=>b.addEventListener("click",()=>{const i=$(b.dataset.t);i.select();document.execCommand("copy");b.textContent="Copied";setTimeout(()=>b.textContent="Copy",1200);}));
+  $("testbtn").onclick=async()=>{$("sharestatus").textContent="Sending…";$("sharestatus").className="status";const{status,data}=await api("/admin/test",OWNER?{key:OWNER,c:slug}:{c:slug,k:key});$("sharestatus").textContent=data.ok?"Sent. Check Telegram.":(data.error==="no_telegram"?"Add a Telegram ID first (below).":"Couldn't send.");$("sharestatus").className="status "+(data.ok?"ok":"bad");};
+  $("pausebtn").onclick=async()=>{const toPause=$("pausebtn").textContent==="Pause";if(toPause&&!confirm("Pause this front desk? It stops answering customers until you resume."))return;const{data}=await api("/admin/pause",{key:OWNER,slug,status:toPause?"paused":"active"});if(data.ok){const p=data.status!=="active";$("statuspill").textContent=p?"Paused":"Live";$("statuspill").className="pill "+(p?"paused":"live");$("pausebtn").textContent=p?"Resume":"Pause";}};
+  $("resetbtn").onclick=async()=>{if(!confirm("Reset the admin link? The old link stops working."))return;const{data}=await api("/admin/resettoken",{key:OWNER,slug});if(data.ok){location.search="?c="+slug+"&k="+data.admin_token;}};
+
+  window.addEventListener("beforeunload",e=>{if(dirty){e.preventDefault();e.returnValue="";}});
 </script>
 </body>
 </html>
