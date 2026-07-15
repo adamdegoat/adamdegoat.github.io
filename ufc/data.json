@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-14T23:30:00.269840+08:00",
+  "updated": "2026-07-15T09:00:00.274860+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -38,33 +38,15 @@
   },
   "news": [
     {
+      "title": "Michael Chandler shuts down Conor McGregor UFC 329 injury conspiracy theories: ‘He’s not a quitter’",
+      "link": "https://www.mmafighting.com/ufc/499403/michael-chandler-shuts-down-conor-mcgregor-ufc-329-injury-conspiracy-theories-hes-not-a-quitter",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
       "title": "Matt Brown reacts to Conor McGregor’s injury, plans to return for final fight in UFC: ‘The motherf*cker was nervous’",
       "link": "https://www.mmafighting.com/ufc/499348/matt-brown-reacts-to-conor-mcgregors-injury-plans-to-return-for-final-fight-in-ufc-the-motherfcker-was-nervous",
       "source": "MMA Fighting",
-      "priority": true
-    },
-    {
-      "title": "Cory Sandhagen shows off gnarly injury after submission attempt likely tore hamstring at UFC 329",
-      "link": "https://www.mmafighting.com/ufc/499342/cory-sandhagen-shows-off-gnarly-injury-after-submission-attempt-likely-tore-hamstring-at-ufc-329",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
-      "title": "Machine Gun Kelly doubles down on Conor McGregor hate after his injury at UFC 329: ‘F*ck this dude’",
-      "link": "https://www.mmafighting.com/ufc/499303/machine-gun-kelly-doubles-down-on-conor-mcgregor-hate-after-his-injury-at-ufc-329-fck-this-dude",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
-      "title": "Dustin Poirier reacts to ‘dirtbag’ Conor McGregor suffering injury at UFC 329",
-      "link": "https://www.mmafighting.com/ufc/499302/dustin-poirier-reacts-to-dirtbag-conor-mcgregor-suffering-injury-at-ufc-329",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
-      "title": "Frenemies? Michael Chandler defends Conor McGregor after ‘disappointing’ UFC 329 injury disaster – ‘He is not a bamboozler’",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/457042/frenemies-michael-chandler-defends-conor-mcgregor-after-disappointing-ufc-329-injury-disaster-he-is-not-a-bamboozler",
-      "source": "MMA Mania",
       "priority": true
     },
     {
@@ -110,21 +92,39 @@
       "priority": true
     },
     {
-      "title": "Dustin Poirier has no sympathy for Conor McGregor after UFC 329 injury",
-      "link": "https://www.bjpenn.com/mma-news/dustin-poirier/dustin-poirier-has-no-sympathy-for-conor-mcgregor-after-ufc-329-injury/?utm_source=rss&utm_medium=rss&utm_campaign=dustin-poirier-has-no-sympathy-for-conor-mcgregor-after-ufc-329-injury",
+      "title": "UFC legend scorches Max Holloway for ‘blowing’ UFC 329 interview after Conor McGregor injury",
+      "link": "https://www.bjpenn.com/mma-news/max-holloway/ufc-legend-scorches-max-holloway-blowing-ufc-329-interview/?utm_source=rss&utm_medium=rss&utm_campaign=ufc-legend-scorches-max-holloway-blowing-ufc-329-interview",
       "source": "BJPenn",
       "priority": true
     },
     {
-      "title": "Cory Sandhagen shows off gruesome UFC 329 injury in first post-fight statement",
-      "link": "https://www.bjpenn.com/mma-news/cory-sandhagen/cory-sandhagen-gruesome-ufc-329-injury/?utm_source=rss&utm_medium=rss&utm_campaign=cory-sandhagen-gruesome-ufc-329-injury",
+      "title": "ONE Championship releases full card for ONE Friday Fights 162",
+      "link": "https://www.bjpenn.com/mma-news/one-championship/one-championship-releases-full-card-for-one-friday-fights-162/?utm_source=rss&utm_medium=rss&utm_campaign=one-championship-releases-full-card-for-one-friday-fights-162",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
+      "title": "Israel Adesanya claims major injury nearly forced him out of iconic UFC 287 win",
+      "link": "https://www.bjpenn.com/mma-news/israel-adesanya/israel-adesanya-major-injury-iconic-ufc-287-win/?utm_source=rss&utm_medium=rss&utm_campaign=israel-adesanya-major-injury-iconic-ufc-287-win",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
+      "title": "Khabib Nurmagomedov says he’s in his wrestling ‘prime’ six years after abrupt UFC retirement",
+      "link": "https://www.bjpenn.com/mma-news/khabib-nurmagomedov/khabib-nurmagomedov-wrestling-prime-six-years-after-retirement/?utm_source=rss&utm_medium=rss&utm_campaign=khabib-nurmagomedov-wrestling-prime-six-years-after-retirement",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
+      "title": "Khabib Nurmagomedov’s coach shares surprising take on Conor McGregor’s injury at UFC 329",
+      "link": "https://www.bjpenn.com/mma-news/conor-mcgregor/khabib-nurmagomedovs-coach-shares-surprising-take-on-conor-mcgregors-injury-at-ufc-329/?utm_source=rss&utm_medium=rss&utm_campaign=khabib-nurmagomedovs-coach-shares-surprising-take-on-conor-mcgregors-injury-at-ufc-329",
       "source": "BJPenn",
       "priority": true
     }
   ],
   "hooks": {
-    "week": "Plessis vs Usman goes down Sunday for UFC middleweight supremacy.",
-    "prefight": "Plessis and Usman collide for the middleweight crown this Sunday morning.",
-    "results": "The dust has settled on another fight night."
+    "week": "Plessis and Usman headline Sunday—fight week chaos begins in just days.",
+    "prefight": "Plessis vs Usman: title on the line this Sunday morning, 8 AM SGT.",
+    "results": "Conor McGregor defeated Max Holloway via first-round TKO at UFC 194 to capture the interim featherweight title."
   }
 }
