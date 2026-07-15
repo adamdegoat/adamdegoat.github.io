@@ -43,6 +43,14 @@
   input:focus,select:focus,textarea:focus{border-color:var(--accent-ink)}
   .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   @media(max-width:520px){.row2{grid-template-columns:1fr}}
+  .stylepick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+  @media(max-width:520px){.stylepick{grid-template-columns:1fr}}
+  .styleopt{text-align:left;background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:13px 15px;cursor:pointer;font-family:var(--font);transition:border-color .15s,background .15s}
+  .styleopt:hover{border-color:var(--accent-ink)}
+  .styleopt b{display:block;font-size:15px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+  .styleopt span{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
+  .styleopt.sel{border-color:var(--accent-ink);background:rgba(232,102,58,.07)}
+  .styleopt.sel b{color:var(--accent-ink)}
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--accent-ink);color:#fff;border:none;border-radius:100px;padding:12px 22px;font-family:var(--font);font-weight:600;font-size:15px;cursor:pointer}
   .btn.sec{background:transparent;color:var(--ink);border:1px solid var(--line)}
   .btn.sm{padding:9px 15px;font-size:13px}
@@ -119,7 +127,17 @@
           <div><label>Tone<select id="tone"><option value="warm">Warm</option><option value="professional">Professional</option><option value="straight-talking">Straight-talking</option></select></label></div>
         </div>
         <div id="ownerbox" hidden><label>Daily chat limit <span class="hint">owner only, chats per day before the busy message shows</span><input id="dailycap" type="number" min="50" max="50000" step="50"></label></div>
+        <label>What you do <span class="hint">one short line under your name, e.g. Nail & lash studio</span><input id="tagline" placeholder="e.g. Nail & lash studio in Tampines"></label>
         <label>Greeting <span class="hint">first message customers see</span><input id="greeting"></label>
+
+        <div class="sec-t">Your look</div>
+        <div class="sec-h">The style your front desk wears. Your name and colours stay yours.</div>
+        <div class="stylepick" id="stylepick">
+          <button type="button" class="styleopt" data-style="clean"><b>Clean</b><span>Minimal, modern</span></button>
+          <button type="button" class="styleopt" data-style="warm"><b>Warm</b><span>Serif, cosy, boutique</span></button>
+          <button type="button" class="styleopt" data-style="bold"><b>Bold</b><span>Big, chunky, punchy</span></button>
+          <button type="button" class="styleopt" data-style="sleek"><b>Sleek</b><span>Dark, tight, premium</span></button>
+        </div>
 
         <div class="sec-t">About your business</div>
         <div class="sec-h">Tell it anything: your story, what makes you different, area, parking, policies. The more you write, the smarter it answers. Paste your bio or menu here too.</div>
@@ -196,7 +214,14 @@
     d.querySelector(".del").onclick=()=>{d.remove();markDirty();}; d.querySelectorAll("input").forEach(i=>i.oninput=markDirty); return d;}
   $("addsvc").onclick=()=>{$("services").appendChild(svcRow());markDirty();};
   $("addfaq").onclick=()=>{$("faqs").appendChild(faqRow());markDirty();};
-  ["bname","fname","tone","greeting","about","hours","chips","trade"].forEach(id=>$(id).addEventListener("input",markDirty));
+  ["bname","fname","tone","greeting","tagline","about","hours","chips","trade"].forEach(id=>$(id).addEventListener("input",markDirty));
+
+  // style picker
+  let selStyle="clean";
+  function setStyle(s,dirty){ selStyle=["clean","warm","bold","sleek"].includes(s)?s:"clean";
+    document.querySelectorAll("#stylepick .styleopt").forEach(b=>b.classList.toggle("sel",b.dataset.style===selStyle));
+    if(dirty)markDirty(); }
+  document.querySelectorAll("#stylepick .styleopt").forEach(b=>b.addEventListener("click",()=>setStyle(b.dataset.style,true)));
 
   (async function(){
     if(!slug||!key){$("loading").hidden=true;$("loaderr").hidden=false;$("loaderrmsg").textContent="This admin link is incomplete.";return;}
@@ -209,6 +234,8 @@
     $("fname").value=data.frontdesk_name||cfg.frontdesk_name||"";
     $("tone").value=cfg.tone||"warm";
     $("greeting").value=(cfg.greeting||"").replace(/\[your (name|business)\]/g, data.frontdesk_name||cfg.frontdesk_name||data.business_name||"");
+    $("tagline").value=cfg.tagline||"";
+    setStyle(cfg.style||"clean",false);
     $("about").value=cfg.about||"";
     $("hours").value=typeof cfg.hours==="string"?cfg.hours:"";
     (cfg.services||[]).forEach(s=>$("services").appendChild(svcRow(s))); if(!(cfg.services||[]).length)$("services").appendChild(svcRow());
@@ -238,7 +265,7 @@
     const services=[...$("services").querySelectorAll(".svc")].map(r=>{const i=r.querySelectorAll("input");return{name:i[0].value.trim(),desc:i[1].value.trim(),price:i[2].value.trim()};}).filter(s=>s.name);
     const faq=[...$("faqs").querySelectorAll(".faqc")].map(r=>{const i=r.querySelectorAll("input");return{q:i[0].value.trim(),a:i[1].value.trim()};}).filter(f=>f.q&&f.a);
     const chips=$("chips").value.split("\n").map(s=>s.trim()).filter(Boolean).slice(0,8);
-    const config={tone:$("tone").value,greeting:$("greeting").value.trim(),about:$("about").value.trim(),services,hours:$("hours").value.trim(),faq,chips};
+    const config={tone:$("tone").value,greeting:$("greeting").value.trim(),tagline:$("tagline").value.trim(),style:selStyle,about:$("about").value.trim(),services,hours:$("hours").value.trim(),faq,chips};
     const body={c:slug,k:key,config,frontdesk_name:$("fname").value.trim(),business_name:$("bname").value.trim()};
     if(OWNER){ body.trade=tsel.value; body.key=OWNER; body.daily_cap=parseInt($("dailycap").value,10)||1500; }
     [$("save"),$("save2")].forEach(b=>b.disabled=true); setStatus("Saving…","");
