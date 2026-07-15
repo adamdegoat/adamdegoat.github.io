@@ -332,7 +332,7 @@
   const panel=document.getElementById('fdpanel'), launcher=document.getElementById('fdlauncher');
   let loaded=false;
   function openFD(){
-    if(!loaded){ const f=document.createElement('iframe'); f.src='f.html?c=amberdemo'; f.title='Amber Nail & Lash front desk'; panel.appendChild(f); loaded=true; }
+    if(!loaded){ const f=document.createElement('iframe'); f.src='f.html?c=amberdemo&demo=1'; f.title='Amber Nail & Lash front desk'; panel.appendChild(f); loaded=true; }
     panel.classList.add('on'); panel.setAttribute('aria-hidden','false'); launcher.style.display='none';
   }
   function closeFD(){ panel.classList.remove('on'); panel.setAttribute('aria-hidden','true'); launcher.style.display=''; }
