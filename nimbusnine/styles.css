@@ -141,7 +141,7 @@ footer{background:var(--dark);color:var(--light);padding:clamp(64px,10vh,104px) 
 .livedot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
 
 /* phone device mockup (homepage front-desk demo, our own front desk) */
-.demo{width:100%;max-width:386px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:14px;position:relative;isolation:isolate}
+.demo{width:100%;max-width:346px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:14px;position:relative;isolation:isolate}
 /* warm light behind the phone: the front desk as the glowing nimbus */
 .demo::before{content:"";position:absolute;z-index:-1;inset:-16% -60% -4% -60%;pointer-events:none;
   background:radial-gradient(46% 42% at 50% 26%,rgba(232,102,58,.24),rgba(232,102,58,0) 70%)}
@@ -497,8 +497,9 @@ footer{background:var(--dark);color:var(--light);padding:clamp(64px,10vh,104px) 
 
 /* ===== hero phone: real-phone shape, dynamic island, themed slides, disabled input ===== */
 html{overflow-x:clip}                 /* belt-and-braces: no sideways scroll on any page */
-.devbody{border-radius:52px}
-.devscreen{position:relative;border-radius:41px}
+.devbody{border-radius:46px;padding:10px}
+/* lock a real phone aspect (tall + narrow) instead of clamping height, so it never reads squat */
+.devscreen{position:relative;border-radius:38px;height:auto;aspect-ratio:9/19.3}
 .island{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:96px;height:27px;background:#141210;border-radius:100px;z-index:9;pointer-events:none}
 .devstatus{padding-top:16px}
 /* the disabled "type a message" bar, present so it reads as a real chat */
