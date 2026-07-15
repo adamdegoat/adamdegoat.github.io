@@ -106,6 +106,16 @@
   .adot{width:26px;height:26px;border-radius:8px;background:rgba(232,102,58,.14);color:var(--accent-ink);flex:none;display:flex;align-items:center;justify-content:center}
   .adot svg{width:15px;height:15px}
   .aline{width:1px;height:12px;background:var(--line);margin-left:13px}
+  /* voice sampler */
+  .voicebar{margin-top:clamp(28px,4vw,40px);padding:clamp(18px,3vw,24px);background:var(--card);border:1px solid var(--line);border-radius:16px}
+  .voicebar-h{font-size:15.5px;color:var(--muted);line-height:1.55;max-width:60ch}
+  .voicebar-h b{color:var(--ink);font-weight:700}
+  .vchips{display:flex;flex-wrap:wrap;gap:10px;margin-top:15px}
+  .vchip{display:inline-flex;align-items:center;gap:9px;background:var(--bg);border:1.5px solid var(--line);border-radius:100px;padding:8px 16px 8px 8px;font-family:var(--font);font-size:14.5px;font-weight:600;color:var(--ink);cursor:pointer;transition:border-color .15s,background .15s}
+  .vchip:hover{border-color:var(--accent-ink)}
+  .vchip.playing{border-color:var(--accent-ink);background:rgba(232,102,58,.09);color:var(--accent-ink)}
+  .vchip em{font-style:normal;font-weight:500;color:var(--muted);font-size:12px}
+  .vchip .vp{flex:none;display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--accent-ink);color:#fff;align-items:center;justify-content:center}
 </style>
 </head>
 <body>
@@ -182,6 +192,16 @@
         </figure>
       </div>
       <p class="fdnote">Swipe through these live on the <a href="index.html">home page</a>, or pick from Clean, Warm, Bold and Sleek. Set up for you, in your brand, S$399 a month.</p>
+      <div class="voicebar">
+        <div class="voicebar-h"><b>Hear the voices.</b> Your front desk speaks its replies out loud, not just in text. Tap to hear each one, including local Singapore voices, and pick what fits.</div>
+        <div class="vchips" id="vchips">
+          <button class="vchip" type="button" data-v="luna"><span class="vp" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>Luna <em>Singapore</em></button>
+          <button class="vchip" type="button" data-v="wayne"><span class="vp" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>Wayne <em>Singapore</em></button>
+          <button class="vchip" type="button" data-v="ava"><span class="vp" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>Ava</button>
+          <button class="vchip" type="button" data-v="aria"><span class="vp" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>Aria</button>
+          <button class="vchip" type="button" data-v="andrew"><span class="vp" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>Andrew</button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -346,6 +366,16 @@
     secs.forEach(s => { if(s.getBoundingClientRect().top < innerHeight * 0.9) reveal(s); });
     const io = new IntersectionObserver(es => es.forEach(en => { if(en.isIntersecting){ reveal(en.target); io.unobserve(en.target); } }), {threshold:.12, rootMargin:'0px 0px -6% 0px'});
     secs.forEach(s => { if(!s.classList.contains('in')) io.observe(s); });
+  })();
+  // voice sampler: tap a chip to hear that voice, tap again (or another) to switch
+  (function(){
+    let a=null,c=null;
+    document.querySelectorAll('#vchips .vchip').forEach(ch=>ch.addEventListener('click',()=>{
+      if(a){a.pause(); if(c)c.classList.remove('playing');}
+      if(c===ch){a=null;c=null;return;}
+      a=new Audio('voices/'+ch.dataset.v+'.mp3'); c=ch; ch.classList.add('playing');
+      a.play().catch(()=>{}); a.onended=()=>{ch.classList.remove('playing'); if(c===ch){a=null;c=null;}};
+    }));
   })();
 </script>
 </body>

@@ -193,7 +193,7 @@
     el.innerHTML="<span></span><span></span><span></span>"; thread.appendChild(el); thread.scrollTop=thread.scrollHeight; return el; }
 
   async function speak(text){ if(muted||!text) return;
-    try{ const r=await fetch(WORKER,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({c:slug,text})});
+    try{ const r=await fetch(WORKER,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({c:slug,text,voice:(cfg&&cfg.voice)||undefined})});
       if(!r.ok) return; const b=await r.blob(); audio.pause(); audio.src=URL.createObjectURL(b); audio.currentTime=0; const p=audio.play(); if(p)p.catch(()=>{}); }catch(e){} }
 
   async function respond(text){

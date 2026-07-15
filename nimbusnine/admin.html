@@ -51,6 +51,17 @@
   .styleopt span{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
   .styleopt.sel{border-color:var(--accent-ink);background:rgba(232,102,58,.07)}
   .styleopt.sel b{color:var(--accent-ink)}
+  .voicepick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+  @media(max-width:520px){.voicepick{grid-template-columns:1fr}}
+  .voiceopt{display:flex;align-items:center;gap:12px;text-align:left;background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:11px 13px;cursor:pointer;transition:border-color .15s,background .15s}
+  .voiceopt:hover{border-color:var(--accent-ink)}
+  .voiceopt.sel{border-color:var(--accent-ink);background:rgba(232,102,58,.07)}
+  .voiceopt b{font-size:15px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+  .voiceopt.sel b{color:var(--accent-ink)}
+  .voiceopt .vnote{display:block;font-size:12.5px;color:var(--muted);margin-top:1px}
+  .vplay{flex:none;width:34px;height:34px;border-radius:50%;border:1.5px solid var(--accent-ink);background:var(--card);color:var(--accent-ink);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s}
+  .vplay:hover{background:rgba(232,102,58,.12)}
+  .vplay.playing{background:var(--accent-ink);color:#fff}
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--accent-ink);color:#fff;border:none;border-radius:100px;padding:12px 22px;font-family:var(--font);font-weight:600;font-size:15px;cursor:pointer}
   .btn.sec{background:transparent;color:var(--ink);border:1px solid var(--line)}
   .btn.sm{padding:9px 15px;font-size:13px}
@@ -140,6 +151,16 @@
           <button type="button" class="styleopt" data-style="sleek"><b>Sleek</b><span>Dark, tight, premium</span></button>
         </div>
 
+        <div class="sec-t" style="margin-top:26px">Voice</div>
+        <div class="sec-h">The voice your front desk speaks in. Tap play to hear each one.</div>
+        <div class="voicepick" id="voicepick">
+          <div class="voiceopt" data-voice="luna"><button type="button" class="vplay" data-v="luna" aria-label="Hear Luna"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button><div class="vmeta"><b>Luna</b><span class="vnote">Singapore, warm</span></div></div>
+          <div class="voiceopt" data-voice="wayne"><button type="button" class="vplay" data-v="wayne" aria-label="Hear Wayne"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button><div class="vmeta"><b>Wayne</b><span class="vnote">Singapore, friendly</span></div></div>
+          <div class="voiceopt" data-voice="ava"><button type="button" class="vplay" data-v="ava" aria-label="Hear Ava"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button><div class="vmeta"><b>Ava</b><span class="vnote">Warm, natural</span></div></div>
+          <div class="voiceopt" data-voice="aria"><button type="button" class="vplay" data-v="aria" aria-label="Hear Aria"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button><div class="vmeta"><b>Aria</b><span class="vnote">Bright, professional</span></div></div>
+          <div class="voiceopt" data-voice="andrew"><button type="button" class="vplay" data-v="andrew" aria-label="Hear Andrew"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button><div class="vmeta"><b>Andrew</b><span class="vnote">Friendly, easy</span></div></div>
+        </div>
+
         <div class="sec-t">About your business</div>
         <div class="sec-h">Tell it anything: your story, what makes you different, area, parking, policies. The more you write, the smarter it answers. Paste your bio or menu here too.</div>
         <textarea id="about" placeholder="e.g. Family-run salon in Tampines since 2015. Only cruelty-free products. Free parking after 6pm..."></textarea>
@@ -227,6 +248,20 @@
     if(dirty)markDirty(); }
   document.querySelectorAll("#stylepick .styleopt").forEach(b=>b.addEventListener("click",()=>setStyle(b.dataset.style,true)));
 
+  // voice picker
+  let selVoice="ava";
+  function setVoice(v,dirty){ selVoice=["luna","wayne","ava","aria","andrew"].includes(v)?v:"ava";
+    document.querySelectorAll("#voicepick .voiceopt").forEach(o=>o.classList.toggle("sel",o.dataset.voice===selVoice));
+    if(dirty)markDirty(); }
+  document.querySelectorAll("#voicepick .voiceopt").forEach(o=>o.addEventListener("click",e=>{ if(e.target.closest(".vplay"))return; setVoice(o.dataset.voice,true); }));
+  let vAudio=null,vBtn=null;
+  document.querySelectorAll("#voicepick .vplay").forEach(b=>b.addEventListener("click",()=>{
+    if(vAudio){vAudio.pause(); if(vBtn)vBtn.classList.remove("playing");}
+    if(vBtn===b){ vAudio=null; vBtn=null; return; }
+    vAudio=new Audio("voices/"+b.dataset.v+".mp3"); vBtn=b; b.classList.add("playing");
+    vAudio.play().catch(()=>{}); vAudio.onended=()=>{b.classList.remove("playing"); if(vBtn===b){vAudio=null;vBtn=null;}};
+  }));
+
   (async function(){
     if(!slug||!key){$("loading").hidden=true;$("loaderr").hidden=false;$("loaderrmsg").textContent="This admin link is incomplete.";return;}
     const {status,data}=await api("/admin/get",{c:slug,k:key});
@@ -241,6 +276,7 @@
     $("tagline").value=cfg.tagline||"";
     $("telegram").value=data.lead_chat_id||"";
     setStyle(cfg.style||"clean",false);
+    setVoice(cfg.voice||"ava",false);
     $("about").value=cfg.about||"";
     $("hours").value=typeof cfg.hours==="string"?cfg.hours:"";
     (cfg.services||[]).forEach(s=>$("services").appendChild(svcRow(s))); if(!(cfg.services||[]).length)$("services").appendChild(svcRow());
@@ -270,7 +306,7 @@
     const services=[...$("services").querySelectorAll(".svc")].map(r=>{const i=r.querySelectorAll("input");return{name:i[0].value.trim(),desc:i[1].value.trim(),price:i[2].value.trim()};}).filter(s=>s.name);
     const faq=[...$("faqs").querySelectorAll(".faqc")].map(r=>{const i=r.querySelectorAll("input");return{q:i[0].value.trim(),a:i[1].value.trim()};}).filter(f=>f.q&&f.a);
     const chips=$("chips").value.split("\n").map(s=>s.trim()).filter(Boolean).slice(0,8);
-    const config={tone:$("tone").value,greeting:$("greeting").value.trim(),tagline:$("tagline").value.trim(),style:selStyle,about:$("about").value.trim(),services,hours:$("hours").value.trim(),faq,chips};
+    const config={tone:$("tone").value,greeting:$("greeting").value.trim(),tagline:$("tagline").value.trim(),style:selStyle,voice:selVoice,about:$("about").value.trim(),services,hours:$("hours").value.trim(),faq,chips};
     const body={c:slug,k:key,config,frontdesk_name:$("fname").value.trim(),business_name:$("bname").value.trim(),lead_chat_id:$("telegram").value.trim()};
     if(OWNER){ body.trade=tsel.value; body.key=OWNER; body.daily_cap=parseInt($("dailycap").value,10)||1500; }
     [$("save"),$("save2")].forEach(b=>b.disabled=true); setStatus("Saving…","");
