@@ -251,7 +251,7 @@ footer{background:var(--dark);color:var(--light);padding:clamp(64px,10vh,104px) 
 .flagfeats li{position:relative;padding-left:26px;font-size:15.5px;color:var(--ink);line-height:1.4;font-weight:500}
 .flagfeats li::before{content:"\2713";position:absolute;left:0;top:0;color:var(--ink);font-weight:700}
 .flagfoot{margin-top:auto;padding-top:32px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.flagprice{font-family:var(--font);font-size:21px;font-weight:700;letter-spacing:-.01em}.flagprice span{font-size:13px;font-weight:500;opacity:.72}
+.flagprice{font-family:var(--font);font-size:21px;font-weight:700;letter-spacing:-.01em}.flagprice span{font-size:13px;font-weight:500;opacity:.88}
 .flagship .btn{background:var(--ink);color:var(--light);box-shadow:none}
 
 /* price line under a hero */

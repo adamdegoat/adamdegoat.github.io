@@ -176,6 +176,9 @@
         <div id="qr"></div>
         <div class="sharebtns"><a class="btn sec sm" id="preview" target="_blank">Open front desk</a><button class="btn sec sm" id="pausebtn" hidden>Pause</button><button class="btn sec sm" id="testbtn">Send test lead</button></div>
         <div class="status" id="sharestatus" style="margin-top:10px"></div>
+        <label class="lbl" for="telegram" style="display:block;margin-top:18px;margin-bottom:6px">Where your enquiries go</label>
+        <input id="telegram" placeholder="Your Telegram chat ID">
+        <div class="hint" style="margin-top:7px;line-height:1.45">Message <b>@Nimbusninebot</b> on Telegram, it replies with your ID. Paste it here so new enquiries ping your phone. They always show under Leads below too. Then Save changes.</div>
         <div class="lbl" id="adminlbl" style="margin-top:16px" hidden>Admin link (send to the client)</div>
         <div class="linkbox" id="adminbox" hidden><input id="adminlink" readonly><button class="copy" data-t="adminlink">Copy</button></div>
         <button class="btn sec sm" id="resetbtn" style="margin-top:10px" hidden>Reset admin link</button>
@@ -214,7 +217,7 @@
     d.querySelector(".del").onclick=()=>{d.remove();markDirty();}; d.querySelectorAll("input").forEach(i=>i.oninput=markDirty); return d;}
   $("addsvc").onclick=()=>{$("services").appendChild(svcRow());markDirty();};
   $("addfaq").onclick=()=>{$("faqs").appendChild(faqRow());markDirty();};
-  ["bname","fname","tone","greeting","tagline","about","hours","chips","trade"].forEach(id=>$(id).addEventListener("input",markDirty));
+  ["bname","fname","tone","greeting","tagline","telegram","about","hours","chips","trade"].forEach(id=>$(id).addEventListener("input",markDirty));
 
   // style picker
   let selStyle="clean";
@@ -235,6 +238,7 @@
     $("tone").value=cfg.tone||"warm";
     $("greeting").value=(cfg.greeting||"").replace(/\[your (name|business)\]/g, data.frontdesk_name||cfg.frontdesk_name||data.business_name||"");
     $("tagline").value=cfg.tagline||"";
+    $("telegram").value=data.lead_chat_id||"";
     setStyle(cfg.style||"clean",false);
     $("about").value=cfg.about||"";
     $("hours").value=typeof cfg.hours==="string"?cfg.hours:"";
@@ -266,7 +270,7 @@
     const faq=[...$("faqs").querySelectorAll(".faqc")].map(r=>{const i=r.querySelectorAll("input");return{q:i[0].value.trim(),a:i[1].value.trim()};}).filter(f=>f.q&&f.a);
     const chips=$("chips").value.split("\n").map(s=>s.trim()).filter(Boolean).slice(0,8);
     const config={tone:$("tone").value,greeting:$("greeting").value.trim(),tagline:$("tagline").value.trim(),style:selStyle,about:$("about").value.trim(),services,hours:$("hours").value.trim(),faq,chips};
-    const body={c:slug,k:key,config,frontdesk_name:$("fname").value.trim(),business_name:$("bname").value.trim()};
+    const body={c:slug,k:key,config,frontdesk_name:$("fname").value.trim(),business_name:$("bname").value.trim(),lead_chat_id:$("telegram").value.trim()};
     if(OWNER){ body.trade=tsel.value; body.key=OWNER; body.daily_cap=parseInt($("dailycap").value,10)||1500; }
     [$("save"),$("save2")].forEach(b=>b.disabled=true); setStatus("Saving…","");
     const {status,data}=await api("/admin/save",body);

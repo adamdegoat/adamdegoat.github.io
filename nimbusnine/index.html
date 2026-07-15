@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Spline+Sans+Mono:wght@400;500&family=Hedvig+Letters+Serif&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=39">
+<link rel="stylesheet" href="styles.css?v=40">
 </head>
 <body>
 
@@ -30,7 +30,7 @@
       <nav class="links" id="navlinks" aria-label="Primary">
         <a class="navlink" href="#top">Home</a>
         <a class="navlink" href="work.html">Work</a>
-        <a class="navlink" href="get-started.html">Get started</a>
+        <a class="navlink" href="get-started.html">How it works</a>
         <a class="navlink" href="pricing.html">Pricing</a>
         <a class="navlink" href="about.html">About</a>
       </nav>
@@ -250,7 +250,7 @@
       <span class="fh">Explore</span>
       <a href="#top">Home</a>
       <a href="work.html">Work</a>
-      <a href="get-started.html">Get started</a>
+      <a href="get-started.html">How it works</a>
       <a href="pricing.html">Pricing</a>
       <a href="about.html">About</a>
     </nav>
@@ -322,7 +322,7 @@
           {q:"Do bookings?", a:"Yes, as an add-on. Customers pick their own slot and your calendar fills, no back-and-forth. Built around how you work."},
           {q:"Who is it for?", a:"Any small business in Singapore whose customers message: salons, tuition, F&B, home services, fitness and more."}
         ]},
-      { name:"Amber Nail & Lash", who:"Nails, lashes & brows", accent:"#c2568a", mark:false, st:"warm",
+      { name:"Amber Nail & Lash", who:"Nails, lashes & brows", accent:"#b8532a", mark:false, st:"warm",
         greeting:"Hi, welcome to Amber Nail & Lash. Ask about gel, lashes, or booking a slot.",
         pills:[
           {q:"How much for gel?", a:"Gel manicure is S$45 and lasts about two to three weeks. Want me to hold a slot for you?"},
@@ -372,8 +372,8 @@
         add(thread,'in',"This is a quick preview, so typing is off here. On your real front desk, customers type anything and I answer, day or night. Tap a question below to try me."); });
       track.appendChild(el); return el;
     });
-    function greetSlide(i){ const el=slides[i]; if(!el||el._greeted) return; el._greeted=true;
-      if(reduce){ add(el._thread,'in',el._greeting); return; }
+    function greetSlide(i, instant){ const el=slides[i]; if(!el||el._greeted) return; el._greeted=true;
+      if(reduce||instant){ add(el._thread,'in',el._greeting); return; }
       const t=typing(el._thread); setTimeout(function(){ t.remove(); add(el._thread,'in',el._greeting); }, 1000); }
     let idx=0;
     const dots = SLIDES.map(function(s,i){ const d=document.createElement('button'); d.type='button'; d.className='cardot'+(i===0?' on':''); d.setAttribute('aria-label','Show '+s.name); d.addEventListener('click',function(){ go(i); }); dotsEl.appendChild(d); return d; });
@@ -384,7 +384,7 @@
     win.addEventListener('touchstart',function(e){ sx=e.touches[0].clientX; dxx=0; drag=true; },{passive:true});
     win.addEventListener('touchmove',function(e){ if(drag) dxx=e.touches[0].clientX-sx; },{passive:true});
     win.addEventListener('touchend',function(){ if(drag && Math.abs(dxx)>40) go(dxx<0?idx+1:idx-1); drag=false; },{passive:true});
-    if(reduce){ greetSlide(0); } else { setTimeout(function(){ greetSlide(0); },700); ['scroll','pointermove','keydown','touchstart'].forEach(function(ev){ addEventListener(ev,function(){ greetSlide(0); },{once:true,passive:true}); }); }
+    greetSlide(0, true);   // first slide greets immediately so the phone is never blank at first paint
   })();
 </script>
 </body>
