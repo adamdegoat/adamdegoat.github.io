@@ -125,6 +125,8 @@
   .stat{background:var(--surface);border-radius:12px;padding:15px 10px;text-align:center}
   .stat b{display:block;font-size:clamp(22px,5vw,28px);font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--ink)}
   .stat span{display:block;font-size:11.5px;color:var(--muted);margin-top:6px;line-height:1.25}
+  .tgbox{background:rgba(47,125,84,.1);border:1px solid rgba(47,125,84,.3);color:#2f7d54;border-radius:11px;padding:11px 13px;font-size:13.5px;margin-bottom:10px;line-height:1.4}
+  .tgbox b{color:#276a47}
   .pvphone{background:#0c0a09;border-radius:30px;padding:8px;box-shadow:0 20px 44px -20px rgba(23,21,18,.5)}
   .pvphone iframe{width:100%;height:520px;border:0;border-radius:23px;display:block;background:#f3efe8}
   .pvcap{text-align:center;font-size:12px;color:var(--muted);margin-top:8px}
@@ -260,9 +262,11 @@
         <div id="qr"></div>
         <div class="sharebtns"><a class="btn sec sm" id="preview" target="_blank">Open front desk</a><button class="btn sec sm" id="pausebtn" hidden>Pause</button><button class="btn sec sm" id="testbtn">Send test lead</button></div>
         <div class="status" id="sharestatus" style="margin-top:10px"></div>
-        <label class="lbl" for="telegram" style="display:block;margin-top:18px;margin-bottom:6px">Where your enquiries go</label>
-        <input id="telegram" placeholder="Your Telegram chat ID">
-        <div class="hint" style="margin-top:7px;line-height:1.45">Message <b>@Nimbusninebot</b> on Telegram, it replies with your ID. Paste it here so new enquiries ping your phone. They always show under Leads below too. Then Save changes.</div>
+        <div class="lbl" style="margin-top:18px;margin-bottom:7px">Get a phone alert for every enquiry</div>
+        <div class="tgbox" id="tgconnected" hidden><b>Telegram connected.</b> New enquiries and bookings buzz your phone.</div>
+        <a class="btn wide" id="tgconnect" target="_blank" rel="noopener">Connect Telegram</a>
+        <div class="hint" id="tghint" style="margin-top:8px;line-height:1.45">Tap it, hit <b>Start</b> in Telegram, and you're connected, nothing to copy. Every enquiry also lands on your Leads page, so this is just the buzz-my-phone part.</div>
+        <details style="margin-top:10px"><summary style="font-size:12.5px;color:var(--muted);cursor:pointer">Prefer to paste an ID manually?</summary><input id="telegram" placeholder="Telegram chat ID" style="margin-top:8px"></details>
         <div class="lbl" id="adminlbl" style="margin-top:16px" hidden>Admin link (send to the client)</div>
         <div class="linkbox" id="adminbox" hidden><input id="adminlink" readonly><button class="copy" data-t="adminlink">Copy</button></div>
         <button class="btn sec sm" id="resetbtn" style="margin-top:10px" hidden>Reset admin link</button>
@@ -366,7 +370,7 @@
     $("tone").value=cfg.tone||"warm";
     $("greeting").value=(cfg.greeting||"").replace(/\[your (name|business)\]/g, data.frontdesk_name||cfg.frontdesk_name||data.business_name||"");
     $("tagline").value=cfg.tagline||"";
-    $("telegram").value=data.lead_chat_id||"";
+    $("telegram").value=data.lead_chat_id||""; showTgConnected(!!data.lead_chat_id);
     setStyle(cfg.style||"clean",false);
     setVoice(cfg.voice||"ava",false);
     setAccent(cfg.accent||"#e8663a",false); $("whatsapp").value=cfg.whatsapp||"";
@@ -380,6 +384,7 @@
     function updReg(){const t=tsel.value;if(REG[t]){$("reg").textContent=REG[t];$("reg").hidden=false;$("tradehint").textContent="";}else{$("reg").hidden=true;}}
     updReg(); tsel.addEventListener("change",updReg);
     const link=BASE+"/f.html?c="+slug; $("link").value=link; $("preview").href=link; $("bookinglink").href=BASE+"/booking.html?c="+slug+"&k="+key; $("leadslink").href=BASE+"/leads.html?c="+slug+"&k="+key;
+    $("tgconnect").href="https://t.me/Nimbusninebot?start="+encodeURIComponent(key||"");
     try{new QRCode($("qr"),{text:link,width:150,height:150,colorDark:"#171512",colorLight:"#ffffff"});}catch(e){$("qr").innerHTML='<img alt="QR" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+encodeURIComponent(link)+'">';}
     // OWNER extras
     if(OWNER){
@@ -408,6 +413,9 @@
     else setStatus(status===0?"Couldn't reach the server, try again.":"Save failed, try again.","bad");
   }
   function updRegAfterSave(){}
+  function showTgConnected(on){ $("tgconnected").hidden=!on; $("tgconnect").textContent=on?"Reconnect a different phone":"Connect Telegram"; $("tgconnect").classList.toggle("sec",on); }
+  let tgPoll=null;
+  $("tgconnect").addEventListener("click",()=>{ if(tgPoll)clearInterval(tgPoll); let n=0; $("tghint").textContent="Waiting for you to tap Start in Telegram…"; tgPoll=setInterval(async()=>{ if(++n>30){ clearInterval(tgPoll); $("tghint").innerHTML="Tap it, hit <b>Start</b> in Telegram, and you're connected."; return; } const {data}=await api("/admin/get",{c:slug,k:key}); if(data&&data.lead_chat_id){ clearInterval(tgPoll); $("telegram").value=data.lead_chat_id; showTgConnected(true); $("tghint").textContent="All set. You can send yourself a test from below."; } },3000); });
   async function loadStats(){ try{ const {status,data}=await api("/admin/stats",{c:slug,k:key}); if(status===200&&data&&data.ok){ $("stMsg").textContent=data.week.messages; $("stEnq").textContent=data.week.enquiries; $("stBk").textContent=data.week.bookings; const m=data.month; $("stMonth").textContent="Last 30 days: "+m.enquiries+" "+(m.enquiries===1?"enquiry":"enquiries")+", "+m.bookings+" "+(m.bookings===1?"booking":"bookings")+"."; $("statcard").hidden=false; } }catch(e){} }
   $("save").onclick=save; $("save2").onclick=save;
 
