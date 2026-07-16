@@ -33,7 +33,7 @@
 
   /* Language: delegate to the shared engine in i18n.js (English-default). */
   if (!window.PSI18N && !document.querySelector('script[src*="i18n.js"]')) {
-    var _i18 = document.createElement('script'); _i18.src = BASE + '/i18n.js'; document.head.appendChild(_i18);
+    var _i18 = document.createElement('script'); _i18.src = BASE + '/i18n.js?v=20260716'; document.head.appendChild(_i18);
   }
   function t(s) { return (window.PSI18N && window.PSI18N.t) ? window.PSI18N.t(s) : s; }
   function curLang() { return (window.PSI18N && window.PSI18N.lang) || 'en'; }
