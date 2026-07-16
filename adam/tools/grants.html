@@ -236,6 +236,12 @@ function compute(){
   return {out,total,notes,levy,levyWhy};
 }
 
+/* i18n.js is deferred, so the first render() runs before PSI18N exists and T()
+   falls back to English. Notes containing markup (e.g. <b>pro-rated</b>) land in
+   the DOM as split text nodes, which the bulk translator cannot match, so they
+   stayed English on the 中文 page. Re-render once i18n is up. */
+addEventListener('load', function(){ if (window.PSI18N && PSI18N.lang === 'zh') render(); });
+
 function render(){
   // show/hide context fields
   $('#sizeF').classList.toggle('hide', buy!=='resale');

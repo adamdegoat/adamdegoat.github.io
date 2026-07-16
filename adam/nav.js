@@ -114,7 +114,7 @@
     .psnav-a.feat{color:#0f5a4a;font-weight:700;background:linear-gradient(180deg,#effbf5,#dbf4e9);border:1px solid #a9e3cd;padding:8px 12px}
     .psnav-a.feat:hover{background:linear-gradient(180deg,#e6f9ef,#cfefe1)}
     .psnav-a.feat::before{content:none}
-    html.lang-zh .psnav-a.feat::before{content:"新盘"}
+    html.lang-zh .psnav-a.feat::before{content:none}
     .psnav-a .wic svg{width:100%;height:100%}
 
     /* dropdown panel */
@@ -187,7 +187,7 @@
     .psm-chip.feat b{font-size:14px;font-weight:700;color:#0f5a4a}
     .psm-chip.feat svg{width:17px;height:17px;color:#0f7a82}
     .psm-chip.feat::after{content:"New";margin-left:auto;font:800 8px/1 "Schibsted Grotesk",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#eef6f1;background:#0f7a82;padding:3px 8px;border-radius:20px}
-    html.lang-zh .psm-chip.feat::after{content:"新盘"}
+    html.lang-zh .psm-chip.feat::after{content:"新"}
     .psm-util{margin-top:auto;padding-top:14px}
     .psm-util-in{border-top:2px solid #cfe3db;padding-top:13px}
     .psm-urow{display:flex;gap:8px;align-items:center}
