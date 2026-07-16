@@ -418,7 +418,7 @@
       $("ownerbox").hidden=false; $("dailycap").value=data.daily_cap||1500; $("dailycap").addEventListener("input",markDirty);
     } else { tsel.disabled=true; $("tradehint").textContent="Ask us to change your trade."; }
     $("loading").hidden=true; $("app").hidden=false;
-    growAll(); if(document.fonts&&document.fonts.ready)document.fonts.ready.then(growAll);
+    growAll(); [80,300,800,1600].forEach(ms=>setTimeout(growAll,ms)); if(document.fonts&&document.fonts.ready)document.fonts.ready.then(growAll);
     loadStats();
     dirty=false; setStatus("",""); pushPreview();
   })();
