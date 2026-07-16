@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Front desk</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23171512'/%3E%3Csvg x='6' y='7' width='20' height='16' viewBox='4 6 40 32'%3E%3Ccircle cx='34' cy='15' r='6.6' fill='%23E8663A'/%3E%3Cpath d='M15 35C10 35 6 31.5 6 27C6 22.8 9.3 19.4 13.4 19.1C14.4 14.2 18.8 10.6 24 10.6C30 10.6 35 15 35.8 20.8C39.9 21 43 24.4 43 28.5C43 32.1 40.1 35 36.5 35Z' fill='%23F3EFE8'/%3E%3C/svg%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23171512'/%3E%3Csvg x='5.5' y='5.5' width='21' height='21' viewBox='0 0 64 64'%3E%3Crect x='9' y='45.5' width='46' height='5.8' rx='2.9' fill='%23f3efe8'/%3E%3Cpath d='M15.5 45.5 a16.5 15.5 0 0 1 33 0 Z' fill='%23f3efe8'/%3E%3Ccircle cx='32' cy='26.5' r='3.9' fill='%23e8663a'/%3E%3C/svg%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link id="fontlink" rel="stylesheet">
@@ -38,7 +38,7 @@
   /* header */
   .dhead{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:var(--head-border);flex:none;background:var(--head-bg);color:var(--head-fg)}
   .davatar{position:relative;width:44px;height:44px;border-radius:var(--av-radius);background:var(--av-bg);flex:none;display:flex;align-items:center;justify-content:center}
-  .davatar svg{width:26px;height:21px}
+  .davatar svg{width:26px;height:26px}
   .davatar::after{content:"";position:absolute;right:-2px;bottom:-2px;width:13px;height:13px;border-radius:50%;background:#2f9e5f;border:2.5px solid var(--head-bg)}
   .dmeta{min-width:0;flex:1}
   .dname{font-family:var(--font-head);font-weight:var(--name-weight);font-size:var(--name-size);letter-spacing:var(--name-spacing);line-height:1.15;color:var(--head-fg);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -163,7 +163,7 @@
 <body>
 <div class="desk" id="desk" style="display:none">
   <div class="dhead">
-    <span class="davatar" aria-hidden="true"><svg viewBox="4 6 40 32"><circle cx="34" cy="15" r="6.6" fill="#E8663A"/><path d="M15 35C10 35 6 31.5 6 27C6 22.8 9.3 19.4 13.4 19.1C14.4 14.2 18.8 10.6 24 10.6C30 10.6 35 15 35.8 20.8C39.9 21 43 24.4 43 28.5C43 32.1 40.1 35 36.5 35Z" fill="#F3EFE8"/></svg></span>
+    <span class="davatar" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="9" y="45.5" width="46" height="5.8" rx="2.9" fill="#F3EFE8"/><path d="M15.5 45.5 a16.5 15.5 0 0 1 33 0 Z" fill="#F3EFE8"/><circle cx="32" cy="26.5" r="3.9" fill="#e8663a"/></svg></span>
     <div class="dmeta">
       <div class="dname" id="dname">Front desk</div>
       <div class="dwho" id="dwho"></div>
@@ -187,7 +187,7 @@
   </form>
   <div class="dfoot">
     <button class="dlead" id="leadopen" type="button">Leave your details</button>
-    <a class="powered" href="https://adamdegoat.github.io/nimbusnine/" target="_blank" rel="noopener">powered by <b>Nimbus Nine</b></a>
+    <a class="powered" href="https://adamdegoat.github.io/nimbusnine/" target="_blank" rel="noopener">powered by <b>Reception</b></a>
   </div>
   <div class="lead" id="lead">
     <form class="leadcard" id="leadform">
@@ -391,9 +391,9 @@
   // boot
   (async function(){
     if(PREVIEW){
-      addEventListener("message",e=>{ const d=e.data; if(d&&d.type==="nimbus-preview"&&d.config) applyConfig(d.config); });
+      addEventListener("message",e=>{ const d=e.data; if(d&&d.type==="reception-preview"&&d.config) applyConfig(d.config); });
       $("input").readOnly=true; $("input").placeholder="Preview";
-      try{ parent.postMessage({type:"nimbus-preview-ready"},"*"); }catch(_){}
+      try{ parent.postMessage({type:"reception-preview-ready"},"*"); }catch(_){}
       applyConfig({style:"clean",name:"Your front desk",greeting:"Hi, this is a live preview. Change anything on the left and it shows here."});
       return;
     }
