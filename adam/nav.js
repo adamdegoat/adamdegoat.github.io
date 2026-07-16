@@ -87,13 +87,13 @@
     .psnav-brand{display:flex;align-items:center;gap:11px;text-decoration:none}.psnav-brand .pm{width:27px;height:27px;flex:none}
     .pm-tile{width:40px;height:40px;flex:none;border-radius:11px;display:flex;align-items:center;justify-content:center;background:linear-gradient(158deg,#2a5643,#163121);box-shadow:0 6px 15px -7px rgba(12,30,22,.6),inset 0 0 0 1px rgba(255,255,255,.07);color:#eaf7f2;--mk-acc:#7fd0bb}
     .psnav-brand .bw{display:flex;flex-direction:column;align-items:flex-start;gap:2px;line-height:1}.psnav-brand .bw span{font-size:9.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#0f7a82;margin:0}
-    .psnav-brand b{font-weight:800;font-size:20px;color:#191512;letter-spacing:-.012em}
+    .psnav-brand b{font-weight:800;font-size:20px;color:#0c211a;letter-spacing:-.012em}
 
     /* links row */
     .psnav-links{display:flex;gap:4px;margin:0 auto;align-items:center}
     .psnav-item{position:relative}
     .psnav-a{position:relative;display:flex;align-items:center;gap:5px;font-size:13.5px;font-weight:600;color:#485a56;text-decoration:none;white-space:nowrap;padding:9px 12px;border-radius:10px;cursor:pointer;background:none;border:0;font-family:inherit;transition:color .18s,background .18s}
-    .psnav-a:hover{color:#191512;background:rgba(39,81,63,.06)}
+    .psnav-a:hover{color:#0c211a;background:rgba(39,81,63,.06)}
     .psnav-a .ps-car{width:11px;height:11px;opacity:.65}
     .psnav-a.cur{color:#1b3a2d}
     .psnav-a.cur::after{content:"";position:absolute;left:12px;right:12px;bottom:1px;height:2.5px;border-radius:3px;background:linear-gradient(90deg,#27513f,#15a0a0)}
@@ -123,7 +123,7 @@
     .psnav-drop::before{content:"";position:absolute;left:0;right:0;top:-18px;height:18px}
     .psnav-item:hover .psnav-drop,.psnav-item.open .psnav-drop{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
     .psnav-drop.grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;min-width:430px}
-    .psnav-di{display:flex;align-items:center;gap:11px;padding:9px 11px;border-radius:10px;text-decoration:none;color:#191512}
+    .psnav-di{display:flex;align-items:center;gap:11px;padding:9px 11px;border-radius:10px;text-decoration:none;color:#0c211a}
     .psnav-di:hover{background:rgba(39,81,63,.06)}
     .psnav-di .di-ic{width:30px;height:30px;flex:none;border-radius:9px;background:#eef6f1;display:flex;align-items:center;justify-content:center;color:#27513f}
     .psnav-di .di-ic svg{width:17px;height:17px}
@@ -154,7 +154,7 @@
     @media(max-width:1180px){.psnav-back{display:inline-flex}}
     @media all and (display-mode:standalone){.psnav-back{display:inline-flex}}
     .psnav-burger{display:none;margin-left:auto;width:42px;height:42px;border:1px solid #bfdbd5;border-radius:10px;background:rgba(255,255,255,.6);cursor:pointer;align-items:center;justify-content:center}
-    .psnav-burger svg{width:22px;height:22px;stroke:#191512;fill:none;stroke-width:2;stroke-linecap:round}
+    .psnav-burger svg{width:22px;height:22px;stroke:#0c211a;fill:none;stroke-width:2;stroke-linecap:round}
     /* collapse to burger when the grouped row no longer fits comfortably */
     @media(max-width:1180px){.psnav-links,.psnav-lang{display:none}.psnav-burger{display:flex}}
     /* compact language pill on the mobile top bar (desktop keeps the full .psnav-lang) */
@@ -178,7 +178,7 @@
     .psm-glbl::after{content:"";flex:1;height:1px;background:#d2e2db}
     .psm-glbl .mtag{font-size:7.5px;font-weight:800;letter-spacing:.05em;color:#eef6f1;background:#27513f;border-radius:20px;padding:2px 7px}
     .psm-chips{display:grid;grid-template-columns:1fr 1fr;gap:7px}
-    .psm-chip{display:flex;align-items:center;gap:8px;text-decoration:none;background:#fff;border:1px solid #dbe9e2;border-radius:11px;padding:10px 11px;color:#191512}
+    .psm-chip{display:flex;align-items:center;gap:8px;text-decoration:none;background:#fff;border:1px solid #dbe9e2;border-radius:11px;padding:10px 11px;color:#0c211a}
     .psm-chip svg{width:15px;height:15px;color:#27513f;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
     .psm-chip b{font-size:12.5px;font-weight:600}
     .psm-chip.wide{grid-column:1/-1}

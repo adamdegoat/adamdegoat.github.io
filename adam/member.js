@@ -30,7 +30,7 @@
 
   // ── shared styles (injected once; brand colours hardcoded so it looks identical on every page) ──
   var CSS = ''
-   + '.psj-card{--g:#1b3a2d;--g2:#27513f;--br:#0f7a82;--ink:#191512;--ink2:#485a56;--ink3:#586e69;--line:#d2e7e3;'
+   + '.psj-card{--g:#1b3a2d;--g2:#27513f;--br:#0f7a82;--ink:#0c211a;--ink2:#485a56;--ink3:#586e69;--line:#d2e7e3;'
    + 'font-family:"Schibsted Grotesk",system-ui,sans-serif;background:linear-gradient(180deg,#fff,#ecf7f5);'
    + 'border:1px solid var(--line);border-radius:22px;padding:30px 30px 26px;box-shadow:0 30px 80px rgba(15,35,26,.20),0 1px 0 rgba(255,255,255,.7) inset;text-align:left;color:var(--ink)}'
    + '.psj-ey{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#0f231a;'
