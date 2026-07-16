@@ -89,6 +89,9 @@
         <h3 id="daytitle"></h3>
         <div id="dayslots"></div>
         <div class="addrow">
+          <div class="f" style="flex:1"><label>What is it for? <span class="hint" style="font-weight:400">optional, shows on the slot &middot; <span id="alabelct">0</span>/32</span></label><input type="text" id="alabel" maxlength="32" placeholder="e.g. Consultation, Site visit"></div>
+        </div>
+        <div class="addrow">
           <div class="f"><label>Start</label><input type="time" id="astart" step="900"></div>
           <div class="f"><label>End</label><input type="time" id="aend" step="900"></div>
           <button class="addbtn" id="addslot" type="button">Add slot</button>
@@ -156,7 +159,7 @@
       $("dayslots").innerHTML=mine.map(s=>{
         const t=s.starts_at.split(" ")[1]+" to "+s.ends_at.split(" ")[1];
         if(s.status==="booked") return '<div class="slotline booked"><div><span class="t">'+t+'</span><div class="who">'+eh(s.name||"Booked")+(s.contact?" · "+eh(s.contact):"")+(s.service?" · "+eh(s.service):"")+'</div></div><span class="tag">Booked</span></div>';
-        return '<div class="slotline"><span class="t">'+t+'</span><button class="rm" data-rm="'+s.id+'">Remove</button></div>';
+        return '<div class="slotline"><span class="t">'+t+(s.label?' <span style="color:var(--muted,#635b4f);font-weight:500">&middot; '+eh(s.label)+'</span>':'')+'</span><button class="rm" data-rm="'+s.id+'">Remove</button></div>';
       }).join("");
       $("dayslots").querySelectorAll("[data-rm]").forEach(b=>b.onclick=async()=>{ b.disabled=true; await api("/admin/slot-remove",{c:slug,k:key,id:+b.dataset.rm}); reload(); });
     }
@@ -170,10 +173,10 @@
     if(en<=st){ err.textContent="End time must be after the start."; err.style.display="block"; return; }
     const starts_at=selDay+" "+st, ends_at=selDay+" "+en;
     $("addslot").disabled=true;
-    const {data}=await api("/admin/slot-add",{c:slug,k:key,starts_at,ends_at});
+    const {data}=await api("/admin/slot-add",{c:slug,k:key,starts_at,ends_at,label:$("alabel").value.trim()});
     $("addslot").disabled=false;
     if(!data.ok){ err.textContent=data.error==="past"?"That time is in the past.":"Couldn't add that slot."; err.style.display="block"; return; }
-    $("astart").value=""; $("aend").value=""; reload();
+    $("astart").value=""; $("aend").value=""; $("alabel").value=""; if($("alabelct"))$("alabelct").textContent="0"; reload();
   }
 
   function renderBookings(){
@@ -190,6 +193,7 @@
 
   $("sw").onclick=async()=>{ const on=!bookingOn; $("sw").classList.toggle("on",on); await api("/admin/booking-toggle",{c:slug,k:key,on}); bookingOn=on; };
   $("addslot").onclick=addSlot;
+  $("alabel").addEventListener("input",()=>{$("alabelct").textContent=$("alabel").value.length;});
   $("prev").onclick=()=>{ view.m--; if(view.m<0){view.m=11;view.y--;} renderCal(); };
   $("next").onclick=()=>{ view.m++; if(view.m>11){view.m=0;view.y++;} renderCal(); };
 
