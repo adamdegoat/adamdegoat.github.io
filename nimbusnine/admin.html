@@ -71,10 +71,13 @@
   .svc{display:grid;grid-template-columns:1fr 1.3fr 150px 36px;gap:8px;margin-top:8px;align-items:center}
   .svc .f{min-width:0}.svc .fl{display:none}
   @media(max-width:640px){
-    .svc{grid-template-columns:1fr;gap:8px;padding:13px;border:1px solid var(--line);border-radius:12px;background:var(--card);position:relative}
-    .svc .fl{display:block;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:4px}
-    .svc .del{position:absolute;top:10px;right:10px;height:34px;width:34px}
-    .svc .f.name{padding-right:42px}
+    .svc{grid-template-columns:1fr 104px 34px;column-gap:8px;row-gap:9px;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+    .svc .f{display:block;min-width:0}
+    .svc .fl{display:block;font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:3px}
+    .svc .name{grid-column:1;grid-row:1}
+    .svc .price{grid-column:2;grid-row:1}
+    .svc .desc{grid-column:1/-1;grid-row:2}
+    .svc .del{grid-column:3;grid-row:1;align-self:end;height:42px;width:34px}
   }
   .del{border:1px solid var(--line);background:var(--card);border-radius:9px;cursor:pointer;color:var(--muted);font-size:18px;height:44px}
   .addbtn{margin-top:10px;border:1px dashed var(--line);background:none;border-radius:10px;padding:11px;width:100%;cursor:pointer;color:var(--accent-ink);font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
@@ -298,7 +301,7 @@
   const tsel=$("trade"); TRADES.forEach(t=>{const o=document.createElement("option");o.value=t[0];o.textContent=t[1];tsel.appendChild(o);});
 
   function svcRow(s={}){const d=document.createElement("div");d.className="svc";
-    d.innerHTML=`<label class="f name"><span class="fl">Service</span><input placeholder="Service name" value="${eh(s.name)}"></label><label class="f"><span class="fl">Description</span><input placeholder="Short description" value="${eh(s.desc)}"></label><label class="f"><span class="fl">Price</span><input placeholder="e.g. S$45 or from S$70" value="${eh(s.price)}"></label><button class="del" type="button">×</button>`;
+    d.innerHTML=`<label class="f name"><span class="fl">Service</span><input placeholder="Service name" value="${eh(s.name)}"></label><label class="f desc"><span class="fl">Description</span><input placeholder="Short description" value="${eh(s.desc)}"></label><label class="f price"><span class="fl">Price</span><input placeholder="e.g. S$45" value="${eh(s.price)}"></label><button class="del" type="button">×</button>`;
     d.querySelector(".del").onclick=()=>{d.remove();markDirty();}; d.querySelectorAll("input").forEach(i=>i.oninput=markDirty); return d;}
   function faqRow(f={}){const d=document.createElement("div");d.className="faqc";
     d.innerHTML=`<div class="qa"><span class="qb">Q</span><input placeholder="What customers ask" value="${eh(f.q)}"><button class="del" type="button">×</button></div><div class="qa"><span class="qb a">A</span><input placeholder="How you want it answered" value="${eh(f.a)}"></div>`;
