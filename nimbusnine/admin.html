@@ -29,9 +29,9 @@
   .pill.paused{background:rgba(23,21,18,.09);color:var(--muted)}
   .hint2{color:var(--muted);font-size:14px;margin-top:4px}
   .layout{max-width:1180px;margin:0 auto;padding:22px clamp(16px,4vw,40px) 120px;display:grid;grid-template-columns:1fr 360px;gap:26px;align-items:start}
-  @media(max-width:900px){.layout{grid-template-columns:1fr;gap:18px}}
+  @media(max-width:900px){.layout{grid-template-columns:1fr;gap:18px}.side{position:static;max-height:none;overflow:visible}}
   .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
-  .side{display:flex;flex-direction:column;gap:18px;position:sticky;top:20px}
+  .side{display:flex;flex-direction:column;gap:18px;position:sticky;top:16px;align-self:start;max-height:calc(100vh - 32px);overflow-y:auto;overscroll-behavior:contain}
   @media(max-width:900px){.side{position:static}}
   .sec-t{font-size:16px;font-weight:700;letter-spacing:-.01em;margin:22px 0 4px}
   .sec-t:first-child{margin-top:0}
@@ -117,7 +117,11 @@
   .swatch.custom{position:relative;overflow:hidden;background:conic-gradient(from 0deg,#e8663a,#c2568a,#6a4bd0,#2f6fd0,#2f8f5f,#e8663a)}
   .swatch.custom input{position:absolute;inset:-4px;width:calc(100% + 8px);height:calc(100% + 8px);opacity:0;cursor:pointer;border:0;padding:0}
   /* live preview */
-  .pvwrap{position:sticky;top:14px;margin-bottom:14px}
+  .pvwrap{margin-bottom:6px}
+  .statgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin-top:11px}
+  .stat{background:var(--surface);border-radius:12px;padding:15px 10px;text-align:center}
+  .stat b{display:block;font-size:clamp(22px,5vw,28px);font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--ink)}
+  .stat span{display:block;font-size:11.5px;color:var(--muted);margin-top:6px;line-height:1.25}
   .pvphone{background:#0c0a09;border-radius:30px;padding:8px;box-shadow:0 20px 44px -20px rgba(23,21,18,.5)}
   .pvphone iframe{width:100%;height:520px;border:0;border-radius:23px;display:block;background:#f3efe8}
   .pvcap{text-align:center;font-size:12px;color:var(--muted);margin-top:8px}
@@ -141,6 +145,15 @@
 
   <div class="layout">
     <div class="main">
+      <div class="card statcard" id="statcard" hidden>
+        <div class="sec-t">Your week <span class="hint" style="font-weight:400;text-transform:none;letter-spacing:0">last 7 days</span></div>
+        <div class="statgrid">
+          <div class="stat"><b id="stMsg">0</b><span>messages answered</span></div>
+          <div class="stat"><b id="stEnq">0</b><span>enquiries captured</span></div>
+          <div class="stat"><b id="stBk">0</b><span>bookings taken</span></div>
+        </div>
+        <div class="hint" id="stMonth" style="margin-top:11px"></div>
+      </div>
       <div class="card">
         <div class="sec-t">The basics</div>
         <div class="row2">
@@ -357,7 +370,7 @@
       $("ownerbox").hidden=false; $("dailycap").value=data.daily_cap||1500; $("dailycap").addEventListener("input",markDirty);
     } else { tsel.disabled=true; $("tradehint").textContent="Ask us to change your trade."; }
     $("loading").hidden=true; $("app").hidden=false;
-    loadLeads();
+    loadLeads(); loadStats();
     dirty=false; setStatus("",""); pushPreview();
   })();
 
@@ -374,6 +387,7 @@
     else setStatus(status===0?"Couldn't reach the server, try again.":"Save failed, try again.","bad");
   }
   function updRegAfterSave(){}
+  async function loadStats(){ try{ const {status,data}=await api("/admin/stats",{c:slug,k:key}); if(status===200&&data&&data.ok){ $("stMsg").textContent=data.week.messages; $("stEnq").textContent=data.week.enquiries; $("stBk").textContent=data.week.bookings; const m=data.month; $("stMonth").textContent="Last 30 days: "+m.enquiries+" "+(m.enquiries===1?"enquiry":"enquiries")+", "+m.bookings+" "+(m.bookings===1?"booking":"bookings")+"."; $("statcard").hidden=false; } }catch(e){} }
   $("save").onclick=save; $("save2").onclick=save;
 
   async function loadLeads(){
