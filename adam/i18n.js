@@ -14,6 +14,24 @@
     }
   } catch (e) {}
   var DICT = {
+  // ── page <title> + meta description (translated via applyMeta) ──
+  'PropSight · Free Singapore Property Valuation & Tools': 'PropSight · 免费新加坡房产估价与工具',
+  'About PropSight, how it works': '关于 PropSight，我们如何运作',
+  'Privacy Policy, PropSight': '隐私政策 · PropSight',
+  'Terms of Use, PropSight': '使用条款 · PropSight',
+  'Upcoming Launches · PropSight': '新盘预告 · PropSight',
+  'Singapore Area Guides · PropSight': '新加坡区域指南 · PropSight',
+  'Singapore Property News, PropSight': '新加坡房产新闻 · PropSight',
+  'Market Analysis · PropSight Singapore Property': '市场分析 · PropSight 新加坡房产',
+  'What\'s My Home Worth?, PropSight · Singapore Property': '我的房子值多少？· PropSight 新加坡房产',
+  'What Can I Afford?, PropSight · Singapore Property': '我能负担多少？· PropSight 新加坡房产',
+  'Mortgage Repayment Calculator, PropSight · Singapore Property': '房贷月供计算器 · PropSight 新加坡房产',
+  'Stamp Duty Calculator, PropSight · Singapore Property': '印花税计算器 · PropSight 新加坡房产',
+  'What Housing Grants Can I Get?, PropSight · Singapore Property': '我能拿到哪些房屋津贴？· PropSight 新加坡房产',
+  'Can I Buy This?, PropSight · Singapore Property': '我能买这个吗？· PropSight 新加坡房产',
+  'Homes Near a Primary School, PropSight · Singapore Property': '小学附近的房子 · PropSight 新加坡房产',
+  'What Will I Walk Away With?, PropSight · Singapore Property': '卖房后我能拿回多少？· PropSight 新加坡房产',
+
     // ── shared chrome (nav + footer + badges), keyed by the English string ──
     'Tools': '工具', 'Research': '楼盘研究', 'New Launches': '新盘', 'Market Pulse': '市场动态', 'Market Analysis': '市场分析',
     'News': '房产新闻', 'Guide': '购房指南', 'About us': '关于我们', 'Contact': '联系我们', 'Analysis': '分析',
@@ -128,7 +146,12 @@
     // ── homepage: toolkit ──
     'Free to use': '免费使用',
     'The toolkit.': '工具箱。',
-    'The kind of data the portals keep behind a wall, here, free, for you.': '房产网站收费才给你的数据，这里免费，全给你。',
+  'Telegram': 'Telegram',
+  'Get the market as it moves.': '第一时间掌握市场动向。',
+  'Everything here is free to use, with no sign-up. For daily property news and market updates, join our Telegram channel.': '这里的一切都免费使用，无需注册。想每天获取房产新闻和市场动态，欢迎加入我们的 Telegram 频道。',
+  'Free to use, no sign-up.': '免费使用，无需注册。',
+  
+    'The numbers that actually decide a purchase, free, for you.': '真正决定一笔交易的数字，免费给你。',
     'All tools': '全部工具', 'For buyers': '买家', 'For sellers': '卖家', 'For exploring': '探索',
     'Affordability': '负担能力', 'Your real budget': '你的真实预算',
     'Home value': '房价估值', "What it's worth": '它值多少', 'Most useful': '最实用',
@@ -660,10 +683,28 @@
     }).observe(document.body, { childList: true, subtree: true });
   }
 
+  function applyMeta() {
+    if (document._psEnTitle === undefined) document._psEnTitle = document.title;
+    var td = (LANG === 'zh' && DICT[document._psEnTitle]) ? DICT[document._psEnTitle] : document._psEnTitle;
+    if (document.title !== td) document.title = td;
+    var sels = ['meta[name="description"]', 'meta[property="og:description"]', 'meta[name="twitter:description"]',
+                'meta[property="og:title"]', 'meta[name="twitter:title"]'];
+    for (var i = 0; i < sels.length; i++) {
+      var el = document.querySelector(sels[i]);
+      if (!el) continue;
+      if (el._psEn === undefined) el._psEn = el.getAttribute('content') || '';
+      var v = (LANG === 'zh' && DICT[el._psEn]) ? DICT[el._psEn] : el._psEn;
+      if (el.getAttribute('content') !== v) el.setAttribute('content', v);
+    }
+  }
+
   function apply() {
     var html = document.documentElement;
     html.lang = (LANG === 'zh' ? 'zh-Hans' : 'en');
     html.classList.toggle('lang-zh', LANG === 'zh');
+    // <title> and meta description are NOT text nodes, so the bulk translator below
+    // never sees them; without this a 中文 page keeps its English title + social card.
+    applyMeta();
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       if (el._en === undefined) el._en = el.textContent;           // capture English once
       var key = el.getAttribute('data-i18n') || (el._en || '').trim();

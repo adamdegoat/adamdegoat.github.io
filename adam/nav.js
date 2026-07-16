@@ -215,7 +215,7 @@
     .psf-ico svg{width:20px;height:20px}.psf-ico:hover{color:#84e6d4;border-color:rgba(132,230,212,.45)}
     .psf-inst{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:rgba(207,228,220,.82);text-decoration:none}
     .psf-inst svg{width:18px;height:18px}.psf-inst:hover{color:#84e6d4}
-    .psf-col h4{font-size:14px;color:#d8b15e;margin-bottom:15px;font-weight:700}
+    .psf-col h4{font-size:14px;color:#7fd0bb;margin-bottom:15px;font-weight:700}
     .psf-col a{display:block;font-size:14px;color:rgba(207,228,220,.82);text-decoration:none;padding:6px 0;transition:color .2s}.psf-col a:hover{color:#fff}
     .psf-bar{border-top:1px solid rgba(255,255,255,.1);padding:22px 0 calc(38px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:16px;flex-wrap:wrap}
     .psf-cr{font-size:13px;font-weight:700;color:#fff}
