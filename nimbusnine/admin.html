@@ -160,6 +160,7 @@
         <a class="tbtn" id="back" href="add.html" hidden>Clients</a>
         <button class="tbtn" id="pvbtn" type="button">Preview</button>
         <a class="tbtn" id="bookinglink" href="#">Bookings</a>
+        <a class="tbtn" id="leadslink" href="#">Leads</a>
         <button class="tbtn save" id="save">Save<span class="tbfull"> changes</span></button>
       </div>
     </div>
@@ -265,11 +266,6 @@
         <div class="lbl" id="adminlbl" style="margin-top:16px" hidden>Admin link (send to the client)</div>
         <div class="linkbox" id="adminbox" hidden><input id="adminlink" readonly><button class="copy" data-t="adminlink">Copy</button></div>
         <button class="btn sec sm" id="resetbtn" style="margin-top:10px" hidden>Reset admin link</button>
-      </div>
-      <div class="card">
-        <div class="sec-t" style="margin-top:0">Leads</div>
-        <div class="sec-h">Enquiries that left their details. Also sent to Telegram.</div>
-        <div id="leads">Loading…</div>
       </div>
   </div>
 
@@ -383,7 +379,7 @@
     $("statuspill").textContent=paused?"Paused":"Live"; $("statuspill").className="pill "+(paused?"paused":"live");
     function updReg(){const t=tsel.value;if(REG[t]){$("reg").textContent=REG[t];$("reg").hidden=false;$("tradehint").textContent="";}else{$("reg").hidden=true;}}
     updReg(); tsel.addEventListener("change",updReg);
-    const link=BASE+"/f.html?c="+slug; $("link").value=link; $("preview").href=link; $("bookinglink").href=BASE+"/booking.html?c="+slug+"&k="+key;
+    const link=BASE+"/f.html?c="+slug; $("link").value=link; $("preview").href=link; $("bookinglink").href=BASE+"/booking.html?c="+slug+"&k="+key; $("leadslink").href=BASE+"/leads.html?c="+slug+"&k="+key;
     try{new QRCode($("qr"),{text:link,width:150,height:150,colorDark:"#171512",colorLight:"#ffffff"});}catch(e){$("qr").innerHTML='<img alt="QR" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+encodeURIComponent(link)+'">';}
     // OWNER extras
     if(OWNER){
@@ -395,7 +391,7 @@
       $("ownerbox").hidden=false; $("dailycap").value=data.daily_cap||1500; $("dailycap").addEventListener("input",markDirty);
     } else { tsel.disabled=true; $("tradehint").textContent="Ask us to change your trade."; }
     $("loading").hidden=true; $("app").hidden=false;
-    loadLeads(); loadStats();
+    loadStats();
     dirty=false; setStatus("",""); pushPreview();
   })();
 
@@ -415,19 +411,7 @@
   async function loadStats(){ try{ const {status,data}=await api("/admin/stats",{c:slug,k:key}); if(status===200&&data&&data.ok){ $("stMsg").textContent=data.week.messages; $("stEnq").textContent=data.week.enquiries; $("stBk").textContent=data.week.bookings; const m=data.month; $("stMonth").textContent="Last 30 days: "+m.enquiries+" "+(m.enquiries===1?"enquiry":"enquiries")+", "+m.bookings+" "+(m.bookings===1?"booking":"bookings")+"."; $("statcard").hidden=false; } }catch(e){} }
   $("save").onclick=save; $("save2").onclick=save;
 
-  async function loadLeads(){
-    const {status,data}=await api("/admin/leads",{c:slug,k:key});
-    const el=$("leads");
-    if(status!==200){el.innerHTML='<span style="color:#b3261e;font-size:13px">Couldn\'t load leads. <a href="#" onclick="loadLeads();return false" style="color:var(--accent-ink)">retry</a></span>';return;}
-    el.innerHTML="";
-    if(!data.leads||!data.leads.length){el.textContent="No leads yet. They'll show here the moment a customer leaves their details.";return;}
-    data.leads.forEach(l=>{const d=document.createElement("div");d.className="lead"+(l.status==="done"?" done":"");
-      const contact=eh(l.contact||""); const clink=/@/.test(contact)?'mailto:'+contact:(/^\+?\d[\d\s-]+$/.test(contact)?'tel:'+contact.replace(/\s/g,""):null);
-      const undel=(l.delivered===0||l.delivered==="0")?'<div class="undel">Saved here, but not sent to your Telegram. Check your Telegram is connected below.</div>':'';
-      d.innerHTML=`<div class="who">${eh(l.name||"Someone")} · ${clink?'<a href="'+clink+'">'+contact+'</a>':contact}</div><div class="meta">${ftime(l.created_at)}</div>${l.intent?'<div class="intent">'+eh(l.intent)+'</div>':''}${undel}<button class="mk" data-id="${l.id}" data-st="${l.status==="done"?"new":"done"}">${l.status==="done"?"mark as new":"mark handled"}</button>`;
-      el.appendChild(d);});
-  }
-  $("leads").addEventListener("click",async e=>{const b=e.target.closest(".mk");if(!b)return;await api("/admin/lead-status",{c:slug,k:key,id:Number(b.dataset.id),status:b.dataset.st});loadLeads();});
+  // Leads live on their own page (leads.html), linked from the top bar.
 
   document.querySelectorAll(".copy").forEach(b=>b.addEventListener("click",()=>{const i=$(b.dataset.t);i.select();document.execCommand("copy");b.textContent="Copied";setTimeout(()=>b.textContent="Copy",1200);}));
   $("testbtn").onclick=async()=>{$("sharestatus").textContent="Sending…";$("sharestatus").className="status";const{status,data}=await api("/admin/test",OWNER?{key:OWNER,c:slug}:{c:slug,k:key});$("sharestatus").textContent=data.ok?"Sent. Check Telegram.":(data.error==="no_telegram"?"Add a Telegram ID first (below).":"Couldn't send.");$("sharestatus").className="status "+(data.ok?"ok":"bad");};
