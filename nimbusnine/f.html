@@ -87,17 +87,25 @@
   .center{height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-family:var(--mono);font-size:14px;padding:24px;text-align:center}
 
   /* ============ STYLES ============ */
+  /* CLEAN — cool, crisp, minimal; distinct from Warm's cream */
+  [data-style="clean"]{
+    --bg:#e7eaec;--deskbg:#f2f4f5;
+    --head-bg:#fbfcfd;--head-border:1px solid rgba(20,28,38,.08);
+    --in-bg:#e6eaed;
+    --out-bg:var(--ink);--out-fg:#f2f4f5;
+    --av-radius:12px;
+  }
   /* WARM — editorial serif, circle avatar, cosy cream, rounded bubbles */
   [data-style="warm"]{
     --font:"Figtree",system-ui,sans-serif;--font-head:"Hedvig Letters Serif",Georgia,serif;
     --name-weight:500;--name-size:20px;--name-spacing:0;
     --label-font:"Figtree",sans-serif;--label-transform:none;--label-spacing:.005em;--label-size:12px;
     --av-radius:50%;
-    --bg:#ece2d1;--deskbg:#f7f1e6;--head-bg:#f7f1e6;--head-border:1px solid rgba(23,21,18,.09);
-    --bubble-radius:20px;--in-bg:#efe4d1;
+    --bg:#e2d3ba;--deskbg:#efe4ce;--head-bg:#ece0c7;--head-border:1px solid rgba(23,21,18,.1);
+    --bubble-radius:20px;--in-bg:#e5d7bd;
     --out-bg:var(--accent-ink);--out-fg:#fff;
     --chip-bg:rgba(232,102,58,.12);--chip-fg:var(--accent-ink);--chip-border:1px solid transparent;--chip-weight:600;
-    --input-bg:#efe4d1;
+    --input-bg:#e5d7bd;
   }
   /* BOLD — heavy grotesque, thick rule, chunky squarer bubbles, solid chips */
   [data-style="bold"]{
