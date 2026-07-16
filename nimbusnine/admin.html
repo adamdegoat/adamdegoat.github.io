@@ -364,12 +364,16 @@
 
   // live preview (the real front desk in preview mode, fed the current unsaved settings)
   let pvReady=false, pvTimer=null;
-  function currentConfig(){ return {
+  function currentConfig(){
+    const svcRows=[...$("services").querySelectorAll(".svc")].map(r=>{const i=r.querySelectorAll("input,textarea");return{name:(i[0]?i[0].value:"").trim(),price:(i[2]?i[2].value:"").trim()};}).filter(s=>s.name);
+    const svcPill=svcRows.length?[{q:"Services",a:"Here are our services:\n"+svcRows.slice(0,20).map(s=>"• "+s.name+(s.price?", "+s.price:"")).join("\n"),say:"Here are our services."}]:[];
+    const faqPills=[...$("faqs").querySelectorAll(".faqc")].map(row=>{const i=row.querySelectorAll("input,textarea");return{q:i[0].value.trim(),a:i[1].value.trim()};}).filter(p=>p.q&&p.a).slice(0,5);
+    return {
     style:selStyle, accent:selAccent, voice:selVoice,
     name:($("fname").value.trim()||$("bname").value.trim()||"Front desk"),
     business:$("bname").value.trim(), tagline:$("tagline").value.trim(), trade:tsel.value,
     greeting:$("greeting").value.trim(), announcement:$("announce").value.trim(), whatsapp:$("whatsapp").value.trim(),
-    pills:[...$("faqs").querySelectorAll(".faqc")].map(row=>{const i=row.querySelectorAll("input,textarea");return{q:i[0].value.trim(),a:i[1].value.trim()};}).filter(p=>p.q&&p.a).slice(0,6)
+    pills:[...svcPill,...faqPills]
   }; }
   function pushPreview(){ const f=$("pvframe"); if(f&&f.contentWindow&&pvReady) f.contentWindow.postMessage({type:"reception-preview",config:currentConfig()},"*"); }
   function updatePreview(){ clearTimeout(pvTimer); pvTimer=setTimeout(pushPreview,200); }
