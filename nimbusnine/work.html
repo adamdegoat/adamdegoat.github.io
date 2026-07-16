@@ -16,7 +16,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23171512'/%3E%3Csvg x='5.5' y='5.5' width='21' height='21' viewBox='0 0 64 64'%3E%3Crect x='9' y='45.5' width='46' height='5.8' rx='2.9' fill='%23f3efe8'/%3E%3Cpath d='M15.5 45.5 a16.5 15.5 0 0 1 33 0 Z' fill='%23f3efe8'/%3E%3Ccircle cx='32' cy='26.5' r='3.9' fill='%23e8663a'/%3E%3C/svg%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Spline+Sans+Mono:wght@400;500&family=Hedvig+Letters+Serif&family=Archivo+Black&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Spline+Sans+Mono:wght@400;500&family=Hedvig+Letters+Serif&family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=43">
 <style>
   /* ===== Work page: "What we build" ===== */
@@ -29,8 +29,9 @@
   .wsec.tint{background:var(--surface)}
 
   /* front-desk phone mockups */
-  .fdrow{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.6vw,34px);align-items:end}
-  @media(max-width:820px){.fdrow{grid-template-columns:1fr;max-width:360px;margin:0 auto;gap:38px}}
+  .fdrow{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,1.8vw,26px);align-items:end}
+  @media(max-width:1000px){.fdrow{grid-template-columns:repeat(2,1fr);max-width:640px;margin:0 auto;gap:30px}}
+  @media(max-width:540px){.fdrow{grid-template-columns:1fr;max-width:330px}}
   .fdmock{display:flex;flex-direction:column;gap:14px}
   .pbody{background:#141210;border-radius:38px;padding:9px;box-shadow:0 34px 66px -34px rgba(23,21,18,.55)}
   .pscreen{border-radius:30px;overflow:hidden;background:var(--dbg,#fbf9f5);display:flex;flex-direction:column;height:420px}
@@ -42,7 +43,7 @@
   .pwho{font-size:11px;color:var(--pmut,var(--muted));margin-top:2px}
   .pthread{flex:1;padding:16px 16px;display:flex;flex-direction:column;gap:9px;overflow:hidden}
   .pmsg{max-width:88%;padding:9px 12px;border-radius:14px;font-size:13px;line-height:1.4}
-  .pmsg.in{background:var(--pin,#efe9df);color:var(--ink);border-bottom-left-radius:4px;align-self:flex-start}
+  .pmsg.in{background:var(--pin,#efe9df);color:var(--pintx,var(--ink));border-bottom-left-radius:4px;align-self:flex-start}
   .pmsg.out{background:var(--pout,var(--ink));color:var(--poutfg,#fff);border-bottom-right-radius:4px;align-self:flex-end}
   .pchips{display:flex;flex-wrap:wrap;gap:6px;padding:4px 14px 14px}
   .pchip{font-size:11.5px;font-weight:var(--pchw,500);color:var(--pchfg,var(--accent-ink));background:var(--pchbg,transparent);border:1px solid var(--pchb,rgba(178,71,20,.35));border-radius:var(--pchr,100px);padding:6px 11px}
@@ -67,15 +68,30 @@
   .sitecap{margin-top:14px;display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
   .sitecap b{font-size:17px;font-weight:700;letter-spacing:-.01em}
   .sitecap span{color:var(--muted);font-size:14px}
-  .sitegrid{margin-top:clamp(30px,4vw,48px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2.6vw,34px)}
-  @media(max-width:720px){.sitegrid{grid-template-columns:1fr}}
-  .smock{border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:0 22px 46px -30px rgba(23,21,18,.4)}
-  .smpage{position:relative;min-height:280px;display:flex;flex-direction:column;background:var(--sbg,#fff);color:var(--sink,#171512);padding:24px 26px}
-  .smtag{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--sacc);margin-bottom:12px}
-  .smtitle{font-family:var(--sfont,var(--font));font-weight:var(--stw,800);font-size:clamp(24px,2.6vw,32px);line-height:1.02;letter-spacing:-.015em;max-width:14ch}
-  .smrow{margin-top:auto;padding-top:22px;display:flex;gap:8px;flex-wrap:wrap}
-  .smpill{font-size:12px;font-weight:600;padding:8px 14px;border-radius:100px;background:var(--sacc);color:var(--sactx,#fff)}
-  .smpill.ghost{background:transparent;border:1px solid var(--sline,rgba(23,21,18,.16));color:var(--sink)}
+  .sitegrid{margin-top:clamp(30px,4vw,48px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.2vw,28px)}
+  @media(max-width:900px){.sitegrid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.sitegrid{grid-template-columns:1fr;max-width:400px;margin-left:auto;margin-right:auto}}
+  .smock{display:flex;flex-direction:column;border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:0 22px 46px -30px rgba(23,21,18,.4);background:#fff;transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s}
+  .smock:hover{transform:translateY(-4px);box-shadow:0 34px 60px -32px rgba(23,21,18,.5)}
+  /* browser-framed mini-site */
+  .wsbar{display:flex;align-items:center;gap:5px;padding:9px 12px;background:#ece5d8;border-bottom:1px solid var(--line);flex:none}
+  .wsbar i{width:7px;height:7px;border-radius:50%;background:#cabfac}
+  .wsurl{font-family:var(--mono);font-size:10px;color:#7c7264;background:#fff;border-radius:5px;padding:4px 9px;margin-left:5px;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .wspage{flex:1;display:flex;flex-direction:column;min-height:300px;background:var(--sbg,#fff);color:var(--sink,#171512);font-family:var(--sfont,var(--font))}
+  .wsnav{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 16px;border-bottom:1px solid var(--sline,rgba(23,21,18,.1))}
+  .wslogo{font-weight:var(--slw,700);font-size:13.5px;letter-spacing:-.01em;font-family:var(--sfont,var(--font))}
+  .wslinks{font-family:var(--mono);font-size:9px;letter-spacing:.05em;text-transform:uppercase;opacity:.55;white-space:nowrap}
+  .wshero{padding:20px 16px 16px}
+  .wseyebrow{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.13em;color:var(--sacc);display:block;margin-bottom:9px}
+  .wstitle{font-weight:var(--stw,800);font-size:clamp(19px,1.9vw,25px);line-height:1.04;letter-spacing:-.02em;max-width:15ch;margin:0}
+  .wscta{display:flex;gap:7px;flex-wrap:wrap;margin-top:15px}
+  .wsbtn{font-size:10.5px;font-weight:600;padding:7px 12px;border-radius:var(--sbr,100px);background:var(--sacc);color:var(--sactx,#fff);white-space:nowrap}
+  .wsbtn.ghost{background:transparent;border:1px solid var(--sline,rgba(23,21,18,.18));color:var(--sink)}
+  .wsstrip{margin-top:auto;border-top:1px solid var(--sline,rgba(23,21,18,.1));padding:13px 16px;display:flex;flex-direction:column;gap:7px}
+  .wsmrow{display:flex;justify-content:space-between;gap:12px;font-size:11.5px;line-height:1.3}
+  .wsmrow span:last-child{opacity:.55;font-variant-numeric:tabular-nums;flex:none}
+  .wstiles{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+  .wstile{aspect-ratio:4/3;border-radius:5px;background:var(--tbg,rgba(23,21,18,.07));display:flex;align-items:flex-end;padding:5px 6px;font-family:var(--mono);font-size:7.5px;letter-spacing:.02em;text-transform:uppercase;color:var(--ttx,#4a463f);line-height:1.15}
   .smcap{padding:13px 16px 15px;background:#fff;border-top:1px solid var(--line);display:flex;align-items:baseline;justify-content:space-between;gap:10px}
   .smcap b{font-size:15px;font-weight:700}
   .smcap span{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
@@ -162,11 +178,11 @@
       <div class="fdrow">
         <!-- clean -->
         <figure class="fdmock">
-          <div class="pbody"><div class="pscreen" style="--pin:#efe9df">
+          <div class="pbody"><div class="pscreen" style="--dbg:#ffffff;--dhead:#ffffff;--pin:#f1f0ec;--pline:rgba(23,21,18,.07)">
             <div class="pstat"><span>9:41</span><span>5G</span></div>
-            <div class="phead"><span class="pav" style="background:#171512"><svg viewBox="0 0 64 64"><rect x="9" y="45.5" width="46" height="5.8" rx="2.9" fill="#F3EFE8"/><path d="M15.5 45.5 a16.5 15.5 0 0 1 33 0 Z" fill="#F3EFE8"/><circle cx="32" cy="26.5" r="3.9" fill="#e8663a"/></svg></span><div><div class="pname">FreshHome</div><div class="pwho">Home cleaning</div></div></div>
+            <div class="phead"><span class="pav" style="background:#171512;border-radius:13px"><svg viewBox="0 0 64 64"><rect x="9" y="45.5" width="46" height="5.8" rx="2.9" fill="#F3EFE8"/><path d="M15.5 45.5 a16.5 15.5 0 0 1 33 0 Z" fill="#F3EFE8"/><circle cx="32" cy="26.5" r="3.9" fill="#e8663a"/></svg></span><div><div class="pname">FreshHome</div><div class="pwho">Home cleaning</div></div></div>
             <div class="pthread"><div class="pmsg in">Hi, welcome to FreshHome. How big is your place and I'll quote you.</div><div class="pmsg out">4-room HDB, move-out clean</div><div class="pmsg in">A move-out clean for a 4-room is from S$280. Which date works?</div></div>
-            <div class="pchips" style="--pchfg:#2f7d54;--pchb:rgba(47,125,84,.4)"><span class="pchip">Get a quote</span><span class="pchip">Weekly clean?</span></div>
+            <div class="pchips" style="--pchfg:#0f7a5f;--pchb:rgba(15,122,95,.32)"><span class="pchip">Get a quote</span><span class="pchip">Weekly clean?</span></div>
           </div></div>
           <figcaption class="fdcap"><b>FreshHome</b><span>Clean</span></figcaption>
         </figure>
@@ -189,6 +205,16 @@
             <div class="pchips" style="--pchbg:#171512;--pchfg:#fff;--pchb:#171512;--pchr:9px;--pchw:600"><span class="pchip">Free trial</span><span class="pchip">Timetable</span></div>
           </div></div>
           <figcaption class="fdcap"><b>Peak Fitness</b><span>Bold</span></figcaption>
+        </figure>
+        <!-- sleek -->
+        <figure class="fdmock">
+          <div class="pbody"><div class="pscreen" style="--dbg:#15181c;--dhead:#15181c;--pin:#242b32;--pintx:#dfe4e8;--pfg:#eef1f3;--pmut:#8b95a0;--pink:#8b95a0;--pline:rgba(255,255,255,.1);--pfont:'Space Grotesk',sans-serif;--pnw:600;--pout:#e8ebee;--poutfg:#15181c">
+            <div class="pstat"><span>9:41</span><span>5G</span></div>
+            <div class="phead"><span class="pav" style="background:#2a3138;color:#dfe4e8;border-radius:11px;font-family:'Space Grotesk',sans-serif">AX</span><div><div class="pname" style="font-size:15px">Apex Detailing</div><div class="pwho">Car care · Ubi</div></div></div>
+            <div class="pthread"><div class="pmsg in">Evening. Ask about a detail package or a slot.</div><div class="pmsg out">Ceramic coating?</div><div class="pmsg in">Ceramic coating is from S$680 for a full car. Want to book it in?</div></div>
+            <div class="pchips" style="--pchfg:#aeb8c2;--pchb:rgba(255,255,255,.22);--pchbg:transparent"><span class="pchip">Packages</span><span class="pchip">Book a slot</span></div>
+          </div></div>
+          <figcaption class="fdcap"><b>Apex Detailing</b><span>Sleek</span></figcaption>
         </figure>
       </div>
       <p class="fdnote">Swipe through these live on the <a href="index.html">home page</a>, or pick from Clean, Warm, Bold and Sleek. Set up for you, in your brand, S$399 a month.</p>
@@ -228,21 +254,61 @@
       <div class="sitecap"><b>Amber Nail & Lash</b><span>A real, working example, with the front desk built in. Click to open it.</span></div>
 
       <div class="sitegrid">
+        <!-- editorial cafe -->
         <figure class="smock">
-          <div class="smpage" style="--sbg:#14231d;--sink:#f2efe6;--sacc:#5fae7e;--sfont:'Hedvig Letters Serif',serif;--stw:500;--sactx:#14231d;--sline:rgba(255,255,255,.2)">
-            <span class="smtag">Cafe · Tiong Bahru</span>
-            <span class="smtitle">Slow mornings, good coffee.</span>
-            <div class="smrow"><span class="smpill">Reserve a table</span><span class="smpill ghost">See the menu</span></div>
+          <div class="wsbar"><i></i><i></i><i></i><span class="wsurl">fernsandfilter.sg</span></div>
+          <div class="wspage" style="--sbg:#14231d;--sink:#eef0e9;--sacc:#8fc0a0;--sfont:'Hedvig Letters Serif',serif;--stw:500;--slw:500;--sline:rgba(255,255,255,.15);--sactx:#14231d">
+            <div class="wsnav"><span class="wslogo">Ferns &amp; Filter</span><span class="wslinks">Menu · Visit · Order</span></div>
+            <div class="wshero">
+              <span class="wseyebrow">Cafe · Tiong Bahru</span>
+              <h4 class="wstitle">Slow mornings, good coffee.</h4>
+              <div class="wscta"><span class="wsbtn">Reserve a table</span><span class="wsbtn ghost">See the menu</span></div>
+            </div>
+            <div class="wsstrip">
+              <div class="wsmrow"><span>Single-origin pour-over</span><span>$7</span></div>
+              <div class="wsmrow"><span>Kaya toast set</span><span>$9</span></div>
+              <div class="wsmrow"><span>House cold brew</span><span>$6</span></div>
+            </div>
           </div>
-          <figcaption class="smcap"><b>Ferns & Filter</b><span>Editorial, calm</span></figcaption>
+          <figcaption class="smcap"><b>Ferns &amp; Filter</b><span>Editorial</span></figcaption>
         </figure>
+        <!-- bold industrial reno -->
         <figure class="smock">
-          <div class="smpage" style="--sbg:#fff;--sink:#191919;--sacc:#b8441c;--sfont:'Archivo Black',sans-serif;--stw:400;--sactx:#fff;--sline:rgba(23,21,18,.16)">
-            <span class="smtag" style="color:#b8441c">Renovation · Islandwide</span>
-            <span class="smtitle" style="letter-spacing:-.02em">BUILT PROPERLY, ONCE.</span>
-            <div class="smrow"><span class="smpill">Get a quote</span><span class="smpill ghost">Our work</span></div>
+          <div class="wsbar"><i></i><i></i><i></i><span class="wsurl">northlinereno.sg</span></div>
+          <div class="wspage" style="--sbg:#fbfaf8;--sink:#191919;--sacc:#b8441c;--sfont:'Archivo Black',sans-serif;--stw:400;--slw:400;--sline:rgba(23,21,18,.13);--sactx:#fff;--sbr:5px">
+            <div class="wsnav"><span class="wslogo">NORTHLINE</span><span class="wslinks">Work · Process · Quote</span></div>
+            <div class="wshero">
+              <span class="wseyebrow">Renovation · Islandwide</span>
+              <h4 class="wstitle">BUILT PROPERLY, ONCE.</h4>
+              <div class="wscta"><span class="wsbtn">Get a quote</span><span class="wsbtn ghost">Our work</span></div>
+            </div>
+            <div class="wsstrip">
+              <div class="wstiles">
+                <span class="wstile" style="--tbg:#d4d0c9">HDB · Tampines</span>
+                <span class="wstile" style="--tbg:#c2beb6">Condo · Novena</span>
+                <span class="wstile" style="--tbg:#aeaaa1">Landed · B.Timah</span>
+              </div>
+            </div>
           </div>
           <figcaption class="smcap"><b>Northline Reno</b><span>Bold, industrial</span></figcaption>
+        </figure>
+        <!-- minimal wellness -->
+        <figure class="smock">
+          <div class="wsbar"><i></i><i></i><i></i><span class="wsurl">studio-ora.sg</span></div>
+          <div class="wspage" style="--sbg:#f4f1ea;--sink:#2c2925;--sacc:#b0764f;--sfont:'Plus Jakarta Sans',sans-serif;--stw:700;--slw:700;--sline:rgba(44,41,37,.12);--sactx:#fff">
+            <div class="wsnav"><span class="wslogo">Ora</span><span class="wslinks">Classes · Pricing · Book</span></div>
+            <div class="wshero">
+              <span class="wseyebrow">Pilates · Holland Village</span>
+              <h4 class="wstitle">Move well. Feel steady.</h4>
+              <div class="wscta"><span class="wsbtn">Book a class</span><span class="wsbtn ghost">Timetable</span></div>
+            </div>
+            <div class="wsstrip">
+              <div class="wsmrow"><span>Reformer Flow</span><span>8:00am</span></div>
+              <div class="wsmrow"><span>Mat Basics</span><span>10:00am</span></div>
+              <div class="wsmrow"><span>Prenatal</span><span>6:00pm</span></div>
+            </div>
+          </div>
+          <figcaption class="smcap"><b>Studio Ora</b><span>Minimal, airy</span></figcaption>
         </figure>
       </div>
     </div>
