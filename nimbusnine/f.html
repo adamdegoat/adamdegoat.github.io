@@ -403,7 +403,7 @@
   }
 
   function resetAnnounce(){ const wrap=$("dannounce"),track=$("datrack"); wrap.hidden=true; track.classList.remove("scroll"); track.style.animationDuration=""; [...track.querySelectorAll(".datext")].forEach((el,i)=>{ if(i>0) el.remove(); }); $("datext").textContent=""; }
-  const TRADE_LABELS={beauty:"Beauty & grooming",home:"Home & trades",cleaning:"Cleaning & laundry",tuition:"Tuition & enrichment",fitness:"Fitness & wellness",fnb:"Food & beverage",pet:"Pet services",events:"Events & creative",automotive:"Automotive & workshop",professional:"Professional & business services",repairs:"Repairs & personal retail",property:"Property / real estate",insurance:"Insurance & financial"};
+  const TRADE_LABELS={beauty:"Beauty & grooming",home:"Home & trades",interior:"Interior design",renovation:"Renovation contractor",cleaning:"Cleaning & laundry",tuition:"Tuition & enrichment",fitness:"Fitness & wellness",fnb:"Food & beverage",pet:"Pet services",events:"Events & creative",automotive:"Automotive & workshop",professional:"Professional & business services",repairs:"Repairs & personal retail",property:"Property / real estate",insurance:"Insurance & financial"};
   function applyConfig(c){
     cfg=c||{};
     const style=["clean","warm","bold","sleek"].includes(cfg.style)?cfg.style:"clean";
