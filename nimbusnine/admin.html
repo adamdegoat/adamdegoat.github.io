@@ -68,26 +68,27 @@
   .btn:disabled{opacity:.5;cursor:default}
   .btn.wide{width:100%}
   /* services */
-  .svc{display:grid;grid-template-columns:1fr 1.3fr 150px 36px;gap:8px;margin-top:8px;align-items:center}
-  .svc .f{min-width:0}.svc .fl{display:none}
+  .svc{display:grid;grid-template-columns:1fr 160px 44px;column-gap:10px;row-gap:7px;margin-top:8px;align-items:end;padding:13px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+  .svc .f{display:block;min-width:0}
+  .svc .fl{display:block;font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:3px}
+  .svc .name{grid-column:1;grid-row:1}
+  .svc .price{grid-column:2;grid-row:1}
+  .svc .del{grid-column:3;grid-row:1;height:42px;width:44px}
+  .svc .desc{grid-column:1/-1;grid-row:2}
   @media(max-width:640px){
-    .svc{grid-template-columns:1fr 104px 34px;column-gap:8px;row-gap:9px;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
-    .svc .f{display:block;min-width:0}
-    .svc .fl{display:block;font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:3px}
-    .svc .name{grid-column:1;grid-row:1}
-    .svc .price{grid-column:2;grid-row:1}
-    .svc .desc{grid-column:1/-1;grid-row:2}
-    .svc .del{grid-column:3;grid-row:1;align-self:end;height:42px;width:34px}
+    .svc{grid-template-columns:1fr 104px 34px;padding:12px}
+    .svc .del{width:34px}
   }
   .del{border:1px solid var(--line);background:var(--card);border-radius:9px;cursor:pointer;color:var(--muted);font-size:18px;height:44px}
   .addbtn{margin-top:10px;border:1px dashed var(--line);background:none;border-radius:10px;padding:11px;width:100%;cursor:pointer;color:var(--accent-ink);font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
   .faqc{border:1px solid var(--line);border-radius:11px;padding:11px;margin-top:8px}
   .faqc .qa{display:flex;gap:9px;align-items:center}
+  .faqc .qa.a{align-items:flex-start}
   .faqc .qa+.qa{margin-top:7px}
+  .faqc .fa{min-height:58px}
   .qb{width:26px;height:26px;flex:none;border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:500;font-size:12px;background:rgba(178,71,20,.13);color:var(--accent-ink)}
-  .qb.a{background:var(--surface);color:var(--muted)}
-  .svchead{display:grid;grid-template-columns:1fr 1.3fr 150px 36px;gap:8px;padding:2px 2px 6px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
-  @media(max-width:640px){.svchead{display:none}}
+  .qb.a{background:var(--surface);color:var(--muted);margin-top:8px}
+  .svchead{display:none}
   /* save area */
   .saverow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:20px}
   .status{font-family:var(--mono);font-size:12.5px}
@@ -138,9 +139,10 @@
   .tbtn:hover{border-color:var(--accent-ink)}
   .tbtn.save{background:var(--accent-ink);color:#fff;border-color:var(--accent-ink)}
   .body{max-width:1080px;margin:0 auto;padding:20px clamp(14px,4vw,28px) 90px;display:flex;flex-direction:column;gap:16px}
-  .formgrid{column-count:2;column-gap:16px}
-  .formgrid>.card{break-inside:avoid;margin:0 0 16px;width:100%}
-  @media(max-width:860px){.formgrid{column-count:auto;display:flex;flex-direction:column;gap:16px}.formgrid>.card{margin:0}}
+  .compactgrid{column-count:2;column-gap:16px}
+  .compactgrid>.card{break-inside:avoid;margin:0 0 16px;width:100%}
+  .widestack{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+  @media(max-width:860px){.compactgrid{column-count:auto;display:flex;flex-direction:column;gap:16px}.compactgrid>.card{margin:0}}
   .pagehd{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
   .pagehd h1{font-size:clamp(22px,3.2vw,30px);font-weight:800;letter-spacing:-.025em}
   @media(max-width:600px){.tbar .brand span{display:none}.tbar-in{gap:7px}.tbtn{padding:8px 11px;font-size:12px}.tbar-actions{gap:6px}.tbfull{display:none}.brand{font-size:15px;gap:8px}}
@@ -185,7 +187,7 @@
         </div>
         <div class="hint" id="stMonth" style="margin-top:11px"></div>
       </div>
-      <div class="formgrid">
+      <div class="compactgrid">
       <div class="card">
         <div class="sec-t">The basics</div>
         <div class="row2">
@@ -251,16 +253,18 @@
 
       </div>
       <div class="card">
+        <div class="sec-t">Opening hours</div>
+        <input id="hours" placeholder="e.g. Mon to Fri 10:00 to 19:00, Sat 10:00 to 18:00, Sun closed">
+      </div>
+      </div>
+
+      <div class="widestack">
+      <div class="card">
         <div class="sec-t">Services &amp; prices</div>
         <div class="sec-h">Your price list, this is what the front desk quotes customers. One row per service.</div>
         <div class="svchead"><span>Service</span><span>Description</span><span>Price</span><span></span></div>
         <div id="services"></div>
         <button class="addbtn" id="addsvc" type="button">+ Add a service</button>
-
-      </div>
-      <div class="card">
-        <div class="sec-t">Opening hours</div>
-        <input id="hours" placeholder="e.g. Mon to Fri 10:00 to 19:00, Sat 10:00 to 18:00, Sun closed">
 
       </div>
       <div class="card">
@@ -319,8 +323,8 @@
     d.innerHTML=`<label class="f name"><span class="fl">Service</span><input placeholder="Service name" value="${eh(s.name)}"></label><label class="f desc"><span class="fl">Description</span><input placeholder="Short description" value="${eh(s.desc)}"></label><label class="f price"><span class="fl">Price</span><input placeholder="e.g. S$45" value="${eh(s.price)}"></label><button class="del" type="button">×</button>`;
     d.querySelector(".del").onclick=()=>{d.remove();markDirty();}; d.querySelectorAll("input").forEach(i=>i.oninput=markDirty); return d;}
   function faqRow(f={}){const d=document.createElement("div");d.className="faqc";
-    d.innerHTML=`<div class="qa"><span class="qb">Q</span><input placeholder="What customers ask" value="${eh(f.q)}"><button class="del" type="button">×</button></div><div class="qa"><span class="qb a">A</span><input placeholder="How you want it answered" value="${eh(f.a)}"></div>`;
-    d.querySelector(".del").onclick=()=>{d.remove();markDirty();}; d.querySelectorAll("input").forEach(i=>i.oninput=markDirty); return d;}
+    d.innerHTML=`<div class="qa"><span class="qb">Q</span><input placeholder="What customers ask" value="${eh(f.q)}"><button class="del" type="button">×</button></div><div class="qa a"><span class="qb a">A</span><textarea class="fa" rows="2" placeholder="How you want it answered">${eh(f.a)}</textarea></div>`;
+    d.querySelector(".del").onclick=()=>{d.remove();markDirty();}; d.querySelectorAll("input,textarea").forEach(i=>i.oninput=markDirty); return d;}
   $("addsvc").onclick=()=>{$("services").appendChild(svcRow());markDirty();};
   $("addfaq").onclick=()=>{$("faqs").appendChild(faqRow());markDirty();};
   $("announce").addEventListener("input",()=>{$("anncount").textContent=$("announce").value.length+" / 90";});
@@ -362,7 +366,7 @@
     name:($("fname").value.trim()||$("bname").value.trim()||"Front desk"),
     business:$("bname").value.trim(), tagline:$("tagline").value.trim(), trade:tsel.value,
     greeting:$("greeting").value.trim(), announcement:$("announce").value.trim(), whatsapp:$("whatsapp").value.trim(),
-    pills:[...$("faqs").querySelectorAll(".faqc")].map(row=>{const i=row.querySelectorAll("input");return{q:i[0].value.trim(),a:i[1].value.trim()};}).filter(p=>p.q&&p.a).slice(0,6)
+    pills:[...$("faqs").querySelectorAll(".faqc")].map(row=>{const i=row.querySelectorAll("input,textarea");return{q:i[0].value.trim(),a:i[1].value.trim()};}).filter(p=>p.q&&p.a).slice(0,6)
   }; }
   function pushPreview(){ const f=$("pvframe"); if(f&&f.contentWindow&&pvReady) f.contentWindow.postMessage({type:"reception-preview",config:currentConfig()},"*"); }
   function updatePreview(){ clearTimeout(pvTimer); pvTimer=setTimeout(pushPreview,200); }
@@ -417,7 +421,7 @@
 
   async function save(){
     const services=[...$("services").querySelectorAll(".svc")].map(r=>{const i=r.querySelectorAll("input");return{name:i[0].value.trim(),desc:i[1].value.trim(),price:i[2].value.trim()};}).filter(s=>s.name);
-    const faq=[...$("faqs").querySelectorAll(".faqc")].map(r=>{const i=r.querySelectorAll("input");return{q:i[0].value.trim(),a:i[1].value.trim()};}).filter(f=>f.q&&f.a);
+    const faq=[...$("faqs").querySelectorAll(".faqc")].map(r=>{const i=r.querySelectorAll("input,textarea");return{q:i[0].value.trim(),a:i[1].value.trim()};}).filter(f=>f.q&&f.a);
     const config={tone:$("tone").value,greeting:$("greeting").value.trim(),tagline:$("tagline").value.trim(),style:selStyle,voice:selVoice,about:$("about").value.trim(),services,hours:$("hours").value.trim(),faq,announcement:$("announce").value.trim(),accent:selAccent,whatsapp:$("whatsapp").value.trim()};
     const body={c:slug,k:key,config,frontdesk_name:$("fname").value.trim(),business_name:$("bname").value.trim(),lead_chat_id:$("telegram").value.trim()};
     if(OWNER){ body.trade=tsel.value; body.key=OWNER; body.daily_cap=parseInt($("dailycap").value,10)||1500; }
