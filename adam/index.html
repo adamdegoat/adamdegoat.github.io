@@ -15,7 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#eaf6f4;--gtex:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='gn'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.06 0 0 0 0 0.05 0 0 0 0 0.02 0 0 0 0.22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23gn)'/%3E%3C/svg%3E");--bg2:#e0f1ee;--ink:#191512;--ink2:#404f4c;--ink3:#536b66;--line:#dbe7e1;--line2:#bfdbd5;
+:root{--bg:#eaf6f4;--gtex:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='gn'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.06 0 0 0 0 0.05 0 0 0 0 0.02 0 0 0 0.22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23gn)'/%3E%3C/svg%3E");--bg2:#e0f1ee;--ink:#0c211a;--ink2:#404f4c;--ink3:#536b66;--line:#dbe7e1;--line2:#bfdbd5;
  --green:#1b3a2d;--green2:#27513f;--green3:#0f231a;--brass:#0f7a82;--brass2:#15a0a0;--brass3:#7fd0bb;
  --serif:'Schibsted Grotesk',system-ui,sans-serif;--sans:'Schibsted Grotesk',system-ui,sans-serif;
  --sh1:0 2px 8px rgba(25,21,18,.05);--sh2:0 24px 50px rgba(25,21,18,.10),0 6px 16px rgba(25,21,18,.05);
@@ -645,7 +645,7 @@ body::before{animation:none}
 .pb-card{display:inline-block;background:rgba(236,247,245,.94);border:1px solid rgba(25,21,18,.08);border-radius:16px;padding:20px 26px;max-width:380px;box-shadow:0 18px 44px rgba(15,35,26,.24);transition:transform .25s,box-shadow .25s}
 .pb-card:hover{transform:translateY(-3px);box-shadow:0 26px 56px rgba(15,35,26,.3)}
 .pb-card .pb-k{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#0d6f78;display:block}
-.pb-card .pb-h{font-family:'Schibsted Grotesk',system-ui,sans-serif;font-weight:600;font-size:24px;line-height:1.12;color:#191512;display:block;margin-top:8px;letter-spacing:-.01em}
+.pb-card .pb-h{font-family:'Schibsted Grotesk',system-ui,sans-serif;font-weight:600;font-size:24px;line-height:1.12;color:#0c211a;display:block;margin-top:8px;letter-spacing:-.01em}
 .pb-card .pb-go{display:inline-flex;align-items:center;gap:7px;margin-top:13px;font-size:13.5px;font-weight:700;color:#27513f}
 .pb-card .pb-go i{font-style:normal;transition:transform .25s}.pb-card:hover .pb-go i{transform:translateX(5px)}
 @media(max-width:560px){.photoband{height:340px}.pb-card{display:block;max-width:none}}
@@ -2089,7 +2089,7 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
   function removeSchoolList(){ inp.removeAttribute('list'); }
   function renderSchoolHomes(s){ removeSchoolList(); const enc=encodeURIComponent, e=esc;
     const fmt=m=> m>=1000?(m/1000).toFixed(1).replace(/\.0$/,'')+'km':m+'m';
-    const row=(href,nm,d)=>'<a href="'+href+'" style="display:flex;justify-content:space-between;gap:10px;padding:7px 11px;margin:4px 0;border:1px solid #d2e7e3;border-radius:10px;color:#191512;text-decoration:none;font-size:13.5px"><span>'+e(nm)+'</span><span style="color:#27513f;font-weight:600;white-space:nowrap">'+fmt(d)+' &rarr;</span></a>';
+    const row=(href,nm,d)=>'<a href="'+href+'" style="display:flex;justify-content:space-between;gap:10px;padding:7px 11px;margin:4px 0;border:1px solid #d2e7e3;border-radius:10px;color:#0c211a;text-decoration:none;font-size:13.5px"><span>'+e(nm)+'</span><span style="color:#27513f;font-weight:600;white-space:nowrap">'+fmt(d)+' &rarr;</span></a>';
     const seclbl=t=>'<div style="font-family:var(--serif);font-weight:600;font-size:15px;color:#1b3a2d;margin:14px 0 2px">'+t+'</div>';
     const grp=(arr,lbl,mk)=> (arr&&arr.length)?'<div style="margin-top:6px"><div style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#536b66;margin-bottom:2px">'+lbl+'</div>'+arr.slice(0,6).map(mk).join('')+'</div>':'';
     const clink=c=>row('/research/?p='+enc(c.n),c.n,c.d);
