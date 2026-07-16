@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-16T09:00:00.415547+08:00",
+  "updated": "2026-07-16T13:00:00.284970+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -44,14 +44,14 @@
       "priority": true
     },
     {
-      "title": "Michel Pereira released from UFC following loss to ‘Shara Bullet’",
-      "link": "https://www.sherdog.com/news/news/Michel-Pereira-released-from-UFC-following-loss-to-Shara-Bullet-201908",
+      "title": "Ryan Garcia vs. Conor Benn set for WBA title fight at Zuffa Boxing event",
+      "link": "https://www.sherdog.com/news/news/Ryan-Garcia-vs-Conor-Benn-set-for-WBA-title-fight-at-Zuffa-Boxing-event-201926",
       "source": "Sherdog",
       "priority": true
     },
     {
-      "title": "Cris Cyborg announces next chapter after MMA retirement: starting a family",
-      "link": "https://www.sherdog.com/news/news/Cris-Cyborg-announces-next-chapter-after-MMA-retirement-starting-a-family-201904",
+      "title": "Michel Pereira released from UFC following loss to ‘Shara Bullet’",
+      "link": "https://www.sherdog.com/news/news/Michel-Pereira-released-from-UFC-following-loss-to-Shara-Bullet-201908",
       "source": "Sherdog",
       "priority": true
     },
@@ -70,12 +70,6 @@
     {
       "title": "Israel Adesanya claims major injury nearly forced him out of iconic UFC 287 win",
       "link": "https://www.bjpenn.com/mma-news/israel-adesanya/israel-adesanya-major-injury-iconic-ufc-287-win/?utm_source=rss&utm_medium=rss&utm_campaign=israel-adesanya-major-injury-iconic-ufc-287-win",
-      "source": "BJPenn",
-      "priority": true
-    },
-    {
-      "title": "Khabib Nurmagomedov says he’s in his wrestling ‘prime’ six years after abrupt UFC retirement",
-      "link": "https://www.bjpenn.com/mma-news/khabib-nurmagomedov/khabib-nurmagomedov-wrestling-prime-six-years-after-retirement/?utm_source=rss&utm_medium=rss&utm_campaign=khabib-nurmagomedov-wrestling-prime-six-years-after-retirement",
       "source": "BJPenn",
       "priority": true
     },
@@ -116,6 +110,12 @@
       "priority": false
     },
     {
+      "title": "UFC Oklahoma City’s Dricus Du Plessis shuts down ‘senseless’ Sean Strickland vs. Khamzat Chimaev rematch (and he’s kinda right?)",
+      "link": "https://www.mmamania.com/latest-news/457450/ufc-oklahoma-citys-dricus-du-plessis-shuts-down-senseless-sean-strickland-vs-khamzat-chimaev-rematch-and-hes-kinda-right",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
       "title": "Pass! Justin Gaethje not interested in Paddy Pimblett rematch after mega UFC 329 submission win",
       "link": "https://www.mmamania.com/latest-news/457440/pass-justin-gaethje-not-interested-in-paddy-pimblett-rematch-after-mega-ufc-329-submission-win",
       "source": "MMA Mania",
@@ -123,8 +123,8 @@
     }
   ],
   "hooks": {
-    "week": "Plessis vs Usman headlines this weekend's biggest fight—Sunday 8am SGT.",
-    "prefight": "Plessis takes on Usman Sunday at 8 AM SGT—championship gold on the line.",
+    "week": "Championship heavyweight action awaits: Plessis and Usman clash Sunday morning in this week's main event.",
+    "prefight": "Plessis and Usman clash Sunday morning in an unmissable championship fight.",
     "results": "The dust has settled on another fight night."
   }
 }
