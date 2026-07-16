@@ -313,7 +313,7 @@
 
   function eh(s){return String(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
   function grow(t){if(!t)return;t.style.height="auto";t.style.height=Math.max(t.scrollHeight,44)+"px";}
-  function growAll(){requestAnimationFrame(()=>document.querySelectorAll(".faqc .fa,.svc .dtx").forEach(grow));}
+  function growAll(){document.querySelectorAll(".faqc .fa,.svc .dtx").forEach(grow);}
   function ftime(s){try{return new Date(String(s).replace(" ","T")+"Z").toLocaleString("en-SG",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});}catch(e){return s;}}
   async function api(path,body){try{const r=await fetch(WORKER+path,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});return{status:r.status,data:await r.json().catch(()=>({}))};}catch(e){return{status:0,data:{}};}}
   function markDirty(){dirty=true;setStatus("Unsaved changes","dirty");updatePreview();}
