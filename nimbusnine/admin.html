@@ -85,7 +85,7 @@
   .faqc .qa{display:flex;gap:9px;align-items:center}
   .faqc .qa.a{align-items:flex-start}
   .faqc .qa+.qa{margin-top:7px}
-  .faqc .fa{min-height:58px}
+  .faqc .fa,.svc .dtx{min-height:44px;line-height:1.5;resize:none;overflow:hidden}
   .qb{width:26px;height:26px;flex:none;border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:500;font-size:12px;background:rgba(178,71,20,.13);color:var(--accent-ink)}
   .qb.a{background:var(--surface);color:var(--muted);margin-top:8px}
   .svchead{display:none}
@@ -312,6 +312,8 @@
   let dirty=false;
 
   function eh(s){return String(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+  function grow(t){if(!t)return;t.style.height="auto";t.style.height=Math.max(t.scrollHeight,44)+"px";}
+  function growAll(){requestAnimationFrame(()=>document.querySelectorAll(".faqc .fa,.svc .dtx").forEach(grow));}
   function ftime(s){try{return new Date(String(s).replace(" ","T")+"Z").toLocaleString("en-SG",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});}catch(e){return s;}}
   async function api(path,body){try{const r=await fetch(WORKER+path,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});return{status:r.status,data:await r.json().catch(()=>({}))};}catch(e){return{status:0,data:{}};}}
   function markDirty(){dirty=true;setStatus("Unsaved changes","dirty");updatePreview();}
@@ -320,13 +322,14 @@
   const tsel=$("trade"); TRADES.forEach(t=>{const o=document.createElement("option");o.value=t[0];o.textContent=t[1];tsel.appendChild(o);});
 
   function svcRow(s={}){const d=document.createElement("div");d.className="svc";
-    d.innerHTML=`<label class="f name"><span class="fl">Service</span><input placeholder="Service name" value="${eh(s.name)}"></label><label class="f desc"><span class="fl">Description</span><input placeholder="Short description" value="${eh(s.desc)}"></label><label class="f price"><span class="fl">Price</span><input placeholder="e.g. S$45" value="${eh(s.price)}"></label><button class="del" type="button">×</button>`;
-    d.querySelector(".del").onclick=()=>{d.remove();markDirty();}; d.querySelectorAll("input").forEach(i=>i.oninput=markDirty); return d;}
+    d.innerHTML=`<label class="f name"><span class="fl">Service</span><input placeholder="Service name" value="${eh(s.name)}"></label><label class="f desc"><span class="fl">Description</span><textarea class="dtx" rows="1" placeholder="Short description">${eh(s.desc)}</textarea></label><label class="f price"><span class="fl">Price</span><input placeholder="e.g. S$45" value="${eh(s.price)}"></label><button class="del" type="button">×</button>`;
+    d.querySelector(".del").onclick=()=>{d.remove();markDirty();}; d.querySelectorAll("input,textarea").forEach(i=>i.oninput=()=>{if(i.tagName==="TEXTAREA")grow(i);markDirty();}); return d;}
   function faqRow(f={}){const d=document.createElement("div");d.className="faqc";
     d.innerHTML=`<div class="qa"><span class="qb">Q</span><input placeholder="What customers ask" value="${eh(f.q)}"><button class="del" type="button">×</button></div><div class="qa a"><span class="qb a">A</span><textarea class="fa" rows="2" placeholder="How you want it answered">${eh(f.a)}</textarea></div>`;
-    d.querySelector(".del").onclick=()=>{d.remove();markDirty();}; d.querySelectorAll("input,textarea").forEach(i=>i.oninput=markDirty); return d;}
-  $("addsvc").onclick=()=>{$("services").appendChild(svcRow());markDirty();};
-  $("addfaq").onclick=()=>{$("faqs").appendChild(faqRow());markDirty();};
+    d.querySelector(".del").onclick=()=>{d.remove();markDirty();}; d.querySelectorAll("input,textarea").forEach(i=>i.oninput=()=>{if(i.tagName==="TEXTAREA")grow(i);markDirty();}); return d;}
+  window.addEventListener("resize",growAll);
+  $("addsvc").onclick=()=>{const r=svcRow();$("services").appendChild(r);r.querySelectorAll("textarea").forEach(grow);markDirty();};
+  $("addfaq").onclick=()=>{const r=faqRow();$("faqs").appendChild(r);r.querySelectorAll("textarea").forEach(grow);markDirty();};
   $("announce").addEventListener("input",()=>{$("anncount").textContent=$("announce").value.length+" / 90";});
   ["bname","fname","tone","greeting","tagline","telegram","about","hours","announce","whatsapp","trade"].forEach(id=>$(id).addEventListener("input",markDirty));
 
@@ -415,12 +418,13 @@
       $("ownerbox").hidden=false; $("dailycap").value=data.daily_cap||1500; $("dailycap").addEventListener("input",markDirty);
     } else { tsel.disabled=true; $("tradehint").textContent="Ask us to change your trade."; }
     $("loading").hidden=true; $("app").hidden=false;
+    growAll();
     loadStats();
     dirty=false; setStatus("",""); pushPreview();
   })();
 
   async function save(){
-    const services=[...$("services").querySelectorAll(".svc")].map(r=>{const i=r.querySelectorAll("input");return{name:i[0].value.trim(),desc:i[1].value.trim(),price:i[2].value.trim()};}).filter(s=>s.name);
+    const services=[...$("services").querySelectorAll(".svc")].map(r=>{const i=r.querySelectorAll("input,textarea");return{name:i[0].value.trim(),desc:i[1].value.trim(),price:i[2].value.trim()};}).filter(s=>s.name);
     const faq=[...$("faqs").querySelectorAll(".faqc")].map(r=>{const i=r.querySelectorAll("input,textarea");return{q:i[0].value.trim(),a:i[1].value.trim()};}).filter(f=>f.q&&f.a);
     const config={tone:$("tone").value,greeting:$("greeting").value.trim(),tagline:$("tagline").value.trim(),style:selStyle,voice:selVoice,about:$("about").value.trim(),services,hours:$("hours").value.trim(),faq,announcement:$("announce").value.trim(),accent:selAccent,whatsapp:$("whatsapp").value.trim()};
     const body={c:slug,k:key,config,frontdesk_name:$("fname").value.trim(),business_name:$("bname").value.trim(),lead_chat_id:$("telegram").value.trim()};
