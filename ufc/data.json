@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-15T23:30:00.732287+08:00",
+  "updated": "2026-07-16T09:00:00.415547+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -38,6 +38,12 @@
   },
   "news": [
     {
+      "title": "Cody Garbrandt implies he’s not retiring in first statement after UFC 329 knockout loss",
+      "link": "https://www.mmafighting.com/ufc/499559/cody-garbrandt-implies-hes-not-retiring-in-first-statement-after-ufc-329-knockout-loss",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
       "title": "Michel Pereira released from UFC following loss to ‘Shara Bullet’",
       "link": "https://www.sherdog.com/news/news/Michel-Pereira-released-from-UFC-following-loss-to-Shara-Bullet-201908",
       "source": "Sherdog",
@@ -74,22 +80,28 @@
       "priority": true
     },
     {
-      "title": "Khabib Nurmagomedov’s coach shares surprising take on Conor McGregor’s injury at UFC 329",
-      "link": "https://www.bjpenn.com/mma-news/conor-mcgregor/khabib-nurmagomedovs-coach-shares-surprising-take-on-conor-mcgregors-injury-at-ufc-329/?utm_source=rss&utm_medium=rss&utm_campaign=khabib-nurmagomedovs-coach-shares-surprising-take-on-conor-mcgregors-injury-at-ufc-329",
-      "source": "BJPenn",
-      "priority": true
+      "title": "LFA champ Lucas Fernando books UFC 330 debut against ‘Bipolar’",
+      "link": "https://www.mmafighting.com/ufc/499619/lfa-champ-lucas-fernando-books-ufc-330-debut-against-bipolar",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
-      "title": "Conor McGregor threw injury-causing kick in disastrous UFC 329 return because ‘he was nervous,’ Matt Brown believes",
-      "link": "https://www.bjpenn.com/mma-news/ufc/conor-mcgregor-threw-injury-causing-kick-in-disastrous-ufc-329-return-because-he-was-nervous-matt-brown-believes/?utm_source=rss&utm_medium=rss&utm_campaign=conor-mcgregor-threw-injury-causing-kick-in-disastrous-ufc-329-return-because-he-was-nervous-matt-brown-believes",
-      "source": "BJPenn",
-      "priority": true
+      "title": "UFC champion Justin Gaethje not interested in Paddy Pimblett rematch",
+      "link": "https://www.mmafighting.com/ufc/499602/ufc-champion-justin-gaethje-not-interested-in-paddy-pimblett-rematch",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
-      "title": "Dustin Poirier has no sympathy for Conor McGregor after UFC 329 injury",
-      "link": "https://www.bjpenn.com/mma-news/dustin-poirier/dustin-poirier-has-no-sympathy-for-conor-mcgregor-after-ufc-329-injury/?utm_source=rss&utm_medium=rss&utm_campaign=dustin-poirier-has-no-sympathy-for-conor-mcgregor-after-ufc-329-injury",
-      "source": "BJPenn",
-      "priority": true
+      "title": "Ryan Garcia vs. Conor Benn official for September fight in Las Vegas",
+      "link": "https://www.mmafighting.com/boxing/499593/ryan-garcia-vs-conor-benn-official-for-september-fight-in-las-vegas",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Sedriques Dumas removed from UFC roster, sentenced in case following 2025 arrest",
+      "link": "https://www.mmafighting.com/ufc/499482/sedriques-dumas-removed-from-ufc-roster-sentenced-in-case-following-2025-arrest",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "Alex Pereira upset over Michel Pereira’s UFC release, calls out Herb Dean’s ‘mistake’",
@@ -104,27 +116,15 @@
       "priority": false
     },
     {
-      "title": "Morning Report | Anthony Joshua says Ilia Topuria losing to Justin Gaethje made him rethink his own career: ‘The fight game is serious’",
-      "link": "https://www.mmafighting.com/boxing/499395/morning-report-anthony-joshua-says-ilia-topuria-losing-to-justin-gaethje-made-him-rethink-his-own-career-the-fight-game-is-serious",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "UFC Oklahoma City: Undefeated newcomers finalize Dricus du Plessis vs. Kamaru Usman fight card",
-      "link": "https://www.mmafighting.com/latest-news/499476/ufc-oklahoma-city-undefeated-newcomers-finalize-dricus-du-plessis-vs-kamaru-usman-fight-card",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Michel Pereira removed from UFC roster after loss to Shara Bullet in Baku",
-      "link": "https://www.mmafighting.com/ufc/499434/michel-pereira-removed-from-ufc-roster-after-loss-to-shara-bullet-in-baku",
-      "source": "MMA Fighting",
+      "title": "Pass! Justin Gaethje not interested in Paddy Pimblett rematch after mega UFC 329 submission win",
+      "link": "https://www.mmamania.com/latest-news/457440/pass-justin-gaethje-not-interested-in-paddy-pimblett-rematch-after-mega-ufc-329-submission-win",
+      "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Plessis vs Usman headlines Sunday. Title gold on the line at eight AM SGT.",
-    "prefight": "Championship showdown: Plessis meets Usman this Sunday 8 AM SGT for ultimate glory.",
+    "week": "Plessis vs Usman headlines this weekend's biggest fight—Sunday 8am SGT.",
+    "prefight": "Plessis takes on Usman Sunday at 8 AM SGT—championship gold on the line.",
     "results": "The dust has settled on another fight night."
   }
 }
