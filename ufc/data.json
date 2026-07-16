@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-16T21:00:00.173533+08:00",
+  "updated": "2026-07-16T23:30:00.248068+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -38,9 +38,21 @@
   },
   "news": [
     {
+      "title": "Colby Covington reacts to Conor McGregor’s injury at UFC 329, won’t ‘kick him while he’s down’ like Dustin Poirier",
+      "link": "https://www.mmafighting.com/ufc/499630/colby-covington-reacts-to-conor-mcgregors-injury-at-ufc-329-wont-kick-him-while-hes-down-like-dustin-poirier",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
       "title": "Cody Garbrandt implies he’s not retiring in first statement after UFC 329 knockout loss",
       "link": "https://www.mmafighting.com/ufc/499559/cody-garbrandt-implies-hes-not-retiring-in-first-statement-after-ufc-329-knockout-loss",
       "source": "MMA Fighting",
+      "priority": true
+    },
+    {
+      "title": "Conor McGregor injury update: Multi-millionaire athlete ‘will have results of scan on leg’ today | UFC 329",
+      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/457521/conor-mcgregor-injury-update-multi-millionaire-athlete-will-have-results-of-scan-on-my-leg-today",
+      "source": "MMA Mania",
       "priority": true
     },
     {
@@ -68,22 +80,16 @@
       "priority": true
     },
     {
-      "title": "UFC legend scorches Max Holloway for ‘blowing’ UFC 329 interview after Conor McGregor injury",
-      "link": "https://www.bjpenn.com/mma-news/max-holloway/ufc-legend-scorches-max-holloway-blowing-ufc-329-interview/?utm_source=rss&utm_medium=rss&utm_campaign=ufc-legend-scorches-max-holloway-blowing-ufc-329-interview",
-      "source": "BJPenn",
-      "priority": true
+      "title": "Between the Links: Conor McGregor’s disastrous return, UFC 329 fallout, busy weekend ahead",
+      "link": "https://www.mmafighting.com/ufc/499658/between-the-links-conor-mcgregors-disastrous-return-ufc-329-fallout-busy-weekend-ahead",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
-      "title": "ONE Championship releases full card for ONE Friday Fights 162",
-      "link": "https://www.bjpenn.com/mma-news/one-championship/one-championship-releases-full-card-for-one-friday-fights-162/?utm_source=rss&utm_medium=rss&utm_campaign=one-championship-releases-full-card-for-one-friday-fights-162",
-      "source": "BJPenn",
-      "priority": true
-    },
-    {
-      "title": "Israel Adesanya claims major injury nearly forced him out of iconic UFC 287 win",
-      "link": "https://www.bjpenn.com/mma-news/israel-adesanya/israel-adesanya-major-injury-iconic-ufc-287-win/?utm_source=rss&utm_medium=rss&utm_campaign=israel-adesanya-major-injury-iconic-ufc-287-win",
-      "source": "BJPenn",
-      "priority": true
+      "title": "Jake Paul still chasing Nate Diaz fight in MMA, open to Floyd Mayweather next in boxing: ‘He needs the money’",
+      "link": "https://www.mmafighting.com/boxing/499610/jake-paul-still-chasing-nate-diaz-fight-in-mma-open-to-floyd-mayweather-next-in-boxing-he-needs-the-money",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "LFA champ Lucas Fernando books UFC 330 debut against ‘Bipolar’",
@@ -104,27 +110,21 @@
       "priority": false
     },
     {
-      "title": "Sedriques Dumas removed from UFC roster, sentenced in case following 2025 arrest",
-      "link": "https://www.mmafighting.com/ufc/499482/sedriques-dumas-removed-from-ufc-roster-sentenced-in-case-following-2025-arrest",
-      "source": "MMA Fighting",
+      "title": "Jake Paul says ‘Maybe I’ll do some MMA,’ calls out Brock Lesnar and Nate Diaz",
+      "link": "https://www.mmamania.com/latest-news/457525/jake-paul-says-maybe-ill-do-some-mma-calls-out-brock-lesnar-and-nate-diaz",
+      "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "Alex Pereira upset over Michel Pereira’s UFC release, calls out Herb Dean’s ‘mistake’",
-      "link": "https://www.mmafighting.com/ufc/499544/alex-pereira-upset-over-michel-pereiras-ufc-release-calls-out-herb-deans-mistake",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "UFC Paris adds several bouts, including Michael Page’s surprising middleweight return",
-      "link": "https://www.mmafighting.com/ufc/499552/ufc-paris-adds-several-bouts-including-michael-pages-surprising-middleweight-return",
-      "source": "MMA Fighting",
+      "title": "UFC Oklahoma City best betting props, parlays and picks | Du Plessis vs. Usman",
+      "link": "https://www.mmamania.com/ufc-odds/456907/ufc-oklahoma-best-betting-props-parlays-and-picks-du-plessis-vs-usman",
+      "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Plessis and Usman go to war Sunday for championship gold.",
-    "prefight": "Middleweight supremacy on the line Sunday: Plessis and Usman collide.",
+    "week": "Elite warriors Plessis and Usman clash Sunday morning for championship supremacy.",
+    "prefight": "Plessis versus Usman drops Sunday morning — a title fight that changes everything.",
     "results": "The dust has settled on another fight night."
   }
 }
