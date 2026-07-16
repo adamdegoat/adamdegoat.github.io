@@ -513,13 +513,16 @@ html{overflow-x:clip}                 /* belt-and-braces: no sideways scroll on 
 .pilllead{display:block;padding:11px 20px 2px;font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
 /* each slide carries its own theme (not just colour) */
 .slide{background:var(--card)}
-.slide[data-st="warm"]{background:#f7f1e6}
-.slide[data-st="warm"] .chead{background:#f7f1e6}
+.slide[data-st="clean"]{background:#f2f4f5}
+.slide[data-st="clean"] .chead{background:#fbfcfd}
+.slide[data-st="clean"] .msg.in{background:#e6eaed}
+.slide[data-st="warm"]{background:#efe4ce}
+.slide[data-st="warm"] .chead{background:#ece0c7}
 .slide[data-st="warm"] .avatar{border-radius:50%}
 .slide[data-st="warm"] .cname{font-family:"Hedvig Letters Serif",Georgia,serif;font-weight:500;font-size:17px;letter-spacing:0}
 .slide[data-st="warm"] .cwho{font-family:var(--font);text-transform:none;letter-spacing:.005em}
 .slide[data-st="warm"] .msg{border-radius:18px}
-.slide[data-st="warm"] .msg.in{background:#efe4d1}
+.slide[data-st="warm"] .msg.in{background:#e5d7bd}
 .slide[data-st="warm"] .msg.out{background:var(--accent-ink);color:#fff}
 .slide[data-st="warm"] .pill-btn{background:rgba(232,102,58,.14);border-color:transparent;font-weight:600}
 .slide[data-st="warm"] .askbar.dis .askinput{color:#8a6f57}
