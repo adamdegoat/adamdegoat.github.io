@@ -43,7 +43,7 @@
   .davatar::after{content:"";position:absolute;right:-2px;bottom:-2px;width:13px;height:13px;border-radius:50%;background:#2f9e5f;border:2.5px solid var(--head-bg)}
   .dmeta{min-width:0;flex:1}
   .dname{font-family:var(--font-head);font-weight:var(--name-weight);font-size:var(--name-size);letter-spacing:var(--name-spacing);line-height:1.15;color:var(--head-fg);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .dwho{font-family:var(--font);font-size:12.5px;color:var(--who-fg);margin-top:3px;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .dwho{font-family:var(--font);font-size:12.5px;color:var(--who-fg);margin-top:3px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
   .dvoice{margin-left:auto;display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px 0 10px;border-radius:100px;border:var(--voice-border);background:var(--voice-bg);color:var(--voice-fg);cursor:pointer;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.03em;text-transform:uppercase}
   .dvoice svg{width:14px;height:14px}
   .dvoice.muted{background:transparent;border-color:var(--line);color:var(--muted);opacity:.85}
