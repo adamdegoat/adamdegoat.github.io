@@ -14,6 +14,30 @@
     }
   } catch (e) {}
   var DICT = {
+  // ── tool CTAs: per-tool copy (was one generic paragraph on 7 tools) ──
+  'Want a number you can bank on?': '想要一个靠得住的数字？',
+  'Get a valuation on your actual unit.': '为你的实际单位做一次估价。',
+  "This range comes from recent comparable sales. Your unit's floor, facing, condition and renovation move the real number. Send us the address and we'll do it properly.": "这个区间来自近期的可比成交。你单位的楼层、朝向、状况和装修都会影响实际数字。把地址发给我们，我们帮你正式估一次。",
+  'Not sure what you can really stretch to?': '不确定自己到底能买到什么价位？',
+  'Get your budget checked properly.': '让我们帮你正式核算预算。',
+  'This uses the real lending rules, but banks price each case differently. For your exact income mix, CPF and timeline, have a quick chat. No pressure, no sales script.': '这里用的是真实的贷款规则，但每家银行对每个个案的定价都不一样。你的收入组合、公积金和时间安排，聊几句就清楚了。没有压力，没有推销话术。',
+  "Rates and lock-in terms shift between banks, and the cheapest headline rate is not always the cheapest loan. Tell us your situation and we'll walk you through it.": "各家银行的利率和锁定期条件都不同，标价最低的未必是总成本最低的贷款。告诉我们你的情况，我们带你逐项看清楚。",
+  'Something unusual about your purchase?': '你的购房情况有特殊之处？',
+  'Get your duty confirmed before you commit.': '在签约前先确认你要缴的税。',
+  'Joint purchases, trusts, decoupling and overseas buyers all change what you owe. If your situation is not a simple first or second home, check with us first.': '联名购买、信托、拆名以及海外买主，都会改变你要缴的税额。如果你的情况不是单纯的第一套或第二套房，请先找我们确认。',
+  'Not sure which grants you qualify for?': '不确定自己符合哪些津贴？',
+  'Get your grants checked properly.': '让我们帮你正式核对津贴。',
+  "Grant rules turn on income, citizenship, family situation and the flat's remaining lease. Send us your details and we'll work out exactly what you can claim.": "津贴规则取决于收入、公民身份、家庭状况以及组屋的剩余地契。把你的资料发给我们，我们帮你算清楚实际能拿多少。",
+  'Somewhere between the rules?': '你的情况卡在规则之间？',
+  'Get your eligibility confirmed.': '把你的购房资格确认清楚。',
+  'Wait-out periods, MOP, private property and family schemes all have exceptions. If your case is not clear-cut, check it with us before you commit to anything.': '等待期、最低居住年限、私宅持有和各类家庭计划都有例外。如果你的情况不够明确，在做任何决定前先找我们确认。',
+  'Buying with a school in mind?': '为了某所学校而买房？',
+  'Get the full picture before you commit.': '在决定前先看清全貌。',
+  "Distance is only the start. Balloting history, the 30-month stay and which homes actually come up nearby all matter. Ask us about the school you're aiming for.": "距离只是开始。抽签的历史记录、30 个月的居住要求，以及附近实际会放盘的房子，都同样重要。想问哪所学校，尽管找我们。",
+  'Thinking about selling?': '正在考虑卖房？',
+  'Get a proper sale plan.': '制定一份完整的卖房方案。',
+  "This shows what lands in your pocket. What it can't show is timing, pricing and how to line up your next home. That's the conversation worth having.": "这里算的是最终能进你口袋的钱。算不出来的是时机、定价，以及如何衔接你的下一个家。这些才是值得好好聊的部分。",
+
   "(URA caveats for private homes, HDB resale records), not a formal bank or licensed valuation. A bank's valuation, your unit's condition, view, renovation and exact stack can move the real number.": "（私宅取自市区重建局成交记录，组屋取自转售记录），并非正式的银行或持牌估价。银行的估价，以及你单位的状况、景观、装修和具体座向，都可能让实际数字有所出入。",
   'it, that gap comes entirely out of your own cash. Newer or thinly-traded projects may have few comparables. Treat the range as a guide, and message us for a proper, address-specific valuation. Data refreshed regularly from official sources.': '这笔差额就得完全由你自己的现金支付。较新或成交稀少的楼盘，可比案例可能不多。请把这个区间当作参考，若需针对具体地址的正式估价，欢迎联系我们。数据定期取自官方来源更新。',
   ', then beyond 2km, applied within each group (Singapore Citizens first, then PRs). Distance is the straight-line (“as the crow flies”) distance from your home to the school’s main gate, using SLA’s OneMap.': '，再来是 2 公里以外，并在每个组别内分别排序（先新加坡公民，再永久居民）。距离指的是从你住家到学校正门的直线距离（「乌鸦飞的路线」），采用新加坡土地管理局的 OneMap 计算。',
