@@ -47,6 +47,9 @@
   .slotline .who{font-size:12.5px;color:var(--muted)}
   .slotline .rm{background:none;border:none;color:#b3261e;cursor:pointer;font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.03em}
   .slotline .tag{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent-ink);background:rgba(232,102,58,.12);padding:3px 7px;border-radius:6px}
+  .slotline.passed{opacity:.55;background:transparent}
+  .slotline .right{display:flex;align-items:center;gap:9px}
+  .slotline .tag.passedtag{color:var(--muted);background:rgba(23,21,18,.06)}
   .addrow{display:flex;gap:8px;align-items:flex-end;margin-top:12px;flex-wrap:wrap}
   .addrow .f{display:flex;flex-direction:column;gap:4px}
   .addrow label{font-size:11.5px;color:var(--muted);font-weight:600}
@@ -132,6 +135,7 @@
   function eh(s){return String(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
   async function api(path,body){try{const r=await fetch(WORKER+path,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});return{status:r.status,data:await r.json().catch(()=>({}))};}catch(e){return{status:0,data:{}};}}
   function todaySG(){return new Date(Date.now()+8*3600000).toISOString().slice(0,10);}
+  function nowSG(){return new Date(Date.now()+8*3600000).toISOString().slice(0,16).replace("T"," ");}
   function pad(n){return String(n).padStart(2,"0");}
   function timeLabel(hm){const [h,m]=hm.split(":").map(Number);const ap=h<12?"am":"pm";let hh=h%12;if(hh===0)hh=12;return hh+":"+pad(m)+" "+ap;}
 
@@ -150,7 +154,7 @@
     const first=new Date(Date.UTC(view.y,view.m,1));
     let startWd=(first.getUTCDay()+6)%7; // Mon=0
     const days=new Date(Date.UTC(view.y,view.m+1,0)).getUTCDate();
-    const openByDay={}; slots.forEach(s=>{ if(s.status==="open"){const d=s.starts_at.split(" ")[0]; openByDay[d]=(openByDay[d]||0)+1;} });
+    const nw=nowSG(); const openByDay={}; slots.forEach(s=>{ if(s.status==="open"&&s.starts_at>=nw){const d=s.starts_at.split(" ")[0]; openByDay[d]=(openByDay[d]||0)+1;} });
     let html=WD.map(w=>'<div class="cwd">'+w+'</div>').join("");
     for(let i=0;i<startWd;i++) html+='<div class="cday blank"></div>';
     for(let d=1;d<=days;d++){
@@ -171,8 +175,10 @@
     else{
       $("dayslots").innerHTML=mine.map(s=>{
         const t=s.starts_at.split(" ")[1]+" to "+s.ends_at.split(" ")[1];
+        const lbl=s.label?' <span style="color:var(--muted,#635b4f);font-weight:500">&middot; '+eh(s.label)+'</span>':'';
         if(s.status==="booked") return '<div class="slotline booked"><div><span class="t">'+t+'</span><div class="who">'+eh(s.name||"Booked")+(s.contact?" · "+eh(s.contact):"")+(s.service?" · "+eh(s.service):"")+'</div></div><span class="tag">Booked</span></div>';
-        return '<div class="slotline"><span class="t">'+t+(s.label?' <span style="color:var(--muted,#635b4f);font-weight:500">&middot; '+eh(s.label)+'</span>':'')+'</span><button class="rm" data-rm="'+s.id+'">Remove</button></div>';
+        if(s.starts_at<nowSG()) return '<div class="slotline passed"><span class="t">'+t+lbl+'</span><span class="right"><span class="tag passedtag">Passed</span><button class="rm" data-rm="'+s.id+'">Remove</button></span></div>';
+        return '<div class="slotline"><span class="t">'+t+lbl+'</span><button class="rm" data-rm="'+s.id+'">Remove</button></div>';
       }).join("");
       $("dayslots").querySelectorAll("[data-rm]").forEach(b=>b.onclick=async()=>{ b.disabled=true; await api("/admin/slot-remove",{c:slug,k:key,id:+b.dataset.rm}); reload(); });
     }
