@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-17T09:00:00.262731+08:00",
+  "updated": "2026-07-17T13:00:00.294471+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -44,6 +44,18 @@
       "priority": true
     },
     {
+      "title": "Cody Garbrandt implies he’s not retiring in first statement after UFC 329 knockout loss",
+      "link": "https://www.mmafighting.com/ufc/499559/cody-garbrandt-implies-hes-not-retiring-in-first-statement-after-ufc-329-knockout-loss",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
+      "title": "Israel Adesanya suggests Conor McGregor had injury before UFC 329",
+      "link": "https://www.sherdog.com/news/news/Israel-Adesanya-suggests-Conor-McGregor-had-injury-before-UFC-329-201943",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
       "title": "Report: LFA champ booked for Octagon debut at UFC 330",
       "link": "https://www.sherdog.com/news/news/Report-LFA-champ-booked-for-Octagon-debut-at-UFC-330-201931",
       "source": "Sherdog",
@@ -52,12 +64,6 @@
     {
       "title": "Conor McGregor knee injury may not be as bad as feared, doctor says",
       "link": "https://www.sherdog.com/news/news/Conor-McGregor-knee-injury-may-not-be-as-bad-as-feared-doctor-says-201929",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "Ryan Garcia vs. Conor Benn set for WBA title fight at Zuffa Boxing event",
-      "link": "https://www.sherdog.com/news/news/Ryan-Garcia-vs-Conor-Benn-set-for-WBA-title-fight-at-Zuffa-Boxing-event-201926",
       "source": "Sherdog",
       "priority": true
     },
@@ -72,12 +78,6 @@
       "link": "https://www.bjpenn.com/mma-news/ufc/israel-adesanya-suspects-conor-mcgregor-was-injured-prior-to-ufc-329-walkout-i-have-eyes/?utm_source=rss&utm_medium=rss&utm_campaign=israel-adesanya-suspects-conor-mcgregor-was-injured-prior-to-ufc-329-walkout-i-have-eyes",
       "source": "BJPenn",
       "priority": true
-    },
-    {
-      "title": "Kamaru Usman: ‘It’s either Sean Strickland or Islam’ Makhachev next with UFC Oklahoma City upset win",
-      "link": "https://www.mmafighting.com/ufc/499677/kamaru-usman-its-either-sean-strickland-or-islam-makhachev-next-with-ufc-oklahoma-city-upset-win",
-      "source": "MMA Fighting",
-      "priority": false
     },
     {
       "title": "RAF 11: Arman Tsarukyan vs. Colby Covington match card, start time",
@@ -123,8 +123,8 @@
     }
   ],
   "hooks": {
-    "week": "Plessis versus Usman—championship dreams collide Sunday in epic fashion.",
-    "prefight": "Championship-level striking meets elite wrestling this Sunday—Plessis and Usman square off at dawn.",
+    "week": "Plessis faces Usman in a must-watch showdown this Sunday, 8 AM SGT.",
+    "prefight": "Pleslis and Usman clash for middleweight supremacy this Sunday morning.",
     "results": "The dust has settled on another fight night."
   }
 }
