@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-17T21:00:00.328016+08:00",
+  "updated": "2026-07-17T23:30:00.225939+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -38,8 +38,14 @@
   },
   "news": [
     {
-      "title": "Colby Covington reacts to Conor McGregor’s injury at UFC 329, won’t ‘kick him while he’s down’ like Dustin Poirier",
-      "link": "https://www.mmafighting.com/ufc/499630/colby-covington-reacts-to-conor-mcgregors-injury-at-ufc-329-wont-kick-him-while-hes-down-like-dustin-poirier",
+      "title": "Missed Fists: Fighter actually pulls off jumping switch kick, knocks out opponent instead of injuring himself",
+      "link": "https://www.mmafighting.com/latest-news/499716/missed-fists-fighter-actually-pulls-off-jumping-switch-kick-knocks-out-opponent-instead-of-injuring-himself",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
+      "title": "Rising prospect steps in against former champion in new UFC Belgrade co-main event",
+      "link": "https://www.mmafighting.com/latest-news/499775/rising-prospect-steps-in-against-former-champion-in-new-ufc-belgrade-co-main-event",
       "source": "MMA Fighting",
       "priority": true
     },
@@ -92,6 +98,12 @@
       "priority": true
     },
     {
+      "title": "UFC Oklahoma City weigh-in video: Du Plessis vs. Usman",
+      "link": "https://www.mmafighting.com/ufc/499780/ufc-oklahoma-city-weigh-in-video-du-plessis-vs-usman",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "Morning Report | Jon Jones shoots down Oleksandr Usyk talk, leaves door open for UFC return",
       "link": "https://www.mmafighting.com/latest-news/499639/morning-report-jon-jones-shoots-down-oleksandr-usyk-talk-leaves-door-open-for-ufc-return",
       "source": "MMA Fighting",
@@ -108,23 +120,11 @@
       "link": "https://www.mmafighting.com/raf-wrestling/499564/raf-11-arman-tsarukyan-vs-colby-covington-match-card-start-time",
       "source": "MMA Fighting",
       "priority": false
-    },
-    {
-      "title": "UFC 329 draws nearly 16 million viewers for the return of Conor McGregor",
-      "link": "https://www.mmafighting.com/latest-news/499695/ufc-329-draws-nearly-16-million-viewers-for-the-return-of-conor-mcgregor",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "19-year-old grappling phenom Helena Crevar welcomes super fights against the best of the best from MMA",
-      "link": "https://www.mmafighting.com/one/499626/19-year-old-grappling-phenom-helena-crevar-welcomes-super-fights-against-the-best-of-the-best-from-mma",
-      "source": "MMA Fighting",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "Middleweight fireworks incoming: Plessis takes on Usman Sunday at 8 AM SGT.",
-    "prefight": "Plessis versus Usman Sunday at dawn—two alphas clash for supremacy.",
+    "week": "Plessis and Usman clash Sunday 8am SGT — elite middleweight showdown with title stakes.",
+    "prefight": "Plessis versus Usman Sunday morning — middleweight title on the line.",
     "results": "The dust has settled on another fight night."
   }
 }
