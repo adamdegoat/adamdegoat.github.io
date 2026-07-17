@@ -204,6 +204,7 @@
         <label>Announcement <span class="hint">optional, shows as a banner across the top of your front desk, clear it to hide</span><textarea id="announce" maxlength="90" rows="2" placeholder="e.g. 20% off gel this week, or Closed 25 Dec" style="min-height:52px"></textarea></label>
         <div class="hint" id="anncount" style="margin-top:5px">0 / 90</div>
         <label>WhatsApp for customers <span class="hint">optional, adds a WhatsApp button to your front desk, e.g. 9123 4567</span><input id="whatsapp" placeholder="e.g. 9123 4567"></label>
+        <label>Google review link <span class="hint">optional, powers the one-tap "ask for a review" button on your bookings</span><input id="reviewlink" placeholder="e.g. your Google review URL"></label>
 
       </div>
       <div class="card">
@@ -399,7 +400,7 @@
     $("telegram").value=data.lead_chat_id||""; showTgConnected(!!data.lead_chat_id);
     setStyle(cfg.style||"clean",false);
     setVoice(cfg.voice||"ava",false);
-    setAccent(cfg.accent||"#e8663a",false); $("whatsapp").value=cfg.whatsapp||"";
+    setAccent(cfg.accent||"#e8663a",false); $("whatsapp").value=cfg.whatsapp||""; $("reviewlink").value=cfg.review_link||"";
     $("about").value=cfg.about||"";
     $("hours").value=typeof cfg.hours==="string"?cfg.hours:"";
     (cfg.services||[]).forEach(s=>$("services").appendChild(svcRow(s))); if(!(cfg.services||[]).length)$("services").appendChild(svcRow());
@@ -430,7 +431,7 @@
   async function save(){
     const services=[...$("services").querySelectorAll(".svc")].map(r=>{const i=r.querySelectorAll("input,textarea");return{name:i[0].value.trim(),desc:i[1].value.trim(),price:i[2].value.trim()};}).filter(s=>s.name);
     const faq=[...$("faqs").querySelectorAll(".faqc")].map(r=>{const i=r.querySelectorAll("input,textarea");return{q:i[0].value.trim(),a:i[1].value.trim()};}).filter(f=>f.q&&f.a);
-    const config={tone:$("tone").value,greeting:$("greeting").value.trim(),tagline:$("tagline").value.trim(),style:selStyle,voice:selVoice,about:$("about").value.trim(),services,hours:$("hours").value.trim(),faq,announcement:$("announce").value.trim(),accent:selAccent,whatsapp:$("whatsapp").value.trim()};
+    const config={tone:$("tone").value,greeting:$("greeting").value.trim(),tagline:$("tagline").value.trim(),style:selStyle,voice:selVoice,about:$("about").value.trim(),services,hours:$("hours").value.trim(),faq,announcement:$("announce").value.trim(),accent:selAccent,whatsapp:$("whatsapp").value.trim(),review_link:$("reviewlink").value.trim()};
     const body={c:slug,k:key,config,frontdesk_name:$("fname").value.trim(),business_name:$("bname").value.trim(),lead_chat_id:$("telegram").value.trim()};
     if(OWNER){ body.trade=tsel.value; body.key=OWNER; body.daily_cap=parseInt($("dailycap").value,10)||1500; }
     [$("save"),$("save2")].forEach(b=>b.disabled=true); setStatus("Saving…","");
