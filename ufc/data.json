@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-16T23:30:00.248068+08:00",
+  "updated": "2026-07-17T09:00:00.262731+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -44,24 +44,6 @@
       "priority": true
     },
     {
-      "title": "Cody Garbrandt implies he’s not retiring in first statement after UFC 329 knockout loss",
-      "link": "https://www.mmafighting.com/ufc/499559/cody-garbrandt-implies-hes-not-retiring-in-first-statement-after-ufc-329-knockout-loss",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
-      "title": "Conor McGregor injury update: Multi-millionaire athlete ‘will have results of scan on leg’ today | UFC 329",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/457521/conor-mcgregor-injury-update-multi-millionaire-athlete-will-have-results-of-scan-on-my-leg-today",
-      "source": "MMA Mania",
-      "priority": true
-    },
-    {
-      "title": "Mario Bautista willing to fight former teammate Sean O’Malley for UFC title shot: ‘We both have the same dream’",
-      "link": "https://www.mmamania.com/ufc-news/457451/mario-bautista-willing-to-fight-teammate-sean-omalley-for-ufc-title-shot-we-both-have-the-same-dream",
-      "source": "MMA Mania",
-      "priority": true
-    },
-    {
       "title": "Report: LFA champ booked for Octagon debut at UFC 330",
       "link": "https://www.sherdog.com/news/news/Report-LFA-champ-booked-for-Octagon-debut-at-UFC-330-201931",
       "source": "Sherdog",
@@ -80,6 +62,48 @@
       "priority": true
     },
     {
+      "title": "Jon Jones advises Conor McGregor on how to handle UFC 329 injury aftermath",
+      "link": "https://www.bjpenn.com/mma-news/jon-jones/jon-jones-advises-conor-mcgregor-handle-ufc-329-injury-aftermath/?utm_source=rss&utm_medium=rss&utm_campaign=jon-jones-advises-conor-mcgregor-handle-ufc-329-injury-aftermath",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
+      "title": "Israel Adesanya suspects Conor McGregor was injured prior to UFC 329 walkout: “I have eyes”",
+      "link": "https://www.bjpenn.com/mma-news/ufc/israel-adesanya-suspects-conor-mcgregor-was-injured-prior-to-ufc-329-walkout-i-have-eyes/?utm_source=rss&utm_medium=rss&utm_campaign=israel-adesanya-suspects-conor-mcgregor-was-injured-prior-to-ufc-329-walkout-i-have-eyes",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
+      "title": "Kamaru Usman: ‘It’s either Sean Strickland or Islam’ Makhachev next with UFC Oklahoma City upset win",
+      "link": "https://www.mmafighting.com/ufc/499677/kamaru-usman-its-either-sean-strickland-or-islam-makhachev-next-with-ufc-oklahoma-city-upset-win",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "RAF 11: Arman Tsarukyan vs. Colby Covington match card, start time",
+      "link": "https://www.mmafighting.com/raf-wrestling/499564/raf-11-arman-tsarukyan-vs-colby-covington-match-card-start-time",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "UFC 329 draws nearly 16 million viewers for the return of Conor McGregor",
+      "link": "https://www.mmafighting.com/latest-news/499695/ufc-329-draws-nearly-16-million-viewers-for-the-return-of-conor-mcgregor",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "19-year-old grappling phenom Helena Crevar welcomes super fights against the best of the best from MMA",
+      "link": "https://www.mmafighting.com/one/499626/19-year-old-grappling-phenom-helena-crevar-welcomes-super-fights-against-the-best-of-the-best-from-mma",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Justin Gaethje loses Fighter of the Year ESPY to Terence Crawford",
+      "link": "https://www.mmafighting.com/ufc/499681/justin-gaethje-loses-fighter-of-the-year-espy-to-terence-crawford",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "Between the Links: Conor McGregor’s disastrous return, UFC 329 fallout, busy weekend ahead",
       "link": "https://www.mmafighting.com/ufc/499658/between-the-links-conor-mcgregors-disastrous-return-ufc-329-fallout-busy-weekend-ahead",
       "source": "MMA Fighting",
@@ -92,39 +116,15 @@
       "priority": false
     },
     {
-      "title": "LFA champ Lucas Fernando books UFC 330 debut against ‘Bipolar’",
-      "link": "https://www.mmafighting.com/ufc/499619/lfa-champ-lucas-fernando-books-ufc-330-debut-against-bipolar",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "UFC champion Justin Gaethje not interested in Paddy Pimblett rematch",
-      "link": "https://www.mmafighting.com/ufc/499602/ufc-champion-justin-gaethje-not-interested-in-paddy-pimblett-rematch",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Ryan Garcia vs. Conor Benn official for September fight in Las Vegas",
-      "link": "https://www.mmafighting.com/boxing/499593/ryan-garcia-vs-conor-benn-official-for-september-fight-in-las-vegas",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Jake Paul says ‘Maybe I’ll do some MMA,’ calls out Brock Lesnar and Nate Diaz",
-      "link": "https://www.mmamania.com/latest-news/457525/jake-paul-says-maybe-ill-do-some-mma-calls-out-brock-lesnar-and-nate-diaz",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "UFC Oklahoma City best betting props, parlays and picks | Du Plessis vs. Usman",
-      "link": "https://www.mmamania.com/ufc-odds/456907/ufc-oklahoma-best-betting-props-parlays-and-picks-du-plessis-vs-usman",
+      "title": "UFC Oklahoma City’s Dricus du Plessis reflects on first loss in eight years – ‘I hate not being champion’",
+      "link": "https://www.mmamania.com/latest-news/457649/ufc-oklahoma-citys-dricus-du-plessis-reflects-on-first-loss-in-eight-years-i-hate-not-being-champion",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Elite warriors Plessis and Usman clash Sunday morning for championship supremacy.",
-    "prefight": "Plessis versus Usman drops Sunday morning — a title fight that changes everything.",
+    "week": "Plessis versus Usman—championship dreams collide Sunday in epic fashion.",
+    "prefight": "Championship-level striking meets elite wrestling this Sunday—Plessis and Usman square off at dawn.",
     "results": "The dust has settled on another fight night."
   }
 }
