@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-17T13:00:00.294471+08:00",
+  "updated": "2026-07-17T21:00:00.328016+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -44,9 +44,21 @@
       "priority": true
     },
     {
-      "title": "Cody Garbrandt implies he’s not retiring in first statement after UFC 329 knockout loss",
-      "link": "https://www.mmafighting.com/ufc/499559/cody-garbrandt-implies-hes-not-retiring-in-first-statement-after-ufc-329-knockout-loss",
-      "source": "MMA Fighting",
+      "title": "Is Jon Jones retired? ‘Bones’ confirms he’s still in UFC drug testing pool: ‘I keep the door open’",
+      "link": "https://www.mmamania.com/latest-news/457703/is-jon-jones-retired-bones-confirms-hes-still-in-ufc-drug-testing-pool-i-keep-the-door-open",
+      "source": "MMA Mania",
+      "priority": true
+    },
+    {
+      "title": "PFL Austin card updated after injuries force two matchup changes",
+      "link": "https://www.sherdog.com/news/news/PFL-Austin-card-updated-after-injuries-force-two-matchup-changes-201951",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
+      "title": "UFC Hall of Famer Demetrious Johnson explains why he retired",
+      "link": "https://www.sherdog.com/news/news/UFC-Hall-of-Famer-Demetrious-Johnson-explains-why-he-retired-201946",
+      "source": "Sherdog",
       "priority": true
     },
     {
@@ -80,6 +92,18 @@
       "priority": true
     },
     {
+      "title": "Morning Report | Jon Jones shoots down Oleksandr Usyk talk, leaves door open for UFC return",
+      "link": "https://www.mmafighting.com/latest-news/499639/morning-report-jon-jones-shoots-down-oleksandr-usyk-talk-leaves-door-open-for-ufc-return",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Kamaru Usman: ‘It’s either Sean Strickland or Islam’ Makhachev next with UFC Oklahoma City upset win",
+      "link": "https://www.mmafighting.com/ufc/499677/kamaru-usman-its-either-sean-strickland-or-islam-makhachev-next-with-ufc-oklahoma-city-upset-win",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "RAF 11: Arman Tsarukyan vs. Colby Covington match card, start time",
       "link": "https://www.mmafighting.com/raf-wrestling/499564/raf-11-arman-tsarukyan-vs-colby-covington-match-card-start-time",
       "source": "MMA Fighting",
@@ -96,35 +120,11 @@
       "link": "https://www.mmafighting.com/one/499626/19-year-old-grappling-phenom-helena-crevar-welcomes-super-fights-against-the-best-of-the-best-from-mma",
       "source": "MMA Fighting",
       "priority": false
-    },
-    {
-      "title": "Justin Gaethje loses Fighter of the Year ESPY to Terence Crawford",
-      "link": "https://www.mmafighting.com/ufc/499681/justin-gaethje-loses-fighter-of-the-year-espy-to-terence-crawford",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Between the Links: Conor McGregor’s disastrous return, UFC 329 fallout, busy weekend ahead",
-      "link": "https://www.mmafighting.com/ufc/499658/between-the-links-conor-mcgregors-disastrous-return-ufc-329-fallout-busy-weekend-ahead",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Jake Paul still chasing Nate Diaz fight in MMA, open to Floyd Mayweather next in boxing: ‘He needs the money’",
-      "link": "https://www.mmafighting.com/boxing/499610/jake-paul-still-chasing-nate-diaz-fight-in-mma-open-to-floyd-mayweather-next-in-boxing-he-needs-the-money",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "UFC Oklahoma City’s Dricus du Plessis reflects on first loss in eight years – ‘I hate not being champion’",
-      "link": "https://www.mmamania.com/latest-news/457649/ufc-oklahoma-citys-dricus-du-plessis-reflects-on-first-loss-in-eight-years-i-hate-not-being-champion",
-      "source": "MMA Mania",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "Plessis faces Usman in a must-watch showdown this Sunday, 8 AM SGT.",
-    "prefight": "Pleslis and Usman clash for middleweight supremacy this Sunday morning.",
+    "week": "Middleweight fireworks incoming: Plessis takes on Usman Sunday at 8 AM SGT.",
+    "prefight": "Plessis versus Usman Sunday at dawn—two alphas clash for supremacy.",
     "results": "The dust has settled on another fight night."
   }
 }
