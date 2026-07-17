@@ -244,7 +244,7 @@
   const chipwrap = $("chipwrap"), chiptoggle = $("chiptoggle");
   let chipsAutoCollapsed = false;
   chiptoggle.addEventListener("click",()=>{ const c=chipwrap.classList.toggle("collapsed"); chiptoggle.setAttribute("aria-expanded",String(!c)); chipsAutoCollapsed=true; });
-  function collapseChipsOnce(){ if(chipsAutoCollapsed||chipwrap.hidden||chipwrap.classList.contains("collapsed"))return; chipsAutoCollapsed=true; chipwrap.classList.add("collapsed"); chiptoggle.setAttribute("aria-expanded","false"); }
+  function collapseChips(){ if(chipwrap.hidden||chipwrap.classList.contains("collapsed"))return; chipwrap.classList.add("collapsed"); chiptoggle.setAttribute("aria-expanded","false"); }
   const history = [];
   let muted = false, busy = false, cfg = null;
   const REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -277,7 +277,7 @@
       if(!r.ok) return; const b=await r.blob(); audio.pause(); audio.src=URL.createObjectURL(b); audio.currentTime=0; const p=audio.play(); if(p)p.catch(()=>{}); }catch(e){} }
 
   async function respond(text){
-    if(PREVIEW||busy) return; collapseChipsOnce(); busy=true; $("send").disabled=true;
+    if(PREVIEW||busy) return; collapseChips(); busy=true; $("send").disabled=true;
     add("out", text); history.push({role:"user",content:text});
     let msgs=history.slice(-12); if(msgs.length&&msgs[0].role!=="user")msgs=msgs.slice(1);
     const t=typing();
@@ -445,7 +445,7 @@
     if(cfg.announcement && cfg.announcement.trim()) setupAnnounce(cfg.announcement.trim());
     add("in", cfg.greeting||("Hi, welcome to "+nm+". Ask me anything."));
     (cfg.pills||[]).forEach(p=>{ const b=document.createElement("button"); b.className="chip"; b.type="button"; b.textContent=p.q;
-      b.addEventListener("click",()=>{ if(busy)return; collapseChipsOnce(); busy=true; $("send").disabled=true; b.classList.add("gone");
+      b.addEventListener("click",()=>{ if(busy)return; collapseChips(); busy=true; $("send").disabled=true; b.classList.add("gone");
         add("out",p.q); history.push({role:"user",content:p.q}); const t=typing();
         setTimeout(()=>{ t.remove(); add("in",p.a); history.push({role:"assistant",content:p.a}); speak(p.say||p.a); busy=false; $("send").disabled=false; }, REDUCE?150:650);
       }); chipsEl.appendChild(b); });
