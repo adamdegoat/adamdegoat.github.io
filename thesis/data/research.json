@@ -1,84 +1,75 @@
 {
- "asof": "2026-07-11",
+ "asof": "2026-07-18",
  "disclaimer": "AI-assisted research from public web sources \u2014 indicative, verify before quoting a client.",
  "notes": {
-  "LUMIERE": {
-   "note": "99-year leasehold from 2010, a slim 45-storey tower of 168 mostly 1- and 2-bedroom units at 2 Mistri Road within walking distance of Tanjong Pagar MRT. Trailing-12-month resales average roughly S$1,789 psf.",
+  "JOOL SUITES": {
+   "note": "Freehold boutique block of 52 predominantly micro-unit apartments completed circa 2013, a ~4-minute walk to Farrer Park MRT (North East Line) in the Little India/Farrer Park rental belt. No en-bloc activity found.",
    "sources": [
-    "https://www.propertyguru.com.sg/project/lumiere-219",
-    "https://www.edgeprop.sg/condo-apartment/lumiere",
-    "https://www.srx.com.sg/condo/lumiere-4800"
+    "https://www.edgeprop.sg/condo-apartment/jool-suites",
+    "https://www.99.co/singapore/condos-apartments/jool-suites"
    ]
   },
   "SELETAR PARK RESIDENCE": {
-   "note": "99-year leasehold from 2011, completed 2015 by Asplenium Land (SCDA), 276 low-rise units about 200m from Greenwich V with trailing-12-month resales near S$1,337 psf. Future Cross Island Line stations Serangoon North (CR9) and Tavistock (CR10) are planned in the vicinity, though the current nearest MRT (Ang Mo Kio) is a drive away.",
+   "note": "99-year leasehold, 276 units, TOP 2015, in Seletar Hills Estate with no MRT within walking distance (nearest Ang Mo Kio on the North-South Line). LTA's proposed Seletar Line (announced March 2026) is being studied to serve the northeast long-term.",
    "sources": [
-    "https://www.propertyguru.com.sg/project/seletar-park-residence-21127/last-transacted-prices-and-insights",
     "https://www.edgeprop.sg/condo-apartment/seletar-park-residence",
-    "https://www.newlaunchesreview.com/seletar-park-residence/"
-   ]
-  },
-  "ONE-NORTH RESIDENCES": {
-   "note": "99-year leasehold from 2005, completed 2009 by a UOL/Kheng Leong JV, 405 units directly served by one-north MRT (CC23) and set within the one-north business/R&D cluster near Buona Vista interchange. A unit reportedly transacted at a project high of S$3.95m in Aug 2025.",
-   "sources": [
-    "https://www.propertyguru.com.sg/project/one-north-residences-483/last-transacted-prices-and-insights",
-    "https://www.edgeprop.sg/condo-apartment/one-north-residences",
-    "https://www.srx.com.sg/condo/one-north-residences-1851"
+    "https://www.lta.gov.sg/content/ltagov/en/newsroom/2026/3/news-releases/next-phase-of-rail-development.html"
    ]
   },
   "ICON": {
-   "note": "Large 99-year leasehold (from 2002) 646-unit development at 10 Gopeng Street, completed 2007, within walking distance of Tanjong Pagar MRT and near Maxwell (TE18). 2025 resales averaged about S$1,807 psf, softening toward ~S$1,725 psf in early 2026, with commentary citing a relatively high gross rental yield.",
+   "note": "99-year leasehold (2007) Far East Organization development of 646 units, roughly 180m from Tanjong Pagar MRT (East-West Line). Long-term upside from the Greater Southern Waterfront as Tanjong Pagar port relocates to Tuas by around 2027.",
    "sources": [
-    "https://www.propertyguru.com.sg/project/icon-75",
-    "https://www.99.co/singapore/condos-apartments/icon",
-    "https://www.srx.com.sg/condo/icon-10"
+    "https://www.edgeprop.sg/condo-apartment/icon",
+    "https://en.wikipedia.org/wiki/Greater_Southern_Waterfront"
    ]
   },
-  "JOOL SUITES": {
-   "note": "Small freehold boutique block of 52 units in the Jalan Besar/Farrer Park area completed in 2014, with a rental-heavy, low-liquidity transaction profile (few resales, many leases). No verifiable en-bloc or major project news found.",
+  "ONE-NORTH RESIDENCES": {
+   "note": "99-year leasehold, 405 units, TOP 2009, developed by a UOL/Kheng Leong joint venture and walkable to one-north MRT (Circle Line) within the one-north business and R&D hub. Newer competing supply nearby includes One-North Eden and Bloomsbury Residences at Media Circle.",
    "sources": [
-    "https://www.propertyguru.com.sg/project/jool-suites-20740/last-transacted-prices-and-insights",
-    "https://www.edgeprop.sg/condo-apartment/jool-suites"
+    "https://www.99.co/singapore/condos-apartments/one-north-residences",
+    "https://www.newlaunches.sg/mixed-development/one-north-eden.html"
+   ]
+  },
+  "THE BERTH BY THE COVE": {
+   "note": "99-year leasehold, 200 units, TOP 2006, developed by Ho Bee Land as Sentosa Cove's first waterfront condo with private boat berths. Sentosa Cove has been hit by the 60% foreigner ABSD (April 2023), with up to about 66% of resale transactions loss-making in 2025.",
+   "sources": [
+    "https://www.edgeprop.sg/condo-apartment/the-berth-by-the-cove",
+    "https://www.homejourney.sg/projects/sentosa-cove"
+   ]
+  },
+  "ALEXIS": {
+   "note": "Freehold mixed-use development of roughly 293 units sitting above Anchorpoint mall and within walking distance of Queenstown MRT (East-West Line). It sits on the northern edge of the Greater Southern Waterfront redevelopment zone.",
+   "sources": [
+    "https://www.99.co/singapore/condos-apartments/alexis",
+    "https://www.edgeprop.sg/condo-apartment/alexis"
    ]
   },
   "THE COAST AT SENTOSA COVE": {
-   "note": "99-year leasehold (from 2006) waterfront development at Sentosa Cove completed in 2009 with 249 units across three blocks. 2025-26 resale listings spanned a wide luxury range of roughly S$1,464-S$3,202 psf.",
+   "note": "99-year leasehold, 249 units, TOP 2009, on Sentosa Cove. Non-landed Sentosa Cove prices fell roughly 18.7% from a 2023 peak with about 66% of resales loss-making in 2025, weighed down by the 60% foreigner ABSD.",
    "sources": [
     "https://www.edgeprop.sg/condo-apartment/the-coast-at-sentosa-cove",
-    "https://www.propertyguru.com.sg/project/the-coast-at-sentosa-cove-87",
-    "https://www.99.co/singapore/condos-apartments/the-coast-at-sentosa-cove"
-   ]
-  },
-  "QUEENS": {
-   "note": "99-year leasehold (from 1998) 722-unit condo completed in 2002, a short walk from Queenstown MRT (EW19), with trailing-12-month resales averaging about S$1,836 psf. Newer nearby supply on the same Stirling Road stretch includes Stirling Residences and Margaret Ville.",
-   "sources": [
-    "https://www.edgeprop.sg/condo-apartment/queens",
-    "https://www.srx.com.sg/condo/queens-101",
-    "https://directory.stackedhomes.com/condo/queens/"
+    "https://cos.sg/sentosa-cove-property-prices-buck-mainland-uptrend-as-loss-making-deals-rise/"
    ]
   },
   "GUILLEMARD EDGE": {
-   "note": "Freehold development of 275 units in the Geylard/Paya Lebar area completed around 2014-2015, trading mostly as small units (e.g. a 441 sqft unit at ~S$1,801 psf in Nov 2025). No verifiable en-bloc history found.",
+   "note": "Freehold development of 275 units, TOP 2015, by Macly Group, featuring SOHO/home-office units and located off Guillemard Road near Dakota and Aljunied MRT stations.",
    "sources": [
-    "https://www.edgeprop.sg/condo-apartment/guillemard-edge",
     "https://www.propertyguru.com.sg/project/guillemard-edge-21144",
-    "https://directory.stackedhomes.com/condo/guillemard-edge/"
+    "https://www.edgeprop.sg/condo-apartment/guillemard-edge"
    ]
   },
-  "TROPIKA EAST": {
-   "note": "Freehold boutique condo of 105 units in two blocks in the Eunos/Geylang area (Foo Kim Lin Road), completed in 2016. A 441 sqft unit reached about S$1,699 psf in Oct 2025.",
+  "STARLIGHT SUITES": {
+   "note": "Freehold boutique development of 105 units, TOP 2014, at 11 River Valley Close in District 9, developed by Meadows Property (Singapore).",
    "sources": [
-    "https://www.edgeprop.sg/condo-apartment/tropika-east",
-    "https://www.propertyguru.com.sg/project/tropika-east-21259",
-    "https://www.99.co/singapore/condos-apartments/tropika-east"
+    "https://www.srx.com.sg/condo/starlight-suites-9832",
+    "https://www.edgeprop.sg/condo-apartment/starlight-suites"
    ]
   },
-  "LEONIE GARDENS": {
-   "note": "99-year leasehold (completed 1993) with 138 units on Leonie Hill Road in River Valley, with redevelopment potential for roughly 380-544 units at a 2.8 plot ratio. It launched two collective-sale attempts at an S$800m reserve (May 2018 and a Jan 2019 relaunch), both of which failed to attract bids.",
+  "THE WOODGROVE": {
+   "note": "99-year leasehold (from 1996), boutique 72-unit apartment, TOP 1998, in Woodlands. Key connectivity catalyst is the Johor Bahru-Singapore RTS Link targeting passenger service by end-2026/early 2027 from Woodlands North to JB.",
    "sources": [
-    "https://www.propertyguru.com.sg/project/leonie-gardens-202",
-    "https://www.edgeprop.sg/property-news/leonie-gardens-collective-sale-800-million",
-    "https://newlaunch101.com/leonie-gardens-going-for-2nd-en-bloc-attempt-asking-800-million/"
+    "https://www.edgeprop.sg/condo-apartment/the-woodgrove",
+    "https://www.lta.gov.sg/content/ltagov/en/upcoming_projects/rail_expansion/JB-Singapore_RTS_link.html"
    ]
   }
  }
