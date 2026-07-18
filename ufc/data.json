@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-17T23:30:00.225939+08:00",
+  "updated": "2026-07-18T09:00:05.270195+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -38,6 +38,24 @@
   },
   "news": [
     {
+      "title": "UFC Oklahoma City Preview Show: Are Dricus du Plessis and Kamaru Usman fighting for a title shot?",
+      "link": "https://www.mmafighting.com/latest-news/499732/ufc-oklahoma-city-preview-show-are-dricus-du-plessis-and-kamaru-usman-fighting-for-a-title-shot",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
+      "title": "Johnny Eblen: Impa Kasanganay ‘only has a puncher’s chance’ in PFL Austin title fight",
+      "link": "https://www.mmafighting.com/pfl/499707/johnny-eblen-impa-kasanganay-only-has-a-punchers-chance-in-pfl-austin-title-fight",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
+      "title": "Conor McGregor responds to ‘nonsense’ claims he was injured going into UFC 329, reveals who he wants in final UFC fight",
+      "link": "https://www.mmafighting.com/ufc/499850/conor-mcgregor-responds-to-nonsense-claims-he-was-injured-going-into-ufc-329-reveals-who-he-wants-in-final-ufc-fight",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
       "title": "Missed Fists: Fighter actually pulls off jumping switch kick, knocks out opponent instead of injuring himself",
       "link": "https://www.mmafighting.com/latest-news/499716/missed-fists-fighter-actually-pulls-off-jumping-switch-kick-knocks-out-opponent-instead-of-injuring-himself",
       "source": "MMA Fighting",
@@ -50,9 +68,33 @@
       "priority": true
     },
     {
-      "title": "Is Jon Jones retired? ‘Bones’ confirms he’s still in UFC drug testing pool: ‘I keep the door open’",
-      "link": "https://www.mmamania.com/latest-news/457703/is-jon-jones-retired-bones-confirms-hes-still-in-ufc-drug-testing-pool-i-keep-the-door-open",
+      "title": "Conor McGregor ‘awaiting surgery’ for UFC 329 injury, suggests victory would have resurrected drug ‘cycle’",
+      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/457777/conor-mcgregor-awaiting-surgery-ufc-329-injury-suggests-victory-resurrected-drug-cycle",
       "source": "MMA Mania",
+      "priority": true
+    },
+    {
+      "title": "PFL Austin weigh-in results: Middleweight title fight set; 1 miss",
+      "link": "https://www.sherdog.com/news/news/PFL-Austin-weighin-results-Middleweight-title-fight-set-1-miss-201954",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
+      "title": "Former top-ranked women’s bantamweight, UFC title challenger retires from MMA",
+      "link": "https://www.sherdog.com/news/news/Former-topranked-womens-bantamweight-UFC-title-challenger-retires-from-MMA-201959",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
+      "title": "Women’s bantamweight grudge match booked for Sept. 26 UFC Apex event",
+      "link": "https://www.sherdog.com/news/news/Womens-bantamweight-grudge-match-booked-for-Sept-26-UFC-Apex-event-201957",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
+      "title": "Jan Blachowicz draws undefeated replacement foe for UFC Belgrade card",
+      "link": "https://www.sherdog.com/news/news/Jan-Blachowicz-draws-undefeated-replacement-foe-for-UFC-Belgrade-card-201955",
+      "source": "Sherdog",
       "priority": true
     },
     {
@@ -74,57 +116,15 @@
       "priority": true
     },
     {
-      "title": "Report: LFA champ booked for Octagon debut at UFC 330",
-      "link": "https://www.sherdog.com/news/news/Report-LFA-champ-booked-for-Octagon-debut-at-UFC-330-201931",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "Conor McGregor knee injury may not be as bad as feared, doctor says",
-      "link": "https://www.sherdog.com/news/news/Conor-McGregor-knee-injury-may-not-be-as-bad-as-feared-doctor-says-201929",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "Jon Jones advises Conor McGregor on how to handle UFC 329 injury aftermath",
-      "link": "https://www.bjpenn.com/mma-news/jon-jones/jon-jones-advises-conor-mcgregor-handle-ufc-329-injury-aftermath/?utm_source=rss&utm_medium=rss&utm_campaign=jon-jones-advises-conor-mcgregor-handle-ufc-329-injury-aftermath",
+      "title": "Conor McGregor says next UFC fight must be Max Holloway trilogy after freak injury: “I was fully calm and relaxed”",
+      "link": "https://www.bjpenn.com/mma-news/conor-mcgregor/conor-mcgregor-says-next-ufc-fight-must-be-max-holloway-trilogy-after-freak-injury-i-was-fully-calm-and-relaxed/?utm_source=rss&utm_medium=rss&utm_campaign=conor-mcgregor-says-next-ufc-fight-must-be-max-holloway-trilogy-after-freak-injury-i-was-fully-calm-and-relaxed",
       "source": "BJPenn",
       "priority": true
-    },
-    {
-      "title": "Israel Adesanya suspects Conor McGregor was injured prior to UFC 329 walkout: “I have eyes”",
-      "link": "https://www.bjpenn.com/mma-news/ufc/israel-adesanya-suspects-conor-mcgregor-was-injured-prior-to-ufc-329-walkout-i-have-eyes/?utm_source=rss&utm_medium=rss&utm_campaign=israel-adesanya-suspects-conor-mcgregor-was-injured-prior-to-ufc-329-walkout-i-have-eyes",
-      "source": "BJPenn",
-      "priority": true
-    },
-    {
-      "title": "UFC Oklahoma City weigh-in video: Du Plessis vs. Usman",
-      "link": "https://www.mmafighting.com/ufc/499780/ufc-oklahoma-city-weigh-in-video-du-plessis-vs-usman",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Morning Report | Jon Jones shoots down Oleksandr Usyk talk, leaves door open for UFC return",
-      "link": "https://www.mmafighting.com/latest-news/499639/morning-report-jon-jones-shoots-down-oleksandr-usyk-talk-leaves-door-open-for-ufc-return",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Kamaru Usman: ‘It’s either Sean Strickland or Islam’ Makhachev next with UFC Oklahoma City upset win",
-      "link": "https://www.mmafighting.com/ufc/499677/kamaru-usman-its-either-sean-strickland-or-islam-makhachev-next-with-ufc-oklahoma-city-upset-win",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "RAF 11: Arman Tsarukyan vs. Colby Covington match card, start time",
-      "link": "https://www.mmafighting.com/raf-wrestling/499564/raf-11-arman-tsarukyan-vs-colby-covington-match-card-start-time",
-      "source": "MMA Fighting",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "Plessis and Usman clash Sunday 8am SGT — elite middleweight showdown with title stakes.",
-    "prefight": "Plessis versus Usman Sunday morning — middleweight title on the line.",
+    "week": "The stage is set: Plessis vs Usman in tomorrow's heavyweight championship clash.",
+    "prefight": "Plessis and Usman collide this Sunday at 8AM SGT for middleweight supremacy.",
     "results": "The dust has settled on another fight night."
   }
 }
