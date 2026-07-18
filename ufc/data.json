@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-18T09:00:05.270195+08:00",
+  "updated": "2026-07-18T13:00:00.309394+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -38,6 +38,12 @@
   },
   "news": [
     {
+      "title": "Impa Kasanganay explains why he already updated Instagram bio to PFL champion before title fight",
+      "link": "https://www.mmafighting.com/pfl/499389/impa-kasanganay-explains-why-he-already-updated-instagram-bio-to-pfl-champion-before-title-fight",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
       "title": "UFC Oklahoma City Preview Show: Are Dricus du Plessis and Kamaru Usman fighting for a title shot?",
       "link": "https://www.mmafighting.com/latest-news/499732/ufc-oklahoma-city-preview-show-are-dricus-du-plessis-and-kamaru-usman-fighting-for-a-title-shot",
       "source": "MMA Fighting",
@@ -56,15 +62,9 @@
       "priority": true
     },
     {
-      "title": "Missed Fists: Fighter actually pulls off jumping switch kick, knocks out opponent instead of injuring himself",
-      "link": "https://www.mmafighting.com/latest-news/499716/missed-fists-fighter-actually-pulls-off-jumping-switch-kick-knocks-out-opponent-instead-of-injuring-himself",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
-      "title": "Rising prospect steps in against former champion in new UFC Belgrade co-main event",
-      "link": "https://www.mmafighting.com/latest-news/499775/rising-prospect-steps-in-against-former-champion-in-new-ufc-belgrade-co-main-event",
-      "source": "MMA Fighting",
+      "title": "Video: Jon Jones praises Conor McGregor after devastating UFC 329 injury – ‘I hope he doesn’t give up’",
+      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/457864/video-jon-jones-praises-god-fearing-conor-mcgregor-after-devastating-ufc-329-injury-i-hope-he-doesnt-give-up",
+      "source": "MMA Mania",
       "priority": true
     },
     {
@@ -123,8 +123,8 @@
     }
   ],
   "hooks": {
-    "week": "The stage is set: Plessis vs Usman in tomorrow's heavyweight championship clash.",
-    "prefight": "Plessis and Usman collide this Sunday at 8AM SGT for middleweight supremacy.",
+    "week": "Plessis and Usman collide Sunday morning — one of the year's biggest fights.",
+    "prefight": "Tomorrow morning: Plessis and Usman settle their rivalry in the middleweight championship fight.",
     "results": "The dust has settled on another fight night."
   }
 }
