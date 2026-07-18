@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-18T21:00:05.324272+08:00",
+  "updated": "2026-07-18T23:30:00.830652+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -40,18 +40,6 @@
     {
       "title": "Impa Kasanganay explains why he already updated Instagram bio to PFL champion before title fight",
       "link": "https://www.mmafighting.com/pfl/499389/impa-kasanganay-explains-why-he-already-updated-instagram-bio-to-pfl-champion-before-title-fight",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
-      "title": "UFC Oklahoma City Preview Show: Are Dricus du Plessis and Kamaru Usman fighting for a title shot?",
-      "link": "https://www.mmafighting.com/latest-news/499732/ufc-oklahoma-city-preview-show-are-dricus-du-plessis-and-kamaru-usman-fighting-for-a-title-shot",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
-      "title": "Johnny Eblen: Impa Kasanganay ‘only has a puncher’s chance’ in PFL Austin title fight",
-      "link": "https://www.mmafighting.com/pfl/499707/johnny-eblen-impa-kasanganay-only-has-a-punchers-chance-in-pfl-austin-title-fight",
       "source": "MMA Fighting",
       "priority": true
     },
@@ -120,11 +108,23 @@
       "link": "https://www.bjpenn.com/mma-news/jon-jones/jon-jones-advises-conor-mcgregor-handle-ufc-329-injury-aftermath/?utm_source=rss&utm_medium=rss&utm_campaign=jon-jones-advises-conor-mcgregor-handle-ufc-329-injury-aftermath",
       "source": "BJPenn",
       "priority": true
+    },
+    {
+      "title": "‘He still sucks’: Colby Covington reacts to Justin Gaethje’s shocking win over Ilia Topuria at UFC White House",
+      "link": "https://www.mmafighting.com/ufc/499683/he-still-sucks-colby-covington-reacts-to-justin-gaethjes-shocking-win-over-ilia-topuria-at-ufc-white-house",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "UFC Oklahoma City predictions",
+      "link": "https://www.mmafighting.com/latest-news/499928/ufc-oklahoma-city-predictions",
+      "source": "MMA Fighting",
+      "priority": false
     }
   ],
   "hooks": {
-    "week": "Plessis and Usman collide Sunday morning—elite striking supremacy on the line.",
-    "prefight": "Plessis and Usman go head-to-head tomorrow morning for middleweight supremacy.",
-    "results": "The dust has settled on another fight night."
+    "week": "Plessis and Usman collide Sunday morning at 8 AM SGT for middleweight glory.",
+    "prefight": "Tomorrow at 8am SGT: Plessis vs Usman for middleweight gold - elite striking meets wrestling mastery.",
+    "results": "I don't have a record of McGregor vs Holloway ever occurring in the UFC. Could you clarify which fight you're referring to, or is this a hypothetical matchup you'd like me to recap?"
   }
 }
