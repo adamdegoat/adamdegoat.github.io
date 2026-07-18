@@ -67,7 +67,7 @@ Try it free at reception.sg. You only pay once you love it.
 
 ## The CTA + offer
 
-CTA on every post is plain: **Try it free at reception.sg** (or DM us). The offer behind it is the real founder-led trust flow: we build them a live front desk, they try it free, they pay only if they love it. Founding rate S$299/mo, standard S$349, if you want to name price in a DM.
+CTA on every post is plain: **Try it free at reception.sg** (or DM us). The offer behind it is the real founder-led trust flow: we build them a live front desk, they try it free, they pay only if they love it. Founding rate S$199/mo, standard S$249, if you want to name price in a DM.
 
 (Optional, later: a "comment a keyword to auto-DM" funnel via ManyChat can lift lead capture, but it needs setup and a keyword people understand. Not used until then, and never a jargon word like AUDIT on-screen.)
 
