@@ -22,10 +22,10 @@ The system that runs @reception.sg on Instagram. Built from three deep research 
 - **Bio (outcome-first, one CTA). Recommended:**
   > Singapore's 24/7 front desk.
   > Answers and books every customer in seconds, even after hours.
-  > Plus a free AI consult.
+  > Plus free AI integration consultations.
   > Try it free ↓
 
-  (~130 chars, fits IG's 150 limit. "Singapore" up front; the free AI consultation - the softer top-of-funnel offer for owners curious about AI - is included alongside the front-desk trial.)
+  (~145 chars, fits IG's 150 limit. "Singapore" up front; the free AI integration consultation - the softer top-of-funnel offer for owners curious about AI - is included alongside the front-desk trial.)
 - **Link:** one on-brand mini-page on reception.sg (NOT a bare Linktree - a generic link page signals "still figuring it out"). Max 3 routes: **Try it free (primary) · See it work (demo) · Message us (WhatsApp).**
 - **Profile picture:** the bell glyph only (not the full lockup), must be legible at 40px. Same mark on IG, site, and WhatsApp.
 - **Story Highlights (left to right = the buyer journey):** Start Here (what it is) -> See It Work (a real demo) -> Results (proof) -> Pricing -> FAQ (kills objections so they're never a DM) -> Try Free. One cover system: cream/terracotta block + single SVG icon + one word. No emoji.
