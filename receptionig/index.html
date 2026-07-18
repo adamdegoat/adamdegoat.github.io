@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Reception IG - Content Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Spline+Sans+Mono:wght@400;500&family=Hedvig+Letters+Serif&display=swap" rel="stylesheet" />
+<style>
+  :root { --cream:#fbf8f1; --creamd:#f2ece0; --ink:#171512; --muted:#635b4f; --terra:#e8663a; --rust:#b8532a;
+    --disp:"Bricolage Grotesque",sans-serif; --mono:"Spline Sans Mono",monospace; --serif:"Hedvig Letters Serif",serif; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--cream); color:var(--ink); font-family:var(--disp); -webkit-font-smoothing:antialiased; line-height:1.5; }
+  .wrap { max-width:1120px; margin:0 auto; padding:0 24px; }
+  header { padding:70px 0 40px; }
+  .kick { font-family:var(--mono); font-weight:500; font-size:15px; letter-spacing:0.16em; text-transform:uppercase; color:var(--rust); }
+  h1 { font-size:clamp(40px,7vw,76px); font-weight:700; letter-spacing:-0.04em; line-height:0.98; margin:16px 0 18px; }
+  h1 .t { color:var(--terra); }
+  .lede { font-family:var(--serif); font-size:clamp(20px,2.6vw,27px); color:var(--muted); max-width:720px; line-height:1.35; }
+  section { padding:44px 0; border-top:2px solid rgba(23,21,18,0.10); }
+  h2 { font-size:clamp(26px,4vw,40px); font-weight:700; letter-spacing:-0.03em; margin-bottom:6px; }
+  h2 .n { font-family:var(--mono); font-size:0.5em; color:var(--terra); vertical-align:middle; margin-right:12px; letter-spacing:0.05em; }
+  .sub { color:var(--muted); font-family:var(--serif); font-size:19px; margin-bottom:28px; }
+  /* profile mock */
+  .profile { display:flex; gap:28px; align-items:flex-start; background:#fff; border:2px solid rgba(23,21,18,0.10); border-radius:22px; padding:28px; flex-wrap:wrap; }
+  .profile img.pfp { width:104px; height:104px; border-radius:50%; }
+  .pinfo { flex:1; min-width:260px; }
+  .handle { font-weight:700; font-size:24px; letter-spacing:-0.01em; }
+  .bio { white-space:pre-line; margin-top:8px; font-size:16px; line-height:1.5; }
+  .bio b { color:var(--rust); }
+  .hlrow { display:flex; gap:16px; margin-top:20px; flex-wrap:wrap; }
+  .hl { text-align:center; font-family:var(--mono); font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); }
+  .hl img { width:66px; height:66px; border-radius:50%; border:2px solid rgba(23,21,18,0.12); display:block; margin-bottom:6px; }
+  .pins { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-top:22px; }
+  .pins img { width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:6px; }
+  /* media grids */
+  .reels { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:28px; }
+  .card { background:#fff; border:2px solid rgba(23,21,18,0.10); border-radius:20px; overflow:hidden; }
+  .card video { width:100%; display:block; background:#000; aspect-ratio:9/16; object-fit:cover; }
+  .card .cap { padding:18px; }
+  .card .cname { font-weight:700; font-size:19px; margin-bottom:10px; }
+  .cta-copy { font-family:var(--mono); font-size:13px; font-weight:500; letter-spacing:0.04em; text-transform:uppercase;
+    background:var(--ink); color:var(--cream); border:none; border-radius:999px; padding:9px 18px; cursor:pointer; }
+  .cta-copy:hover { background:var(--rust); }
+  .cta-copy.done { background:var(--terra); }
+  .captext { white-space:pre-line; font-size:14.5px; line-height:1.5; color:#2c2822; margin-top:12px; max-height:150px; overflow:auto; padding-right:6px; }
+  .tags { font-family:var(--mono); font-size:13px; color:var(--rust); margin-top:8px; }
+  .slides { display:flex; gap:10px; overflow-x:auto; padding-bottom:10px; }
+  .slides img { height:340px; border-radius:10px; flex:none; border:1px solid rgba(23,21,18,0.08); }
+  .caro { margin-bottom:34px; }
+  .caro .cname { font-weight:700; font-size:20px; margin-bottom:12px; }
+  .strip { display:flex; gap:12px; overflow-x:auto; padding-bottom:10px; }
+  .strip img { height:180px; border-radius:10px; flex:none; border:1px solid rgba(23,21,18,0.08); }
+  .strip.circ img { border-radius:50%; height:120px; width:120px; object-fit:cover; }
+  .docs { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
+  .doc { display:block; background:#fff; border:2px solid rgba(23,21,18,0.10); border-radius:16px; padding:20px; text-decoration:none; color:var(--ink); }
+  .doc:hover { border-color:var(--terra); }
+  .doc .dt { font-weight:700; font-size:18px; }
+  .doc .dd { color:var(--muted); font-size:14px; margin-top:4px; font-family:var(--serif); }
+  footer { padding:50px 0 80px; color:var(--muted); font-family:var(--mono); font-size:13px; }
+  .bell { width:34px; height:34px; vertical-align:middle; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kick">Reception &middot; Instagram content system</div>
+    <h1>Everything for <span class="t">@reception.sg</span>, in one place.</h1>
+    <p class="lede">The profile, the posts, the captions and the strategy. Review it here, then set up and post. Full detail lives in the docs at the bottom.</p>
+  </header>
+
+  <!-- PROFILE -->
+  <section>
+    <h2><span class="n">01</span>The profile</h2>
+    <p class="sub">How the account reads the moment a prospect lands on it.</p>
+    <div class="profile">
+      <img class="pfp" src="media/pfp.png" alt="Reception profile picture" />
+      <div class="pinfo">
+        <div class="handle">reception.sg</div>
+        <div style="font-family:var(--mono);font-size:13px;color:var(--muted);margin-top:2px">Reception &middot; AI Front Desk</div>
+        <div class="bio">Your business never misses another customer.
+A 24/7 front desk that answers every message in seconds and books the job, even after hours.
+For SG salons, clinics, F&amp;B, trades and more.
+<b>Try it free &darr;</b></div>
+        <div class="hlrow">
+          <div class="hl"><img src="media/hl-1.png" alt="">Start</div>
+          <div class="hl"><img src="media/hl-2.png" alt="">See it</div>
+          <div class="hl"><img src="media/hl-3.png" alt="">Results</div>
+          <div class="hl"><img src="media/hl-4.png" alt="">Pricing</div>
+          <div class="hl"><img src="media/hl-5.png" alt="">FAQ</div>
+          <div class="hl"><img src="media/hl-6.png" alt="">Try free</div>
+        </div>
+        <div class="pins">
+          <img src="media/reel-bloom-cover.png" alt="pinned 1">
+          <img src="media/afterhours-01.png" alt="pinned 2">
+          <img src="media/howitworks-01.png" alt="pinned 3">
+        </div>
+        <div style="font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:10px">Top 3 = pinned posts (demo reel &middot; after-hours carousel &middot; how it works)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REELS -->
+  <section>
+    <h2><span class="n">02</span>Reels</h2>
+    <p class="sub">Product-demo reels, sound on. Each also doubles as a targeted ad (show the trade its own reel).</p>
+    <div class="reels">
+      <div class="card">
+        <video controls preload="metadata" poster="media/reel-bloom-cover.png" src="media/reel-bloom.mp4"></video>
+        <div class="cap">
+          <div class="cname">Reel 1 &middot; Bloom Nail Studio (11:47pm booking)</div>
+          <button class="cta-copy" data-copy="cap-bloom">Copy caption</button>
+          <div class="captext" id="cap-bloom">It's 11:47pm. A customer messages your business to book. You're closed, so nobody replies, and by morning they've booked somewhere else.
+
+That missed after-hours enquiry is what quietly costs Singapore small businesses the most. Most customers message now instead of calling, and plenty of them message after you've shut. Every reply that waits till morning is a booking someone faster already took.
+
+Reception is a 24/7 front desk for your business. It answers every message in seconds, in your brand's words and prices, shows what you offer, and takes the booking. It can even speak its replies out loud, in a voice you choose. One link for your bio, your Google listing, anywhere you're found.
+
+Send this to the business partner who's still answering messages at midnight.
+
+Want this answering for your business? Try it free at reception.sg. You only pay once you love it.
+
+#sgsmallbusiness #missedcalls #afterhours #frontdesk #customerservice</div>
+        </div>
+      </div>
+      <div class="card">
+        <video controls preload="metadata" poster="media/reel-aircon-cover.png" src="media/reel-aircon.mp4"></video>
+        <div class="cap">
+          <div class="cname">Reel 2 &middot; Frostpoint Aircon (10:52pm emergency)</div>
+          <button class="cta-copy" data-copy="cap-aircon">Copy caption</button>
+          <div class="captext" id="cap-aircon">It's 10:52pm. Someone's aircon just died in this heat and they're messaging you to fix it. You're closed.
+
+By morning they've called the next guy. In Singapore, an aircon that stops cooling at night is an emergency, and whoever replies first gets the job.
+
+Reception answers for you. A 24/7 front desk that replies in seconds, in your voice and your prices, and books the visit. Even at midnight.
+
+Know an aircon or home-service business still missing after-hours jobs? Send this to them.
+
+Try it free at reception.sg. You only pay once you love it.
+
+#sgsmallbusiness #airconservicing #homeservices #afterhours #frontdesk</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAROUSELS -->
+  <section>
+    <h2><span class="n">03</span>Carousels</h2>
+    <p class="sub">Swipe posts. Upload the slides in order, paste the caption, set slide 1 as cover.</p>
+
+    <div class="caro">
+      <div class="cname">The after-hours leak (5 slides)</div>
+      <div class="slides">
+        <img src="media/afterhours-01.png"><img src="media/afterhours-02.png"><img src="media/afterhours-03.png"><img src="media/afterhours-04.png"><img src="media/afterhours-05.png">
+      </div>
+      <button class="cta-copy" data-copy="cap-afterhours">Copy caption</button>
+      <div class="captext" id="cap-afterhours">Somebody tried to book you last night. You were asleep.
+
+A customer messages after you close, ready to spend. Nobody replies, so by morning they've booked whoever answered first, and you never even find out it happened. That's the after-hours leak, and almost every Singapore business has it.
+
+Reception picks up for you. A 24/7 front desk that answers every message in seconds, in your voice and your prices, and books them in. Even at 11pm.
+
+Know an owner still checking their phone at midnight? Send this to them.
+
+Try it free at reception.sg. You only pay once you love it.
+
+#sgsmallbusiness #missedcalls #afterhours #frontdesk #customerservice</div>
+    </div>
+
+    <div class="caro">
+      <div class="cname">How it works (4 slides, pinned)</div>
+      <div class="slides">
+        <img src="media/howitworks-01.png"><img src="media/howitworks-02.png"><img src="media/howitworks-03.png"><img src="media/howitworks-04.png">
+      </div>
+      <button class="cta-copy" data-copy="cap-how">Copy caption</button>
+      <div class="captext" id="cap-how">How Reception works, in three steps.
+
+You tell us about your business, your services, prices and hours. We build your front desk, and it answers every customer in your voice on one link you share anywhere. Then it never clocks off, replying and booking 24/7.
+
+No tech skills, no website needed, live in about a day.
+
+Try it free at reception.sg. You only pay once you love it.
+
+#sgsmallbusiness #frontdesk #smallbusinesstips #customerservice #singaporebusiness</div>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS + STORIES -->
+  <section>
+    <h2><span class="n">04</span>Highlights &amp; Stories</h2>
+    <p class="sub">The 6 highlight covers (icon-only, they crop to circles) and a Story to put behind each.</p>
+    <div class="strip circ">
+      <img src="media/hl-1.png"><img src="media/hl-2.png"><img src="media/hl-3.png"><img src="media/hl-4.png"><img src="media/hl-5.png"><img src="media/hl-6.png">
+    </div>
+    <div class="strip" style="margin-top:18px">
+      <img src="media/story-1.png"><img src="media/story-2.png"><img src="media/story-3.png"><img src="media/story-4.png"><img src="media/story-5.png"><img src="media/story-6.png">
+    </div>
+    <p style="font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:12px">Order: Start Here &middot; See It Work &middot; Results &middot; Pricing &middot; FAQ &middot; Try Free. For "See It Work", also add the demo reel video to that highlight.</p>
+  </section>
+
+  <!-- STRATEGY -->
+  <section>
+    <h2><span class="n">05</span>The strategy</h2>
+    <p class="sub">How this actually gets you clients. The full playbooks.</p>
+    <div class="docs">
+      <a class="doc" href="docs/OPERATING-SYSTEM.md"><div class="dt">Operating System</div><div class="dd">The whole strategy: funnel, ads, retargeting, metrics, 30/60/90 plan.</div></a>
+      <a class="doc" href="docs/AD-SETUP.md"><div class="dt">Ad Setup</div><div class="dd">Exact steps to launch your first S$10/day click-to-WhatsApp ad.</div></a>
+      <a class="doc" href="docs/POST-KIT.md"><div class="dt">Post Kit</div><div class="dd">Every post, caption and hashtag set, ready to upload.</div></a>
+      <a class="doc" href="docs/PLAYBOOK.md"><div class="dt">Playbook</div><div class="dd">Content pillars, the hook bank, cadence and formats.</div></a>
+    </div>
+  </section>
+
+  <footer>
+    <svg class="bell" viewBox="0 0 64 64"><rect x="9" y="45.5" width="46" height="5.8" rx="2.9" fill="#171512"/><path d="M15.5 45.5 a16.5 15.5 0 0 1 33 0 Z" fill="#171512"/><circle cx="32" cy="26.5" r="3.9" fill="#e8663a"/></svg>
+    Reception content system. Private review. Posting is manual.
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll('.cta-copy').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var el = document.getElementById(btn.getAttribute('data-copy'));
+      navigator.clipboard.writeText(el.innerText).then(function(){
+        var t = btn.textContent; btn.textContent = 'Copied'; btn.classList.add('done');
+        setTimeout(function(){ btn.textContent = t; btn.classList.remove('done'); }, 1600);
+      });
+    });
+  });
+</script>
+</body>
+</html>
