@@ -18,12 +18,14 @@ The system that runs @reception.sg on Instagram. Built from three deep research 
 
 ## 2. Profile kit (fix this first - a prospect judges you in ~50ms on the pfp + first bio line + top grid row)
 
-- **Name field (the searchable 30-char slot, not the @handle):** `Reception - AI Front Desk` or `Reception - 24/7 Answering`. Puts the search keyword (front desk / answering / receptionist) where IG search indexes it.
+- **Name field (the searchable 30-char slot, not the @handle):** `Reception - AI Front Desk SG` (put SG in the name for local search + trust). Puts the search keyword (front desk / answering / receptionist) where IG search indexes it.
 - **Bio (outcome-first, one CTA). Recommended:**
-  > Your business never misses another customer.
-  > A 24/7 front desk that answers every message in seconds and books the job, even after hours.
-  > For SG salons, clinics, F&B, trades and more.
+  > Singapore's 24/7 front desk.
+  > Answers and books every customer in seconds, even after hours.
+  > Plus a free AI consult.
   > Try it free ↓
+
+  (~130 chars, fits IG's 150 limit. "Singapore" up front; the free AI consultation - the softer top-of-funnel offer for owners curious about AI - is included alongside the front-desk trial.)
 - **Link:** one on-brand mini-page on reception.sg (NOT a bare Linktree - a generic link page signals "still figuring it out"). Max 3 routes: **Try it free (primary) · See it work (demo) · Message us (WhatsApp).**
 - **Profile picture:** the bell glyph only (not the full lockup), must be legible at 40px. Same mark on IG, site, and WhatsApp.
 - **Story Highlights (left to right = the buyer journey):** Start Here (what it is) -> See It Work (a real demo) -> Results (proof) -> Pricing -> FAQ (kills objections so they're never a DM) -> Try Free. One cover system: cream/terracotta block + single SVG icon + one word. No emoji.
