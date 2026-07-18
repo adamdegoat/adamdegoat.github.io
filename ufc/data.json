@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-18T13:00:00.309394+08:00",
+  "updated": "2026-07-18T21:00:05.324272+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -56,20 +56,14 @@
       "priority": true
     },
     {
-      "title": "Conor McGregor responds to ‘nonsense’ claims he was injured going into UFC 329, reveals who he wants in final UFC fight",
-      "link": "https://www.mmafighting.com/ufc/499850/conor-mcgregor-responds-to-nonsense-claims-he-was-injured-going-into-ufc-329-reveals-who-he-wants-in-final-ufc-fight",
-      "source": "MMA Fighting",
+      "title": "Former UFC title challenger Irene Aldana retires after nearly two years of injury complications",
+      "link": "https://www.mmamania.com/ufc-roster-watch-cuts-tracker-free-agent-aquisitions-mma/457939/former-ufc-title-challenger-irene-aldana-retires-after-nearly-two-years-of-injury-complications",
+      "source": "MMA Mania",
       "priority": true
     },
     {
       "title": "Video: Jon Jones praises Conor McGregor after devastating UFC 329 injury – ‘I hope he doesn’t give up’",
       "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/457864/video-jon-jones-praises-god-fearing-conor-mcgregor-after-devastating-ufc-329-injury-i-hope-he-doesnt-give-up",
-      "source": "MMA Mania",
-      "priority": true
-    },
-    {
-      "title": "Conor McGregor ‘awaiting surgery’ for UFC 329 injury, suggests victory would have resurrected drug ‘cycle’",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/457777/conor-mcgregor-awaiting-surgery-ufc-329-injury-suggests-victory-resurrected-drug-cycle",
       "source": "MMA Mania",
       "priority": true
     },
@@ -120,11 +114,17 @@
       "link": "https://www.bjpenn.com/mma-news/conor-mcgregor/conor-mcgregor-says-next-ufc-fight-must-be-max-holloway-trilogy-after-freak-injury-i-was-fully-calm-and-relaxed/?utm_source=rss&utm_medium=rss&utm_campaign=conor-mcgregor-says-next-ufc-fight-must-be-max-holloway-trilogy-after-freak-injury-i-was-fully-calm-and-relaxed",
       "source": "BJPenn",
       "priority": true
+    },
+    {
+      "title": "Jon Jones advises Conor McGregor on how to handle UFC 329 injury aftermath",
+      "link": "https://www.bjpenn.com/mma-news/jon-jones/jon-jones-advises-conor-mcgregor-handle-ufc-329-injury-aftermath/?utm_source=rss&utm_medium=rss&utm_campaign=jon-jones-advises-conor-mcgregor-handle-ufc-329-injury-aftermath",
+      "source": "BJPenn",
+      "priority": true
     }
   ],
   "hooks": {
-    "week": "Plessis and Usman collide Sunday morning — one of the year's biggest fights.",
-    "prefight": "Tomorrow morning: Plessis and Usman settle their rivalry in the middleweight championship fight.",
+    "week": "Plessis and Usman collide Sunday morning—elite striking supremacy on the line.",
+    "prefight": "Plessis and Usman go head-to-head tomorrow morning for middleweight supremacy.",
     "results": "The dust has settled on another fight night."
   }
 }
