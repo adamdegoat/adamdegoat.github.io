@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-19T21:00:00.363827+08:00",
+  "updated": "2026-07-19T23:30:00.277429+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -37,6 +37,12 @@
     "espn_final": true
   },
   "news": [
+    {
+      "title": "Dana White reveals Conor McGregor’s injury details from UFC 329: ‘His knee is f*cked up’",
+      "link": "https://www.mmafighting.com/latest-news/500214/dana-white-reveals-conor-mcgregors-injury-details-from-ufc-329-his-knee-is-fcked-up",
+      "source": "MMA Fighting",
+      "priority": true
+    },
     {
       "title": "PFL Austin weigh-in results: Middleweight title fight set; 1 miss",
       "link": "https://www.sherdog.com/news/news/PFL-Austin-weighin-results-Middleweight-title-fight-set-1-miss-201954",
@@ -86,6 +92,12 @@
       "priority": true
     },
     {
+      "title": "Video: Belal Muhammad ignites melee with Colby Covington during RAF 11 press conference",
+      "link": "https://www.mmafighting.com/latest-news/500204/video-belal-muhammad-ignites-melee-with-colby-covington-during-raf-11-press-conference-altercation",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "UFC Oklahoma City Post Show: Dricus du Plessis beat up Kamaru Usman, but what did it do for him?",
       "link": "https://www.mmafighting.com/latest-news/500199/ufc-oklahoma-city-post-show-dricus-du-plessis-beat-up-kamaru-usman-but-what-did-it-do-for-him",
       "source": "MMA Fighting",
@@ -108,23 +120,11 @@
       "link": "https://www.mmafighting.com/latest-news/500111/raf-11-results-belal-muhammad-outworks-ben-askren-in-askrens-final-match",
       "source": "MMA Fighting",
       "priority": false
-    },
-    {
-      "title": "RAF 11 live blog: Ben Askren vs. Belal Muhammad",
-      "link": "https://www.mmafighting.com/latest-news/499921/raf-11-live-blog-ben-askren-vs-belal-muhammad",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "UFC Oklahoma City live blog: Dricus du Plessis vs. Kamaru Usman",
-      "link": "https://www.mmafighting.com/latest-news/499914/ufc-oklahoma-city-live-blog-dricus-du-plessis-vs-kamaru-usman",
-      "source": "MMA Fighting",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "Ankalaev clashes with Rountree Sunday night in a must-watch light heavyweight battle.",
-    "prefight": "Ankalaev and Rountree collide this Sunday for light heavyweight supremacy.",
-    "results": "The dust has settled on another fight night."
+    "week": "Ankalaev and Rountree bring the heat in light heavyweight showdown Sunday.",
+    "prefight": "Fight week begins now: Ankalaev versus Rountree Sunday in Singapore.",
+    "results": "I don't have information about a Plessis vs Usman UFC fight in my training data (knowledge cutoff: February 2025). Since today is July 19, 2026, this fight may have happened after my training period."
   }
 }
