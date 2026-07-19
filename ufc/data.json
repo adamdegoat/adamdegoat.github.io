@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-19T09:00:00.336300+08:00",
+  "updated": "2026-07-19T13:00:00.369843+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -34,18 +34,12 @@
     "badge": "https://www.thesportsdb.com/images/media/event/thumb/bearel1783977914.jpg",
     "bouts": [],
     "finished": false,
-    "espn_final": false
+    "espn_final": true
   },
   "news": [
     {
       "title": "Dana White won’t speculate on injured Conor McGregor’s next UFC fight: ‘It’s not even worth talking about’",
       "link": "https://www.mmafighting.com/latest-news/499989/dana-white-wont-speculate-on-injured-conor-mcgregors-next-ufc-fight-its-not-even-worth-talking-about",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
-      "title": "UFC veteran Irene Aldana retires from MMA ‘to prioritize my health’",
-      "link": "https://www.mmafighting.com/ufc/499967/ufc-veteran-irene-aldana-retires-from-mma-to-prioritize-my-health",
       "source": "MMA Fighting",
       "priority": true
     },
@@ -86,12 +80,6 @@
       "priority": true
     },
     {
-      "title": "Israel Adesanya suggests Conor McGregor had injury before UFC 329",
-      "link": "https://www.sherdog.com/news/news/Israel-Adesanya-suggests-Conor-McGregor-had-injury-before-UFC-329-201943",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
       "title": "ONE Championship delivers two wild decisions and one dramatic finish at Friday Fights 162",
       "link": "https://www.bjpenn.com/mma-news/one-championship/one-championship-delivers-two-wild-decisions-and-one-dramatic-finish-at-friday-fights-162/?utm_source=rss&utm_medium=rss&utm_campaign=one-championship-delivers-two-wild-decisions-and-one-dramatic-finish-at-friday-fights-162",
       "source": "BJPenn",
@@ -104,10 +92,10 @@
       "priority": true
     },
     {
-      "title": "Jon Jones advises Conor McGregor on how to handle UFC 329 injury aftermath",
-      "link": "https://www.bjpenn.com/mma-news/jon-jones/jon-jones-advises-conor-mcgregor-handle-ufc-329-injury-aftermath/?utm_source=rss&utm_medium=rss&utm_campaign=jon-jones-advises-conor-mcgregor-handle-ufc-329-injury-aftermath",
-      "source": "BJPenn",
-      "priority": true
+      "title": "UFC Oklahoma City live blog: Dricus du Plessis vs. Kamaru Usman",
+      "link": "https://www.mmafighting.com/latest-news/499914/ufc-oklahoma-city-live-blog-dricus-du-plessis-vs-kamaru-usman",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "LIVE! UFC Oklahoma City Results: DDP vs. Usman",
@@ -120,11 +108,23 @@
       "link": "https://www.mmafighting.com/ufc/499410/tabatha-ricci-hopes-to-leave-ufc-oklahoma-city-unscathed-to-volunteer-for-backup-role-at-ufc-330",
       "source": "MMA Fighting",
       "priority": false
+    },
+    {
+      "title": "UFC Oklahoma City’s Felipe Franco seeks first win after forcing Mario Pinto ‘into a grappler’ in debut",
+      "link": "https://www.mmafighting.com/ufc/499580/ufc-oklahoma-citys-felipe-franco-seeks-first-win-after-forcing-mario-pinto-into-a-grappler-in-debut",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Bonuses! Tommy McMillen banks $100,000 for star-making knockout | UFC Oklahoma",
+      "link": "https://www.mmamania.com/ufc-bonuses-and-awards/458121/official-ufc-oklahoma-bonus-winners-results-paramount-du-plessis-usman",
+      "source": "MMA Mania",
+      "priority": false
     }
   ],
   "hooks": {
-    "week": "Ankalaev vs Rountree: the light heavyweight clash you can't miss this Sunday.",
-    "prefight": "Ankalaev and Rountree clash this Sunday for light heavyweight supremacy.",
+    "week": "Light heavyweight clash incoming: Ankalaev versus Rountree this Sunday, 12am SGT.",
+    "prefight": "Ankalaev and Rountree collide Sunday 12 AM SGT—light heavyweight supremacy hangs in the balance.",
     "results": "The dust has settled on another fight night."
   }
 }
