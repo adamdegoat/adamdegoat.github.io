@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-19T13:00:00.369843+08:00",
+  "updated": "2026-07-19T21:00:00.363827+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -37,12 +37,6 @@
     "espn_final": true
   },
   "news": [
-    {
-      "title": "Dana White won’t speculate on injured Conor McGregor’s next UFC fight: ‘It’s not even worth talking about’",
-      "link": "https://www.mmafighting.com/latest-news/499989/dana-white-wont-speculate-on-injured-conor-mcgregors-next-ufc-fight-its-not-even-worth-talking-about",
-      "source": "MMA Fighting",
-      "priority": true
-    },
     {
       "title": "PFL Austin weigh-in results: Middleweight title fight set; 1 miss",
       "link": "https://www.sherdog.com/news/news/PFL-Austin-weighin-results-Middleweight-title-fight-set-1-miss-201954",
@@ -92,39 +86,45 @@
       "priority": true
     },
     {
+      "title": "UFC Oklahoma City Post Show: Dricus du Plessis beat up Kamaru Usman, but what did it do for him?",
+      "link": "https://www.mmafighting.com/latest-news/500199/ufc-oklahoma-city-post-show-dricus-du-plessis-beat-up-kamaru-usman-but-what-did-it-do-for-him",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Dricus du Plessis overwhelms Kamaru Usman in UFC Oklahoma City main event",
+      "link": "https://www.mmafighting.com/ufc/500186/dricus-du-plessis-overwhelms-kamaru-usman-in-ufc-oklahoma-city-main-event",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Dricus du Plessis vs. Kamaru Usman full fight video highlights",
+      "link": "https://www.mmafighting.com/ufc/500109/dricus-du-plessis-vs-kamaru-usman-full-fight-video-highlights-ufc",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "RAF 11 Results: Belal Muhammad outworks Ben Askren in Askren’s final match",
+      "link": "https://www.mmafighting.com/latest-news/500111/raf-11-results-belal-muhammad-outworks-ben-askren-in-askrens-final-match",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "RAF 11 live blog: Ben Askren vs. Belal Muhammad",
+      "link": "https://www.mmafighting.com/latest-news/499921/raf-11-live-blog-ben-askren-vs-belal-muhammad",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "UFC Oklahoma City live blog: Dricus du Plessis vs. Kamaru Usman",
       "link": "https://www.mmafighting.com/latest-news/499914/ufc-oklahoma-city-live-blog-dricus-du-plessis-vs-kamaru-usman",
       "source": "MMA Fighting",
       "priority": false
-    },
-    {
-      "title": "LIVE! UFC Oklahoma City Results: DDP vs. Usman",
-      "link": "https://www.mmafighting.com/ufc/499880/ufc-oklahoma-city-results-ddp-vs-usman",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Tabatha Ricci hopes to leave UFC Oklahoma City unscathed to volunteer for backup role at UFC 330",
-      "link": "https://www.mmafighting.com/ufc/499410/tabatha-ricci-hopes-to-leave-ufc-oklahoma-city-unscathed-to-volunteer-for-backup-role-at-ufc-330",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "UFC Oklahoma City’s Felipe Franco seeks first win after forcing Mario Pinto ‘into a grappler’ in debut",
-      "link": "https://www.mmafighting.com/ufc/499580/ufc-oklahoma-citys-felipe-franco-seeks-first-win-after-forcing-mario-pinto-into-a-grappler-in-debut",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Bonuses! Tommy McMillen banks $100,000 for star-making knockout | UFC Oklahoma",
-      "link": "https://www.mmamania.com/ufc-bonuses-and-awards/458121/official-ufc-oklahoma-bonus-winners-results-paramount-du-plessis-usman",
-      "source": "MMA Mania",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "Light heavyweight clash incoming: Ankalaev versus Rountree this Sunday, 12am SGT.",
-    "prefight": "Ankalaev and Rountree collide Sunday 12 AM SGT—light heavyweight supremacy hangs in the balance.",
+    "week": "Ankalaev clashes with Rountree Sunday night in a must-watch light heavyweight battle.",
+    "prefight": "Ankalaev and Rountree collide this Sunday for light heavyweight supremacy.",
     "results": "The dust has settled on another fight night."
   }
 }
