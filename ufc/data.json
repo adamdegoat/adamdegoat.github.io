@@ -1,8 +1,25 @@
 {
-  "updated": "2026-07-18T23:30:00.830652+08:00",
+  "updated": "2026-07-19T09:00:00.336300+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
+    "id": "2476378",
+    "name": "UFC Fight Night 282 Ankalaev vs Rountree Jr",
+    "short": "Ankalaev vs Rountree",
+    "date_sgt": "2026-07-26T00:00:00+08:00",
+    "when_sgt": "Sun 26 Jul, 12:00 AM SGT",
+    "when_main": "Sun 26 Jul, 12:00 AM SGT",
+    "when_prelims": "Sat 25 Jul, 9:00 PM SGT",
+    "has_time": true,
+    "location": "Abu Dhabi, United Arab Emirates",
+    "highlights": "https://www.youtube.com/results?search_query=UFC%20Fight%20Night%20282%20Ankalaev%20vs%20Rountree%20Jr%20highlights",
+    "desc": "",
+    "badge": "https://r2.thesportsdb.com/images/media/league/badge/bewnz31717531281.png",
+    "bouts": [],
+    "finished": false,
+    "espn_final": false
+  },
+  "last": {
     "id": "2468286",
     "name": "UFC Fight Night 281 Du Plessis vs Usman",
     "short": "Plessis vs Usman",
@@ -19,40 +36,17 @@
     "finished": false,
     "espn_final": false
   },
-  "last": {
-    "id": "2468285",
-    "name": "UFC 329 McGregor vs Holloway 2",
-    "short": "McGregor vs Holloway",
-    "date_sgt": "2026-07-12T09:00:00+08:00",
-    "when_sgt": "Sun 12 Jul, 9:00 AM SGT",
-    "when_main": "Sun 12 Jul, 9:00 AM SGT",
-    "when_prelims": "Sun 12 Jul, 5:00 AM SGT",
-    "has_time": true,
-    "location": "Las Vegas, USA",
-    "highlights": "https://www.youtube.com/results?search_query=UFC%20329%20McGregor%20vs%20Holloway%202%20highlights",
-    "desc": "Nearly 13 years after their initial encounter in 2013—long before either man captured UFC gold—Conor \"The Notorious\" McGregor and Max \"Blessed\" Holloway meet again. This blockbuster clash marks McGregor's highly awaited return to the Octagon since suffering a leg injury in 2021, while also serving as Holloway's official competitive debut in the welterweight division following his spectacular BMF title run.  \r\n\r\nThe co-main event promises fireworks as fan-favorite Paddy \"The Baddy\" Pimblett takes on the dangerous French finisher Benoît Saint Denis in a crucial lightweight matchup.",
-    "badge": "https://www.thesportsdb.com/images/media/event/thumb/n0e9ex1783062734.jpg",
-    "bouts": [],
-    "finished": false,
-    "espn_final": true
-  },
   "news": [
     {
-      "title": "Impa Kasanganay explains why he already updated Instagram bio to PFL champion before title fight",
-      "link": "https://www.mmafighting.com/pfl/499389/impa-kasanganay-explains-why-he-already-updated-instagram-bio-to-pfl-champion-before-title-fight",
+      "title": "Dana White won’t speculate on injured Conor McGregor’s next UFC fight: ‘It’s not even worth talking about’",
+      "link": "https://www.mmafighting.com/latest-news/499989/dana-white-wont-speculate-on-injured-conor-mcgregors-next-ufc-fight-its-not-even-worth-talking-about",
       "source": "MMA Fighting",
       "priority": true
     },
     {
-      "title": "Former UFC title challenger Irene Aldana retires after nearly two years of injury complications",
-      "link": "https://www.mmamania.com/ufc-roster-watch-cuts-tracker-free-agent-aquisitions-mma/457939/former-ufc-title-challenger-irene-aldana-retires-after-nearly-two-years-of-injury-complications",
-      "source": "MMA Mania",
-      "priority": true
-    },
-    {
-      "title": "Video: Jon Jones praises Conor McGregor after devastating UFC 329 injury – ‘I hope he doesn’t give up’",
-      "link": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/457864/video-jon-jones-praises-god-fearing-conor-mcgregor-after-devastating-ufc-329-injury-i-hope-he-doesnt-give-up",
-      "source": "MMA Mania",
+      "title": "UFC veteran Irene Aldana retires from MMA ‘to prioritize my health’",
+      "link": "https://www.mmafighting.com/ufc/499967/ufc-veteran-irene-aldana-retires-from-mma-to-prioritize-my-health",
+      "source": "MMA Fighting",
       "priority": true
     },
     {
@@ -98,6 +92,12 @@
       "priority": true
     },
     {
+      "title": "ONE Championship delivers two wild decisions and one dramatic finish at Friday Fights 162",
+      "link": "https://www.bjpenn.com/mma-news/one-championship/one-championship-delivers-two-wild-decisions-and-one-dramatic-finish-at-friday-fights-162/?utm_source=rss&utm_medium=rss&utm_campaign=one-championship-delivers-two-wild-decisions-and-one-dramatic-finish-at-friday-fights-162",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
       "title": "Conor McGregor says next UFC fight must be Max Holloway trilogy after freak injury: “I was fully calm and relaxed”",
       "link": "https://www.bjpenn.com/mma-news/conor-mcgregor/conor-mcgregor-says-next-ufc-fight-must-be-max-holloway-trilogy-after-freak-injury-i-was-fully-calm-and-relaxed/?utm_source=rss&utm_medium=rss&utm_campaign=conor-mcgregor-says-next-ufc-fight-must-be-max-holloway-trilogy-after-freak-injury-i-was-fully-calm-and-relaxed",
       "source": "BJPenn",
@@ -110,21 +110,21 @@
       "priority": true
     },
     {
-      "title": "‘He still sucks’: Colby Covington reacts to Justin Gaethje’s shocking win over Ilia Topuria at UFC White House",
-      "link": "https://www.mmafighting.com/ufc/499683/he-still-sucks-colby-covington-reacts-to-justin-gaethjes-shocking-win-over-ilia-topuria-at-ufc-white-house",
+      "title": "LIVE! UFC Oklahoma City Results: DDP vs. Usman",
+      "link": "https://www.mmafighting.com/ufc/499880/ufc-oklahoma-city-results-ddp-vs-usman",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "UFC Oklahoma City predictions",
-      "link": "https://www.mmafighting.com/latest-news/499928/ufc-oklahoma-city-predictions",
+      "title": "Tabatha Ricci hopes to leave UFC Oklahoma City unscathed to volunteer for backup role at UFC 330",
+      "link": "https://www.mmafighting.com/ufc/499410/tabatha-ricci-hopes-to-leave-ufc-oklahoma-city-unscathed-to-volunteer-for-backup-role-at-ufc-330",
       "source": "MMA Fighting",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Plessis and Usman collide Sunday morning at 8 AM SGT for middleweight glory.",
-    "prefight": "Tomorrow at 8am SGT: Plessis vs Usman for middleweight gold - elite striking meets wrestling mastery.",
-    "results": "I don't have a record of McGregor vs Holloway ever occurring in the UFC. Could you clarify which fight you're referring to, or is this a hypothetical matchup you'd like me to recap?"
+    "week": "Ankalaev vs Rountree: the light heavyweight clash you can't miss this Sunday.",
+    "prefight": "Ankalaev and Rountree clash this Sunday for light heavyweight supremacy.",
+    "results": "The dust has settled on another fight night."
   }
 }
