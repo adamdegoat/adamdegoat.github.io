@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-20T21:00:00.351550+08:00",
+  "updated": "2026-07-20T23:30:00.236125+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -159,21 +159,15 @@
   },
   "news": [
     {
+      "title": "Sean O’Malley willing to wait for title shot, calls rematch with Petr Yan the biggest bantamweight fight in history",
+      "link": "https://www.mmafighting.com/latest-news/500275/sean-omalley-willing-to-wait-for-title-shot-calls-rematch-with-petr-yan-the-biggest-bantamweight-fight-in-history",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
       "title": "Conor McGregor provides update on extent of his knee injury, gives timeline for UFC return",
       "link": "https://www.mmafighting.com/latest-news/500242/conor-mcgregor-provides-update-on-extent-of-his-knee-injury-gives-timeline-for-ufc-return",
       "source": "MMA Fighting",
-      "priority": true
-    },
-    {
-      "title": "Dana White reveals Conor McGregor’s injury details from UFC 329: ‘His knee is f*cked up’",
-      "link": "https://www.mmafighting.com/latest-news/500214/dana-white-reveals-conor-mcgregors-injury-details-from-ufc-329-his-knee-is-fcked-up",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
-      "title": "Dana White responds to Kamaru Usman retirement chatter after UFC Oklahoma City loss: ‘He’s still got it’",
-      "link": "https://www.mmamania.com/ufc-news/458627/dana-white-responds-to-kamaru-usman-retirement-chatter-after-ufc-oklahoma-city-loss-hes-still-got-it",
-      "source": "MMA Mania",
       "priority": true
     },
     {
@@ -213,6 +207,12 @@
       "priority": true
     },
     {
+      "title": "Dricus du Plessis: ‘Stillknocks 2.0 is here’ after beating Kamaru Usman at UFC Oklahoma City",
+      "link": "https://www.mmafighting.com/latest-news/500259/dricus-du-plessis-stillknocks-2-0-is-here-after-beating-kamaru-usman-at-ufc-oklahoma-city",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "Morning Report | Ian Machado Garry sees parallels between his fight with Islam Makhachev and Conor McGregor beating Jose Aldo",
       "link": "https://www.mmafighting.com/latest-news/499736/morning-report-ian-machado-garry-sees-parallels-between-his-fight-with-islam-makhachev-and-conor-mcgregor-beating-jose-aldo",
       "source": "MMA Fighting",
@@ -237,15 +237,15 @@
       "priority": false
     },
     {
-      "title": "Video: Belal Muhammad ignites melee with Colby Covington during RAF 11 press conference",
-      "link": "https://www.mmafighting.com/latest-news/500204/video-belal-muhammad-ignites-melee-with-colby-covington-during-raf-11-press-conference-altercation",
-      "source": "MMA Fighting",
+      "title": "Six fights announced for UFC Noche 2026, including two former Mexican champs",
+      "link": "https://www.mmamania.com/ufc-fight-announcements/458744/six-fights-announced-for-ufc-noche-2026-including-two-former-mexican-champs",
+      "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Ankalaev and Rountree clash Sunday in an epic light heavyweight showdown.",
-    "prefight": "Ankalaev faces Rountree Sunday midnight—light heavyweight warfare that could reshape the rankings.",
-    "results": "Du Plessis dominates Usman across five rounds, takes unanimous decision with scores 50-45, 49-46, 49-46."
+    "week": "Ankalaev and Rountree light heavyweight fireworks ignite Sunday midnight SGT—set your alarms now.",
+    "prefight": "Ankalaev and Rountree collide in light heavyweight war this Sunday—mark July 26.",
+    "results": "Du Plessis outworks Usman for dominant unanimous decision across all scorecards."
   }
 }
