@@ -384,7 +384,7 @@ Try it free &darr;</div>
 
   // --- Save video: iPhone opens the native share sheet (tap Save Video -> Photos); else downloads ---
   document.querySelectorAll('a.btn.dl').forEach(function(a){
-    if(!/\.mp4$/i.test(a.getAttribute('href')||'')) return;
+    if(!/\.mp4(\?|$)/i.test(a.getAttribute('href')||'')) return;
     a.addEventListener('click', function(ev){
       ev.preventDefault();
       var href=a.getAttribute('href'), name=a.getAttribute('download')||'reception-reel.mp4';
