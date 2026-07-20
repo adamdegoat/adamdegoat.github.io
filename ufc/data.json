@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-20T13:00:00.254299+08:00",
+  "updated": "2026-07-20T21:00:00.351550+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -13,8 +13,8 @@
     "has_time": true,
     "location": "Abu Dhabi, United Arab Emirates",
     "highlights": "https://www.youtube.com/results?search_query=UFC%20Fight%20Night%20282%20Ankalaev%20vs%20Rountree%20Jr%20highlights",
-    "desc": "",
-    "badge": "https://r2.thesportsdb.com/images/media/league/badge/bewnz31717531281.png",
+    "desc": "An intense atmosphere of championship-level mixed martial arts returns to the Yas Island shores as the UFC takes over the Etihad Arena for a pivotal light heavyweight headliner at UFC Fight Night 282. The primary hurdle for top-ranked contender Magomed Ankalaev is executing a massive strategic adjustment on short notice after original opponent Khalil Rountree Jr. withdrew due to an injury, swapping a striking-heavy southpaw look for a dangerous right-handed powerhouse. The objective for the elite Dagestani tactician is to dominate the center of the cage, weaponizing his technical counter-striking, lethal head kicks, and suffocating wrestling base to completely neutralize the threat. Concurrently, the mission for late-replacement threat Bogdan Guskov centers on maximizing the ultimate showcase of his professional career, relying on his ferocious first-round finishing power and explosive right hand to crack Ankalaev’s legendary defensive shell and shock the division.",
+    "badge": "https://www.thesportsdb.com/images/media/event/thumb/pl4rtq1784551082.jpg",
     "bouts": [],
     "finished": false,
     "espn_final": false
@@ -189,24 +189,6 @@
       "priority": true
     },
     {
-      "title": "PFL Austin weigh-in results: Middleweight title fight set; 1 miss",
-      "link": "https://www.sherdog.com/news/news/PFL-Austin-weighin-results-Middleweight-title-fight-set-1-miss-201954",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "Former top-ranked women’s bantamweight, UFC title challenger retires from MMA",
-      "link": "https://www.sherdog.com/news/news/Former-topranked-womens-bantamweight-UFC-title-challenger-retires-from-MMA-201959",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "Women’s bantamweight grudge match booked for Sept. 26 UFC Apex event",
-      "link": "https://www.sherdog.com/news/news/Womens-bantamweight-grudge-match-booked-for-Sept-26-UFC-Apex-event-201957",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
       "title": "Ian Machado Garry compares UFC 330 title fight with Islam Makhachev to Conor McGregor vs. Jose Aldo",
       "link": "https://www.bjpenn.com/mma-news/ufc/ian-machado-garry-compares-ufc-330-title-fight-with-islam-makhachev-to-conor-mcgregor-vs-jose-aldo/?utm_source=rss&utm_medium=rss&utm_campaign=ian-machado-garry-compares-ufc-330-title-fight-with-islam-makhachev-to-conor-mcgregor-vs-jose-aldo",
       "source": "BJPenn",
@@ -231,6 +213,12 @@
       "priority": true
     },
     {
+      "title": "Morning Report | Ian Machado Garry sees parallels between his fight with Islam Makhachev and Conor McGregor beating Jose Aldo",
+      "link": "https://www.mmafighting.com/latest-news/499736/morning-report-ian-machado-garry-sees-parallels-between-his-fight-with-islam-makhachev-and-conor-mcgregor-beating-jose-aldo",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "Mailbag: Is Conor McGregor ever going to fight again after the UFC 329 fiasco?",
       "link": "https://www.mmafighting.com/latest-news/499778/mailbag-is-conor-mcgregor-ever-going-to-fight-again-after-the-ufc-329-fiasco",
       "source": "MMA Fighting",
@@ -241,11 +229,23 @@
       "link": "https://www.mmafighting.com/ufc/499195/luke-riley-responds-to-joe-rogan-after-criticism-of-controversial-ufc-329-knockout-win",
       "source": "MMA Fighting",
       "priority": false
+    },
+    {
+      "title": "6 fights announced for UFC Noche",
+      "link": "https://www.mmafighting.com/ufc/500207/6-fights-announced-for-ufc-noche",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Video: Belal Muhammad ignites melee with Colby Covington during RAF 11 press conference",
+      "link": "https://www.mmafighting.com/latest-news/500204/video-belal-muhammad-ignites-melee-with-colby-covington-during-raf-11-press-conference-altercation",
+      "source": "MMA Fighting",
+      "priority": false
     }
   ],
   "hooks": {
-    "week": "Ankalaev meets Rountree Sunday at midnight SGT for light heavyweight glory.",
-    "prefight": "Ankalaev versus Rountree this Sunday—light heavyweight championship dreams collide.",
-    "results": "Dricus du Plessis overwhelmed Kamaru Usman for a dominant unanimous decision victory."
+    "week": "Ankalaev and Rountree clash Sunday in an epic light heavyweight showdown.",
+    "prefight": "Ankalaev faces Rountree Sunday midnight—light heavyweight warfare that could reshape the rankings.",
+    "results": "Du Plessis dominates Usman across five rounds, takes unanimous decision with scores 50-45, 49-46, 49-46."
   }
 }
