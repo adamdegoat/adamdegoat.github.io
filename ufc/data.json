@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-19T23:30:00.277429+08:00",
+  "updated": "2026-07-20T09:00:00.368276+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -32,15 +32,148 @@
     "highlights": "https://www.youtube.com/results?search_query=UFC%20Fight%20Night%20281%20Du%20Plessis%20vs%20Usman%20highlights",
     "desc": "An electric atmosphere takes over the Paycom Center as the Octagon returns to Oklahoma for UFC Fight Night 281, headlined by a legacy-defining middleweight war between former divisional kingpin Dricus du Plessis and former dominant welterweight ruler Kamaru Usman. The primary hurdle for both elite mixed martial artists is navigating the extreme strategic layers of a true cross-divisional chess match, where du Plessis must neutralize his opponent's legendary wrestling base while Usman handles the jarring transition to a heavier weight class. The objective for the South African powerhouse is to dictate a grueling, chaotic pace from the center of the cage, weaponizing his signature physical blitzes to compromise Usman's legendary defensive shell. Concurrently, the mission for Nigeria's \"Nigerian Nightmare\" centers on executing a clinical tactical masterclass behind his sharp, piston-like jab, blending timed level changes with heavy top control to stifle the former champion's explosive output and instantly assert himself as a premium contender in the 185-pound landscape.",
     "badge": "https://www.thesportsdb.com/images/media/event/thumb/bearel1783977914.jpg",
-    "bouts": [],
-    "finished": false,
+    "bouts": [
+      {
+        "section": "main",
+        "weight": "Middleweight",
+        "a": "Dricus du Plessis",
+        "b": "Kamaru Usman",
+        "decided": true,
+        "method": "Decision (unanimous) (50–45, 49–46, 49–46)",
+        "round": "5",
+        "time": "5:00"
+      },
+      {
+        "section": "main",
+        "weight": "Middleweight",
+        "a": "Christian Leroy Duncan",
+        "b": "Jared Cannonier",
+        "decided": true,
+        "method": "Decision (unanimous) (30–27, 30–27, 29–28)",
+        "round": "3",
+        "time": "5:00"
+      },
+      {
+        "section": "main",
+        "weight": "Catchweight (157.5 lb)",
+        "a": "Chase Hooper",
+        "b": "Mitch Ramirez",
+        "decided": true,
+        "method": "Submission (rear-naked choke)",
+        "round": "1",
+        "time": "2:15"
+      },
+      {
+        "section": "main",
+        "weight": "Women's Strawweight",
+        "a": "Fatima Kline",
+        "b": "Tabatha Ricci",
+        "decided": true,
+        "method": "Decision (unanimous) (30–27, 30–27, 30–27)",
+        "round": "3",
+        "time": "5:00"
+      },
+      {
+        "section": "main",
+        "weight": "Featherweight",
+        "a": "Tommy McMillen",
+        "b": "Alberto Montes",
+        "decided": true,
+        "method": "TKO (punches)",
+        "round": "3",
+        "time": "3:29"
+      },
+      {
+        "section": "prelim",
+        "weight": "Featherweight",
+        "a": "Jose Miguel Delgado",
+        "b": "Austin Bashi",
+        "decided": true,
+        "method": "Decision (unanimous) (30–27, 29–28, 29–28)",
+        "round": "3",
+        "time": "5:00"
+      },
+      {
+        "section": "prelim",
+        "weight": "Welterweight",
+        "a": "Jean-Paul Lebosnoyani",
+        "b": "Ko Seok-hyeon",
+        "decided": true,
+        "method": "Decision (unanimous) (29–28, 29–28, 29–28)",
+        "round": "3",
+        "time": "5:00"
+      },
+      {
+        "section": "prelim",
+        "weight": "Light Heavyweight",
+        "a": "Felipe Franco",
+        "b": "Levi Rodrigues Jr.",
+        "decided": true,
+        "method": "TKO (punches)",
+        "round": "2",
+        "time": "1:40"
+      },
+      {
+        "section": "prelim",
+        "weight": "Catchweight (147.5 lb)",
+        "a": "Ezra Elliott",
+        "b": "Damien Anderson",
+        "decided": true,
+        "method": "Decision (unanimous) (30–27, 29–28, 29–28)",
+        "round": "3",
+        "time": "5:00"
+      },
+      {
+        "section": "prelim",
+        "weight": "Flyweight",
+        "a": "Alden Coria",
+        "b": "Stewart Nicoll",
+        "decided": true,
+        "method": "Decision (unanimous) (30–27, 30–27, 29–28)",
+        "round": "3",
+        "time": "5:00"
+      },
+      {
+        "section": "prelim",
+        "weight": "Heavyweight",
+        "a": "RJ Harris",
+        "b": "Alvin Hines",
+        "decided": true,
+        "method": "TKO (punches)",
+        "round": "1",
+        "time": "1:40"
+      },
+      {
+        "section": "prelim",
+        "weight": "Women's Flyweight",
+        "a": "Dione Barbosa",
+        "b": "Anna Melisano",
+        "decided": true,
+        "method": "Submission (rear-naked choke)",
+        "round": "1",
+        "time": "4:04"
+      }
+    ],
+    "finished": true,
     "espn_final": true
   },
   "news": [
     {
+      "title": "Conor McGregor provides update on extent of his knee injury, gives timeline for UFC return",
+      "link": "https://www.mmafighting.com/latest-news/500242/conor-mcgregor-provides-update-on-extent-of-his-knee-injury-gives-timeline-for-ufc-return",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
       "title": "Dana White reveals Conor McGregor’s injury details from UFC 329: ‘His knee is f*cked up’",
       "link": "https://www.mmafighting.com/latest-news/500214/dana-white-reveals-conor-mcgregors-injury-details-from-ufc-329-his-knee-is-fcked-up",
       "source": "MMA Fighting",
+      "priority": true
+    },
+    {
+      "title": "Dana White responds to Kamaru Usman retirement chatter after UFC Oklahoma City loss: ‘He’s still got it’",
+      "link": "https://www.mmamania.com/ufc-news/458627/dana-white-responds-to-kamaru-usman-retirement-chatter-after-ufc-oklahoma-city-loss-hes-still-got-it",
+      "source": "MMA Mania",
       "priority": true
     },
     {
@@ -80,51 +213,39 @@
       "priority": true
     },
     {
+      "title": "Ian Machado Garry compares UFC 330 title fight with Islam Makhachev to Conor McGregor vs. Jose Aldo",
+      "link": "https://www.bjpenn.com/mma-news/ufc/ian-machado-garry-compares-ufc-330-title-fight-with-islam-makhachev-to-conor-mcgregor-vs-jose-aldo/?utm_source=rss&utm_medium=rss&utm_campaign=ian-machado-garry-compares-ufc-330-title-fight-with-islam-makhachev-to-conor-mcgregor-vs-jose-aldo",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
+      "title": "Ben Askren retires following remarkable RAF wrestling match with Belal Muhammad: “It’s for sure my last time”",
+      "link": "https://www.bjpenn.com/mma-news/ben-askren/ben-askren-retires-following-remarkable-raf-wrestling-match-with-belal-muhammad-its-for-sure-my-last-time/?utm_source=rss&utm_medium=rss&utm_campaign=ben-askren-retires-following-remarkable-raf-wrestling-match-with-belal-muhammad-its-for-sure-my-last-time",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
+      "title": "Conor McGregor confirms ACL injury during disappointing UFC 329 outcome: “I believe I was saved”",
+      "link": "https://www.bjpenn.com/mma-news/ufc/conor-mcgregor-confirms-acl-injury-during-disappointing-ufc-329-outcome-i-believe-i-was-saved/?utm_source=rss&utm_medium=rss&utm_campaign=conor-mcgregor-confirms-acl-injury-during-disappointing-ufc-329-outcome-i-believe-i-was-saved",
+      "source": "BJPenn",
+      "priority": true
+    },
+    {
       "title": "ONE Championship delivers two wild decisions and one dramatic finish at Friday Fights 162",
       "link": "https://www.bjpenn.com/mma-news/one-championship/one-championship-delivers-two-wild-decisions-and-one-dramatic-finish-at-friday-fights-162/?utm_source=rss&utm_medium=rss&utm_campaign=one-championship-delivers-two-wild-decisions-and-one-dramatic-finish-at-friday-fights-162",
       "source": "BJPenn",
       "priority": true
     },
     {
-      "title": "Conor McGregor says next UFC fight must be Max Holloway trilogy after freak injury: “I was fully calm and relaxed”",
-      "link": "https://www.bjpenn.com/mma-news/conor-mcgregor/conor-mcgregor-says-next-ufc-fight-must-be-max-holloway-trilogy-after-freak-injury-i-was-fully-calm-and-relaxed/?utm_source=rss&utm_medium=rss&utm_campaign=conor-mcgregor-says-next-ufc-fight-must-be-max-holloway-trilogy-after-freak-injury-i-was-fully-calm-and-relaxed",
-      "source": "BJPenn",
-      "priority": true
-    },
-    {
-      "title": "Video: Belal Muhammad ignites melee with Colby Covington during RAF 11 press conference",
-      "link": "https://www.mmafighting.com/latest-news/500204/video-belal-muhammad-ignites-melee-with-colby-covington-during-raf-11-press-conference-altercation",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "UFC Oklahoma City Post Show: Dricus du Plessis beat up Kamaru Usman, but what did it do for him?",
-      "link": "https://www.mmafighting.com/latest-news/500199/ufc-oklahoma-city-post-show-dricus-du-plessis-beat-up-kamaru-usman-but-what-did-it-do-for-him",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Dricus du Plessis overwhelms Kamaru Usman in UFC Oklahoma City main event",
-      "link": "https://www.mmafighting.com/ufc/500186/dricus-du-plessis-overwhelms-kamaru-usman-in-ufc-oklahoma-city-main-event",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Dricus du Plessis vs. Kamaru Usman full fight video highlights",
-      "link": "https://www.mmafighting.com/ufc/500109/dricus-du-plessis-vs-kamaru-usman-full-fight-video-highlights-ufc",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "RAF 11 Results: Belal Muhammad outworks Ben Askren in Askren’s final match",
-      "link": "https://www.mmafighting.com/latest-news/500111/raf-11-results-belal-muhammad-outworks-ben-askren-in-askrens-final-match",
+      "title": "Mailbag: Is Conor McGregor ever going to fight again after the UFC 329 fiasco?",
+      "link": "https://www.mmafighting.com/latest-news/499778/mailbag-is-conor-mcgregor-ever-going-to-fight-again-after-the-ufc-329-fiasco",
       "source": "MMA Fighting",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Ankalaev and Rountree bring the heat in light heavyweight showdown Sunday.",
-    "prefight": "Fight week begins now: Ankalaev versus Rountree Sunday in Singapore.",
-    "results": "I don't have information about a Plessis vs Usman UFC fight in my training data (knowledge cutoff: February 2025). Since today is July 19, 2026, this fight may have happened after my training period."
+    "week": "Ankalaev and Rountree collide Sunday in a light heavyweight showdown that could reshape the division.",
+    "prefight": "Ankalaev and Rountree go to war for light heavyweight gold this Sunday.",
+    "results": "Du Plessis outworked Usman over five rounds for a unanimous decision win."
   }
 }
