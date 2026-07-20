@@ -74,7 +74,7 @@
 <div class="wrap">
   <header>
     <div class="t"><svg viewBox="5 10 54 54"><rect x="9" y="45.5" width="46" height="5.8" rx="2.9" fill="#171512"/><path d="M15.5 45.5 a16.5 15.5 0 0 1 33 0 Z" fill="#171512"/><circle cx="32" cy="26.5" r="3.9" fill="#e8663a"/></svg> Reception IG</div>
-    <div class="s">For SG property, insurance &amp; financial agents. Tap <b>Download</b> on anything, captions have <b>Copy</b>.<br>iPhone tip: for a video, tap Download then Share &rarr; Save to Photos. For an image, long-press it &rarr; Save.</div>
+    <div class="s">For SG property, insurance &amp; financial agents.<br><b>Captions:</b> tap Copy. <b>Reels:</b> tap Save video, on iPhone the share sheet opens, tap <b>Save Video</b> to add it to Photos. <b>Images:</b> long-press &rarr; Save to Photos.</div>
   </header>
 
   <nav><div class="row">
@@ -106,7 +106,7 @@
       <div class="nm">The 11:47pm lead <span class="pin">good pin</span></div>
       <div class="sub">Property product demo</div>
       <video class="thumb" controls preload="metadata" poster="media/reel-property-cover.png" src="media/reel-property.mp4"></video>
-      <div class="btnrow"><a class="btn dl" href="media/reel-property.mp4" download="reception-reel-property.mp4">Download video</a><button class="btn cp" data-copy="cap-property">Copy caption</button></div>
+      <div class="btnrow"><a class="btn dl" href="media/reel-property.mp4" download="reception-reel-property.mp4">Save video</a><button class="btn cp" data-copy="cap-property">Copy caption</button></div>
       <div class="cap" id="cap-property">It's 11:47pm. A buyer messages about your listing, can they view this week? You're asleep, so nobody replies, and by morning they've viewed with whoever answered first.
 
 That after-hours enquiry is the lead most agents quietly lose. Buyers message late, and the agent who replies first usually gets the viewing.
@@ -126,7 +126,7 @@ reception.sg
       <div class="nm">Speed wins the client</div>
       <div class="sub">Stat reel</div>
       <video class="thumb" controls preload="metadata" poster="media/reel-speed-cover.png" src="media/reel-speed.mp4?v=2"></video>
-      <div class="btnrow"><a class="btn dl" href="media/reel-speed.mp4?v=2" download="reception-reel-speed.mp4">Download video</a><button class="btn cp" data-copy="cap-speed">Copy caption</button></div>
+      <div class="btnrow"><a class="btn dl" href="media/reel-speed.mp4?v=2" download="reception-reel-speed.mp4">Save video</a><button class="btn cp" data-copy="cap-speed">Copy caption</button></div>
       <div class="cap" id="cap-speed">The client messages three agents. They go with whoever replies first.
 
 Studies find that replying within about five minutes makes you up to nine times more likely to win the client. Most agents are in a meeting, driving, or asleep. The enquiry just sits there. By the time you see it, someone else has already booked the viewing.
@@ -146,7 +146,7 @@ Try it free, pay only if you keep it. reception.sg
       <div class="nm">Adviser demo</div>
       <div class="sub">Insurance / financial product demo</div>
       <video class="thumb" controls preload="metadata" poster="media/reel-adviser-cover.png" src="media/reel-adviser.mp4?v=2"></video>
-      <div class="btnrow"><a class="btn dl" href="media/reel-adviser.mp4?v=2" download="reception-reel-adviser.mp4">Download video</a><button class="btn cp" data-copy="cap-adviser">Copy caption</button></div>
+      <div class="btnrow"><a class="btn dl" href="media/reel-adviser.mp4?v=2" download="reception-reel-adviser.mp4">Save video</a><button class="btn cp" data-copy="cap-adviser">Copy caption</button></div>
       <div class="cap" id="cap-adviser">10:52pm. A client asks to review her policies this week. You are asleep.
 
 Reception answers in your name, offers her a consultation, and stays in its lane: it never quotes a premium, never gives advice, never plays adviser. It takes her name and number and sends the lead straight to your phone. The MAS lines stay where they belong.
@@ -164,7 +164,7 @@ Try it free. Pay only if you love it. S$99/mo founding rate if you join by 31 Oc
       <div class="nm">It's not a chatbot</div>
       <div class="sub">Why it works</div>
       <video class="thumb" controls preload="metadata" poster="media/reel-whyitworks-cover.png" src="media/reel-whyitworks.mp4?v=2"></video>
-      <div class="btnrow"><a class="btn dl" href="media/reel-whyitworks.mp4?v=2" download="reception-reel-whyitworks.mp4">Download video</a><button class="btn cp" data-copy="cap-why">Copy caption</button></div>
+      <div class="btnrow"><a class="btn dl" href="media/reel-whyitworks.mp4?v=2" download="reception-reel-whyitworks.mp4">Save video</a><button class="btn cp" data-copy="cap-why">Copy caption</button></div>
       <div class="cap" id="cap-why">An AI front desk that won't get you in trouble with CEA.
 
 Most "auto-reply" tools are dumb, they fire a canned "we'll get back to you" and call it done. Reception is your actual front desk. It answers buyers and clients in your name, knows your listings, qualifies the lead, and books the viewing, 24/7. And the part that matters for a licensed agent: it never quotes a valuation, never gives advice, never crosses the CEA or MAS line. It catches the lead and hands it to you.
@@ -356,13 +356,49 @@ Try it free &darr;</div>
 </div>
 
 <script>
+  // --- Copy caption: robust across mobile browsers (clipboard API + textarea fallback) ---
+  function flash(btn, label){
+    var t=btn.getAttribute('data-lbl'); if(t===null){ t=btn.textContent; btn.setAttribute('data-lbl',t); }
+    btn.textContent=label||'Copied'; btn.classList.add('done');
+    setTimeout(function(){ btn.textContent=t; btn.classList.remove('done'); }, 1500);
+  }
+  function legacyCopy(text, btn){
+    var ta=document.createElement('textarea'); ta.value=text; ta.readOnly=true; ta.contentEditable=true;
+    ta.style.cssText='position:fixed;top:0;left:0;width:1px;height:1px;opacity:0';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try{ ta.setSelectionRange(0, text.length); }catch(e){}
+    var ok=false; try{ ok=document.execCommand('copy'); }catch(e){}
+    document.body.removeChild(ta); flash(btn, ok?'Copied':'Copy failed');
+  }
+  function copyText(text, btn){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ flash(btn); }, function(){ legacyCopy(text, btn); });
+    } else { legacyCopy(text, btn); }
+  }
   document.querySelectorAll('.btn.cp').forEach(function(b){
     b.addEventListener('click', function(){
-      var el = document.getElementById(b.getAttribute('data-copy'));
-      navigator.clipboard.writeText(el.innerText.trim()).then(function(){
-        var t=b.textContent; b.textContent='Copied'; b.classList.add('done');
-        setTimeout(function(){ b.textContent=t; b.classList.remove('done'); },1500);
-      });
+      var el=document.getElementById(b.getAttribute('data-copy'));
+      copyText((el.innerText||el.textContent).trim(), b);
+    });
+  });
+
+  // --- Save video: iPhone opens the native share sheet (tap Save Video -> Photos); else downloads ---
+  document.querySelectorAll('a.btn.dl').forEach(function(a){
+    if(!/\.mp4$/i.test(a.getAttribute('href')||'')) return;
+    a.addEventListener('click', function(ev){
+      ev.preventDefault();
+      var href=a.getAttribute('href'), name=a.getAttribute('download')||'reception-reel.mp4';
+      var lbl=a.textContent; a.textContent='Preparing...';
+      fetch(href).then(function(r){ return r.blob(); }).then(function(blob){
+        var file=new File([blob], name, {type:'video/mp4'});
+        if(navigator.canShare && navigator.canShare({files:[file]})){
+          a.textContent=lbl;
+          return navigator.share({files:[file]}).catch(function(){});
+        }
+        var u=URL.createObjectURL(blob), t=document.createElement('a');
+        t.href=u; t.download=name; document.body.appendChild(t); t.click(); t.remove();
+        setTimeout(function(){ URL.revokeObjectURL(u); }, 5000); a.textContent=lbl;
+      }).catch(function(){ a.textContent=lbl; window.location.href=href; });
     });
   });
 </script>
