@@ -18,7 +18,7 @@
   header { padding:22px 0 14px; }
   header .t { font-family:var(--disp); font-weight:700; font-size:26px; letter-spacing:-0.02em; display:flex; align-items:center; gap:10px; }
   header .t svg { width:26px; height:26px; }
-  header .s { font-family:var(--mono); font-size:13px; color:var(--muted); margin-top:6px; line-height:1.5; }
+  header .s { font-family:var(--mono); font-size:13px; color:var(--muted); margin-top:6px; line-height:1.55; }
 
   nav { position:sticky; top:0; z-index:10; background:var(--cream); border-bottom:1px solid var(--line); padding:10px 0; margin-bottom:6px; }
   nav .row { display:flex; gap:8px; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
@@ -29,11 +29,16 @@
 
   section { padding:20px 0 8px; }
   h2 { font-size:22px; font-weight:700; letter-spacing:-0.02em; margin-bottom:4px; }
-  .hint { font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-bottom:16px; line-height:1.5; }
+  .hint { font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-bottom:16px; line-height:1.55; }
+
+  .plan { background:#fff; border:1px solid var(--line); border-radius:14px; padding:14px 16px; margin-bottom:6px; }
+  .plan .lbl { font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--terra); margin-bottom:8px; }
+  .plan ol { margin:0 0 0 18px; font-size:14px; line-height:1.7; }
 
   .item { background:#fff; border:1px solid var(--line); border-radius:16px; padding:14px; margin-bottom:16px; }
-  .item .nm { font-weight:600; font-size:16px; margin-bottom:4px; }
+  .item .nm { font-weight:600; font-size:16px; margin-bottom:3px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
   .item .sub { font-family:var(--mono); font-size:12px; color:var(--muted); margin-bottom:12px; }
+  .pin { font-family:var(--mono); font-size:11px; font-weight:500; color:#fff; background:var(--terra); border-radius:999px; padding:3px 9px; letter-spacing:0.03em; }
   .thumb { width:100%; border-radius:10px; display:block; background:#000; }
   video.thumb { width:auto; max-width:100%; max-height:460px; margin:0 auto; }
 
@@ -69,29 +74,39 @@
 <div class="wrap">
   <header>
     <div class="t"><svg viewBox="5 10 54 54"><rect x="9" y="45.5" width="46" height="5.8" rx="2.9" fill="#171512"/><path d="M15.5 45.5 a16.5 15.5 0 0 1 33 0 Z" fill="#171512"/><circle cx="32" cy="26.5" r="3.9" fill="#e8663a"/></svg> Reception IG</div>
-    <div class="s">For SG property, insurance &amp; financial agents. Tap <b>Download</b> on anything. Captions have <b>Copy</b>.<br>Post order: Reel A, then the Carousel 2 to 3 days later, then Reel B.<br>iPhone tip: for a video, tap Download then Share &rarr; Save to Photos. For an image, long-press it &rarr; Save.</div>
+    <div class="s">For SG property, insurance &amp; financial agents. Tap <b>Download</b> on anything, captions have <b>Copy</b>.<br>iPhone tip: for a video, tap Download then Share &rarr; Save to Photos. For an image, long-press it &rarr; Save.</div>
   </header>
 
   <nav><div class="row">
+    <a href="#plan">Plan</a>
     <a href="#reels">Reels</a>
     <a href="#carousels">Carousels</a>
     <a href="#profile">Profile</a>
     <a href="#docs">Guides</a>
   </div></nav>
 
+  <section id="plan">
+    <div class="plan">
+      <div class="lbl">How to run this</div>
+      <ol>
+        <li><b>Pin first:</b> post <b>How it works</b> (carousel) and pin it, so anyone landing on your profile gets it. The <b>property reel</b> is a strong second pin.</li>
+        <li><b>Then post 2 to 3 a week</b>, mixing reels and carousels. Don't post two similar-looking ones back to back.</li>
+        <li>A good early order: How it works &rarr; property reel &rarr; after-hours carousel &rarr; pricing &rarr; speed reel &rarr; the math &rarr; adviser reel &rarr; no website &rarr; why-it-works reel.</li>
+        <li>Turn sound on for reels. Tag location Singapore. Each reel also works as a paid ad to that trade.</li>
+      </ol>
+    </div>
+  </section>
+
   <!-- REELS -->
   <section id="reels">
     <h2>Reels</h2>
-    <div class="hint">Post as a Reel. Turn sound on. Each also works as a paid ad to that trade.</div>
+    <div class="hint">4 reels, each a different look on purpose.</div>
 
     <div class="item">
-      <div class="nm">Reel A &middot; The 11:47pm lead</div>
-      <div class="sub">Property product demo &middot; post first</div>
+      <div class="nm">The 11:47pm lead <span class="pin">good pin</span></div>
+      <div class="sub">Property product demo</div>
       <video class="thumb" controls preload="metadata" poster="media/reel-property-cover.png" src="media/reel-property.mp4"></video>
-      <div class="btnrow">
-        <a class="btn dl" href="media/reel-property.mp4" download="reception-reel-property.mp4">Download video</a>
-        <button class="btn cp" data-copy="cap-property">Copy caption</button>
-      </div>
+      <div class="btnrow"><a class="btn dl" href="media/reel-property.mp4" download="reception-reel-property.mp4">Download video</a><button class="btn cp" data-copy="cap-property">Copy caption</button></div>
       <div class="cap" id="cap-property">It's 11:47pm. A buyer messages about your listing, can they view this week? You're asleep, so nobody replies, and by morning they've viewed with whoever answered first.
 
 That after-hours enquiry is the lead most agents quietly lose. Buyers message late, and the agent who replies first usually gets the viewing.
@@ -108,13 +123,44 @@ reception.sg
     </div>
 
     <div class="item">
-      <div class="nm">Reel B &middot; It's not a chatbot</div>
-      <div class="sub">Why it works &middot; post third</div>
+      <div class="nm">Speed wins the client</div>
+      <div class="sub">Stat reel</div>
+      <video class="thumb" controls preload="metadata" poster="media/reel-speed-cover.png" src="media/reel-speed.mp4"></video>
+      <div class="btnrow"><a class="btn dl" href="media/reel-speed.mp4" download="reception-reel-speed.mp4">Download video</a><button class="btn cp" data-copy="cap-speed">Copy caption</button></div>
+      <div class="cap" id="cap-speed">The client messages three agents. They go with whoever replies first.
+
+Studies find that replying within about five minutes makes you up to nine times more likely to win the client. Most agents are in a meeting, driving, or asleep. The enquiry just sits there. By the time you see it, someone else has already booked the viewing.
+
+Reception answers every enquiry in seconds, in your name, day or night. It captures the lead to your phone and stays in its lane: no valuation, no premium, no advice. It routes that to you, the licensed pro.
+
+Be the first to reply. Every time. Without living on your phone.
+
+Try it free, pay only if you keep it. reception.sg
+
+#propertyagentsingapore #realestateagent #speedtolead #insuranceagent #proptech</div>
+    </div>
+
+    <div class="item">
+      <div class="nm">Adviser demo</div>
+      <div class="sub">Insurance / financial product demo</div>
+      <video class="thumb" controls preload="metadata" poster="media/reel-adviser-cover.png" src="media/reel-adviser.mp4"></video>
+      <div class="btnrow"><a class="btn dl" href="media/reel-adviser.mp4" download="reception-reel-adviser.mp4">Download video</a><button class="btn cp" data-copy="cap-adviser">Copy caption</button></div>
+      <div class="cap" id="cap-adviser">10:52pm. A client asks to review her policies this week. You are asleep.
+
+Reception answers in your name, offers her a consultation, and stays in its lane: it never quotes a premium, never gives advice, never plays adviser. It takes her name and number and sends the lead straight to your phone. The MAS lines stay where they belong.
+
+You wake up to a booked review, not a missed message.
+
+Try it free. Pay only if you love it. S$99/mo founding rate if you join by 31 October, then S$149. reception.sg
+
+#financialadviser #insuranceagent #speedtolead #wealthplanning #proptech</div>
+    </div>
+
+    <div class="item">
+      <div class="nm">It's not a chatbot</div>
+      <div class="sub">Why it works</div>
       <video class="thumb" controls preload="metadata" poster="media/reel-whyitworks-cover.png" src="media/reel-whyitworks.mp4"></video>
-      <div class="btnrow">
-        <a class="btn dl" href="media/reel-whyitworks.mp4" download="reception-reel-whyitworks.mp4">Download video</a>
-        <button class="btn cp" data-copy="cap-why">Copy caption</button>
-      </div>
+      <div class="btnrow"><a class="btn dl" href="media/reel-whyitworks.mp4" download="reception-reel-whyitworks.mp4">Download video</a><button class="btn cp" data-copy="cap-why">Copy caption</button></div>
       <div class="cap" id="cap-why">An AI front desk that won't get you in trouble with CEA.
 
 Most "auto-reply" tools are dumb, they fire a canned "we'll get back to you" and call it done. Reception is your actual front desk. It answers buyers and clients in your name, knows your listings, qualifies the lead, and books the viewing, 24/7. And the part that matters for a licensed agent: it never quotes a valuation, never gives advice, never crosses the CEA or MAS line. It catches the lead and hands it to you.
@@ -139,17 +185,33 @@ For an insurance or financial audience, swap "CEA" for "MAS" and "valuation" for
     <div class="hint">Download every slide, then post them together in order (Instagram &rarr; + &rarr; select all in order).</div>
 
     <div class="item">
-      <div class="nm">The after-hours leak &middot; 5 slides</div>
-      <div class="sub">Property companion to Reel A &middot; post second</div>
+      <div class="nm">How it works <span class="pin">pin this</span></div>
+      <div class="sub">The intro every new visitor should see &middot; 5 slides</div>
       <div class="slides">
-        <div class="slide"><img src="media/carousel-01.png"><a href="media/carousel-01.png" download="reception-carousel-1.png">1 &darr;</a></div>
-        <div class="slide"><img src="media/carousel-02.png"><a href="media/carousel-02.png" download="reception-carousel-2.png">2 &darr;</a></div>
-        <div class="slide"><img src="media/carousel-03.png"><a href="media/carousel-03.png" download="reception-carousel-3.png">3 &darr;</a></div>
-        <div class="slide"><img src="media/carousel-04.png"><a href="media/carousel-04.png" download="reception-carousel-4.png">4 &darr;</a></div>
-        <div class="slide"><img src="media/carousel-05.png"><a href="media/carousel-05.png" download="reception-carousel-5.png">5 &darr;</a></div>
+        <div class="slide"><img src="media/howitworks-01.png"><a href="media/howitworks-01.png" download="reception-howitworks-1.png">1 &darr;</a></div>
+        <div class="slide"><img src="media/howitworks-02.png"><a href="media/howitworks-02.png" download="reception-howitworks-2.png">2 &darr;</a></div>
+        <div class="slide"><img src="media/howitworks-03.png"><a href="media/howitworks-03.png" download="reception-howitworks-3.png">3 &darr;</a></div>
+        <div class="slide"><img src="media/howitworks-04.png"><a href="media/howitworks-04.png" download="reception-howitworks-4.png">4 &darr;</a></div>
+        <div class="slide"><img src="media/howitworks-05.png"><a href="media/howitworks-05.png" download="reception-howitworks-5.png">5 &darr;</a></div>
       </div>
-      <div class="btnrow"><button class="btn cp" data-copy="cap-carousel">Copy caption</button></div>
-      <div class="cap" id="cap-carousel">A buyer tried to view your listing last night. You were asleep.
+      <div class="btnrow"><button class="btn cp" data-copy="cap-how">Copy caption</button></div>
+      <div class="cap" id="cap-how">New here? Here is the whole thing in three steps. 01 tell us what you offer, get one link and QR. 02 it answers in your name and captures the lead, never quotes a valuation or gives advice. 03 the lead lands on your phone, you close. Try it free at reception.sg
+
+#propertyagentsingapore #insuranceagent #financialadviser #speedtolead #proptech</div>
+    </div>
+
+    <div class="item">
+      <div class="nm">The after-hours leak</div>
+      <div class="sub">Property companion to the 11:47pm reel &middot; 5 slides</div>
+      <div class="slides">
+        <div class="slide"><img src="media/afterhours-01.png"><a href="media/afterhours-01.png" download="reception-afterhours-1.png">1 &darr;</a></div>
+        <div class="slide"><img src="media/afterhours-02.png"><a href="media/afterhours-02.png" download="reception-afterhours-2.png">2 &darr;</a></div>
+        <div class="slide"><img src="media/afterhours-03.png"><a href="media/afterhours-03.png" download="reception-afterhours-3.png">3 &darr;</a></div>
+        <div class="slide"><img src="media/afterhours-04.png"><a href="media/afterhours-04.png" download="reception-afterhours-4.png">4 &darr;</a></div>
+        <div class="slide"><img src="media/afterhours-05.png"><a href="media/afterhours-05.png" download="reception-afterhours-5.png">5 &darr;</a></div>
+      </div>
+      <div class="btnrow"><button class="btn cp" data-copy="cap-after">Copy caption</button></div>
+      <div class="cap" id="cap-after">A buyer tried to view your listing last night. You were asleep.
 
 A buyer messages after hours, ready to view. Nobody replies, so by morning they've viewed with whoever answered first, and you never even find out it happened. That's the after-hours leak, and almost every agent has it.
 
@@ -160,6 +222,73 @@ Know an agent still checking their phone at midnight? Send this to them.
 Try it free at reception.sg. You only pay once you love it.
 
 #propertyagentsingapore #sgproperty #realestateagent #speedtolead #realestatemarketing</div>
+    </div>
+
+    <div class="item">
+      <div class="nm">What it costs</div>
+      <div class="sub">Pricing &middot; 3 slides</div>
+      <div class="slides">
+        <div class="slide"><img src="media/pricing-01.png"><a href="media/pricing-01.png" download="reception-pricing-1.png">1 &darr;</a></div>
+        <div class="slide"><img src="media/pricing-02.png"><a href="media/pricing-02.png" download="reception-pricing-2.png">2 &darr;</a></div>
+        <div class="slide"><img src="media/pricing-03.png"><a href="media/pricing-03.png" download="reception-pricing-3.png">3 &darr;</a></div>
+      </div>
+      <div class="btnrow"><button class="btn cp" data-copy="cap-price">Copy caption</button></div>
+      <div class="cap" id="cap-price">What Reception costs, plainly.
+
+S$99 a month at the founding rate if you join by 31 October, then S$149. One flat price. No setup fee, no lock-in, cancel anytime.
+
+It answers every buyer and client in your name, day or night, captures the lead straight to your phone, and never quotes a figure or gives advice that should come from you. That is the whole point.
+
+One extra deal a year more than covers it. Try it free. You only pay if you love it.
+
+reception.sg
+
+#propertyagentsingapore #insuranceagent #financialadviser #speedtolead #proptech</div>
+    </div>
+
+    <div class="item">
+      <div class="nm">The math</div>
+      <div class="sub">How it helps / why it pays &middot; 5 slides</div>
+      <div class="slides">
+        <div class="slide"><img src="media/themath-01.png"><a href="media/themath-01.png" download="reception-themath-1.png">1 &darr;</a></div>
+        <div class="slide"><img src="media/themath-02.png"><a href="media/themath-02.png" download="reception-themath-2.png">2 &darr;</a></div>
+        <div class="slide"><img src="media/themath-03.png"><a href="media/themath-03.png" download="reception-themath-3.png">3 &darr;</a></div>
+        <div class="slide"><img src="media/themath-04.png"><a href="media/themath-04.png" download="reception-themath-4.png">4 &darr;</a></div>
+        <div class="slide"><img src="media/themath-05.png"><a href="media/themath-05.png" download="reception-themath-5.png">5 &darr;</a></div>
+      </div>
+      <div class="btnrow"><button class="btn cp" data-copy="cap-math">Copy caption</button></div>
+      <div class="cap" id="cap-math">The after-hours enquiry you miss tonight is not lost. It just becomes someone else's client.
+
+The agent who replies first usually gets the viewing. Reception answers every buyer and client in seconds, day or night, in your name, and captures the lead straight to your phone. It stays in its lane too: never quotes a valuation or premium, never gives advice, routes that back to you.
+
+Do the quiet math. Reception is S$99 a month. One deal you keep is worth many months of that, and you already know the figure. So the real question was never the S$99. It is how many leads you can afford to lose.
+
+Try it free. Pay only if you love it. S$99/mo founding rate if you join by 31 October, then S$149.
+
+reception.sg
+
+#propertyagentsingapore #realestateagent #insuranceagent #financialadviser #speedtolead</div>
+    </div>
+
+    <div class="item">
+      <div class="nm">No website needed</div>
+      <div class="sub">One link + QR &middot; 4 slides</div>
+      <div class="slides">
+        <div class="slide"><img src="media/nowebsite-01.png"><a href="media/nowebsite-01.png" download="reception-nowebsite-1.png">1 &darr;</a></div>
+        <div class="slide"><img src="media/nowebsite-02.png"><a href="media/nowebsite-02.png" download="reception-nowebsite-2.png">2 &darr;</a></div>
+        <div class="slide"><img src="media/nowebsite-03.png"><a href="media/nowebsite-03.png" download="reception-nowebsite-3.png">3 &darr;</a></div>
+        <div class="slide"><img src="media/nowebsite-04.png"><a href="media/nowebsite-04.png" download="reception-nowebsite-4.png">4 &darr;</a></div>
+      </div>
+      <div class="btnrow"><button class="btn cp" data-copy="cap-nosite">Copy caption</button></div>
+      <div class="cap" id="cap-nosite">You do not need a website to answer buyers at 11pm.
+
+Reception lives on one link, reception.sg/yourname, plus a QR code. Put it in your Instagram bio, your WhatsApp, your property-portal profile, your name card. Anyone who taps it gets answered in seconds, in your name, and the lead lands on your phone. It stays in its lane too: never quotes a price or gives advice, just catches the enquiry and hands it to you.
+
+No hosting, no build, no tech skills. Live in minutes.
+
+Try it free, pay only if you love it. reception.sg
+
+#propertyagentsingapore #realestateagent #insuranceagent #financialadviser #speedtolead</div>
     </div>
   </section>
 
@@ -186,13 +315,11 @@ Try it free at reception.sg. You only pay once you love it.
 Answers every lead in your name, day or night. Compliance-safe.
 Try it free &darr;</div>
       <div class="btnrow"><button class="btn cp" data-copy="v-bio">Copy bio</button></div>
-      <div class="hint" style="margin:10px 0 0">Under 150 characters. SG + the three trades up front for local search; "compliance-safe" is the wedge no generic bot can claim.</div>
     </div>
 
     <div class="copybox">
       <div class="lbl">Your link (bio &rarr; add link)</div>
       <div class="val" id="v-link">reception.sg</div>
-      <div class="hint" style="margin:8px 0 0">Set this as the bio link. Later we can make it a 3-route page: Try it free / See it work / Message us.</div>
       <div class="btnrow"><button class="btn cp" data-copy="v-link">Copy link</button></div>
     </div>
   </section>
