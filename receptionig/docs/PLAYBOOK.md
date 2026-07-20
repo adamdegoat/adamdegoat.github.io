@@ -9,7 +9,7 @@ Instagram 2026 is a **search-and-send engine**, not hashtag-and-like. The rankin
 1. **Design every post to be SENT.** A DM share is worth ~15 likes and is the #1 driver of reach to non-followers. Give each post a role-based reason to forward: "send this to the partner still answering messages at midnight."
 2. **Discovery is SEO, not hashtags.** Instagram reads on-screen text, transcribes audio, and indexes the caption. Put the search keyword in all three, early. Hashtags are just a filing label now (keep to 5, we already do).
 
-Good news: Reception's buyers literally search their pain ("missed calls", "after-hours enquiries", "front desk"), and the content is inherently sendable. This format fits a Singapore B2B service unusually well.
+Good news: Reception's buyers literally search their pain and trade ("speed to lead", "after-hours enquiries", "property agent tools", "front desk"), and the content is inherently sendable (an agent forwards "the other agent just replied first" to their whole team chat). This format fits a Singapore B2B service unusually well.
 
 ## Content pillars (rotate; each has a job)
 
@@ -31,19 +31,19 @@ Good news: Reception's buyers literally search their pain ("missed calls", "afte
 
 ## Hook bank (starter - add to it every week)
 
-Frame-0 text hooks, sound-off readable, keyword-aware:
-1. It's 11:47pm. A customer just messaged to book. Who replies? (LIVE)
-2. The most expensive number in your business: the calls you never answered.
-3. 6 in 10 people who message a business never hear back. Then they book elsewhere.
-4. Your competitor isn't better. They just replied first.
-5. You lost a customer last night and you'll never know it.
-6. "Sorry, just seeing this now" is costing you more than you think.
-7. Most bookings now start as a DM at 10pm. Where do yours go?
+Frame-0 text hooks, sound-off readable, keyword-aware (property / insurance / financial):
+1. It's 11:47pm. A buyer just messaged about your listing. Who replies? (LIVE)
+2. The most expensive lead in your pipeline: the one you finally saw at 7am.
+3. Your buyer messaged three agents last night. One replied. Guess who's showing the unit.
+4. The other agent isn't better than you. They just replied first.
+5. You lost a client last night and you'll never know it.
+6. "Sorry, just seeing this now" is how agents lose deals.
+7. Most enquiries now come in as a DM at 10pm. Where do yours go?
 8. What your front desk should do while you sleep.
-9. Reply in 5 minutes = up to 9x more likely to win the job. Most take hours.
-10. No website? You still need somewhere for customers to book.
-11. Three signs you're quietly losing after-hours customers.
-12. Stop paying for leads you can't reply to fast enough.
+9. Reply in 5 minutes = up to 9x more likely to win the client. Most agents take hours.
+10. An AI that answers your clients 24/7 without getting you in trouble with CEA. (compliance)
+11. Yes, it answers buyers all night. No, it will never quote a valuation. (compliance)
+12. Three leads you're quietly losing after office hours.
 
 ## Reels standard (grade every reel against this)
 
@@ -82,7 +82,7 @@ Set up **ManyChat** (Meta-approved, official Graph API - never unofficial tools)
 1. Post CTA: "Comment **AUDIT**" (or DEMO / PRICE).
 2. **Instant** auto-DM (speed decides: ~21x more conversion replying in 1 min vs 30) = friendly line + the thing they asked for (a 60-sec demo clip / the after-hours-leak one-pager / a book-a-setup link).
 3. Qualify in-DM with one question ("how many enquiries a week do you reckon you miss after hours?").
-4. Hand to Adam / a Calendly link. Founding rate S$299/mo if naming price.
+4. Hand to Adam / a Calendly link. Founding rate S$99/mo if naming price.
 This replaces "link in bio" and is close to a cheat code for a Singapore B2B service. Needs the user to connect ManyChat to the IG account.
 
 ## Metrics - optimise ratios, not totals

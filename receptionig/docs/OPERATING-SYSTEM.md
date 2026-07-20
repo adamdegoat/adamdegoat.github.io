@@ -6,7 +6,7 @@ The system that runs @reception.sg on Instagram. Built from three deep research 
 
 **Instagram is not the closer. It is a credibility-and-reach machine whose only job is to manufacture qualified WhatsApp/DM conversations for the founder.** Adam closes, in person or in chat. Every post, ad, and metric is judged on whether it feeds a real conversation - not on likes, reach, or followers.
 
-**Who IG actually works for (the ICP):** owner-operator small businesses where one person is both the boss and the receptionist, feels the missed-message pain daily, and personally scrolls Instagram - salons, nails, aesthetics, dental/clinics, F&B, aircon, home services, tuition, reno, pet care. Bigger or committee-run businesses are a founder-outreach + referral play, NOT an IG-ads play. Do not spend ad budget chasing them.
+**Who IG actually works for (the ICP):** Singapore's three regulated client-facing sales trades, **property agents, insurance agents, and financial advisers**. Each is a solo operator who is their own receptionist, lives on speed-to-lead (the one who replies first wins the deal), gets high-intent enquiries after hours, and for whom compliance (CEA, MAS) is a real line a generic bot cannot hold. They personally scroll Instagram and follow property/insurance/finance content. Do NOT chase generic small businesses (salons, F&B, aircon) any more, that was the old model; the creative, targeting, and demos all now name the agent trades.
 
 ## 1. The flywheel (the five pieces must feed each other, never run in isolation)
 
@@ -20,12 +20,11 @@ The system that runs @reception.sg on Instagram. Built from three deep research 
 
 - **Name field (the searchable 30-char slot, not the @handle):** `Reception - AI Front Desk SG` (put SG in the name for local search + trust). Puts the search keyword (front desk / answering / receptionist) where IG search indexes it.
 - **Bio (outcome-first, one CTA). Recommended:**
-  > Singapore's 24/7 front desk.
-  > Answers and books every customer in seconds, even after hours.
-  > Plus free AI integration consultations.
-  > Try it free ↓
+  > 24/7 front desk for SG property, insurance and financial pros.
+  > Answers every lead in your name, day or night. Compliance-safe.
+  > Try it free, pay only if you love it.
 
-  (~145 chars, fits IG's 150 limit. "Singapore" up front; the free AI integration consultation - the softer top-of-funnel offer for owners curious about AI - is included alongside the front-desk trial.)
+  (~150 chars, fits IG's limit. "SG" + the three trades up front for local + niche search; "compliance-safe" is the wedge no generic bot can claim; the free AI consultation is the softer top-of-funnel offer, surface it in Highlights/posts rather than crowding the bio.)
 - **Link:** one on-brand mini-page on reception.sg (NOT a bare Linktree - a generic link page signals "still figuring it out"). Max 3 routes: **Try it free (primary) · See it work (demo) · Message us (WhatsApp).**
 - **Profile picture:** the bell glyph only (not the full lockup), must be legible at 40px. Same mark on IG, site, and WhatsApp.
 - **Story Highlights (left to right = the buyer journey):** Start Here (what it is) -> See It Work (a real demo) -> Results (proof) -> Pricing -> FAQ (kills objections so they're never a DM) -> Try Free. One cover system: cream/terracotta block + single SVG icon + one word. No emoji.
@@ -44,8 +43,8 @@ The system that runs @reception.sg on Instagram. Built from three deep research 
 
 - **Build in Ads Manager, never "Boost."** Boost gives no objective control, no custom audiences, no real tracking.
 - **Objective:** Engagement -> "Get more messages" (WhatsApp) to start; upgrade to the Leads/WhatsApp objective once conversion tracking is live.
-- **Targeting (2026 reality - granular interest-stacking is dead, Meta went broad+AI):** Location = Singapore, age 25-55. Add 2-4 interest *hints* only (Small business owners, Entrepreneurship, Meta Business Suite / WhatsApp Business, Digital marketing). **The real targeting is the creative naming the trade** on screen ("Salon owners in Singapore..." / "Aircon bosses..."). This is why the per-trade demo reels are gold as ads.
-- **Creative:** the trade reels (Bloom salon, Frostpoint aircon, + dental/tuition/F&B to come). Native/founder-style beats polished. 9:16, 15-25s, captioned, pain-hook in 3s.
+- **Targeting (2026 reality - granular interest-stacking is dead, Meta went broad+AI):** Location = Singapore, age 25-55. Add 2-4 interest *hints* only (Real estate, PropertyGuru / 99.co, Insurance, Financial planning, Great Eastern / Prudential / AIA-adjacent). **The real targeting is the creative naming the trade** on screen ("Property agents in Singapore..." / "Insurance advisers, this one's for you..."). This is why the per-trade demo reels are gold as ads.
+- **Creative:** the trade reels (Marcus Lim property, Rachel Ng adviser, screen-recorded off the live demo desks; add more agent personas over time). Native/founder-style beats polished. 9:16, 15-25s, captioned, pain-hook in 3s.
 - **Destination = click-to-WhatsApp** (WhatsApp is SG's default; converts ~2-3x better than landing pages, and the 72-hour free-reply window gives Adam 3 days to qualify and close for free). **Honest note:** wiring Reception to auto-answer WhatsApp needs the WhatsApp API (product currently avoids it, web-first). Interim funnel: ad -> WhatsApp -> Adam greets fast + drops the live web front-desk link (reception.sg demo) so they talk to Reception -> qualify -> free build. North-star later: Reception itself answers the WhatsApp, so the ad's reply IS the demo.
 - **Budget:** S$15-20/day (NOT S$5 - under ~S$30/day starves Meta's learning). Leave untouched 10-14 days. Scale winners +20% every 3-4 days; add creative angles rather than only raising spend.
 - **Build custom audiences from day one:** video viewers (75%), page/IG engagers -> then a 1-3% SG lookalike off demo-bookers once ~100 exist.

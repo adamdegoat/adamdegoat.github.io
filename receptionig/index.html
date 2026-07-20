@@ -32,7 +32,8 @@
   .hint { font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-bottom:16px; line-height:1.5; }
 
   .item { background:#fff; border:1px solid var(--line); border-radius:16px; padding:14px; margin-bottom:16px; }
-  .item .nm { font-weight:600; font-size:16px; margin-bottom:12px; }
+  .item .nm { font-weight:600; font-size:16px; margin-bottom:4px; }
+  .item .sub { font-family:var(--mono); font-size:12px; color:var(--muted); margin-bottom:12px; }
   .thumb { width:100%; border-radius:10px; display:block; background:#000; }
   video.thumb { width:auto; max-width:100%; max-height:460px; margin:0 auto; }
 
@@ -47,15 +48,11 @@
   .cap { white-space:pre-line; font-size:14px; line-height:1.5; color:#2c2822; margin-top:12px;
     background:#faf6ee; border:1px solid var(--line); border-radius:10px; padding:12px; max-height:200px; overflow:auto; }
 
-  /* slide grid: each slide its own download */
   .slides { display:grid; grid-template-columns:repeat(auto-fill,minmax(92px,1fr)); gap:10px; margin-bottom:12px; }
   .slide { text-align:center; }
   .slide img { width:100%; border-radius:8px; border:1px solid var(--line); display:block; }
   .slide a { font-family:var(--mono); font-size:12px; text-decoration:none; color:var(--terra); font-weight:500; display:block; margin-top:5px; }
   .slide a:active { color:var(--rust); }
-
-  .set { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
-  .set.circ img { border-radius:50%; }
 
   .doc { display:block; background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px; margin-bottom:10px; text-decoration:none; color:var(--ink); }
   .doc:active { border-color:var(--terra); }
@@ -72,14 +69,12 @@
 <div class="wrap">
   <header>
     <div class="t"><svg viewBox="5 10 54 54"><rect x="9" y="45.5" width="46" height="5.8" rx="2.9" fill="#171512"/><path d="M15.5 45.5 a16.5 15.5 0 0 1 33 0 Z" fill="#171512"/><circle cx="32" cy="26.5" r="3.9" fill="#e8663a"/></svg> Reception IG</div>
-    <div class="s">Tap <b>Download</b> on anything. Captions have <b>Copy</b>.<br>iPhone tip: for a video, tap Download then Share &rarr; Save to Photos. For an image, long-press it &rarr; Save.</div>
+    <div class="s">For SG property, insurance &amp; financial agents. Tap <b>Download</b> on anything. Captions have <b>Copy</b>.<br>Post order: Reel A, then the Carousel 2 to 3 days later, then Reel B.<br>iPhone tip: for a video, tap Download then Share &rarr; Save to Photos. For an image, long-press it &rarr; Save.</div>
   </header>
 
   <nav><div class="row">
     <a href="#reels">Reels</a>
     <a href="#carousels">Carousels</a>
-    <a href="#stories">Stories</a>
-    <a href="#highlights">Highlights</a>
     <a href="#profile">Profile</a>
     <a href="#docs">Guides</a>
   </div></nav>
@@ -90,43 +85,51 @@
     <div class="hint">Post as a Reel. Turn sound on. Each also works as a paid ad to that trade.</div>
 
     <div class="item">
-      <div class="nm">Reel 1 &middot; Bloom Nail Studio</div>
-      <video class="thumb" controls preload="metadata" poster="media/reel-bloom-cover.png" src="media/reel-bloom.mp4"></video>
+      <div class="nm">Reel A &middot; The 11:47pm lead</div>
+      <div class="sub">Property product demo &middot; post first</div>
+      <video class="thumb" controls preload="metadata" poster="media/reel-property-cover.png" src="media/reel-property.mp4"></video>
       <div class="btnrow">
-        <a class="btn dl" href="media/reel-bloom.mp4" download="reception-reel-bloom.mp4">Download video</a>
-        <button class="btn cp" data-copy="cap-bloom">Copy caption</button>
+        <a class="btn dl" href="media/reel-property.mp4" download="reception-reel-property.mp4">Download video</a>
+        <button class="btn cp" data-copy="cap-property">Copy caption</button>
       </div>
-      <div class="cap" id="cap-bloom">It's 11:47pm. A customer messages your business to book. You're closed, so nobody replies, and by morning they've booked somewhere else.
+      <div class="cap" id="cap-property">It's 11:47pm. A buyer messages about your listing, can they view this week? You're asleep, so nobody replies, and by morning they've viewed with whoever answered first.
 
-That missed after-hours enquiry is what quietly costs Singapore small businesses the most. Most customers message now instead of calling, and plenty of them message after you've shut. Every reply that waits till morning is a booking someone faster already took.
+That after-hours enquiry is the lead most agents quietly lose. Buyers message late, and the agent who replies first usually gets the viewing.
 
-Reception is a 24/7 front desk for your business. It answers every message in seconds, in your brand's words and prices, shows what you offer, and takes the booking. It can even speak its replies out loud, in a voice you choose. One link for your bio, your Google listing, anywhere you're found.
+Reception is a 24/7 front desk for your listings, in your name. It knows what you've listed, answers the buyer properly, takes their name and number, and sends it to your phone, all while you sleep. And it stays in its lane: it never quotes a valuation or gives advice, it routes that to you.
 
-Send this to the business partner who's still answering messages at midnight.
+Send this to the agent on your team still replying to leads at midnight.
 
-Want this answering for your business? Try it free at reception.sg. You only pay once you love it.
+Want it answering for you? Try it free at reception.sg. You only pay once you love it.
 
-#sgsmallbusiness #missedcalls #afterhours #frontdesk #customerservice</div>
+reception.sg
+
+#propertyagentsingapore #sgproperty #realestateagent #speedtolead #proptech</div>
     </div>
 
     <div class="item">
-      <div class="nm">Reel 2 &middot; Frostpoint Aircon</div>
-      <video class="thumb" controls preload="metadata" poster="media/reel-aircon-cover.png?v=2" src="media/reel-aircon.mp4?v=3"></video>
+      <div class="nm">Reel B &middot; It's not a chatbot</div>
+      <div class="sub">Why it works &middot; post third</div>
+      <video class="thumb" controls preload="metadata" poster="media/reel-whyitworks-cover.png" src="media/reel-whyitworks.mp4"></video>
       <div class="btnrow">
-        <a class="btn dl" href="media/reel-aircon.mp4?v=3" download="reception-reel-aircon.mp4">Download video</a>
-        <button class="btn cp" data-copy="cap-aircon">Copy caption</button>
+        <a class="btn dl" href="media/reel-whyitworks.mp4" download="reception-reel-whyitworks.mp4">Download video</a>
+        <button class="btn cp" data-copy="cap-why">Copy caption</button>
       </div>
-      <div class="cap" id="cap-aircon">It's 10:52pm. Someone's aircon just died in this heat and they're messaging you to fix it. You're closed.
+      <div class="cap" id="cap-why">An AI front desk that won't get you in trouble with CEA.
 
-By morning they've called the next guy. In Singapore, an aircon that stops cooling at night is an emergency, and whoever replies first gets the job.
+Most "auto-reply" tools are dumb, they fire a canned "we'll get back to you" and call it done. Reception is your actual front desk. It answers buyers and clients in your name, knows your listings, qualifies the lead, and books the viewing, 24/7. And the part that matters for a licensed agent: it never quotes a valuation, never gives advice, never crosses the CEA or MAS line. It catches the lead and hands it to you.
 
-Reception answers for you. A 24/7 front desk that replies in seconds, in your voice and your prices, and books the visit. Even at midnight.
+Smart enough to win the client. Safe enough for your licence.
 
-Know an aircon or home-service business still missing after-hours jobs? Send this to them.
+Send this to an agent who thinks AI just means a spammy chatbot.
 
 Try it free at reception.sg. You only pay once you love it.
 
-#sgsmallbusiness #airconservicing #homeservices #afterhours #frontdesk</div>
+reception.sg
+
+#realestateagent #insuranceagent #financialadviser #propertyagentsingapore #proptech
+
+For an insurance or financial audience, swap "CEA" for "MAS" and "valuation" for "premium or advice".</div>
     </div>
   </section>
 
@@ -137,73 +140,26 @@ Try it free at reception.sg. You only pay once you love it.
 
     <div class="item">
       <div class="nm">The after-hours leak &middot; 5 slides</div>
+      <div class="sub">Property companion to Reel A &middot; post second</div>
       <div class="slides">
-        <div class="slide"><img src="media/afterhours-01.png"><a href="media/afterhours-01.png" download="reception-afterhours-1.png">1 &darr;</a></div>
-        <div class="slide"><img src="media/afterhours-02.png"><a href="media/afterhours-02.png" download="reception-afterhours-2.png">2 &darr;</a></div>
-        <div class="slide"><img src="media/afterhours-03.png"><a href="media/afterhours-03.png" download="reception-afterhours-3.png">3 &darr;</a></div>
-        <div class="slide"><img src="media/afterhours-04.png"><a href="media/afterhours-04.png" download="reception-afterhours-4.png">4 &darr;</a></div>
-        <div class="slide"><img src="media/afterhours-05.png"><a href="media/afterhours-05.png" download="reception-afterhours-5.png">5 &darr;</a></div>
+        <div class="slide"><img src="media/carousel-01.png"><a href="media/carousel-01.png" download="reception-carousel-1.png">1 &darr;</a></div>
+        <div class="slide"><img src="media/carousel-02.png"><a href="media/carousel-02.png" download="reception-carousel-2.png">2 &darr;</a></div>
+        <div class="slide"><img src="media/carousel-03.png"><a href="media/carousel-03.png" download="reception-carousel-3.png">3 &darr;</a></div>
+        <div class="slide"><img src="media/carousel-04.png"><a href="media/carousel-04.png" download="reception-carousel-4.png">4 &darr;</a></div>
+        <div class="slide"><img src="media/carousel-05.png"><a href="media/carousel-05.png" download="reception-carousel-5.png">5 &darr;</a></div>
       </div>
-      <div class="btnrow"><button class="btn cp" data-copy="cap-after">Copy caption</button></div>
-      <div class="cap" id="cap-after">Somebody tried to book you last night. You were asleep.
+      <div class="btnrow"><button class="btn cp" data-copy="cap-carousel">Copy caption</button></div>
+      <div class="cap" id="cap-carousel">A buyer tried to view your listing last night. You were asleep.
 
-A customer messages after you close, ready to spend. Nobody replies, so by morning they've booked whoever answered first, and you never even find out it happened. That's the after-hours leak, and almost every Singapore business has it.
+A buyer messages after hours, ready to view. Nobody replies, so by morning they've viewed with whoever answered first, and you never even find out it happened. That's the after-hours leak, and almost every agent has it.
 
-Reception picks up for you. A 24/7 front desk that answers every message in seconds, in your voice and your prices, and books them in. Even at 11pm.
+Reception picks up for you. A 24/7 front desk that answers every enquiry in your name, knows your listing, and captures the lead, even at 11pm. It never quotes a valuation, it just catches the lead so you can close it.
 
-Know an owner still checking their phone at midnight? Send this to them.
+Know an agent still checking their phone at midnight? Send this to them.
 
 Try it free at reception.sg. You only pay once you love it.
 
-#sgsmallbusiness #missedcalls #afterhours #frontdesk #customerservice</div>
-    </div>
-
-    <div class="item">
-      <div class="nm">How it works &middot; 4 slides (pinned)</div>
-      <div class="slides">
-        <div class="slide"><img src="media/howitworks-01.png"><a href="media/howitworks-01.png" download="reception-howitworks-1.png">1 &darr;</a></div>
-        <div class="slide"><img src="media/howitworks-02.png"><a href="media/howitworks-02.png" download="reception-howitworks-2.png">2 &darr;</a></div>
-        <div class="slide"><img src="media/howitworks-03.png"><a href="media/howitworks-03.png" download="reception-howitworks-3.png">3 &darr;</a></div>
-        <div class="slide"><img src="media/howitworks-04.png"><a href="media/howitworks-04.png" download="reception-howitworks-4.png">4 &darr;</a></div>
-      </div>
-      <div class="btnrow"><button class="btn cp" data-copy="cap-how">Copy caption</button></div>
-      <div class="cap" id="cap-how">How Reception works, in three steps.
-
-You tell us about your business, your services, prices and hours. We build your front desk, and it answers every customer in your voice on one link you share anywhere. Then it never clocks off, replying and booking 24/7.
-
-No tech skills, no website needed, live in about a day.
-
-Try it free at reception.sg. You only pay once you love it.
-
-#sgsmallbusiness #frontdesk #smallbusinesstips #customerservice #singaporebusiness</div>
-    </div>
-  </section>
-
-  <!-- STORIES -->
-  <section id="stories">
-    <h2>Stories</h2>
-    <div class="hint">Post as a Story, one behind each Highlight (in this order). For "See it work", also add the Bloom reel.</div>
-    <div class="slides">
-      <div class="slide"><img src="media/story-1.png?v=2"><a href="media/story-1.png?v=2" download="reception-story-1-start.png">Start &darr;</a></div>
-      <div class="slide"><img src="media/story-2.png?v=2"><a href="media/story-2.png?v=2" download="reception-story-2-see.png">See it &darr;</a></div>
-      <div class="slide"><img src="media/story-3.png?v=2"><a href="media/story-3.png?v=2" download="reception-story-3-results.png">Results &darr;</a></div>
-      <div class="slide"><img src="media/story-4.png?v=3"><a href="media/story-4.png?v=3" download="reception-story-4-pricing.png">Pricing &darr;</a></div>
-      <div class="slide"><img src="media/story-5.png?v=2"><a href="media/story-5.png?v=2" download="reception-story-5-faq.png">FAQ &darr;</a></div>
-      <div class="slide"><img src="media/story-6.png?v=2"><a href="media/story-6.png?v=2" download="reception-story-6-tryfree.png">Try free &darr;</a></div>
-    </div>
-  </section>
-
-  <!-- HIGHLIGHTS -->
-  <section id="highlights">
-    <h2>Highlight covers</h2>
-    <div class="hint">Set as your 6 Highlight cover icons (left to right).</div>
-    <div class="slides">
-      <div class="slide"><img src="media/hl-1.png"><a href="media/hl-1.png" download="reception-hl-1-start.png">Start &darr;</a></div>
-      <div class="slide"><img src="media/hl-2.png"><a href="media/hl-2.png" download="reception-hl-2-see.png">See it &darr;</a></div>
-      <div class="slide"><img src="media/hl-3.png"><a href="media/hl-3.png" download="reception-hl-3-results.png">Results &darr;</a></div>
-      <div class="slide"><img src="media/hl-4.png"><a href="media/hl-4.png" download="reception-hl-4-pricing.png">Pricing &darr;</a></div>
-      <div class="slide"><img src="media/hl-5.png"><a href="media/hl-5.png" download="reception-hl-5-faq.png">FAQ &darr;</a></div>
-      <div class="slide"><img src="media/hl-6.png"><a href="media/hl-6.png" download="reception-hl-6-tryfree.png">Try free &darr;</a></div>
+#propertyagentsingapore #sgproperty #realestateagent #speedtolead #realestatemarketing</div>
     </div>
   </section>
 
@@ -214,30 +170,29 @@ Try it free at reception.sg. You only pay once you love it.
 
     <div class="item">
       <div class="nm">Profile picture</div>
-      <img class="thumb" src="media/pfp.png?v=2" style="aspect-ratio:1/1;object-fit:cover;max-width:220px;border-radius:50%">
-      <div class="btnrow"><a class="btn dl" href="media/pfp.png?v=2" download="reception-profile-photo.png" style="flex:none">Download photo</a></div>
+      <img class="thumb" src="media/pfp.png" style="aspect-ratio:1/1;object-fit:cover;max-width:220px;border-radius:50%">
+      <div class="btnrow"><a class="btn dl" href="media/pfp.png" download="reception-profile-photo.png" style="flex:none">Download photo</a></div>
     </div>
 
     <div class="copybox">
       <div class="lbl">Name field (the searchable one)</div>
-      <div class="val" id="v-name">Reception - AI Front Desk SG</div>
+      <div class="val" id="v-name">Reception &middot; AI Front Desk SG</div>
       <div class="btnrow"><button class="btn cp" data-copy="v-name">Copy name</button></div>
     </div>
 
     <div class="copybox">
       <div class="lbl">Bio</div>
-      <div class="val" id="v-bio">Singapore's 24/7 front desk.
-Answers and books every customer in seconds, even after hours.
-Plus free AI integration consultations.
+      <div class="val" id="v-bio">24/7 front desk for SG property, insurance &amp; financial pros.
+Answers every lead in your name, day or night. Compliance-safe.
 Try it free &darr;</div>
       <div class="btnrow"><button class="btn cp" data-copy="v-bio">Copy bio</button></div>
-      <div class="hint" style="margin:10px 0 0">~145 characters, fits Instagram's 150 limit. "Singapore" up front for local search; the free AI integration consultation is in there too.</div>
+      <div class="hint" style="margin:10px 0 0">Under 150 characters. SG + the three trades up front for local search; "compliance-safe" is the wedge no generic bot can claim.</div>
     </div>
 
     <div class="copybox">
       <div class="lbl">Your link (bio &rarr; add link)</div>
       <div class="val" id="v-link">reception.sg</div>
-      <div class="hint" style="margin:8px 0 0">Set this as the bio link. Later we can make it a 3-route page: Try it free / See it work / AI integration consultation.</div>
+      <div class="hint" style="margin:8px 0 0">Set this as the bio link. Later we can make it a 3-route page: Try it free / See it work / Message us.</div>
       <div class="btnrow"><button class="btn cp" data-copy="v-link">Copy link</button></div>
     </div>
   </section>
@@ -248,11 +203,11 @@ Try it free &darr;</div>
     <div class="hint">How to run everything. Read on the go.</div>
     <a class="doc" href="docs/OPERATING-SYSTEM.md"><div class="dt">Operating System</div><div class="dd">Strategy, funnel, ads, metrics, 30/60/90 plan</div></a>
     <a class="doc" href="docs/AD-SETUP.md"><div class="dt">Ad Setup</div><div class="dd">Launch your S$10/day WhatsApp ad, step by step</div></a>
-    <a class="doc" href="docs/POST-KIT.md"><div class="dt">Post Kit</div><div class="dd">Every caption + hashtags</div></a>
+    <a class="doc" href="docs/POST-KIT.md"><div class="dt">Post Kit</div><div class="dd">Every caption + hashtags + posting order</div></a>
     <a class="doc" href="docs/PLAYBOOK.md"><div class="dt">Playbook</div><div class="dd">Content pillars, hook bank, cadence</div></a>
   </section>
 
-  <footer>Reception content system &middot; private &middot; posting is manual</footer>
+  <footer>Reception content system &middot; for agents &middot; private &middot; posting is manual</footer>
 </div>
 
 <script>

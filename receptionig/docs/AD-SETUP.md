@@ -1,11 +1,11 @@
 # Reception - First Ad Setup (S$10/day, click-to-WhatsApp)
 
-The goal of this ad: put a trade reel in front of Singapore business owners and drop the ones who tap into a **WhatsApp chat with you**. Full strategy is in `OPERATING-SYSTEM.md`; this is just the do-it steps.
+The goal of this ad: put a trade reel in front of Singapore property, insurance and financial agents and drop the ones who tap into a **WhatsApp chat with you**. Full strategy is in `OPERATING-SYSTEM.md`; this is just the do-it steps.
 
 ## Before you start (one-time, ~15 min)
 1. Install **WhatsApp Business** (free app) on your business number.
 2. In WhatsApp Business → Settings → Business tools → **Greeting message**: turn ON, paste:
-   > Thanks for messaging Reception. Want to see it in action? Talk to a live front desk here: reception.sg/reception - ask it anything, it replies in seconds. Quick one so I point you the right way: what kind of business do you run (salon, clinic, aircon, F&B, tuition...)? I'll follow up personally shortly.
+   > Thanks for messaging Reception. Want to see it in action? Talk to a live front desk here: reception.sg/reception - ask it anything, it replies in seconds. Quick one so I point you the right way: are you in property, insurance or financial advisory? I'll follow up personally shortly.
 3. Go to **business.facebook.com** (Meta Business Suite). Make sure your Facebook Page + Instagram + WhatsApp number are all connected under the same Business account.
 
 ## Launch the ad (Ads Manager, ~10 min)
@@ -20,16 +20,16 @@ Open **Ads Manager** (adsmanager.facebook.com). Do NOT use the blue "Boost" butt
 - Audience:
   - Location: **Singapore**.
   - Age **25-55**, all genders.
-  - Detailed targeting (add as hints, pick 2-4): *Small business owners, Entrepreneurship, WhatsApp Business, Meta Business Suite, Digital marketing.* (In 2026 these are hints, not hard filters - that's fine, the reel does the real targeting.)
+  - Detailed targeting (add as hints, pick 2-4): *Real estate, PropertyGuru, 99.co, Insurance, Financial planning.* (In 2026 these are hints, not hard filters - that's fine, the reel naming the trade does the real targeting.)
   - Placements: leave on **Advantage+ placements** (or manual: Reels + Stories + Feed only).
 
 **3. Ad:**
-- Format: single video → upload a **trade reel** (start with ONE, e.g. `reels/r03-aircon` or the Bloom salon reel).
+- Format: single video → upload a **trade reel** (start with ONE, e.g. the property reel `reels/r05-property-1147` or the adviser reel).
 - Primary text (the caption above the video) - match it to the reel's trade:
-  - Aircon: *"Aircon bosses in Singapore: how many after-hours jobs did you miss last night? Reception answers every customer in seconds and books them in, even at midnight. Try it free."*
-  - Salon: *"Salon owners in Singapore: every DM you don't answer fast is a booking someone else takes. Reception replies in seconds, in your voice, and books them in. Try it free."*
+  - Property: *"Property agents in Singapore: a buyer messaged about your listing at 11pm. If you were asleep, they viewed with whoever replied first. Reception answers every enquiry in your name, day or night, and stays compliant. Try it free."*
+  - Insurance / financial: *"Advisers in Singapore: the prospect who messaged after hours went to whoever replied first. Reception answers in your name 24/7, never gives advice, and hands you the lead. Try it free."*
 - Call to action: **Send message** → WhatsApp.
-- Headline (short): *"Never miss a customer again."*
+- Headline (short): *"Be the agent who replies first."*
 
 **4. Publish.** The greeting you set fires the instant anyone messages, so every lead gets an instant reply + the live demo, then you follow up personally.
 
