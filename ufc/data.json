@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-20T09:00:00.368276+08:00",
+  "updated": "2026-07-20T13:00:00.254299+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -177,6 +177,18 @@
       "priority": true
     },
     {
+      "title": "Conor McGregor compares UFC 329 injury to 2013 setback, eyes quick return",
+      "link": "https://www.sherdog.com/news/news/Conor-McGregor-compares-UFC-329-injury-to-2013-setback-eyes-quick-return-201972",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
+      "title": "Alexandre Pantoja says he's ready for Joshua Van rematch after arm injury",
+      "link": "https://www.sherdog.com/news/news/Alexandre-Pantoja-says-hes-ready-for-Joshua-Van-rematch-after-arm-injury-201980",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
       "title": "PFL Austin weigh-in results: Middleweight title fight set; 1 miss",
       "link": "https://www.sherdog.com/news/news/PFL-Austin-weighin-results-Middleweight-title-fight-set-1-miss-201954",
       "source": "Sherdog",
@@ -191,24 +203,6 @@
     {
       "title": "Women’s bantamweight grudge match booked for Sept. 26 UFC Apex event",
       "link": "https://www.sherdog.com/news/news/Womens-bantamweight-grudge-match-booked-for-Sept-26-UFC-Apex-event-201957",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "Jan Blachowicz draws undefeated replacement foe for UFC Belgrade card",
-      "link": "https://www.sherdog.com/news/news/Jan-Blachowicz-draws-undefeated-replacement-foe-for-UFC-Belgrade-card-201955",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "PFL Austin card updated after injuries force two matchup changes",
-      "link": "https://www.sherdog.com/news/news/PFL-Austin-card-updated-after-injuries-force-two-matchup-changes-201951",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "UFC Hall of Famer Demetrious Johnson explains why he retired",
-      "link": "https://www.sherdog.com/news/news/UFC-Hall-of-Famer-Demetrious-Johnson-explains-why-he-retired-201946",
       "source": "Sherdog",
       "priority": true
     },
@@ -241,11 +235,17 @@
       "link": "https://www.mmafighting.com/latest-news/499778/mailbag-is-conor-mcgregor-ever-going-to-fight-again-after-the-ufc-329-fiasco",
       "source": "MMA Fighting",
       "priority": false
+    },
+    {
+      "title": "Luke Riley responds to Joe Rogan after criticism of controversial UFC 329 knockout win",
+      "link": "https://www.mmafighting.com/ufc/499195/luke-riley-responds-to-joe-rogan-after-criticism-of-controversial-ufc-329-knockout-win",
+      "source": "MMA Fighting",
+      "priority": false
     }
   ],
   "hooks": {
-    "week": "Ankalaev and Rountree collide Sunday in a light heavyweight showdown that could reshape the division.",
-    "prefight": "Ankalaev and Rountree go to war for light heavyweight gold this Sunday.",
-    "results": "Du Plessis outworked Usman over five rounds for a unanimous decision win."
+    "week": "Ankalaev meets Rountree Sunday at midnight SGT for light heavyweight glory.",
+    "prefight": "Ankalaev versus Rountree this Sunday—light heavyweight championship dreams collide.",
+    "results": "Dricus du Plessis overwhelmed Kamaru Usman for a dominant unanimous decision victory."
   }
 }
