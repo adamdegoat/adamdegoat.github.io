@@ -1,25 +1,21 @@
 # Reception IG: Post Kit (ready to upload)
 
-**Model: for Singapore property agents, insurance agents and financial advisers.** First batch is three on-model pieces that share one design system (Bricolage + Hedvig + Spline Mono, cream / ink / terracotta, the reception bell) but each has its **own** visual language, no two read the same on the grid.
+**Model: for Singapore property agents, insurance agents and financial advisers.** Nine pieces (4 reels + 5 carousels). Each shares the brand system (Bricolage + Hedvig + Spline Mono, cream / ink / terracotta, the reception bell) but has its **own** look, and each reel now has its **own** audio track.
 
-**Voice rule for any edit:** dry, sharp Singapore operator. Plain money and plain time. No emoji, no em or en dashes, never rubbish a competitor by name. Never quote a valuation, premium, yield or give advice in any post, that discipline IS the pitch.
+**Voice rule for any edit:** dry, sharp Singapore operator. Plain money and plain time. No emoji, no em or en dashes, never rubbish a competitor. Never quote a valuation, premium, yield or give advice in any post, that discipline IS the pitch. Always "in your name", never "in your voice". Every post ends with a "send this to..." prompt (a DM share is the #1 reach driver).
 
-**Pricing if you name it in a caption or DM:** S$99/mo founding rate (join by 31 October), then S$149. Try free, pay only if you love it.
+**Pricing (when named):** S$99/mo founding rate (join by 31 October), then S$149. Try free, pay only if you love it.
 
-**Posting order (space 2 to 3 days apart):** 1) Reel A (product demo, most reach) → 2) Carousel A (static companion, same story) → 3) Reel B (the POV / why-it-works piece). Reels first for a cold-start account.
+**Pin:** post **How it works** (carousel) and pin it. The **property reel** is a strong second pin. A real-results proof post becomes pin 3 once you have a client.
+
+**Posting order (2 to 3 a week, don't put two similar-looking ones back to back):** How it works, property reel, after-hours carousel, pricing, speed reel, the-math, adviser reel, no-website, why-it-works reel. Reels: sound on. Tag location Singapore. Each reel doubles as a paid ad to that trade.
 
 ---
 
-## 1. REEL A · "The 11:47pm lead" (property, product demo)
+## REELS
 
-**File:** `reels/r05-property-1147/renders/` (latest .mp4). 1080x1920, 12s, sound baked in.
-Shows Marcus Lim's front desk: a buyer messages about the Tampines listing at 11:47pm → Reception answers in his name (knows the listing, offers a viewing), qualifies and captures the lead → "Lead captured, sent to Marcus's phone." Close: "Answers like you would."
-
-**Cover:** upload a custom cover in the composer.
-- `reels/r05-property-1147/covers/cover-1147.png` · the 11:47pm buyer message (drives the tap, recommended)
-- `reels/r05-property-1147/covers/cover-leadcaught.png` · the warm "Lead captured" frame (reads well on the grid)
-
-**Caption:**
+### 1. The 11:47pm lead  (property demo, good pin)
+File: `reels/r05-property-1147/renders/` (latest .mp4). Audio: warm synthwave. Cover: `covers/cover-1147.png` (drives the tap) or `cover-leadcaught.png` (grid).
 
 It's 11:47pm. A buyer messages about your listing, can they view this week? You're asleep, so nobody replies, and by morning they've viewed with whoever answered first.
 
@@ -33,43 +29,42 @@ Want it answering for you? Try it free at reception.sg. You only pay once you lo
 
 reception.sg
 
-**Hashtags (5/5):** `#propertyagentsingapore #sgproperty #realestateagent #speedtolead #proptech`
+`#propertyagentsingapore #sgproperty #realestateagent #speedtolead #proptech`
 
-**Posting:** lead the on-screen cover text and first caption line with the search phrase ("after-hours enquiry / buyer messaged after hours"); tag location **Singapore**; write alt text on the cover.
+### 2. Speed wins the client  (stat reel)
+File: `reels/r07-speed/renders/`. Audio: driving minimal techno. Cover: the drenched "9x" frame.
 
----
+The client messages three agents. They go with whoever replies first.
 
-## 2. CAROUSEL A · "Somebody tried to view last night" (companion, 5 slides)
+Studies find that replying within about five minutes makes you up to nine times more likely to win the client. Most agents are in a meeting, driving, or asleep. The enquiry just sits there. By the time you see it, someone else has already booked the viewing.
 
-**Files:** `carousels/c05-property-1147/out/slide-01.png` ... `slide-05.png` (1080x1350, 2x). One upload: multi-select all 5 in order, slide 01 = cover.
-Bold editorial (Bricolage + Hedvig, tilted chat-bubble props). Arc: buyer texts at 11:47pm → nobody answers → they view with another agent → you never find out → Reception replies first, catches the lead, you close it.
+Reception answers every enquiry in seconds, in your name, day or night. It captures the lead to your phone and stays in its lane: no valuation, no premium, no advice. It routes that to you, the licensed pro.
 
-**Caption:**
+Be the first to reply. Every time. Without living on your phone.
 
-A buyer tried to view your listing last night. You were asleep.
+Send this to the agent on your team who's always "just about to reply".
 
-A buyer messages after hours, ready to view. Nobody replies, so by morning they've viewed with whoever answered first, and you never even find out it happened. That's the after-hours leak, and almost every agent has it.
+Try it free, pay only if you keep it. reception.sg
 
-Reception picks up for you. A 24/7 front desk that answers every enquiry in your name, knows your listing, and captures the lead, even at 11pm. It never quotes a valuation, it just catches the lead so you can close it.
+`#realestateagent #propertyagentsingapore #speedtolead #salestips #leadgeneration`
 
-Know an agent still checking their phone at midnight? Send this to them.
+### 3. Adviser demo  (insurance / financial)
+File: `reels/r08-adviser/renders/`. Audio: airy digital clouds. Cover: the "Lead captured" chat frame.
 
-Try it free at reception.sg. You only pay once you love it.
+10:52pm. A client asks to review her policies this week. You are asleep.
 
-**Hashtags (5/5):** `#propertyagentsingapore #sgproperty #realestateagent #speedtolead #realestatemarketing`
+Reception answers in your name, offers her a consultation, and stays in its lane: it never quotes a premium, never gives advice, never plays adviser. It takes her name and number and sends the lead straight to your phone. The MAS lines stay where they belong.
 
-**Posting:** tag location **Singapore**; write alt text on the slides.
+You wake up to a booked review, not a missed message.
 
----
+Send this to an adviser still answering clients at midnight.
 
-## 3. REEL B · "It's not a chatbot" (POV / why it works)
+Try it free. Pay only if you love it. S$99/mo founding rate if you join by 31 October, then S$149. reception.sg
 
-**File:** `reels/r06-whyitworks/renders/` (latest .mp4). 1080x1920, 12s, sound baked in.
-A different look on purpose: **ink ground, kinetic editorial type, no phone.** Hook "It's not a chatbot." → "It's your front desk." → the substance ticks in (Answers in your name / Qualifies the lead / Books the viewing / Never quotes a valuation) → "Smart enough to win the client. Safe enough for your licence." Close: "Your 24/7 front desk."
+`#financialadviser #insuranceagent #financialadvisorsg #wealthplanning #clientexperience`
 
-**Cover:** `reels/r06-whyitworks/covers/cover-notchatbot.png` · the "It's not a chatbot" hook.
-
-**Caption:**
+### 4. It's not a chatbot  (why it works)
+File: `reels/r06-whyitworks/renders/`. Audio: deep house. Cover: the "It's not a chatbot" hook.
 
 An AI front desk that won't get you in trouble with CEA.
 
@@ -83,15 +78,98 @@ Try it free at reception.sg. You only pay once you love it.
 
 reception.sg
 
-**Hashtags (5/5):** `#realestateagent #insuranceagent #financialadviser #propertyagentsingapore #proptech`
+`#realestateagent #insuranceagent #financialadviser #propertyagentsingapore #proptech`
 
-**Posting:** for the insurance/financial audience, swap the caption's "CEA" for "MAS" and "valuation" for "premium or advice"; the reel itself reads for all three trades. Tag location **Singapore**; alt text on the cover.
+(For an insurance/financial audience, swap "CEA" for "MAS" and "valuation" for "premium or advice".)
+
+---
+
+## CAROUSELS
+
+### 5. How it works  (the pin, 5 slides)
+Files: `carousels/c06-howitworks/out/slide-01..05.png`. Multi-select in order, slide 01 = cover.
+
+New here? This is Reception in three steps.
+
+01 · Tell us what you offer. You get one link and a QR.
+02 · It answers every enquiry in your name, 24/7, and never quotes a valuation or gives advice.
+03 · The lead lands on your phone. You close it.
+
+No website, no app, no tech skills. Live in minutes.
+
+New agent on your team? Send them this to explain it in ten seconds.
+
+Try it free at reception.sg. You only pay if you love it.
+
+`#propertyagentsingapore #realestateagent #financialadviser #proptech #linkinbio`
+
+### 6. The after-hours leak  (property companion, 5 slides)
+Files: `carousels/c05-property-1147/out/slide-01..05.png`.
+
+A buyer tried to view your listing last night. You were asleep.
+
+A buyer messages after hours, ready to view. Nobody replies, so by morning they've viewed with whoever answered first, and you never even find out it happened. That's the after-hours leak, and almost every agent has it.
+
+Reception picks up for you. A 24/7 front desk that answers every enquiry in your name, knows your listing, and captures the lead, even at 11pm. It never quotes a valuation, it just catches the lead so you can close it.
+
+Know an agent still checking their phone at midnight? Send this to them.
+
+Try it free at reception.sg. You only pay once you love it.
+
+`#propertyagentsingapore #sgproperty #realestateagent #speedtolead #realestatemarketing`
+
+### 7. What it costs  (pricing, 3 slides)
+Files: `carousels/c07-pricing/out/slide-01..03.png`.
+
+S$99 a month. That is the whole front desk.
+
+Founding rate if you join by 31 October, then S$149. One flat price, no setup fee, no lock-in, cancel anytime.
+
+It answers every buyer and client in your name, day or night, captures the lead straight to your phone, and never quotes a figure or gives advice that should come from you. That is the whole point.
+
+One extra deal a year more than covers it.
+
+Know an agent weighing it up? Send them this.
+
+Try it free. You only pay if you love it. reception.sg
+
+`#propertyagentsingapore #realestateagent #insuranceagent #financialadviser #salestips`
+
+### 8. The math  (how it helps, 5 slides)
+Files: `carousels/c08-themath/out/slide-01..05.png`.
+
+The after-hours enquiry you miss tonight is not lost. It just becomes someone else's client.
+
+The agent who replies first usually gets the viewing. Reception answers every buyer and client in seconds, day or night, in your name, and captures the lead straight to your phone. It stays in its lane too: never quotes a valuation or premium, never gives advice, routes that back to you.
+
+Do the quiet math. Reception is S$99 a month. One deal you keep is worth many months of that, and you already know the figure. So the real question was never the S$99. It is how many leads you can afford to lose.
+
+Send this to an agent who thinks S$99 is the expensive part.
+
+Try it free. Pay only if you love it. S$99/mo founding rate if you join by 31 October, then S$149. reception.sg
+
+`#realestateagent #propertyagentsingapore #speedtolead #leadgeneration #realestatetips`
+
+### 9. No website needed  (one link + QR, 4 slides)
+Files: `carousels/c09-nowebsite/out/slide-01..04.png`.
+
+You do not need a website to answer buyers at 11pm.
+
+Reception lives on one link, reception.sg/yourname, plus a QR code. Put it in your Instagram bio, your WhatsApp, your property-portal profile, your name card. Anyone who taps it gets answered in seconds, in your name, and the lead lands on your phone. It stays in its lane too: never quotes a price or gives advice, just catches the enquiry and hands it to you.
+
+No hosting, no build, no tech skills. Live in minutes.
+
+Know an agent still "building a website"? Send them this.
+
+Try it free, pay only if you love it. reception.sg
+
+`#propertyagentsingapore #realestateagent #linkinbio #sgproperty #proptech`
 
 ---
 
 ## Notes
-- Posting is manual (IG blocks safe auto-posting). Everything here is upload-ready.
-- The old salon/aircon batch (Bloom reel, aircon reels, generic carousels) is retired to `reels/_archive-oldmodel/` and `carousels/_archive-oldmodel/`, not deleted.
-- Each reel is its own design (per the decks system in `brand/tokens.json`): the grid stays unified by shared craft, never by a repeated template.
-- Music licence: Mixkit Free License (commercial + social, no attribution). Source in each reel's `assets/audio/`.
-- Next batch ideas (keep the fresh-design rule): an insurance/financial product-demo reel off the Rachel Ng desk; a "speed wins the client" stat reel; a founder-POV reel once you're ready to be on camera.
+- Posting is manual (IG blocks safe auto-posting). Everything here is upload-ready; the download deck (adamdegoat.github.io/receptionig) has Download + Copy buttons for all of it.
+- Each reel has its own audio (synthwave / minimal techno / digital clouds / deep house), all Mixkit Free License (commercial + social, no attribution).
+- Each piece is its own design; the grid stays unified by shared craft, never a repeated template.
+- Old salon/aircon batch is retired to `reels/_archive-oldmodel/` and `carousels/_archive-oldmodel/`.
+- Next batch ideas: a real-results proof post once you have a client; a founder-POV reel; more per-trade demos.
