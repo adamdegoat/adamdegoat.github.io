@@ -167,6 +167,57 @@ Try it free, pay only if you love it. reception.sg
 
 ---
 
+# Single posts
+
+Quick, one-image posts to keep the profile active between the bigger pieces. Five different looks. Long-press the image to Save to Photos.
+
+## Single 1 · 9x speed stat
+The client messages three agents. They go with whoever replies first.
+
+Reply within about 5 minutes and you're up to 9 times more likely to win them. Most agents are driving, in a meeting, or asleep. Reception answers every enquiry in seconds, in your name, and sends the lead to your phone.
+
+Be first. Every time. Try it free at reception.sg, pay only if you love it.
+
+`#propertyagentsingapore #realestateagent #speedtolead #leadgeneration #proptech`
+
+## Single 2 · Safe for your licence
+The real reason agents hesitate on an AI reply tool: the licence.
+
+Reception is built for it. It answers buyers and clients in your name, qualifies the lead and books the viewing, and never quotes a valuation, never gives advice, never crosses the CEA or MAS line. It catches the lead and hands it to you.
+
+Smart enough to win the client. Safe enough for your licence. reception.sg
+
+`#realestateagent #insuranceagent #financialadviser #propertyagentsingapore #proptech`
+
+## Single 3 · Not this one (myth flip)
+"An AI reply desk will get me in trouble with CEA."
+
+Not this one. Reception answers in your name and books the viewing, and stays firmly on the right side of the CEA and MAS line. No valuation, no advice, no crossing over. It just catches the lead so you can close it.
+
+Send this to an agent who thinks AI means a spammy chatbot. Try it free at reception.sg.
+
+`#propertyagentsingapore #realestateagent #insuranceagent #sgproperty #proptech`
+
+## Single 4 · Awake at 3am
+Your front desk. Awake at 3am.
+
+While you sleep, a buyer messages about your listing. Reception answers in your name, takes their details, and books the viewing. You wake up to a lead, not a missed message.
+
+Never lose the after-hours enquiry again. Try it free, pay only if you love it. reception.sg
+
+`#propertyagentsingapore #sgproperty #realestateagent #speedtolead #realestatemarketing`
+
+## Single 5 · S$99 a month
+S$99 a month. That is the whole front desk.
+
+Founding rate if you join by 31 October, then S$149. No setup fee, no lock-in, cancel anytime. It answers every buyer and client in your name, day or night, and sends the lead straight to your phone.
+
+One extra deal a year more than covers it. Try it free at reception.sg.
+
+`#propertyagentsingapore #realestateagent #insuranceagent #financialadviser #salestips`
+
+---
+
 ## Notes
 - Posting is manual (IG blocks safe auto-posting). Everything here is upload-ready; the download deck (adamdegoat.github.io/receptionig) has Download + Copy buttons for all of it.
 - Each reel has its own audio (synthwave / minimal techno / digital clouds / deep house), all Mixkit Free License (commercial + social, no attribution).
