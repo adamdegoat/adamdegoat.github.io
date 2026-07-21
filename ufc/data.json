@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-21T21:00:00.382937+08:00",
+  "updated": "2026-07-21T23:30:00.193693+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -159,9 +159,21 @@
   },
   "news": [
     {
+      "title": "Matt Brown praises Paddy Pimblett after he ‘stole the f*cking show’ at UFC 329 but still not sold on him as championship material",
+      "link": "https://www.mmafighting.com/ufc/500369/matt-brown-praises-paddy-pimblett-after-he-stole-the-fcking-show-at-ufc-329-but-still-not-sold-on-him-as-championship-material",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
       "title": "Sean O’Malley willing to wait for title shot, calls rematch with Petr Yan the biggest bantamweight fight in history",
       "link": "https://www.mmafighting.com/latest-news/500275/sean-omalley-willing-to-wait-for-title-shot-calls-rematch-with-petr-yan-the-biggest-bantamweight-fight-in-history",
       "source": "MMA Fighting",
+      "priority": true
+    },
+    {
+      "title": "PFL teams up with RIZIN for historic dual-promotion featherweight title fight",
+      "link": "https://www.mmamania.com/professional-fighters-league-pfl/458796/pfl-rizin-historic-dual-promotion-featherweight-title-fight",
+      "source": "MMA Mania",
       "priority": true
     },
     {
@@ -189,6 +201,12 @@
       "priority": true
     },
     {
+      "title": "Colby Covington reacts to ‘unprofessional little clown’ Belal Muhammad starting melee at RAF 11 post-fight press conference",
+      "link": "https://www.mmafighting.com/raf-wrestling/500365/colby-covington-reacts-to-unprofessional-little-clown-belal-muhammad-starting-melee-at-raf-11-post-fight-press-conference",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "On To the Next One: What’s next for Dricus du Plessis, Kamaru Usman after UFC Oklahoma City?",
       "link": "https://www.mmafighting.com/ufc/500331/on-to-the-next-one-whats-next-for-dricus-du-plessis-kamaru-usman-after-ufc-oklahoma-city",
       "source": "MMA Fighting",
@@ -207,30 +225,6 @@
       "priority": false
     },
     {
-      "title": "Dricus du Plessis: ‘Stillknocks 2.0 is here’ after beating Kamaru Usman at UFC Oklahoma City",
-      "link": "https://www.mmafighting.com/latest-news/500259/dricus-du-plessis-stillknocks-2-0-is-here-after-beating-kamaru-usman-at-ufc-oklahoma-city",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Morning Report | Ian Machado Garry sees parallels between his fight with Islam Makhachev and Conor McGregor beating Jose Aldo",
-      "link": "https://www.mmafighting.com/latest-news/499736/morning-report-ian-machado-garry-sees-parallels-between-his-fight-with-islam-makhachev-and-conor-mcgregor-beating-jose-aldo",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Noche UFC? More like Mañana UFC as fights moved early to avoid Ryan Garcia vs. Conor Benn event",
-      "link": "https://www.mmamania.com/ufc-news/458880/noche-ufc-more-like-manana-ufc-as-fights-moved-early-to-avoid-ryan-garcia-vs-conor-benn-event",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "Colby Covington reveals surprising post-match message to Arman Tsarukyan: ‘You’re going to be UFC Lightweight champion’",
-      "link": "https://www.mmamania.com/raf-wrestling-schedule-cards-live-results/458850/colby-covington-reveals-surprising-post-match-message-to-arman-tsarukyan-youre-going-to-be-ufc-lightweight-champion",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
       "title": "Paddy Pimblett drops $13k on Ilia Topuria’s UFC White House quit stool: ‘Collector’s item’",
       "link": "https://www.mmamania.com/ufc-news/458695/paddy-pimblett-drops-13k-on-ilia-topurias-ufc-white-house-quit-stool-collectors-item",
       "source": "MMA Mania",
@@ -241,11 +235,17 @@
       "link": "https://www.mmamania.com/boxing/457326/errol-spence-vs-tim-tszyu-full-fight-card-amazon-prime-ppv-start-time-usa-vs-aus",
       "source": "MMA Mania",
       "priority": false
+    },
+    {
+      "title": "Chase Hooper admits he would’ve ‘gotten a job’ with UFC Oklahoma City loss – ‘It was make-or-break’",
+      "link": "https://www.mmamania.com/latest-news/458828/chase-hooper-admits-he-wouldve-gotten-a-job-with-ufc-oklahoma-city-loss-it-was-make-or-break",
+      "source": "MMA Mania",
+      "priority": false
     }
   ],
   "hooks": {
-    "week": "This Sunday, Ankalaev and Rountree settle their beef for light heavyweight supremacy.",
-    "prefight": "Light heavyweight fireworks: Ankalaev battles Rountree this Sunday.",
-    "results": "Du Plessis dominates Usman over five rounds, sweeping all three judges' scorecards."
+    "week": "Five days away: Ankalaev meets Rountree in an explosive light heavyweight showdown.",
+    "prefight": "Ankalaev and Rountree collide this Sunday in a light heavyweight showdown.",
+    "results": "Du Plessis outworks Usman for dominant unanimous decision, sweeping the scorecards."
   }
 }
