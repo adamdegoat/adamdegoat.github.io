@@ -68,6 +68,15 @@
   .copybox .lbl { font-family:var(--mono); font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px; }
   .copybox .val { font-size:15px; white-space:pre-line; line-height:1.5; }
   footer { font-family:var(--mono); font-size:12px; color:var(--muted); padding:26px 0; text-align:center; }
+
+  /* Mobile: keep the growing list short to scroll — smaller previews, tighter cards */
+  @media (max-width:640px){
+    .item { padding:12px; margin-bottom:12px; }
+    video.thumb { max-height:300px; }
+    .cap { max-height:112px; font-size:13.5px; }
+    .slides { grid-template-columns:repeat(auto-fill,minmax(62px,1fr)); gap:7px; }
+    .item .sub { margin-bottom:10px; }
+  }
 </style>
 </head>
 <body>
