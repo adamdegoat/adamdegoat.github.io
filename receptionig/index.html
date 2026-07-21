@@ -85,7 +85,7 @@
 <div class="wrap">
   <header>
     <div class="t"><svg viewBox="5 10 54 54"><rect x="9" y="45.5" width="46" height="5.8" rx="2.9" fill="#171512"/><path d="M15.5 45.5 a16.5 15.5 0 0 1 33 0 Z" fill="#171512"/><circle cx="32" cy="26.5" r="3.9" fill="#e8663a"/></svg> Reception IG</div>
-    <div class="s">For SG property, insurance &amp; financial agents.<br><b>Captions:</b> tap Copy. <b>Reels:</b> tap Save video, on iPhone the share sheet opens, tap <b>Save Video</b> to add it to Photos. <b>Images:</b> long-press &rarr; Save to Photos.</div>
+    <div class="s">For SG property, insurance &amp; financial agents.<br><b>Captions:</b> tap Copy. <b>Reels:</b> tap Save video, on iPhone the share sheet opens, tap <b>Save Video</b> to add it to Photos. <b>Images:</b> tap the <b>&darr;</b> / <b>Save image</b>, the share sheet opens, tap <b>Save Image</b> to add it to Photos. (Or long-press the image in Safari.)</div>
   </header>
 
   <nav><div class="row">
@@ -599,15 +599,22 @@ Try it free &darr;</div>
     });
   });
 
-  // --- Save video: iPhone opens the native share sheet (tap Save Video -> Photos); else downloads ---
-  document.querySelectorAll('a.btn.dl').forEach(function(a){
-    if(!/\.mp4(\?|$)/i.test(a.getAttribute('href')||'')) return;
+  // --- Save media: iPhone/Android open the native share sheet (tap Save Image / Save Video -> Photos); else download ---
+  function mediaType(href){
+    if(/\.mp4(\?|$)/i.test(href)) return 'video/mp4';
+    if(/\.(jpe?g)(\?|$)/i.test(href)) return 'image/jpeg';
+    if(/\.png(\?|$)/i.test(href)) return 'image/png';
+    return '';
+  }
+  document.querySelectorAll('a.btn.dl, .slide a[download]').forEach(function(a){
+    var type=mediaType(a.getAttribute('href')||'');
+    if(!type) return;
     a.addEventListener('click', function(ev){
       ev.preventDefault();
-      var href=a.getAttribute('href'), name=a.getAttribute('download')||'reception-reel.mp4';
-      var lbl=a.textContent; a.textContent='Preparing...';
+      var href=a.getAttribute('href'), name=a.getAttribute('download')||'reception';
+      var lbl=a.textContent; a.textContent=type.indexOf('image')===0?'...':'Preparing...';
       fetch(href).then(function(r){ return r.blob(); }).then(function(blob){
-        var file=new File([blob], name, {type:'video/mp4'});
+        var file=new File([blob], name, {type:type});
         if(navigator.canShare && navigator.canShare({files:[file]})){
           a.textContent=lbl;
           return navigator.share({files:[file]}).catch(function(){});
