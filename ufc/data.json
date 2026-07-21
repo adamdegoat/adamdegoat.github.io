@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-21T13:00:00.372965+08:00",
+  "updated": "2026-07-21T21:00:00.382937+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -165,26 +165,20 @@
       "priority": true
     },
     {
-      "title": "PFL teams up with RIZIN for historic dual-promotion featherweight title fight",
-      "link": "https://www.mmamania.com/professional-fighters-league-pfl/458796/pfl-rizin-historic-dual-promotion-featherweight-title-fight",
-      "source": "MMA Mania",
-      "priority": true
-    },
-    {
       "title": "PFL, Rizin make MMA history with double title fight at Super Rizin 5",
       "link": "https://www.sherdog.com/news/news/PFL-Rizin-make-MMA-history-with-double-title-fight-at-Super-Rizin-5-201991",
       "source": "Sherdog",
       "priority": true
     },
     {
-      "title": "Conor McGregor compares UFC 329 injury to 2013 setback, eyes quick return",
-      "link": "https://www.sherdog.com/news/news/Conor-McGregor-compares-UFC-329-injury-to-2013-setback-eyes-quick-return-201972",
+      "title": "Thad Jean predicts Shamil Musaev will get ‘greedy’ before PFL title fight",
+      "link": "https://www.sherdog.com/news/news/Thad-Jean-predicts-Shamil-Musaev-will-get-greedy-before-PFL-title-fight-202007",
       "source": "Sherdog",
       "priority": true
     },
     {
-      "title": "Alexandre Pantoja says he's ready for Joshua Van rematch after arm injury",
-      "link": "https://www.sherdog.com/news/news/Alexandre-Pantoja-says-hes-ready-for-Joshua-Van-rematch-after-arm-injury-201980",
+      "title": "Conor McGregor compares UFC 329 injury to 2013 setback, eyes quick return",
+      "link": "https://www.sherdog.com/news/news/Conor-McGregor-compares-UFC-329-injury-to-2013-setback-eyes-quick-return-201972",
       "source": "Sherdog",
       "priority": true
     },
@@ -225,27 +219,33 @@
       "priority": false
     },
     {
-      "title": "Mailbag: Is Conor McGregor ever going to fight again after the UFC 329 fiasco?",
-      "link": "https://www.mmafighting.com/latest-news/499778/mailbag-is-conor-mcgregor-ever-going-to-fight-again-after-the-ufc-329-fiasco",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Pic: UFC Vegas 120 poster unveiled for ‘Gamrot vs. Salkilld’-led card on Aug. 8",
-      "link": "https://www.mmamania.com/ufc-strikeforce-posters/458824/pic-ufc-vegas-120-poster-unveiled-for-gamrot-vs-salkilld-led-card-on-aug-8",
+      "title": "Noche UFC? More like Mañana UFC as fights moved early to avoid Ryan Garcia vs. Conor Benn event",
+      "link": "https://www.mmamania.com/ufc-news/458880/noche-ufc-more-like-manana-ufc-as-fights-moved-early-to-avoid-ryan-garcia-vs-conor-benn-event",
       "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "‘Real American gangster’ Tommy McMillen vows he’s the third Diaz brother – ‘They made me sit with a cop’ | UFC OKC",
-      "link": "https://www.mmamania.com/latest-news/458814/real-american-gangster-tommy-mcmillen-vows-hes-the-third-diaz-brother-they-made-me-sit-with-a-cop-ufc-okc",
+      "title": "Colby Covington reveals surprising post-match message to Arman Tsarukyan: ‘You’re going to be UFC Lightweight champion’",
+      "link": "https://www.mmamania.com/raf-wrestling-schedule-cards-live-results/458850/colby-covington-reveals-surprising-post-match-message-to-arman-tsarukyan-youre-going-to-be-ufc-lightweight-champion",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
+      "title": "Paddy Pimblett drops $13k on Ilia Topuria’s UFC White House quit stool: ‘Collector’s item’",
+      "link": "https://www.mmamania.com/ufc-news/458695/paddy-pimblett-drops-13k-on-ilia-topurias-ufc-white-house-quit-stool-collectors-item",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
+      "title": "Errol Spence vs. Tim Tszyu full fight card, Amazon Prime PPV start time | ‘USA vs. AUS’",
+      "link": "https://www.mmamania.com/boxing/457326/errol-spence-vs-tim-tszyu-full-fight-card-amazon-prime-ppv-start-time-usa-vs-aus",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Ankalaev clashes with Rountree Sunday at midnight SGT for light heavyweight gold.",
-    "prefight": "Ankalaev vs Rountree this Sunday midnight SGT—light heavyweight showdown with championship implications awaits.",
-    "results": "Du Plessis dismantled Usman across five rounds, claiming a clean unanimous decision."
+    "week": "This Sunday, Ankalaev and Rountree settle their beef for light heavyweight supremacy.",
+    "prefight": "Light heavyweight fireworks: Ankalaev battles Rountree this Sunday.",
+    "results": "Du Plessis dominates Usman over five rounds, sweeping all three judges' scorecards."
   }
 }
