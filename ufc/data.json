@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-20T23:30:00.236125+08:00",
+  "updated": "2026-07-21T09:00:00.422175+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -165,9 +165,9 @@
       "priority": true
     },
     {
-      "title": "Conor McGregor provides update on extent of his knee injury, gives timeline for UFC return",
-      "link": "https://www.mmafighting.com/latest-news/500242/conor-mcgregor-provides-update-on-extent-of-his-knee-injury-gives-timeline-for-ufc-return",
-      "source": "MMA Fighting",
+      "title": "PFL teams up with RIZIN for historic dual-promotion featherweight title fight",
+      "link": "https://www.mmamania.com/professional-fighters-league-pfl/458796/pfl-rizin-historic-dual-promotion-featherweight-title-fight",
+      "source": "MMA Mania",
       "priority": true
     },
     {
@@ -195,16 +195,22 @@
       "priority": true
     },
     {
-      "title": "Conor McGregor confirms ACL injury during disappointing UFC 329 outcome: “I believe I was saved”",
-      "link": "https://www.bjpenn.com/mma-news/ufc/conor-mcgregor-confirms-acl-injury-during-disappointing-ufc-329-outcome-i-believe-i-was-saved/?utm_source=rss&utm_medium=rss&utm_campaign=conor-mcgregor-confirms-acl-injury-during-disappointing-ufc-329-outcome-i-believe-i-was-saved",
-      "source": "BJPenn",
-      "priority": true
+      "title": "On To the Next One: What’s next for Dricus du Plessis, Kamaru Usman after UFC Oklahoma City?",
+      "link": "https://www.mmafighting.com/ufc/500331/on-to-the-next-one-whats-next-for-dricus-du-plessis-kamaru-usman-after-ufc-oklahoma-city",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
-      "title": "ONE Championship delivers two wild decisions and one dramatic finish at Friday Fights 162",
-      "link": "https://www.bjpenn.com/mma-news/one-championship/one-championship-delivers-two-wild-decisions-and-one-dramatic-finish-at-friday-fights-162/?utm_source=rss&utm_medium=rss&utm_campaign=one-championship-delivers-two-wild-decisions-and-one-dramatic-finish-at-friday-fights-162",
-      "source": "BJPenn",
-      "priority": true
+      "title": "Paddy Pimblett trolls Ilia Topuria, claims he bought UFC White House ‘collector’s item’",
+      "link": "https://www.mmafighting.com/latest-news/500338/paddy-pimblett-trolls-ilia-topuria-claims-he-bought-ufc-white-house-collectors-item",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Video: Undefeated teen prospect puts ex-UFC fighter to sleep in controversial Fury FC fight",
+      "link": "https://www.mmafighting.com/latest-news/500320/video-security-intervenes-after-undefeated-19-year-old-prospect-puts-ex-ufc-fighter-to-sleep-in-controversial-fury-fc-fight",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "Dricus du Plessis: ‘Stillknocks 2.0 is here’ after beating Kamaru Usman at UFC Oklahoma City",
@@ -225,27 +231,21 @@
       "priority": false
     },
     {
-      "title": "Luke Riley responds to Joe Rogan after criticism of controversial UFC 329 knockout win",
-      "link": "https://www.mmafighting.com/ufc/499195/luke-riley-responds-to-joe-rogan-after-criticism-of-controversial-ufc-329-knockout-win",
-      "source": "MMA Fighting",
+      "title": "Pic: UFC Vegas 120 poster unveiled for ‘Gamrot vs. Salkilld’-led card on Aug. 8",
+      "link": "https://www.mmamania.com/ufc-strikeforce-posters/458824/pic-ufc-vegas-120-poster-unveiled-for-gamrot-vs-salkilld-led-card-on-aug-8",
+      "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "6 fights announced for UFC Noche",
-      "link": "https://www.mmafighting.com/ufc/500207/6-fights-announced-for-ufc-noche",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Six fights announced for UFC Noche 2026, including two former Mexican champs",
-      "link": "https://www.mmamania.com/ufc-fight-announcements/458744/six-fights-announced-for-ufc-noche-2026-including-two-former-mexican-champs",
+      "title": "‘Real American gangster’ Tommy McMillen vows he’s the third Diaz brother – ‘They made me sit with a cop’ | UFC OKC",
+      "link": "https://www.mmamania.com/latest-news/458814/real-american-gangster-tommy-mcmillen-vows-hes-the-third-diaz-brother-they-made-me-sit-with-a-cop-ufc-okc",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Ankalaev and Rountree light heavyweight fireworks ignite Sunday midnight SGT—set your alarms now.",
-    "prefight": "Ankalaev and Rountree collide in light heavyweight war this Sunday—mark July 26.",
-    "results": "Du Plessis outworks Usman for dominant unanimous decision across all scorecards."
+    "week": "Light heavyweight explosion: Ankalaev vs Rountree, this Sunday at 12am SGT — don't sleep.",
+    "prefight": "Ankalaev and Rountree go to war in a light heavyweight collision this Sunday.",
+    "results": "Du Plessis dominates Usman across five rounds, claiming a unanimous decision victory on all cards."
   }
 }
