@@ -1,0 +1,34 @@
+[
+  {
+    "id": "x-mop-onenumber",
+    "type": "Reel",
+    "kind": "Field Note reel",
+    "hook": "Nine tenths of it was never the flat. It was the lease.",
+    "caption": "The five-year wave was supposed to make flats cheap. We checked it against our own transaction records.\n\nA flat that has just passed its five-year mark sells about 20% higher per square foot than the rest of its town. It also carries around 95 years of lease. Compare it only against other long-lease flats in the same town and flat type, and the premium falls to about 2%.\n\nNine tenths of it was never the flat. It was the lease.\n\nFull working at propsight.sg, link in bio. Free, no sign-up.",
+    "cap_zh": "",
+    "tags": "#singaporeproperty #hdb #hdbresale #sgproperty #propertysingapore",
+    "location": "Singapore",
+    "video": "reels/clips/x-mop-onenumber.mp4",
+    "paths": [
+      "studio/x-mop-onenumber.png"
+    ],
+    "audio": "Sound: punchy, slightly dramatic. Search IG audio for “dramatic reveal” or “punchy beat”, pick a ↑ trending one (under 30s), volume low."
+  },
+  {
+    "id": "x-mopdive",
+    "type": "Carousel",
+    "kind": "Field Note carousel",
+    "hook": "A record number of flats can finally be sold. Does that make them cheaper?",
+    "caption": "A record number of Singapore flats passed their five-year mark this year, and the headline everyone repeats is that this makes them cheap. We checked it against our own transaction records.\n\nNewly eligible flats do sell about 20% higher per square foot than the rest of their town. But they also carry around 95 years of lease. Compare them only against other long-lease flats in the same town and flat type and the premium falls to about 2%. Nine tenths of what looks like a freshness premium is simply the lease.\n\nWhere most of that stock is actually trading, Tampines and Bukit Batok, it sells 2.5% and 3.0% below comparable flats. That is a few percent of room, not a fire sale.\n\nOne more thing worth knowing: the 13,480 figure is an industry compilation, not an HDB release. Different compilers publish different numbers.\n\nFull working at propsight.sg, link in bio. Free, no sign-up.",
+    "cap_zh": "今年有创纪录数量的组屋满五年可以转售，人人都说这会让它们变便宜。我们用自己的成交记录核实了一下。\n\n刚满五年的组屋每平方英尺确实比全镇其他单位高出约20%。但它们的剩余屋契也长达约95年。若只与同一市镇、同一房型中屋契同样长的单位相比，这个溢价便收窄至约2%。看似「新净」的溢价，约九成其实只是屋契。\n\n在这类房源成交最活跃的市镇，淡滨尼和武吉巴督，它们比可比单位低2.5%和3.0%。这是几个百分点的空间，而不是抛售。\n\n还有一点值得知道：13,480这个数字是业界自行整理的，并非建屋局发布。不同机构给出的数字并不一致。\n\n完整分析在 propsight.sg，链接在简介。免费，无需注册。\n\n#singaporeproperty #hdb #hdbresale #sgproperty #propertysingapore",
+    "tags": "#singaporeproperty #hdb #hdbresale #sgproperty #propertysingapore",
+    "location": "Singapore",
+    "paths": [
+      "studio/x-mopdive-1.png",
+      "studio/x-mopdive-2.png",
+      "studio/x-mopdive-3.png",
+      "studio/x-mopdive-4.png"
+    ],
+    "photo_note": "Editorial plates, computed from our own HDB resale records"
+  }
+]
