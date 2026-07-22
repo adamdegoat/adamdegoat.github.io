@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-22T13:00:00.273477+08:00",
+  "updated": "2026-07-22T21:00:00.324128+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -171,6 +171,12 @@
       "priority": true
     },
     {
+      "title": "Ian Machado Garry channeling mommy issues for UFC 330 title fight : ‘I use that as fuel every day’",
+      "link": "https://www.mmamania.com/ufc-news/458988/ian-machado-garry-channeling-mommy-issues-for-ufc-330-title-fight-i-use-that-as-fuel-every-day",
+      "source": "MMA Mania",
+      "priority": true
+    },
+    {
       "title": "Joe Lauzon booked against 0-2 BKFC fighter opponent for bare knuckle debut at Fenway Park",
       "link": "https://www.mmamania.com/bare-knuckle-boxing-results-rules-ppv/458940/joe-lauzon-booked-against-0-2-bkfc-fighter-opponent-for-bare-knuckle-debut-at-fenway-park",
       "source": "MMA Mania",
@@ -231,21 +237,15 @@
       "priority": false
     },
     {
-      "title": "Top-ranked Flyweight contender reveals UFC uses social media followers to book main events – ‘I was pissed’",
-      "link": "https://www.mmamania.com/latest-news/458930/top-ranked-flyweight-contender-reveals-ufc-uses-social-media-followers-to-book-main-events-i-was-pissed",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "PFL Washington full fight card, ESPN start time | Jean vs. Musaev",
-      "link": "https://www.mmamania.com/professional-fighters-league-pfl/457402/pfl-washington-full-fight-card-espn-start-time-jean-vs-musaev",
+      "title": "UFC Abu Dhabi main card odds, breakdowns and predictions | X-Factor",
+      "link": "https://www.mmamania.com/ufc-odds/458656/ufc-abu-dhabi-main-card-odds-breakdowns-and-predictions-x-factor",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Ankalaev and Rountree collide Sunday for an explosive light heavyweight showdown.",
-    "prefight": "Ankalaev meets Rountree Sunday for light heavyweight supremacy—fight week just got real.",
-    "results": "Du Plessis sweeps Usman in five, taking the unanimous decision."
+    "week": "Ankalaev and Rountree collide Sunday morning in a light heavyweight showdown.",
+    "prefight": "Ankalaev vs Rountree this Sunday—two light heavyweight titans ready for war.",
+    "results": "Du Plessis outpoints Usman with dominant unanimous decision in UFC main event."
   }
 }
