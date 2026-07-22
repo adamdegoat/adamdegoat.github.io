@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-22T09:00:00.302428+08:00",
+  "updated": "2026-07-22T13:00:00.273477+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -171,6 +171,18 @@
       "priority": true
     },
     {
+      "title": "Joe Lauzon booked against 0-2 BKFC fighter opponent for bare knuckle debut at Fenway Park",
+      "link": "https://www.mmamania.com/bare-knuckle-boxing-results-rules-ppv/458940/joe-lauzon-booked-against-0-2-bkfc-fighter-opponent-for-bare-knuckle-debut-at-fenway-park",
+      "source": "MMA Mania",
+      "priority": true
+    },
+    {
+      "title": "Logan Paul calls out Conor McGregor following devastating UFC 329 injury",
+      "link": "https://www.sherdog.com/news/news/Logan-Paul-calls-out-Conor-McGregor-following-devastating-UFC-329-injury-202017",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
       "title": "PFL, Rizin make MMA history with double title fight at Super Rizin 5",
       "link": "https://www.sherdog.com/news/news/PFL-Rizin-make-MMA-history-with-double-title-fight-at-Super-Rizin-5-201991",
       "source": "Sherdog",
@@ -179,12 +191,6 @@
     {
       "title": "Thad Jean predicts Shamil Musaev will get ‘greedy’ before PFL title fight",
       "link": "https://www.sherdog.com/news/news/Thad-Jean-predicts-Shamil-Musaev-will-get-greedy-before-PFL-title-fight-202007",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "Conor McGregor compares UFC 329 injury to 2013 setback, eyes quick return",
-      "link": "https://www.sherdog.com/news/news/Conor-McGregor-compares-UFC-329-injury-to-2013-setback-eyes-quick-return-201972",
       "source": "Sherdog",
       "priority": true
     },
@@ -225,27 +231,21 @@
       "priority": false
     },
     {
+      "title": "Top-ranked Flyweight contender reveals UFC uses social media followers to book main events – ‘I was pissed’",
+      "link": "https://www.mmamania.com/latest-news/458930/top-ranked-flyweight-contender-reveals-ufc-uses-social-media-followers-to-book-main-events-i-was-pissed",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
       "title": "PFL Washington full fight card, ESPN start time | Jean vs. Musaev",
       "link": "https://www.mmamania.com/professional-fighters-league-pfl/457402/pfl-washington-full-fight-card-espn-start-time-jean-vs-musaev",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "UFC’s record-setting submission ace vows to beat Gable Steveson, spit in Jon Jones’ face",
-      "link": "https://www.mmamania.com/upcoming-ufc-events/458917/ufcs-record-setting-submission-ace-beat-gable-steveson-spit-jon-jones-face",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "AI? Former UFC champ unrecognizable in stunning new makeover and fight fans are SHOOK",
-      "link": "https://www.mmamania.com/ufc-news/458911/ai-former-ufc-champ-unrecognizable-in-stunning-new-makeover-fight-fans-shook",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Ankalaev and Rountree clash Sunday. Light heavyweight violence. Early morning fireworks. Fight week ignites.",
-    "prefight": "Ankalaev vs Rountree Sunday midnight SGT—two elite strikers collide in an unmissable light heavyweight affair.",
-    "results": "Du Plessis dominates Usman across five rounds, earning a clean unanimous decision."
+    "week": "Ankalaev and Rountree collide Sunday for an explosive light heavyweight showdown.",
+    "prefight": "Ankalaev meets Rountree Sunday for light heavyweight supremacy—fight week just got real.",
+    "results": "Du Plessis sweeps Usman in five, taking the unanimous decision."
   }
 }
