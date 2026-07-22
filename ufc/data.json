@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-22T21:00:00.324128+08:00",
+  "updated": "2026-07-22T23:30:00.365997+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -207,6 +207,12 @@
       "priority": true
     },
     {
+      "title": "Andy Foster responds to complaints about Herb Dean after Alex Pereira vs. Ciryl Gane at UFC White House",
+      "link": "https://www.mmafighting.com/ufc/500508/andy-foster-responds-to-complaints-about-herb-dean-after-alex-pereira-vs-ciryl-gane-at-ufc-white-house",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "RAF exec gives update on Colby Covington vs. Belal Muhammad match after RAF 11 post-event melee",
       "link": "https://www.mmafighting.com/raf-wrestling/500464/raf-exec-gives-update-on-colby-covington-vs-belal-muhammad-match-after-raf-11-post-event-melee",
       "source": "MMA Fighting",
@@ -225,27 +231,21 @@
       "priority": false
     },
     {
-      "title": "On To the Next One: What’s next for Dricus du Plessis, Kamaru Usman after UFC Oklahoma City?",
-      "link": "https://www.mmafighting.com/ufc/500331/on-to-the-next-one-whats-next-for-dricus-du-plessis-kamaru-usman-after-ufc-oklahoma-city",
-      "source": "MMA Fighting",
+      "title": "Video: Man wakes up in random truck bed after UFC Oklahoma — in a different city",
+      "link": "https://www.mmamania.com/ufc-videos/459044/video-man-wakes-up-random-truck-bed-ufc-oklahoma-different-city",
+      "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "Paddy Pimblett trolls Ilia Topuria, claims he bought UFC White House ‘collector’s item’",
-      "link": "https://www.mmafighting.com/latest-news/500338/paddy-pimblett-trolls-ilia-topuria-claims-he-bought-ufc-white-house-collectors-item",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "UFC Abu Dhabi main card odds, breakdowns and predictions | X-Factor",
-      "link": "https://www.mmamania.com/ufc-odds/458656/ufc-abu-dhabi-main-card-odds-breakdowns-and-predictions-x-factor",
+      "title": "CSAC quiets crybabies (like Alex Pereira) calling for UFC referee change — ‘Herb Dean has my full confidence’",
+      "link": "https://www.mmamania.com/ufc-news/459012/csac-quiets-crybabies-like-alex-pereira-calling-ufc-referee-change-herb-dean-has-my-full-confidence",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Ankalaev and Rountree collide Sunday morning in a light heavyweight showdown.",
-    "prefight": "Ankalaev vs Rountree this Sunday—two light heavyweight titans ready for war.",
-    "results": "Du Plessis outpoints Usman with dominant unanimous decision in UFC main event."
+    "week": "Ankalaev and Rountree collide for light heavyweight supremacy this Sunday night.",
+    "prefight": "Light heavyweight fireworks arrive Sunday as Ankalaev collides with Rountree.",
+    "results": "Du Plessis dominates five rounds, defeats Usman via unanimous decision."
   }
 }
