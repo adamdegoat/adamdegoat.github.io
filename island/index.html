@@ -94,7 +94,7 @@ function ferris(x,z){
   for(const zz of [-6,6]){ g.add(strut(new THREE.Vector3(-11,0,zz),new THREE.Vector3(0,cy,zz>0?1.6:-1.6),0.45,legMat)); g.add(strut(new THREE.Vector3(11,0,zz),new THREE.Vector3(0,cy,zz>0?1.6:-1.6),0.45,legMat)); }
   circles.push({x,z,r:12});
   updaters.push((t,dt)=>{ spin.rotation.z+=dt*0.22; gond.forEach(p=>p.rotation.z=-spin.rotation.z); });
-  { const _wp=new THREE.Vector3(); rideables.push({name:"Ferris Wheel", board:{x:x,z:z+14}, rideCam:(cam)=>{ gond[0].getWorldPosition(_wp); cam.position.lerp(new THREE.Vector3(_wp.x,_wp.y+0.4,_wp.z+0.7),0.22); cam.lookAt(_wp.x,_wp.y+0.1,_wp.z+16); }}); }
+  { const _wp=new THREE.Vector3(); rideables.push({name:"Ferris Wheel", board:{x:x,z:z+14}, rideCam:(cam)=>{ gond[0].getWorldPosition(_wp); cam.position.lerp(new THREE.Vector3(_wp.x,_wp.y-0.4,_wp.z+2.4),0.22); }}); }
   return g;
 }
 
@@ -136,7 +136,7 @@ function coaster(x,z){
   circles.push({x,z,r:6});
   let tt=0; const up=new THREE.Vector3(0,1,0);
   updaters.push((t,dt)=>{ tt=(tt+dt*0.045)%1; cars.forEach((c,i)=>{ const u=(tt - i*0.012 +1)%1; const p=curve.getPointAt(u), tan=curve.getTangentAt(u); c.position.copy(p).addScaledVector(up,0.45); c.lookAt(p.clone().add(tan).addScaledVector(up,0.45)); }); });
-  { const _p=new THREE.Vector3(), _pr=new THREE.Vector3(); rideables.push({name:"Roller Coaster", board:{x:x,z:z+8}, rideCam:(cam)=>{ cars[0].getWorldPosition(_p); const dir=_p.clone().sub(_pr); if(dir.lengthSq()<1e-4)dir.set(0,0,1); dir.normalize(); _pr.copy(_p); cam.position.lerp(new THREE.Vector3(_p.x-dir.x*4,_p.y+2,_p.z-dir.z*4),0.4); cam.lookAt(_p.x+dir.x*7,_p.y+0.6,_p.z+dir.z*7); }}); }
+  { const _p=new THREE.Vector3(), _pr=new THREE.Vector3(); rideables.push({name:"Roller Coaster", board:{x:x,z:z+8}, rideCam:(cam)=>{ cars[0].getWorldPosition(_p); const dir=_p.clone().sub(_pr); if(dir.lengthSq()<1e-4)dir.set(0,0,1); dir.normalize(); _pr.copy(_p); cam.position.lerp(new THREE.Vector3(_p.x-dir.x*3.2,_p.y+2.2,_p.z-dir.z*3.2),0.4); }}); }
   return g;
 }
 
@@ -189,7 +189,7 @@ function dropTower(x,z){ const g=new THREE.Group(); g.position.set(x,0,z); const
   circles.push({x,z,r:5}); let ph=rand(0,9);
   updaters.push((t,dt)=>{ ph+=dt; const c=ph%9; let y; if(c<5) y=3+(c/5)*(H-9); else if(c<6) y=H-6; else { const d=Math.min(1,(c-6)/1.2); y=(H-6)-(H-9)*(d*d); } if(c>7.2) y=3; carriage.position.y=Math.max(3,y); carriage.rotation.y=ph*0.25; });
   const _wp=new THREE.Vector3();
-  rideables.push({name:"Drop Tower", board:{x:x,z:z+7}, rideCam:(cam)=>{ carriage.getWorldPosition(_wp); const a=carriage.rotation.y, ox=Math.sin(a)*3.3, oz=Math.cos(a)*3.3; cam.position.lerp(new THREE.Vector3(_wp.x+ox,_wp.y+0.7,_wp.z+oz),0.5); cam.lookAt(_wp.x+ox*6,_wp.y-4,_wp.z+oz*6); }});
+  rideables.push({name:"Drop Tower", board:{x:x,z:z+7}, rideCam:(cam)=>{ carriage.getWorldPosition(_wp); const a=carriage.rotation.y, ox=Math.sin(a)*3.3, oz=Math.cos(a)*3.3; cam.position.lerp(new THREE.Vector3(_wp.x+ox*1.15,_wp.y+1.0,_wp.z+oz*1.15),0.5); }});
   return g; }
 function swinger(x,z){ const g=new THREE.Group(); g.position.set(x,0,z);
   const pole=new THREE.Mesh(new THREE.CylinderGeometry(1,1.4,17,14),metalMat); pole.position.y=8.5; pole.castShadow=true; g.add(pole);
@@ -204,7 +204,7 @@ function swinger(x,z){ const g=new THREE.Group(); g.position.set(x,0,z);
   circles.push({x,z,r:9});
   updaters.push((t,dt)=>{ spin.rotation.y+=dt*0.55; });
   const _wp=new THREE.Vector3();
-  rideables.push({name:"Wave Swinger", board:{x:x,z:z+11}, rideCam:(cam)=>{ seats[0].getWorldPosition(_wp); let ox=_wp.x-x, oz=_wp.z-z; const l=Math.hypot(ox,oz)||1; ox/=l; oz/=l; cam.position.lerp(new THREE.Vector3(_wp.x-ox*1.6,_wp.y+0.9,_wp.z-oz*1.6),0.3); cam.lookAt(_wp.x+ox*9,_wp.y-0.5,_wp.z+oz*9); }});
+  rideables.push({name:"Wave Swinger", board:{x:x,z:z+11}, rideCam:(cam)=>{ seats[0].getWorldPosition(_wp); let ox=_wp.x-x, oz=_wp.z-z; const l=Math.hypot(ox,oz)||1; ox/=l; oz/=l; cam.position.lerp(new THREE.Vector3(_wp.x-ox*1.8,_wp.y+1.1,_wp.z-oz*1.8),0.3); }});
   return g; }
 
 // ---------- ground (real photo grass + paved plaza + paths) ----------
@@ -233,7 +233,7 @@ const mkLimb=(mat,len,w)=>{const m=new THREE.Mesh(new THREE.BoxGeometry(w,len,w)
 const legL=new THREE.Group(),legR=new THREE.Group(),armL=new THREE.Group(),armR=new THREE.Group();
 legL.add(mkLimb(pants,0.85,0.26)); legL.position.set(-0.2,0.85,0); legR.add(mkLimb(pants,0.85,0.26)); legR.position.set(0.2,0.85,0);
 armL.add(mkLimb(shirt,0.78,0.2)); armL.position.set(-0.55,2.0,0); armR.add(mkLimb(shirt,0.78,0.2)); armR.position.set(0.55,2.0,0);
-char.add(torso,head,hair,legL,legR,armL,armR); char.position.set(0,0,54); scene.add(char);
+char.add(torso,head,hair,legL,legR,armL,armR); char.scale.setScalar(0.72); char.position.set(0,0,54); scene.add(char);
 let charYaw=0, walkPhase=0;
 
 // ---------- input (reused) ----------
@@ -323,7 +323,7 @@ new GLTFLoader().load('arch.glb',(gltf)=>{ const a=gltf.scene; a.position.set(0,
 // ---------- loop ----------
 let riding=null, nearRide=null;
 const ridebtn=document.getElementById('ridebtn'), exitbtn=document.getElementById('exitbtn');
-ridebtn.addEventListener('click',()=>{ if(nearRide){ riding=nearRide; char.visible=false; ridebtn.style.display='none'; exitbtn.style.display='block'; joy.style.display='none'; joyId=null; joyVec.x=joyVec.y=0; document.getElementById('tip').style.display='none'; } });
+ridebtn.addEventListener('click',()=>{ if(nearRide){ riding=nearRide; char.visible=false; ridebtn.style.display='none'; exitbtn.style.display='block'; joy.style.display='none'; joyId=null; joyVec.x=joyVec.y=0; camYaw=0; camPitch=0.45; document.getElementById('tip').style.display='none'; } });
 exitbtn.addEventListener('click',()=>{ if(riding){ char.position.set(riding.board.x,0,riding.board.z+2); charYaw=Math.PI; camYaw=Math.PI; riding=null; char.visible=true; exitbtn.style.display='none'; camDist=15; } });
 const SPEED=8.5, clock=new THREE.Clock();
 function animate(){ requestAnimationFrame(animate);
@@ -345,7 +345,12 @@ function animate(){ requestAnimationFrame(animate);
     camera.lookAt(char.position.x,char.position.y+1.8+lookUp,char.position.z);
     let nr=null,nd=1e9; for(const r of rideables){ const dd=(char.position.x-r.board.x)**2+(char.position.z-r.board.z)**2; if(dd<nd){nd=dd;nr=r;} }
     if(nr&&nd<64){ nearRide=nr; ridebtn.textContent='Ride the '+nr.name; ridebtn.style.display='block'; } else { nearRide=null; ridebtn.style.display='none'; }
-  } else { riding.rideCam(camera,dt); }
+  } else {
+    riding.rideCam(camera,dt);
+    const lp=camPitch-0.45;
+    const dx=Math.sin(camYaw)*Math.cos(lp), dy=Math.sin(lp), dz=Math.cos(camYaw)*Math.cos(lp);
+    camera.lookAt(camera.position.x+dx*30,camera.position.y+dy*30,camera.position.z+dz*30);
+  }
   for(const u of updaters) u(t,dt);
   composer.render();
 }
