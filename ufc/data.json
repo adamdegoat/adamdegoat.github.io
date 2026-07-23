@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-23T09:00:00.342618+08:00",
+  "updated": "2026-07-23T13:00:00.393659+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -171,20 +171,14 @@
       "priority": true
     },
     {
+      "title": "Tom Aspinall reveals the horrifying reality behind his UFC 321 injury",
+      "link": "https://www.sherdog.com/news/news/Tom-Aspinall-reveals-the-horrifying-reality-behind-his-UFC-321-injury-202034",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
       "title": "Logan Paul calls out Conor McGregor following devastating UFC 329 injury",
       "link": "https://www.sherdog.com/news/news/Logan-Paul-calls-out-Conor-McGregor-following-devastating-UFC-329-injury-202017",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "PFL, Rizin make MMA history with double title fight at Super Rizin 5",
-      "link": "https://www.sherdog.com/news/news/PFL-Rizin-make-MMA-history-with-double-title-fight-at-Super-Rizin-5-201991",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "Thad Jean predicts Shamil Musaev will get ‘greedy’ before PFL title fight",
-      "link": "https://www.sherdog.com/news/news/Thad-Jean-predicts-Shamil-Musaev-will-get-greedy-before-PFL-title-fight-202007",
       "source": "Sherdog",
       "priority": true
     },
@@ -241,11 +235,17 @@
       "link": "https://www.mmamania.com/professional-fighters-league-pfl/457386/pfl-new-york-full-fight-card-espn-start-time-nurmagomedov-vs-colgan",
       "source": "MMA Mania",
       "priority": false
+    },
+    {
+      "title": "Who is Sean Strickland fighting next? ‘UFC told me I could fight only for the belt,’ says middleweight ‘Sniper’",
+      "link": "https://www.mmamania.com/ufc-news/459090/who-is-sean-strickland-fighting-next-ufc-told-me-could-fight-only-for-belt-middleweight-sniper",
+      "source": "MMA Mania",
+      "priority": false
     }
   ],
   "hooks": {
-    "week": "Ankalaev and Rountree wage war Sunday in peak light heavyweight combat.",
-    "prefight": "Three days until Ankalaev and Rountree collide for light heavyweight supremacy.",
-    "results": "Dricus du Plessis dominates Kamaru Usman, winning unanimous decision in five-round affair."
+    "week": "Ankalaev and Rountree bring the heat this Sunday—light heavyweight supremacy awaits.",
+    "prefight": "Fight week arrives: Ankalaev and Rountree clash this Sunday for light heavyweight gold.",
+    "results": "Dricus Du Plessis stops Kamaru Usman with dominant unanimous five-round decision."
   }
 }
