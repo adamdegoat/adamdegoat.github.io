@@ -21,7 +21,7 @@
 </head>
 <body>
 <div id="app"></div>
-<div class="hud"><div><b>Sunny Pier</b> — walk the park</div><div class="k">left side to move · right side to look</div><div class="k" style="margin-top:5px">procedural rides · Blender arch · real ground</div></div>
+<div class="hud"><div><b>Sunny Pier</b> — walk the park</div><div class="k">left = move · right = look (drag up to look up) · pinch = zoom</div><div class="k" style="margin-top:5px">procedural rides · Blender arch · real ground</div></div>
 <div class="badge">theme park</div>
 <div id="joy"><div id="knob"></div></div>
 <div class="tip" id="tip">tap-drag the left side to walk</div>
@@ -152,9 +152,9 @@ function balloons(x,z){ const g=new THREE.Group(); g.position.set(x,0,z);
   circles.push({x,z,r:1.4}); return g; }
 // string lights between poles along a path
 function stringLights(pts){ const g=new THREE.Group(); const poleMat=new THREE.MeshStandardMaterial({color:0x6a6f74,roughness:0.5,metalness:0.4});
-  const bulbMat=new THREE.MeshStandardMaterial({color:0xfff3d0,emissive:0xffd48a,emissiveIntensity:0.9});
+  const bulbMat=new THREE.MeshStandardMaterial({color:0xfff3d0,emissive:0xffd48a,emissiveIntensity:0.6});
   for(const p of pts){ const pole=new THREE.Mesh(new THREE.CylinderGeometry(0.12,0.16,6,8),poleMat); pole.position.set(p.x,3,p.z); pole.castShadow=true; g.add(pole); }
-  for(let i=0;i<pts.length-1;i++){ const a=pts[i],b=pts[i+1]; const seg=14; for(let s=0;s<=seg;s++){ const u=s/seg; const x=a.x+(b.x-a.x)*u, z=a.z+(b.z-a.z)*u; const sag=Math.sin(u*Math.PI)*1.2; const y=6 - sag; if(s%2===0){ const bulb=new THREE.Mesh(new THREE.SphereGeometry(0.16,8,8),bulbMat); bulb.position.set(x,y,z); g.add(bulb); } } }
+  for(let i=0;i<pts.length-1;i++){ const a=pts[i],b=pts[i+1]; const seg=14; for(let s=0;s<=seg;s++){ const u=s/seg; const x=a.x+(b.x-a.x)*u, z=a.z+(b.z-a.z)*u; const sag=Math.sin(u*Math.PI)*1.2; const y=6 - sag; if(s%2===0){ const bulb=new THREE.Mesh(new THREE.SphereGeometry(0.13,8,8),bulbMat); bulb.position.set(x,y,z); g.add(bulb); } } }
   return g; }
 function bench(x,z,a){ const g=new THREE.Group(); g.position.set(x,0,z); g.rotation.y=a; const m=new THREE.MeshStandardMaterial({color:0x9a6b3f,roughness:0.8});
   const seat=new THREE.Mesh(new THREE.BoxGeometry(2.4,0.16,0.7),m); seat.position.y=0.6; seat.castShadow=true; const back=new THREE.Mesh(new THREE.BoxGeometry(2.4,0.7,0.14),m); back.position.set(0,0.95,-0.28); g.add(seat,back); return g; }
@@ -193,19 +193,24 @@ let charYaw=0, walkPhase=0;
 // ---------- input (reused) ----------
 const keys={}; addEventListener('keydown',e=>keys[e.key.toLowerCase()]=true); addEventListener('keyup',e=>keys[e.key.toLowerCase()]=false);
 let camYaw=0, camPitch=0.30, camDist=15;
-const joy=document.getElementById('joy'), knob=document.getElementById('knob'); let joyId=null,joyC={x:0,y:0},joyVec={x:0,y:0},camId=null,camLast=null; const cv=renderer.domElement;
-cv.addEventListener('touchstart',e=>{for(const t of e.changedTouches){ if(t.clientX<innerWidth*0.5&&joyId===null){joyId=t.identifier;joyC={x:t.clientX,y:t.clientY};joy.style.display='block';joy.style.left=t.clientX+'px';joy.style.top=t.clientY+'px';knob.style.left='50%';knob.style.top='50%';document.getElementById('tip').style.display='none';} else if(camId===null){camId=t.identifier;camLast={x:t.clientX,y:t.clientY};} }},{passive:false});
-cv.addEventListener('touchmove',e=>{e.preventDefault();for(const t of e.changedTouches){ if(t.identifier===joyId){let dx=t.clientX-joyC.x,dy=t.clientY-joyC.y;const R=52,d=Math.hypot(dx,dy);if(d>R){dx=dx/d*R;dy=dy/d*R;}knob.style.left=(60+dx)+'px';knob.style.top=(60+dy)+'px';joyVec.x=dx/R;joyVec.y=dy/R;} else if(t.identifier===camId){camYaw-=(t.clientX-camLast.x)*0.006;camPitch=Math.max(0.05,Math.min(1.1,camPitch+(t.clientY-camLast.y)*0.004));camLast={x:t.clientX,y:t.clientY};} }},{passive:false});
-const tEnd=e=>{for(const t of e.changedTouches){if(t.identifier===joyId){joyId=null;joyVec.x=joyVec.y=0;joy.style.display='none';}else if(t.identifier===camId)camId=null;}};
+const joy=document.getElementById('joy'), knob=document.getElementById('knob'); let joyId=null,joyC={x:0,y:0},joyVec={x:0,y:0}; const cv=renderer.domElement;
+const camPts=new Map(); let pinchLast=null, lookLast=null;
+const clampPitch=v=>Math.max(-0.05,Math.min(1.3,v));
+const refreshCam=()=>{ if(camPts.size===1){const p=[...camPts.values()][0];lookLast={x:p.x,y:p.y};} else lookLast=null; if(camPts.size===2){const a=[...camPts.values()];pinchLast=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);} else pinchLast=null; };
+cv.addEventListener('touchstart',e=>{for(const t of e.changedTouches){ if(t.clientX<innerWidth*0.5&&joyId===null){joyId=t.identifier;joyC={x:t.clientX,y:t.clientY};joy.style.display='block';joy.style.left=t.clientX+'px';joy.style.top=t.clientY+'px';knob.style.left='50%';knob.style.top='50%';document.getElementById('tip').style.display='none';} else {camPts.set(t.identifier,{x:t.clientX,y:t.clientY});} } refreshCam(); },{passive:false});
+cv.addEventListener('touchmove',e=>{e.preventDefault();for(const t of e.changedTouches){ if(t.identifier===joyId){let dx=t.clientX-joyC.x,dy=t.clientY-joyC.y;const R=52,d=Math.hypot(dx,dy);if(d>R){dx=dx/d*R;dy=dy/d*R;}knob.style.left=(60+dx)+'px';knob.style.top=(60+dy)+'px';joyVec.x=dx/R;joyVec.y=dy/R;} else if(camPts.has(t.identifier)){camPts.set(t.identifier,{x:t.clientX,y:t.clientY});} }
+  if(camPts.size===1&&lookLast){const p=[...camPts.values()][0];camYaw-=(p.x-lookLast.x)*0.006;camPitch=clampPitch(camPitch+(p.y-lookLast.y)*0.005);lookLast={x:p.x,y:p.y};}
+  else if(camPts.size===2){const a=[...camPts.values()];const d=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);if(pinchLast!=null)camDist=Math.max(6,Math.min(48,camDist-(d-pinchLast)*0.05));pinchLast=d;} },{passive:false});
+const tEnd=e=>{for(const t of e.changedTouches){if(t.identifier===joyId){joyId=null;joyVec.x=joyVec.y=0;joy.style.display='none';}else camPts.delete(t.identifier);} refreshCam(); };
 cv.addEventListener('touchend',tEnd); cv.addEventListener('touchcancel',tEnd);
 let md=false,mLast=null; cv.addEventListener('mousedown',e=>{md=true;mLast={x:e.clientX,y:e.clientY};}); addEventListener('mouseup',()=>md=false);
-addEventListener('mousemove',e=>{if(!md)return;camYaw-=(e.clientX-mLast.x)*0.005;camPitch=Math.max(0.05,Math.min(1.1,camPitch+(e.clientY-mLast.y)*0.004));mLast={x:e.clientX,y:e.clientY};});
+addEventListener('mousemove',e=>{if(!md)return;camYaw-=(e.clientX-mLast.x)*0.005;camPitch=clampPitch(camPitch+(e.clientY-mLast.y)*0.004);mLast={x:e.clientX,y:e.clientY};});
 addEventListener('wheel',e=>{camDist=Math.max(6,Math.min(40,camDist+e.deltaY*0.02));},{passive:true});
 addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);composer.setSize(innerWidth,innerHeight);});
 
 const composer=new EffectComposer(renderer); composer.setPixelRatio(Math.min(devicePixelRatio,2)); composer.setSize(innerWidth,innerHeight);
 composer.addPass(new RenderPass(scene,camera));
-composer.addPass(new UnrealBloomPass(new THREE.Vector2(innerWidth,innerHeight),0.28,0.5,0.92));
+composer.addPass(new UnrealBloomPass(new THREE.Vector2(innerWidth,innerHeight),0.15,0.5,0.98));
 composer.addPass(new OutputPass()); composer.addPass(new SMAAPass(innerWidth,innerHeight));
 
 // ---------- build ----------
@@ -241,7 +246,8 @@ function animate(){ requestAnimationFrame(animate);
   legL.rotation.x=sw; legR.rotation.x=-sw; armL.rotation.x=-sw*0.8; armR.rotation.x=sw*0.8; torso.position.y=1.55+(moving?Math.abs(Math.sin(walkPhase))*0.04:0);
   const off=new THREE.Vector3(Math.sin(camYaw)*Math.cos(camPitch),Math.sin(camPitch),Math.cos(camYaw)*Math.cos(camPitch)).multiplyScalar(camDist);
   camera.position.lerp(new THREE.Vector3(char.position.x,char.position.y+2,char.position.z).add(off),0.16);
-  camera.lookAt(char.position.x,char.position.y+1.8,char.position.z);
+  const lookUp=Math.max(0,(0.38-camPitch))*22;
+  camera.lookAt(char.position.x,char.position.y+1.8+lookUp,char.position.z);
   for(const u of updaters) u(t,dt);
   composer.render();
 }
