@@ -17,14 +17,18 @@
   #joy{position:fixed;z-index:12;width:120px;height:120px;border-radius:50%;border:2px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);display:none;pointer-events:none;transform:translate(-50%,-50%)}
   #knob{position:absolute;left:50%;top:50%;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.5);transform:translate(-50%,-50%)}
   .tip{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:11;color:#cdd6dc;font-size:12px;background:rgba(10,14,20,.42);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:8px 14px}
+  #ridebtn,#exitbtn{position:fixed;left:50%;bottom:74px;transform:translateX(-50%);z-index:14;display:none;font-family:ui-monospace,monospace;font-size:15px;font-weight:700;color:#0a0d12;background:#7fd1c9;border:none;border-radius:999px;padding:13px 26px;cursor:pointer;box-shadow:0 6px 22px rgba(0,0,0,.32)}
+  #exitbtn{background:#f0a884}
 </style>
 </head>
 <body>
 <div id="app"></div>
-<div class="hud"><div><b>Sunny Pier</b> — walk the park</div><div class="k">left = move · right = look (drag up to look up) · pinch = zoom</div><div class="k" style="margin-top:5px">procedural rides · Blender arch · real ground</div></div>
+<div class="hud"><div><b>Sunny Pier</b> — walk the park</div><div class="k">left = move · right = look (drag up to look up) · pinch = zoom</div><div class="k" style="margin-top:5px">walk up to a ride, tap <b>Ride</b> · 5 rides</div></div>
 <div class="badge">theme park</div>
 <div id="joy"><div id="knob"></div></div>
 <div class="tip" id="tip">tap-drag the left side to walk</div>
+<button id="ridebtn">Ride</button>
+<button id="exitbtn">Exit ride</button>
 <div class="load" id="load">opening the park…</div>
 
 <script type="importmap">
@@ -62,7 +66,7 @@ sun.shadow.camera.near=10; sun.shadow.camera.far=650; const sc=140; Object.assig
 sun.shadow.bias=-0.0004; sun.shadow.normalBias=0.6; scene.add(sun);
 
 const rand=(a,b)=>a+Math.random()*(b-a), pick=a=>a[(Math.random()*a.length)|0], TAU=Math.PI*2;
-const updaters=[];
+const updaters=[]; const rideables=[];
 function tex(c,srgb=true){const t=new THREE.CanvasTexture(c);if(srgb)t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=8;return t;}
 function stripeTex(a,b,n=10){const c=document.createElement('canvas');c.width=n*28;c.height=28;const g=c.getContext('2d');for(let i=0;i<n;i++){g.fillStyle=i%2?a:b;g.fillRect(i*28,0,28,28);}const t=tex(c);t.wrapS=t.wrapT=THREE.RepeatWrapping;return t;}
 function strut(p1,p2,r,mat){const d=new THREE.Vector3().subVectors(p2,p1),len=d.length();const m=new THREE.Mesh(new THREE.CylinderGeometry(r,r,len,8),mat);m.position.copy(p1).addScaledVector(d,0.5);m.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),d.clone().normalize());m.castShadow=true;return m;}
@@ -90,6 +94,7 @@ function ferris(x,z){
   for(const zz of [-6,6]){ g.add(strut(new THREE.Vector3(-11,0,zz),new THREE.Vector3(0,cy,zz>0?1.6:-1.6),0.45,legMat)); g.add(strut(new THREE.Vector3(11,0,zz),new THREE.Vector3(0,cy,zz>0?1.6:-1.6),0.45,legMat)); }
   circles.push({x,z,r:12});
   updaters.push((t,dt)=>{ spin.rotation.z+=dt*0.22; gond.forEach(p=>p.rotation.z=-spin.rotation.z); });
+  { const _wp=new THREE.Vector3(); rideables.push({name:"Ferris Wheel", board:{x:x,z:z+14}, rideCam:(cam)=>{ gond[0].getWorldPosition(_wp); cam.position.lerp(new THREE.Vector3(_wp.x,_wp.y+0.4,_wp.z+0.7),0.22); cam.lookAt(_wp.x,_wp.y+0.1,_wp.z+16); }}); }
   return g;
 }
 
@@ -131,6 +136,7 @@ function coaster(x,z){
   circles.push({x,z,r:6});
   let tt=0; const up=new THREE.Vector3(0,1,0);
   updaters.push((t,dt)=>{ tt=(tt+dt*0.045)%1; cars.forEach((c,i)=>{ const u=(tt - i*0.012 +1)%1; const p=curve.getPointAt(u), tan=curve.getTangentAt(u); c.position.copy(p).addScaledVector(up,0.45); c.lookAt(p.clone().add(tan).addScaledVector(up,0.45)); }); });
+  { const _p=new THREE.Vector3(), _pr=new THREE.Vector3(); rideables.push({name:"Roller Coaster", board:{x:x,z:z+8}, rideCam:(cam)=>{ cars[0].getWorldPosition(_p); const dir=_p.clone().sub(_pr); if(dir.lengthSq()<1e-4)dir.set(0,0,1); dir.normalize(); _pr.copy(_p); cam.position.lerp(new THREE.Vector3(_p.x-dir.x*4,_p.y+2,_p.z-dir.z*4),0.4); cam.lookAt(_p.x+dir.x*7,_p.y+0.6,_p.z+dir.z*7); }}); }
   return g;
 }
 
@@ -172,6 +178,35 @@ function foodCart(x,z,a,col){ const g=new THREE.Group(); g.position.set(x,0,z); 
   const wheelR=wheelL.clone(); wheelR.position.x=1;
   g.add(cart,stripe,pole,para,board,wheelL,wheelR); circles.push({x,z,r:2.1}); return g; }
 
+// ---------- big rides ----------
+function dropTower(x,z){ const g=new THREE.Group(); g.position.set(x,0,z); const H=62;
+  const tower=new THREE.Mesh(new THREE.CylinderGeometry(1.2,1.7,H,14),metalMat); tower.position.y=H/2; tower.castShadow=true; g.add(tower);
+  for(let i=0;i<14;i++){ const r=new THREE.Mesh(new THREE.TorusGeometry(1.9,0.1,6,18),metalMat); r.rotation.x=Math.PI/2; r.position.y=3+i*(H-6)/13; g.add(r); }
+  const cap=new THREE.Mesh(new THREE.ConeGeometry(2.4,4,14),new THREE.MeshStandardMaterial({color:0xe23b2e,roughness:0.5})); cap.position.y=H+2; cap.castShadow=true; g.add(cap);
+  const carriage=new THREE.Group(); g.add(carriage);
+  const ring=new THREE.Mesh(new THREE.TorusGeometry(3.3,0.35,8,26),new THREE.MeshStandardMaterial({color:0xf0b429,roughness:0.5,metalness:0.3})); ring.rotation.x=Math.PI/2; carriage.add(ring);
+  for(let i=0;i<10;i++){ const a=i/10*TAU; const s=new THREE.Mesh(new THREE.BoxGeometry(1,1.2,1.1),new THREE.MeshStandardMaterial({color:RIDE[i%RIDE.length],roughness:0.5})); s.position.set(Math.cos(a)*3.3,-0.2,Math.sin(a)*3.3); s.castShadow=true; carriage.add(s); }
+  circles.push({x,z,r:5}); let ph=rand(0,9);
+  updaters.push((t,dt)=>{ ph+=dt; const c=ph%9; let y; if(c<5) y=3+(c/5)*(H-9); else if(c<6) y=H-6; else { const d=Math.min(1,(c-6)/1.2); y=(H-6)-(H-9)*(d*d); } if(c>7.2) y=3; carriage.position.y=Math.max(3,y); carriage.rotation.y=ph*0.25; });
+  const _wp=new THREE.Vector3();
+  rideables.push({name:"Drop Tower", board:{x:x,z:z+7}, rideCam:(cam)=>{ carriage.getWorldPosition(_wp); const a=carriage.rotation.y, ox=Math.sin(a)*3.3, oz=Math.cos(a)*3.3; cam.position.lerp(new THREE.Vector3(_wp.x+ox,_wp.y+0.7,_wp.z+oz),0.5); cam.lookAt(_wp.x+ox*6,_wp.y-4,_wp.z+oz*6); }});
+  return g; }
+function swinger(x,z){ const g=new THREE.Group(); g.position.set(x,0,z);
+  const pole=new THREE.Mesh(new THREE.CylinderGeometry(1,1.4,17,14),metalMat); pole.position.y=8.5; pole.castShadow=true; g.add(pole);
+  const roof=new THREE.Mesh(new THREE.ConeGeometry(7.5,3.2,18,1,false),new THREE.MeshStandardMaterial({map:stripeTex('#2f7fc0','#f4ede0',20),roughness:0.6})); roof.position.y=16; roof.castShadow=true; g.add(roof);
+  const spin=new THREE.Group(); spin.position.y=15; g.add(spin);
+  const disc=new THREE.Mesh(new THREE.CylinderGeometry(5.5,5.5,0.5,24),metalMat); spin.add(disc);
+  const chainMat=new THREE.MeshStandardMaterial({color:0x555555,metalness:0.5,roughness:0.5});
+  const seats=[]; const N=16, topR=5, botR=8.5, drop=7.5;
+  for(let i=0;i<N;i++){ const a=i/N*TAU; const arm=new THREE.Group(); arm.rotation.y=a; spin.add(arm);
+    for(const off of [-0.35,0.35]) arm.add(strut(new THREE.Vector3(topR,-0.2,off),new THREE.Vector3(botR,-drop,off),0.03,chainMat));
+    const seat=new THREE.Mesh(new THREE.BoxGeometry(1.1,0.4,1.2),new THREE.MeshStandardMaterial({color:RIDE[i%RIDE.length],roughness:0.5})); seat.position.set(botR,-drop-0.3,0); seat.castShadow=true; arm.add(seat); seats.push(seat); }
+  circles.push({x,z,r:9});
+  updaters.push((t,dt)=>{ spin.rotation.y+=dt*0.55; });
+  const _wp=new THREE.Vector3();
+  rideables.push({name:"Wave Swinger", board:{x:x,z:z+11}, rideCam:(cam)=>{ seats[0].getWorldPosition(_wp); let ox=_wp.x-x, oz=_wp.z-z; const l=Math.hypot(ox,oz)||1; ox/=l; oz/=l; cam.position.lerp(new THREE.Vector3(_wp.x-ox*1.6,_wp.y+0.9,_wp.z-oz*1.6),0.3); cam.lookAt(_wp.x+ox*9,_wp.y-0.5,_wp.z+oz*9); }});
+  return g; }
+
 // ---------- ground (real photo grass + paved plaza + paths) ----------
 const GROUND=280, GS=2048, w2c=x=>(x+GROUND/2)/GROUND*GS;
 const rideSpots={ferris:[0,-48],carousel:[-32,-6],coaster:[36,-16]};
@@ -185,7 +220,7 @@ function groundTex(grass){ const c=document.createElement('canvas'); c.width=c.h
   g.strokeStyle='#b7a98c'; g.lineWidth=3; for(let r=4;r<16;r+=4){ g.beginPath(); g.arc(w2c(0),w2c(0),w2c(r)-w2c(0),0,TAU); g.stroke(); }
   // paths to rides + entrance
   const path=(x,z)=>{ g.strokeStyle='#cdbfa6'; g.lineWidth=w2c(5)-w2c(0); g.lineCap='round'; g.beginPath(); g.moveTo(w2c(0),w2c(0)); g.lineTo(w2c(x),w2c(z)); g.stroke(); };
-  path(0,-48); path(-32,-6); path(36,-16); path(0,46);
+  path(0,-48); path(-32,-6); path(36,-16); path(0,46); path(-58,-40); path(58,-44);
   const t=tex(c); t.wrapS=t.wrapT=THREE.ClampToEdgeWrapping; return t; }
 
 // ---------- avatar (reused) ----------
@@ -229,6 +264,7 @@ loadImg('grass_512.jpg').then(grass=>{
   const ground=new THREE.Mesh(new THREE.PlaneGeometry(GROUND,GROUND),new THREE.MeshStandardMaterial({map:groundTex(grass),roughness:0.95,metalness:0,envMapIntensity:0.5}));
   ground.rotation.x=-Math.PI/2; ground.receiveShadow=true; scene.add(ground);
   scene.add(ferris(0,-48)); scene.add(carousel(-32,-6)); scene.add(coaster(36,-16));
+  scene.add(dropTower(-58,-40)); scene.add(swinger(58,-44));
   scene.add(tent(-14,14,'#e23b2e','#f4ede0')); scene.add(tent(14,14,'#2f7fc0','#f4ede0')); scene.add(tent(20,2,'#37a06b','#f4ede0'));
   scene.add(booth(-20,4,0xf0b429)); scene.add(booth(-8,20,0xc85a9a)); scene.add(booth(10,22,0xe23b2e));
   scene.add(balloons(6,10)); scene.add(balloons(-12,-2));
@@ -285,23 +321,31 @@ loadImg('grass_512.jpg').then(grass=>{
 new GLTFLoader().load('arch.glb',(gltf)=>{ const a=gltf.scene; a.position.set(0,0,49); a.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;}}); scene.add(a); }, undefined, ()=>console.log('arch.glb not loaded (optional)'));
 
 // ---------- loop ----------
+let riding=null, nearRide=null;
+const ridebtn=document.getElementById('ridebtn'), exitbtn=document.getElementById('exitbtn');
+ridebtn.addEventListener('click',()=>{ if(nearRide){ riding=nearRide; char.visible=false; ridebtn.style.display='none'; exitbtn.style.display='block'; joy.style.display='none'; joyId=null; joyVec.x=joyVec.y=0; document.getElementById('tip').style.display='none'; } });
+exitbtn.addEventListener('click',()=>{ if(riding){ char.position.set(riding.board.x,0,riding.board.z+2); charYaw=Math.PI; camYaw=Math.PI; riding=null; char.visible=true; exitbtn.style.display='none'; camDist=15; } });
 const SPEED=8.5, clock=new THREE.Clock();
 function animate(){ requestAnimationFrame(animate);
   const dt=Math.min(0.05,clock.getDelta()), t=clock.elapsedTime;
-  let ix=0,iz=0;
-  if(keys['w']||keys['arrowup'])iz+=1; if(keys['s']||keys['arrowdown'])iz-=1; if(keys['a']||keys['arrowleft'])ix-=1; if(keys['d']||keys['arrowright'])ix+=1;
-  ix+=joyVec.x; iz+=-joyVec.y;
-  const fwdX=-Math.sin(camYaw),fwdZ=-Math.cos(camYaw),rgtX=Math.cos(camYaw),rgtZ=-Math.sin(camYaw);
-  let mx=fwdX*iz+rgtX*ix,mz=fwdZ*iz+rgtZ*ix; const ml=Math.hypot(mx,mz); const moving=ml>0.05;
-  if(moving){ mx/=ml; mz/=ml; let nx=char.position.x+mx*SPEED*dt, nz=char.position.z+mz*SPEED*dt; nx=Math.max(-110,Math.min(110,nx)); nz=Math.max(-110,Math.min(110,nz));
-    if(!collides(nx,char.position.z)) char.position.x=nx; if(!collides(char.position.x,nz)) char.position.z=nz;
-    const tg=Math.atan2(mx,mz); let d=tg-charYaw; while(d>Math.PI)d-=TAU; while(d<-Math.PI)d+=TAU; charYaw+=d*Math.min(1,dt*12); walkPhase+=dt*SPEED*1.1; }
-  char.rotation.y=charYaw; const sw=moving?Math.sin(walkPhase)*0.6:0;
-  legL.rotation.x=sw; legR.rotation.x=-sw; armL.rotation.x=-sw*0.8; armR.rotation.x=sw*0.8; torso.position.y=1.55+(moving?Math.abs(Math.sin(walkPhase))*0.04:0);
-  const off=new THREE.Vector3(Math.sin(camYaw)*Math.cos(camPitch),Math.sin(camPitch),Math.cos(camYaw)*Math.cos(camPitch)).multiplyScalar(camDist);
-  camera.position.lerp(new THREE.Vector3(char.position.x,char.position.y+2,char.position.z).add(off),0.16);
-  const lookUp=Math.max(0,(0.38-camPitch))*22;
-  camera.lookAt(char.position.x,char.position.y+1.8+lookUp,char.position.z);
+  if(!riding){
+    let ix=0,iz=0;
+    if(keys['w']||keys['arrowup'])iz+=1; if(keys['s']||keys['arrowdown'])iz-=1; if(keys['a']||keys['arrowleft'])ix-=1; if(keys['d']||keys['arrowright'])ix+=1;
+    ix+=joyVec.x; iz+=-joyVec.y;
+    const fwdX=-Math.sin(camYaw),fwdZ=-Math.cos(camYaw),rgtX=Math.cos(camYaw),rgtZ=-Math.sin(camYaw);
+    let mx=fwdX*iz+rgtX*ix,mz=fwdZ*iz+rgtZ*ix; const ml=Math.hypot(mx,mz); const moving=ml>0.05;
+    if(moving){ mx/=ml; mz/=ml; let nx=char.position.x+mx*SPEED*dt, nz=char.position.z+mz*SPEED*dt; nx=Math.max(-110,Math.min(110,nx)); nz=Math.max(-110,Math.min(110,nz));
+      if(!collides(nx,char.position.z)) char.position.x=nx; if(!collides(char.position.x,nz)) char.position.z=nz;
+      const tg=Math.atan2(mx,mz); let d=tg-charYaw; while(d>Math.PI)d-=TAU; while(d<-Math.PI)d+=TAU; charYaw+=d*Math.min(1,dt*12); walkPhase+=dt*SPEED*1.1; }
+    char.rotation.y=charYaw; const sw=moving?Math.sin(walkPhase)*0.6:0;
+    legL.rotation.x=sw; legR.rotation.x=-sw; armL.rotation.x=-sw*0.8; armR.rotation.x=sw*0.8; torso.position.y=1.55+(moving?Math.abs(Math.sin(walkPhase))*0.04:0);
+    const off=new THREE.Vector3(Math.sin(camYaw)*Math.cos(camPitch),Math.sin(camPitch),Math.cos(camYaw)*Math.cos(camPitch)).multiplyScalar(camDist);
+    camera.position.lerp(new THREE.Vector3(char.position.x,char.position.y+2,char.position.z).add(off),0.16);
+    const lookUp=Math.max(0,(0.38-camPitch))*22;
+    camera.lookAt(char.position.x,char.position.y+1.8+lookUp,char.position.z);
+    let nr=null,nd=1e9; for(const r of rideables){ const dd=(char.position.x-r.board.x)**2+(char.position.z-r.board.z)**2; if(dd<nd){nd=dd;nr=r;} }
+    if(nr&&nd<64){ nearRide=nr; ridebtn.textContent='Ride the '+nr.name; ridebtn.style.display='block'; } else { nearRide=null; ridebtn.style.display='none'; }
+  } else { riding.rideCam(camera,dt); }
   for(const u of updaters) u(t,dt);
   composer.render();
 }
