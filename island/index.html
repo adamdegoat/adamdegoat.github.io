@@ -161,6 +161,17 @@ function bench(x,z,a){ const g=new THREE.Group(); g.position.set(x,0,z); g.rotat
 function tree(x,z,s=1){ const g=new THREE.Group(); g.position.set(x,0,z); const tr=new THREE.Mesh(new THREE.CylinderGeometry(0.3*s,0.6*s,4*s,7),new THREE.MeshStandardMaterial({color:0x6a4b2f,roughness:1})); tr.position.y=2*s; tr.castShadow=true; g.add(tr);
   for(let i=0;i<5;i++){ const cl=new THREE.Mesh(new THREE.IcosahedronGeometry(rand(1.8,2.8)*s,1),new THREE.MeshStandardMaterial({color:pick([0x3f7a3a,0x4f8a44,0x357a3f]),roughness:0.95,flatShading:true})); cl.position.set(rand(-1.6,1.6)*s,rand(4,5.4)*s,rand(-1.6,1.6)*s); cl.castShadow=true; g.add(cl); } return g; }
 
+// ---------- vendors ----------
+function foodCart(x,z,a,col){ const g=new THREE.Group(); g.position.set(x,0,z); g.rotation.y=a;
+  const cart=new THREE.Mesh(new THREE.BoxGeometry(2.6,1.2,1.4),new THREE.MeshStandardMaterial({color:0xefe7d7,roughness:0.8})); cart.position.y=0.9; cart.castShadow=true;
+  const stripe=new THREE.Mesh(new THREE.BoxGeometry(2.64,0.42,1.44),new THREE.MeshStandardMaterial({color:col,roughness:0.7})); stripe.position.y=1.36;
+  const pole=new THREE.Mesh(new THREE.CylinderGeometry(0.06,0.06,3.2,6),new THREE.MeshStandardMaterial({color:0x8a8f94,roughness:0.5,metalness:0.4})); pole.position.y=2.5;
+  const para=new THREE.Mesh(new THREE.ConeGeometry(2.3,0.95,12,1,false),new THREE.MeshStandardMaterial({map:stripeTex(col,'#f4ede0',12),roughness:0.7,side:THREE.DoubleSide})); para.position.y=3.7; para.castShadow=true;
+  const board=new THREE.Mesh(new THREE.BoxGeometry(1.2,0.85,0.08),new THREE.MeshStandardMaterial({color:0x2a2620,roughness:0.7})); board.position.set(0,2.05,0.76);
+  const wheelL=new THREE.Mesh(new THREE.CylinderGeometry(0.4,0.4,0.16,12),new THREE.MeshStandardMaterial({color:0x333})); wheelL.rotation.x=Math.PI/2; wheelL.position.set(-1,0.4,0.7);
+  const wheelR=wheelL.clone(); wheelR.position.x=1;
+  g.add(cart,stripe,pole,para,board,wheelL,wheelR); circles.push({x,z,r:2.1}); return g; }
+
 // ---------- ground (real photo grass + paved plaza + paths) ----------
 const GROUND=280, GS=2048, w2c=x=>(x+GROUND/2)/GROUND*GS;
 const rideSpots={ferris:[0,-48],carousel:[-32,-6],coaster:[36,-16]};
@@ -225,6 +236,49 @@ loadImg('grass_512.jpg').then(grass=>{
   scene.add(stringLights([new THREE.Vector3(6,0,44),new THREE.Vector3(5,0,30),new THREE.Vector3(4,0,16)]));
   for(const [x,z] of [[-10,34],[12,34],[-24,24],[24,20],[-28,36],[30,32]]) scene.add(bench(x,z,rand(0,TAU)));
   for(const [x,z] of [[-60,-30],[62,-40],[-64,30],[66,34],[-24,-64],[26,-60],[-70,4],[70,6],[-44,50],[48,48],[0,-78],[-20,60],[22,60]]) scene.add(tree(x,z,rand(0.9,1.4)));
+    // ---- vendors + game stalls (busier park) ----
+  scene.add(foodCart(-16,26,0.3,0xe23b2e)); scene.add(foodCart(15,28,-0.4,0x2f7fc0)); scene.add(foodCart(24,10,-1.2,0xf0b429));
+  scene.add(foodCart(-24,14,0.9,0x37a06b)); scene.add(foodCart(4,-2,3.0,0xc85a9a));
+  scene.add(booth(-16,-16,0x6a5acd)); scene.add(booth(18,-24,0xe0822a)); scene.add(booth(-26,-6,0x2a9d8f));
+  scene.add(tent(28,-4,'#f0b429','#f4ede0')); scene.add(tent(-22,-24,'#c85a9a','#f4ede0'));
+
+  // ---- CROWD (instanced) + QUEUES with barrier ropes ----
+  const shirtCols=[0xd8443a,0x2f7fc0,0xf0b429,0x37a06b,0xc85a9a,0xe0822a,0x6a5acd,0xe8e6e2,0x2a9d8f,0x8a5a8f];
+  const CROWD=104;
+  const cBodies=new THREE.InstancedMesh(new THREE.CapsuleGeometry(0.3,0.66,4,8),new THREE.MeshStandardMaterial({roughness:0.75}),CROWD);
+  const cHeads=new THREE.InstancedMesh(new THREE.SphereGeometry(0.25,10,10),new THREE.MeshStandardMaterial({color:0xe3b48c,roughness:0.85}),CROWD);
+  cBodies.castShadow=true; cBodies.frustumCulled=false; cHeads.frustumCulled=false;
+  const agents=[];
+  const queueDefs=[ {ex:0,ez:-34,dx:0,dz:1,n:14,len:17}, {ex:-32,ez:3,dx:0,dz:1,n:11,len:13}, {ex:36,ez:-8,dx:0,dz:1,n:11,len:13} ];
+  const postMat=new THREE.MeshStandardMaterial({color:0xb2b6ba,roughness:0.4,metalness:0.6});
+  const capMat=new THREE.MeshStandardMaterial({color:0xd8b24a,metalness:0.6,roughness:0.3});
+  const ropeMat=new THREE.MeshStandardMaterial({color:0x9a2f2f,roughness:0.6});
+  for(const q of queueDefs){
+    const half=0.95, steps=Math.max(2,Math.round(q.len/2.4));
+    for(const side of [-half,half]){ let prev=null;
+      for(let s=0;s<=steps;s++){ const dist=s/steps*q.len; const px=q.ex+q.dx*dist - q.dz*side; const pz=q.ez+q.dz*dist + q.dx*side;
+        const post=new THREE.Mesh(new THREE.CylinderGeometry(0.05,0.05,1,6),postMat); post.position.set(px,0.5,pz); scene.add(post);
+        const cap=new THREE.Mesh(new THREE.SphereGeometry(0.09,8,8),capMat); cap.position.set(px,1.02,pz); scene.add(cap);
+        if(prev) scene.add(strut(new THREE.Vector3(prev.x,0.84,prev.z),new THREE.Vector3(px,0.84,pz),0.025,ropeMat));
+        prev={x:px,z:pz}; } }
+  }
+  let ai=0;
+  for(let qi=0; qi<queueDefs.length; qi++){ const q=queueDefs[qi]; for(let k=0;k<q.n;k++){ agents.push({mode:'q',q,p:k/q.n,phase:Math.random()*6}); ai++; } }
+  for(; ai<CROWD; ai++){ const x=rand(-70,70),z=rand(-72,72); agents.push({mode:'w',x,z,tx:x,tz:z,phase:Math.random()*6,spd:rand(1.3,2.6)}); }
+  for(let i=0;i<CROWD;i++) cBodies.setColorAt(i,new THREE.Color(pick(shirtCols)));
+  cBodies.instanceColor.needsUpdate=true; scene.add(cBodies,cHeads);
+  const dummy=new THREE.Object3D();
+  const newTarget=a=>{ for(let tr=0;tr<6;tr++){ const x=rand(-72,72),z=rand(-72,72); let ok=true; for(const c of circles){ if((x-c.x)**2+(z-c.z)**2<(c.r+2)*(c.r+2)){ok=false;break;} } if(ok){a.tx=x;a.tz=z;return;} } a.tx=rand(-40,40); a.tz=rand(24,64); };
+  updaters.push((t,dt)=>{
+    for(let i=0;i<CROWD;i++){ const a=agents[i]; let x,z,fy;
+      if(a.mode==='q'){ a.p+=dt*0.017; if(a.p>1)a.p-=1; const dist=a.q.len*(1-a.p); x=a.q.ex+a.q.dx*dist; z=a.q.ez+a.q.dz*dist; fy=Math.atan2(-a.q.dx,-a.q.dz); }
+      else { const dx=a.tx-a.x,dz=a.tz-a.z,d=Math.hypot(dx,dz); if(d<1.2) newTarget(a); else { const s=Math.min(1,a.spd*dt/d); a.x+=dx*s; a.z+=dz*s; } x=a.x; z=a.z; fy=Math.atan2(dx,dz); }
+      const bob=Math.abs(Math.sin(a.phase+t*3.2))*0.05;
+      dummy.rotation.set(0,fy,0); dummy.position.set(x,0.75+bob,z); dummy.updateMatrix(); cBodies.setMatrixAt(i,dummy.matrix);
+      dummy.position.set(x,1.5+bob,z); dummy.updateMatrix(); cHeads.setMatrixAt(i,dummy.matrix); }
+    cBodies.instanceMatrix.needsUpdate=true; cHeads.instanceMatrix.needsUpdate=true;
+  });
+
   const l=document.getElementById('load'); l.style.opacity='0'; setTimeout(()=>l.remove(),700);
 });
 // Blender-authored hero arch at the entrance (loaded if present)
