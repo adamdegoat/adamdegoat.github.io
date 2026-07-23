@@ -1,20 +1,20 @@
 {
-  "updated": "2026-07-23T13:00:00.393659+08:00",
+  "updated": "2026-07-23T21:00:00.490572+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
     "id": "2476378",
-    "name": "UFC Fight Night 282 Ankalaev vs Rountree Jr",
-    "short": "Ankalaev vs Rountree",
+    "name": "UFC Fight Night 282 Ankalaev vs Guskov",
+    "short": "Ankalaev vs Guskov",
     "date_sgt": "2026-07-26T00:00:00+08:00",
     "when_sgt": "Sun 26 Jul, 12:00 AM SGT",
     "when_main": "Sun 26 Jul, 12:00 AM SGT",
     "when_prelims": "Sat 25 Jul, 9:00 PM SGT",
     "has_time": true,
     "location": "Abu Dhabi, United Arab Emirates",
-    "highlights": "https://www.youtube.com/results?search_query=UFC%20Fight%20Night%20282%20Ankalaev%20vs%20Rountree%20Jr%20highlights",
+    "highlights": "https://www.youtube.com/results?search_query=UFC%20Fight%20Night%20282%20Ankalaev%20vs%20Guskov%20highlights",
     "desc": "An intense atmosphere of championship-level mixed martial arts returns to the Yas Island shores as the UFC takes over the Etihad Arena for a pivotal light heavyweight headliner at UFC Fight Night 282. The primary hurdle for top-ranked contender Magomed Ankalaev is executing a massive strategic adjustment on short notice after original opponent Khalil Rountree Jr. withdrew due to an injury, swapping a striking-heavy southpaw look for a dangerous right-handed powerhouse. The objective for the elite Dagestani tactician is to dominate the center of the cage, weaponizing his technical counter-striking, lethal head kicks, and suffocating wrestling base to completely neutralize the threat. Concurrently, the mission for late-replacement threat Bogdan Guskov centers on maximizing the ultimate showcase of his professional career, relying on his ferocious first-round finishing power and explosive right hand to crack Ankalaev’s legendary defensive shell and shock the division.",
-    "badge": "https://www.thesportsdb.com/images/media/event/thumb/pl4rtq1784551082.jpg",
+    "badge": "https://www.thesportsdb.com/images/media/event/thumb/19vbrr1784788623.jpg",
     "bouts": [],
     "finished": false,
     "espn_final": false
@@ -177,8 +177,8 @@
       "priority": true
     },
     {
-      "title": "Logan Paul calls out Conor McGregor following devastating UFC 329 injury",
-      "link": "https://www.sherdog.com/news/news/Logan-Paul-calls-out-Conor-McGregor-following-devastating-UFC-329-injury-202017",
+      "title": "Nassourdine Imavov claims UFC promised next title shot against Sean Strickland",
+      "link": "https://www.sherdog.com/news/news/Nassourdine-Imavov-claims-UFC-promised-next-title-shot-against-Sean-Strickland-202038",
       "source": "Sherdog",
       "priority": true
     },
@@ -213,6 +213,18 @@
       "priority": false
     },
     {
+      "title": "UFC Abu Dhabi best betting props, parlays and picks | Ankalaev vs. Guskov",
+      "link": "https://www.mmamania.com/ufc-odds/458256/ufc-abu-dhabi-best-betting-props-parlays-and-picks-ankalaev-vs-guskov",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
+      "title": "GFN 1: Israel vs. The World fight card, start time, date and location | Lineker vs. Gordon",
+      "link": "https://www.mmamania.com/latest-news/459135/gfn-1-israel-vs-the-world-lineker-gordon-fight-card-time-stream",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
       "title": "UFC Heavyweight rookie RJ Harris went from full-time lineman to the Octagon in 16 months – ‘Did it come too soon?’",
       "link": "https://www.mmamania.com/ufc-results/459118/ufc-heavyweight-rookie-rj-harris-went-from-full-time-lineman-to-the-octagon-in-16-months-did-it-come-too-soon",
       "source": "MMA Mania",
@@ -229,23 +241,11 @@
       "link": "https://www.mmamania.com/raf-wrestling-schedule-cards-live-results/459092/gable-steveson-added-to-super-stacked-raf-12-anniversary-card",
       "source": "MMA Mania",
       "priority": false
-    },
-    {
-      "title": "PFL New York full fight card, ESPN start time | Nurmagomedov vs. Colgan",
-      "link": "https://www.mmamania.com/professional-fighters-league-pfl/457386/pfl-new-york-full-fight-card-espn-start-time-nurmagomedov-vs-colgan",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "Who is Sean Strickland fighting next? ‘UFC told me I could fight only for the belt,’ says middleweight ‘Sniper’",
-      "link": "https://www.mmamania.com/ufc-news/459090/who-is-sean-strickland-fighting-next-ufc-told-me-could-fight-only-for-belt-middleweight-sniper",
-      "source": "MMA Mania",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "Ankalaev and Rountree bring the heat this Sunday—light heavyweight supremacy awaits.",
-    "prefight": "Fight week arrives: Ankalaev and Rountree clash this Sunday for light heavyweight gold.",
-    "results": "Dricus Du Plessis stops Kamaru Usman with dominant unanimous five-round decision."
+    "week": "Ankalaev and Guskov clash Sunday midnight SGT in an explosive light heavyweight battle.",
+    "prefight": "Ankalaev and Guskov headline fight week with a midnight Sunday clash.",
+    "results": "Du Plessis defeats Usman by unanimous decision: 50-45, 49-46, 49-46."
   }
 }
