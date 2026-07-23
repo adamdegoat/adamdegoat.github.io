@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-23T21:00:00.490572+08:00",
+  "updated": "2026-07-23T23:30:00.228228+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -165,12 +165,6 @@
       "priority": true
     },
     {
-      "title": "Dana White admits he’s happy the UFC ultimately didn’t sign Fedor Emelianenko: ‘Thank god they said no’",
-      "link": "https://www.mmafighting.com/ufc/500493/dana-white-admits-hes-happy-the-ufc-ultimately-didnt-sign-fedor-emelianenko-thank-god-they-said-no",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
       "title": "Tom Aspinall reveals the horrifying reality behind his UFC 321 injury",
       "link": "https://www.sherdog.com/news/news/Tom-Aspinall-reveals-the-horrifying-reality-behind-his-UFC-321-injury-202034",
       "source": "Sherdog",
@@ -187,6 +181,12 @@
       "link": "https://www.bjpenn.com/mma-news/gable-steveson/gable-steveson-freestyle-wrestling-return-ufc-329-debut/?utm_source=rss&utm_medium=rss&utm_campaign=gable-steveson-freestyle-wrestling-return-ufc-329-debut",
       "source": "BJPenn",
       "priority": true
+    },
+    {
+      "title": "Morning Report | Royce Gracie gives his MMA Mount Rushmore",
+      "link": "https://www.mmafighting.com/ufc/500372/morning-report-royce-gracie-gives-his-mma-mount-rushmore",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "Ex-UFC fighter Claudio Ribeiro arrested on domestic violence charge in Brazil",
@@ -213,6 +213,24 @@
       "priority": false
     },
     {
+      "title": "Magomed ‘John Pork’ Zaynukov reflects on long wait for UFC debut: ‘It’s a test to keep from being arrogant’",
+      "link": "https://www.mmamania.com/ufc-news/459186/john-pork-magomed-zaynukov-reflects-on-year-wait-for-ufc-debut-its-a-test-to-keep-from-being-arrogant",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
+      "title": "Where’s ‘Big Ank?’ Magomed Ankalaev explains why he isn’t talking trash during UFC Abu Dhabi fight week",
+      "link": "https://www.mmamania.com/ufc-news/459180/wheres-big-ank-magomed-ankalaev-explains-why-he-isnt-talking-trash-during-ufc-abu-dhabi-fight-week",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
+      "title": "Former UFC champion whose coach allegedly stole millions now working food delivery: ‘I do whatever it takes’",
+      "link": "https://www.mmamania.com/latest-news/459148/former-ufc-champion-whose-coach-allegedly-stole-millions-now-working-food-delivery-i-do-whatever-it-takes",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
       "title": "UFC Abu Dhabi best betting props, parlays and picks | Ankalaev vs. Guskov",
       "link": "https://www.mmamania.com/ufc-odds/458256/ufc-abu-dhabi-best-betting-props-parlays-and-picks-ankalaev-vs-guskov",
       "source": "MMA Mania",
@@ -223,29 +241,11 @@
       "link": "https://www.mmamania.com/latest-news/459135/gfn-1-israel-vs-the-world-lineker-gordon-fight-card-time-stream",
       "source": "MMA Mania",
       "priority": false
-    },
-    {
-      "title": "UFC Heavyweight rookie RJ Harris went from full-time lineman to the Octagon in 16 months – ‘Did it come too soon?’",
-      "link": "https://www.mmamania.com/ufc-results/459118/ufc-heavyweight-rookie-rj-harris-went-from-full-time-lineman-to-the-octagon-in-16-months-did-it-come-too-soon",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "Karate Combat 62 fight card, start time, date and location | Alvey vs. Hall",
-      "link": "https://www.mmamania.com/latest-news/459103/karate-combat-62-fight-card-start-time-date-and-location-alvey-vs-hall",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "Gable Steveson added to super-stacked RAF 12 anniversary card",
-      "link": "https://www.mmamania.com/raf-wrestling-schedule-cards-live-results/459092/gable-steveson-added-to-super-stacked-raf-12-anniversary-card",
-      "source": "MMA Mania",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "Ankalaev and Guskov clash Sunday midnight SGT in an explosive light heavyweight battle.",
-    "prefight": "Ankalaev and Guskov headline fight week with a midnight Sunday clash.",
-    "results": "Du Plessis defeats Usman by unanimous decision: 50-45, 49-46, 49-46."
+    "week": "Ankalaev vs Guskov hits the cage Sunday at midnight SGT.",
+    "prefight": "Ankalaev faces Guskov this Sunday. Light heavyweight supremacy battle you can't miss.",
+    "results": "Du Plessis cruises past Usman with a clean unanimous decision."
   }
 }
