@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-22T23:30:00.365997+08:00",
+  "updated": "2026-07-23T09:00:00.342618+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -159,27 +159,15 @@
   },
   "news": [
     {
+      "title": "UFC fighter Jessica Andrade delivering food to make money while sidelined with injury: ‘I’m not afraid of hard work’",
+      "link": "https://www.mmafighting.com/ufc/500576/ufc-fighter-jessica-andrade-delivering-food-to-make-money-while-sidelined-with-injury-im-not-afraid-of-hard-work",
+      "source": "MMA Fighting",
+      "priority": true
+    },
+    {
       "title": "Dana White admits he’s happy the UFC ultimately didn’t sign Fedor Emelianenko: ‘Thank god they said no’",
       "link": "https://www.mmafighting.com/ufc/500493/dana-white-admits-hes-happy-the-ufc-ultimately-didnt-sign-fedor-emelianenko-thank-god-they-said-no",
       "source": "MMA Fighting",
-      "priority": true
-    },
-    {
-      "title": "Matt Brown praises Paddy Pimblett after he ‘stole the f*cking show’ at UFC 329 but still not sold on him as championship material",
-      "link": "https://www.mmafighting.com/ufc/500369/matt-brown-praises-paddy-pimblett-after-he-stole-the-fcking-show-at-ufc-329-but-still-not-sold-on-him-as-championship-material",
-      "source": "MMA Fighting",
-      "priority": true
-    },
-    {
-      "title": "Ian Machado Garry channeling mommy issues for UFC 330 title fight : ‘I use that as fuel every day’",
-      "link": "https://www.mmamania.com/ufc-news/458988/ian-machado-garry-channeling-mommy-issues-for-ufc-330-title-fight-i-use-that-as-fuel-every-day",
-      "source": "MMA Mania",
-      "priority": true
-    },
-    {
-      "title": "Joe Lauzon booked against 0-2 BKFC fighter opponent for bare knuckle debut at Fenway Park",
-      "link": "https://www.mmamania.com/bare-knuckle-boxing-results-rules-ppv/458940/joe-lauzon-booked-against-0-2-bkfc-fighter-opponent-for-bare-knuckle-debut-at-fenway-park",
-      "source": "MMA Mania",
       "priority": true
     },
     {
@@ -201,10 +189,28 @@
       "priority": true
     },
     {
-      "title": "Paddy Pimblett still not championship material despite UFC 329 performance, says retired MMA star",
-      "link": "https://www.bjpenn.com/mma-news/ufc/paddy-pimblett-still-not-championship-material-despite-ufc-329-performance-says-retired-mma-star/?utm_source=rss&utm_medium=rss&utm_campaign=paddy-pimblett-still-not-championship-material-despite-ufc-329-performance-says-retired-mma-star",
+      "title": "Gable Steveson booked for freestyle wrestling return after stellar UFC 329 debut",
+      "link": "https://www.bjpenn.com/mma-news/gable-steveson/gable-steveson-freestyle-wrestling-return-ufc-329-debut/?utm_source=rss&utm_medium=rss&utm_campaign=gable-steveson-freestyle-wrestling-return-ufc-329-debut",
       "source": "BJPenn",
       "priority": true
+    },
+    {
+      "title": "Ex-UFC fighter Claudio Ribeiro arrested on domestic violence charge in Brazil",
+      "link": "https://www.mmafighting.com/latest-news/500587/ex-ufc-fighter-claudio-ribeiro-arrested-on-domestic-violence-charge-in-brazil",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Logan Paul wants Conor McGregor fight in WWE: ‘Conor’s cooked’",
+      "link": "https://www.mmafighting.com/ufc/500549/logan-paul-wants-conor-mcgregor-fight-in-wwe-conors-cooked",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "‘It’s gonna be a riot in this motherf*cker’: 19-year-old prospect explains his side of viral Fury FC finish, post-fight chaos with UFC vet",
+      "link": "https://www.mmafighting.com/latest-news/500506/its-gonna-be-a-riot-in-this-motherfcker-19-year-old-prospect-explains-his-side-of-viral-fury-fc-finish-post-fight-chaos-with-ufc-vet",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "Andy Foster responds to complaints about Herb Dean after Alex Pereira vs. Ciryl Gane at UFC White House",
@@ -213,39 +219,33 @@
       "priority": false
     },
     {
-      "title": "RAF exec gives update on Colby Covington vs. Belal Muhammad match after RAF 11 post-event melee",
-      "link": "https://www.mmafighting.com/raf-wrestling/500464/raf-exec-gives-update-on-colby-covington-vs-belal-muhammad-match-after-raf-11-post-event-melee",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Valter Walker not scared of ‘small’ Josh Hokit, unimpressed by Gable Steveson’s UFC debut: ‘I’ll take all of them’",
-      "link": "https://www.mmafighting.com/ufc/500440/valter-walker-not-scared-of-small-josh-hokit-unimpressed-by-gable-stevesons-ufc-debut-ill-take-all-of-them",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Colby Covington reacts to ‘unprofessional little clown’ Belal Muhammad starting melee at RAF 11 post-fight press conference",
-      "link": "https://www.mmafighting.com/raf-wrestling/500365/colby-covington-reacts-to-unprofessional-little-clown-belal-muhammad-starting-melee-at-raf-11-post-fight-press-conference",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Video: Man wakes up in random truck bed after UFC Oklahoma — in a different city",
-      "link": "https://www.mmamania.com/ufc-videos/459044/video-man-wakes-up-random-truck-bed-ufc-oklahoma-different-city",
+      "title": "UFC Heavyweight rookie RJ Harris went from full-time lineman to the Octagon in 16 months – ‘Did it come too soon?’",
+      "link": "https://www.mmamania.com/ufc-results/459118/ufc-heavyweight-rookie-rj-harris-went-from-full-time-lineman-to-the-octagon-in-16-months-did-it-come-too-soon",
       "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "CSAC quiets crybabies (like Alex Pereira) calling for UFC referee change — ‘Herb Dean has my full confidence’",
-      "link": "https://www.mmamania.com/ufc-news/459012/csac-quiets-crybabies-like-alex-pereira-calling-ufc-referee-change-herb-dean-has-my-full-confidence",
+      "title": "Karate Combat 62 fight card, start time, date and location | Alvey vs. Hall",
+      "link": "https://www.mmamania.com/latest-news/459103/karate-combat-62-fight-card-start-time-date-and-location-alvey-vs-hall",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
+      "title": "Gable Steveson added to super-stacked RAF 12 anniversary card",
+      "link": "https://www.mmamania.com/raf-wrestling-schedule-cards-live-results/459092/gable-steveson-added-to-super-stacked-raf-12-anniversary-card",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
+      "title": "PFL New York full fight card, ESPN start time | Nurmagomedov vs. Colgan",
+      "link": "https://www.mmamania.com/professional-fighters-league-pfl/457386/pfl-new-york-full-fight-card-espn-start-time-nurmagomedov-vs-colgan",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Ankalaev and Rountree collide for light heavyweight supremacy this Sunday night.",
-    "prefight": "Light heavyweight fireworks arrive Sunday as Ankalaev collides with Rountree.",
-    "results": "Du Plessis dominates five rounds, defeats Usman via unanimous decision."
+    "week": "Ankalaev and Rountree wage war Sunday in peak light heavyweight combat.",
+    "prefight": "Three days until Ankalaev and Rountree collide for light heavyweight supremacy.",
+    "results": "Dricus du Plessis dominates Kamaru Usman, winning unanimous decision in five-round affair."
   }
 }
