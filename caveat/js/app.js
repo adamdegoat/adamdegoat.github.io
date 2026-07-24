@@ -41,7 +41,7 @@ const App = (() => {
     const m = document.getElementById('settingsModal'); m.hidden = false;
     const p = getProfile() || {}; const f = document.getElementById('settingsForm');
     f.name.value = p.name || ''; f.cea.value = p.cea || ''; f.agency.value = p.agency || '';
-    f.phone.value = p.phone || ''; f.color.value = p.color || '#0f9d76';
+    f.phone.value = p.phone || ''; f.color.value = p.color || '#2E7D5B';
   }
   function closeSettings() { document.getElementById('settingsModal').hidden = true; }
 
@@ -91,7 +91,7 @@ const App = (() => {
     });
     document.getElementById('clearProfile').addEventListener('click', () => {
       localStorage.removeItem('caveat_profile'); profile = null; renderProfileChip();
-      const f = document.getElementById('settingsForm'); f.reset(); f.color.value = '#0f9d76';
+      const f = document.getElementById('settingsForm'); f.reset(); f.color.value = '#2E7D5B';
       closeSettings();
     });
     if (location.hash) { const h = location.hash.slice(1); if (document.getElementById(h)) route(h); }

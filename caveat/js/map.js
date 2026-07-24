@@ -38,13 +38,13 @@ const CaveatMap = (() => {
     const pts = [];
     const s = opts.subject;
     if (s && s.latlng) {
-      L.marker(s.latlng, { icon: subjectIcon(opts.color || '#0f9d76'), zIndexOffset: 1000 })
+      L.marker(s.latlng, { icon: subjectIcon(opts.color || '#2E7D5B'), zIndexOffset: 1000 })
         .addTo(m).bindPopup(`<b>${s.label}</b><br><span style="color:#6b7587">Subject property</span>`);
       pts.push(s.latlng);
     }
     (opts.comps || []).forEach(c => {
       if (!c.latlng) return;
-      L.circleMarker(c.latlng, { radius: 6, color: opts.color || '#0f9d76', weight: 2, fillColor: '#fff', fillOpacity: 1 })
+      L.circleMarker(c.latlng, { radius: 6, color: opts.color || '#2E7D5B', weight: 2, fillColor: '#fff', fillOpacity: 1 })
         .addTo(m).bindPopup(`<b>${c.label}</b><br><span style="color:#6b7587">${c.sub}</span>`);
       pts.push(c.latlng);
     });

@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <link rel="stylesheet" href="css/app.css?v=21">
 <style>
-.cav-ibtn{display:inline-flex;align-items:center;font-size:13px;font-weight:700;color:var(--brand-d,#0b7d5e);padding:7px 13px;border-radius:30px;border:1px solid var(--brand,#0f9d76);background:rgba(15,157,118,.08);cursor:pointer;white-space:nowrap;font-family:inherit;transition:.15s;flex:none}
+.cav-ibtn{display:inline-flex;align-items:center;font-size:13px;font-weight:700;color:var(--brand-d,#1F6B4F);padding:7px 13px;border-radius:30px;border:1px solid var(--brand,#2E7D5B);background:rgba(15,157,118,.08);cursor:pointer;white-space:nowrap;font-family:inherit;transition:.15s;flex:none}
 .cav-ibtn:hover{background:rgba(15,157,118,.16)}
 @media(max-width:680px){.cav-ibtn{margin-left:6px;padding:0;width:34px;height:34px;border-radius:50%;justify-content:center;font-size:16px}.cav-ibtn .lbl{display:none}}
 .cav-modal{position:fixed;inset:0;z-index:99999;background:rgba(10,16,25,.62);backdrop-filter:blur(6px);display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:24px 16px;font-family:'Libre Franklin',system-ui,sans-serif}
@@ -37,13 +37,13 @@
 .cav-feat .fi{font-size:18px}.cav-feat b{display:block;font-size:13px;margin:5px 0 2px;color:#fff}.cav-feat span{font-size:11.5px;color:#aab2c4}
 .cav-seg{display:inline-flex;gap:6px;margin-bottom:12px}
 .cav-seg button{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#aab2c4;font-family:inherit;font-weight:700;font-size:13px;padding:8px 18px;border-radius:30px;cursor:pointer}
-.cav-seg button.on{background:linear-gradient(135deg,#16c596,#0f9d76);color:#06231a;border-color:transparent}
+.cav-seg button.on{background:linear-gradient(135deg,#16c596,#2E7D5B);color:#06231a;border-color:transparent}
 .cav-steps{counter-reset:s;list-style:none;padding:0;margin:0}
 .cav-steps li{counter-increment:s;position:relative;padding:12px 0 12px 46px;border-bottom:1px solid rgba(255,255,255,.08);font-size:14.5px;color:#e8eaf0;line-height:1.5}
 .cav-steps li:last-child{border-bottom:0}.cav-steps li b{color:#fff}
 .cav-steps li small{display:block;font-size:11.5px;color:#8b93a6;margin-top:2px}
 .cav-steps li::before{content:counter(s);position:absolute;left:0;top:10px;width:30px;height:30px;border-radius:50%;background:rgba(22,197,150,.15);border:1px solid rgba(22,197,150,.45);color:#3fe0b0;font-weight:800;font-size:13px;display:grid;place-items:center}
-.cav-got{width:100%;margin-top:20px;padding:13px;background:linear-gradient(135deg,#16c596,#0f9d76);color:#06231a;border:0;border-radius:12px;font-weight:800;font-size:15px;cursor:pointer}
+.cav-got{width:100%;margin-top:20px;padding:13px;background:linear-gradient(135deg,#16c596,#2E7D5B);color:#06231a;border:0;border-radius:12px;font-weight:800;font-size:15px;cursor:pointer}
 .cav-hidden{display:none!important}
 @media(max-width:480px){.cav-feats{grid-template-columns:1fr}}
 </style>
@@ -239,7 +239,7 @@
       <label>Mobile<input name="phone" placeholder="e.g. 9123 4567"></label>
       <label>Brand colour
         <span class="color-row">
-          <input type="color" name="color" value="#0f9d76">
+          <input type="color" name="color" value="#2E7D5B">
           <span class="color-hint">Used on your decks</span>
         </span>
       </label>

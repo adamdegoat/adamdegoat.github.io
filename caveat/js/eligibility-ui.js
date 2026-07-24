@@ -250,7 +250,7 @@ const Eligibility = (() => {
 
   function brow(k, sub, v) { return `<div class="brow"><div class="bk">${k}<small>${sub}</small></div><div class="bv">${v}</div></div>`; }
   function agentMini() {
-    const p = App.getProfile() || {}; const color = p.color || '#0f9d76';
+    const p = App.getProfile() || {}; const color = p.color || '#2E7D5B';
     return `<div class="ac-av" style="background:linear-gradient(135deg,${color},${App.shade(color, -20)})">${App.initials(p.name)}</div>
       <div><div class="acn">${p.name || 'Your name'}</div><div class="acm">${[p.agency, p.cea].filter(Boolean).join(' · ') || 'Set up profile →'}</div></div>`;
   }

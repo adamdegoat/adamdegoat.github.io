@@ -44,7 +44,7 @@ const Pulse = (() => {
   function trendRow(d) {
     return `<h3 class="pulse-h">Median price-per-sqft trend</h3>
       <div class="pulse-row two">
-      ${trendCard('HDB resale', d.overall.hdb.months, '#0f9d76', d.window.hdb_months)}
+      ${trendCard('HDB resale', d.overall.hdb.months, '#2E7D5B', d.window.hdb_months)}
       ${trendCard('Private resale', d.overall.private.months, '#b88a2e', d.window.private_months)}
     </div>`;
   }

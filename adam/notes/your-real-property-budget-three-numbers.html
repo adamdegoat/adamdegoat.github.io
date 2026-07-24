@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Your real property budget, in three numbers · PropSight</title>
 <meta name="description" content="Before you open a single listing, three numbers decide what you can actually spend. The one that trips people up isn't the price tag.">
-<meta name="theme-color" content="#1b3a2d">
+<meta name="theme-color" content="#24402F">
 <link rel="manifest" href="../manifest.json">
 <link rel="apple-touch-icon" href="../icons/icon-180.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -15,17 +15,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#e1eae8;--ink:#0c211a;--ink2:#404f4c;--ink3:#536b66;--line:#dbe7e1;--line2:#bfdbd5;--green:#1b3a2d;--green2:#27513f;--green3:#0f231a;--brass:#0f7a82;--brass2:#15a0a0;--brass3:#7fd0bb;--serif:'Schibsted Grotesk',system-ui,sans-serif;--sans:'Schibsted Grotesk',system-ui,sans-serif;--ease:cubic-bezier(.22,.7,.2,1)}
+:root{--bg:#EBE2D2;--ink:#211D16;--ink2:#5C5346;--ink3:#8A8072;--line:#E4DBCA;--line2:#DED3BE;--green:#24402F;--green2:#2E7D5B;--green3:#1A1712;--brass:#1F6B4F;--brass2:#2E7D5B;--brass3:#C9B489;--serif:'Schibsted Grotesk',system-ui,sans-serif;--sans:'Schibsted Grotesk',system-ui,sans-serif;--ease:cubic-bezier(.22,.7,.2,1)}
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased}
 body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opacity:.04;;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 a{color:inherit}
-.prog{position:fixed;top:0;left:0;height:3px;width:0;background:#15a0a0;z-index:60;transition:width .12s linear}
-.top{position:relative;overflow:hidden;background:radial-gradient(720px 420px at 82% -40%,rgba(127,208,187,.20),transparent 60%),linear-gradient(155deg,var(--green2),var(--green3));color:#e6f3f0}
+.prog{position:fixed;top:0;left:0;height:3px;width:0;background:#2E7D5B;z-index:60;transition:width .12s linear}
+.top{position:relative;overflow:hidden;background:radial-gradient(720px 420px at 82% -40%,rgba(127,208,187,.20),transparent 60%),linear-gradient(155deg,var(--green2),var(--green3));color:#EBE2D2}
 .top .sheen{position:absolute;top:-60%;left:-30%;width:55%;height:240%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.06),transparent);transform:rotate(8deg);animation:none;pointer-events:none}
 @keyframes sweep{0%,100%{left:-40%}50%{left:130%}}
 .nav{max-width:720px;margin:0 auto;padding:22px 26px 0;display:flex;align-items:center;gap:14px;position:relative;z-index:2}
-.nav .b{font-family:var(--serif);font-weight:600;font-size:19px;color:#e1f6f2;display:flex;align-items:center;gap:9px}.nav .b .mark{width:28px;height:28px;flex:none}.hl-i{display:block;height:13px;width:172px;margin-top:11px;overflow:visible}.hl-i path{fill:none;stroke:#0f7a82;stroke-width:5;stroke-linecap:round;vector-effect:non-scaling-stroke}.top .sheen{display:none}
+.nav .b{font-family:var(--serif);font-weight:600;font-size:19px;color:#e1f6f2;display:flex;align-items:center;gap:9px}.nav .b .mark{width:28px;height:28px;flex:none}.hl-i{display:block;height:13px;width:172px;margin-top:11px;overflow:visible}.hl-i path{fill:none;stroke:#1F6B4F;stroke-width:5;stroke-linecap:round;vector-effect:non-scaling-stroke}.top .sheen{display:none}
 .nav .back{margin-left:auto;font-size:13px;font-weight:600;color:rgba(230,243,240,.72)}
 .hero{max-width:720px;margin:0 auto;padding:40px 26px 54px;position:relative;z-index:2}
 .kick{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--brass3);display:inline-flex;align-items:center;gap:10px}
@@ -44,20 +44,20 @@ a{color:inherit}
 .rel .rl{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
 .rel a{font-size:13.5px;font-weight:700;color:var(--green2);background:#f8fffe;border:1px solid var(--line);border-radius:30px;padding:9px 16px;transition:.2s}
 .rel a:hover{border-color:var(--green2);transform:translateY(-1px)}
-.cta{margin:42px 0 0;background:linear-gradient(150deg,var(--green2),var(--green3));color:#e6f3f0;border-radius:20px;padding:30px;position:relative;overflow:hidden}
+.cta{margin:42px 0 0;background:linear-gradient(150deg,var(--green2),var(--green3));color:#EBE2D2;border-radius:20px;padding:30px;position:relative;overflow:hidden}
 .cta .f{position:absolute;inset:14px;border:1px solid rgba(127,208,187,.25);border-radius:13px;pointer-events:none}
 .cta h3{font-family:var(--serif);font-weight:500;font-size:23px;position:relative}
 .cta p{font-size:15px;color:rgba(230,243,240,.8);margin-top:8px;position:relative}
 .cta .btns{display:flex;gap:11px;margin-top:18px;flex-wrap:wrap;position:relative}
 .cta a{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;padding:12px 20px;border-radius:30px}
-.cta a.p{background:var(--gtex,none),#1b3a2d;color:#eef6f1}
-.cta a.g{background:rgba(255,255,255,.1);color:#e6f3f0;border:1px solid rgba(255,255,255,.2)}
+.cta a.p{background:var(--gtex,none),#24402F;color:#F4EEDE}
+.cta a.g{background:rgba(255,255,255,.1);color:#EBE2D2;border:1px solid rgba(255,255,255,.2)}
 .src{font-size:13px;color:var(--ink3);margin-top:26px}
 .src a{color:var(--green2);font-weight:600;border-bottom:1px solid var(--line2)}
 .disc{font-size:13px;color:var(--ink3);margin-top:18px;line-height:1.6;border-top:1px solid var(--line);padding-top:22px}
 .foot{max-width:680px;margin:0 auto;padding:10px 26px 70px}
 .foot a{font-size:14px;font-weight:700;color:var(--green2)}
-:focus-visible{outline:2.5px solid #0f7a82;outline-offset:2px;border-radius:3px}.eyebrow,.kick,.free,.rdate,.note .date,.lp-k,.tool .free{color:#0d6f78}</style><script src="/adam/nav.js?v=153" defer></script>
+:focus-visible{outline:2.5px solid #1F6B4F;outline-offset:2px;border-radius:3px}.eyebrow,.kick,.free,.rdate,.note .date,.lp-k,.tool .free{color:#1F6B4F}</style><script src="/adam/nav.js?v=153" defer></script>
   <link rel="canonical" href="https://propsight.sg/market-pulse/your-real-property-budget-three-numbers.html">
   <script type="application/ld+json">
 {"@context": "https://schema.org","@graph": [{"@type": "Article","headline": "Your property budget has three parts. Most buyers only count one.","description": "Before you open a single listing, three numbers decide what you can actually spend. The one that trips people up isn't the price tag.","datePublished": "2026-06-22","author": {"@type": "Organization","name": "PropSight","url": "https://propsight.sg/"},"publisher": {"@type": "Organization","name": "PropSight","url": "https://propsight.sg/","logo": {"@type": "ImageObject","url": "https://propsight.sg/og.jpg"}},"mainEntityOfPage": {"@type": "WebPage","@id": "https://propsight.sg/market-pulse/your-real-property-budget-three-numbers.html"},"image": "https://propsight.sg/og.jpg"},{"@type": "BreadcrumbList","itemListElement": [{"@type": "ListItem","position": 1,"name": "PropSight","item": "https://propsight.sg/"},{"@type": "ListItem","position": 2,"name": "Market Pulse","item": "https://propsight.sg/market-pulse/"},{"@type": "ListItem","position": 3,"name": "Your property budget has three parts. Most buyers only count one.","item": "https://propsight.sg/market-pulse/your-real-property-budget-three-numbers.html"}]}]}
@@ -66,7 +66,7 @@ a{color:inherit}
 <body>
 <div class="prog" id="prog"></div>
 <header class="top"><span class="sheen"></span>
-  <nav class="nav"><a class="b" href="../index.html"><svg class="mark" aria-hidden="true" viewBox="0 0 64 64"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32.5 L27 21.5 L36.5 32.5" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M20.5 37 L33.5 37" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="27" cy="33.4" r="2" fill="#15a0a0"/><path d="M40.5 40.5 L53.5 53.5" fill="none" stroke="#15a0a0" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>PropSight</a><a class="back" href="./">← All posts</a></nav>
+  <nav class="nav"><a class="b" href="../index.html"><svg class="mark" aria-hidden="true" viewBox="0 0 64 64"><circle cx="27" cy="27" r="19" fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 32.5 L27 21.5 L36.5 32.5" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M20.5 37 L33.5 37" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="27" cy="33.4" r="2" fill="#2E7D5B"/><path d="M40.5 40.5 L53.5 53.5" fill="none" stroke="#2E7D5B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>PropSight</a><a class="back" href="./">← All posts</a></nav>
   <div class="hero">
     <span class="kick">Weekly Blog</span>
     <h1>Your property budget has three parts. Most buyers only count one.<svg class="hl-i" viewBox="0 0 172 13" preserveAspectRatio="none" aria-hidden="true" style=""><path d="M4 8 C 44 3, 128 3, 168 7"/></svg></h1>
