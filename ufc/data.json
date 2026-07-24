@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-24T09:00:00.285618+08:00",
+  "updated": "2026-07-24T13:00:00.338747+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -165,6 +165,12 @@
       "priority": true
     },
     {
+      "title": "Kamaru Usman weighs retirement following Dricus Du Plessis defeat",
+      "link": "https://www.sherdog.com/news/news/Kamaru-Usman-weighs-retirement-following-Dricus-Du-Plessis-defeat-202052",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
       "title": "Tom Aspinall reveals the horrifying reality behind his UFC 321 injury",
       "link": "https://www.sherdog.com/news/news/Tom-Aspinall-reveals-the-horrifying-reality-behind-his-UFC-321-injury-202034",
       "source": "Sherdog",
@@ -187,6 +193,18 @@
       "link": "https://www.bjpenn.com/mma-news/gable-steveson/gable-steveson-freestyle-wrestling-return-ufc-329-debut/?utm_source=rss&utm_medium=rss&utm_campaign=gable-steveson-freestyle-wrestling-return-ufc-329-debut",
       "source": "BJPenn",
       "priority": true
+    },
+    {
+      "title": "UFC Abu Dhabi weigh-in video: Ankalaev vs. Guskov",
+      "link": "https://www.mmafighting.com/ufc/500668/ufc-abu-dhabi-weigh-in-video-ankalaev-vs-guskov",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "UFC Vegas 120 adds new bouts including 30-fight octagon veteran",
+      "link": "https://www.mmafighting.com/ufc/500816/ufc-vegas-120-adds-new-bouts-including-30-fight-octagon-veteran",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "Ismael Bonfim ‘finally got serious’ with diet after collapsing on scale before UFC fight",
@@ -219,33 +237,15 @@
       "priority": false
     },
     {
-      "title": "Dana White: New UFC superstars will emerge but ‘there’s never going to be another Conor McGregor’",
-      "link": "https://www.mmafighting.com/ufc/500563/dana-white-new-superstars-will-emerge-in-ufc-but-theres-never-going-to-be-another-conor-mcgregor",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "ADCC 2026 loses double champ to UFC BJJ; Fugitive Izaak Michell also removed",
-      "link": "https://www.mmamania.com/bjj-news/459197/adcc-2026-loses-double-champ-to-ufc-bjj-fugitive-izaak-michell-also-removed",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "Damage! Darren Elkins returns for ‘last dance’,  added to UFC Vegas 120 against Cuban prospect",
-      "link": "https://www.mmamania.com/ufc-fight-announcements/459241/damage-darren-elkins-returns-added-to-ufc-vegas-120-against-cuban-prospect",
-      "source": "MMA Mania",
-      "priority": false
-    },
-    {
-      "title": "ADCC 2026 fight card: List of confirmed BJJ stars invited to the ADCC World Championships",
-      "link": "https://www.mmamania.com/bjj-news/405991/adcc-2026-fight-card-list-of-confirmed-bjj-stars-invited-to-the-adcc-world-championships",
+      "title": "Live: UFC Abu Dhabi early weigh ins results | Ankalaev vs. Guskov",
+      "link": "https://www.mmamania.com/ufc-weigh-in-video/459260/live-ufc-abu-dhabi-early-weigh-ins-results-ankalaev-vs-guskov",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Ankalaev vs Guskov drops Sunday midnight SGT—fight week is officially on.",
-    "prefight": "This Sunday midnight SGT, Ankalaev and Guskov battle for light heavyweight supremacy.",
-    "results": "Dricus du Plessis decisively outpoints Kamaru Usman in unanimous decision victory."
+    "week": "Fight week peaks Sunday: Ankalaev vs Guskov brings the fury, skills, and championship dreams.",
+    "prefight": "Two warriors, one octagon, Sunday at midnight — Ankalaev vs Guskov is here.",
+    "results": "Du Plessis out-points Usman across five rounds, securing unanimous decision on all scorecards."
   }
 }
