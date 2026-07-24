@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-24T21:00:00.214164+08:00",
+  "updated": "2026-07-24T23:30:00.201716+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -165,6 +165,12 @@
       "priority": true
     },
     {
+      "title": "UFC re-signs Olympian Robelis Despaigne, probably to screw Francis Ngannou and MVP",
+      "link": "https://www.mmamania.com/ufc-news/459348/ufc-re-signs-olympian-robelis-despaigne-probably-to-screw-francis-ngannou-and-mvp",
+      "source": "MMA Mania",
+      "priority": true
+    },
+    {
       "title": "UFC 330 card takes hit after Erin Blanchfield withdrawal",
       "link": "https://www.sherdog.com/news/news/UFC-330-card-takes-hit-after-Erin-Blanchfield-withdrawal-202058",
       "source": "Sherdog",
@@ -195,10 +201,16 @@
       "priority": true
     },
     {
-      "title": "Gable Steveson booked for freestyle wrestling return after stellar UFC 329 debut",
-      "link": "https://www.bjpenn.com/mma-news/gable-steveson/gable-steveson-freestyle-wrestling-return-ufc-329-debut/?utm_source=rss&utm_medium=rss&utm_campaign=gable-steveson-freestyle-wrestling-return-ufc-329-debut",
-      "source": "BJPenn",
-      "priority": true
+      "title": "UFC Abu Dhabi weigh-in results: Magomed Ankalaev vs. Bogdan Guskov set",
+      "link": "https://www.mmafighting.com/ufc/500920/ufc-abu-dhabi-weigh-in-results-magomed-ankalaev-vs-bogdan-guskov-set",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Bogdan Guskov offers hilarious prediction for ‘big chance’ against Magomed Ankalaev at UFC Abu Dhabi",
+      "link": "https://www.mmafighting.com/ufc/500593/bogdan-guskov-offers-hilarious-prediction-for-big-chance-against-magomed-ankalaev-at-ufc-abu-dhabi",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "Morning Report: Oscar De La Hoya calls Zuffa Boxing ‘Trojan Horse’ designed to exploit fighters",
@@ -229,23 +241,11 @@
       "link": "https://www.mmafighting.com/ufc/500568/between-the-links-du-plessis-dominates-usman-covington-vs-muhammad-ufc-abu-dhabi",
       "source": "MMA Fighting",
       "priority": false
-    },
-    {
-      "title": "Dustin Poirier reveals UFC ‘immediately’ reached out offering help after his public drunkenness arrest",
-      "link": "https://www.mmafighting.com/ufc/500497/dustin-poirier-reveals-ufc-immediately-reached-out-offering-help-after-his-public-drunkenness-arrest",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "UFC 330: Islam Makhachev vs. Ian Machado Garry loses flyweight contender bout",
-      "link": "https://www.mmafighting.com/ufc/500772/ufc-330-islam-makhachev-vs-ian-machado-garry-loses-flyweight-contender-bout",
-      "source": "MMA Fighting",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "Sunday midnight: Ankalaev battles Guskov in a light heavyweight showdown.",
-    "prefight": "Ankalaev collides with Guskov Sunday midnight SGT—light heavyweight supremacy awaits the victor.",
-    "results": "Du Plessis sweeps all five rounds against Usman for dominant unanimous decision."
+    "week": "Ankalaev and Guskov collide this Sunday at midnight—light heavyweight fireworks incoming.",
+    "prefight": "Ankalaev vs Guskov this Sunday midnight SGT—light heavyweight supremacy awaits.",
+    "results": "Du Plessis defeats Usman by unanimous decision in dominant five-round performance."
   }
 }
