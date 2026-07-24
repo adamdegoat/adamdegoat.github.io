@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-24T13:00:00.338747+08:00",
+  "updated": "2026-07-24T21:00:00.214164+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -165,6 +165,12 @@
       "priority": true
     },
     {
+      "title": "UFC 330 card takes hit after Erin Blanchfield withdrawal",
+      "link": "https://www.sherdog.com/news/news/UFC-330-card-takes-hit-after-Erin-Blanchfield-withdrawal-202058",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
       "title": "Kamaru Usman weighs retirement following Dricus Du Plessis defeat",
       "link": "https://www.sherdog.com/news/news/Kamaru-Usman-weighs-retirement-following-Dricus-Du-Plessis-defeat-202052",
       "source": "Sherdog",
@@ -193,6 +199,12 @@
       "link": "https://www.bjpenn.com/mma-news/gable-steveson/gable-steveson-freestyle-wrestling-return-ufc-329-debut/?utm_source=rss&utm_medium=rss&utm_campaign=gable-steveson-freestyle-wrestling-return-ufc-329-debut",
       "source": "BJPenn",
       "priority": true
+    },
+    {
+      "title": "Morning Report: Oscar De La Hoya calls Zuffa Boxing ‘Trojan Horse’ designed to exploit fighters",
+      "link": "https://www.mmafighting.com/boxing/500680/morning-report-oscar-de-la-hoya-calls-zuffa-boxing-trojan-horse-designed-to-exploit-fighters",
+      "source": "MMA Fighting",
+      "priority": false
     },
     {
       "title": "UFC Abu Dhabi weigh-in video: Ankalaev vs. Guskov",
@@ -229,23 +241,11 @@
       "link": "https://www.mmafighting.com/ufc/500772/ufc-330-islam-makhachev-vs-ian-machado-garry-loses-flyweight-contender-bout",
       "source": "MMA Fighting",
       "priority": false
-    },
-    {
-      "title": "Tyson Fury weighs in 26 pounds lighter than Mariusz Wach for expected Anthony Joshua tune-up fight",
-      "link": "https://www.mmafighting.com/boxing/500695/tyson-fury-weighs-in-26-pounds-lighter-than-mariusz-wach-for-expected-anthony-joshua-tune-up-fight",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Live: UFC Abu Dhabi early weigh ins results | Ankalaev vs. Guskov",
-      "link": "https://www.mmamania.com/ufc-weigh-in-video/459260/live-ufc-abu-dhabi-early-weigh-ins-results-ankalaev-vs-guskov",
-      "source": "MMA Mania",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "Fight week peaks Sunday: Ankalaev vs Guskov brings the fury, skills, and championship dreams.",
-    "prefight": "Two warriors, one octagon, Sunday at midnight — Ankalaev vs Guskov is here.",
-    "results": "Du Plessis out-points Usman across five rounds, securing unanimous decision on all scorecards."
+    "week": "Sunday midnight: Ankalaev battles Guskov in a light heavyweight showdown.",
+    "prefight": "Ankalaev collides with Guskov Sunday midnight SGT—light heavyweight supremacy awaits the victor.",
+    "results": "Du Plessis sweeps all five rounds against Usman for dominant unanimous decision."
   }
 }
