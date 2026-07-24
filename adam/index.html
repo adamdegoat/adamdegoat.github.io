@@ -34,7 +34,7 @@ body::before{content:"";position:fixed;inset:-20%;z-index:-2;pointer-events:none
 body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opacity:.045;
  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 /* faint dot grid, subtle data/precision texture */
-.topo{position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(27,58,45,.07) 1.1px,transparent 1.2px);background-size:28px 28px}
+.topo{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(120% 85% at 50% -8%,#F8F3EA 0%,#F2ECE0 52%,#ECE3D1 100%)}
 .wrap{max-width:1200px;margin:0 auto;padding:0 36px}
 a{color:inherit;text-decoration:none}
 .serif{font-family:var(--serif)}
@@ -485,7 +485,7 @@ a.mq-i{text-decoration:none}a.mq-i:hover{opacity:.82}
 }
 /* ===== dark hero + deeper greige body + architectural column lines ===== */
 :root{--bg:#F2ECE0}
-.topo{background-image:repeating-linear-gradient(90deg,rgba(27,58,45,.045) 0 1px,transparent 1px 150px),repeating-linear-gradient(0deg,rgba(27,58,45,.045) 0 1px,transparent 1px 150px)}
+/* grid removed: the .topo layer is now a soft warm wash (see above) */
 .nav.scrolled{background:rgba(211,236,231,.86)}
 /* nav over the dark hero = light; reverts to ink once scrolled onto the light body */
 .nav:not(.scrolled){background:linear-gradient(180deg,rgba(8,20,14,.42),rgba(8,20,14,0))}
