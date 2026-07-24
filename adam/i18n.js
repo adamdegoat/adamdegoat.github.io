@@ -14,6 +14,12 @@
     }
   } catch (e) {}
   var DICT = {
+  // ── recent-deals board panel ──
+  'Recent deals, from official caveats': '最新成交 · 来自官方契约数据',
+  'What is actually selling': '现在到底在成交什么',
+  'deals.intro': '每一宗私宅与组屋成交，一经官方备案即时收录。输入市镇、街道或楼盘名，看看你附近到底在成交什么。',
+  'deals.ph': '试试碧山、淡滨尼，或某个楼盘名称…',
+  'Explore every project in Research': '在 Research 查看每一个楼盘',
   // ── warm redesign: 3-pillar nav + data board ──
   'The Market': '楼市',
   'Neighbourhoods': '小区',

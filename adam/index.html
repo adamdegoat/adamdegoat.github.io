@@ -1080,6 +1080,60 @@ if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}
     <div class="bd-foot"><span class="src" data-i18n="Indicative, not financial advice.">Indicative, not financial advice.</span><a class="bd-cta" href="market-analysis/"><span data-i18n="Read the full market analysis">Read the full market analysis</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
   </div></div>
 </section>
+<style>
+.deals-sec{padding:clamp(30px,5vh,56px) 0 0}
+.deals-wrap{max-width:1120px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.deals-card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 22px 52px -40px rgba(30,25,16,.4)}
+.deals-head{padding:clamp(20px,2.5vw,28px) clamp(20px,2.5vw,30px) 18px;display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+.dl-k{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.11em;text-transform:uppercase;color:var(--green-d)}
+.dl-t{font-weight:800;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.02em;margin-top:8px;color:var(--ink)}
+.dl-n{font-size:14.5px;color:var(--ink2);margin-top:9px;max-width:58ch;line-height:1.5}
+.dl-meta{font-family:var(--mono);font-size:11px;color:var(--ink3);text-align:right;line-height:1.7;white-space:nowrap}
+.dl-meta span{display:block}.dl-meta .live{color:var(--green-d);display:inline-flex;align-items:center;gap:6px}
+.dl-meta .live i{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2.4s infinite}
+.deals-search{position:relative;margin:16px clamp(20px,2.5vw,30px) 0}
+.deals-search .si{position:absolute;left:15px;top:50%;transform:translateY(-50%);width:18px;height:18px;stroke:var(--ink3);fill:none;stroke-width:2;pointer-events:none}
+#dealSearch{width:100%;box-sizing:border-box;font:inherit;font-size:16px;padding:14px 44px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);outline:none;transition:border-color .15s}
+#dealSearch:focus{border-color:var(--green-d)}
+#dealClear{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;font-size:22px;line-height:1;color:var(--ink3);cursor:pointer;display:none;padding:6px}
+.deals-list{padding:4px clamp(20px,2.5vw,30px) 0}
+.dl-row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:13px 0;border-top:1px solid var(--line2)}
+.dl-row:first-child{border-top:none}
+.dl-main{min-width:0}
+.dl-name{font-size:15.5px;font-weight:700;color:var(--ink);letter-spacing:-.01em;display:flex;align-items:center;gap:9px;flex-wrap:wrap;line-height:1.25}
+.dl-badge{font-family:var(--mono);font-size:8.5px;font-weight:600;letter-spacing:.06em;padding:2px 6px;border-radius:5px;flex:none}
+.dl-row.hdb .dl-badge{content:"HDB";color:#8A6E2E;background:rgba(201,180,137,.28)}
+.dl-row.condo .dl-badge{color:var(--green-d);background:rgba(46,125,91,.12)}
+.dl-tag{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--clay);background:rgba(190,92,54,.1);padding:2px 8px;border-radius:20px}
+.dl-sub{font-size:13px;color:var(--ink2);margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dl-nums{text-align:right;flex:none}
+.dl-price{font-size:16.5px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.dl-psf{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-top:2px}
+.dl-empty{padding:28px 4px;color:var(--ink2);font-size:14.5px;text-align:center}
+.deals-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:15px clamp(20px,2.5vw,30px);border-top:1px solid var(--line);margin-top:6px;flex-wrap:wrap}
+.deals-foot .dl-shown{font-family:var(--mono);font-size:11px;color:var(--ink3)}
+.deals-foot a{font-weight:700;color:var(--green-d);font-size:14px}
+.tk-flag{width:6px;height:6px;border-radius:50%;background:var(--clay);display:inline-block;margin-right:2px;vertical-align:middle}
+@media(max-width:560px){.dl-sub{white-space:normal}.dl-row{align-items:flex-start}.dl-meta{text-align:left}}
+</style>
+<section class="deals-sec"><div class="deals-wrap"><div class="deals-card">
+  <div class="deals-head">
+    <div>
+      <div class="dl-k" data-i18n="Recent deals, from official caveats">Recent deals &middot; from official caveats</div>
+      <h2 class="dl-t" data-i18n="What is actually selling">What&#39;s actually selling</h2>
+      <p class="dl-n" data-i18n="deals.intro">Every private and HDB sale, as it is filed with the authorities. Type a town, street or project and see exactly what is changing hands near you.</p>
+    </div>
+    <div class="dl-meta"><span class="live"><i></i><span id="dealsAsOf">Jul 2026</span></span><span id="dealsCount"></span></div>
+  </div>
+  <div class="deals-search">
+    <svg class="si" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    <input id="dealSearch" placeholder="Try Bishan, Tampines, or a condo name..." data-i18n-ph="deals.ph" autocomplete="off" aria-label="Search recent deals">
+    <button id="dealClear" aria-label="Clear">&times;</button>
+  </div>
+  <div class="deals-list" id="dealsList"></div>
+  <div class="deals-foot"><span class="dl-shown" id="dealsShown"></span><a href="research/" data-i18n="Explore every project in Research">Explore every project in Research &rarr;</a></div>
+</div></div></section>
+
 <section class="sec divtop" id="insights"><div class="wrap">
   <div class="sec-h">
     <div>
@@ -2298,5 +2352,49 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
   if(row){var h=TICK.map(function(it){return '<span class="tk">'+(it[2]==='up'?triUp:it[2]==='down'?triDn:'')+'<b>'+it[0]+'</b> '+it[1]+'</span>';}).join('');row.innerHTML=h+h;}
   var grow=function(){document.querySelectorAll('.dbar,.ybar').forEach(function(b){b.style.width=(b.dataset.w||0)+'%';});};
   if(matchMedia('(prefers-reduced-motion: reduce)').matches){grow();}else{requestAnimationFrame(function(){requestAnimationFrame(grow);});}
+})();</script>
+<script>/* Recent deals: live tape (board ticker) + lookup panel, from caveat data */
+(function(){
+  fetch('data/recent_deals.json?v='+Date.now()).then(function(r){return r.ok?r.json():null;}).then(function(D){
+    if(!D||!D.deals||!D.deals.length)return;
+    var ALL=D.deals;
+    // showcase = headline standouts + a price-spread of everyday deals (varied default + tape)
+    var stand=ALL.filter(function(d){return d.tag;});
+    var oth=ALL.filter(function(d){return !d.tag;});
+    var sh=oth.filter(function(d){return d.k==='hdb';}).sort(function(a,b){return a.price-b.price;});
+    var sc=oth.filter(function(d){return d.k==='condo';}).sort(function(a,b){return a.price-b.price;});
+    function pick(a,n){if(a.length<=n)return a.slice();var s=a.length/n,o=[];for(var i=0;i<n;i++)o.push(a[Math.floor(i*s)]);return o;}
+    var mh=pick(sh,24),mc=pick(sc,24),mix=[];
+    for(var i=0;i<24;i++){if(i<mh.length)mix.push(mh[i]);if(i<mc.length)mix.push(mc[i]);}
+    var SHOW=stand.concat(mix);
+    var asOf=document.getElementById('dealsAsOf'); if(asOf)asOf.textContent=D.as_of_label;
+    var cnt=document.getElementById('dealsCount'); if(cnt)cnt.textContent='from '+D.n_total.toLocaleString()+' recent caveats';
+    var list=document.getElementById('dealsList'), inp=document.getElementById('dealSearch'),
+        clr=document.getElementById('dealClear'), shown=document.getElementById('dealsShown');
+    function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+    function tag(t){return t?'<span class="dl-tag">'+esc(t)+'</span>':'';}
+    function badge(k){return '<span class="dl-badge">'+(k==='hdb'?'HDB':'CONDO')+'</span>';}
+    function render(q){
+      q=(q||'').trim().toLowerCase();
+      var rows=q?ALL.filter(function(d){return d.search.indexOf(q)>=0;}):SHOW;
+      var cut=rows.slice(0,q?60:12);
+      if(clr)clr.style.display=q?'block':'none';
+      if(!cut.length){list.innerHTML='<div class="dl-empty">No recent sales match that yet. Try a town like Bishan, Tampines or Punggol.</div>';if(shown)shown.textContent='';return;}
+      list.innerHTML=cut.map(function(d){return '<div class="dl-row '+d.k+'">'+
+        '<div class="dl-main"><div class="dl-name">'+badge(d.k)+esc(d.name)+' '+tag(d.tag)+'</div>'+
+        '<div class="dl-sub">'+esc(d.loc)+' &middot; '+esc(d.spec)+'</div></div>'+
+        '<div class="dl-nums"><div class="dl-price">'+esc(d.price_s)+'</div><div class="dl-psf">'+esc(d.psf_s)+' &middot; '+esc(d.when)+'</div></div></div>';}).join('');
+      if(shown)shown.textContent=q?(rows.length+' match'+(rows.length===1?'':'es')):'latest across Singapore';
+    }
+    render('');
+    if(inp){var t;inp.addEventListener('input',function(){clearTimeout(t);t=setTimeout(function(){render(inp.value);},110);});}
+    if(clr)clr.addEventListener('click',function(){inp.value='';render('');inp.focus();});
+    // the board tape (ticker) = real recent deals scrolling
+    var row=document.getElementById('tickerRow');
+    if(row){
+      var chip=function(d){return '<span class="tk">'+(d.tag?'<i class="tk-flag"></i>':'')+'<b>'+esc(d.name)+'</b> '+esc(d.loc)+' &middot; '+esc(d.price_s)+' &middot; '+esc(d.psf_s)+'</span>';};
+      var h=SHOW.map(chip).join(''); row.innerHTML=h+h;
+    }
+  }).catch(function(){});
 })();</script>
 </html>
