@@ -43,7 +43,7 @@ em{font-style:italic;color:var(--brass)}
 .eyebrow::before{content:"";width:22px;height:1.5px;background:var(--brass);display:inline-block}
 
 /* scroll progress */
-.prog{position:fixed;top:0;left:0;height:2.5px;width:0;z-index:100;background:#15a0a0;box-shadow:0 0 12px rgba(15,35,26,.5)}
+.prog{position:fixed;top:0;left:0;height:2.5px;width:0;z-index:100;background:#2E7D5B;box-shadow:0 0 12px rgba(15,35,26,.5)}
 
 /* nav */
 .nav{position:sticky;top:0;z-index:60;transition:.35s var(--ease);border-bottom:1px solid transparent;padding-top:env(safe-area-inset-top)}
@@ -56,7 +56,7 @@ em{font-style:italic;color:var(--brass)}
 .brand .mark{width:27px;height:27px;flex:none}
 .brand .bw{display:flex;flex-direction:column;align-items:flex-start;gap:2px;line-height:1}
 .brand b{font-family:var(--sans);font-weight:800;font-size:20px;letter-spacing:-.012em}
-.brand .bw span{font-size:9.5px;font-weight:800;letter-spacing:.2em;color:#0f7a82;text-transform:uppercase;margin:0}
+.brand .bw span{font-size:9.5px;font-weight:800;letter-spacing:.2em;color:#1F6B4F;text-transform:uppercase;margin:0}
 .links{display:flex;gap:19px;margin:0 auto;align-items:center}
 .links a{font-size:13.5px;font-weight:600;color:var(--ink2);position:relative;padding:4px 0;white-space:nowrap}
 .links a::after{content:"";position:absolute;left:0;bottom:-2px;height:1.5px;width:0;background:var(--brass);transition:width .3s var(--ease)}
@@ -65,8 +65,8 @@ em{font-style:italic;color:var(--brass)}
 .btn:hover{background:var(--green3);transform:translateY(-2px);box-shadow:0 14px 28px rgba(27,58,45,.3)}
 .btn.brass{background:var(--gtex,none),#1b3a2d;border-color:var(--brass);color:#eef6f1;box-shadow:0 10px 26px rgba(15,35,26,.32)}
 .btn.brass:hover{box-shadow:0 18px 38px rgba(15,35,26,.42);transform:translateY(-2px)}
-.btn.brass-out{background:rgba(127,208,187,.08);border:1.5px solid var(--brass2);color:var(--brass3);box-shadow:none}
-.btn.brass-out:hover{background:rgba(127,208,187,.16);border-color:var(--brass3);transform:translateY(-2px)}
+.btn.brass-out{background:rgba(201,180,137,.08);border:1.5px solid var(--brass2);color:var(--brass3);box-shadow:none}
+.btn.brass-out:hover{background:rgba(201,180,137,.16);border-color:var(--brass3);transform:translateY(-2px)}
 .btn .arr{transition:transform .25s var(--ease)}.btn:hover .arr{transform:translateX(4px)}
 /* mobile menu */
 .navsignin{background:none;border:0;font-family:inherit;font-size:13.5px;font-weight:600;color:var(--ink2);cursor:pointer;padding:8px 2px;margin-left:4px;white-space:nowrap;transition:color .2s}
@@ -97,7 +97,7 @@ em{font-style:italic;color:var(--brass)}
 .nav.scrolled .navdoor .nd-top{color:#1b3a2d}
 .nav.scrolled .navdoor .nd-sub{color:#758a86}
 .nav.scrolled .navdoor .nd-dot{background:#3aa76d}
-.nav.scrolled .navdoor:hover{border-color:#27513f;box-shadow:0 9px 22px rgba(39,81,63,.15)}
+.nav.scrolled .navdoor:hover{border-color:#27513f;box-shadow:0 9px 22px rgba(90,80,64,.15)}
 .menu-toggle{display:none;margin-left:auto;width:44px;height:44px;align-items:center;justify-content:center;background:rgba(255,255,255,.55);border:1px solid var(--line2);border-radius:11px;cursor:pointer;color:var(--ink);-webkit-tap-highlight-color:transparent;position:relative;z-index:61;transition:.25s var(--ease)}
 .menu-toggle svg{width:22px;height:22px}
 .menu-toggle .ic-close{display:none}
@@ -112,7 +112,7 @@ em{font-style:italic;color:var(--brass)}
 .mobile-menu .mm-pill{font-family:"Schibsted Grotesk",system-ui,sans-serif;font-weight:800;font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:#eef6f1;background:var(--gtex,none),#1b3a2d;border-radius:20px;padding:3px 7px;line-height:1.4}
 .mobile-menu .mm-pill.mm-soon{background:linear-gradient(135deg,#2f5a46,#1b3a2d);color:#c8eae3}
 .mobile-menu .mm-sep{height:1px;background:rgba(15,35,26,.2);margin:9px 2px}
-.mobile-menu .mm:active .mm-t{color:#0d6f78}
+.mobile-menu .mm:active .mm-t{color:#1F6B4F}
 .mobile-menu .mm-door{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:18px;padding:18px;border:1px solid #cdd9d0;border-radius:15px;background:linear-gradient(180deg,#fff,#eef4ef);text-decoration:none;opacity:0;transform:translateY(12px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
 .mobile-menu .mm-door .mmd-t{display:block;font-family:var(--serif);font-weight:600;font-size:21px;color:var(--green);line-height:1.1}
 .mobile-menu .mm-door .mmd-d{display:block;font-size:13px;color:#576b67;margin-top:4px}
@@ -120,8 +120,8 @@ em{font-style:italic;color:var(--brass)}
 .mobile-menu .mm-door .mmd-arr svg{width:15px;height:15px;stroke:#e6f3f0}
 .mobile-menu .mm-door+.mm-door{margin-top:11px}
 .mobile-menu .mm-door.mm-world{background:linear-gradient(180deg,#f1fbfa,#e3f5f1);border-color:#bfe6e0}
-.mobile-menu .mm-door.mm-world .mmd-t{color:#0f7a82}
-.mobile-menu .mm-door.mm-world .mmd-arr{background:#15a0a0}
+.mobile-menu .mm-door.mm-world .mmd-t{color:#1F6B4F}
+.mobile-menu .mm-door.mm-world .mmd-arr{background:#2E7D5B}
 .mobile-menu .mm-door:active{transform:translateY(-1px)}
 .mobile-menu .mm-foot{margin-top:auto;padding-top:26px;display:flex;flex-direction:column;gap:14px}
 .mobile-menu .mm-install{display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:700;color:var(--green2);opacity:0;transform:translateY(12px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
@@ -158,11 +158,11 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .hinstall:hover{border-bottom-color:var(--brass)}
 .hessentials{display:inline-block;margin-top:14px;font-size:13.5px;font-weight:700;color:var(--green2);border:1px solid var(--line2);border-radius:30px;padding:9px 16px;transition:.2s var(--ease)}
 .hessentials:hover{border-color:var(--brass);transform:translateY(-1px)}
-/* hero doorways: the two prominent entries (PropWorld + Listings) */
+/* (legacy hero doorway styles, unused by the board hero) */
 .hdoors{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
 .hdoor{flex:1 1 240px;max-width:335px;display:flex;align-items:center;gap:13px;text-decoration:none;padding:15px 18px;border-radius:18px;position:relative;overflow:hidden;background:var(--gtex,none),#1b3a2d;border:1px solid var(--brass2);box-shadow:0 14px 30px -10px rgba(15,35,26,.42);transition:transform .25s var(--ease),box-shadow .25s,border-color .25s}
 .hdoor:hover{transform:translateY(-3px);border-color:var(--brass3);box-shadow:0 22px 44px -14px rgba(15,35,26,.52)}
-.hdoor .hd-ic{flex:none;width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(127,208,187,.15);color:var(--brass3)}
+.hdoor .hd-ic{flex:none;width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(201,180,137,.15);color:var(--brass3)}
 .hdoor .hd-ic svg{width:23px;height:23px}
 .hdoor .hd-tx{display:flex;flex-direction:column;line-height:1.14;min-width:0}
 .hdoor .hd-tx b{font-size:16px;font-weight:800;color:#eef7f3;letter-spacing:-.01em}
@@ -173,7 +173,7 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .hdoor .hd-ar svg{width:18px;height:18px}
 .hdoor:hover .hd-ar{transform:translateX(4px)}
 .hdoor.hd-world{background:var(--gtex,none),linear-gradient(155deg,#15807f 0%,#123a30 92%);border-color:var(--brass2);animation:hdWorldGlow 3.4s ease-in-out infinite}
-.hdoor.hd-world .hd-ic{background:rgba(127,208,187,.26)}
+.hdoor.hd-world .hd-ic{background:rgba(201,180,137,.26)}
 .hdoor.hd-world::after{content:"";position:absolute;top:0;left:-65%;width:48%;height:100%;background:linear-gradient(100deg,rgba(191,240,232,0) 0%,rgba(191,240,232,.32) 50%,rgba(191,240,232,0) 100%);transform:skewX(-18deg);pointer-events:none;animation:hdWorldSheen 5.6s ease-in-out infinite}
 @keyframes hdWorldGlow{0%,100%{box-shadow:0 14px 30px -10px rgba(15,35,26,.42),0 0 0 0 rgba(46,196,182,0)}50%{box-shadow:0 16px 34px -10px rgba(15,35,26,.46),0 0 22px 1px rgba(46,196,182,.42)}}
 @keyframes hdWorldSheen{0%,74%{left:-65%}88%,100%{left:135%}}
@@ -195,7 +195,7 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .hperks .hperks-star{flex:none;color:var(--brass3);font-size:15px;position:relative;top:1px}
 .hperks b{color:var(--brass3);font-weight:800}
 .hsoon{display:flex;align-items:baseline;gap:9px;margin-top:14px;font-size:13px;font-weight:600;line-height:1.45;max-width:480px}
-.hsoon .hsoon-d{flex:none;width:7px;height:7px;border-radius:50%;background:var(--brass3);position:relative;top:5px;box-shadow:0 0 10px rgba(127,208,187,.65)}
+.hsoon .hsoon-d{flex:none;width:7px;height:7px;border-radius:50%;background:var(--brass3);position:relative;top:5px;box-shadow:0 0 10px rgba(201,180,137,.65)}
 .hsoon b{color:var(--brass3);font-weight:800}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.45)}}
 
@@ -221,7 +221,7 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .am-in i{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-style:normal;color:var(--ink3);font-weight:600;font-size:14px}
 .am-in input{width:100%;font-family:inherit;font-weight:700;font-size:16px;padding:11px 12px 11px 26px;border:1px solid var(--line2);border-radius:10px;background:#fff;color:var(--ink);outline:none;transition:.18s}
 .am-f.am-age{flex:0 0 104px}.am-f.am-age .am-in input{padding-left:12px}
-.am-in input:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(39,81,63,.1)}
+.am-in input:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(90,80,64,.1)}
 .am-more{margin-top:13px;background:none;border:0;font-family:inherit;font-size:12.5px;font-weight:700;color:var(--green2);cursor:pointer;padding:0;text-align:left}
 .am-more:hover{text-decoration:underline}
 .am-extra{display:none;margin-top:12px}.am-extra.open{display:flex}
@@ -269,14 +269,14 @@ html.menu-open,html.menu-open body{overflow:hidden}
 
 /* brand portrait panel (reused in Work-with-me) */
 .portrait{position:relative;aspect-ratio:4/5;border-radius:22px;overflow:hidden;
- background:radial-gradient(440px 380px at 68% 10%,#2c5743,var(--green2) 52%,var(--green3));box-shadow:var(--sh3);
+ background:radial-gradient(440px 380px at 68% 10%,#2E7D5B,var(--green2) 52%,var(--green3));box-shadow:var(--sh3);
  transform:translateY(40px) scale(.97);opacity:0;transition:opacity 1s var(--ease) .25s,transform 1s var(--ease) .25s}
 .loaded .portrait{transform:none;opacity:1}
-.portrait .glow{position:absolute;inset:0;background:radial-gradient(300px 300px at 70% 18%,rgba(127,208,187,.22),transparent 60%);animation:breathe 7s ease-in-out infinite alternate}
+.portrait .glow{position:absolute;inset:0;background:radial-gradient(300px 300px at 70% 18%,rgba(201,180,137,.22),transparent 60%);animation:breathe 7s ease-in-out infinite alternate}
 @keyframes breathe{0%{opacity:.6}100%{opacity:1}}
 .portrait svg.ctr{position:absolute;inset:-8%;opacity:.55;animation:drift 16s ease-in-out infinite alternate}
 @keyframes drift{0%{transform:translate3d(0,0,0)}100%{transform:translate3d(2.5%,-2%,0)}}
-.portrait .frame{position:absolute;inset:16px;border:1px solid rgba(127,208,187,.42);border-radius:13px;z-index:3}
+.portrait .frame{position:absolute;inset:16px;border:1px solid rgba(201,180,137,.42);border-radius:13px;z-index:3}
 .portrait .mono{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2}
 .portrait .mono span{font-family:var(--serif);font-weight:500;font-size:156px;color:rgba(232,245,242,.12)}
 .portrait .tagpill{position:absolute;left:30px;bottom:28px;z-index:4;color:#e6f3f0}
@@ -289,11 +289,11 @@ html.menu-open,html.menu-open body{overflow:hidden}
 /* ── Market Pulse marquee (human headlines; sits below the nav, over the hero photo) ── */
 .mq{position:absolute;top:0;left:0;right:0;z-index:4;display:flex;align-items:stretch;height:48px;
     background:linear-gradient(90deg,rgba(9,22,15,.9),rgba(12,30,21,.78));
-    border-bottom:1px solid rgba(127,208,187,.20);cursor:default;text-decoration:none}
+    border-bottom:1px solid rgba(201,180,137,.20);cursor:default;text-decoration:none}
 .mq-lab{flex:none;display:flex;align-items:center;gap:9px;padding:0 18px 0 clamp(20px,4vw,40px);font-size:11.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#7fd0bb}
 .mq-lab .dot{width:8px;height:8px;border-radius:50%;background:#8fe0b0;animation:mqpl 2s infinite}
 @keyframes mqpl{0%,100%{transform:scale(1)}50%{transform:scale(1.45)}}
-.mq-div{flex:none;width:1px;background:rgba(127,208,187,.25);margin:11px 0}
+.mq-div{flex:none;width:1px;background:rgba(201,180,137,.25);margin:11px 0}
 .mq-vp{position:relative;flex:1;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 52px,#000 calc(100% - 64px),transparent);mask-image:linear-gradient(90deg,transparent 0,#000 52px,#000 calc(100% - 64px),transparent)}
 .mq-track{position:absolute;top:0;left:0;height:100%;display:inline-flex;align-items:center;white-space:nowrap;animation:mqscroll 82s linear infinite}
 .mq-track.paused{animation-play-state:paused}
@@ -329,12 +329,12 @@ a.mq-i{text-decoration:none}a.mq-i:hover{opacity:.82}
 .sec-h p{color:var(--ink2);font-size:15px;max-width:380px}
 .router{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .rcard{position:relative;background:#fcfffe;border:1px solid var(--line);border-radius:18px;padding:20px 22px 17px;overflow:hidden;box-shadow:0 6px 22px rgba(25,21,18,.05);transition:transform .38s var(--ease),box-shadow .38s var(--ease),border-color .38s}
-.rcard::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:#15a0a0;transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
-.rcard:hover{transform:translateY(-8px);box-shadow:0 28px 60px rgba(25,21,18,.16),0 0 36px rgba(15,35,26,.3),inset 0 0 0 1px rgba(127,208,187,.4);border-color:var(--brass2)}
+.rcard::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:#2E7D5B;transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
+.rcard:hover{transform:translateY(-8px);box-shadow:0 28px 60px rgba(25,21,18,.16),0 0 36px rgba(15,35,26,.3),inset 0 0 0 1px rgba(201,180,137,.4);border-color:var(--brass2)}
 .rcard:hover::after{transform:scaleX(1)}
 .rcard .ic{position:relative;width:44px;height:44px;border-radius:13px;background:linear-gradient(140deg,var(--green2),var(--green3));display:flex;align-items:center;justify-content:center;margin-bottom:13px;box-shadow:0 10px 22px rgba(15,35,26,.24);transition:transform .38s var(--ease),box-shadow .38s}
 .rcard .ic svg{width:21px;height:21px;stroke:var(--brass3);transition:.38s var(--ease)}
-.rcard:hover .ic{transform:translateY(-3px) scale(1.07) rotate(-4deg);box-shadow:0 18px 34px rgba(15,35,26,.32),0 0 26px rgba(127,208,187,.6)}
+.rcard:hover .ic{transform:translateY(-3px) scale(1.07) rotate(-4deg);box-shadow:0 18px 34px rgba(15,35,26,.32),0 0 26px rgba(201,180,137,.6)}
 .rcard h3{font-family:var(--serif);font-weight:600;font-size:20px;margin:0 0 6px;letter-spacing:-.01em}
 .rcard p{font-size:13.5px;color:var(--ink2);line-height:1.5;min-height:0}
 .rcard .go{font-size:13px;font-weight:700;color:var(--green2);display:inline-flex;align-items:center;gap:7px;margin-top:9px}
@@ -371,7 +371,7 @@ a.mq-i{text-decoration:none}a.mq-i:hover{opacity:.82}
 .aboutbar{display:flex;align-items:center;gap:18px;position:relative;overflow:hidden;text-decoration:none;color:#e6f3f0;background:linear-gradient(135deg,#27513f,#16352a);border:1px solid #2f5a46;border-radius:18px;padding:16px 18px 16px 18px;box-shadow:0 14px 34px rgba(15,35,26,.16);transition:transform .2s var(--ease),box-shadow .2s}
 .aboutbar:hover{transform:translateY(-2px);box-shadow:0 20px 46px rgba(15,35,26,.24)}
 .aboutbar::before{content:"";position:absolute;right:-30px;top:-70px;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle,rgba(27,58,45,.13),transparent 62%);pointer-events:none}
-.ab-mark{flex:none;width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(236,247,245,.06);border:1px solid rgba(27,58,45,.26)}
+.ab-mark{flex:none;width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(242,236,224,.06);border:1px solid rgba(27,58,45,.26)}
 .ab-mark svg{width:29px;height:29px}
 .ab-txt{display:flex;flex-direction:column;gap:2px;min-width:0;z-index:1}
 .ab-txt b{font-family:var(--serif);font-weight:600;font-size:17px;letter-spacing:.005em}
@@ -395,7 +395,7 @@ a.mq-i{text-decoration:none}a.mq-i:hover{opacity:.82}
 .note.cta{background:linear-gradient(160deg,#ecfbf8,#d9f1ec);border-color:var(--line2);display:flex;flex-direction:column;justify-content:center}
 .note.cta .date{color:var(--brass)}
 .note{position:relative;display:block;background:#fcfffe;border:1px solid var(--line);border-radius:18px;padding:24px 22px;overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s,border-color .3s}
-.note::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:#15a0a0;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.note::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:#2E7D5B;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
 .note:hover::before{transform:scaleX(1)}
 .note:hover{transform:translateY(-5px);box-shadow:var(--sh2);border-color:var(--line2)}
 .note .date{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--brass)}
@@ -419,7 +419,7 @@ a.mq-i{text-decoration:none}a.mq-i:hover{opacity:.82}
 .newsg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .newsload{color:var(--ink3);font-size:14px;padding:8px 2px;grid-column:1/-1}
 .ncard{position:relative;display:flex;flex-direction:column;background:#fcfffe;border:1px solid var(--line);border-radius:18px;padding:0;overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s,border-color .3s}
-.ncard::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:#15a0a0;transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease);z-index:2}
+.ncard::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:#2E7D5B;transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease);z-index:2}
 .ncard:hover{transform:translateY(-6px);box-shadow:0 24px 52px rgba(25,21,18,.13);border-color:var(--brass2)}
 .ncard:hover::after{transform:none}
 .nimg{display:block;height:174px;background:#d2e7e3 50%/cover no-repeat;border-bottom:1px solid var(--line)}
@@ -436,13 +436,13 @@ a.mq-i{text-decoration:none}a.mq-i:hover{opacity:.82}
 .rule{max-width:1140px;margin:0 auto;height:1px;background:linear-gradient(90deg,transparent,var(--line2),transparent)}
 
 /* Work-with-me, green block with portrait */
-.pov{margin:0;background:radial-gradient(700px 360px at 88% -24%,rgba(127,208,187,.22),transparent 60%),linear-gradient(150deg,var(--green2),var(--green3));color:#e6f3f0;border-radius:28px;padding:46px;position:relative;overflow:hidden}
+.pov{margin:0;background:radial-gradient(700px 360px at 88% -24%,rgba(201,180,137,.22),transparent 60%),linear-gradient(150deg,var(--green2),var(--green3));color:#e6f3f0;border-radius:28px;padding:46px;position:relative;overflow:hidden}
 .pov .sheen{position:absolute;top:-60%;left:-40%;width:60%;height:220%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.06),transparent);transform:rotate(8deg);animation:sweep 9s ease-in-out infinite;pointer-events:none;will-change:transform}
 @keyframes sweep{0%,100%{transform:rotate(8deg) translateX(0)}50%{transform:rotate(8deg) translateX(280%)}}
-.pov .frame{position:absolute;inset:18px;border:1px solid rgba(127,208,187,.22);border-radius:18px;pointer-events:none}
+.pov .frame{position:absolute;inset:18px;border:1px solid rgba(201,180,137,.22);border-radius:18px;pointer-events:none}
 .about-in{display:grid;grid-template-columns:.84fr 1.16fr;gap:48px;align-items:center;position:relative}
 .about-in .portrait{opacity:1;transform:none;box-shadow:0 26px 60px rgba(8,20,15,.4);background:radial-gradient(440px 380px at 68% 8%,#356650,#27513f 52%,#0f231a)}
-.about-in .portrait .frame{inset:14px;border-color:rgba(127,208,187,.5)}
+.about-in .portrait .frame{inset:14px;border-color:rgba(201,180,137,.5)}
 .pov .eyebrow{color:var(--brass3)}.pov .eyebrow::before{background:var(--brass3)}
 .pov h2{font-family:var(--serif);font-weight:500;font-size:clamp(28px,3.4vw,42px);line-height:1.1;letter-spacing:-.02em;margin:16px 0 0;position:relative}
 .pov h2 em{color:var(--brass3)}
@@ -503,7 +503,7 @@ a.mq-i{text-decoration:none}a.mq-i:hover{opacity:.82}
 .nav.scrolled .brand b{color:var(--ink);text-shadow:none}
 .nav.scrolled .brand .mark{color:#1b3a2d;filter:none}
 .nav.scrolled .menu-toggle{background:rgba(255,255,255,.6);border-color:var(--line2);color:var(--ink)}
-.nav.scrolled .brand .bw span{color:#0f7a82}
+.nav.scrolled .brand .bw span{color:#1F6B4F}
 .nav.scrolled .brand .mark{color:#1b3a2d;filter:none}
 .nav.scrolled .links a{color:var(--ink2)}
 .nav.scrolled .btn{background:var(--green);border-color:var(--green);color:#e8f5f2}
@@ -553,7 +553,7 @@ a.mq-i{text-decoration:none}a.mq-i:hover{opacity:.82}
 .siderail{position:absolute;right:16px;top:128px;z-index:2;writing-mode:vertical-rl;font-size:11px;font-weight:800;
  letter-spacing:.36em;text-transform:uppercase;color:var(--brass3);opacity:.78}
 .haloarc{position:absolute;top:-104px;right:-66px;width:380px;height:380px;z-index:0;pointer-events:none;border-radius:50%;
- background-image:radial-gradient(rgba(127,208,187,.55) 2px,transparent 2.4px);background-size:15px 15px;
+ background-image:radial-gradient(rgba(201,180,137,.55) 2px,transparent 2.4px);background-size:15px 15px;
  -webkit-mask:radial-gradient(circle,transparent 54%,#000 62%,#000 72%,transparent 82%);
          mask:radial-gradient(circle,transparent 54%,#000 62%,#000 72%,transparent 82%);opacity:.5}
 .photoband{height:404px}
@@ -579,11 +579,11 @@ a.mq-i{text-decoration:none}a.mq-i:hover{opacity:.82}
  linear-gradient(95deg,rgba(8,30,26,.50) 0 26%,rgba(9,32,28,.28) 54%,rgba(10,34,30,.07)),
  linear-gradient(0deg,rgba(5,20,17,.33),transparent 46%),
  linear-gradient(120deg,rgba(11,46,42,.3),rgba(8,30,34,.17) 60%,transparent),
- radial-gradient(120% 90% at 86% 8%,rgba(127,208,187,.12),transparent 46%)}
+ radial-gradient(120% 90% at 86% 8%,rgba(201,180,137,.12),transparent 46%)}
 .herosun{position:absolute;top:-140px;right:-70px;width:470px;height:470px;border-radius:50%;z-index:1;pointer-events:none;
  background:radial-gradient(circle,rgba(60,168,150,.3),rgba(60,168,150,0) 67%)}
 .mhead{position:relative;z-index:3;display:flex;justify-content:space-between;align-items:center;gap:16px;
- padding-bottom:18px;margin-bottom:34px;border-bottom:1px solid rgba(127,208,187,.34);
+ padding-bottom:18px;margin-bottom:34px;border-bottom:1px solid rgba(201,180,137,.34);
  font-size:11.5px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--brass3)}
 .mhead .r{color:rgba(231,246,243,.72);letter-spacing:.16em}
 .hero h1{font-size:clamp(56px,7vw,112px) !important;letter-spacing:-.035em}
@@ -634,7 +634,7 @@ body::before{animation:none}
 /* trim remaining idle GPU: kill the forever-sweeping sheen; drop nav blur on mobile */
 .pov .sheen{display:none}
 @media(max-width:768px){.nav.scrolled{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(211,236,231,.97)}}
-:focus-visible{outline:2.5px solid #0f7a82;outline-offset:2px;border-radius:3px}.eyebrow,.kick,.free,.rdate,.note .date,.lp-k,.tool .free{color:#0d6f78}
+:focus-visible{outline:2.5px solid #1F6B4F;outline-offset:2px;border-radius:3px}.eyebrow,.kick,.free,.rdate,.note .date,.lp-k,.tool .free{color:#1F6B4F}
 /* showcase photo band (option B): let the colour pop, honest card + link to valuation */
 .photoband{height:444px}
 .pb-scrim{display:none}
@@ -643,9 +643,9 @@ body::before{animation:none}
 /* showcase: lift the photo above the site grain so the colour is clean (no dots/texture) */
 .photoband{position:relative;z-index:10}
 .pb-cap{position:absolute;left:0;right:0;bottom:0;z-index:3;padding-bottom:32px}
-.pb-card{display:inline-block;background:rgba(236,247,245,.94);border:1px solid rgba(25,21,18,.08);border-radius:16px;padding:20px 26px;max-width:380px;box-shadow:0 18px 44px rgba(15,35,26,.24);transition:transform .25s,box-shadow .25s}
+.pb-card{display:inline-block;background:rgba(242,236,224,.94);border:1px solid rgba(25,21,18,.08);border-radius:16px;padding:20px 26px;max-width:380px;box-shadow:0 18px 44px rgba(15,35,26,.24);transition:transform .25s,box-shadow .25s}
 .pb-card:hover{transform:translateY(-3px);box-shadow:0 26px 56px rgba(15,35,26,.3)}
-.pb-card .pb-k{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#0d6f78;display:block}
+.pb-card .pb-k{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#1F6B4F;display:block}
 .pb-card .pb-h{font-family:'Schibsted Grotesk',system-ui,sans-serif;font-weight:600;font-size:24px;line-height:1.12;color:#0c211a;display:block;margin-top:8px;letter-spacing:-.01em}
 .pb-card .pb-go{display:inline-flex;align-items:center;gap:7px;margin-top:13px;font-size:13.5px;font-weight:700;color:#27513f}
 .pb-card .pb-go i{font-style:normal;transition:transform .25s}.pb-card:hover .pb-go i{transform:translateX(5px)}
@@ -671,8 +671,8 @@ body::before{animation:none}
 .links a.navworld{display:inline-flex;align-items:center;gap:5px;color:#0f5a60;font-weight:700;background:linear-gradient(180deg,#f0fbfa,#e2f5f0);border:1px solid #bfe6e0;border-radius:10px;padding:7px 12px 7px 10px}
 .links a.navworld::after{display:none}
 .links a.navworld:hover{color:#0f5a60;background:linear-gradient(180deg,#eafbf9,#d5f1ea)}
-.links a.navworld .worb{width:15px;height:15px;flex:none;color:#15a0a0}
-.links a.navworld::before{content:"Featured";position:absolute;left:50%;bottom:calc(100% - 1px);transform:translateX(-50%);display:flex;align-items:center;justify-content:center;height:14px;padding:0 8px;font:800 8px/1 "Schibsted Grotesk",system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#eef6f1;background:#15a0a0;border-radius:20px;white-space:nowrap;box-shadow:0 2px 6px rgba(21,160,160,.4)}
+.links a.navworld .worb{width:15px;height:15px;flex:none;color:#2E7D5B}
+.links a.navworld::before{content:"Featured";position:absolute;left:50%;bottom:calc(100% - 1px);transform:translateX(-50%);display:flex;align-items:center;justify-content:center;height:14px;padding:0 8px;font:800 8px/1 "Schibsted Grotesk",system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#eef6f1;background:#2E7D5B;border-radius:20px;white-space:nowrap;box-shadow:0 2px 6px rgba(46,125,91,.4)}
 .links a.navsoon{position:relative}
 .links a.navsoon::before{position:absolute;left:50%;bottom:calc(100% - 2px);transform:translateX(-50%);display:flex;align-items:center;justify-content:center;height:15px;padding:0 9px;font:800 8px/1 "Schibsted Grotesk",system-ui,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#c8eae3;background:linear-gradient(135deg,#2f5a46,#1b3a2d);border-radius:20px;white-space:nowrap;box-shadow:0 2px 6px rgba(27,58,45,.32);content:"Soon"}
 /* natural photo (the green/gold AI duotone filter is gone); editorial scrim handles legibility */
@@ -689,8 +689,8 @@ body::before{animation:none}
   .chatcue span{display:block;font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(160,214,191,.95);margin-top:1px}
   .chatcue::after{display:none}
   @keyframes cuebob{0%,100%{transform:rotate(3.5deg) translateY(0)}50%{transform:rotate(3.5deg) translateY(-5px)}}
-  .cpanel.inhero{position:static;width:100%;max-width:none;height:648px;min-height:580px;max-height:88vh;opacity:1 !important;visibility:visible !important;transform:none !important;background:rgba(238,248,246,.62);box-shadow:0 34px 80px rgba(8,20,14,.42),0 0 0 1px rgba(127,208,187,.3),inset 0 1px 0 rgba(255,255,255,.4)}
-  .cpanel.inhero .chead{background:radial-gradient(420px 200px at 88% -30%,rgba(127,208,187,.3),transparent 60%),linear-gradient(150deg,rgba(39,81,63,.92),rgba(15,35,26,.92))}
+  .cpanel.inhero{position:static;width:100%;max-width:none;height:648px;min-height:580px;max-height:88vh;opacity:1 !important;visibility:visible !important;transform:none !important;background:rgba(238,248,246,.62);box-shadow:0 34px 80px rgba(8,20,14,.42),0 0 0 1px rgba(201,180,137,.3),inset 0 1px 0 rgba(255,255,255,.4)}
+  .cpanel.inhero .chead{background:radial-gradient(420px 200px at 88% -30%,rgba(201,180,137,.3),transparent 60%),linear-gradient(150deg,rgba(90,80,64,.92),rgba(15,35,26,.92))}
   .cpanel.inhero .cfoot{background:rgba(255,255,255,.26)}
   .cpanel.inhero .cx{display:none}
   .cpanel.inhero .cbody{padding:20px 20px 10px;gap:10px}
@@ -702,7 +702,7 @@ body::before{animation:none}
 @media(max-width:880px){.hero{padding-top:126px;padding-bottom:24px}.hero h1{font-size:clamp(30px,7.6vw,42px) !important}}
 /* launcher */
 .cbtn{position:fixed;right:22px;bottom:22px;z-index:80;display:inline-flex;align-items:center;gap:10px;
- background:linear-gradient(135deg,var(--green2),var(--green3));color:#e6f4f1;border:1px solid rgba(127,208,187,.45);
+ background:linear-gradient(135deg,var(--green2),var(--green3));color:#e6f4f1;border:1px solid rgba(201,180,137,.45);
  padding:13px 20px 13px 16px;border-radius:40px;cursor:pointer;font-family:var(--sans);font-weight:700;font-size:14.5px;
  box-shadow:0 14px 34px rgba(15,35,26,.34);transition:transform .3s var(--ease),box-shadow .3s var(--ease),opacity .3s,visibility .3s;-webkit-tap-highlight-color:transparent}
 .cbtn:hover{transform:translateY(-3px);box-shadow:0 22px 46px rgba(15,35,26,.42),0 0 30px rgba(15,35,26,.4)}
@@ -723,9 +723,9 @@ html.menu-open .cbtn{opacity:0;visibility:hidden;pointer-events:none}
 @media(max-width:560px){.cpanel{right:0;bottom:0;width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;border-radius:0}
 .cpanel .chead{padding-top:calc(18px + env(safe-area-inset-top))}
 .cpanel .cfoot{padding-bottom:calc(12px + env(safe-area-inset-bottom))}}
-.chead{position:relative;flex:none;color:#e6f3f0;padding:18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(127,208,187,.3);
- background:radial-gradient(420px 200px at 88% -30%,rgba(127,208,187,.3),transparent 60%),linear-gradient(150deg,var(--green2),var(--green3))}
-.chead .cmark{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#2c5743,#0f231a);border:1px solid rgba(127,208,187,.4);display:flex;align-items:center;justify-content:center;flex:none}
+.chead{position:relative;flex:none;color:#e6f3f0;padding:18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(201,180,137,.3);
+ background:radial-gradient(420px 200px at 88% -30%,rgba(201,180,137,.3),transparent 60%),linear-gradient(150deg,var(--green2),var(--green3))}
+.chead .cmark{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#2E7D5B,#0f231a);border:1px solid rgba(201,180,137,.4);display:flex;align-items:center;justify-content:center;flex:none}
 .chead .cmark span{font-family:var(--serif);font-weight:600;font-size:21px;background:linear-gradient(135deg,#a9ddcf,#1f998c);-webkit-background-clip:text;background-clip:text;color:transparent}
 .chead .ct{flex:1;min-width:0}
 .chead .ct b{font-family:var(--serif);font-weight:600;font-size:17px;display:block;line-height:1.1}
@@ -778,7 +778,7 @@ html.menu-open .cbtn{opacity:0;visibility:hidden;pointer-events:none}
 .cmsg.speaking .ctext .w.on{opacity:1;color:#12805a;font-weight:600}
 .cfoot{flex:none;border-top:1px solid var(--line);padding:12px 14px;background:rgba(255,255,255,.5)}
 .cinput{display:flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line2);border-radius:30px;padding:6px 6px 6px 16px;transition:.18s}
-.cinput:focus-within{border-color:var(--green2);box-shadow:0 0 0 3px rgba(39,81,63,.1)}
+.cinput:focus-within{border-color:var(--green2);box-shadow:0 0 0 3px rgba(90,80,64,.1)}
 .cinput input{flex:1;border:0;outline:0;font-family:var(--sans);font-size:16px;color:var(--ink);background:none;min-width:0}
 .cinput button{flex:none;width:38px;height:38px;border-radius:50%;border:0;background:linear-gradient(135deg,var(--green2),var(--green3));color:#e6f3f0;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s}
 .cinput button:hover{filter:brightness(1.12)}.cinput button svg{width:17px;height:17px}
@@ -802,7 +802,7 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
 .cval-est .rvsub{font-size:13px;font-weight:600;color:rgba(230,243,240,.85);margin-top:3px}
 .cval-f{position:relative;margin-bottom:6px}
 .cval-in,.cval-sel{width:100%;font-family:var(--sans);font-size:16px;font-weight:500;padding:8px 12px;border:1px solid rgba(191,219,213,.8);border-radius:10px;background:rgba(255,255,255,.92);color:var(--ink);outline:none}
-.cval-in:focus,.cval-sel:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(39,81,63,.1)}
+.cval-in:focus,.cval-sel:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(90,80,64,.1)}
 .cval-ac{position:absolute;top:calc(100% + 3px);left:0;right:0;z-index:5;background:#fff;border:1px solid var(--line2);border-radius:10px;box-shadow:0 14px 30px rgba(25,21,18,.16);max-height:172px;overflow-y:auto;display:none}
 .cval-ac.on{display:block}
 .cval-ac div{padding:9px 12px;font-size:13px;font-weight:600;cursor:pointer;border-bottom:1px solid var(--line)}
@@ -814,7 +814,7 @@ html.menu-open .cteaser{opacity:0;visibility:hidden}
 .cval-res{margin-top:11px;display:none}.cval-res.on{display:block}
 .cval-est{background:linear-gradient(150deg,var(--green2),var(--green3));color:#e6f3f0;border-radius:11px;padding:11px 14px}
 .cval-warn{background:rgba(176,69,47,.1);border:1px solid rgba(176,69,47,.34);border-radius:10px;padding:9px 12px;font-size:11.5px;color:#9a3c2c;font-weight:600;line-height:1.45;margin-bottom:9px}
-.cval-thin{background:#eef6f3;border:1px solid #bfe6db;border-radius:11px;padding:13px 15px;font-size:13px;color:#11625e;line-height:1.5}
+.cval-thin{background:#eef6f3;border:1px solid #bfe6db;border-radius:11px;padding:13px 15px;font-size:13px;color:#1F6B4F;line-height:1.5}
 .cval-thin b{color:#164a40;font-weight:700}
 .cval-thin-cta{display:flex;gap:16px;margin-top:11px;flex-wrap:wrap}
 .cval-thin-cta a{font-size:12.5px;font-weight:700;color:var(--green2);white-space:nowrap}
@@ -872,7 +872,7 @@ em{color:var(--brass)}
 .ins-month{background:radial-gradient(130% 100% at 100% 0,#edf6f0 0,#fff 38%)}
 .ins-top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:20px}
 .ins-lbl{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);display:inline-flex;align-items:center;gap:8px}
-.ins-lbl .dot{width:7px;height:7px;border-radius:50%;background:var(--brass2);box-shadow:0 0 0 0 rgba(21,160,160,.5);animation:cpulse 2.6s ease-in-out infinite}
+.ins-lbl .dot{width:7px;height:7px;border-radius:50%;background:var(--brass2);box-shadow:0 0 0 0 rgba(46,125,91,.5);animation:cpulse 2.6s ease-in-out infinite}
 .ins-lbl-dive{color:var(--green2)}
 .ins-when{flex:none;font-size:12px;font-weight:700;color:var(--ink3)}
 .ins-quote{font-family:"Schibsted Grotesk",system-ui,sans-serif;font-weight:600;font-size:clamp(19px,1.7vw,22px);line-height:1.38;letter-spacing:-.02em;color:var(--green3);margin:0 0 15px;padding-left:18px;border-left:2.5px solid var(--brass3)}
@@ -898,11 +898,11 @@ em{color:var(--brass)}
 .hero .hperks,.hero .covers{color:var(--ink2)!important}
 .hero .hperks b,.hero .hperks .hperks-star{color:var(--green2)!important}
 .hessentials{color:var(--green2)!important;border-color:var(--line2)!important}
-.hero .btn.brass-out{color:var(--brass)!important;border-color:var(--brass2)!important;background:rgba(15,122,130,.08)!important}
+.hero .btn.brass-out{color:var(--brass)!important;border-color:var(--brass2)!important;background:rgba(31,107,79,.08)!important}
 .hero .btn.btn-ghost{color:var(--ink)!important;border-color:var(--line2)!important;background:rgba(255,255,255,.55)!important}
 /* nav: force the "scrolled" dark-text look (hero is light now) */
 .nav .brand b{color:var(--ink)!important;text-shadow:none!important}
-.nav .brand .bw span{color:#0f7a82!important}
+.nav .brand .bw span{color:#1F6B4F!important}
 .nav .brand .mark{color:#1b3a2d!important;filter:none!important}
 .nav .links a{color:var(--ink2)!important}
 .nav .navsignin{color:var(--ink2)!important}
@@ -911,11 +911,11 @@ em{color:var(--brass)}
 .nav .navdoor .nd-sub{color:var(--ink3)!important}
 .nav .navdoor .nd-dot{background:#3aa76d!important}
 .nav .navdoor .nd-half+.nd-half{border-left-color:#d7e2db!important}
-.nav .navdoor .nd-half:hover{background:rgba(39,81,63,.06)!important}
+.nav .navdoor .nd-half:hover{background:rgba(90,80,64,.06)!important}
 .nav .navdoor .nd-world{background:linear-gradient(180deg,#f1fbfa,#e3f5f1)!important}
-.nav .navdoor .nd-world .nd-top{color:#0f7a82!important}
-.nav .navdoor .nd-world .nd-ar{color:#15a0a0!important}
-.nav .navdoor .nd-world:hover{background:rgba(21,160,160,.1)!important}
+.nav .navdoor .nd-world .nd-top{color:#1F6B4F!important}
+.nav .navdoor .nd-world .nd-ar{color:#2E7D5B!important}
+.nav .navdoor .nd-world:hover{background:rgba(46,125,91,.1)!important}
 .nav .nav-install{color:var(--ink)!important;background:rgba(255,255,255,.55)!important;border-color:var(--line2)!important}
 /* ---- Pass 2: cards -> clean rows / index ---- */
 /* "What brings you here" router cards -> editorial rows */
@@ -1071,11 +1071,11 @@ if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}
 .bd-read .rd-k{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--green-d);margin-right:11px;white-space:nowrap}
 
 
-.board-hero{padding:clamp(18px,3vh,30px) 0 0}</style>
+.board-hero{padding:clamp(18px,3vh,30px) 0 0}#cvx{display:none!important}</style>
 <section class="hero board-hero">
   <div class="board-wrap"><div class="board reveal">
-    <div class="bd-top"><div class="bd-title"><span class="live"><i></i><span data-i18n="Latest read">Latest read</span></span><span class="bd-t"><b>PropSight</b> &middot; <span data-i18n="The Singapore Property Board">The Singapore Property Board</span></span></div><div class="bd-date">June 2026 &middot; <span data-i18n="built on official URA and HDB data">built on official URA &amp; HDB data</span></div></div>
-    <div class="ticker"><div class="ticker-row" id="tickerRow"></div></div><div style="display:none" aria-hidden="true"><!--PULSE-MQ-START--><div class="mq" aria-label="Live market and news"><span class="mq-lab"><span class="dot"></span>Live · today</span><span class="mq-div"></span><div class="mq-vp"><div class="mq-track"><span class="mq-i mq-lead">● Live · today</span><span class="mq-sep mq-lead">◆</span><a class="mq-i hot" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Parktown Residence is the busiest new launch, clearing near $2,361 psf</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Marine Parade is the biggest HDB mover, up 11% over three months</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Chuan Park sold en bloc for around $890 million</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Parc Clematis is the most-traded condo on the market right now</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>HDB rents yield about 6.1%, more than private's 3.6%</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Private resale is near $1,753 psf, up 3.8% on the year</a><span class="mq-sep">◆</span><a class="mq-cta" href="market-analysis/june-2026-market-analysis.html">See what it means for you →</a><span class="mq-sep">◆</span><span class="mq-i mq-lead">● Live · today</span><span class="mq-sep mq-lead">◆</span><a class="mq-i hot" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Parktown Residence is the busiest new launch, clearing near $2,361 psf</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Marine Parade is the biggest HDB mover, up 11% over three months</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Chuan Park sold en bloc for around $890 million</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Parc Clematis is the most-traded condo on the market right now</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>HDB rents yield about 6.1%, more than private's 3.6%</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Private resale is near $1,753 psf, up 3.8% on the year</a><span class="mq-sep">◆</span><a class="mq-cta" href="market-analysis/june-2026-market-analysis.html">See what it means for you →</a><span class="mq-sep">◆</span></div></div></div><script type="application/json" id="mqData">{"note": "market-analysis/june-2026-market-analysis.html", "market": [{"t": "Parktown Residence is the busiest new launch, clearing near $2,361 psf", "tz": "Parktown Residence 是目前最热销的新盘，约 $2,361 psf", "cls": "hot"}, {"t": "Marine Parade is the biggest HDB mover, up 11% over three months", "tz": "Marine Parade 是涨幅最大的组屋区，三个月上涨 11%", "cls": "pl"}, {"t": "Chuan Park sold en bloc for around $890 million", "tz": "Chuan Park 以约 8.9 亿 完成集体出售", "cls": "pl"}, {"t": "Parc Clematis is the most-traded condo on the market right now", "tz": "Parc Clematis 是目前市场上成交量最高的 condo", "cls": "pl"}, {"t": "HDB rents yield about 6.1%, more than private's 3.6%", "tz": "组屋租金回报率约 6.1%，高于私宅的 3.6%", "cls": "pl"}, {"t": "Private resale is near $1,753 psf, up 3.8% on the year", "tz": "私宅转售约 $1,753 psf，同比上涨 3.8%", "cls": "pl"}]}</script><!--PULSE-MQ-END--></div>
+    <div class="bd-top"><div class="bd-title"><span class="live"><i></i><span data-i18n="Latest read">Latest read</span></span><span class="bd-t"><b>PropSight</b> &middot; <span data-i18n="The Singapore Property Board">The Singapore Property Board</span></span></div><div class="bd-date"><!--BMON-->June 2026<!--/BMON--> &middot; <span data-i18n="built on official URA and HDB data">built on official URA &amp; HDB data</span></div></div>
+    <div class="ticker"><div class="ticker-row" id="tickerRow"></div></div><div style="display:none" aria-hidden="true"><!--PULSE-MQ-START--><div class="mq" aria-label="Live market and news"><span class="mq-lab"><span class="dot"></span>Live · today</span><span class="mq-div"></span><div class="mq-vp"><div class="mq-track"><span class="mq-i mq-lead">● Live · today</span><span class="mq-sep mq-lead">◆</span><a class="mq-i hot" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Parktown Residence is the busiest new launch, clearing near $2,361 psf</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Marine Parade is the biggest HDB mover, up 12% over three months</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Chuan Park sold en bloc for around $890 million</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Parc Clematis is the most-traded condo on the market right now</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>HDB rents yield about 6.1%, more than private's 3.6%</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Private resale is near $1,745 psf, up 2.5% on the year</a><span class="mq-sep">◆</span><a class="mq-cta" href="market-analysis/june-2026-market-analysis.html">See what it means for you →</a><span class="mq-sep">◆</span><span class="mq-i mq-lead">● Live · today</span><span class="mq-sep mq-lead">◆</span><a class="mq-i hot" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Parktown Residence is the busiest new launch, clearing near $2,361 psf</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Marine Parade is the biggest HDB mover, up 12% over three months</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Chuan Park sold en bloc for around $890 million</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Parc Clematis is the most-traded condo on the market right now</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>HDB rents yield about 6.1%, more than private's 3.6%</a><span class="mq-sep">◆</span><a class="mq-i pl" href="market-analysis/june-2026-market-analysis.html"><span class="chip market">Market</span>Private resale is near $1,745 psf, up 2.5% on the year</a><span class="mq-sep">◆</span><a class="mq-cta" href="market-analysis/june-2026-market-analysis.html">See what it means for you →</a><span class="mq-sep">◆</span></div></div></div><script type="application/json" id="mqData">{"note": "market-analysis/june-2026-market-analysis.html", "market": [{"t": "Parktown Residence is the busiest new launch, clearing near $2,361 psf", "tz": "Parktown Residence 是目前最热销的新盘，约 $2,361 psf", "cls": "hot"}, {"t": "Marine Parade is the biggest HDB mover, up 12% over three months", "tz": "Marine Parade 是涨幅最大的组屋区，三个月上涨 12%", "cls": "pl"}, {"t": "Chuan Park sold en bloc for around $890 million", "tz": "Chuan Park 以约 8.9 亿 完成集体出售", "cls": "pl"}, {"t": "Parc Clematis is the most-traded condo on the market right now", "tz": "Parc Clematis 是目前市场上成交量最高的 condo", "cls": "pl"}, {"t": "HDB rents yield about 6.1%, more than private's 3.6%", "tz": "组屋租金回报率约 6.1%，高于私宅的 3.6%", "cls": "pl"}, {"t": "Private resale is near $1,745 psf, up 2.5% on the year", "tz": "私宅转售约 $1,745 psf，同比上涨 2.5%", "cls": "pl"}]}</script><!--PULSE-MQ-END--></div>
     <!--BAND-START--><div class="bd-read"><span class="rd-k">The read</span>A typical flat runs about $600k and a condo about $1.65m. Prices are up on the year but the climb has slowed, so there is less rush, and the central prime area is the one place buyers can really negotiate. Work out your own numbers just below.</div><div class="bd-body"><div class="cell cell-cost"><div class="lbl" data-i18n="What homes cost now">What homes cost now</div><div class="cost-two"><div class="c2"><b>~$600k</b><span data-i18n="a typical 4-room HDB resale">a typical 4-room HDB resale</span></div><div class="c2"><b>$1.65m</b><span data-i18n="a typical condo or private home">a typical condo or private home</span></div></div><div class="cost-psf">Per sq ft: HDB <b>$605</b> &middot; private <b>$1,753</b> &middot; new launch <b>$2,361</b></div><div class="cell-note" style="margin-top:auto">HDB total worked from the median psf; private is the typical deal done, past 18 months.</div></div><div class="cell cell-month"><div class="lbl" data-i18n="Roughly, per month">Roughly, per month</div><div class="mo-rows"><div class="mr"><span class="mr-t">HDB, $600k</span><b class="mr-v">~$2,400</b></div><div class="mr"><span class="mr-t">Condo, $1.65m</span><b class="mr-v">~$6,500</b></div></div><div class="cell-note">25% down, 25-year loan near 4%. See your own number in the tools below.</div></div><div class="cell cell-bto"><div class="lbl" data-i18n="Next BTO launch">Next BTO launch</div><div class="bto-when"><b>October 2026</b> &middot;&nbsp;6&nbsp;towns</div><div class="bto-towns">Bayshore, Caldecott, Mattar, Tengah, Chencharu, Sembawang North</div></div><div class="cell cell-first"><div class="lbl" data-i18n="Buying your first home">Buying your first home</div><ul class="fh"><li><b>No ABSD</b> on your first home</li><li>Stamp duty about <b>$12,600</b> on a $600k flat</li><li>Grants can cut <b>tens of thousands</b> more</li></ul></div><div class="cell cell-market"><div class="lbl" data-i18n="The market now, past 3 months">The market now &middot; past 3 months</div><div class="segset"><div class="segrow"><span class="sn" data-i18n="Suburbs">Suburbs</span><div class="dtrack"><i class="dbar rise" data-w="29"></i></div><span class="sv rise">+1.4%</span></div><div class="segrow"><span class="sn" data-i18n="City fringe">City fringe</span><div class="dtrack"><i class="dbar rise" data-w="12"></i></div><span class="sv">+0.6%</span></div><div class="segrow"><span class="sn" data-i18n="Prime core">Prime core</span><div class="dtrack"><i class="dbar fall" data-w="50"></i></div><span class="sv fall">-2.4%</span></div></div><div class="cell-note">Up 3.8% on the year but slowing. Prime is the only faller. Top mover: Marine Parade +11%.</div></div></div><!--BAND-END-->
     <div class="bd-foot"><span class="src" data-i18n="Indicative, not financial advice.">Indicative, not financial advice.</span><a class="bd-cta" href="market-analysis/"><span data-i18n="Read the full market analysis">Read the full market analysis</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
   </div></div>
@@ -1160,7 +1160,7 @@ if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}
 </div></section>
 
 <div class="wrap abwrap"><a class="aboutbar rv" href="about/">
-  <span class="ab-mark"><svg viewBox="0 0 64 64" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="27" cy="27" r="19" stroke="#1b3a2d" stroke-width="4.4"/><path d="M17.5 32.5 L27 21.5 L36.5 32.5" stroke="#1b3a2d" stroke-width="4"/><path d="M20.5 37 L33.5 37" stroke="#1b3a2d" stroke-width="4"/><circle cx="27" cy="33.4" r="2" fill="#15a0a0"/><path d="M40.5 40.5 L53.5 53.5" stroke="#15a0a0" stroke-width="6"/></svg></span>
+  <span class="ab-mark"><svg viewBox="0 0 64 64" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="27" cy="27" r="19" stroke="#1b3a2d" stroke-width="4.4"/><path d="M17.5 32.5 L27 21.5 L36.5 32.5" stroke="#1b3a2d" stroke-width="4"/><path d="M20.5 37 L33.5 37" stroke="#1b3a2d" stroke-width="4"/><circle cx="27" cy="33.4" r="2" fill="#2E7D5B"/><path d="M40.5 40.5 L53.5 53.5" stroke="#2E7D5B" stroke-width="6"/></svg></span>
   <span class="ab-txt"><b>The story behind PropSight</b><span>Why we built it, and everything the platform does.</span></span>
   <span class="ab-go">About us <i>→</i></span>
 </a></div>
@@ -1176,7 +1176,7 @@ if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}
       <linearGradient id="skReflF" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0" stop-color="#1c5650" stop-opacity=".2"/><stop offset="1" stop-color="#1c5650" stop-opacity="0"/></linearGradient>
       <radialGradient id="skflyer" cx="50%" cy="50%" r="50%">
-        <stop offset="0" stop-color="#15a0a0" stop-opacity=".16"/><stop offset="1" stop-color="#15a0a0" stop-opacity="0"/></radialGradient>
+        <stop offset="0" stop-color="#2E7D5B" stop-opacity=".16"/><stop offset="1" stop-color="#2E7D5B" stop-opacity="0"/></radialGradient>
     </defs>
 
     <!-- far haze layer -->
@@ -1192,26 +1192,26 @@ if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}
     <path d="M8 130 H1032" stroke="#0c5b60" stroke-width="1.6" stroke-opacity=".45"/>
 
     <!-- ===== NEAR foreground: shaded masses + bold ink linework ===== -->
-    <g fill="url(#skNear)" stroke="#0b4f54" stroke-width="2.6">
+    <g fill="url(#skNear)" stroke="#1A5A42" stroke-width="2.6">
       <path d="M44 130 V64 C44 52 86 52 86 64 V130 Z M94 130 V56 H102 V48 H130 V56 H138 V130 Z M146 130 V60 L162 44 L178 60 V130 Z M184 130 V52 H206 V130 Z M212 130 V72 H244 V130 Z M376 130 L390 56 L406 56 L416 130 Z M428 130 L440 50 L456 50 L468 130 Z M484 130 L496 56 L512 56 L522 130 Z M986 130 V74 H1008 V130 Z M1010 130 V86 H1022 V130 Z"/>
       <path d="M368 58 L548 46 L560 45 Q571 45 572 50 Q572 56 561 55 L368 66 Z" fill="url(#skBoat)"/>
       <path d="M258 130 C258 107 302 107 302 130 Z M306 130 C306 111 342 111 342 130 Z"/>
       <path d="M588 130 C588 119 626 119 626 130 Z"/>
     </g>
-    <path d="M116 48 V33 M195 52 V38 M993 74 V60" stroke="#0b4f54" stroke-width="2.2"/>
+    <path d="M116 48 V33 M195 52 V38 M993 74 V60" stroke="#1A5A42" stroke-width="2.2"/>
 
     <!-- durian diagrid + lotus petals: bold obvious linework -->
-    <path d="M268 128 L284 110 M276 128 L292 109 M284 128 L298 112 M292 128 L300 118 M278 110 L294 128 M286 109 L300 122 M314 128 L328 113 M322 128 L336 114 M330 128 L340 119 M320 113 L332 128 M328 113 L338 124" stroke="#0b4f54" stroke-width="1.3" stroke-opacity=".7"/>
-    <path d="M607 120 C607 100 607 88 607 74 M607 120 C600 102 595 92 588 80 M607 120 C614 102 619 92 626 80 M607 120 C596 107 587 101 578 94 M607 120 C618 107 627 101 636 94 M607 120 C602 102 600 93 596 84 M607 120 C612 102 614 93 618 84" stroke="#0b4f54" stroke-width="2.2"/>
+    <path d="M268 128 L284 110 M276 128 L292 109 M284 128 L298 112 M292 128 L300 118 M278 110 L294 128 M286 109 L300 122 M314 128 L328 113 M322 128 L336 114 M330 128 L340 119 M320 113 L332 128 M328 113 L338 124" stroke="#1A5A42" stroke-width="1.3" stroke-opacity=".7"/>
+    <path d="M607 120 C607 100 607 88 607 74 M607 120 C600 102 595 92 588 80 M607 120 C614 102 619 92 626 80 M607 120 C596 107 587 101 578 94 M607 120 C618 107 627 101 636 94 M607 120 C602 102 600 93 596 84 M607 120 C612 102 614 93 618 84" stroke="#1A5A42" stroke-width="2.2"/>
 
     <!-- supertrees -->
-    <path d="M852 130 V64 M900 130 V52 M948 130 V72" stroke="#0b4f54" stroke-width="2.6"/>
+    <path d="M852 130 V64 M900 130 V52 M948 130 V72" stroke="#1A5A42" stroke-width="2.6"/>
     <path d="M852 64 L830 42 M852 64 L841 32 M852 64 L852 28 M852 64 L863 32 M852 64 L874 42 M900 52 L878 30 M900 52 L889 20 M900 52 L900 16 M900 52 L911 20 M900 52 L922 30 M948 72 L926 50 M948 72 L937 40 M948 72 L948 36 M948 72 L959 40 M948 72 L970 50" stroke="#13868c" stroke-width="1.6"/>
     <path d="M830 42 C839 28 865 28 874 42 M878 30 C887 16 913 16 922 30 M926 50 C935 36 961 36 970 50" stroke="#13868c" stroke-width="1.8"/>
 
     <!-- windows: lit (warm) + dim -->
     <path d="M50 80 H82 M50 104 H82 M104 72 H134 M104 100 H134 M154 78 H174 M154 106 H174 M392 72 H408 M392 96 H408 M392 120 H408 M444 64 H460 M444 88 H460 M444 112 H460 M498 72 H514 M498 96 H514 M498 120 H514 M990 92 H1004 M990 116 H1004" stroke="#ecc274" stroke-width="1.4" stroke-opacity=".9"/>
-    <path d="M50 92 H82 M50 116 H82 M104 86 H134 M104 114 H134 M154 92 H174 M154 118 H174 M190 70 H204 M190 90 H204 M190 110 H204 M218 88 H242 M218 112 H242 M392 84 H408 M392 108 H408 M444 76 H460 M444 100 H460 M444 124 H460 M498 84 H514 M498 108 H514" stroke="#0b4f54" stroke-width="1.1" stroke-opacity=".4"/>
+    <path d="M50 92 H82 M50 116 H82 M104 86 H134 M104 114 H134 M154 92 H174 M154 118 H174 M190 70 H204 M190 90 H204 M190 110 H204 M218 88 H242 M218 112 H242 M392 84 H408 M392 108 H408 M444 76 H460 M444 100 H460 M444 124 H460 M498 84 H514 M498 108 H514" stroke="#1A5A42" stroke-width="1.1" stroke-opacity=".4"/>
 
     <!-- Singapore Flyer (brass focal) -->
     <circle cx="752" cy="64" r="50" fill="url(#skflyer)" stroke="none"/>
@@ -1835,9 +1835,7 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
   /* ── Voice: pre-recorded pills + spoken replies (free Edge TTS via the shared worker) ── */
   const cvx=document.getElementById('cvx');
   const VOICE_TTS='https://mia-brain.propsightsg.workers.dev';
-  let PILLS={},voiceOn=false,curAudio=null,karAF=0;
-  try{voiceOn=localStorage.getItem('aillie_voice')==='1';}catch(e){}
-  fetch('data/aillie-voice/pills.json',{cache:'no-store'}).then(r=>r.ok?r.json():{}).then(d=>{PILLS=d||{};}).catch(()=>{});
+  let PILLS={},voiceOn=false,curAudio=null,karAF=0;   /* Aillie voice removed: stays off, no pills.json fetch */
   const VOICEPILLS=[
     {id:'about',label:'What is PropSight?',tag:'PropSight'},
     {id:'free',label:'Is everything free?',tag:'PropSight'},
@@ -1846,10 +1844,10 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
     {id:'deepdive',label:'The million-dollar HDB paradox',tag:'Deep dive'},
   ];
   const tagClass=t=>t==='Market update'?'t-market':t==='Deep dive'?'t-deep':t==='Trust'?'t-trust':'';
-  function voicePillChips(){return VOICEPILLS.map(p=>{const m=PILLS[p.id]||{};const tag=m.tag||p.tag;return {label:m.label||p.label,tag:tag,tagcls:tagClass(tag),pill:p.id};});}
+  function voicePillChips(){return VOICEPILLS.map(p=>{const m=PILLS[p.id]||{};const tag=m.tag||p.tag;return {label:m.label||p.label,tag:tag,tagcls:tagClass(tag)};});}
   function showPillRow(){setChips(voicePillChips().concat([{label:"What's my home worth?"},{label:"What can I afford?"}]));}
-  function reflectVoice(){if(cvx){cvx.classList.toggle('on',voiceOn);cvx.setAttribute('aria-label',voiceOn?'Turn voice off':'Turn voice on');}}
-  function setVoice(v){voiceOn=v;if(!v)stopVoice();reflectVoice();try{localStorage.setItem('aillie_voice',v?'1':'0');}catch(e){}}
+  function reflectVoice(){if(cvx)cvx.style.display='none';}
+  function setVoice(v){voiceOn=false;stopVoice();reflectVoice();}
   function stopVoice(){if(curAudio){try{curAudio.pause();}catch(e){}curAudio=null;}if(karAF){cancelAnimationFrame(karAF);karAF=0;}
     document.querySelectorAll('#cbody .cmsg.speaking').forEach(m=>m.classList.remove('speaking'));
     document.querySelectorAll('#cbody .cmsg .w.on').forEach(w=>w.classList.remove('on'));}
