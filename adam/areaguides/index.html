@@ -60,7 +60,23 @@ var TOWNS=[{"slug": "ang-mo-kio", "name": "Ang Mo Kio", "region": "North-East", 
 var grid=document.getElementById('grid'),count=document.getElementById('count'),qEl=document.getElementById('q');
 var region='All',query='';
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
-function card(t){return '<a class="acard" href="'+esc(t.slug)+'.html"><div class="ph" style="background-image:url(img/'+esc(t.slug)+'/hero.jpg)"><span class="rg">'+esc(t.region)+'</span><span class="nm">'+esc(t.name)+'</span></div><div class="bd"><div class="hook">'+esc(t.hook)+'</div>'+(t.stat?'<span class="stat">'+esc(t.stat)+'</span>':'')+'</div></a>';}
+function card(t){return '<a class="acard" href="'+esc(t.slug)+'.html"><div class="ph" data-bg="img/'+esc(t.slug)+'/card.jpg"><span class="rg">'+esc(t.region)+'</span><span class="nm">'+esc(t.name)+'</span></div><div class="bd"><div class="hook">'+esc(t.hook)+'</div>'+(t.stat?'<span class="stat">'+esc(t.stat)+'</span>':'')+'</div></a>';}
+  /* Attach photos only as cards approach the viewport. 56 cards at full size was
+     25.8 MB on load; this fetches the handful actually on screen. */
+  var _io = ('IntersectionObserver' in window) ? new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var el = e.target, u = el.getAttribute('data-bg');
+      if(u){ el.style.backgroundImage = 'url(' + u + ')'; el.removeAttribute('data-bg'); }
+      _io.unobserve(el);
+    });
+  }, {rootMargin:'400px'}) : null;
+  function lazyPhotos(){
+    document.querySelectorAll('.ph[data-bg]').forEach(function(el){
+      if(_io) _io.observe(el);
+      else { el.style.backgroundImage = 'url(' + el.getAttribute('data-bg') + ')'; el.removeAttribute('data-bg'); }
+    });
+  }
 function render(){
   var list=TOWNS.filter(function(t){
     if(region!=='All'&&t.region!==region)return false;
@@ -69,6 +85,7 @@ function render(){
   });
   count.textContent=list.length+(list.length===1?' area':' areas');
   grid.innerHTML=list.length?list.map(card).join(''):'<div class="none">No areas match that. Try another name or region.</div>';
+  lazyPhotos();          // re-observe after every filter, the grid is rebuilt
 }
 document.getElementById('chips').addEventListener('click',function(e){var b=e.target.closest('.rchip');if(!b)return;region=b.getAttribute('data-r');[].forEach.call(this.querySelectorAll('.rchip'),function(x){x.classList.toggle('on',x===b);});render();});
 qEl.addEventListener('input',function(){query=this.value.trim();render();});
