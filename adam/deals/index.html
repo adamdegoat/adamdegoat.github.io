@@ -122,7 +122,7 @@ select.sort{font:inherit;font-size:16px;font-weight:600;color:var(--ink);backgro
 .onlyflag.on{background:var(--green);color:var(--paper);border-color:var(--green)}
 @media(max-width:560px){.onlyflag{min-height:44px;flex:1 1 auto;font-size:13.5px;padding:11px 12px}}
 </style>
-<script src="/adam/i18n.js?v=20260725h" defer></script><script src="/adam/nav.js?v=158" defer></script>
+<script src="/adam/i18n.js?v=20260725i" defer></script><script src="/adam/nav.js?v=158" defer></script>
 </head><body>
 <div class="topo"></div>
 <header></header>
@@ -130,7 +130,7 @@ select.sort{font:inherit;font-size:16px;font-weight:600;color:var(--ink);backgro
 <div class="wrap head">
   <div class="eyebrow" data-i18n="Sold prices">Sold prices</div>
   <h1 data-i18n="What homes actually sold for">What homes actually sold for</h1>
-  <p class="lede" data-i18n="deals.lede">Every recent HDB and private sale in Singapore, straight from official caveats and resale records. Search a project, a street or a town, or just scroll and see what is moving.</p>
+  <p class="lede" data-i18n="deals.lede">Every recent HDB and private sale in Singapore. Private prices come from caveats, the record a buyer lodges when they pay a deposit, so these are prices actually agreed, not asking prices. Search a project, a street or a town, or just scroll.</p>
 </div>
 
 <div class="controls">
@@ -162,7 +162,7 @@ select.sort{font:inherit;font-size:16px;font-weight:600;color:var(--ink);backgro
   <button class="more" id="more" type="button" style="display:none">Show more</button>
   <div class="foot">
     <p id="src"></p>
-    <p style="margin-top:8px">Private sales come from URA caveats, HDB from official resale records. A caveat is lodged when a buyer pays a deposit, so it reflects a real agreed price, not an asking price. Indicative only, not financial advice. <a href="/tools/value.html">Value a specific home &rarr;</a></p>
+    <p style="margin-top:8px">Private sales come from URA caveats, HDB from official resale records. Indicative only, not financial advice. <a href="/tools/value.html">Value a specific home &rarr;</a></p>
   </div>
 </div>
 
@@ -285,8 +285,8 @@ select.sort{font:inherit;font-size:16px;font-weight:600;color:var(--ink);backgro
     }
     list.insertAdjacentHTML('beforeend',html); shown=end;
     more.style.display=shown<view.length?'block':'none';
-    more.textContent='Show '+Math.min(PAGE,view.length-shown).toLocaleString()+' more of '+
-      (view.length-shown).toLocaleString();
+    more.textContent='Show '+Math.min(PAGE,view.length-shown).toLocaleString()+' more ('+
+      (view.length-shown).toLocaleString()+' still to come)';
   }
   /* Tapping a row answers the question the row provokes: is that price normal
      here? Show the other recent sales at the same project or block. */

@@ -45,6 +45,19 @@
 .th-got{width:100%;margin-top:20px;padding:13px;background:linear-gradient(135deg,#1fc18f,#2E7D5B);color:#06231a;border:0;border-radius:12px;font-weight:800;font-size:15px;cursor:pointer}
 .th-hidden{display:none!important}
 @media(max-width:480px){.th-feats{grid-template-columns:1fr}}
+
+/* On a phone this table was 623px inside a 350px viewport, so prices truncated
+   mid-digit ("$2,0") and every column that carries meaning sat off-screen with
+   no cue that it scrolled. Columns 4, 5 and 7 (vs nearby, 6mo trend, sales) are
+   dropped below 620px; the row already opens a full breakdown on tap, which the
+   hint above the table states. Nothing added, three things removed. */
+@media(max-width:620px){
+  .tbl th:nth-child(4),.tbl td:nth-child(4),
+  .tbl th:nth-child(5),.tbl td:nth-child(5),
+  .tbl th:nth-child(7),.tbl td:nth-child(7){display:none}
+  .tbl th,.tbl td{padding-left:6px;padding-right:6px}
+  .tbl th:first-child,.tbl td:first-child{max-width:none}
+}
 </style>
 <style>
 :root{
@@ -660,7 +673,7 @@ window.PS_I18N_ZH = Object.assign(window.PS_I18N_ZH || {}, {
   "All figures from official caveats, point-in-time. On a phone, swipe sideways to see every card.":
     "所有数字来自官方成交记录，是某一时点的数据。手机上左右滑动，可以看完每一张卡。",
   // ── about (condo + HDB) ──
-  "Plain facts from official records, no scores, no rankings, no predictions. Just the numbers, so you and your client can read them yourselves.":
+  "Plain facts from official records, no scores, no rankings, no predictions. Just the numbers, so you can read them yourself.":
     "来自官方记录的实在数据，没有评分、没有排名、没有预测。就是数字本身，你和你的客户自己看得懂。",
   "Plain facts from official HDB resale records, no scores, no predictions. Built HDB-native, not borrowed from the condo logic.":
     "来自官方 HDB 转售记录的实在数据，没有评分、没有预测。是照 HDB 本身的逻辑做的，不是套用公寓那一套。",
@@ -1234,7 +1247,7 @@ const VIEWS={
     ['Map','Every condo plotted by location and coloured by region, tap a dot for its full breakdown.']
   ];
   return `<div class="hero compact"><h1 class="serif">About <em>the data</em>.</h1>
-    <p>Plain facts from official records, no scores, no rankings, no predictions. Just the numbers, so you and your client can read them yourselves.</p></div>
+    <p>Plain facts from official records, no scores, no rankings, no predictions. Just the numbers, so you can read them yourself.</p></div>
    <div class="panel" style="margin-top:18px"><h2>Where the numbers come from</h2>
      <div class="note">Every figure is compiled from <b>official URA caveats</b>, the real prices lodged with the authorities when a property changes hands, over a rolling <b>${D.window_months}<span>-month window</span></b> <span>(as of</span> ${asof}<span>). Rental yields use matched rental contracts; tenure and project details come from the same official records. Nothing here is scraped, hand-entered, or guessed by AI.</span></div>
    </div>
