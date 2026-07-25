@@ -12,6 +12,7 @@
   /* nav model. k: world|menu|link. kids = dropdown items [label, href, icon, sub?]. */
   var ITEMS = [
     { k:'menu',  t:'The Market', href: BASE + '/adam/market-analysis/', kids:[
+        ['Sold prices',      BASE + '/adam/deals/',                   'spark', 'Every recent sale, searchable'],
         ['Monthly analysis', BASE + '/adam/market-analysis/',        'chart', 'The whole market, every month'],
         ['Deep dives',       BASE + '/adam/market-analysis/#dives',   'lens',  'One sharp question at a time'],
         ['Property news',    BASE + '/adam/news/',                    'news',  'Daily, and what it means for you'],
@@ -33,7 +34,7 @@
 
   /* Language: delegate to the shared engine in i18n.js (English-default). */
   if (!window.PSI18N && !document.querySelector('script[src*="i18n.js"]')) {
-    var _i18 = document.createElement('script'); _i18.src = BASE + '/i18n.js?v=20260725c'; document.head.appendChild(_i18);
+    var _i18 = document.createElement('script'); _i18.src = BASE + '/i18n.js?v=20260725d'; document.head.appendChild(_i18);
   }
   function t(s) { return (window.PSI18N && window.PSI18N.t) ? window.PSI18N.t(s) : s; }
   function curLang() { return (window.PSI18N && window.PSI18N.lang) || 'en'; }
@@ -44,7 +45,7 @@
     switch (it.t) {
       case 'Tools':          return has(/\/tools\//) || has(/#tools/);
       case 'Neighbourhoods': return has(/\/(areaguides|research|thesis|guide|essentials)\//);
-      case 'The Market':     return has(/\/(market-analysis|market-pulse|notes|news|launches)\//);
+      case 'The Market':     return has(/\/(market-analysis|market-pulse|notes|news|launches|deals)\//);
     }
     return false;
   }

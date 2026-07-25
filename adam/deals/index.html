@@ -1,0 +1,299 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Sold Prices · Every recent Singapore sale · PropSight</title>
+<meta name="description" content="Search every recent HDB and private home sale in Singapore. Real transacted prices from official URA caveats and HDB resale records. Free, no sign-up.">
+<link rel="canonical" href="https://propsight.sg/deals/">
+<meta name="theme-color" content="#24402F">
+<meta property="og:type" content="website"><meta property="og:site_name" content="PropSight">
+<meta property="og:title" content="Sold Prices · Every recent Singapore sale">
+<meta property="og:description" content="Search what homes actually sold for, street by street. Official caveats and HDB resale records.">
+<meta property="og:url" content="https://propsight.sg/deals/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2324402F'/><g fill='none' stroke='%23F2ECE0' stroke-width='2.3' stroke-linecap='round' stroke-linejoin='round'><circle cx='13.5' cy='13.5' r='9.5'/><path d='M8.75 16 L13.5 11 L18.25 16'/><path d='M10.5 18.2 L16.5 18.2'/></g><circle cx='13.5' cy='16.5' r='1' fill='%23C9B489'/><path d='M20.25 20.25 L26.5 26.5' fill='none' stroke='%23C9B489' stroke-width='3.2' stroke-linecap='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EBE2D2;--paper:#F2ECE0;--card:#FCFBF6;--ink:#211D16;--ink2:#5C5346;--ink3:#8A8072;
+  --line:#E4DBCA;--line2:#D8CEBB;--green:#24402F;--green2:#2E7D5B;--brass:#1F6B4F;
+  --sand:#C9B489;--clay:#BE5C36;
+  --sans:'Schibsted Grotesk',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
+  --mw:1120px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 20px}
+.topo{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(120% 85% at 50% -8%,#F8F3EA 0%,#F2ECE0 52%,#ECE3D1 100%)}
+
+/* ---- head ---- */
+.head{padding:34px 0 18px}
+.eyebrow{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:10px}
+h1{font-size:clamp(30px,5.2vw,46px);line-height:1.04;letter-spacing:-.032em;font-weight:800;margin-bottom:12px}
+.lede{font-size:17px;line-height:1.55;color:var(--ink2);max-width:620px}
+.lede b{color:var(--ink);font-weight:700}
+
+/* ---- controls ---- */
+.controls{position:sticky;top:0;z-index:20;background:rgba(242,236,224,.94);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);padding:12px 0;margin-top:20px}
+.crow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.search{flex:1 1 280px;display:flex;align-items:center;gap:10px;background:var(--card);
+  border:1px solid var(--line2);border-radius:100px;padding:11px 18px;min-width:0}
+.search svg{width:17px;height:17px;color:var(--ink3);flex:none}
+.search input{border:0;outline:0;background:none;font:inherit;font-size:16px;color:var(--ink);width:100%;min-width:0}
+.search input::placeholder{color:var(--ink3)}
+.clr{border:0;background:none;font:inherit;font-size:19px;color:var(--ink3);cursor:pointer;padding:0 2px;line-height:1;display:none}
+.segs{display:flex;background:var(--card);border:1px solid var(--line2);border-radius:100px;padding:3px;flex:none}
+.seg{border:0;background:none;font:inherit;font-size:14px;font-weight:700;color:var(--ink2);
+  padding:8px 15px;border-radius:100px;cursor:pointer;white-space:nowrap}
+.seg.on{background:var(--green);color:var(--paper)}
+select.sort{font:inherit;font-size:16px;font-weight:600;color:var(--ink);background:var(--card);
+  border:1px solid var(--line2);border-radius:100px;padding:9px 15px;cursor:pointer;flex:none}
+
+/* ---- summary strip ---- */
+.sum{display:flex;gap:26px;flex-wrap:wrap;align-items:baseline;padding:15px 0 4px;
+  font-family:var(--mono);font-size:13px;color:var(--ink2)}
+.sum b{font-family:var(--sans);font-size:19px;font-weight:800;color:var(--ink);letter-spacing:-.02em;
+  font-variant-numeric:proportional-nums}
+.sum .lbl{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:1px}
+
+/* ---- rows ---- */
+.list{padding:6px 0 10px}
+.row{display:flex;gap:16px;align-items:flex-start;justify-content:space-between;
+  padding:13px 2px;border-top:1px solid var(--line);cursor:pointer;transition:background .12s}
+.row:hover{background:rgba(31,107,79,.045)}
+.row:first-child{border-top:0}
+.main{min-width:0;flex:1}
+.nm{font-size:15.5px;font-weight:700;letter-spacing:-.01em;line-height:1.3}
+.badge{display:inline-block;vertical-align:1px;margin-right:8px;font-family:var(--mono);font-size:9px;
+  font-weight:600;letter-spacing:.07em;padding:3px 7px;border-radius:5px;text-transform:uppercase}
+.badge.h{color:#8A6E2E;background:rgba(201,180,137,.3)}
+.badge.c{color:var(--brass);background:rgba(31,107,79,.11)}
+.sub{font-size:13px;color:var(--ink2);margin-top:2px}
+.nums{text-align:right;flex:none;min-width:96px}
+.pr{font-size:16.5px;font-weight:800;letter-spacing:-.015em;font-variant-numeric:proportional-nums}
+.pf{font-family:var(--mono);font-size:11.5px;color:var(--ink3);margin-top:2px;white-space:nowrap}
+
+/* ---- comps drawer ---- */
+.comps{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:4px 0 10px;padding:16px 18px}
+.comps h4{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--brass);margin-bottom:11px}
+.crow2{display:flex;justify-content:space-between;gap:14px;font-size:13.5px;padding:6px 0;border-top:1px solid var(--line)}
+.crow2:first-of-type{border-top:0}
+.crow2 span{color:var(--ink2)}
+.crow2 b{font-variant-numeric:proportional-nums;white-space:nowrap}
+.cnote{font-size:12.5px;color:var(--ink3);margin-top:11px;padding-top:10px;border-top:1px solid var(--line)}
+
+.more{display:block;width:100%;margin:16px 0 8px;padding:14px;font:inherit;font-size:15px;font-weight:700;
+  color:var(--brass);background:var(--card);border:1px solid var(--line2);border-radius:12px;cursor:pointer}
+.more:hover{background:#fff}
+.empty{padding:44px 4px 60px;color:var(--ink2);font-size:16px;line-height:1.6}
+.empty b{display:block;font-size:19px;color:var(--ink);margin-bottom:8px;font-weight:800;letter-spacing:-.02em}
+.loading{padding:40px 4px;font-family:var(--mono);font-size:13px;color:var(--ink3)}
+
+.foot{border-top:1px solid var(--line);margin-top:30px;padding:22px 0 60px;font-size:13px;color:var(--ink3);line-height:1.65}
+.foot a{color:var(--brass);font-weight:600}
+@media(max-width:560px){
+  .head{padding:24px 0 14px}
+  .sum{gap:18px}
+  .nm{font-size:15px}
+  .pr{font-size:16px}
+  /* 44px minimum tap target: at 36px these were under the iOS guideline and
+     genuinely fiddly to hit one-handed. */
+  /* Search on its own line, then filter + sort share one, so the sticky bar
+     costs two rows on a phone rather than three. */
+  .search{flex:1 1 100%}
+  .segs{flex:1 1 0;min-width:0}
+  .seg{flex:1 1 0;padding:11px 6px;font-size:13.5px;min-height:44px;text-align:center}
+  select.sort{min-height:44px;flex:0 1 auto;min-width:0;padding:9px 10px;font-size:16px}
+  .crow{gap:8px}
+  .nums{min-width:84px}
+  .row{padding:14px 2px}
+}
+</style>
+<script src="/adam/i18n.js?v=20260725d" defer></script><script src="/adam/nav.js?v=156" defer></script>
+</head><body>
+<div class="topo"></div>
+<header></header>
+
+<div class="wrap head">
+  <div class="eyebrow" data-i18n="Sold prices">Sold prices</div>
+  <h1 data-i18n="What homes actually sold for">What homes actually sold for</h1>
+  <p class="lede" data-i18n="deals.lede">Every recent HDB and private sale in Singapore, straight from official caveats and resale records. Search a project, a street or a town, or just scroll and see what is moving.</p>
+</div>
+
+<div class="controls">
+  <div class="wrap crow">
+    <label class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="q" type="search" autocomplete="off" placeholder="Try Bishan, Tampines St 42, or a condo name" data-i18n-ph="deals.ph">
+      <button class="clr" id="clr" type="button" aria-label="Clear search">&times;</button>
+    </label>
+    <div class="segs" role="group">
+      <button class="seg on" data-k="" data-i18n="All">All</button>
+      <button class="seg" data-k="0">HDB</button>
+      <button class="seg" data-k="1" data-i18n="Private">Private</button>
+    </div>
+    <select class="sort" id="sort" aria-label="Sort">
+      <option value="new">Newest first</option>
+      <option value="phi">Price, high to low</option>
+      <option value="plo">Price, low to high</option>
+      <option value="fhi">$ psf, high to low</option>
+      <option value="flo">$ psf, low to high</option>
+    </select>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="sum" id="sum"></div>
+  <div class="list" id="list"><div class="loading">Loading recent sales…</div></div>
+  <button class="more" id="more" type="button" style="display:none">Show more</button>
+  <div class="foot">
+    <p id="src"></p>
+    <p style="margin-top:8px">Private sales come from URA caveats, HDB from official resale records. A caveat is lodged when a buyer pays a deposit, so it reflects a real agreed price, not an asking price. Indicative only, not financial advice. <a href="/tools/value.html">Value a specific home &rarr;</a></p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var FLD={k:0,n:1,s:2,a:3,t:4,p:5,f:6,z:7,l:8,d:9,e:10};
+  var ROWS=[],FULL=false,fullPending=false,view=[],shown=0,PAGE=40;
+  var q='',kind='',sort='new',openIdx=-1;
+  var list=document.getElementById('list'),sum=document.getElementById('sum'),
+      more=document.getElementById('more'),inp=document.getElementById('q'),
+      clr=document.getElementById('clr'),src=document.getElementById('src');
+
+  var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});};
+  var money=function(n){
+    if(n>=1e6){var m=(n/1e6).toFixed(2).replace(/0+$/,'').replace(/\.$/,'');return '$'+m+'m';}
+    return '$'+Math.round(n/1000)+'k';};
+  var MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var when=function(d){return MON[parseInt(d.slice(2,4),10)-1]+" '"+d.slice(0,2);};
+  var sqft=function(sqm){return Math.round(sqm*10.7639);};
+  var floorTxt=function(l){return l>0?(l<=3?'low floor':l<=9?'mid floor':'high floor'):'';};
+
+  /* Search text is built once per row and cached, so typing stays instant across
+     60k rows instead of re-lowercasing every field on every keystroke. */
+  function hay(r){
+    if(r._h===undefined) r._h=(r[1]+' '+r[2]+' '+r[3]+' '+r[4]).toLowerCase();
+    return r._h;
+  }
+  function apply(){
+    var t=q.trim().toLowerCase(), parts=t?t.split(/\s+/):[];
+    view=ROWS.filter(function(r){
+      if(kind!==''&&r[0]!==+kind)return false;
+      if(!parts.length)return true;
+      var h=hay(r);
+      for(var i=0;i<parts.length;i++){if(h.indexOf(parts[i])<0)return false;}
+      return true;
+    });
+    /* Date only. Array.sort is stable, so within a month rows keep the builder's
+       deterministic mix rather than re-clustering the priciest at the top. */
+    if(sort==='new')      view.sort(function(a,b){return b[9]<a[9]?-1:b[9]>a[9]?1:0;});
+    else if(sort==='phi') view.sort(function(a,b){return b[5]-a[5];});
+    else if(sort==='plo') view.sort(function(a,b){return a[5]-b[5];});
+    else if(sort==='fhi') view.sort(function(a,b){return b[6]-a[6];});
+    else if(sort==='flo') view.sort(function(a,b){return a[6]-b[6];});
+    shown=0; openIdx=-1; list.innerHTML=''; render();
+    summarise();
+  }
+  function median(a){if(!a.length)return 0;var s=a.slice().sort(function(x,y){return x-y;});
+    var m=s.length>>1;return s.length%2?s[m]:Math.round((s[m-1]+s[m])/2);}
+  function summarise(){
+    if(!view.length){sum.innerHTML='';return;}
+    var ps=view.map(function(r){return r[6];}).filter(Boolean);
+    var pr=view.map(function(r){return r[5];}).filter(Boolean);
+    sum.innerHTML=
+      '<div><span class="lbl">'+(q||kind!==''?'Matching sales':'Recent sales')+'</span><b>'+view.length.toLocaleString()+'</b></div>'+
+      '<div><span class="lbl">Median price</span><b>'+money(median(pr))+'</b></div>'+
+      '<div><span class="lbl">Median $ psf</span><b>$'+median(ps).toLocaleString()+'</b></div>';
+  }
+  function rowHtml(r,i){
+    var isH=r[0]===0, spec=[];
+    if(r[7])spec.push(sqft(r[7]).toLocaleString()+' sqft');
+    if(r[4])spec.push(r[4]);
+    var fl=floorTxt(r[8]); if(fl)spec.push(fl);
+    if(r[10])spec.push(r[10]);
+    return '<div class="row" data-i="'+i+'">'+
+      '<div class="main"><div class="nm">'+
+        '<span class="badge '+(isH?'h':'c')+'">'+(isH?'HDB':'Private')+'</span>'+esc(r[1])+
+      '</div><div class="sub">'+esc(r[3])+' &middot; '+spec.map(esc).join(' &middot; ')+'</div></div>'+
+      '<div class="nums"><div class="pr">'+money(r[5])+'</div>'+
+      '<div class="pf">$'+r[6].toLocaleString()+' psf &middot; '+when(r[9])+'</div></div></div>';
+  }
+  function render(){
+    var end=Math.min(shown+PAGE,view.length),html='';
+    for(var i=shown;i<end;i++) html+=rowHtml(view[i],i);
+    if(!view.length&&!html){
+      list.innerHTML='<div class="empty"><b>No sales match that yet.</b>'+
+        (FULL?'Try a town like Bishan or Tampines, a street name, or a condo name.'
+             :'Still loading the full 19-month archive, so older sales may not be searchable for another moment.')+'</div>';
+      more.style.display='none';return;
+    }
+    list.insertAdjacentHTML('beforeend',html); shown=end;
+    more.style.display=shown<view.length?'block':'none';
+    more.textContent='Show '+Math.min(PAGE,view.length-shown).toLocaleString()+' more of '+
+      (view.length-shown).toLocaleString();
+  }
+  /* Tapping a row answers the question the row provokes: is that price normal
+     here? Show the other recent sales at the same project or block. */
+  function comps(i){
+    var r=view[i], key=r[1].toLowerCase();
+    var same=ROWS.filter(function(x){return x[1].toLowerCase()===key;})
+                 .sort(function(a,b){return b[9]-a[9]||b[5]-a[5];}).slice(0,7);
+    var ps=same.map(function(x){return x[6];}).filter(Boolean), med=median(ps);
+    var h='<div class="comps"><h4>Recent sales at '+esc(r[1])+'</h4>';
+    same.forEach(function(x){
+      h+='<div class="crow2"><span>'+when(x[9])+' &middot; '+(x[7]?sqft(x[7]).toLocaleString()+' sqft':'')+
+         (floorTxt(x[8])?' &middot; '+floorTxt(x[8]):'')+'</span><b>'+money(x[5])+
+         ' &middot; $'+x[6].toLocaleString()+' psf</b></div>';
+    });
+    if(same.length>1&&med){
+      var diff=Math.round(((r[6]-med)/med)*100);
+      h+='<div class="cnote">This one went at $'+r[6].toLocaleString()+' psf, '+
+         (Math.abs(diff)<1?'right on':(Math.abs(diff)+'% '+(diff>0?'above':'below')))+
+         ' the $'+med.toLocaleString()+' psf median of the '+same.length+' most recent sales here.</div>';
+    }else{
+      h+='<div class="cnote">This is the only recent sale on record here, so there is nothing to compare it against yet.</div>';
+    }
+    return h+'</div>';
+  }
+  list.addEventListener('click',function(e){
+    var row=e.target.closest('.row'); if(!row)return;
+    var i=+row.dataset.i;
+    var open=row.nextElementSibling&&row.nextElementSibling.classList.contains('comps');
+    var ex=list.querySelector('.comps'); if(ex)ex.remove();
+    if(!open) row.insertAdjacentHTML('afterend',comps(i));
+  });
+  more.addEventListener('click',render);
+  inp.addEventListener('input',function(){q=inp.value;clr.style.display=q?'block':'none';
+    clearTimeout(inp._t);inp._t=setTimeout(apply,120);});
+  clr.addEventListener('click',function(){inp.value='';q='';clr.style.display='none';apply();inp.focus();});
+  document.querySelectorAll('.seg').forEach(function(b){b.addEventListener('click',function(){
+    document.querySelectorAll('.seg').forEach(function(x){x.classList.remove('on');});
+    b.classList.add('on');kind=b.dataset.k;apply();});});
+  document.getElementById('sort').addEventListener('change',function(e){sort=e.target.value;apply();});
+
+  function note(d){
+    var m=d.months, a=m[0], b=m[m.length-1];
+    src.textContent=ROWS.length.toLocaleString()+' sales on record, '+
+      when(a).replace("'"," 20")+' to '+when(b).replace("'"," 20")+
+      (FULL?'.':', loading the rest of the archive…');
+  }
+  /* Paint from the 6-month slice first (0.35 MB), then pull the full 19-month
+     archive in the background so search reaches everything without a 1 MB wait. */
+  fetch('/data/deals.json').then(function(r){return r.json();}).then(function(d){
+    ROWS=d.rows; apply(); note(d);
+    if(fullPending)return; fullPending=true;
+    return fetch('/data/deals-all.json').then(function(r){return r.json();}).then(function(f){
+      var keep=q||kind!==''; ROWS=f.rows; FULL=true;
+      if(keep)apply(); else {apply();}
+      note(f);
+    });
+  }).catch(function(){
+    list.innerHTML='<div class="empty"><b>Could not load the sales data.</b>Please refresh the page.</div>';
+  });
+})();
+</script>
+</body></html>

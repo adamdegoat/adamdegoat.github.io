@@ -92,6 +92,13 @@
   // renamed 2026-07-25: 'Compare homes' undersold a full caveat-backed price
   // dataset. Old keys kept so any cached page still resolves.
   'Price Intelligence': '房价情报',
+  'Sold prices': '成交价',
+  'Every recent sale, searchable': '每一宗近期成交，可搜索',
+  'See every recent sale': '查看每一宗近期成交',
+  'What homes actually sold for': '房子到底卖了多少钱',
+  'deals.lede': '新加坡每一宗近期的组屋与私宅成交，直接来自官方契约与转售记录。搜索楼盘、街道或市镇，也可以直接往下滑，看看现在在成交什么。',
+  'deals.ph': '试试 Bishan、Tampines St 42，或某个楼盘名',
+  'Private': '私宅',
   'PropSight Market': 'PropSight 楼市研究',
   'Every condo and HDB, by the numbers': '公寓与组屋，用数字说话',
   'Compare homes': '房价情报',
