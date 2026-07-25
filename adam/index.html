@@ -76,7 +76,7 @@ em{font-style:italic;color:var(--brass)}
 .nav-install{display:none;flex:none;margin-left:10px;width:44px;height:44px;align-items:center;justify-content:center;background:rgba(255,255,255,.55);border:1px solid var(--line2);border-radius:11px;color:var(--ink);-webkit-tap-highlight-color:transparent;transition:.25s var(--ease)}
 .nav-install svg{width:21px;height:21px}
 .navjoin{flex:none}
-.navlang{display:inline-flex;align-items:center;gap:6px;flex:none;margin-left:6px;background:#F4EEDE;border:1.5px solid #27513f;border-radius:30px;font:800 13px/1 inherit;color:#1E3A2C;cursor:pointer;padding:9px 14px;white-space:nowrap;transition:background .2s,color .2s}
+.navlang{display:inline-flex;align-items:center;gap:6px;flex:none;margin-left:6px;background:#F4EEDE;border:1.5px solid #2A5340;border-radius:30px;font:800 13px/1 inherit;color:#1E3A2C;cursor:pointer;padding:9px 14px;white-space:nowrap;transition:background .2s,color .2s}
 .navlang svg{width:15px;height:15px;flex:none;stroke:currentColor;fill:none;stroke-width:1.7}
 .navlang:hover{background:#1E3A2C;color:#F4EEDE}
 /* mobile: keep the 中文/EN text (that's what tells people the language); drop the globe to save width */
@@ -97,7 +97,7 @@ em{font-style:italic;color:var(--brass)}
 .nav.scrolled .navdoor .nd-top{color:#1E3A2C}
 .nav.scrolled .navdoor .nd-sub{color:#8A8072}
 .nav.scrolled .navdoor .nd-dot{background:#3aa76d}
-.nav.scrolled .navdoor:hover{border-color:#27513f;box-shadow:0 9px 22px rgba(90,80,64,.15)}
+.nav.scrolled .navdoor:hover{border-color:#2A5340;box-shadow:0 9px 22px rgba(90,80,64,.15)}
 .menu-toggle{display:none;margin-left:auto;width:44px;height:44px;align-items:center;justify-content:center;background:rgba(255,255,255,.55);border:1px solid var(--line2);border-radius:11px;cursor:pointer;color:var(--ink);-webkit-tap-highlight-color:transparent;position:relative;z-index:61;transition:.25s var(--ease)}
 .menu-toggle svg{width:22px;height:22px}
 .menu-toggle .ic-close{display:none}
@@ -172,7 +172,7 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .hdoor .hd-ar{margin-left:auto;flex:none;color:var(--brass3);transition:transform .25s var(--ease)}
 .hdoor .hd-ar svg{width:18px;height:18px}
 .hdoor:hover .hd-ar{transform:translateX(4px)}
-.hdoor.hd-world{background:var(--gtex,none),linear-gradient(155deg,#15807f 0%,#123a30 92%);border-color:var(--brass2);animation:hdWorldGlow 3.4s ease-in-out infinite}
+.hdoor.hd-world{background:var(--gtex,none),linear-gradient(155deg,#1F6B4F 0%,#123a30 92%);border-color:var(--brass2);animation:hdWorldGlow 3.4s ease-in-out infinite}
 .hdoor.hd-world .hd-ic{background:rgba(201,180,137,.26)}
 .hdoor.hd-world::after{content:"";position:absolute;top:0;left:-65%;width:48%;height:100%;background:linear-gradient(100deg,rgba(191,240,232,0) 0%,rgba(191,240,232,.32) 50%,rgba(191,240,232,0) 100%);transform:skewX(-18deg);pointer-events:none;animation:hdWorldSheen 5.6s ease-in-out infinite}
 @keyframes hdWorldGlow{0%,100%{box-shadow:0 14px 30px -10px rgba(15,35,26,.42),0 0 0 0 rgba(46,196,182,0)}50%{box-shadow:0 16px 34px -10px rgba(15,35,26,.46),0 0 22px 1px rgba(46,196,182,.42)}}
@@ -368,7 +368,7 @@ a.mq-i{text-decoration:none}a.mq-i:hover{opacity:.82}
 .tool.feat2{border-color:var(--brass)}
 /* compact "about PropSight" bar, slots between the Guide and Contact sections */
 .abwrap{padding-top:2px;padding-bottom:30px}
-.aboutbar{display:flex;align-items:center;gap:18px;position:relative;overflow:hidden;text-decoration:none;color:#F2ECE0;background:linear-gradient(135deg,#27513f,#16352a);border:1px solid #2f5a46;border-radius:18px;padding:16px 18px 16px 18px;box-shadow:0 14px 34px rgba(15,35,26,.16);transition:transform .2s var(--ease),box-shadow .2s}
+.aboutbar{display:flex;align-items:center;gap:18px;position:relative;overflow:hidden;text-decoration:none;color:#F2ECE0;background:linear-gradient(135deg,#2A5340,#16352a);border:1px solid #2f5a46;border-radius:18px;padding:16px 18px 16px 18px;box-shadow:0 14px 34px rgba(15,35,26,.16);transition:transform .2s var(--ease),box-shadow .2s}
 .aboutbar:hover{transform:translateY(-2px);box-shadow:0 20px 46px rgba(15,35,26,.24)}
 .aboutbar::before{content:"";position:absolute;right:-30px;top:-70px;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle,rgba(27,58,45,.13),transparent 62%);pointer-events:none}
 .ab-mark{flex:none;width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(242,236,224,.06);border:1px solid rgba(27,58,45,.26)}
@@ -441,7 +441,7 @@ a.mq-i{text-decoration:none}a.mq-i:hover{opacity:.82}
 @keyframes sweep{0%,100%{transform:rotate(8deg) translateX(0)}50%{transform:rotate(8deg) translateX(280%)}}
 .pov .frame{position:absolute;inset:18px;border:1px solid rgba(201,180,137,.22);border-radius:18px;pointer-events:none}
 .about-in{display:grid;grid-template-columns:.84fr 1.16fr;gap:48px;align-items:center;position:relative}
-.about-in .portrait{opacity:1;transform:none;box-shadow:0 26px 60px rgba(8,20,15,.4);background:radial-gradient(440px 380px at 68% 8%,#356650,#27513f 52%,#14261C)}
+.about-in .portrait{opacity:1;transform:none;box-shadow:0 26px 60px rgba(8,20,15,.4);background:radial-gradient(440px 380px at 68% 8%,#356650,#2A5340 52%,#14261C)}
 .about-in .portrait .frame{inset:14px;border-color:rgba(201,180,137,.5)}
 .pov .eyebrow{color:var(--brass3)}.pov .eyebrow::before{background:var(--brass3)}
 .pov h2{font-family:var(--serif);font-weight:500;font-size:clamp(28px,3.4vw,42px);line-height:1.1;letter-spacing:-.02em;margin:16px 0 0;position:relative}
@@ -647,7 +647,7 @@ body::before{animation:none}
 .pb-card:hover{transform:translateY(-3px);box-shadow:0 26px 56px rgba(15,35,26,.3)}
 .pb-card .pb-k{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#1F6B4F;display:block}
 .pb-card .pb-h{font-family:'Schibsted Grotesk',system-ui,sans-serif;font-weight:600;font-size:24px;line-height:1.12;color:#211D16;display:block;margin-top:8px;letter-spacing:-.01em}
-.pb-card .pb-go{display:inline-flex;align-items:center;gap:7px;margin-top:13px;font-size:13.5px;font-weight:700;color:#27513f}
+.pb-card .pb-go{display:inline-flex;align-items:center;gap:7px;margin-top:13px;font-size:13.5px;font-weight:700;color:#2A5340}
 .pb-card .pb-go i{font-style:normal;transition:transform .25s}.pb-card:hover .pb-go i{transform:translateX(5px)}
 @media(max-width:560px){.photoband{height:340px}.pb-card{display:block;max-width:none}}
 /* ═══ PLAINSIGHT v2, compact hero (showcase more) + Ask PropSight chatbot ═══ */
@@ -771,7 +771,7 @@ html.menu-open .cbtn{opacity:0;visibility:hidden;pointer-events:none}
 .cchip .ctag{font-size:9px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 6px;border-radius:5px;background:#1E3A2C;color:#F2ECE0;line-height:1;white-space:nowrap}
 .cchip .ctag.t-market{background:#1E3A2C}
 .cchip .ctag.t-deep{background:rgba(143,224,176,.2);color:#1E3A2C;border:1px solid rgba(27,58,45,.25)}
-.cchip .ctag.t-trust{background:rgba(27,58,45,.08);color:#27513f;border:1px solid var(--line2)}
+.cchip .ctag.t-trust{background:rgba(27,58,45,.08);color:#2A5340;border:1px solid var(--line2)}
 .cmsg .w{transition:color .12s ease,opacity .12s ease}
 .cmsg.speaking .ctext .w{opacity:.4}
 .cmsg.speaking .ctext .w.said{opacity:1}
@@ -1071,7 +1071,7 @@ if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}
 .bd-read .rd-k{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--green-d);margin-right:11px;white-space:nowrap}
 
 
-.board-hero{padding:clamp(18px,3vh,30px) 0 0}#cvx{display:none!important}</style>
+.board-hero{padding:calc(91px - clamp(22px,5vh,40px)) 0 0}#cvx{display:none!important}</style>
 <section class="hero board-hero">
   <div class="board-wrap"><div class="board reveal">
     <div class="bd-top"><div class="bd-title"><span class="live"><i></i><span data-i18n="Latest read">Latest read</span></span><span class="bd-t"><b>PropSight</b> &middot; <span data-i18n="The Singapore Property Board">The Singapore Property Board</span></span></div><div class="bd-date"><!--BMON-->June 2026<!--/BMON--> &middot; <span data-i18n="built on official URA and HDB data">built on official URA &amp; HDB data</span></div></div>
@@ -1191,16 +1191,16 @@ if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}
     <span class="fpill" data-f="explore">For exploring</span>
   </div>
   <div class="tools">
-    <a class="tool rv" data-aud="buy explore" href="tools/afford.html"><span class="badge">Start here</span><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#27513f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="16" cy="9" rx="10" ry="3.5"/><path d="M6 9v7c0 2 4.5 3.5 10 3.5s10-1.5 10-3.5V9"/><path d="M6 16v7c0 2 4.5 3.5 10 3.5s10-1.5 10-3.5v-7"/></svg><h4>Affordability</h4><p>Your real budget</p></a>
-    <a class="tool feat rv" data-aud="buy sell explore" href="tools/value.html"><span class="badge">Most useful</span><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#27513f" stroke-width="1.6" stroke-linecap="round"><path d="M17 4H7v10l11 11 10-10z"/><circle cx="12" cy="9" r="1.6"/></svg><h4>Home value</h4><p>What it's worth</p></a>
-    <a class="tool rv" data-aud="buy" href="tools/stamp-duty.html"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#27513f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="4" width="16" height="24" rx="2"/><path d="M12 11h8M12 16h8M12 21h5"/></svg><h4>Stamp duty</h4><p>BSD and ABSD</p></a>
-    <a class="tool rv" data-aud="buy explore" href="tools/schools.html"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#27513f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5 3 11l13 6 10-4.6V19"/><path d="M8 14v5c0 1.7 3.6 3 8 3s8-1.3 8-3v-5"/></svg><h4>Near a school</h4><p>1km / 2km zones</p></a>
-    <a class="tool rv" data-aud="sell" href="tools/sell.html"><span class="badge2">Next step</span><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#27513f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 27V5"/><path d="M21 9c0-2.2-2.2-3.5-5-3.5S11 6.8 11 9s2.2 3.2 5 3.7 5 1.5 5 3.8-2.2 3.5-5 3.5-5-1.3-5-3.5"/></svg><h4>Net proceeds</h4><p>What you pocket</p></a>
-    <a class="tool rv" data-aud="buy explore" href="tools/eligibility.html"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#27513f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3l11 4v8c0 7-5 11-11 14-6-3-11-7-11-14V7z"/><path d="M11 16l4 4 7-8"/></svg><h4>Eligibility</h4><p>Can I buy it?</p></a>
-    <a class="tool rv" data-aud="buy explore" href="tools/grants.html"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#27513f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="13" width="22" height="14" rx="2"/><path d="M5 17h22M16 13v14"/><path d="M16 13c-1.8-3.6-7-3.4-7-.6 0 1.8 3.6 1.4 7 .6z"/><path d="M16 13c1.8-3.6 7-3.4 7-.6 0 1.8-3.6 1.4-7 .6z"/></svg><h4>Grants</h4><p>CPF housing grants</p></a>
-    <a class="tool rv" data-aud="buy" href="tools/mortgage.html"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#27513f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 14 16 5l11 9"/><path d="M8 12v14h16V12"/><path d="M13 26v-6h6v6"/></svg><h4>Monthly repayment</h4><p>Your mortgage</p></a>
-    <a class="tool feat rv" data-aud="buy sell explore" href="/thesis/"><span class="badge">Go deeper</span><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#27513f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 27V5"/><path d="M5 27h22"/><rect x="9" y="17" width="4" height="6"/><rect x="16" y="11" width="4" height="12"/><rect x="23" y="7" width="4" height="16"/></svg><h4>Research</h4><p>Condos and HDB</p></a>
-    <a class="tool rv" data-aud="buy sell explore" href="#talk" onclick="if(window.askAillie){event.preventDefault();window.askAillie();}"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#27513f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M27 18c0 1.7-1.3 3-3 3H13l-6 5V8c0-1.7 1.3-3 3-3h14c1.7 0 3 1.3 3 3z"/><path d="M12 12h10M12 16h6"/></svg><h4>Ask Aillie</h4><p>Get real numbers</p></a>
+    <a class="tool rv" data-aud="buy explore" href="tools/afford.html"><span class="badge">Start here</span><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#2A5340" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="16" cy="9" rx="10" ry="3.5"/><path d="M6 9v7c0 2 4.5 3.5 10 3.5s10-1.5 10-3.5V9"/><path d="M6 16v7c0 2 4.5 3.5 10 3.5s10-1.5 10-3.5v-7"/></svg><h4>Affordability</h4><p>Your real budget</p></a>
+    <a class="tool feat rv" data-aud="buy sell explore" href="tools/value.html"><span class="badge">Most useful</span><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#2A5340" stroke-width="1.6" stroke-linecap="round"><path d="M17 4H7v10l11 11 10-10z"/><circle cx="12" cy="9" r="1.6"/></svg><h4>Home value</h4><p>What it's worth</p></a>
+    <a class="tool rv" data-aud="buy" href="tools/stamp-duty.html"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#2A5340" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="4" width="16" height="24" rx="2"/><path d="M12 11h8M12 16h8M12 21h5"/></svg><h4>Stamp duty</h4><p>BSD and ABSD</p></a>
+    <a class="tool rv" data-aud="buy explore" href="tools/schools.html"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#2A5340" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5 3 11l13 6 10-4.6V19"/><path d="M8 14v5c0 1.7 3.6 3 8 3s8-1.3 8-3v-5"/></svg><h4>Near a school</h4><p>1km / 2km zones</p></a>
+    <a class="tool rv" data-aud="sell" href="tools/sell.html"><span class="badge2">Next step</span><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#2A5340" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 27V5"/><path d="M21 9c0-2.2-2.2-3.5-5-3.5S11 6.8 11 9s2.2 3.2 5 3.7 5 1.5 5 3.8-2.2 3.5-5 3.5-5-1.3-5-3.5"/></svg><h4>Net proceeds</h4><p>What you pocket</p></a>
+    <a class="tool rv" data-aud="buy explore" href="tools/eligibility.html"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#2A5340" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3l11 4v8c0 7-5 11-11 14-6-3-11-7-11-14V7z"/><path d="M11 16l4 4 7-8"/></svg><h4>Eligibility</h4><p>Can I buy it?</p></a>
+    <a class="tool rv" data-aud="buy explore" href="tools/grants.html"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#2A5340" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="13" width="22" height="14" rx="2"/><path d="M5 17h22M16 13v14"/><path d="M16 13c-1.8-3.6-7-3.4-7-.6 0 1.8 3.6 1.4 7 .6z"/><path d="M16 13c1.8-3.6 7-3.4 7-.6 0 1.8-3.6 1.4-7 .6z"/></svg><h4>Grants</h4><p>CPF housing grants</p></a>
+    <a class="tool rv" data-aud="buy" href="tools/mortgage.html"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#2A5340" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 14 16 5l11 9"/><path d="M8 12v14h16V12"/><path d="M13 26v-6h6v6"/></svg><h4>Monthly repayment</h4><p>Your mortgage</p></a>
+    <a class="tool feat rv" data-aud="buy sell explore" href="/thesis/"><span class="badge">Go deeper</span><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#2A5340" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 27V5"/><path d="M5 27h22"/><rect x="9" y="17" width="4" height="6"/><rect x="16" y="11" width="4" height="12"/><rect x="23" y="7" width="4" height="16"/></svg><h4>Research</h4><p>Condos and HDB</p></a>
+    <a class="tool rv" data-aud="buy sell explore" href="#talk" onclick="if(window.askAillie){event.preventDefault();window.askAillie();}"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#2A5340" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M27 18c0 1.7-1.3 3-3 3H13l-6 5V8c0-1.7 1.3-3 3-3h14c1.7 0 3 1.3 3 3z"/><path d="M12 12h10M12 16h6"/></svg><h4>Ask Aillie</h4><p>Get real numbers</p></a>
   </div>
   </div>
 </div></section>
@@ -2124,7 +2124,7 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
   function removeSchoolList(){ inp.removeAttribute('list'); }
   function renderSchoolHomes(s){ removeSchoolList(); const enc=encodeURIComponent, e=esc;
     const fmt=m=> m>=1000?(m/1000).toFixed(1).replace(/\.0$/,'')+'km':m+'m';
-    const row=(href,nm,d)=>'<a href="'+href+'" style="display:flex;justify-content:space-between;gap:10px;padding:7px 11px;margin:4px 0;border:1px solid #E4DBCA;border-radius:10px;color:#211D16;text-decoration:none;font-size:13.5px"><span>'+e(nm)+'</span><span style="color:#27513f;font-weight:600;white-space:nowrap">'+fmt(d)+' &rarr;</span></a>';
+    const row=(href,nm,d)=>'<a href="'+href+'" style="display:flex;justify-content:space-between;gap:10px;padding:7px 11px;margin:4px 0;border:1px solid #E4DBCA;border-radius:10px;color:#211D16;text-decoration:none;font-size:13.5px"><span>'+e(nm)+'</span><span style="color:#2A5340;font-weight:600;white-space:nowrap">'+fmt(d)+' &rarr;</span></a>';
     const seclbl=t=>'<div style="font-family:var(--serif);font-weight:600;font-size:15px;color:#1E3A2C;margin:14px 0 2px">'+t+'</div>';
     const grp=(arr,lbl,mk)=> (arr&&arr.length)?'<div style="margin-top:6px"><div style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#8A8072;margin-bottom:2px">'+lbl+'</div>'+arr.slice(0,6).map(mk).join('')+'</div>':'';
     const clink=c=>row('/research/?p='+enc(c.n),c.n,c.d);
@@ -2355,6 +2355,10 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
 })();</script>
 <script>/* Recent deals: live tape (board ticker) + lookup panel, from caveat data */
 (function(){
+  var T=function(s){return (window.PSI18N&&window.PSI18N.t)?window.PSI18N.t(s):s;};
+  var TF=function(s,v){return (window.PSI18N&&window.PSI18N.tf)?window.PSI18N.tf(s,v):s.replace(/\{(\w+)\}/g,function(m,k){return v&&v[k]!=null?v[k]:m;});};
+  var MON={Jan:'1 月',Feb:'2 月',Mar:'3 月',Apr:'4 月',May:'5 月',Jun:'6 月',Jul:'7 月',Aug:'8 月',Sep:'9 月',Oct:'10 月',Nov:'11 月',Dec:'12 月'};
+  var MONTH=function(s){if(!(window.PSI18N&&window.PSI18N.lang==='zh'))return s;var p=String(s).split(' ');return (p.length===2&&MON[p[0]])?(p[1]+' 年 '+MON[p[0]]):s;};
   fetch('data/recent_deals.json?v='+Date.now()).then(function(r){return r.ok?r.json():null;}).then(function(D){
     if(!D||!D.deals||!D.deals.length)return;
     var ALL=D.deals;
@@ -2367,8 +2371,8 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
     var mh=pick(sh,24),mc=pick(sc,24),mix=[];
     for(var i=0;i<24;i++){if(i<mh.length)mix.push(mh[i]);if(i<mc.length)mix.push(mc[i]);}
     var SHOW=stand.concat(mix);
-    var asOf=document.getElementById('dealsAsOf'); if(asOf)asOf.textContent=D.as_of_label;
-    var cnt=document.getElementById('dealsCount'); if(cnt)cnt.textContent='from '+D.n_total.toLocaleString()+' recent caveats';
+    var asOf=document.getElementById('dealsAsOf'); if(asOf)asOf.textContent=MONTH(D.as_of_label);
+    var cnt=document.getElementById('dealsCount'); if(cnt)cnt.textContent=TF('from {n} recent caveats',{n:D.n_total.toLocaleString()});
     var list=document.getElementById('dealsList'), inp=document.getElementById('dealSearch'),
         clr=document.getElementById('dealClear'), shown=document.getElementById('dealsShown');
     function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
@@ -2379,12 +2383,12 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
       var rows=q?ALL.filter(function(d){return d.search.indexOf(q)>=0;}):SHOW;
       var cut=rows.slice(0,q?60:12);
       if(clr)clr.style.display=q?'block':'none';
-      if(!cut.length){list.innerHTML='<div class="dl-empty">No recent sales match that yet. Try a town like Bishan, Tampines or Punggol.</div>';if(shown)shown.textContent='';return;}
+      if(!cut.length){list.innerHTML='<div class="dl-empty">'+T('No recent sales match that yet. Try a town like Bishan, Tampines or Punggol.')+'</div>';if(shown)shown.textContent='';return;}
       list.innerHTML=cut.map(function(d){return '<div class="dl-row '+d.k+'">'+
         '<div class="dl-main"><div class="dl-name">'+badge(d.k)+esc(d.name)+' '+tag(d.tag)+'</div>'+
         '<div class="dl-sub">'+esc(d.loc)+' &middot; '+esc(d.spec)+'</div></div>'+
         '<div class="dl-nums"><div class="dl-price">'+esc(d.price_s)+'</div><div class="dl-psf">'+esc(d.psf_s)+' &middot; '+esc(d.when)+'</div></div></div>';}).join('');
-      if(shown)shown.textContent=q?(rows.length+' match'+(rows.length===1?'':'es')):'latest across Singapore';
+      if(shown)shown.textContent=q?TF(rows.length===1?'{n} match':'{n} matches',{n:rows.length}):T('latest across Singapore');
     }
     render('');
     if(inp){var t;inp.addEventListener('input',function(){clearTimeout(t);t=setTimeout(function(){render(inp.value);},110);});}
@@ -2394,6 +2398,16 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
     if(row){
       var chip=function(d){return '<span class="tk">'+(d.tag?'<i class="tk-flag"></i>':'')+'<b>'+esc(d.name)+'</b> '+esc(d.loc)+' &middot; '+esc(d.price_s)+' &middot; '+esc(d.psf_s)+'</span>';};
       var h=SHOW.map(chip).join(''); row.innerHTML=h+h;
+      // The strip is duplicated and translated -50%, so one loop travels half its
+      // width. Pin the speed in px/second rather than hardcoding a duration: the
+      // deal count (and therefore the width) changes with every data refresh.
+      requestAnimationFrame(function(){
+        var half=row.scrollWidth/2;
+        if(half>0){
+          var SPEED=58; // px per second, comfortable reading pace
+          row.style.animationDuration=Math.max(40,Math.round(half/SPEED))+'s';
+        }
+      });
     }
   }).catch(function(){});
 })();</script>

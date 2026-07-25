@@ -565,7 +565,209 @@ window.PS_I18N_ZH = Object.assign(window.PS_I18N_ZH || {}, {
   "Search a town to see": "搜索一个市镇，查看", "real resale prices": "真实转售价", ", typical": "，典型",
   "remaining lease": "剩余屋契",
   ", rental yield, recent sales block by block, and how it's priced against the islandwide median for the same flat type.":
-    "，租金回报、逐座的近期成交，以及相比同户型全岛中位价的定价水平。"
+    "，租金回报、逐座的近期成交，以及相比同户型全岛中位价的定价水平。",
+  // ── current intro copy (the tail after <b>real transacted prices</b> / <b>remaining lease</b>) ──
+  ", how they've moved, rental yield, the nearest MRT & schools, and exactly how it's priced against nearby condos, its town and its district. Straight from official URA caveats. No login, no agent.":
+    "，价格怎么走、租金回报、最近的 MRT 和学校，以及它和附近公寓、所在市镇、所属区域比起来到底贵还是便宜。全部来自官方 URA 成交记录。无需登录，也不用找中介。",
+  ", rental yield, recent sales block by block, and how it's priced against the islandwide median for the same flat type. Straight from official HDB data.":
+    "，租金回报、逐座的近期成交，以及和同户型全岛中位价比起来的定价水平。全部来自官方 HDB 数据。",
+  // ── header data tag + freshbar + counts (numbers stay in their own tags) ──
+  "condos": "个公寓", "condo": "个公寓", "condos shown": "个公寓",
+  "launches": "个新盘", "launch": "个新盘",
+  "HDB resales": "笔 HDB 转售",
+  "official URA caveats · as of": "官方 URA 成交记录 · 截至",
+  "official HDB data · as of": "官方 HDB 数据 · 截至",
+  "today": "今天", "yesterday": "昨天", "recently": "最近", "days ago": "天前",
+  "· official caveats, refreshed weekly": "· 官方成交记录，每周更新",
+  "town × flat-type group": "个市镇 × 户型组合", "town × flat-type groups": "个市镇 × 户型组合",
+  "Showing 200 of": "共", ". Search to narrow down.": "个，先显示前 200 个。用搜索缩小范围。",
+  "Showing 300 of": "共", ". Filter to narrow down.": "个，先显示前 300 个。用筛选缩小范围。",
+  // ── filter + sort controls (select options are plain text nodes; placeholders go through the same sweep) ──
+  "All regions": "所有地段", "All flat types": "所有户型",
+  "Any tenure": "不限屋契", "Freehold": "永久地契", "Leasehold": "非永久地契",
+  "Any price": "不限价格", "Under $1,500 psf": "低于 $1,500 psf",
+  "Mature & non-mature": "成熟与非成熟区", "Mature estates": "成熟组屋区", "Non-mature estates": "非成熟组屋区",
+  "Mature estate": "成熟组屋区", "Non-mature": "非成熟区", "Non-mature estate": "非成熟组屋区",
+  "Name A-Z": "按名称 A-Z", "Town A-Z": "按市镇 A-Z",
+  "$/sqft: low → high": "$/平方英尺：由低到高", "$/sqft: high → low": "$/平方英尺：由高到低",
+  "Price: low → high": "价格：由低到高", "Price: high → low": "价格：由高到低",
+  "Yield: high → low": "租金回报：由高到低", "Lease: most years left": "屋契：剩余年数最多",
+  "Most active": "成交最活跃", "Biggest 6-mo rise": "6 个月涨幅最大",
+  "Search a condo…": "搜索公寓…", "Search a town, e.g. Bishan, Punggol…": "搜索市镇，例如 Bishan、Punggol…",
+  "Near a primary school…": "靠近某所小学…", "1km only": "只看 1 公里内", "Clear school filter": "清除学校筛选",
+  // ── table column heads + sub-labels ──
+  "Condo": "公寓", "Town": "市镇", "Flat type": "户型",
+  "$ / sqft": "每平方英尺价", "vs nearby": "对比附近", "6mo trend": "6 个月走势",
+  "Yield": "租金回报", "Sales": "成交量", "Median price": "中位价", "Lease left": "剩余屋契",
+  "vs national": "对比全国", "same flat type": "同一户型",
+  "typical": "典型值", "price psf": "每平方英尺价", "rent / year": "年租金",
+  "last": "近", "mo": "个月", "months": "个月", "-month window": " 个月",
+  "sales, as of": "笔成交，截至", "(as of": "（截至",
+  // ── legends under the tables ──
+  "How to read this:": "怎么看这张表：",
+  ", its typical transacted price per square foot": "，它典型的每平方英尺成交价",
+  ", how that compares to similar condos within 1.5km (": "，和 1.5 公里内同类公寓比起来如何（",
+  ", red = pricier)": "，红色 = 更贵）",
+  ", change in median price over the last 6 months": "，过去 6 个月中位价的变化",
+  ", gross annual rent as a % of price": "，年租金毛收入占价格的百分比",
+  ", recent transactions (how actively it trades)": "，近期成交量，看它交易得活不活跃",
+  ", typical remaining lease in years; the #1 HDB price driver": "，典型剩余屋契年数；HDB 价格的第一大因素",
+  ", this town's psf vs the islandwide median for the": "，这个市镇的 psf 对比全岛中位价，取",
+  ", resale transactions over the window": "，统计期内的转售成交量",
+  // ── map view ──
+  ", every condo plotted, coloured by region. Tap a dot for the full breakdown; filter to zoom into an area.":
+    "，每一套公寓都标在地图上，按区域上色。点一个圆点看完整分析，用筛选放大到某个区域。",
+  // ── new launches ──
+  ", what's selling, and whether the price over resale is fair. Freshest activity first, each benchmarked against the area's real resale.":
+    "，哪些在卖，比转售贵出来的那一截合不合理。最新成交排前面，每个都对照该区真实转售价。",
+  "all regions": "所有地段", "· real sales": "· 真实成交",
+  "▦ Feed": "▦ 信息流", "≣ Table": "≣ 表格",
+  "● Actively selling": "● 正在热卖", "Mostly sold · older launches": "大部分已售 · 较早的新盘",
+  "Show": "查看", "older / mostly-sold launches ▾": "个较早或大部分已售的新盘 ▾",
+  "older / mostly-sold launch ▾": "个较早或大部分已售的新盘 ▾",
+  "Well above typical launch premium": "远高于新盘的典型溢价",
+  "Above typical launch premium": "高于新盘的典型溢价",
+  "Around typical launch premium": "接近新盘的典型溢价",
+  "Below typical launch premium": "低于新盘的典型溢价",
+  "Compared against resale nearby": "对照附近转售", "Resale benchmark": "转售参照",
+  "Launch vs resale, and how it's selling": "新盘对比转售，以及卖得如何",
+  "Status:": "状态：", "sold within ~2mo ·": "约 2 个月内有成交 ·", "within ~8mo ·": "约 8 个月内 ·", "older.": "更早。",
+  "= launch PSF vs the median of comparable resale in the same area.": "= 新盘 PSF 对比同区同类转售的中位价。",
+  "= launch PSF over comparable resale nearby.": "= 新盘 PSF 对比附近同类转售。",
+  "below the typical new-launch premium (better value) ·": "低于新盘的典型溢价（更划算） ·",
+  "around typical ·": "接近典型水平 ·",
+  "well above. A price sanity-check on real caveats, not a unit valuation.":
+    "远高于典型水平。这是拿真实成交记录做的价格合理性检查，不是单位估值。",
+  // ── upcoming ──
+  "Upcoming launches": "即将推出的新盘",
+  ", what's coming, not on sale yet. Nothing has transacted, so each figure is":
+    "，接下来会推出、但还没开卖的项目。还没有任何成交，所以每个数字都只是",
+  "indicative": "参考", ", benchmarked against the real resale around it.": "，以周边真实转售价作为对照。",
+  "Indicative only.": "仅供参考。",
+  "These aren't selling yet, so prices are estimated from the area's resale, not transactions. Always verify launch dates & pricing with the developer.":
+    "这些还没开卖，价格是根据该区转售价估算的，不是真实成交。开盘日期和价格，请一定向发展商确认。",
+  "Indicative psf": "参考 psf", "Likely psf": "预计 psf", "Note": "备注",
+  "A hand-picked watchlist, kept current weekly,, each benchmarked against the median resale of comparable condos in the same area. Indicative framing, not a valuation.":
+    "人工挑选的关注名单，每周更新，每个项目都对照同区同类公寓的转售中位价。只是参考，不是估值。",
+  // ── compare ──
+  "Add condos with the ⇄ button on any project to line them up, price, how they're trending, yield and tenure, head to head.":
+    "用任何项目上的 ⇄ 按钮把公寓加进来，价格、走势、租金回报和屋契，一排排对着看。",
+  "Open any condo → “Add to compare”. Up to 3.": "打开任意公寓 → 点“加入对比”。最多 3 个。",
+  "⇄ Add to compare": "⇄ 加入对比",
+  "typical unit": "典型单位", "vs nearby condos": "对比附近公寓", "same class, 1.5km": "同类，1.5 公里内",
+  "6-month trend": "6 个月走势", "median psf": "中位 psf", "Rental yield": "租金回报", "gross": "毛回报",
+  "Recent sales": "近期成交", "Tenure": "屋契",
+  "All figures from official caveats, point-in-time. On a phone, swipe sideways to see every card.":
+    "所有数字来自官方成交记录，是某一时点的数据。手机上左右滑动，可以看完每一张卡。",
+  // ── about (condo + HDB) ──
+  "Plain facts from official records, no scores, no rankings, no predictions. Just the numbers, so you and your client can read them yourselves.":
+    "来自官方记录的实在数据，没有评分、没有排名、没有预测。就是数字本身，你和你的客户自己看得懂。",
+  "Plain facts from official HDB resale records, no scores, no predictions. Built HDB-native, not borrowed from the condo logic.":
+    "来自官方 HDB 转售记录的实在数据，没有评分、没有预测。是照 HDB 本身的逻辑做的，不是套用公寓那一套。",
+  "Every figure is compiled from": "每一个数字都整理自",
+  "official URA caveats": "官方 URA 成交记录",
+  ", the real prices lodged with the authorities when a property changes hands, over a rolling":
+    "，也就是房子每次转手时向当局备案的真实价格，统计期为滚动的",
+  "). Rental yields use matched rental contracts; tenure and project details come from the same official records. Nothing here is scraped, hand-entered, or guessed by AI.":
+    "）。租金回报用的是配对的租赁合约；屋契和项目资料来自同一批官方记录。这里没有任何数字是爬来的、手打的，或者猜出来的。",
+  "Compiled from": "整理自", "official HDB resale transactions": "官方 HDB 转售成交", "across": "涵盖",
+  "), plus official HDB rental medians for yields. Nothing scraped or guessed.":
+    "），租金回报另外用官方 HDB 租金中位数。没有爬数据，也没有猜。",
+  "Price per sqft": "每平方英尺价",
+  "The typical transacted price per square foot, the median of actual caveats for that condo over the data window.":
+    "典型的每平方英尺成交价，取的是该公寓在统计期内真实成交记录的中位数。",
+  "We compare the condo three ways: vs": "我们从三个角度比较：对比",
+  "nearby": "附近",
+  "condos within 1.5km (matched on tenure, freehold to freehold, leasehold to leasehold, since freehold trades at a premium in SG), vs its":
+    "1.5 公里内的公寓（屋契要配对，永久对永久、非永久对非永久，因为在新加坡永久地契本来就贵一截），对比它的",
+  "town": "市镇", ", and vs its": "，还有对比它的", "district": "区域",
+  ". “Cheaper / pricier” is a factual gap, not a rating.": "。“更便宜／更贵”只是事实上的差距，不是评级。",
+  "Hard to compare": "难以比较",
+  "When a condo's price sits very far from its neighbours, it's usually a different type (much older, or much bigger / smaller units), so we don't show a nearby figure, but the town and district comparisons still apply.":
+    "如果一个公寓的价格和周边差太远，通常是因为它本来就是另一类房子（老很多，或者单位大很多、小很多），所以我们不显示“对比附近”的数字，但市镇和区域的比较照旧适用。",
+  "Price trend": "价格走势",
+  "The condo's median price per sqft month by month, so you can see the actual path, rising, flat or easing.":
+    "这个公寓逐月的每平方英尺中位价，让你看到真实的走势，是在涨、走平，还是在回落。",
+  "Typical monthly rent and the gross rental yield (annual rent as a % of price, before costs), from matched rental contracts.":
+    "典型月租和毛租金回报（年租金占价格的百分比，未扣成本），来自配对的租赁合约。",
+  "The latest actual transactions, date, size, price and psf, straight from the caveats.":
+    "最新的真实成交：日期、面积、价格和 psf，直接来自成交记录。",
+  "Nearest MRT (with walking time), top schools, parks and hawker centres, by real distance.":
+    "最近的 MRT（含步行时间）、名校、公园和熟食中心，按真实距离算。",
+  "Region & tenure": "区域与屋契",
+  "Region is shown plainly, Prime (central), City-fringe, or Suburban. Tenure is freehold or leasehold, from the records.":
+    "区域讲人话：Prime（市中心）、市区边缘，或郊区。屋契是永久还是非永久，照记录来。",
+  "Every condo plotted by location and coloured by region, tap a dot for its full breakdown.":
+    "每套公寓按位置标在地图上，按区域上色，点一个圆点看它的完整分析。",
+  "Only about": "只有大约",
+  "of caveat history exists, so the price-trend chart covers roughly a year and a half, not multiple market cycles. Every figure is point-in-time and":
+    "的成交记录可查，所以价格走势图大概只覆盖一年半，不是好几个市场周期。所有数字都是某一时点的，",
+  "indicative only": "仅供参考",
+  ". Always verify independently before any decision. This is research,": "。做任何决定前请自行核实。这是研究资料，",
+  "not financial advice": "不构成理财建议",
+  "The data refreshes automatically every week as new caveats are lodged, so the numbers stay current as the market moves.":
+    "新的成交记录一备案，数据每周自动更新，所以数字会跟着市场一起走。",
+  "Refreshes automatically every week with the latest HDB resales.": "每周自动更新，同步最新的 HDB 转售成交。",
+  "Grouped by town × flat type": "按市镇 × 户型分组",
+  "HDB is shown the way buyers think, e.g. “4-room in Bishan”. Comparing a 3-room's psf to a 5-room's is meaningless, so each flat type is kept separate.":
+    "HDB 是照买家的思路来排的，比如“Bishan 的 4-room”。拿 3-room 的 psf 去比 5-room 没有意义，所以每个户型分开看。",
+  "How this town's price per sqft compares to the islandwide median for the": "这个市镇的每平方英尺价，对比全岛同一类的中位价，取",
+  ", a like-for-like read on whether the town runs cheap or dear.": "，这样才看得出这个市镇算便宜还是算贵。",
+  "The typical years of lease left, the single biggest driver of an HDB flat's price. A short lease also limits CPF use and bank loans.":
+    "典型的剩余屋契年数，这是 HDB 价格的最大单一因素。屋契短，CPF 能用的额度和银行贷款也会受限。",
+  "Mature vs non-mature": "成熟区与非成熟区",
+  "Mature estates (older, central, more amenities) generally cost more than non-mature ones, shown so you can compare fairly.":
+    "成熟组屋区（更老、更靠中心、配套更齐）一般比非成熟区贵，列出来是为了公平地比。",
+  "Typical monthly rent and gross rental yield, from official HDB rental medians (subletting rules apply).":
+    "典型月租和毛租金回报，来自官方 HDB 租金中位数（整间出租有规定要符合）。",
+  "The latest actual resales, block, storey band, remaining lease and price, straight from the records.":
+    "最新的真实转售：座号、楼层区间、剩余屋契和价格，直接来自记录。",
+  "Median resale psf month by month, so you can see whether the town is rising, flat or easing.":
+    "逐月的转售中位 psf，让你看清这个市镇是在涨、走平，还是在回落。",
+  "Figures are town × flat-type": "这些数字是按市镇 × 户型算的", "medians": "中位数，", "over ~": "统计期约",
+  "months, a market read, not a valuation of any one flat (for that, use Caveat). Lease, storey and model vary within each group. Indicative only,":
+    "个月，是市场行情，不是某一套房子的估价（那个请用 Caveat）。同一组里的屋契、楼层和房型都会有差别。仅供参考，",
+  // ── deep-dive drawer (labels, chips, complete sentences) ──
+  "Prices": "价格", "Trend": "走势", "Rent": "租金", "Around it": "周边", "Notes": "实地笔记",
+  "6-mo trend": "6 个月走势", "Schools nearby": "附近学校", "Nearest MRT": "最近的 MRT",
+  "Typical price / sqft": "典型每平方英尺价", "A typical unit": "一个典型单位", "A unit": "一个单位",
+  "Nearest park": "最近的公园", "Hawker / food": "熟食中心 / 美食",
+  "· actual caveats": "· 真实成交记录", "· actual resales": "· 真实转售记录",
+  "Green = this condo is cheaper per sqft than that benchmark; red = pricier. “Nearby” matches tenure (freehold vs leasehold); town & district are the broader median.":
+    "绿色 = 这个公寓每平方英尺比该参照便宜；红色 = 更贵。“附近”会配对屋契（永久 vs 非永久）；市镇和区域用的是更大范围的中位价。",
+  "Compared to the islandwide median for the": "对比全岛同一类的中位价，取",
+  ", a fair like-for-like read on whether this town runs cheap or dear.": "，这样才公平地看出这个市镇算便宜还是算贵。",
+  "national median": "全国中位价",
+  "⚠ limited data": "⚠ 数据有限", "Hard to compare:": "难以比较：",
+  "this condo's prices are very different from the condos around it, usually because it's a different type (much older, or much bigger / smaller units). So we don't show a \"cheaper / pricier than nearby\" figure for it.":
+    "这个公寓的价格和周边差很远，通常是因为它本来就是另一类房子（老很多，或者单位大很多、小很多）。所以我们不给它显示“比附近便宜／贵”的数字。",
+  "On the ground": "实地情况",
+  "Researched from public sources, verify before quoting.": "资料整理自公开来源，引用前请核实。",
+  "Caveat values a specific unit · Thesis shows the whole condo's picture.":
+    "Caveat 估的是某一个单位 · Thesis 看的是整个公寓的全貌。",
+  "Caveat values one specific flat · Thesis shows the whole town × flat-type picture.":
+    "Caveat 估的是某一套组屋 · Thesis 看的是整个市镇 × 户型的全貌。",
+  "Prefer HDB?": "更想看 HDB？", "Search online ↗": "上网搜一搜 ↗",
+  // ── footer ──
+  "PropSight. Compiled from official URA & HDB transaction data. Indicative analysis only,":
+    "PropSight。数据整理自官方 URA 与 HDB 成交记录。仅为参考性分析，",
+  "; verify independently before any decision. All figures are point-in-time and the market can move against any past pattern.":
+    "；做任何决定前请自行核实。所有数字都是某一时点的数据，市场也可能走出跟以往完全不同的路。",
+  // ── "Add Thesis to your phone" install guide (iOS / Android button names stay in English) ──
+  "Install once, pull up any project's numbers and the live launch feed in seconds.":
+    "装一次，几秒钟就能调出任何项目的数字和最新新盘动态。",
+  "The numbers on every project": "每个项目的数字", "Live launch feed": "实时新盘动态",
+  "Opens like an app": "打开就像一个 app", "Free · official data": "免费 · 官方数据",
+  "Open this page in": "用", "(not Chrome).": "打开这个页面（不要用 Chrome）。",
+  "Tap the": "点一下", "button, the square with an ↑ arrow.": "按钮，就是那个带 ↑ 箭头的方框。",
+  "Scroll down and tap": "往下滑，点", "menu (top-right).": "菜单（右上角）。",
+  "Tap": "点", ", the Thesis icon appears on your home screen.": "，Thesis 图标就会出现在你的主屏幕上。",
+  ", the Thesis app icon appears.": "，Thesis 的 app 图标就会出现。",
+  // ── page title + social card ──
+  "Research · PropSight · Singapore Property": "研究 · PropSight · 新加坡房产",
+  "PropSight Research, every Singapore condo and HDB": "PropSight 研究 · 每一套新加坡公寓与组屋",
+  "Compare any condo or HDB on real caveats, prices, trends, rental yield and tenure. Free.":
+    "用真实成交记录对比任何公寓或组屋：价格、走势、租金回报和屋契。免费。"
 });
 </script>
 <script src="/adam/i18n.js" defer></script>
@@ -673,7 +875,7 @@ fetch('data/thesis.json?cb='+Date.now()).then(r=>r.json()).then(async d=>{
 function fresh(builtISO){
   const built=new Date((builtISO||'')+'T00:00:00+08:00'), now=new Date();
   const days=Math.max(0,Math.floor((now-built)/864e5));
-  const ago=isNaN(days)?'recently':days===0?'today':days===1?'yesterday':days+' days ago';
+  const ago=isNaN(days)?'recently':days===0?'today':days===1?'yesterday':days+' <span>days ago</span>';
   const add=((6-now.getDay()+7)%7)||7; const next=new Date(now); next.setDate(now.getDate()+add);
   const f2=d=>d.toLocaleDateString('en-GB',{day:'numeric',month:'short'});
   const fw=d=>d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
@@ -708,8 +910,8 @@ function init(){
   }
 }
 function setDataTag(){
-  if(MODE==='hdb'&&H) $('#dataTag').innerHTML=`<b>${H.n_txns.toLocaleString()}</b> HDB resales · <b>${H.n_towns}</b> towns<br>official HDB data · as of ${MON[+H.as_of.slice(2)]} ’${H.as_of.slice(0,2)}`;
-  else $('#dataTag').innerHTML=`<b>${D.n_projects}</b> condos · <b>${D.n_launches}</b> launches<br>official URA caveats · as of ${MON[+D.as_of.slice(2)]} ’${D.as_of.slice(0,2)}`;
+  if(MODE==='hdb'&&H) $('#dataTag').innerHTML=`<b>${H.n_txns.toLocaleString()}</b> <span>HDB resales</span> · <b>${H.n_towns}</b> <span>towns</span><br><span>official HDB data · as of</span> ${MON[+H.as_of.slice(2)]} ’${H.as_of.slice(0,2)}`;
+  else $('#dataTag').innerHTML=`<b>${D.n_projects}</b> <span>condos</span> · <b>${D.n_launches}</b> <span>launches</span><br><span>official URA caveats · as of</span> ${MON[+D.as_of.slice(2)]} ’${D.as_of.slice(0,2)}`;
 }
 function renderTabs(){
   $('#tabs').innerHTML=tabsFor().map(t=>`<div class="tab ${t[0]===TAB?'on':''}" data-t="${t[0]}"><span>${t[1]}</span>${t[2]}${t[0]==='compare'?` <span id="cmpN" class="chip" style="display:none"></span>`:''}</div>`).join('');
@@ -858,11 +1060,11 @@ function aboutHDB(){
   return `<div class="hero compact"><h1 class="serif">About <em>the HDB data</em>.</h1>
     <p>Plain facts from official HDB resale records, no scores, no predictions. Built HDB-native, not borrowed from the condo logic.</p></div>
    <div class="panel" style="margin-top:18px"><h2>Where the numbers come from</h2>
-     <div class="note">Compiled from <b>official HDB resale transactions</b> across <b>${H.n_towns} towns</b> (${H.n_txns.toLocaleString()} sales, as of ${asof}), plus official HDB rental medians for yields. Nothing scraped or guessed.</div></div>
+     <div class="note">Compiled from <b>official HDB resale transactions</b> across <b>${H.n_towns} <span>towns</span></b> (${H.n_txns.toLocaleString()} <span>sales, as of</span> ${asof}<span>), plus official HDB rental medians for yields. Nothing scraped or guessed.</span></div></div>
    <div class="panel"><h2>What each number means</h2>
      <div class="deflist">${defs.map(d=>`<div class="defrow"><div class="defk">${d[0]}</div><div class="defv">${d[1]}</div></div>`).join('')}</div></div>
    <div class="panel"><h2>Honest limits</h2>
-     <div class="flag-w" style="margin-top:0">Figures are town × flat-type <b>medians</b> over ~${H.window_months} months, a market read, not a valuation of any one flat (for that, use Caveat). Lease, storey and model vary within each group. Indicative only, <b>not financial advice</b>.</div></div>
+     <div class="flag-w" style="margin-top:0">Figures are town × flat-type <b>medians</b> <span>over ~</span>${H.window_months} <span>months, a market read, not a valuation of any one flat (for that, use Caveat). Lease, storey and model vary within each group. Indicative only,</span> <b>not financial advice</b>.</div></div>
    <div class="panel"><h2>Always current</h2>
      <div class="note">Refreshes automatically every week with the latest HDB resales.</div></div>`;
 }
@@ -904,11 +1106,11 @@ const VIEWS={
    </div>
    ${schoolNote}
    ${popRow}
-   <div class="tbl-head"><span class="th-count">${rows.length.toLocaleString()} condo${rows.length===1?'':'s'}${ctx}</span><span class="tbl-hint">tap any row for the full breakdown →</span></div>
+   <div class="tbl-head"><span class="th-count">${rows.length.toLocaleString()} <span>condo${rows.length===1?'':'s'}</span><span>${ctx}</span></span><span class="tbl-hint">tap any row for the full breakdown →</span></div>
    <div style="overflow-x:auto"><table class="tbl"><thead><tr>
-     ${[['project','Condo',''],['seg','Region',''],['psf','$ / sqft','typical'],['discount','vs nearby','within 1.5km'],['mom','6mo trend','price psf'],['yield','Yield','rent / year'],['txns','Sales','last '+D.window_months+' mo']].map(c=>`<th class="${['psf','discount','mom','yield','txns'].includes(c[0])?'r':''} ${['seg','yield'].includes(c[0])?'hide-sm':''}" data-k="${c[0]}"><span class="thl">${c[1]}${SORT.k===c[0]?(SORT.dir<0?' ▾':' ▴'):''}</span>${c[2]?`<span class="ths">${c[2]}</span>`:''}</th>`).join('')}
+     ${[['project','Condo',''],['seg','Region',''],['psf','$ / sqft','typical'],['discount','vs nearby','within 1.5km'],['mom','6mo trend','price psf'],['yield','Yield','rent / year'],['txns','Sales','<span>last</span> '+D.window_months+' <span>mo</span>']].map(c=>`<th class="${['psf','discount','mom','yield','txns'].includes(c[0])?'r':''} ${['seg','yield'].includes(c[0])?'hide-sm':''}" data-k="${c[0]}"><span class="thl">${c[1]}${SORT.k===c[0]?`<span class="sar">${SORT.dir<0?' ▾':' ▴'}</span>`:''}</span>${c[2]?`<span class="ths">${c[2]}</span>`:''}</th>`).join('')}
    </tr></thead><tbody>${rows.slice(0,200).map(rowHtml).join('')}</tbody></table>
-   ${rows.length>200?`<div class="empty" style="padding:20px">Showing 200 of ${rows.length.toLocaleString()}. Search to narrow down.</div>`:''}</div>
+   ${rows.length>200?`<div class="empty" style="padding:20px"><span>Showing 200 of</span> ${rows.length.toLocaleString()}<span>. Search to narrow down.</span></div>`:''}</div>
    <div class="legend"><b>How to read this:</b> <span><b>$ / sqft</b>, its typical transacted price per square foot</span><span><b>vs nearby</b>, how that compares to similar condos within 1.5km (<span class="pos">green = cheaper</span>, red = pricier)</span><span><b>6mo trend</b>, change in median price over the last 6 months</span><span><b>Yield</b>, gross annual rent as a % of price</span><span><b>Sales</b>, recent transactions (how actively it trades)</span></div>`;
  },
  map(){
@@ -924,7 +1126,7 @@ const VIEWS={
      <select class="f" id="fseg" title="Region">${segOpts}</select>
      <select class="f" id="ften" title="Tenure">${tenOpts}</select>
      <select class="f" id="fprice" title="Price">${priceOpts}</select>
-     <span class="mapcount">${rows.length.toLocaleString()} condos shown</span>
+     <span class="mapcount">${rows.length.toLocaleString()} <span>condos shown</span></span>
    </div>
    <div id="map"></div>
    <div class="maplegend"><span class="mlk">Region</span><span class="mld"><i style="background:#24a88e"></i>Prime</span><span class="mld"><i style="background:#3a7fc0"></i>City-fringe</span><span class="mld"><i style="background:#2E7D5B"></i>Suburban</span><span style="margin-left:auto;color:var(--ink3)">tap a dot → full condo breakdown</span></div>`;
@@ -939,7 +1141,7 @@ const VIEWS={
   const tAct=tier('act'),tSel=tier('sel'),tOld=tier('sold');
   const hero=`<div class="lede"><b class="serif">New launches</b>, what's selling, and whether the price over resale is fair. Freshest activity first, each benchmarked against the area's real resale.</div>
    <div class="kpis kpis-sm">
-     <div class="kpi"><div class="k">Launches in market</div><div class="v">${inReg.length}</div><div class="s">${reg?segShort(reg):'all regions'} · real sales</div></div>
+     <div class="kpi"><div class="k">Launches in market</div><div class="v">${inReg.length}</div><div class="s"><span>${reg?segShort(reg):'all regions'}</span> <span>· real sales</span></div></div>
      <div class="kpi"><div class="k">Actively selling now</div><div class="v pos">${activeAll.length}</div><div class="s">sold in the last ~2 months</div></div>
      <div class="kpi"><div class="k">Median premium</div><div class="v">${medPrem>0?'+':''}${medPrem}<small>%</small></div><div class="s">over comparable resale</div></div>
    </div>
@@ -957,10 +1159,10 @@ const VIEWS={
    <div class="note" style="margin-top:14px;color:var(--ink3)"><b>Status:</b> <span class="lstat act" style="font-size:10px">Actively selling</span> sold within ~2mo · <span class="lstat sel" style="font-size:10px">Still selling</span> within ~8mo · <span class="lstat sold" style="font-size:10px">Mostly sold</span> older. <b>vs resale</b> = launch PSF vs the median of comparable resale in the same area.</div></div>`;
   } else {
    const grid=arr=>`<div class="launch-feed">${arr.map(launchCard).join('')}</div>`;
-   const th=(lab,n,cls)=>`<div class="tier-h"><span class="lstat ${cls}" style="font-size:11px">${lab}</span><span class="tier-n">${n} launch${n===1?'':'es'}</span></div>`;
+   const th=(lab,n,cls)=>`<div class="tier-h"><span class="lstat ${cls}" style="font-size:11px">${lab}</span><span class="tier-n">${n} <span>launch${n===1?'':'es'}</span></span></div>`;
    body=`${tAct.length?th('● Actively selling',tAct.length,'act')+grid(tAct):''}
      ${tSel.length?th('Still selling',tSel.length,'sel')+grid(tSel):''}
-     ${tOld.length?`<div class="older-wrap">${FILT.lold?th('Mostly sold · older launches',tOld.length,'sold')+grid(tOld):`<button class="lold-btn">Show ${tOld.length} older / mostly-sold launch${tOld.length===1?'':'es'} ▾</button>`}</div>`:''}`;
+     ${tOld.length?`<div class="older-wrap">${FILT.lold?th('Mostly sold · older launches',tOld.length,'sold')+grid(tOld):`<button class="lold-btn"><span>Show</span> ${tOld.length} <span>older / mostly-sold launch${tOld.length===1?'':'es'} ▾</span></button>`}</div>`:''}`;
   }
   return hero+body+`<div class="note" style="text-align:center;color:var(--ink3);margin:14px 0 30px"><b>vs resale</b> = launch PSF over comparable resale nearby. <span class="prem good" style="font-size:10px;padding:1px 7px">low</span> below the typical new-launch premium (better value) · <span class="prem mid" style="font-size:10px;padding:1px 7px">mid</span> around typical · <span class="prem hot" style="font-size:10px;padding:1px 7px">high</span> well above. A price sanity-check on real caveats, not a unit valuation.</div>`;
  },
@@ -1010,11 +1212,11 @@ const VIEWS={
      <select class="f" id="fmature" title="Estate">${matOpts}</select>
      <span class="sortby"><span class="sortlab">Sort</span><select class="f" id="fhsort" title="Sort by">${sortOpts}</select></span>
    </div>
-   <div class="tbl-head"><span class="th-count">${rows.length.toLocaleString()} town × flat-type group${rows.length===1?'':'s'}${FILT.town?` in ${FILT.town}`:''}</span><span class="tbl-hint">tap any row for the full breakdown →</span></div>
+   <div class="tbl-head"><span class="th-count">${rows.length.toLocaleString()} <span>town × flat-type group${rows.length===1?'':'s'}</span>${FILT.town?` in ${FILT.town}`:''}</span><span class="tbl-hint">tap any row for the full breakdown →</span></div>
    <div style="overflow-x:auto"><table class="tbl"><thead><tr>
-     ${[['town','Town',''],['ft','Flat type',''],['price','Median price','typical'],['psf','$ / sqft','typical'],['lease','Lease left','typical'],['yield','Yield','rent / year'],['vs_national','vs national','same flat type'],['txns','Sales','last '+H.window_months+' mo']].map(c=>`<th class="${['price','psf','lease','yield','vs_national','txns'].includes(c[0])?'r':''} ${['yield','vs_national'].includes(c[0])?'hide-sm':''}" data-hk="${c[0]}"><span class="thl">${c[1]}${HSORT.k===c[0]?(HSORT.dir<0?' ▾':' ▴'):''}</span>${c[2]?`<span class="ths">${c[2]}</span>`:''}</th>`).join('')}
+     ${[['town','Town',''],['ft','Flat type',''],['price','Median price','typical'],['psf','$ / sqft','typical'],['lease','Lease left','typical'],['yield','Yield','rent / year'],['vs_national','vs national','same flat type'],['txns','Sales','<span>last</span> '+H.window_months+' <span>mo</span>']].map(c=>`<th class="${['price','psf','lease','yield','vs_national','txns'].includes(c[0])?'r':''} ${['yield','vs_national'].includes(c[0])?'hide-sm':''}" data-hk="${c[0]}"><span class="thl">${c[1]}${HSORT.k===c[0]?`<span class="sar">${HSORT.dir<0?' ▾':' ▴'}</span>`:''}</span>${c[2]?`<span class="ths">${c[2]}</span>`:''}</th>`).join('')}
    </tr></thead><tbody>${rows.slice(0,300).map(hdbRow).join('')}</tbody></table>
-   ${rows.length>300?`<div class="empty" style="padding:18px">Showing 300 of ${rows.length}. Filter to narrow down.</div>`:''}</div>
+   ${rows.length>300?`<div class="empty" style="padding:18px"><span>Showing 300 of</span> ${rows.length}<span>. Filter to narrow down.</span></div>`:''}</div>
    <div class="legend"><b>How to read this:</b> <span><b>Lease left</b>, typical remaining lease in years; the #1 HDB price driver</span><span><b>vs national</b>, this town's psf vs the islandwide median for the <i>same flat type</i> (<span class="pos">green = cheaper</span>, red = pricier)</span><span><b>Yield</b>, gross annual rent as a % of price</span><span><b>Sales</b>, resale transactions over the window</span></div>`;
  },
  about(){
@@ -1034,13 +1236,13 @@ const VIEWS={
   return `<div class="hero compact"><h1 class="serif">About <em>the data</em>.</h1>
     <p>Plain facts from official records, no scores, no rankings, no predictions. Just the numbers, so you and your client can read them yourselves.</p></div>
    <div class="panel" style="margin-top:18px"><h2>Where the numbers come from</h2>
-     <div class="note">Every figure is compiled from <b>official URA caveats</b>, the real prices lodged with the authorities when a property changes hands, over a rolling <b>${D.window_months}-month window</b> (as of ${asof}). Rental yields use matched rental contracts; tenure and project details come from the same official records. Nothing here is scraped, hand-entered, or guessed by AI.</div>
+     <div class="note">Every figure is compiled from <b>official URA caveats</b>, the real prices lodged with the authorities when a property changes hands, over a rolling <b>${D.window_months}<span>-month window</span></b> <span>(as of</span> ${asof}<span>). Rental yields use matched rental contracts; tenure and project details come from the same official records. Nothing here is scraped, hand-entered, or guessed by AI.</span></div>
    </div>
    <div class="panel"><h2>What each number means</h2>
      <div class="deflist">${defs.map(d=>`<div class="defrow"><div class="defk">${d[0]}</div><div class="defv">${d[1]}</div></div>`).join('')}</div>
    </div>
    <div class="panel"><h2>Honest limits</h2>
-     <div class="flag-w" style="margin-top:0">Only about <b>${D.window_months} months</b> of caveat history exists, so the price-trend chart covers roughly a year and a half, not multiple market cycles. Every figure is point-in-time and <b>indicative only</b>. Always verify independently before any decision. This is research, <b>not financial advice</b>.</div>
+     <div class="flag-w" style="margin-top:0">Only about <b>${D.window_months} <span>months</span></b> of caveat history exists, so the price-trend chart covers roughly a year and a half, not multiple market cycles. Every figure is point-in-time and <b>indicative only</b>. Always verify independently before any decision. This is research, <b>not financial advice</b>.</div>
    </div>
    <div class="panel"><h2>Always current</h2>
      <div class="note">The data refreshes automatically every week as new caveats are lodged, so the numbers stay current as the market moves.</div></div>`;
