@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-24T23:30:00.201716+08:00",
+  "updated": "2026-07-25T09:00:00.358794+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -159,15 +159,27 @@
   },
   "news": [
     {
-      "title": "PFL Washington D.C. loses one half of main event, replacement stepping into title fight",
-      "link": "https://www.mmafighting.com/pfl/500820/pfl-washington-d-c-loses-one-half-of-main-event-replacement-stepping-into-title-fight",
-      "source": "MMA Fighting",
+      "title": "Report: Top MMA free agent Salahdine Parnasse signs with UFC, draws UFC Paris main event opposite Dan Hooker",
+      "link": "https://www.mmamania.com/latest-news/459522/report-top-mma-free-agent-salahdine-parnasse-signs-with-ufc-draws-ufc-paris-main-event-opposite-dan-hooker",
+      "source": "MMA Mania",
       "priority": true
     },
     {
       "title": "UFC re-signs Olympian Robelis Despaigne, probably to screw Francis Ngannou and MVP",
       "link": "https://www.mmamania.com/ufc-news/459348/ufc-re-signs-olympian-robelis-despaigne-probably-to-screw-francis-ngannou-and-mvp",
       "source": "MMA Mania",
+      "priority": true
+    },
+    {
+      "title": "PFL DC weigh-in results: 170-lb title fight set",
+      "link": "https://www.sherdog.com/news/news/PFL-DC-weighin-results-170lb-title-fight-set-202063",
+      "source": "Sherdog",
+      "priority": true
+    },
+    {
+      "title": "UFC re-signs hulking heavyweight after recent crushing knockout victory",
+      "link": "https://www.sherdog.com/news/news/UFC-resigns-hulking-heavyweight-after-recent-crushing-knockout-victory-202062",
+      "source": "Sherdog",
       "priority": true
     },
     {
@@ -183,69 +195,57 @@
       "priority": true
     },
     {
-      "title": "Tom Aspinall reveals the horrifying reality behind his UFC 321 injury",
-      "link": "https://www.sherdog.com/news/news/Tom-Aspinall-reveals-the-horrifying-reality-behind-his-UFC-321-injury-202034",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "Nassourdine Imavov claims UFC promised next title shot against Sean Strickland",
-      "link": "https://www.sherdog.com/news/news/Nassourdine-Imavov-claims-UFC-promised-next-title-shot-against-Sean-Strickland-202038",
-      "source": "Sherdog",
-      "priority": true
-    },
-    {
-      "title": "Justin Gaethje says Arman Tsarukyan is far more deserving of title shot than Ilia Topuria: “He’s not fighting me next”",
-      "link": "https://www.bjpenn.com/mma-news/ufc/justin-gaethje-says-arman-tsarukyan-is-far-more-deserving-of-title-shot-than-ilia-topuria-hes-not-fighting-me-next/?utm_source=rss&utm_medium=rss&utm_campaign=justin-gaethje-says-arman-tsarukyan-is-far-more-deserving-of-title-shot-than-ilia-topuria-hes-not-fighting-me-next",
+      "title": "REPORT: Brian Ortega booked for UFC 331 lightweight debut vs. former foe",
+      "link": "https://www.bjpenn.com/mma-news/brian-ortega/report-brian-ortega-lightweight-debut-former-foe/?utm_source=rss&utm_medium=rss&utm_campaign=report-brian-ortega-lightweight-debut-former-foe",
       "source": "BJPenn",
       "priority": true
     },
     {
-      "title": "UFC Abu Dhabi weigh-in results: Magomed Ankalaev vs. Bogdan Guskov set",
-      "link": "https://www.mmafighting.com/ufc/500920/ufc-abu-dhabi-weigh-in-results-magomed-ankalaev-vs-bogdan-guskov-set",
+      "title": "Patricio Pitbull vs. Doo Ho Choi added to UFC 331 in Los Angeles",
+      "link": "https://www.mmafighting.com/ufc/501089/patricio-pitbull-vs-doo-ho-choi-added-to-ufc-331-in-los-angeles",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "Bogdan Guskov offers hilarious prediction for ‘big chance’ against Magomed Ankalaev at UFC Abu Dhabi",
-      "link": "https://www.mmafighting.com/ufc/500593/bogdan-guskov-offers-hilarious-prediction-for-big-chance-against-magomed-ankalaev-at-ufc-abu-dhabi",
+      "title": "UFC Abu Dhabi predictions",
+      "link": "https://www.mmafighting.com/ufc/500767/ufc-abu-dhabi-predictions",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "Morning Report: Oscar De La Hoya calls Zuffa Boxing ‘Trojan Horse’ designed to exploit fighters",
-      "link": "https://www.mmafighting.com/boxing/500680/morning-report-oscar-de-la-hoya-calls-zuffa-boxing-trojan-horse-designed-to-exploit-fighters",
+      "title": "Renato Moicano vs. Brian Ortega rematch targeted for UFC 331",
+      "link": "https://www.mmafighting.com/ufc/501057/renato-moicano-vs-brian-ortega-rematch-targeted-for-ufc-331",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "UFC Abu Dhabi weigh-in video: Ankalaev vs. Guskov",
-      "link": "https://www.mmafighting.com/ufc/500668/ufc-abu-dhabi-weigh-in-video-ankalaev-vs-guskov",
+      "title": "CSAC’s latest effort to benefit fighter’s pension fund is Napa Knockout event in the middle of a vineyard",
+      "link": "https://www.mmafighting.com/latest-news/500829/csacs-latest-effort-to-benefit-fighters-pension-fund-is-napa-knockout-event-in-the-middle-of-a-vineyard",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "UFC Vegas 120 adds new bouts including 30-fight octagon veteran",
-      "link": "https://www.mmafighting.com/ufc/500816/ufc-vegas-120-adds-new-bouts-including-30-fight-octagon-veteran",
+      "title": "UFC Abu Dhabi Preview Show: Are Magomed Ankalaev and Bogdan Guskov in a title eliminator?",
+      "link": "https://www.mmafighting.com/ufc/501007/ufc-abu-dhabi-preview-show-are-magomed-ankalaev-and-bogdan-guskov-in-a-title-eliminator",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "Ismael Bonfim ‘finally got serious’ with diet after collapsing on scale before UFC fight",
-      "link": "https://www.mmafighting.com/ufc/500708/ismael-bonfim-finally-got-serious-with-diet-after-collapsing-on-scale-before-ufc-fight",
+      "title": "Valter Walker hopes to renegotiate contract with UFC Abu Dhabi win: ‘I’m not stupid’ to fight ranked heavyweights ‘for peanuts’",
+      "link": "https://www.mmafighting.com/ufc/500928/valter-walker-hopes-to-renegotiate-contract-with-ufc-abu-dhabi-win-im-not-stupid-to-fight-ranked-heavyweights-for-peanuts",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "Between the Links: Du Plessis dominates Usman, Covington vs. Muhammad, UFC Abu Dhabi",
-      "link": "https://www.mmafighting.com/ufc/500568/between-the-links-du-plessis-dominates-usman-covington-vs-muhammad-ufc-abu-dhabi",
+      "title": "Mike Perry vs. Dillon Danis MMA fight set for new promotion",
+      "link": "https://www.mmafighting.com/latest-news/501026/mike-perry-vs-dillon-danis-mma-fight-set-for-new-promotion-duel-arena",
       "source": "MMA Fighting",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Ankalaev and Guskov collide this Sunday at midnight—light heavyweight fireworks incoming.",
-    "prefight": "Ankalaev vs Guskov this Sunday midnight SGT—light heavyweight supremacy awaits.",
-    "results": "Du Plessis defeats Usman by unanimous decision in dominant five-round performance."
+    "week": "Fight week peaks tomorrow: Ankalaev versus Guskov live Sunday at midnight Singapore time.",
+    "prefight": "Ankalaev vs Guskov hits Singapore tomorrow at midnight—light heavyweight showdown incoming.",
+    "results": "Du Plessis dominates Usman with a commanding unanimous decision victory."
   }
 }
