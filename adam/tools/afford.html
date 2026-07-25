@@ -46,6 +46,11 @@ input:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(90,80,64,.1)}
 .two{display:flex;gap:14px}.two .field{flex:1}
 .range{display:flex;align-items:center;gap:14px}
 input[type=range]{flex:1;accent-color:var(--green2)}
+/* the loan-term slider rendered 16px tall, well under a usable drag target,
+   and it is the only control on the page you have to drag rather than tap */
+input[type=range]{height:32px}
+input[type=range]::-webkit-slider-thumb{width:24px;height:24px}
+input[type=range]::-webkit-slider-runnable-track{height:6px}
 .range .rv{font-weight:700;font-family:var(--serif);font-size:17px;min-width:78px;text-align:right}
 .res{margin-top:8px;background:linear-gradient(150deg,var(--green2),var(--green3));color:#EBE2D2;border-radius:18px;padding:26px;position:relative;overflow:hidden}
 .res .fr{position:absolute;inset:13px;border:1px solid rgba(201,180,137,.22);border-radius:12px}
