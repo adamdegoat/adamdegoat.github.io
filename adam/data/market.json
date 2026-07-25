@@ -15,6 +15,90 @@
   "chg": 5.6,
   "n": 236
  },
+ "bto": {
+  "when": "October 2026",
+  "sites": [
+   "Bayshore",
+   "Caldecott",
+   "Mattar",
+   "Tengah",
+   "Chencharu",
+   "Sembawang North"
+  ],
+  "towns": [
+   {
+    "site": "Caldecott",
+    "town": "Toa Payoh",
+    "med": 1019000,
+    "n": 90
+   },
+   {
+    "site": "Mattar",
+    "town": "Geylang",
+    "med": 710000,
+    "n": 58
+   },
+   {
+    "site": "Sembawang North",
+    "town": "Sembawang",
+    "med": 595000,
+    "n": 76
+   },
+   {
+    "site": "Bayshore",
+    "town": "Bedok",
+    "med": 585000,
+    "n": 123
+   },
+   {
+    "site": "Chencharu",
+    "town": "Yishun",
+    "med": 545000,
+    "n": 192
+   },
+   {
+    "site": "Tengah",
+    "town": "Tengah",
+    "med": null,
+    "n": 0
+   }
+  ]
+ },
+ "town_moves": {
+  "up": [
+   {
+    "town": "Toa Payoh",
+    "psf": 753,
+    "prev": 713,
+    "chg": 5.6,
+    "n": 236
+   },
+   {
+    "town": "Bukit Merah",
+    "psf": 809,
+    "prev": 777,
+    "chg": 4.1,
+    "n": 255
+   }
+  ],
+  "down": [
+   {
+    "town": "Serangoon",
+    "psf": 640,
+    "prev": 658,
+    "chg": -2.7,
+    "n": 82
+   },
+   {
+    "town": "Geylang",
+    "psf": 608,
+    "prev": 646,
+    "chg": -5.9,
+    "n": 171
+   }
+  ],
+  "n": 23
+ },
  "hdb_series": [
   0,
   0,
@@ -89,6 +173,20 @@
   },
   "gap": 93,
   "towns": 23
+ },
+ "mdollar": {
+  "n": 491,
+  "of": 6194,
+  "pct": 7.9,
+  "prev_pct": 6.8,
+  "one_in": 13,
+  "prev_one_in": 15,
+  "top_town": "Toa Payoh",
+  "record": {
+   "price": 1728000,
+   "name": "Blk 96A Henderson Rd",
+   "town": "Bukit Merah"
+  }
  },
  "headline_en": "HDB resale has stopped moving",
  "headline_zh": "HDB 转售价格已经停下来"

@@ -22,7 +22,7 @@ a{color:inherit}
 .wrap{max-width:var(--mw);margin:0 auto;padding:0 20px}
 .topo{position:fixed;inset:0;z-index:-1;pointer-events:none;
  background:radial-gradient(120% 85% at 50% -8%,#F8F3EA 0%,#F2ECE0 52%,#ECE3D1 100%)}
-.head{padding:34px 0 6px}
+.head{padding-top:34px;padding-bottom:6px}
 .eyebrow{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.14em;
  text-transform:uppercase;color:var(--brass);margin-bottom:10px}
 h1{font-size:clamp(30px,5vw,46px);line-height:1.04;letter-spacing:-.032em;font-weight:800}
@@ -41,7 +41,7 @@ h1{font-size:clamp(30px,5vw,46px);line-height:1.04;letter-spacing:-.032em;font-w
 .up{color:#1F6B4F}.dn{color:var(--clay)}.flat{color:var(--ink3)}
 .spark{width:100%;height:54px;display:block;margin-top:12px}
 
-.sec{padding:34px 0 0}
+.sec{padding-top:34px}
 .sec-h{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.12em;
  text-transform:uppercase;color:var(--brass);margin-bottom:16px}
 .notes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -67,12 +67,17 @@ h1{font-size:clamp(30px,5vw,46px);line-height:1.04;letter-spacing:-.032em;font-w
 .card b{display:block;font-size:19px;font-weight:800;letter-spacing:-.02em;margin-bottom:5px}
 .card span{font-size:14.5px;color:var(--ink2);line-height:1.55}
 .card i{font-style:normal;color:var(--brass);font-weight:700}
-.foot{border-top:1px solid var(--line);margin-top:34px;padding:22px 0 60px;
+.foot{border-top:1px solid var(--line);margin-top:34px;padding-top:22px;padding-bottom:60px;
  font-size:13px;color:var(--ink3);line-height:1.65}
 @media(max-width:860px){.stats,.notes{grid-template-columns:1fr}.cta{grid-template-columns:1fr}
  .stat .v{font-size:32px}}
+@media(max-width:560px){
+ .tr{flex-wrap:wrap;gap:3px 10px}
+ .tr .tn{flex:1 1 auto;min-width:0}
+ .tr .tc{flex:0 0 auto;margin-left:auto;min-width:0}
+ .tr .tp{flex:1 1 100%;white-space:normal;font-size:12.5px}}
 </style>
-<script src="/adam/i18n.js?v=20260725j" defer></script><script src="/adam/nav.js?v=158" defer></script>
+<script src="/adam/i18n.js?v=20260725l" defer></script><script src="/adam/nav.js?v=158" defer></script>
 </head><body>
 <div class="topo"></div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
