@@ -930,6 +930,10 @@ em{color:var(--brass)}
 .rcard .go{grid-column:3!important;grid-row:1/3!important;align-self:center!important;margin:0!important}
 /* "The toolkit" grid -> clean 2-col index */
 .tools{grid-template-columns:1fr 1fr!important;gap:0 40px!important}
+/* the two-column rule above was written for the old ten-tool list; with three
+   it left an orphan on a second row. Three across on desktop, stacked on a phone. */
+@media(min-width:721px){.tools.tools-3{grid-template-columns:repeat(3,1fr)!important;gap:14px!important}}
+@media(max-width:720px){.tools.tools-3{grid-template-columns:1fr!important;gap:10px!important}}
 .tool{display:grid!important;grid-template-columns:46px 1fr auto!important;grid-template-rows:auto auto!important;column-gap:15px!important;align-items:center!important;text-align:left!important;background:transparent!important;border:0!important;border-bottom:1px solid var(--line)!important;border-radius:0!important;padding:16px 4px!important;box-shadow:none!important}
 .tool:hover{transform:none!important;background:var(--bg2)!important;border-color:var(--green2)!important}
 .tool .ti2{grid-column:1!important;grid-row:1/3!important;align-self:center!important;margin:0!important;width:46px!important;height:46px!important}
@@ -942,7 +946,7 @@ em{color:var(--brass)}
 @media(max-width:880px){.aillieband .abw{grid-template-columns:1fr;gap:22px}.aillieband #heroChatMount{display:none}}
 @media(max-width:720px){.tools{grid-template-columns:1fr!important}}
 </style>
-<script src="/adam/i18n.js?v=20260725f"></script>
+<script src="/adam/i18n.js?v=20260725g"></script>
 <script src="/adam/member.js" defer></script>
 <div class="prog" id="prog"></div>
 <div class="topo" aria-hidden="true"></div>
@@ -1134,6 +1138,24 @@ if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}
   <div class="deals-foot"><span class="dl-shown" id="dealsShown"></span><a href="deals/" data-i18n="See every recent sale">See every recent sale &rarr;</a></div>
 </div></div></section>
 
+<section class="sec divtop" id="launches"><div class="wrap">
+  <div class="sec-h"><div><span class="eyebrow rv" data-i18n="New launches">New launches</span><h2 class="rv" data-i18n="Priced against the resale next door.">Priced against the resale next door.</h2></div>
+    <p class="rv" data-i18n="launch.lede">A launch price only means something beside what resale units nearby actually sell for. Every project is benchmarked on real caveats, and the list refreshes every Saturday.</p></div>
+  <div class="insgrid rv">
+    <a class="inscard ins-month" href="launches/">
+      <div class="ins-top"><span class="ins-lbl"><span class="dot"></span><span data-i18n="Coming soon">Coming soon</span></span><span class="ins-when" data-i18n="Weekly">Weekly</span></div>
+      <p class="ins-quote" data-i18n="launch.q1">Launches yet to open are asking anywhere from a third to double what resale nearby goes for.</p>
+      <p class="ins-sub" data-i18n="launch.s1">See each one against the real prices around it, before booking day.</p>
+      <span class="ins-go" data-i18n="See upcoming launches">See upcoming launches</span>
+    </a>
+    <a class="inscard ins-dive" href="launches/">
+      <div class="ins-top"><span class="ins-lbl ins-lbl-dive" data-i18n="Selling now">Selling now</span><span class="ins-when" data-i18n="Real caveats">Real caveats</span></div>
+      <h3 class="ins-q" data-i18n="launch.q2">Which launch you pick matters more than when you buy.</h3>
+      <p class="ins-sub" data-i18n="launch.s2">Half of all launches sell between 32% and 57% over nearby resale, but the range runs from almost nothing to over 100%.</p>
+      <span class="ins-go" data-i18n="See what is selling">See what is selling</span>
+    </a>
+  </div>
+</div></section>
 <section class="sec divtop" id="insights"><div class="wrap">
   <div class="sec-h">
     <div>
@@ -1166,41 +1188,16 @@ if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}
   <a class="notes-all rv" href="deep-dives/"><span data-i18n="See all deep dives">See all deep dives</span> <span>&rarr;</span></a>
 </div></section>
 
-<section class="sec" id="news"><div class="wrap">
-  <div class="newsband rv">
-    <div class="nb-bg" aria-hidden="true"></div>
-    <div class="nb-in">
-      <span class="eyebrow">Singapore property news</span>
-      <h2>What's moving in the market.</h2>
-      <svg class="hl" viewBox="0 0 188 15" preserveAspectRatio="none" aria-hidden="true"><path d="M4 9 C 48 4, 140 4, 184 8"/></svg>
-      <p>The headlines that matter for your home, with what each one means for you. The latest, on top. <a class="masl" href="news/">See all news →</a></p>
-    </div>
-  </div>
-  <div class="newsg" id="newsHome" aria-live="polite"><div class="newsload">Loading the latest…</div></div>
-  <a class="notes-all rv" href="news/">See all property news <span>→</span></a>
-</div></section>
+
 
 <section class="sec divtop" id="tools"><div class="wrap">
-  <div class="sec-h"><div><span class="eyebrow rv">Free to use</span><h2 class="rv">The toolkit.</h2><svg class="hl" viewBox="0 0 188 15" preserveAspectRatio="none" aria-hidden="true"><path d="M4 10 C 48 4, 140 4, 184 8"/></svg></div>
-    <p class="rv" id="toolsLede">The numbers that actually decide a purchase, free, for you.</p></div>
+  <div class="sec-h"><div><span class="eyebrow rv" data-i18n="Free to use">Free to use</span><h2 class="rv" data-i18n="Start here.">Start here.</h2></div>
+    <p class="rv" id="toolsLede" data-i18n="tools.lede">The three numbers that decide a purchase. Every other tool is in the menu above.</p></div>
   <div class="toolbox rv">
-  <div class="tfilter" id="tfilter">
-    <span class="fpill on" data-f="all">All tools</span>
-    <span class="fpill" data-f="buy">For buyers</span>
-    <span class="fpill" data-f="sell">For sellers</span>
-    <span class="fpill" data-f="explore">For exploring</span>
-  </div>
-  <div class="tools">
-    <a class="tool rv" data-aud="buy explore" href="tools/afford.html"><span class="badge">Start here</span><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#2A5340" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="16" cy="9" rx="10" ry="3.5"/><path d="M6 9v7c0 2 4.5 3.5 10 3.5s10-1.5 10-3.5V9"/><path d="M6 16v7c0 2 4.5 3.5 10 3.5s10-1.5 10-3.5v-7"/></svg><h4>Affordability</h4><p>Your real budget</p></a>
-    <a class="tool feat rv" data-aud="buy sell explore" href="tools/value.html"><span class="badge">Most useful</span><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#2A5340" stroke-width="1.6" stroke-linecap="round"><path d="M17 4H7v10l11 11 10-10z"/><circle cx="12" cy="9" r="1.6"/></svg><h4>Home value</h4><p>What it's worth</p></a>
-    <a class="tool rv" data-aud="buy" href="tools/stamp-duty.html"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#2A5340" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="4" width="16" height="24" rx="2"/><path d="M12 11h8M12 16h8M12 21h5"/></svg><h4>Stamp duty</h4><p>BSD and ABSD</p></a>
-    <a class="tool rv" data-aud="buy explore" href="tools/schools.html"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#2A5340" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5 3 11l13 6 10-4.6V19"/><path d="M8 14v5c0 1.7 3.6 3 8 3s8-1.3 8-3v-5"/></svg><h4>Near a school</h4><p>1km / 2km zones</p></a>
-    <a class="tool rv" data-aud="sell" href="tools/sell.html"><span class="badge2">Next step</span><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#2A5340" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 27V5"/><path d="M21 9c0-2.2-2.2-3.5-5-3.5S11 6.8 11 9s2.2 3.2 5 3.7 5 1.5 5 3.8-2.2 3.5-5 3.5-5-1.3-5-3.5"/></svg><h4>Net proceeds</h4><p>What you pocket</p></a>
-    <a class="tool rv" data-aud="buy explore" href="tools/eligibility.html"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#2A5340" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3l11 4v8c0 7-5 11-11 14-6-3-11-7-11-14V7z"/><path d="M11 16l4 4 7-8"/></svg><h4>Eligibility</h4><p>Can I buy it?</p></a>
-    <a class="tool rv" data-aud="buy explore" href="tools/grants.html"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#2A5340" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="13" width="22" height="14" rx="2"/><path d="M5 17h22M16 13v14"/><path d="M16 13c-1.8-3.6-7-3.4-7-.6 0 1.8 3.6 1.4 7 .6z"/><path d="M16 13c1.8-3.6 7-3.4 7-.6 0 1.8-3.6 1.4-7 .6z"/></svg><h4>Grants</h4><p>CPF housing grants</p></a>
-    <a class="tool rv" data-aud="buy" href="tools/mortgage.html"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#2A5340" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 14 16 5l11 9"/><path d="M8 12v14h16V12"/><path d="M13 26v-6h6v6"/></svg><h4>Monthly repayment</h4><p>Your mortgage</p></a>
-    <a class="tool feat rv" data-aud="buy sell explore" href="/thesis/"><span class="badge">Go deeper</span><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#2A5340" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 27V5"/><path d="M5 27h22"/><rect x="9" y="17" width="4" height="6"/><rect x="16" y="11" width="4" height="12"/><rect x="23" y="7" width="4" height="16"/></svg><h4>Price Intelligence</h4><p>Condos and HDB</p></a>
-    <a class="tool rv" data-aud="buy sell explore" href="#talk" onclick="if(window.askAillie){event.preventDefault();window.askAillie();}"><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#2A5340" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M27 18c0 1.7-1.3 3-3 3H13l-6 5V8c0-1.7 1.3-3 3-3h14c1.7 0 3 1.3 3 3z"/><path d="M12 12h10M12 16h6"/></svg><h4>Ask Aillie</h4><p>Get real numbers</p></a>
+  <div class="tools tools-3">
+    <a class="tool rv" href="tools/afford.html"><span class="badge" data-i18n="Step one">Step one</span><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#2A5340" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="16" cy="9" rx="10" ry="3.5"/><path d="M6 9v7c0 2 4.5 3.5 10 3.5s10-1.5 10-3.5V9"/><path d="M6 16v7c0 2 4.5 3.5 10 3.5s10-1.5 10-3.5v-7"/></svg><h4 data-i18n="What you can afford">What you can afford</h4><p data-i18n="Your real budget, from the lending rules">Your real budget, from the lending rules</p></a>
+    <a class="tool feat rv" href="tools/value.html"><span class="badge" data-i18n="Step two">Step two</span><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#2A5340" stroke-width="1.6" stroke-linecap="round"><path d="M17 4H7v10l11 11 10-10z"/><circle cx="12" cy="9" r="1.6"/></svg><h4 data-i18n="What a home is worth">What a home is worth</h4><p data-i18n="Valued on recent sales nearby">Valued on recent sales nearby</p></a>
+    <a class="tool rv" href="deals/"><span class="badge" data-i18n="Step three">Step three</span><svg class="ti2" viewBox="0 0 32 32" fill="none" stroke="#2A5340" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 27V5"/><path d="M5 27h22"/><path d="M9 21l6-7 5 4 7-9"/></svg><h4 data-i18n="What people actually paid">What people actually paid</h4><p data-i18n="Every recent sale, searchable">Every recent sale, searchable</p></a>
   </div>
   </div>
 </div></section>
