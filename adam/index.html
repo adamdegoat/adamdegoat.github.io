@@ -755,7 +755,7 @@ html.menu-open .cbtn{opacity:0;visibility:hidden;pointer-events:none}
 .ctyping span:nth-child(2){animation-delay:.18s}.ctyping span:nth-child(3){animation-delay:.36s}
 @keyframes ctb{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
 .cchips{display:flex;flex-wrap:wrap;gap:7px;padding:4px 16px 6px}
-.cchip{font-size:12.5px;font-weight:600;color:var(--green);background:rgba(27,58,45,.06);border:1px solid var(--line2);border-radius:30px;padding:8px 13px;cursor:pointer;transition:.16s;-webkit-tap-highlight-color:transparent}
+.cchip{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--green);background:rgba(27,58,45,.06);border:1px solid var(--line2);border-radius:30px;padding:8px 13px;cursor:pointer;transition:.16s;-webkit-tap-highlight-color:transparent}
 .cchip:hover{background:#fff;border-color:var(--green2);transform:translateY(-1px)}
 /* voice: header toggle, tagged voice pills, karaoke read-along */
 .cvx{background:none;border:0;color:inherit;opacity:.72;cursor:pointer;padding:5px;margin-right:2px;display:flex;align-items:center;border-radius:8px;transition:.16s;-webkit-tap-highlight-color:transparent}
@@ -1899,7 +1899,17 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
   ];
   const tagClass=t=>t==='Market update'?'t-market':t==='Deep dive'?'t-deep':t==='Trust'?'t-trust':'';
   function voicePillChips(){return VOICEPILLS.map(p=>{const m=PILLS[p.id]||{};const tag=m.tag||p.tag;return {label:m.label||p.label,tag:tag,tagcls:tagClass(tag)};});}
-  function showPillRow(){setChips(voicePillChips().concat([{label:"What's my home worth?"},{label:"What can I afford?"}]));}
+  /* Open with what a buyer actually wants to ask. The tagged VOICEPILLS below are
+     leftovers from the removed voice feature (they were audio clips), and they ask
+     about the product rather than about property, so they no longer lead. Two of
+     them are kept at the end for people who do want to know what this is. */
+  const OPENERS=[{label:"What's my home worth?"},{label:"What can I afford?"},
+    {label:"Homes near a school"},{label:"Price trend for a project"},
+    {label:"Rental yield of a condo"}];
+  function showPillRow(){
+    const meta=voicePillChips().filter(c=>/PropSight|Trust/.test(c.tag||'')).slice(0,2);
+    setChips(OPENERS.concat(meta));
+  }
   function reflectVoice(){if(cvx)cvx.style.display='none';}
   function setVoice(v){voiceOn=false;stopVoice();reflectVoice();}
   function stopVoice(){if(curAudio){try{curAudio.pause();}catch(e){}curAudio=null;}if(karAF){cancelAnimationFrame(karAF);karAF=0;}
@@ -1948,7 +1958,21 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
   const TEASERS=["What's your home worth?","How's the market in your area?","What can you afford?","Research a new launch","Rental yield of a condo?"];
   const PH=["Ask about value, budget, a project…","Try: what's my Bishan flat worth?","Try: price trend for Lentor condos?","Try: what can I afford on $8k?","Try: rental yield of a project?"];
   let fi=0;
-  function showFollowups(){const set=[FOLLOW[fi%FOLLOW.length],FOLLOW[(fi+1)%FOLLOW.length],FOLLOW[(fi+2)%FOLLOW.length]];fi+=3;setChips(set);}
+  /* Keep the row stable: remove what was just asked, refill from FOLLOW, and hold
+     a steady count. Replacing the whole set on every tap made the other options the
+     reader was weighing vanish, with no way back to them. */
+  const asked=new Set();
+  function showFollowups(){
+    const pool=OPENERS.concat(FOLLOW);
+    const seen=new Set(), set=[];
+    for(const c of pool){
+      const k=c.label.toLowerCase();
+      if(asked.has(k)||seen.has(k))continue;
+      seen.add(k); set.push(c);
+      if(set.length>=5)break;
+    }
+    setChips(set);
+  }
   function botReply(text,link){
     const d=add('bot','');
     const tx=document.createElement('span');tx.className='ctext';tx.innerHTML=esc(text).replace(/\n/g,'<br>');d.appendChild(tx);
@@ -2193,6 +2217,7 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
   }
   function chipHandle(label){            // the suggestion chips are clear tool-intents → converse, no API call
     if(pendingAsk){pendingAsk(label);return;}                 // a flow is waiting on an answer
+    asked.add((label||'').toLowerCase());                     // so showFollowups drops it rather than reshuffling everything
     if(isSchool(label)){ add('me',esc(label)); const s=matchSchool(label); if(s){schoolHomesMsg(s);}else{schoolAsk();} return; }
     if(isAfford(label)){affordInChat(label);return;}          // instant budget form-card
     if(isValue(label)){valueInChat(label);return;}            // instant valuation form-card
