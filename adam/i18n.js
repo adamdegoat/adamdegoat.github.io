@@ -36,6 +36,7 @@
   'Popular from here:': '大家常去：',
   'Stamp duty': '印花税',
   'Upcoming launches': '新盘预告',
+  'New projects worth a look': '值得一看的新盘',
   'Property news': '房产新闻',
   'Market analysis': '市场分析',
   // ── install / add to home screen ──
