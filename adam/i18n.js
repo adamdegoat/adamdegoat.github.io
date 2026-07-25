@@ -14,6 +14,9 @@
     }
   } catch (e) {}
   var DICT = {
+  // ── mobile nav: nav.js shortens two Tools labels, so the short forms need their own keys ──
+  'Afford': '估算负担',
+  'Schools': '学校',
   // ── recent-deals board panel ──
   'Recent deals, from official caveats': '最新成交 · 来自官方契约数据',
   'What is actually selling': '现在到底在成交什么',
