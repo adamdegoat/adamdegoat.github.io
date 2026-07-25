@@ -2426,6 +2426,21 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
       // The strip is duplicated and translated -50%, so one loop travels half its
       // width. Pin the speed in px/second rather than hardcoding a duration: the
       // deal count (and therefore the width) changes with every data refresh.
+      /* Battery: this strip is ~39,766px wide and animates forever. Off-screen it
+         is pure compositor work for something nobody can see, so pause it when it
+         leaves the viewport and release the layer hint while paused. */
+      if('IntersectionObserver' in window){
+        var vis=new IntersectionObserver(function(es){es.forEach(function(e){
+          row.style.animationPlayState = e.isIntersecting ? 'running' : 'paused';
+          row.style.willChange        = e.isIntersecting ? 'transform' : 'auto';
+        });},{rootMargin:'120px'});
+        vis.observe(row.parentNode||row);
+      }
+      /* Also stop while the tab is hidden: a backgrounded tab still composites. */
+      document.addEventListener('visibilitychange',function(){
+        if(document.hidden){row.style.animationPlayState='paused';row.style.willChange='auto';}
+        else{row.style.animationPlayState='running';row.style.willChange='transform';}
+      });
       var pace=function(){
         var half=row.scrollWidth/2;          // reading scrollWidth forces layout
         if(half>0){
