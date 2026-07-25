@@ -17,7 +17,7 @@
         ['Property news',    BASE + '/adam/news/',                    'news',  'Daily, and what it means for you'] ] },
     { k:'menu',  t:'Neighbourhoods', href: BASE + '/adam/areaguides/', kids:[
         ['Area guides',      BASE + '/adam/areaguides/', 'pin',   'Every area, in plain language'],
-        ['Compare homes',    BASE + '/thesis/',          'spark', 'Every condo and HDB, side by side'],
+        ['Price Intelligence', BASE + '/thesis/',        'spark', 'Every condo and HDB, by the numbers'],
         ['Beginners guide',  BASE + '/adam/essentials/', 'book',  'New to buying? Start here'] ] },
     { k:'menu',  t:'Tools', href: BASE + '/adam/#tools', kids:[
         ['Value a home',        BASE + '/adam/tools/value.html',      'calc'],

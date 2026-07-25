@@ -32,7 +32,7 @@
     '可能是链接过期了，或者网址有点小差错。PropSight 上的东西都只差一两下点击，我们帮你指回去。',
   'Back to home': '回到首页',
   'Value a home': '估算房价',
-  'Research an area': '研究小区',
+  'Research an area': '房价情报',
   'Popular from here:': '大家常去：',
   'Stamp duty': '印花税',
   'Upcoming launches': '新盘预告',
@@ -87,8 +87,12 @@
   'Daily, and what it means for you': '每日更新，解读对你的影响',
   'Area guides': '小区指南',
   'Every area, in plain language': '每个小区，一看就懂',
-  'Compare homes': '楼盘对比',
-  'Every condo and HDB, side by side': '公寓与组屋，逐一对比',
+  // renamed 2026-07-25: 'Compare homes' undersold a full caveat-backed price
+  // dataset. Old keys kept so any cached page still resolves.
+  'Price Intelligence': '房价情报',
+  'Every condo and HDB, by the numbers': '公寓与组屋，用数字说话',
+  'Compare homes': '房价情报',
+  'Every condo and HDB, side by side': '公寓与组屋，用数字说话',
   'Beginners guide': '新手指南',
   'New to buying? Start here': '第一次买房？从这里开始',
   'Studio, free video maker': 'Studio，免费视频制作',
