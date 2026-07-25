@@ -94,6 +94,14 @@
   'Price Intelligence': '房价情报',
   'Sold prices': '成交价',
   'The market now': '当前楼市',
+  'See the market': '查看楼市',
+  'Weekly': '每周更新',
+  'Prices, volume and which towns moved, rebuilt every Saturday from real transacted prices.':
+    '价格、成交量与哪些市镇在动，每周六根据真实成交数据重建。',
+  'See all deep dives': '查看全部深度分析',
+  'Our plain-English read of Singapore property, from real transacted prices. The market tracked every week, plus deep dives on one sharp question at a time.':
+    '用大白话解读新加坡楼市，基于真实成交价。每周追踪市场，另有针对单一问题的深度分析。',
+  'Sold prices': '成交价',
   'Prices and volume, every week': '价格与成交量，每周更新',
   'Deep dives': '深度分析',
   'One question, properly answered': '一次一个问题，讲清楚',

@@ -34,7 +34,7 @@
 
   /* Language: delegate to the shared engine in i18n.js (English-default). */
   if (!window.PSI18N && !document.querySelector('script[src*="i18n.js"]')) {
-    var _i18 = document.createElement('script'); _i18.src = BASE + '/i18n.js?v=20260725e'; document.head.appendChild(_i18);
+    var _i18 = document.createElement('script'); _i18.src = BASE + '/i18n.js?v=20260725f'; document.head.appendChild(_i18);
   }
   function t(s) { return (window.PSI18N && window.PSI18N.t) ? window.PSI18N.t(s) : s; }
   function curLang() { return (window.PSI18N && window.PSI18N.lang) || 'en'; }
@@ -299,7 +299,9 @@
     '</div>' +
     '<div class="psf-col"><h4>' + t('Explore') + '</h4>' +
       _fl(BASE + '/adam/areaguides/', 'Area Guides') +
-      _fl(BASE + '/thesis/', 'Research') + _fl(BASE + '/adam/market-analysis/', 'Market Analysis') + _fl(BASE + '/adam/news/', 'News') +
+      _fl(BASE + '/adam/deals/', 'Sold prices') +
+      _fl(BASE + '/thesis/', 'Price Intelligence') + _fl(BASE + '/adam/market-analysis/', 'The market now') +
+      _fl(BASE + '/adam/deep-dives/', 'Deep dives') + _fl(BASE + '/adam/news/', 'News') +
       _fl(BASE + '/adam/essentials/', 'Beginners Guide') + _fl(BASE + '/adam/launches/', 'Upcoming Launches') +
     '</div>' +
     '<div class="psf-col"><h4>' + t('Company') + '</h4>' +
