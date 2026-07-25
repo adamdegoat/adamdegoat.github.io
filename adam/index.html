@@ -1131,7 +1131,7 @@ if(sa){var e=document.getElementById('navInstall');if(e)e.style.display='none';}
     <button id="dealClear" aria-label="Clear">&times;</button>
   </div>
   <div class="deals-list" id="dealsList"></div>
-  <div class="deals-foot"><span class="dl-shown" id="dealsShown"></span><a href="research/" data-i18n="Explore every project in Research">Explore every project in Research &rarr;</a></div>
+  <div class="deals-foot"><span class="dl-shown" id="dealsShown"></span><a href="research/" data-i18n="Explore every project in Price Intelligence">Explore every project in Price Intelligence &rarr;</a></div>
 </div></div></section>
 
 <section class="sec divtop" id="insights"><div class="wrap">
@@ -2134,7 +2134,7 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
     if(!p1.length&&!p2.length){ html+='<br>I could not find any condos within 2km of this school in our data. It may be a newer or less central area.'; add('bot',html); return; }
     html+=seclbl('Private condos')+grp(p1,'Within 1km · top P1 priority',clink)+grp(p2,'1-2km · next priority',clink);
     const total=(s.p1n||p1.length)+(s.p2n||p2.length);
-    html+='<a class="cbtnlink" href="/research/?school='+enc(s.n)+'&zone=2km" style="margin-top:6px">See all '+total+' condos in Research <i>&rarr;</i></a>';
+    html+='<a class="cbtnlink" href="/research/?school='+enc(s.n)+'&zone=2km" style="margin-top:6px">See all '+total+' condos in Price Intelligence <i>&rarr;</i></a>';
     const h=SCHOOLS_HDB[s.n.toLowerCase()];
     if(h && (h.p1n||h.p2n)){
       const hp1=h.p1||[],hp2=h.p2||[];

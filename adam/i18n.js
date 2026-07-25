@@ -75,7 +75,8 @@
   'What is actually selling': '现在到底在成交什么',
   'deals.intro': '每一宗私宅与组屋成交，一经官方备案即时收录。输入市镇、街道或楼盘名，看看你附近到底在成交什么。',
   'deals.ph': '试试碧山、淡滨尼，或某个楼盘名称…',
-  'Explore every project in Research': '在 Research 查看每一个楼盘',
+  'Explore every project in Price Intelligence': '在房价情报查看每一个楼盘',
+  'Explore every project in Research': '在房价情报查看每一个楼盘',
   // ── warm redesign: 3-pillar nav + data board ──
   'The Market': '楼市',
   'Neighbourhoods': '小区',
@@ -90,6 +91,7 @@
   // renamed 2026-07-25: 'Compare homes' undersold a full caveat-backed price
   // dataset. Old keys kept so any cached page still resolves.
   'Price Intelligence': '房价情报',
+  'PropSight Market': 'PropSight 楼市研究',
   'Every condo and HDB, by the numbers': '公寓与组屋，用数字说话',
   'Compare homes': '房价情报',
   'Every condo and HDB, side by side': '公寓与组屋，用数字说话',
