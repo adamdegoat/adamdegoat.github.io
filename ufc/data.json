@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-25T09:00:00.358794+08:00",
+  "updated": "2026-07-25T13:00:00.304575+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -159,14 +159,14 @@
   },
   "news": [
     {
-      "title": "Report: Top MMA free agent Salahdine Parnasse signs with UFC, draws UFC Paris main event opposite Dan Hooker",
-      "link": "https://www.mmamania.com/latest-news/459522/report-top-mma-free-agent-salahdine-parnasse-signs-with-ufc-draws-ufc-paris-main-event-opposite-dan-hooker",
+      "title": "‘Poatan’ privilege? Alex Pereira warns Paulo Costa he can swoop in for UFC light heavyweight title shot whenever he wants",
+      "link": "https://www.mmamania.com/latest-news/459399/poatan-privilege-alex-pereira-warns-paulo-costa-he-can-swoop-in-for-ufc-light-heavyweight-title-shot-whenever-he-wants",
       "source": "MMA Mania",
       "priority": true
     },
     {
-      "title": "UFC re-signs Olympian Robelis Despaigne, probably to screw Francis Ngannou and MVP",
-      "link": "https://www.mmamania.com/ufc-news/459348/ufc-re-signs-olympian-robelis-despaigne-probably-to-screw-francis-ngannou-and-mvp",
+      "title": "Report: Top MMA free agent Salahdine Parnasse signs with UFC, draws UFC Paris main event opposite Dan Hooker",
+      "link": "https://www.mmamania.com/latest-news/459522/report-top-mma-free-agent-salahdine-parnasse-signs-with-ufc-draws-ufc-paris-main-event-opposite-dan-hooker",
       "source": "MMA Mania",
       "priority": true
     },
@@ -201,6 +201,18 @@
       "priority": true
     },
     {
+      "title": "Joshua vs. Prenga Results: Live updates of the undercard and main event",
+      "link": "https://www.mmafighting.com/boxing/501053/joshua-vs-prenga-results-live-updates-of-the-undercard-and-main-event",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Santiago Ponzinibbio takes lessons from Argentina’s World Cup run ahead of UFC Abu Dhabi",
+      "link": "https://www.mmafighting.com/ufc/500684/santiago-ponzinibbio-takes-lessons-from-argentinas-world-cup-run-ahead-of-ufc-abu-dhabi",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "Patricio Pitbull vs. Doo Ho Choi added to UFC 331 in Los Angeles",
       "link": "https://www.mmafighting.com/ufc/501089/patricio-pitbull-vs-doo-ho-choi-added-to-ufc-331-in-los-angeles",
       "source": "MMA Fighting",
@@ -229,23 +241,11 @@
       "link": "https://www.mmafighting.com/ufc/501007/ufc-abu-dhabi-preview-show-are-magomed-ankalaev-and-bogdan-guskov-in-a-title-eliminator",
       "source": "MMA Fighting",
       "priority": false
-    },
-    {
-      "title": "Valter Walker hopes to renegotiate contract with UFC Abu Dhabi win: ‘I’m not stupid’ to fight ranked heavyweights ‘for peanuts’",
-      "link": "https://www.mmafighting.com/ufc/500928/valter-walker-hopes-to-renegotiate-contract-with-ufc-abu-dhabi-win-im-not-stupid-to-fight-ranked-heavyweights-for-peanuts",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Mike Perry vs. Dillon Danis MMA fight set for new promotion",
-      "link": "https://www.mmafighting.com/latest-news/501026/mike-perry-vs-dillon-danis-mma-fight-set-for-new-promotion-duel-arena",
-      "source": "MMA Fighting",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "Fight week peaks tomorrow: Ankalaev versus Guskov live Sunday at midnight Singapore time.",
-    "prefight": "Ankalaev vs Guskov hits Singapore tomorrow at midnight—light heavyweight showdown incoming.",
-    "results": "Du Plessis dominates Usman with a commanding unanimous decision victory."
+    "week": "Ankalaev meets Guskov Sunday midnight for pure light heavyweight dominance.",
+    "prefight": "Sunday midnight Singapore time: Ankalaev and Guskov battle for championship glory.",
+    "results": "Dricus du Plessis sweeps Kamaru Usman with commanding unanimous decision."
   }
 }
