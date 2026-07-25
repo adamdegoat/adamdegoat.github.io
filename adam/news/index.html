@@ -130,6 +130,17 @@ h1 em{font-style:normal;color:inherit}
  .grid{grid-template-columns:1fr;column-gap:0;background:none}
  .card{padding:20px 0 22px}
 }
+
+/* The page previously dead-ended after eight stories, its only exit a text link
+   inside the disclaimer. Hairline rows rather than a CTA block: onward paths
+   that carry information, not decoration. */
+.nxt{margin:34px 0 6px;border-top:1px solid var(--line2)}
+.nxtrow{display:flex;align-items:baseline;gap:16px;padding:15px 2px;border-bottom:1px solid var(--line);text-decoration:none;color:inherit}
+.nxtrow:hover{background:rgba(31,107,79,.045)}
+.nxtrow .nk{font-size:16px;font-weight:700;letter-spacing:-.012em;white-space:nowrap}
+.nxtrow .nd{flex:1;min-width:0;font-size:13.5px;color:var(--ink2)}
+.nxtrow .ng{color:var(--brass);font-weight:700}
+@media(max-width:640px){.nxtrow{flex-wrap:wrap;gap:3px 12px;padding:14px 2px}.nxtrow .nd{flex:1 1 100%}.nxtrow .ng{margin-left:auto}}
 </style>
   <link rel="canonical" href="https://propsight.sg/news/">
   <script type="application/ld+json">
@@ -155,7 +166,12 @@ h1 em{font-style:normal;color:inherit}
 </section>
 <div class="wrap newsbody">
   <div id="newsAll"><div class="newsload">Loading the latest brief…</div></div>
-  <div class="foot">Stories are sourced from across the Singapore property press and written up in PropSight's own words, with a link to the original report. PropSight is not the original publisher. <a href="../">Back to PropSight</a></div>
+  <div class="nxt">
+    <a class="nxtrow" href="../market-analysis/"><span class="nk">The market now</span><span class="nd">Prices, volume and which towns moved, every Saturday</span><span class="ng">&rarr;</span></a>
+    <a class="nxtrow" href="../deals/"><span class="nk">Sold prices</span><span class="nd">Look up what any recent sale actually went for</span><span class="ng">&rarr;</span></a>
+    <a class="nxtrow" href="../deep-dives/"><span class="nk">Deep dives</span><span class="nd">One question taken apart, with the working shown</span><span class="ng">&rarr;</span></a>
+  </div>
+  <div class="foot">Stories are sourced from across the Singapore property press and written up in PropSight's own words, with a link to the original report. PropSight is not the original publisher.</div>
 </div>
 <script>
 /* page-local zh strings for the news chrome (merged by i18n.js, keyed by exact English) */

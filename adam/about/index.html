@@ -132,7 +132,10 @@ a{color:inherit}
 .btn.brass{background:var(--gtex,none),#24402F;color:#F4EEDE;box-shadow:0 12px 28px rgba(15,35,26,.34)}
 .btn.brass:hover{transform:translateY(-2px);box-shadow:0 18px 36px rgba(15,35,26,.46)}
 .btn.tg{background:#229ED9;color:#fff}.btn.tg:hover{filter:brightness(1.08);transform:translateY(-2px)}
-.fineprint{margin:24px 0 0;font-size:13px;color:var(--ink3);text-align:center}
+/* This sits inside .join, whose `.join p` rule paints paragraphs near-white for
+   the dark card. That rule out-specifies a bare .fineprint, so the line was
+   rendering at 1.15:1 on warm paper and was effectively invisible. */
+p.fineprint{margin:24px 0 0;font-size:13px;color:var(--ink2);text-align:center}
 .fineprint a{color:var(--green2);font-weight:700}
 
 @media(max-width:900px){
@@ -255,7 +258,7 @@ a{color:inherit}
 <!-- TOOLS GRID (the substance) -->
 <section class="tools"><div class="wrap">
   <span class="kick">Everything in one place</span>
-  <h2 class="th-h">Eleven tools, with a twelfth on the way.</h2>
+  <h2 class="th-h">Every tool free, no sign-up, built on official URA and HDB data.</h2>
   <p class="th-p">Every job in a property move has its own tool, each built on the same official data: value a home, work out your real budget, research any project, check stamp duty, grants and eligibility, see what you'd walk away with as a seller, find homes near a school, and follow the market with Market Analysis, News and the Guide. They all read the same records, so the numbers always agree.</p>
   <div class="toollist">
     <a href="../tools/value.html">What's it worth</a>
