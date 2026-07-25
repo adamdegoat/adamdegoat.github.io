@@ -2401,13 +2401,19 @@ applyFilter((()=>{try{return sessionStorage.getItem('adamToolFilter')}catch(e){r
       // The strip is duplicated and translated -50%, so one loop travels half its
       // width. Pin the speed in px/second rather than hardcoding a duration: the
       // deal count (and therefore the width) changes with every data refresh.
-      requestAnimationFrame(function(){
-        var half=row.scrollWidth/2;
+      var pace=function(){
+        var half=row.scrollWidth/2;          // reading scrollWidth forces layout
         if(half>0){
-          var SPEED=58; // px per second, comfortable reading pace
+          var SPEED=58;                      // px per second, comfortable reading pace
           row.style.animationDuration=Math.max(40,Math.round(half/SPEED))+'s';
+          return true;
         }
-      });
+        return false;
+      };
+      // Set it synchronously. requestAnimationFrame is throttled in a background
+      // tab, so relying on it left the ticker at the CSS default until the tab
+      // was focused. Fall back to rAF only if layout is not ready yet.
+      if(!pace()) requestAnimationFrame(pace);
     }
   }).catch(function(){});
 })();</script>
