@@ -1,125 +1,114 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Market Analysis · PropSight Singapore Property</title>
-<meta name="description" content="PropSight's Singapore property research: a monthly whole-market analysis plus weekly deep dives on one sharp question at a time, built from real transacted data. Free.">
-<meta name="theme-color" content="#24402F">
-<link rel="manifest" href="../manifest.json">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2324402F'/%3E%3Cg fill='none' stroke='%23F2ECE0' stroke-width='2.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='13.5' cy='13.5' r='9.5'/%3E%3Cpath d='M8.75 16 L13.5 11 L18.25 16'/%3E%3Cpath d='M10.5 18.2 L16.5 18.2'/%3E%3C/g%3E%3Ccircle cx='13.5' cy='16.5' r='1' fill='%232E7D5B'/%3E%3Cpath d='M20.25 20.25 L26.5 26.5' fill='none' stroke='%232E7D5B' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E">
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--paper:#F4EEDE;--card:#FCFBF6;--ink:#211D16;--ink2:#5C5346;--ink3:#8A8072;--line:#E4DBCA;--line2:#DED3BE;--pine:#24402F;--pine2:#2E7D5B;--teal:#1F6B4F;--mint:#C9B489;--f:'Schibsted Grotesk',system-ui,sans-serif}
-body{font-family:var(--f);background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
-body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(720px 520px at 84% -8%,rgba(21,128,127,.10),transparent 62%)}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:1020px;margin:0 auto;padding:0 30px}
-
-/* short hero */
-.mast{border-bottom:2px solid var(--pine);margin-top:30px;padding-bottom:16px;display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap}
-.eyebrow{font-size:11.5px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--teal)}
-.title{font-weight:700;font-size:clamp(30px,5vw,46px);letter-spacing:-.03em;line-height:.96;margin:7px 0 0}
-.title em{font-style:normal;color:var(--teal)}
-.mast-meta{font-size:12.5px;font-weight:700;color:var(--ink3);letter-spacing:.01em;padding-bottom:3px}
-
-/* mobile switch (hidden on desktop) */
-.sw{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
-.switch{display:none}
-.pill{display:flex;flex-direction:column;justify-content:center;text-align:center;line-height:1.08;font-weight:700;font-size:15px;letter-spacing:-.01em;color:var(--ink3);background:var(--card);border:1.5px solid var(--line2);border-radius:13px;padding:11px 8px;cursor:pointer;transition:.2s}
-.pill small{display:block;font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#9fb3ac;margin-bottom:2px}
-
-/* two streams */
-.streams{display:grid;grid-template-columns:1.04fr 0.96fr;margin-top:30px}
-.col-m{padding-right:36px}
-.col-d{padding-left:36px;border-left:1px solid var(--line2)}
-.col-h{display:flex;align-items:center;gap:10px;padding-bottom:13px;border-bottom:2px solid var(--pine);margin-bottom:20px}
-.col-h b{position:relative;padding-left:15px;font-weight:800;font-size:20px;letter-spacing:-.015em;line-height:1;color:var(--ink)}
-.col-h b::before{content:"";position:absolute;left:0;top:1px;bottom:1px;width:5px;border-radius:3px;background:var(--pine2)}
-.col-d .col-h{border-bottom-color:var(--teal)}
-.col-d .col-h b::before{background:var(--teal)}
-.col-h small{font-size:10.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);margin-left:auto;white-space:nowrap}
-
-/* latest monthly card (medium) */
-.malead{display:block;margin-top:18px;background:linear-gradient(158deg,#fbfffe,#dff3ee);border:1.5px solid var(--mint);border-radius:18px;padding:24px 24px 26px;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
-.malead:hover{transform:translateY(-3px);box-shadow:0 22px 46px rgba(25,21,18,.12)}
-.malead::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--teal)}
-.malead-k{display:inline-flex;align-items:center;gap:8px;font-size:10.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#F4EEDE;background:var(--pine);border-radius:30px;padding:7px 13px}
-.malead-k .d{width:6px;height:6px;border-radius:50%;background:var(--mint)}
-.malead h2{font-weight:700;font-size:clamp(22px,2.4vw,27px);letter-spacing:-.02em;line-height:1.06;margin:14px 0 0}
-.malead p{font-size:15px;color:var(--ink2);margin-top:11px;line-height:1.5}
-.malead .go{display:inline-block;margin-top:15px;font-size:14px;font-weight:700;color:var(--pine)}
-
-.sub-h{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#8A807299;margin:26px 0 12px}
-.ed{display:block;background:var(--card);border:1.5px solid var(--line2);border-radius:14px;padding:15px 17px;margin-bottom:11px;transition:.22s}
-.ed:hover{border-color:var(--teal);transform:translateY(-2px);box-shadow:0 13px 28px rgba(25,21,18,.08)}
-.ed-d{display:block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
-.ed-t{display:block;font-size:15px;font-weight:500;color:var(--ink);line-height:1.4;margin-top:5px}
-.ed-empty{color:var(--ink3);background:#f4faf7;border:1.5px dashed var(--line2);border-radius:14px;padding:18px 18px;font-size:14.5px;line-height:1.5}
-
-/* deep dive cards */
-.dive{display:block;background:var(--card);border:1.5px solid var(--line2);border-left:4px solid var(--teal);border-radius:14px;padding:17px 20px;margin-bottom:13px;transition:.22s}
-.dive:hover{border-color:var(--teal);transform:translateY(-2px);box-shadow:0 16px 34px rgba(25,21,18,.11)}
-.dive-q{display:block;font-weight:800;font-size:17.5px;letter-spacing:-.015em;line-height:1.22;color:var(--pine)}
-.dive-v{display:block;font-size:14px;color:var(--ink2);line-height:1.45;margin-top:7px}
-.dive-m{display:flex;align-items:center;gap:10px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
-.dive-d{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
-.dive-go{font-size:12.5px;font-weight:800;color:var(--teal);margin-left:auto}
-
-.note{margin:40px 0 90px;font-size:12.5px;color:var(--ink3);line-height:1.6;max-width:660px}
-
-@media(max-width:760px){
-  .mast{margin-top:24px}
-  .switch{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:22px 0 2px}
-  .streams{display:block;margin-top:16px}
-  .col{display:none}
-  .col-m,.col-d{padding:0;border:0}
-  #sw-m:checked ~ .streams .col-m{display:block}
-  #sw-d:checked ~ .streams .col-d{display:block}
-  #sw-m:checked ~ .switch label[for="sw-m"],
-  #sw-d:checked ~ .switch label[for="sw-d"]{color:#fff;background:var(--pine);border-color:var(--pine)}
-  #sw-m:checked ~ .switch label[for="sw-m"] small,
-  #sw-d:checked ~ .switch label[for="sw-d"] small{color:var(--mint)}
-  .col-h small{display:none}
-}
-</style>
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>The Market · Singapore property, tracked weekly · PropSight</title>
+<meta name="description" content="Singapore property prices tracked weekly on official caveats and HDB resale records. What HDB and private homes actually sell for, what changed, and which towns are moving.">
 <link rel="canonical" href="https://propsight.sg/market-analysis/">
-<script src="/adam/i18n.js" defer></script><script src="/adam/nav.js" defer></script>
-</head>
-<body>
-<div class="wrap">
-  <div class="mast">
-    <div>
-      <span class="eyebrow"><span data-lang="en">PropSight Market</span><span data-lang="zh" style="display:none">PropSight 楼市研究</span></span>
-      <h1 class="title"><span data-lang="en">Market <em>Analysis</em></span><span data-lang="zh" style="display:none">市场 <em>分析</em></span></h1>
-    </div>
-    <span class="mast-meta"><span data-lang="en">Free · built on official data</span><span data-lang="zh" style="display:none">免费 · 基于官方数据</span></span>
-  </div>
+<meta name="theme-color" content="#24402F">
+<meta property="og:type" content="website"><meta property="og:site_name" content="PropSight">
+<meta property="og:title" content="The Market · Singapore property, tracked weekly">
+<meta property="og:description" content="What homes actually sell for, updated every week from official records.">
+<meta property="og:url" content="https://propsight.sg/market-analysis/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2324402F'/><g fill='none' stroke='%23F2ECE0' stroke-width='2.3' stroke-linecap='round' stroke-linejoin='round'><circle cx='13.5' cy='13.5' r='9.5'/><path d='M8.75 16 L13.5 11 L18.25 16'/><path d='M10.5 18.2 L16.5 18.2'/></g><circle cx='13.5' cy='16.5' r='1' fill='%23C9B489'/><path d='M20.25 20.25 L26.5 26.5' fill='none' stroke='%23C9B489' stroke-width='3.2' stroke-linecap='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EBE2D2;--paper:#F2ECE0;--card:#FCFBF6;--ink:#211D16;--ink2:#5C5346;--ink3:#8A8072;
+ --line:#E4DBCA;--line2:#D8CEBB;--green:#24402F;--brass:#1F6B4F;--sand:#C9B489;--clay:#BE5C36;
+ --sans:'Schibsted Grotesk',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--mw:1080px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 20px}
+.topo{position:fixed;inset:0;z-index:-1;pointer-events:none;
+ background:radial-gradient(120% 85% at 50% -8%,#F8F3EA 0%,#F2ECE0 52%,#ECE3D1 100%)}
+.head{padding:34px 0 6px}
+.eyebrow{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.14em;
+ text-transform:uppercase;color:var(--brass);margin-bottom:10px}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.04;letter-spacing:-.032em;font-weight:800}
+.stamp{font-family:var(--mono);font-size:12.5px;color:var(--ink3);margin-top:12px}
+.stamp b{color:var(--ink2);font-weight:600}
+.lede{font-size:17px;line-height:1.55;color:var(--ink2);max-width:640px;margin-top:14px}
 
-  <input type="radio" name="sw" id="sw-m" class="sw" checked>
-  <input type="radio" name="sw" id="sw-d" class="sw">
-  <div class="switch" role="tablist">
-    <label class="pill" for="sw-m"><small><span data-lang="en">Monthly</span><span data-lang="zh" style="display:none">每月</span></small><span data-lang="en">Analysis</span><span data-lang="zh" style="display:none">分析</span></label>
-    <label class="pill" for="sw-d"><small><span data-lang="en">Weekly</span><span data-lang="zh" style="display:none">每周</span></small><span data-lang="en">Deep Dives</span><span data-lang="zh" style="display:none">深度分析</span></label>
-  </div>
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:26px 0 4px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 20px 14px}
+.stat .k{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.09em;
+ text-transform:uppercase;color:var(--ink3);margin-bottom:9px}
+.stat .v{font-size:35px;font-weight:800;letter-spacing:-.03em;line-height:1;
+ font-variant-numeric:proportional-nums}
+.stat .d{font-size:13.5px;font-weight:600;margin-top:7px;color:var(--ink2)}
+.stat .d i{font-style:normal;font-weight:800}
+.up{color:#1F6B4F}.dn{color:var(--clay)}.flat{color:var(--ink3)}
+.spark{width:100%;height:54px;display:block;margin-top:12px}
 
-  <div class="streams">
-    <section class="col col-m">
-      <div class="col-h"><b><span data-lang="en">Monthly Analysis</span><span data-lang="zh" style="display:none">每月分析</span></b><small><span data-lang="en">The whole market</span><span data-lang="zh" style="display:none">全景解读</span></small></div>
-      <a class="malead" href="june-2026-market-analysis.html">
-        <span class="malead-k"><span class="d"></span><span data-lang="en">Latest · June 2026</span><span data-lang="zh" style="display:none">最新 · June 2026</span></span>
-        <h2><span data-lang="en">June 2026 Market Analysis</span><span data-lang="zh" style="display:none">June 2026 市场分析</span></h2>
-        <p><span data-lang="en">The mass market is leading. Suburbs and city-fringe are rising and central HDB towns are up sharply, while prime is the only segment falling.</span><span data-lang="zh" style="display:none">大众市场领跑。郊区和城市边缘正在上涨，中央区的HDB市镇涨幅明显，而高档市场是唯一下跌的板块。</span></p>
-        <span class="go"><span data-lang="en">Read the full report &rarr;</span><span data-lang="zh" style="display:none">阅读完整报告 &rarr;</span></span>
-      </a>
-      <p class="sub-h"><span data-lang="en">Past editions</span><span data-lang="zh" style="display:none">往期报告</span></p>
-      <p class="ed-empty"><span data-lang="en">Earlier editions will appear here, a new one at the close of every month.</span><span data-lang="zh" style="display:none">往期报告将显示在此，每月月底更新一期。</span></p>
-    </section>
+.sec{padding:34px 0 0}
+.sec-h{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.12em;
+ text-transform:uppercase;color:var(--brass);margin-bottom:16px}
+.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.note{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.note h3{font-size:19px;font-weight:800;letter-spacing:-.022em;line-height:1.2;margin-bottom:9px}
+.note p{font-size:14.5px;line-height:1.6;color:var(--ink2)}
 
-    <section class="col col-d" id="dives">
-      <div class="col-h"><b><span data-lang="en">Deep Dives</span><span data-lang="zh" style="display:none">深度分析</span></b><small><span data-lang="en">One question at a time</span><span data-lang="zh" style="display:none">每次一个问题</span></small></div>
-      <a class="dive" href="does-the-mop-wave-make-flats-cheaper.html"><span class="dive-q"><span data-lang="en">A record number of flats can finally be sold this year. Does that make them cheaper?</span><span data-lang="zh" style="display:none">今年终于有创纪录数量的组屋可以出售。这会让它们更便宜吗？</span></span><span class="dive-v"><span data-lang="en">No fire sale is coming. Newly eligible flats look about 20% pricier per square foot than the rest of their town, but almost all of that gap is the longer lease, not the flat. Where the wave is thickest, buyers get maybe 3%, not 10%.</span><span data-lang="zh" style="display:none">不会出现抛售潮。刚满五年的组屋每平方英尺看起来比全镇其他单位贵约20%，但这个差距几乎全是剩余屋契较长所致，而非组屋本身。在供应最集中的市镇，买家能争取到的空间大约是3%，而不是10%。</span></span><span class="dive-m"><span class="dive-d">21 Jul 2026</span><span class="dive-go"><span data-lang="en">Read</span><span data-lang="zh" style="display:none">阅读</span> &rarr;</span></span></a><a class="dive" href="the-million-dollar-hdb-paradox.html"><span class="dive-q"><span data-lang="en">HDB prices are falling. So why do million-dollar flats keep setting records?</span><span data-lang="zh" style="display:none">HDB转售价格正在下跌。那为什么百万新元组屋还在不断刷新纪录？</span></span><span class="dive-v"><span data-lang="en">Two markets hide in one headline. The typical flat has stopped rising, while a small central, high-floor slice keeps breaking records, so for most buyers the panic is misplaced.</span><span data-lang="zh" style="display:none">一个标题背后藏着两个市场。普通组屋的价格已经停止上涨，而位于中央、高楼层的一小部分房产却仍在不断刷新纪录，因此对大多数买家而言，这种恐慌其实并无必要。</span></span><span class="dive-m"><span class="dive-d">10 Jul 2026</span><span class="dive-go"><span data-lang="en">Read</span><span data-lang="zh" style="display:none">阅读</span> &rarr;</span></span></a>
-    </section>
-  </div>
+.tbl{margin-top:8px;border-top:1px solid var(--line)}
+.tr{display:flex;align-items:center;gap:14px;padding:12px 2px;border-bottom:1px solid var(--line)}
+.tr .tn{flex:1;font-size:15.5px;font-weight:700;letter-spacing:-.01em;min-width:0}
+.tr .tp{font-family:var(--mono);font-size:13px;color:var(--ink3);white-space:nowrap}
+.tr .tc{font-size:15px;font-weight:800;min-width:66px;text-align:right;
+ font-variant-numeric:proportional-nums}
+.bar{flex:0 0 90px;height:7px;background:var(--line);border-radius:4px;overflow:hidden;position:relative}
+.bar i{position:absolute;top:0;bottom:0;left:50%;background:var(--brass);border-radius:4px}
+.bar i.n{background:var(--clay)}
+.tnote{font-size:13px;color:var(--ink3);margin-top:12px;line-height:1.6}
 
-  <p class="note"><span data-lang="en">The monthly analysis lands at the close of every month; deep dives arrive through the month when a question is worth a proper look. Figures are computed from residential caveats lodged with URA and resale records from HDB. Our read of the market to help you think it through, not financial advice.</span><span data-lang="zh" style="display:none">每月月底发布市场分析；深度分析则在月内不定期推出，聚焦值得深入探讨的问题。数据根据向 URA 呈报的私宅买卖意向书及 HDB 转售记录计算。这是我们对市场的解读，供你参考思考，并非财务建议。</span></p>
+.cta{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:34px 0 0}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:16px;
+ padding:22px;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(33,29,22,.09)}
+.card b{display:block;font-size:19px;font-weight:800;letter-spacing:-.02em;margin-bottom:5px}
+.card span{font-size:14.5px;color:var(--ink2);line-height:1.55}
+.card i{font-style:normal;color:var(--brass);font-weight:700}
+.foot{border-top:1px solid var(--line);margin-top:34px;padding:22px 0 60px;
+ font-size:13px;color:var(--ink3);line-height:1.65}
+@media(max-width:860px){.stats,.notes{grid-template-columns:1fr}.cta{grid-template-columns:1fr}
+ .stat .v{font-size:32px}}
+</style>
+<script src="/adam/i18n.js?v=20260725e" defer></script><script src="/adam/nav.js?v=157" defer></script>
+</head><body>
+<div class="topo"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#1F6B4F"/><stop offset="100%" stop-color="#1F6B4F" stop-opacity="0"/>
+</linearGradient></defs></svg>
+<header></header>
+
+<div class="wrap head">
+  <div class="eyebrow"><span data-lang="en">The Market</span><span data-lang="zh" style="display:none">楼市</span></div>
+  <h1><span data-lang="en">Singapore property, tracked</span><span data-lang="zh" style="display:none">新加坡楼市，持续追踪</span></h1>
+  <div class="stamp"><span data-lang="en">Updated <b>25 Jul 2026</b> &middot; refreshed every Saturday from official URA caveats and HDB resale records</span><span data-lang="zh" style="display:none">更新于 <b>2026 年 7 月 25 日</b> &middot; 每周六根据市区重建局契约与建屋发展局转售记录刷新</span></div>
+  <p class="lede"><span data-lang="en">Prices below compare the last three months (Apr 2026 to Jun 2026) against the three before (Jan 2026 to Mar 2026). Three months rather than three weeks, because this market moves a couple of percent a year and a weekly figure would be noise.</span><span data-lang="zh" style="display:none">下面的价格用最近三个月（Apr 2026 至 Jun 2026）对比之前三个月（Jan 2026 至 Mar 2026）。用三个月而不是三周，是因为这个市场一年只动几个百分点，按周看只会是噪音。</span></p>
 </div>
-<script>(function(){function h(){if(location.hash==='#dives'){var d=document.getElementById('sw-d');if(d)d.checked=true;}}h();addEventListener('hashchange',h);})();</script>
+
+<div class="wrap"><div class="stats"><div class="stat"><div class="k"><span data-lang="en">HDB resale, median</span><span data-lang="zh" style="display:none">组屋转售中位数</span></div><div class="v">$604 psf</div><div class="d flat"><i><span data-lang="en">held steady</span><span data-lang="zh" style="display:none">基本持平</span></i> <span data-lang="en">on the previous 3 months</span><span data-lang="zh" style="display:none">相比前三个月</span></div><svg class="spark" viewBox="0 0 232 54" preserveAspectRatio="none" aria-hidden="true"><path d="M0.0 19.3 L16.6 20.5 L33.1 28.6 L49.7 25.1 L66.3 26.3 L82.9 23.9 L99.4 23.9 L116.0 28.6 L132.6 28.6 L149.1 26.3 L165.7 36.7 L182.3 21.6 L198.9 28.6 L215.4 26.3 L232.0 26.3 L232 54 L0 54 Z" fill="url(#sg)" opacity=".18"/><path d="M0.0 19.3 L16.6 20.5 L33.1 28.6 L49.7 25.1 L66.3 26.3 L82.9 23.9 L99.4 23.9 L116.0 28.6 L132.6 28.6 L149.1 26.3 L165.7 36.7 L182.3 21.6 L198.9 28.6 L215.4 26.3 L232.0 26.3" fill="none" stroke="var(--brass)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="232.0" cy="26.3" r="3.4" fill="var(--brass)"/></svg></div><div class="stat"><div class="k"><span data-lang="en">Private, median</span><span data-lang="zh" style="display:none">私宅中位数</span></div><div class="v">$1,773 psf</div><div class="d up"><i><span data-lang="en">up 1.5%</span><span data-lang="zh" style="display:none">上涨 1.5%</span></i> <span data-lang="en">on the previous 3 months</span><span data-lang="zh" style="display:none">相比前三个月</span></div><svg class="spark" viewBox="0 0 232 54" preserveAspectRatio="none" aria-hidden="true"><path d="M0.0 42.0 L13.6 36.0 L27.3 40.8 L40.9 40.0 L54.6 35.2 L68.2 40.4 L81.9 32.8 L95.5 25.6 L109.2 18.4 L122.8 26.4 L136.5 14.8 L150.1 26.8 L163.8 33.6 L177.4 25.6 L191.1 20.8 L204.7 14.0 L218.4 20.4 L232.0 16.4 L232 54 L0 54 Z" fill="url(#sg)" opacity=".18"/><path d="M0.0 42.0 L13.6 36.0 L27.3 40.8 L40.9 40.0 L54.6 35.2 L68.2 40.4 L81.9 32.8 L95.5 25.6 L109.2 18.4 L122.8 26.4 L136.5 14.8 L150.1 26.8 L163.8 33.6 L177.4 25.6 L191.1 20.8 L204.7 14.0 L218.4 20.4 L232.0 16.4" fill="none" stroke="var(--brass)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="232.0" cy="16.4" r="3.4" fill="var(--brass)"/></svg></div><div class="stat"><div class="k"><span data-lang="en">Homes sold, 3 months</span><span data-lang="zh" style="display:none">三个月成交量</span></div><div class="v">10,612</div><div class="d up"><i><span data-lang="en">up 6.8%</span><span data-lang="zh" style="display:none">上涨 6.8%</span></i> <span data-lang="en">on the previous 3 months</span><span data-lang="zh" style="display:none">相比前三个月</span></div><svg class="spark" viewBox="0 0 232 54" preserveAspectRatio="none" aria-hidden="true"><path d="M0.0 49.0 L13.6 46.8 L27.3 42.4 L40.9 8.3 L54.6 12.8 L68.2 13.4 L81.9 7.0 L95.5 11.6 L109.2 12.3 L122.8 25.1 L136.5 23.0 L150.1 18.7 L163.8 15.6 L177.4 23.7 L191.1 17.9 L204.7 16.3 L218.4 15.0 L232.0 15.6 L232 54 L0 54 Z" fill="url(#sg)" opacity=".18"/><path d="M0.0 49.0 L13.6 46.8 L27.3 42.4 L40.9 8.3 L54.6 12.8 L68.2 13.4 L81.9 7.0 L95.5 11.6 L109.2 12.3 L122.8 25.1 L136.5 23.0 L150.1 18.7 L163.8 15.6 L177.4 23.7 L191.1 17.9 L204.7 16.3 L218.4 15.0 L232.0 15.6" fill="none" stroke="var(--brass)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="232.0" cy="15.6" r="3.4" fill="var(--brass)"/></svg></div></div></div>
+
+<div class="wrap sec">
+  <div class="sec-h"><span data-lang="en">Worth noticing</span><span data-lang="zh" style="display:none">值得留意</span></div>
+  <div class="notes"><div class="note"><h3><span data-lang="en">HDB resale has stopped moving</span><span data-lang="zh" style="display:none">HDB 转售价格已经停下来</span></h3><p><span data-lang="en">The median flat is $604 psf, effectively unchanged on the previous three months. Asking prices may still be climbing; what people actually pay is not.</span><span data-lang="zh" style="display:none">中位数为每平方英尺 $604，与前三个月基本持平。挂牌价也许还在涨，但成交价没有。</span></p></div><div class="note"><h3><span data-lang="en">The market got busier</span><span data-lang="zh" style="display:none">市场更热闹了</span></h3><p><span data-lang="en">10,612 homes changed hands in the last three months against 9,932 in the three before, a 6.8% move in activity even while prices sat still.</span><span data-lang="zh" style="display:none">过去三个月成交 10,612 宗，之前三个月是 9,932 宗，成交量变动 6.8%，而价格几乎没动。</span></p></div><div class="note"><h3><span data-lang="en">Toa Payoh is the one moving</span><span data-lang="zh" style="display:none">Toa Payoh 是涨得最明显的市镇</span></h3><p><span data-lang="en">Flats there went from $713 to $753 psf, up 5.6% across 236 sales, the largest move of any town with real volume. Geylang went the other way, down 5.9%.</span><span data-lang="zh" style="display:none">每平方英尺从 $713 涨到 $753，236 宗成交中上涨 5.6%，是所有有实际成交量的市镇里涨幅最大的。 Geylang 则相反，下跌 5.9%。</span></p></div></div>
+</div>
+
+<div class="wrap sec">
+  <div class="sec-h"><span data-lang="en">Which towns moved</span><span data-lang="zh" style="display:none">哪些市镇在动</span></div>
+  <div class="tbl"><div class="tr"><span class="tn">Toa Payoh</span><span class="tp">$713 &rarr; $753 psf &middot; 236 <span data-lang="en">sales</span><span data-lang="zh" style="display:none">宗</span></span><span class="bar"><i class="" style="left:50%;width:39%"></i></span><span class="tc up">+5.6%</span></div><div class="tr"><span class="tn">Bukit Merah</span><span class="tp">$777 &rarr; $809 psf &middot; 255 <span data-lang="en">sales</span><span data-lang="zh" style="display:none">宗</span></span><span class="bar"><i class="" style="left:50%;width:29%"></i></span><span class="tc up">+4.1%</span></div><div class="tr"><span class="tn">Clementi</span><span class="tp">$631 &rarr; $653 psf &middot; 136 <span data-lang="en">sales</span><span data-lang="zh" style="display:none">宗</span></span><span class="bar"><i class="" style="left:50%;width:24%"></i></span><span class="tc up">+3.5%</span></div><div class="tr"><span class="tn">Queenstown</span><span class="tp">$973 &rarr; $1,002 psf &middot; 196 <span data-lang="en">sales</span><span data-lang="zh" style="display:none">宗</span></span><span class="bar"><i class="" style="left:50%;width:21%"></i></span><span class="tc up">+3.0%</span></div><div class="tr"><span class="tn">Jurong East</span><span class="tp">$545 &rarr; $554 psf &middot; 116 <span data-lang="en">sales</span><span data-lang="zh" style="display:none">宗</span></span><span class="bar"><i class="" style="left:50%;width:12%"></i></span><span class="tc up">+1.7%</span></div><div class="tr"><span class="tn">Ang Mo Kio</span><span class="tp">$597 &rarr; $581 psf &middot; 241 <span data-lang="en">sales</span><span data-lang="zh" style="display:none">宗</span></span><span class="bar"><i class="n" style="right:50%;left:auto;width:19%"></i></span><span class="tc dn">-2.7%</span></div><div class="tr"><span class="tn">Serangoon</span><span class="tp">$658 &rarr; $640 psf &middot; 82 <span data-lang="en">sales</span><span data-lang="zh" style="display:none">宗</span></span><span class="bar"><i class="n" style="right:50%;left:auto;width:19%"></i></span><span class="tc dn">-2.7%</span></div><div class="tr"><span class="tn">Geylang</span><span class="tp">$646 &rarr; $608 psf &middot; 171 <span data-lang="en">sales</span><span data-lang="zh" style="display:none">宗</span></span><span class="bar"><i class="n" style="right:50%;left:auto;width:41%"></i></span><span class="tc dn">-5.9%</span></div></div>
+  <p class="tnote"><span data-lang="en">HDB resale only, median $ psf, last three months against the three before. Towns with fewer than 60 sales in either period are left out, because a handful of deals can swing a median and say nothing about the town.</span><span data-lang="zh" style="display:none">仅统计组屋转售的每平方英尺中位价，最近三个月对比之前三个月。任一时期成交少于 60 宗的市镇不纳入，因为少量成交就能带动中位数，说明不了什么。</span></p>
+</div>
+
+<div class="wrap"><div class="cta">
+  <a class="card" href="/deals/"><b><span data-lang="en">Look up a specific home</span><span data-lang="zh" style="display:none">查一套具体的房子</span></b>
+    <span><span data-lang="en">Search every recent sale by project, street or town, and see what comparable units went for. <i>Sold prices &rarr;</i></span><span data-lang="zh" style="display:none">按楼盘、街道或市镇搜索每一宗近期成交，看看同类单位卖了多少。<i>成交价 &rarr;</i></span></span></a>
+  <a class="card" href="/deep-dives/"><b><span data-lang="en">Go deeper on one question</span><span data-lang="zh" style="display:none">深入看一个问题</span></b>
+    <span><span data-lang="en">Longer pieces that take a single question apart, with the working shown. <i>Deep dives &rarr;</i></span><span data-lang="zh" style="display:none">更长的文章，把一个问题拆开讲清楚，过程公开。<i>深度分析 &rarr;</i></span></span></a>
+</div></div>
+
+<div class="wrap foot">
+  <p><span data-lang="en">Figures are medians computed from residential caveats lodged with URA and resale records published by HDB. A caveat reflects a price a buyer actually agreed, not an asking price. The current month is excluded because caveats lodge with a lag and would read as a fall. Indicative only, not financial advice.</span><span data-lang="zh" style="display:none">数字为市区重建局契约与建屋发展局转售记录计算得出的中位数。契约反映买家实际同意的成交价，不是挂牌价。当月数据不纳入，因为契约登记有滞后，纳入会显得像下跌。仅供参考，不构成投资建议。</span></p>
+</div>
 </body></html>

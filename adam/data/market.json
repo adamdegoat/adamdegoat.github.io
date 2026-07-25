@@ -1,4 +1,20 @@
 {
-"label": "June 2026",
-"digest": "June 2026: The mass market is leading. Suburbs and city-fringe are rising and central HDB towns are up sharply, while prime is the only segment falling. Private homes average $1,753 psf, up 3.8% over the year (0.6% this month). By segment over three months, the suburbs (OCR) moved 1.4%, city fringe (RCR) 0.6%, and prime (CCR) -2.4%. HDB resale is around $605 psf, up 0.3% year on year. Strongest town: Marine Parade at +11.0%. Rental yields run about 3.6% private and 6.1% HDB. New launches average $2,361 psf. ABSD is 20% on a citizen's second home and 60% for foreigners."
+ "built": "2026-07-25",
+ "stamp_en": "25 Jul 2026",
+ "stamp_zh": "2026 年 7 月 25 日",
+ "hdb_psf": 604,
+ "hdb_chg": 0.0,
+ "priv_psf": 1773,
+ "priv_chg": 1.5,
+ "vol": 10612,
+ "vol_chg": 6.8,
+ "top_mover": {
+  "town": "Toa Payoh",
+  "psf": 753,
+  "prev": 713,
+  "chg": 5.6,
+  "n": 236
+ },
+ "headline_en": "HDB resale has stopped moving",
+ "headline_zh": "HDB 转售价格已经停下来"
 }

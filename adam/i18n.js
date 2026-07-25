@@ -93,6 +93,13 @@
   // dataset. Old keys kept so any cached page still resolves.
   'Price Intelligence': '房价情报',
   'Sold prices': '成交价',
+  'The market now': '当前楼市',
+  'Prices and volume, every week': '价格与成交量，每周更新',
+  'Deep dives': '深度分析',
+  'One question, properly answered': '一次一个问题，讲清楚',
+  'Singapore property, tracked': '新加坡楼市，持续追踪',
+  'Worth noticing': '值得留意',
+  'Which towns moved': '哪些市镇在动',
   'Every recent sale, searchable': '每一宗近期成交，可搜索',
   'See every recent sale': '查看每一宗近期成交',
   'What homes actually sold for': '房子到底卖了多少钱',
