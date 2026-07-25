@@ -1,8 +1,25 @@
 {
-  "updated": "2026-07-25T13:00:00.304575+08:00",
+  "updated": "2026-07-25T21:00:05.065908+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
+    "id": "2476379",
+    "name": "UFC Fight Night 283 Medić vs Rodriguez",
+    "short": "Medić vs Rodriguez",
+    "date_sgt": "2026-08-02T01:00:00+08:00",
+    "when_sgt": "Sun 2 Aug, 1:00 AM SGT",
+    "when_main": "Sun 2 Aug, 1:00 AM SGT",
+    "when_prelims": "Sat 1 Aug, 10:00 PM SGT",
+    "has_time": true,
+    "location": "Belgrade, Serbia",
+    "highlights": "https://www.youtube.com/results?search_query=UFC%20Fight%20Night%20283%20Medi%C4%87%20vs%20Rodriguez%20highlights",
+    "desc": "",
+    "badge": "https://r2.thesportsdb.com/images/media/league/badge/bewnz31717531281.png",
+    "bouts": [],
+    "finished": false,
+    "espn_final": false
+  },
+  "last": {
     "id": "2476378",
     "name": "UFC Fight Night 282 Ankalaev vs Guskov",
     "short": "Ankalaev vs Guskov",
@@ -18,144 +35,6 @@
     "bouts": [],
     "finished": false,
     "espn_final": false
-  },
-  "last": {
-    "id": "2468286",
-    "name": "UFC Fight Night 281 Du Plessis vs Usman",
-    "short": "Plessis vs Usman",
-    "date_sgt": "2026-07-19T08:00:00+08:00",
-    "when_sgt": "Sun 19 Jul, 8:00 AM SGT",
-    "when_main": "Sun 19 Jul, 8:00 AM SGT",
-    "when_prelims": "Sun 19 Jul, 5:00 AM SGT",
-    "has_time": true,
-    "location": "Oklahoma City, USA",
-    "highlights": "https://www.youtube.com/results?search_query=UFC%20Fight%20Night%20281%20Du%20Plessis%20vs%20Usman%20highlights",
-    "desc": "An electric atmosphere takes over the Paycom Center as the Octagon returns to Oklahoma for UFC Fight Night 281, headlined by a legacy-defining middleweight war between former divisional kingpin Dricus du Plessis and former dominant welterweight ruler Kamaru Usman. The primary hurdle for both elite mixed martial artists is navigating the extreme strategic layers of a true cross-divisional chess match, where du Plessis must neutralize his opponent's legendary wrestling base while Usman handles the jarring transition to a heavier weight class. The objective for the South African powerhouse is to dictate a grueling, chaotic pace from the center of the cage, weaponizing his signature physical blitzes to compromise Usman's legendary defensive shell. Concurrently, the mission for Nigeria's \"Nigerian Nightmare\" centers on executing a clinical tactical masterclass behind his sharp, piston-like jab, blending timed level changes with heavy top control to stifle the former champion's explosive output and instantly assert himself as a premium contender in the 185-pound landscape.",
-    "badge": "https://www.thesportsdb.com/images/media/event/thumb/bearel1783977914.jpg",
-    "bouts": [
-      {
-        "section": "main",
-        "weight": "Middleweight",
-        "a": "Dricus du Plessis",
-        "b": "Kamaru Usman",
-        "decided": true,
-        "method": "Decision (unanimous) (50–45, 49–46, 49–46)",
-        "round": "5",
-        "time": "5:00"
-      },
-      {
-        "section": "main",
-        "weight": "Middleweight",
-        "a": "Christian Leroy Duncan",
-        "b": "Jared Cannonier",
-        "decided": true,
-        "method": "Decision (unanimous) (30–27, 30–27, 29–28)",
-        "round": "3",
-        "time": "5:00"
-      },
-      {
-        "section": "main",
-        "weight": "Catchweight (157.5 lb)",
-        "a": "Chase Hooper",
-        "b": "Mitch Ramirez",
-        "decided": true,
-        "method": "Submission (rear-naked choke)",
-        "round": "1",
-        "time": "2:15"
-      },
-      {
-        "section": "main",
-        "weight": "Women's Strawweight",
-        "a": "Fatima Kline",
-        "b": "Tabatha Ricci",
-        "decided": true,
-        "method": "Decision (unanimous) (30–27, 30–27, 30–27)",
-        "round": "3",
-        "time": "5:00"
-      },
-      {
-        "section": "main",
-        "weight": "Featherweight",
-        "a": "Tommy McMillen",
-        "b": "Alberto Montes",
-        "decided": true,
-        "method": "TKO (punches)",
-        "round": "3",
-        "time": "3:29"
-      },
-      {
-        "section": "prelim",
-        "weight": "Featherweight",
-        "a": "Jose Miguel Delgado",
-        "b": "Austin Bashi",
-        "decided": true,
-        "method": "Decision (unanimous) (30–27, 29–28, 29–28)",
-        "round": "3",
-        "time": "5:00"
-      },
-      {
-        "section": "prelim",
-        "weight": "Welterweight",
-        "a": "Jean-Paul Lebosnoyani",
-        "b": "Ko Seok-hyeon",
-        "decided": true,
-        "method": "Decision (unanimous) (29–28, 29–28, 29–28)",
-        "round": "3",
-        "time": "5:00"
-      },
-      {
-        "section": "prelim",
-        "weight": "Light Heavyweight",
-        "a": "Felipe Franco",
-        "b": "Levi Rodrigues Jr.",
-        "decided": true,
-        "method": "TKO (punches)",
-        "round": "2",
-        "time": "1:40"
-      },
-      {
-        "section": "prelim",
-        "weight": "Catchweight (147.5 lb)",
-        "a": "Ezra Elliott",
-        "b": "Damien Anderson",
-        "decided": true,
-        "method": "Decision (unanimous) (30–27, 29–28, 29–28)",
-        "round": "3",
-        "time": "5:00"
-      },
-      {
-        "section": "prelim",
-        "weight": "Flyweight",
-        "a": "Alden Coria",
-        "b": "Stewart Nicoll",
-        "decided": true,
-        "method": "Decision (unanimous) (30–27, 30–27, 29–28)",
-        "round": "3",
-        "time": "5:00"
-      },
-      {
-        "section": "prelim",
-        "weight": "Heavyweight",
-        "a": "RJ Harris",
-        "b": "Alvin Hines",
-        "decided": true,
-        "method": "TKO (punches)",
-        "round": "1",
-        "time": "1:40"
-      },
-      {
-        "section": "prelim",
-        "weight": "Women's Flyweight",
-        "a": "Dione Barbosa",
-        "b": "Anna Melisano",
-        "decided": true,
-        "method": "Submission (rear-naked choke)",
-        "round": "1",
-        "time": "4:04"
-      }
-    ],
-    "finished": true,
-    "espn_final": true
   },
   "news": [
     {
@@ -201,6 +80,18 @@
       "priority": true
     },
     {
+      "title": "UFC Abu Dhabi results: Ankalaev vs. Guskov",
+      "link": "https://www.mmafighting.com/ufc/500676/ufc-abu-dhabi-results-ankalaev-vs-guskov",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "UFC Abu Dhabi loses fight hours before event",
+      "link": "https://www.mmafighting.com/ufc/501125/ufc-abu-dhabi-loses-fight-hours-before-event",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "Joshua vs. Prenga Results: Live updates of the undercard and main event",
       "link": "https://www.mmafighting.com/boxing/501053/joshua-vs-prenga-results-live-updates-of-the-undercard-and-main-event",
       "source": "MMA Fighting",
@@ -229,23 +120,11 @@
       "link": "https://www.mmafighting.com/ufc/501057/renato-moicano-vs-brian-ortega-rematch-targeted-for-ufc-331",
       "source": "MMA Fighting",
       "priority": false
-    },
-    {
-      "title": "CSAC’s latest effort to benefit fighter’s pension fund is Napa Knockout event in the middle of a vineyard",
-      "link": "https://www.mmafighting.com/latest-news/500829/csacs-latest-effort-to-benefit-fighters-pension-fund-is-napa-knockout-event-in-the-middle-of-a-vineyard",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "UFC Abu Dhabi Preview Show: Are Magomed Ankalaev and Bogdan Guskov in a title eliminator?",
-      "link": "https://www.mmafighting.com/ufc/501007/ufc-abu-dhabi-preview-show-are-magomed-ankalaev-and-bogdan-guskov-in-a-title-eliminator",
-      "source": "MMA Fighting",
-      "priority": false
     }
   ],
   "hooks": {
-    "week": "Ankalaev meets Guskov Sunday midnight for pure light heavyweight dominance.",
-    "prefight": "Sunday midnight Singapore time: Ankalaev and Guskov battle for championship glory.",
-    "results": "Dricus du Plessis sweeps Kamaru Usman with commanding unanimous decision."
+    "week": "Medić versus Rodriguez delivers Sunday morning warfare—set your alarm for the showdown.",
+    "prefight": "Medić clashes with Rodriguez this Sunday, 1 AM SGT—set your alarms for prime fight action.",
+    "results": "I don't have reliable information about an Ankalaev vs Guskov UFC event in my training data. Could you provide the date or event details so I can give you an accurate recap?"
   }
 }
