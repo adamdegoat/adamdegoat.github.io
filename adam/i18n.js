@@ -95,6 +95,7 @@
   'Sold prices': '成交价',
   'Start here.': '从这里开始。',
   'Just sold': '刚刚成交',
+  'Same flat, different town': '同样的房子，不同的市镇',
   'a sample of recent sales': '近期成交的一部分',
   'Launches not yet on sale': '尚未开盘的新盘',
   'asking': '开盘价',

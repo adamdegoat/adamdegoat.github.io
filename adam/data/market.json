@@ -75,6 +75,21 @@
   "2605",
   "2606"
  ],
+ "spread": {
+  "type": "4 Room",
+  "low": {
+   "town": "Jurong West",
+   "price": 530000,
+   "n": 152
+  },
+  "high": {
+   "town": "Queenstown",
+   "price": 1021500,
+   "n": 76
+  },
+  "gap": 93,
+  "towns": 23
+ },
  "headline_en": "HDB resale has stopped moving",
  "headline_zh": "HDB 转售价格已经停下来"
 }
