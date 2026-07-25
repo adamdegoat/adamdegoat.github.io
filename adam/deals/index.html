@@ -110,6 +110,17 @@ select.sort{font:inherit;font-size:16px;font-weight:600;color:var(--ink);backgro
   .nums{min-width:84px}
   .row{padding:14px 2px}
 }
+
+.flag{display:inline-block;margin-left:8px;font-family:var(--mono);font-size:9.5px;font-weight:600;
+ letter-spacing:.05em;padding:3px 7px;border-radius:6px;text-transform:uppercase;vertical-align:1px;white-space:nowrap}
+.f-rec{color:#8A6E2E;background:rgba(201,180,137,.34)}
+.f-hi{color:var(--clay);background:rgba(190,92,54,.11)}
+.f-lo{color:var(--brass);background:rgba(31,107,79,.11)}
+.f-m{color:#8A6E2E;background:rgba(201,180,137,.34)}
+.onlyflag{flex:none;background:var(--card);border:1px solid var(--line2);border-radius:100px;
+ padding:8px 15px;font-size:14px;font-weight:700;color:var(--ink2);cursor:pointer;white-space:nowrap}
+.onlyflag.on{background:var(--green);color:var(--paper);border-color:var(--green)}
+@media(max-width:560px){.onlyflag{min-height:44px;flex:1 1 auto;font-size:13.5px;padding:11px 12px}}
 </style>
 <script src="/adam/i18n.js?v=20260725g" defer></script><script src="/adam/nav.js?v=158" defer></script>
 </head><body>
@@ -134,6 +145,7 @@ select.sort{font:inherit;font-size:16px;font-weight:600;color:var(--ink);backgro
       <button class="seg" data-k="0">HDB</button>
       <button class="seg" data-k="1" data-i18n="Private">Private</button>
     </div>
+    <button class="onlyflag" id="onlyFlag" type="button" data-i18n="Only notable">Only notable</button>
     <select class="sort" id="sort" aria-label="Sort">
       <option value="new">Newest first</option>
       <option value="phi">Price, high to low</option>
@@ -183,6 +195,7 @@ select.sort{font:inherit;font-size:16px;font-weight:600;color:var(--ink);backgro
     var t=q.trim().toLowerCase(), parts=t?t.split(/\s+/):[];
     view=ROWS.filter(function(r){
       if(kind!==''&&r[0]!==+kind)return false;
+      if(onlyFlagged&&!flags(r).length)return false;
       if(!parts.length)return true;
       var h=hay(r);
       for(var i=0;i<parts.length;i++){if(h.indexOf(parts[i])<0)return false;}
@@ -209,15 +222,54 @@ select.sort{font:inherit;font-size:16px;font-weight:600;color:var(--ink);backgro
       '<div><span class="lbl">Median price</span><b>'+money(median(pr))+'</b></div>'+
       '<div><span class="lbl">Median $ psf</span><b>$'+median(ps).toLocaleString()+'</b></div>';
   }
+
+  /* Per-project stats, built once whenever ROWS changes. One pass over 60k rows,
+     then every flag is a lookup. */
+  var PSTAT = null;
+  function buildStats(){
+    PSTAT = new Map();
+    for (var i=0;i<ROWS.length;i++){
+      var r=ROWS[i]; if(!r[6]) continue;
+      var k=r[0]+'|'+r[1]+'|'+r[4];
+      var s=PSTAT.get(k);
+      if(!s){ s={max:0,list:[]}; PSTAT.set(k,s); }
+      if(r[6]>s.max) s.max=r[6];
+      s.list.push(r[6]);
+    }
+    PSTAT.forEach(function(s){
+      s.list.sort(function(a,b){return a-b;});
+      s.med = s.list.length%2 ? s.list[s.list.length>>1]
+            : Math.round((s.list[(s.list.length>>1)-1]+s.list[s.list.length>>1])/2);
+      s.n = s.list.length; s.list = null;        // free the arrays, keep the numbers
+    });
+  }
+  /* A flag has to be rare to mean anything. Records need at least 3 sales to
+     compare against, and the median test needs 4, or a project with two sales
+     would flag both of them. */
+  function flags(r){
+    if(!PSTAT) return [];
+    var s = PSTAT.get(r[0]+'|'+r[1]+'|'+r[4]); if(!s) return [];
+    var out = [];
+    if(s.n>=6 && r[6]===s.max) out.push(['rec','Record here','该楼盘最高价']);
+    else if(s.n>=6 && s.med){
+      var d = Math.round(((r[6]-s.med)/s.med)*100);
+      if(d>=18) out.push(['hi','+'+d+'% vs here','高于本楼盘 '+d+'%']);
+      else if(d<=-18) out.push(['lo',d+'% vs here','低于本楼盘 '+Math.abs(d)+'%']);
+    }
+    if(r[0]===0 && r[5]>=1000000) out.push(['m','$1m HDB','百万组屋']);
+    return out;
+  }
   function rowHtml(r,i){
     var isH=r[0]===0, spec=[];
     if(r[7])spec.push(sqft(r[7]).toLocaleString()+' sqft');
     if(r[4])spec.push(r[4]);
     var fl=floorTxt(r[8]); if(fl)spec.push(fl);
     if(r[10])spec.push(r[10]);
-    return '<div class="row" data-i="'+i+'">'+
+    var fl = flags(r).map(function(f){
+      return '<span class="flag f-'+f[0]+'">'+esc(f[1])+'</span>';}).join('');
+    return '<div class="row'+(fl?' flagged':'')+'" data-i="'+i+'">'+
       '<div class="main"><div class="nm">'+
-        '<span class="badge '+(isH?'h':'c')+'">'+(isH?'HDB':'Private')+'</span>'+esc(r[1])+
+        '<span class="badge '+(isH?'h':'c')+'">'+(isH?'HDB':'Private')+'</span>'+esc(r[1])+fl+
       '</div><div class="sub">'+esc(r[3])+' &middot; '+spec.map(esc).join(' &middot; ')+'</div></div>'+
       '<div class="nums"><div class="pr">'+money(r[5])+'</div>'+
       '<div class="pf">$'+r[6].toLocaleString()+' psf &middot; '+when(r[9])+'</div></div></div>';
@@ -266,6 +318,12 @@ select.sort{font:inherit;font-size:16px;font-weight:600;color:var(--ink);backgro
     var ex=list.querySelector('.comps'); if(ex)ex.remove();
     if(!open) row.insertAdjacentHTML('afterend',comps(i));
   });
+
+  var onlyFlagged=false;
+  var ofBtn=document.getElementById('onlyFlag');
+  if(ofBtn) ofBtn.addEventListener('click',function(){
+    onlyFlagged=!onlyFlagged; ofBtn.classList.toggle('on',onlyFlagged); apply();
+  });
   more.addEventListener('click',render);
   inp.addEventListener('input',function(){q=inp.value;clr.style.display=q?'block':'none';
     clearTimeout(inp._t);inp._t=setTimeout(apply,120);});
@@ -284,10 +342,10 @@ select.sort{font:inherit;font-size:16px;font-weight:600;color:var(--ink);backgro
   /* Paint from the 6-month slice first (0.35 MB), then pull the full 19-month
      archive in the background so search reaches everything without a 1 MB wait. */
   fetch('/data/deals.json').then(function(r){return r.json();}).then(function(d){
-    ROWS=d.rows; apply(); note(d);
+    ROWS=d.rows; buildStats(); apply(); note(d);
     if(fullPending)return; fullPending=true;
     return fetch('/data/deals-all.json').then(function(r){return r.json();}).then(function(f){
-      var keep=q||kind!==''; ROWS=f.rows; FULL=true;
+      var keep=q||kind!==''; ROWS=f.rows; FULL=true; buildStats();
       if(keep)apply(); else {apply();}
       note(f);
     });
