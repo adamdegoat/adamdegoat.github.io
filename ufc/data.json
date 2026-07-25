@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-25T21:00:05.065908+08:00",
+  "updated": "2026-07-25T23:30:00.309626+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -38,18 +38,6 @@
   },
   "news": [
     {
-      "title": "‘Poatan’ privilege? Alex Pereira warns Paulo Costa he can swoop in for UFC light heavyweight title shot whenever he wants",
-      "link": "https://www.mmamania.com/latest-news/459399/poatan-privilege-alex-pereira-warns-paulo-costa-he-can-swoop-in-for-ufc-light-heavyweight-title-shot-whenever-he-wants",
-      "source": "MMA Mania",
-      "priority": true
-    },
-    {
-      "title": "Report: Top MMA free agent Salahdine Parnasse signs with UFC, draws UFC Paris main event opposite Dan Hooker",
-      "link": "https://www.mmamania.com/latest-news/459522/report-top-mma-free-agent-salahdine-parnasse-signs-with-ufc-draws-ufc-paris-main-event-opposite-dan-hooker",
-      "source": "MMA Mania",
-      "priority": true
-    },
-    {
       "title": "PFL DC weigh-in results: 170-lb title fight set",
       "link": "https://www.sherdog.com/news/news/PFL-DC-weighin-results-170lb-title-fight-set-202063",
       "source": "Sherdog",
@@ -86,14 +74,14 @@
       "priority": false
     },
     {
-      "title": "UFC Abu Dhabi loses fight hours before event",
-      "link": "https://www.mmafighting.com/ufc/501125/ufc-abu-dhabi-loses-fight-hours-before-event",
+      "title": "Joshua vs. Prenga Results: LIVE updates of the undercard and main event",
+      "link": "https://www.mmafighting.com/boxing/501053/joshua-vs-prenga-results-live-updates-of-the-undercard-and-main-event",
       "source": "MMA Fighting",
       "priority": false
     },
     {
-      "title": "Joshua vs. Prenga Results: Live updates of the undercard and main event",
-      "link": "https://www.mmafighting.com/boxing/501053/joshua-vs-prenga-results-live-updates-of-the-undercard-and-main-event",
+      "title": "UFC Abu Dhabi loses fight hours before event",
+      "link": "https://www.mmafighting.com/ufc/501125/ufc-abu-dhabi-loses-fight-hours-before-event",
       "source": "MMA Fighting",
       "priority": false
     },
@@ -120,11 +108,23 @@
       "link": "https://www.mmafighting.com/ufc/501057/renato-moicano-vs-brian-ortega-rematch-targeted-for-ufc-331",
       "source": "MMA Fighting",
       "priority": false
+    },
+    {
+      "title": "UFC Abu Dhabi live results, highlights, streaming play-by-play updates | Ankalaev vs. Guskov",
+      "link": "https://www.mmamania.com/ufc-results/458254/ufc-abu-dhabi-live-results-highlights-play-by-play-ankalaev-vs-guskov",
+      "source": "MMA Mania",
+      "priority": false
+    },
+    {
+      "title": "Highlights! Abdul Hussein chokes out an exhausted Cody Gibson to spark UFC Abu Dhabi card",
+      "link": "https://www.mmamania.com/ufc-paramount-plus-news-hub-fight-cards-schedule/459759/watch-ufc-abu-dhabi-video-highlights-results-paramount-hussein-submission-gibson",
+      "source": "MMA Mania",
+      "priority": false
     }
   ],
   "hooks": {
-    "week": "Medić versus Rodriguez delivers Sunday morning warfare—set your alarm for the showdown.",
-    "prefight": "Medić clashes with Rodriguez this Sunday, 1 AM SGT—set your alarms for prime fight action.",
-    "results": "I don't have reliable information about an Ankalaev vs Guskov UFC event in my training data. Could you provide the date or event details so I can give you an accurate recap?"
+    "week": "Fight week begins Sunday with Medić vs Rodriguez at 1 AM SGT.",
+    "prefight": "Medić vs Rodriguez this Sunday 1 AM SGT — heavyweight showdown incoming.",
+    "results": "The dust has settled on another fight night."
   }
 }
