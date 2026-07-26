@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-26T13:00:00.363439+08:00",
+  "updated": "2026-07-26T21:00:04.703251+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -104,12 +104,6 @@
       "priority": false
     },
     {
-      "title": "UFC Abu Dhabi video: Ramazan Temirov runs through Steve Erceg with face-plant knockout",
-      "link": "https://www.mmafighting.com/ufc/501317/ufc-abu-dhabi-video-ramazan-temirov-runs-through-steve-erceg-with-face-plant-knockout",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
       "title": "Four fighters transported to hospital following violent UFC Abu Dhabi card, including 17-fight UFC vet",
       "link": "https://www.mmamania.com/latest-news/460106/four-fighters-transported-to-the-hospital-following-violent-ufc-abu-dhabi-card-including-17-fight-ufc-vet",
       "source": "MMA Mania",
@@ -120,11 +114,17 @@
       "link": "https://www.mmamania.com/latest-news/459978/video-ufc-abu-dhabi-sore-loser-mike-davis-throws-post-fight-temper-tantrum-i-thought-ufc-were-cutting-wrestlers-results-paramount-aliev",
       "source": "MMA Mania",
       "priority": false
+    },
+    {
+      "title": "Bonuses! Valter Walker banks $100K POTN award for fifth-straight submission | UFC Abu Dhabi",
+      "link": "https://www.mmamania.com/ufc-paramount-plus-news-hub-fight-cards-schedule/459776/official-post-fight-bonus-winners-ufc-abu-dhabi-results-paramount-ankalaev-guskov-walker-temirov-kuniev-fortune",
+      "source": "MMA Mania",
+      "priority": false
     }
   ],
   "hooks": {
-    "week": "Medić and Rodriguez collide Sunday, 1 AM SGT—set your alarms for elite octagon warfare.",
-    "prefight": "Medić clashes with Rodriguez Sunday at 1 AM SGT—don't miss it.",
+    "week": "Sunday morning brings Medić versus Rodriguez in must-watch octagon action.",
+    "prefight": "Medić versus Rodriguez drops this Sunday at 1 AM SGT. Main event incoming.",
     "results": "The dust has settled on another fight night."
   }
 }
