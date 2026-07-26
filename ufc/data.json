@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-26T21:00:04.703251+08:00",
+  "updated": "2026-07-26T23:30:00.263528+08:00",
   "tz": "SGT",
   "stream": "https://istreameast.app/mmastreams3",
   "next": {
@@ -68,6 +68,24 @@
       "priority": true
     },
     {
+      "title": "Steve Garcia reflects on UFC White House loss and heartbreaking conversation with his son afterwards: ‘It broke me’",
+      "link": "https://www.mmafighting.com/ufc/500597/steve-garcia-reflects-on-ufc-white-house-loss-and-heartbreaking-conversation-with-his-son-afterwards-it-broke-me",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Salahdine Parnasse headlines UFC Paris in octagon debut vs. Dan Hooker",
+      "link": "https://www.mmafighting.com/ufc/501325/salahdine-parnasse-headlines-ufc-paris-in-octagon-debut-vs-dan-hooker",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
+      "title": "Magomed Ankalaev open to Paulo Costa fight next, ‘unless he’s going to be running away’",
+      "link": "https://www.mmafighting.com/ufc/501389/magomed-ankalaev-open-to-paulo-costa-fight-next-unless-hes-going-to-be-running-away",
+      "source": "MMA Fighting",
+      "priority": false
+    },
+    {
       "title": "MMA fighter pulls joint out of shorts and lights up after win",
       "link": "https://www.mmafighting.com/videos/501404/mma-fighter-pulls-joint-out-of-shorts-and-lights-up-after-win",
       "source": "MMA Fighting",
@@ -86,45 +104,27 @@
       "priority": false
     },
     {
-      "title": "UFC Abu Dhabi results: Magomed Ankalaev fends off Bogdan Guskov with forgettable 5th-round knockout",
-      "link": "https://www.mmafighting.com/ufc/501354/ufc-abu-dhabi-results-magomed-ankalaev-fends-off-bogdan-guskov-with-forgettable-5th-round-knockout",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "UFC Abu Dhabi results: Ankalaev vs. Guskov",
-      "link": "https://www.mmafighting.com/ufc/500676/ufc-abu-dhabi-results-ankalaev-vs-guskov",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "‘Test that boy again’: Pros react to Ramazan Temirov’s nasty knockout of Steve Erceg at UFC Abu Dhabi",
-      "link": "https://www.mmafighting.com/ufc/501312/test-that-boy-again-pros-react-to-ramazan-temirovs-nasty-knockout-of-steve-erceg-at-ufc-abu-dhabi",
-      "source": "MMA Fighting",
-      "priority": false
-    },
-    {
-      "title": "Four fighters transported to hospital following violent UFC Abu Dhabi card, including 17-fight UFC vet",
-      "link": "https://www.mmamania.com/latest-news/460106/four-fighters-transported-to-the-hospital-following-violent-ufc-abu-dhabi-card-including-17-fight-ufc-vet",
+      "title": "Carlos Ulberg reacts to Magomed Ankalaev’s ho-hum UFC Abu Dhabi win – ‘Saw what I needed’",
+      "link": "https://www.mmamania.com/latest-news/460292/carlos-ulberg-reacts-to-magomed-ankalaevs-ho-hum-ufc-abu-dhabi-win-saw-what-i-needed",
       "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "Video: UFC Abu Dhabi sore loser, Mike Davis, throws post-fight temper tantrum – ‘I thought UFC were cutting wrestlers!’",
-      "link": "https://www.mmamania.com/latest-news/459978/video-ufc-abu-dhabi-sore-loser-mike-davis-throws-post-fight-temper-tantrum-i-thought-ufc-were-cutting-wrestlers-results-paramount-aliev",
+      "title": "UFC Abu Dhabi results: Biggest winners, losers from ‘Ankalaev vs. Guskov’ yesterday",
+      "link": "https://www.mmamania.com/ufc-results/459961/ufc-abu-dhabi-results-biggest-winners-losers-from-ankalaev-vs-guskov",
       "source": "MMA Mania",
       "priority": false
     },
     {
-      "title": "Bonuses! Valter Walker banks $100K POTN award for fifth-straight submission | UFC Abu Dhabi",
-      "link": "https://www.mmamania.com/ufc-paramount-plus-news-hub-fight-cards-schedule/459776/official-post-fight-bonus-winners-ufc-abu-dhabi-results-paramount-ankalaev-guskov-walker-temirov-kuniev-fortune",
+      "title": "Bogdan Guskov issues quick response to main event UFC Abu Dhabi stoppage loss – ‘We’ll meet again’",
+      "link": "https://www.mmamania.com/latest-news/460265/bogdan-guskov-issues-quick-response-to-main-event-ufc-abu-dhabi-stoppage-loss-well-meet-again",
       "source": "MMA Mania",
       "priority": false
     }
   ],
   "hooks": {
-    "week": "Sunday morning brings Medić versus Rodriguez in must-watch octagon action.",
-    "prefight": "Medić versus Rodriguez drops this Sunday at 1 AM SGT. Main event incoming.",
+    "week": "This Sunday: Medić faces Rodriguez in an unmissable fight that could change everything.",
+    "prefight": "Medić versus Rodriguez clash this Sunday at 1 AM SGT—fight week is here.",
     "results": "The dust has settled on another fight night."
   }
 }
